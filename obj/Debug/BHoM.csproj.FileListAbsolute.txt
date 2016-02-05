@@ -1,0 +1,11 @@
+C:\RobsRepo\BHoM\bin\Debug\BHoM.XML
+C:\RobsRepo\BHoM\bin\Debug\BHoM.dll
+C:\RobsRepo\BHoM\bin\Debug\BHoM.pdb
+C:\RobsRepo\BHoM\obj\Debug\BHoM.dll
+C:\RobsRepo\BHoM\obj\Debug\BHoM.pdb
+C:\RobsRepo\BHoM\obj\Debug\BHoM.csprojResolveAssemblyReference.cache
+C:\BHoM\bin\Debug\BHoM.XML
+C:\BHoM\bin\Debug\BHoM.dll
+C:\BHoM\bin\Debug\BHoM.pdb
+C:\BHoM\obj\Debug\BHoM.dll
+C:\BHoM\obj\Debug\BHoM.pdb
