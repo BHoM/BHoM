@@ -92,7 +92,7 @@ namespace BHoM.Structural
             EndNodeNumber = -1;
             Number = -1;
             Name = "";
-            SectionProperty = new SectionProperty(); 
+           // SectionProperty = new SectionProperty(); 
             StartRelease = new Release();
             EndRelease = new Release();
             OrientationAngle = 0;

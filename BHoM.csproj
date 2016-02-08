@@ -53,8 +53,8 @@
     <Compile Include="Geometry\BHoM_Surface.cs" />
     <Compile Include="Geometry\BHoM_Point.cs" />
     <Compile Include="Geometry\BHoM_Vector.cs" />
-    <Compile Include="BHoM_Materials.cs" />
-    <Compile Include="BHoM_MaterialEnums.cs" />
+    <Compile Include="Materials\BHoM_Materials.cs" />
+    <Compile Include="Materials\BHoM_MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structural\BHoM_Constraint.cs" />
     <Compile Include="Structural\BHoM_Storey.cs" />
@@ -66,10 +66,10 @@
     <Compile Include="Structural\BHoM_Restraint.cs" />
     <Compile Include="Structural\BHoM_Structure.cs" />
     <Compile Include="Structural\BHoM_StructureEnums.cs" />
-    <Compile Include="Structural\DesignCodes\ElementDesign\Structural_RCBeam.cs" />
-    <Compile Include="Structural\DesignCodes\ElementDesign\Structural_RCColumn.cs" />
-    <Compile Include="Structural\DesignCodes\Seismic\Structural_EquivalentStatic.cs" />
-    <Compile Include="Structural\DesignCodes\Seismic\Structural_ResponseSpectrum.cs" />
+    <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCBeam.cs" />
+    <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCColumn.cs" />
+    <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_EquivalentStatic.cs" />
+    <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_ResponseSpectrum.cs" />
     <Compile Include="Structural\Loads\BHoM_AreaUniformlyDistributedLoad.cs" />
     <Compile Include="Structural\Loads\BHoM_AreaVaryingDistributedLoad.cs" />
     <Compile Include="Structural\Loads\BHoM_BarPointLoad.cs" />
@@ -82,10 +82,15 @@
     <Compile Include="Structural\Results\BHoM_BarForce.cs" />
     <Compile Include="Structural\Results\BHoM_StoreyResult.cs" />
     <Compile Include="Structural\Results\BHoM_GlobalResult.cs" />
+    <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCColumnRectangular.cs" />
+    <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCBeamRectangular.cs" />
     <Compile Include="Structural\Section Properties\BHoM_SectionProperty.cs" />
+    <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCSection.cs" />
+    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelUC.cs" />
+    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelISection.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Structural\DesignCodes\Wind\" />
+    <Folder Include="Structural\DesignCodes\Eurocode\Wind\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

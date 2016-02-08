@@ -1,0 +1,813 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BHoM</name>
+    </assembly>
+    <members>
+        <member name="M:BHoM.Geometry.Plane.CalculateOctant(System.Double)">
+            <summary>
+            Calculate which planar octant an angle lies within. 
+            Convention for Cardinal lines is 0 => 1, PI/4 => 2, PI/2 => 3, -PI/4 => 8 etc.
+            </summary>
+            <param name="angle"> Angle in Radians</param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.GetAxisVectorFromOctant(System.Int32)">
+            <summary>
+            Returns the nearest local axis based on the octant number 
+            </summary>
+            <param name="octant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.Get45DegreeVectorFromOctant(System.Int32)">
+            <summary>
+            Returns the nearest 45 degree axis vector based on the octant number 
+            This vector is not unitised, having a magnitude of root2
+            </summary>
+            <param name="octant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Point.Average(System.Collections.Generic.List{BHoM.Geometry.Point})">
+            <summary>
+            Calcualte mean pt from list of points
+            </summary>
+            <param name="pts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Vector.Rotate(System.Double,BHoM.Geometry.Vector)">
+            <summary>
+            Roates vector using Rodrigues' rotation formula
+            </summary>
+            <param name="rad"></param>
+            <param name="axis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Vector.Reverse">
+            <summary>
+            Returns the reversed vector
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Vector.VectorAngle(BHoM.Geometry.Vector,BHoM.Geometry.Vector)">
+            <summary>
+            Calculate the angle in radians between two vectors
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Vector.SafeAcos(System.Double)">
+            <summary>
+            Computes Acos with tolerance for rounding errors
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Vector.VectorAngle(BHoM.Geometry.Vector,BHoM.Geometry.Vector,BHoM.Geometry.Vector)">
+            <summary>
+            Calculate the angle in radians between two vectors with a guide normal vector to determine sign
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="normal"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Materials.Material">
+            <summary>
+            Material class for use in all other object classes and namespaces
+            </summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Index">
+            <summary>Material index number</summary>   
+        </member>
+        <member name="P:BHoM.Materials.Material.Name">
+            <summary>Material name</summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Fy">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Fu">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.E">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Nu">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.G">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Density">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.TempCoeff">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.DampingRatio">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Materials.Material.#ctor(System.Int32,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a material class
+            </summary>
+            <param name="i">Index</param>
+            <param name="name"></param>
+            <param name="py">Yield stress</param>
+            <param name="e">Young's Modulus</param>
+            <param name="nu">Poisson's ratio</param>
+            <param name="g">Shear modulus</param>
+            <param name="d">Density</param>
+            <param name="tc">Temperature coefficient</param>
+        </member>
+        <member name="M:BHoM.Materials.Material.#ctor(System.String)">
+            <summary>
+            Creates a simple material class
+            Try to use the full material constructor if possible.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:BHoM.Materials.Material.#ctor(System.Int32,System.String)">
+            <summary>
+            Creates a simple material class with index number
+            </summary>
+            <param name="index"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintId.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Ctor used by the serialisation engine
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:BHoM.Structural.Storey">
+            <summary>
+            Storey class to store information about building storeys for post processing of results
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Storey.Number">
+            <summary>Storey number</summary>
+        </member>
+        <member name="P:BHoM.Structural.Storey.Level">
+            <summary>Storey level (in metres)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Storey.Name">
+            <summary>Storey name</summary>
+        </member>
+        <member name="P:BHoM.Structural.Storey.Height">
+            <summary>Storey height</summary>
+        </member>
+        <member name="M:BHoM.Structural.Storey.#ctor">
+            <summary>
+            Constructs and empty storey object
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.Storey.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructs a storey object using number and name. If number and/or name are not known, use 0 and "" respectively.
+            </summary>
+            <param name="number"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:BHoM.Structural.Storey.SetNumber(System.Int32)">
+            <summary>
+            Sets the storey number
+            </summary>
+            <param name="number"></param>
+        </member>
+        <member name="M:BHoM.Structural.Storey.SetName(System.String)">
+            <summary>
+            Sets the storey name
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:BHoM.Structural.Storey.SetLevel(System.Double)">
+            <summary>
+            Sets the storey level
+            </summary>
+            <param name="level"></param>
+        </member>
+        <member name="M:BHoM.Structural.Storey.SetHeight(System.Double)">
+            <summary>
+            Sets the storey height
+            </summary>
+            <param name="height"></param>
+        </member>
+        <member name="M:BHoM.Structural.Node.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Represents a three dimensional node in space. Holds results.
+            </summary>
+            <param name="x">The x coordinate for the node</param>
+            <param name="y">The y coordinate for the node</param>
+            <param name="z">The z coordinate for the node</param>
+        </member>
+        <member name="M:BHoM.Structural.Node.ResetTopology">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.Node.AddBar(BHoM.Structural.Bar)">
+            <summary>
+            Add a bar instance into connected bar list
+            </summary>
+            <param name="b"></param>
+        </member>
+        <member name="M:BHoM.Structural.Node.AddFace(BHoM.Structural.Face)">
+            <summary>
+            Add a face instance into connected face list
+            </summary>
+            <param name="f"></param>
+        </member>
+        <member name="M:BHoM.Structural.Node.SortConnectedBars">
+            <summary>
+            WIP
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.Node.SortBarsByAngle(System.Collections.Generic.List{BHoM.Structural.Bar},System.Collections.Generic.List{System.Double})">
+            <summary>
+            WIP - change to use sorted dictionary
+            Sort the bars by angle, smallest angle first.
+            Assumes one to one mapping of bars to angles in two lists
+            </summary>
+            <param name="bars"></param>
+            <param name="angles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.Node.SetAngles(System.Collections.Generic.List{System.Double})">
+            <summary>
+            WIP
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.Structure.AddNode(BHoM.Structural.Node)">
+            <summary>
+            Adds a node in the structure. Private
+            TODO: implement index clash checks
+            </summary>
+            <param name="node">The node to add</param>
+        </member>
+        <member name="M:BHoM.Structural.Structure.AddOrGetNode(BHoM.Structural.Node)">
+            <summary>
+            Adds node to structure and returns. If within tolerance with preexisting node original node will be returned instead
+            </summary>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.Structure.AddBar(BHoM.Structural.Bar)">
+            <summary>
+            Adds a beam in the structure. First checks uniqueness of end nodes with preexisting nodes in structure.
+            This is based on set tolerance of Structure, merging as appropriate
+            </summary>
+            <param name="element">The element to add</param>
+        </member>
+        <member name="M:BHoM.Structural.Structure.SortNodalBars">
+            <summary>
+            Calculates the counter clockwise Oring for each node  
+            </summary>
+            <returns>True if succeded</returns>
+        </member>
+        <member name="M:BHoM.Structural.Structure.SortNodalFaces">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.Structure.CreateFacesFromBars">
+            <summary>
+            WIP - currently duplicates faces. also does not control winding. 
+            Create face from bars by looping through the bars and trying to find closed edge loops - defining face.
+            First tries to create a triangular panel, if not, quad - aborts after.
+            Concave quads are excluded (angles greater than 180 between bars)
+            Creation of five sided and above are not supported
+            Assumes nodal bar lists are already sorted correctly anticlockwise
+            Also assumes a manifold topology - i.e. suited to meshed slabs and gridshells - and not spaceframes etc.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.Structure.CheckFaceUniquenessBySortedNodeNumbers(BHoM.Structural.Face)">
+            <summary>
+            WIP TODO: check efficiency
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.Structure.FindBarWithCommonNodeInBarList(System.Collections.Generic.List{BHoM.Structural.Bar},BHoM.Structural.Node)">
+            <summary>
+            
+            </summary>
+            <param name="bars"></param>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.Structure.SetTolerance(System.Double)">
+            <summary>
+            Sets the internal tolerance for which structural node merging etc. will be performed
+            </summary>
+            <param name="tol"></param>
+        </member>
+        <member name="T:BHoM.Structural.DOFType">
+            <summary>
+            Enumerator of types of degrees of freedom
+            </summary>
+        </member>
+        <member name="T:BHoM.Structural.DesignCodes.ElementDesign.RCBeamCheck">
+            <summary>
+            RCBeamCheck is an object that stores design check information for a single bar, 
+            loadcase and calculation point
+            </summary>
+        </member>
+        <member name="T:BHoM.Structural.Loads.Loadcase">
+            <summary>
+            Loadcase class 
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Loadcase.Name">
+            <summary>Loadcase name</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Loadcase.Number">
+            <summary>Loadcase number</summary>
+        </member>
+        <member name="T:BHoM.Structural.Loads.NodalLoad">
+            <summary>
+            Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
+            constructor allows for a default force and moment nodal load instance.
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Loadcase">
+            <summary>Loadcase as BHoM object</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Force">
+            <summary>Force - fx, fy, fz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Moment">
+            <summary>Moment - mx, my, mz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Translation">
+            <summary>Translation - ux, uy, uz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Rotation">
+            <summary>Rotation - rx, ry, rz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.TranslationalVelocity">
+            <summary>TranslationalVelocity - vx, vy, vz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.RotationalVelocity">
+            <summary>RotationalVelocity - vrx, vry, vrz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.TranslationalAcceleration">
+            <summary>TranslationalAcceleration - ax, ay, az defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.RotationalAcceleration">
+            <summary>RotationalAcceleration - arx, ary, arz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.NodeNumbers">
+            <summary>A list of node numbers that the nodal load is applicable to</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.RobotLoadRecordNumber">
+            <summary>Stores a load record number specific to Robot</summary>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.#ctor">
+            <summary>
+            Create an empty nodal load as a placeholder
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.#ctor(BHoM.Structural.Loads.Loadcase,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
+            values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
+            </summary>
+            <param name="loadcase"></param>
+            <param name="fx"></param>
+            <param name="fy"></param>
+            <param name="fz"></param>
+            <param name="mx"></param>
+            <param name="my"></param>
+            <param name="mz"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.#ctor(System.Int32,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
+            values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
+            </summary>
+            <param name="loadcaseNumber"></param>
+            <param name="loadcaseName"></param>
+            <param name="fx"></param>
+            <param name="fy"></param>
+            <param name="fz"></param>
+            <param name="mx"></param>
+            <param name="my"></param>
+            <param name="mz"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetLoadcase(BHoM.Structural.Loads.Loadcase)">
+            <summary>
+            Sets the loadcase for the nodal force as a BHoM loadcase object
+            </summary>
+            <param name="loadcase"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.NewLoadcase(System.Int32,System.String)">
+            <summary>
+            Sets the loadcase for the nodal force as a BHoM loadcase object
+            </summary>
+            <param name="number"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetForce(System.Double,System.Double,System.Double)">
+            <summary>
+            Set the forces of a nodal load
+            </summary>
+            <param name="fx"></param>
+            <param name="fy"></param>
+            <param name="fz"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetMoment(System.Double,System.Double,System.Double)">
+            <summary>
+            Set the moments of a nodal load
+            </summary>
+            <param name="mx"></param>
+            <param name="my"></param>
+            <param name="mz"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetTranslation(System.Double,System.Double,System.Double)">
+            <summary>
+            Set translations of a nodal load (imposed displacements)
+            </summary>
+            <param name="ux"></param>
+            <param name="uy"></param>
+            <param name="uz"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetRotation(System.Double,System.Double,System.Double)">
+            <summary>
+            Set the rotations of a nodal load (imposed rotations)
+            </summary>
+            <param name="rx"></param>
+            <param name="ry"></param>
+            <param name="rz"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetTranslationalVelocity(System.Double,System.Double,System.Double)">
+            <summary>
+            Set the translational velocities of a nodal load
+            </summary>
+            <param name="vx"></param>
+            <param name="vy"></param>
+            <param name="vz"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetRotationalVelocity(System.Double,System.Double,System.Double)">
+            <summary>
+            Set the rotational velocities of a nodal load
+            </summary>
+            <param name="vrx"></param>
+            <param name="vry"></param>
+            <param name="vrz"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetTranslationalAcceleration(System.Double,System.Double,System.Double)">
+            <summary>
+            Set the translational accelerations of a nodal load
+            </summary>
+            <param name="ax"></param>
+            <param name="ay"></param>
+            <param name="az"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetRotationalAcceleration(System.Double,System.Double,System.Double)">
+            <summary>
+            Set the rotational accelerations of a nodal load
+            </summary>
+            <param name="arx"></param>
+            <param name="ary"></param>
+            <param name="arz"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.AddNodeNumber(System.Int32)">
+            <summary>
+            Add a node number to the list. If first number, a new list will be created.
+            </summary>
+            <param name="number"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.NodalLoad.SetRobotLoadRecordNumber(System.Int32)">
+            <summary>
+            Set a record number for Robot loads - to retrieve later (and prevent duplicated loads)
+            </summary>
+            <param name="number"></param>
+        </member>
+        <member name="T:BHoM.Structural.Results.StoreyResult">
+            <summary>
+            Results for building storeys for use in multi/tall building post processing
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.Loadcase">
+            <summary>Loadcase as BHoM object</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.DriftX">
+            <summary>Storey drift in X (refer to ASCE7 for basis)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.DriftY">
+            <summary>Storey drift in Y (refer to ASCE7 for basis)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.DriftRatioX">
+            <summary>Storey drift ratio in X (drift / storey height)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.DriftRatioY">
+            <summary>Storey drift ratio in Y (drift / storey height)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.MaximumNodalDisplacementX">
+            <summary>Maximum displacement in X of any point (node) in the story</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.MaximumNodalDisplacementY">
+            <summary>Maximum displacement in Y of any point (node) in the story</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.MinimumNodalDisplacementX">
+            <summary>Minimum displacement in X of any point (node) in the story</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.MinimumNodalDisplacementY">
+            <summary>Minimum displacement in Y of any point (node) in the story</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.ShearX">
+            <summary>Storey shear in X</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.ShearY">
+            <summary>Storey shear in Y</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.ShearToColumnsX">
+            <summary>Total shear force in X in storey columns</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.ShearToColumnsY">
+            <summary>Total shear force in Y in storey columns</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.ShearToWallsX">
+            <summary>Total shear force in X in storey walls</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.ShearToWallsY">
+            <summary>Total shear force in Y in storey walls</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.AxialToColumns">
+            <summary>Total axial force in columns at level</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.AxialToWalls">
+            <summary>Total axial force in walls at level</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.SeismicMass">
+            <summary>Mass of storey used in seismic calculation</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.CentreOfRigidity">
+            <summary>Centre of rigidity of the storey</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.CentreOfGravity">
+            <summary>Centre of mass of the storey</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.Eccentricity">
+            <summary>Eccentricity of the storey (vector distance between COG and COR)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.StoreyResult.MomentOfInertia">
+            <summary>Moment of inertia of a storey</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.#ctor">
+            <summary>
+            Constructs an empty storey result and set the objects later
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.#ctor(BHoM.Structural.Loads.Loadcase)">
+            <summary>
+            Constructs a storey result using a BHoM loadcase object
+            </summary>
+            <param name="loadcase"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructs a storey result by loadcase name and number. If name or number are not know, set to "" and 0 respectively.
+            </summary>
+            <param name="loadcaseNumber"></param>
+            <param name="loadcaseName"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetLoadcase(BHoM.Structural.Loads.Loadcase)">
+            <summary>
+            Sets the loadcase by using an existing BHoM loadcase object
+            </summary>
+            <param name="loadcase"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetLoadcase(System.Int32,System.String)">
+            <summary>
+            Sets the loadcase by constructing a new BHoM loadcase object
+            </summary>
+            <param name="number"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetDrift(System.Double,System.Double)">
+            <summary>
+            Set storey drifts
+            </summary>
+            <param name="driftX"></param>
+            <param name="driftY"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetDriftRatio(System.Double,System.Double)">
+            <summary>
+            Sets storey drift ratios
+            </summary>
+            <param name="driftRatioX"></param>
+            <param name="driftRatioY"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetMaximumNodalDisplacements(System.Double,System.Double)">
+            <summary>
+            Sets the maximum nodal displacements for a given storey
+            (maximum nodal translations)
+            </summary>
+            <param name="maxUX"></param>
+            <param name="maxUY"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetMinimumNodalDisplacements(System.Double,System.Double)">
+            <summary>
+            Sets the Minimum nodal displacements for a given storey
+            (Minimum nodal translations)
+            </summary>
+            <param name="minUX"></param>
+            <param name="minUY"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetShear(System.Double,System.Double)">
+            <summary>
+            Sets storey shears
+            </summary>
+            <param name="shearX"></param>
+            <param name="shearY"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetShearDistribution(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the total shear forces in walls and columns for a given storey
+            (to show relative distribution)
+            </summary>
+            <param name="shearToColumnsX"></param>
+            <param name="shearToColumnsY"></param>
+            <param name="shearToWallsX"></param>
+            <param name="shearToWallsY"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetAxialDistribution(System.Double,System.Double)">
+            <summary>
+            Sets the total axial forces in walls and columns for a given storey
+            (to show relative distribution)
+            </summary>
+            <param name="axialToColumns"></param>
+            <param name="axialToWalls"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetSeismicMass(System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the seismic mass for a given storey by constructing a BHoM
+            vector object
+            </summary>
+            <param name="massX"></param>
+            <param name="massY"></param>
+            <param name="massZ"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetCentreOfRigidity(System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the centre of rigidity of a given storey by constructing 
+            a BHoM point object
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetCentreOfGravity(System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the centre of gravity of a given storey by constructing
+            a BHoM point object
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.StoreyResult.SetEccentricity(System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the eccentricity (distance between COG and COR) for a
+            given storey by constructing a BHoM vector object
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="T:BHoM.Structural.Results.GlobalResult">
+            <summary>
+            This class is used to collect and inspect results for a 
+            whole structure for sanity checks - global reactions, mass sums, shears etc
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.GlobalResult.Loadcase">
+            <summary>Loadcase as BHoM object</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.GlobalResult.BaseShearX">
+            <summary>Base shear force in X direction (reacion in X as a percentage of total mass)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.GlobalResult.BaseShearY">
+            <summary>Base shear force in Y direction (reaction in Y as a percentage of total mass)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.GlobalResult.SumOfReactions_F">
+            <summary>Sum of reactions (X, Y, Z) as vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.GlobalResult.SumOfReactions_M">
+            <summary>Sum of reactions (MX, MY, MZ) as vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.GlobalResult.SumOfMass">
+            <summary>Sum of modal masses as vector</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.GlobalResult.#ctor">
+            <summary>Constructs an empty GlobalResult</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.GlobalResult.#ctor(BHoM.Structural.Loads.Loadcase)">
+            <summary>
+            Constructs a global result using a BHoM loadcase object
+            </summary>
+            <param name="loadcase"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.GlobalResult.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructs a global result by loadcase name and number. If name or number are not know, set to "" and 0 respectively.
+            </summary>
+            <param name="loadcaseNumber"></param>
+            <param name="loadcaseName"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.GlobalResult.SetBaseShear(System.Double,System.Double)">
+            <summary>
+            Sets the base shear in X and Y for the loadcase
+            </summary>
+            <param name="vX"></param>
+            <param name="vY"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.GlobalResult.SetReactions(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the sum of reactions for a given loadcase by constructing 
+            two BHoM vector objects (forces and moments)
+            </summary>
+            <param name="fX"></param>
+            <param name="fY"></param>
+            <param name="fZ"></param>
+            <param name="mX"></param>
+            <param name="mY"></param>
+            <param name="mZ"></param>
+        </member>
+        <member name="M:BHoM.Structural.Results.GlobalResult.SetSumOfMass(System.Double)">
+            <summary>
+            Sets the sum of mass for the given loadcase
+            </summary>
+            <param name="mass"></param>
+        </member>
+        <member name="T:BHoM.Structural.SectionProperties.RCColumnRectangular">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.RCColumnRectangular.MassPerMetre">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.RCColumnRectangular.PercentageReinforcement">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Structural.SectionProperties.RCBeamRectangular">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.RCBeamRectangular.MassPerMetre">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Structural.SectionProperties.RCSection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.RCSection.PercentageReinforcement">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Structural.SectionProperties.SteelUC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SteelUC.MassPerMetre">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Structural.SectionProperties.SteelISection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SteelISection.#ctor">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Structural.SectionProperty">
+            <summary>
+            Section property class, the parent abstract class for all structural 
+            sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
+            parent class are those that would populate a multi category section database only
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperty.MassPerMetre">
+            <summary>Mass per metre based on section properties</summary>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperty.#ctor">
+            <summary>Base constructor</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperty.Name">
+            <summary>Name of section propert - a user defined, instance based parameter</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperty.Type">
+            <summary>Section type</summary>
+        </member>
+    </members>
+</doc>
