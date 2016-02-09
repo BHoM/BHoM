@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Structural.SectionProperties;
 
 namespace BHoM.Structural
 {
@@ -12,15 +13,14 @@ namespace BHoM.Structural
         public List<Node> Nodes { get; private set; }
         public List<Bar> Bars { get; private set; }
         public List<Face> Faces { get; private set; }
-        public Dictionary<string, BHoM.Structural.Constraint> Constraints {get; private set;}
+        
+        public Dictionary<string, BHoM.Structural.Constraints.Constraint> Constraints {get; private set;}
         public Dictionary<int, Storey> Storeys { get; private set; }
-        public double WindBaseShearX { get; private set; }
-        public double WindBaseShearY { get; private set; }
-        public double SeismicBaseShearX { get; private set; }
-        public double SeismicBaseShearY { get; private set; }
+
+        
                 
 
-        public List<SectionProperty> SectionProperties { get;  private set; }
+        public List<ISectionProperty> SectionProperties { get;  private set; }
         
         public double Tolerance { get; private set; }
 
@@ -29,7 +29,7 @@ namespace BHoM.Structural
             Nodes = new List<Node>();
             Bars = new List<Bar>();
             Faces = new List<Face>();
-            Constraints = new Dictionary<string, Constraint>();
+            Constraints = new Dictionary<string, BHoM.Structural.Constraints.Constraint>();
         }
  
       
@@ -65,14 +65,12 @@ namespace BHoM.Structural
         /// This is based on set tolerance of Structure, merging as appropriate
         /// </summary>
         /// <param name="element">The element to add</param>
-        public void AddBar(Bar b)
+        public void AddBar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
         {
-            b.SetStartNode(AddOrGetNode(b.StartNode));
-            b.SetEndNode(AddOrGetNode(b.EndNode));
+            BHoM.Structural.Bar b = new BHoM.Structural.Bar(AddOrGetNode(startNode), AddOrGetNode(endNode));
 
-            if (BarNumberClash(b) || !b.HasValidNumber())
-                b.SetNumber(FindMaxBarNumber() + 1);
-
+            if (BarNumberClash(b)) b.SetNumber(FindMaxBarNumber() + 1);
+            
             Bars.Add(b);
         }
 
@@ -357,7 +355,7 @@ namespace BHoM.Structural
         }
 
 
-        public BHoM.Structural.Constraint SetConstraint(BHoM.Structural.Constraint constraint)
+        public BHoM.Structural.Constraints.Constraint SetConstraint(BHoM.Structural.Constraints.Constraint constraint)
         {
             if (this.Constraints.ContainsKey(constraint.Name))
             {

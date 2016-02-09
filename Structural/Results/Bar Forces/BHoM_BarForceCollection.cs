@@ -34,11 +34,7 @@ namespace BHoM.Structural.Results.Bars
             barForceDictionary.Add(GenerateKey(barForce), barForce);
         }
 
-        /// <summary>Returns an envelope of forces for the entire collection</summary>
-        public BarForce GetEnvelope()
-        {
 
-        }
 
         
        

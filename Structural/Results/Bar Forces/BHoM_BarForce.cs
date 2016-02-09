@@ -15,7 +15,7 @@ namespace BHoM.Structural.Results.Bars
         /// <summary>Associated bar number</summary>
         public int BarNumber { get; set; }
 
-        /// <summary>Position along the bar of the force</summary>
+        /// <summary>Position along the bar of the force. Set 0 for 1 for end</summary>
         public double ForcePosition { get; set; }
 
         /// <summary>Loadcase</summary>

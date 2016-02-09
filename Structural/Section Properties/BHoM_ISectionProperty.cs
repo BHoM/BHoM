@@ -1,36 +1,30 @@
 ﻿
 
-namespace BHoM.Structural
+namespace BHoM.Structural.SectionProperties
 {
     /// <summary>
     /// Section property class, the parent abstract class for all structural 
     /// sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
     /// parent class are those that would populate a multi category section database only
     /// </summary>
-    public abstract class SectionProperty
+    public interface ISectionProperty
     {
         /// <summary>Mass per metre based on section properties</summary>
-        public abstract double MassPerMetre { get; set; }
-
-        /// <summary>Base constructor</summary>
-        public SectionProperty()
-        {
-
-        }
+        double MassPerMetre { get; set; }
 
         /// <summary>Name of section propert - a user defined, instance based parameter</summary>
-        public string Name { get; set; }
+        string Name { get; set; }
 
         /// <summary>Section type</summary>
-        public string Type { get; set; }
+        string Type { get; set; }
 
         /// <summary>Information regarding section property type for the user</summary>
-        public string Description { get; set; }
+        string Description { get; set; }
 
         /// <summary>Section material</summary>
-        public BHoM.Materials.Material Material {get; set;}
+        BHoM.Materials.Material Material {get; set;}
 
-
+        
 
     }
 }

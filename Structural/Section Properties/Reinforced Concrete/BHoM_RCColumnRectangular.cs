@@ -1,16 +1,16 @@
 ﻿
 
 using System;
+using BHoM.Materials;
 
 namespace BHoM.Structural.SectionProperties
 {
     /// <summary>
     /// 
     /// </summary>
-    public class RCColumnRectangular : RCSection
+    public class RCColumnRectangular : ISectionProperty, IRCSection
     {
-        /// <summary></summary>
-        public override double MassPerMetre
+        public string Description
         {
             get
             {
@@ -23,8 +23,46 @@ namespace BHoM.Structural.SectionProperties
             }
         }
 
-        /// <summary></summary>
-        public override double PercentageReinforcement
+        public double MassPerMetre
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public Material Material
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Type
         {
             get
             {

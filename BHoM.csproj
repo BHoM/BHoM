@@ -56,14 +56,13 @@
     <Compile Include="Materials\BHoM_Materials.cs" />
     <Compile Include="Materials\BHoM_MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Structural\BHoM_Constraint.cs" />
+    <Compile Include="Structural\Constraints\BHoM_Constraint.cs" />
     <Compile Include="Structural\BHoM_Storey.cs" />
     <Compile Include="Structural\BHoM_Bar.cs" />
     <Compile Include="Structural\BHoM_Face.cs" />
     <Compile Include="Structural\BHoM_Node.cs" />
-    <Compile Include="Structural\BHoM_Release.cs" />
+    <Compile Include="Structural\Constraints\BHoM_BarRelease.cs" />
     <Compile Include="Structural\BHoM_Offset.cs" />
-    <Compile Include="Structural\BHoM_Restraint.cs" />
     <Compile Include="Structural\BHoM_Structure.cs" />
     <Compile Include="Structural\BHoM_StructureEnums.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCBeam.cs" />
@@ -86,12 +85,13 @@
     <Compile Include="Structural\Results\Global Results\BHoM_GlobalResult.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCColumnRectangular.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCBeamRectangular.cs" />
-    <Compile Include="Structural\Section Properties\BHoM_SectionProperty.cs" />
-    <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCSection.cs" />
+    <Compile Include="Structural\Section Properties\BHoM_ISectionProperty.cs" />
+    <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_IRCSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelUC.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelISection.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Cities\" />
     <Folder Include="Structural\DesignCodes\Eurocode\Wind\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

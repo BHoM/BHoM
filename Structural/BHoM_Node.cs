@@ -8,21 +8,36 @@ using BHoM.Geometry;
 
 namespace BHoM.Structural
 {
+    /// <summary>
+    /// Node objects
+    /// </summary>
     [Serializable]
     public class Node
     {
+        /// <summary>Node number</summary>
         public int Number { get; private set; }
+        /// <summary>Node position as a point object</summary>
         public Point Position { get; private set; }
-        public Constraint Constraint { get; private set; }
-        public bool IsRestrained { get; private set; }
+        /// <summary>Node constraint (support/restraint)</summary>
+        public BHoM.Structural.Constraints.Constraint Constraint { get; private set; }
+        /// <summary>Returns true is node is constrained</summary>
+        public bool IsConstrained { get; private set; }
+        /// <summary>Constraint name - is inherited from constraint object if exists</summary>
         public string ConstraintName { get; private set; }
+        /// <summary>Node name</summary>
         public string Name { get; private set;}
+        /// <summary>Bars connected to the node</summary>
         public List<Bar> ConnectedBars { get; private set; }
+        /// <summary>Faces connected to the node</summary>
         public List<Face> ConnectedFaces { get; private set; }
+        /// <summary>Valence of node</summary>
         public int Valence { get; private set; }
+        /// <summary>Angles between connected bars</summary>
         public List<double> Angles { get; private set; }
+        /// <summary>Coordinate system as a plane object</summary>
         public Plane CoordinateSystem { get; private set; }
-        
+
+        /// <summary>Constructs an empty node object</summary>
         public Node()
         {
             Position = new Point();
@@ -31,13 +46,15 @@ namespace BHoM.Structural
             ConnectedBars = new List<Bar>();
             ConnectedFaces = new List<Face>();
         }
-        
+
+        /// <summary>Constructes an empty node from a number</summary>
         public Node(int index)
             :this()
         {
             Number = index;
         }
-        
+
+        /// <summary>Constructes a node from a point</summary>
         public Node(Point pos)
             : this()
         {
@@ -56,13 +73,14 @@ namespace BHoM.Structural
             Position = new Point(x, y, z);       
         }
 
+        /// <summary>Constructes a node from coordinates and an index number</summary>
         public Node(double x, double y, double z, int index)
             :this(x,y,z)
         {
             Number = index;
         }
 
-  
+        /// <summary>Returns true if node is valid (number < 0 or position is invalid)</summary>
         public bool IsValid
         {
             get
@@ -73,22 +91,26 @@ namespace BHoM.Structural
             }
         }
 
+        /// <summary>Returns true if node number > 0</summary>
         public bool HasValidNumber()
         {
             return Number > 0; 
         }
 
+        /// <summary>Sets the node number</summary>
         public void SetNumber(int i)
         {
             this.Number = i;
         }
 
+        /// <summary>gets or sets the XYZ of the node position</summary>
         public double[] XYZ
         {
             get { return Position.XYZ; }
             set { Position.XYZ = value;}
         }
 
+        /// <summary>Gets or sets the X value of the node position</summary>
         public double X
         {
             get { return Position.X; }
@@ -98,6 +120,7 @@ namespace BHoM.Structural
             }
         }
 
+        /// <summary>Gets or sets the Y value of the node position</summary>
         public double Y
         {
             get { return Position.Y; }
@@ -107,6 +130,7 @@ namespace BHoM.Structural
             }
         }
 
+        /// <summary>Gets or sets the Z value of the node position</summary>
         public double Z
         {
             get { return Position.Z; }
@@ -116,7 +140,7 @@ namespace BHoM.Structural
             }
         }
 
-               
+        /// <summary>Calculates the distance from the input node to this</summary>       
         public double DistanceTo(Node node)
         {
             double dist = 0;
@@ -131,36 +155,41 @@ namespace BHoM.Structural
             return dist;
         }
 
+        /// <summary>Sets the name of the node</summary>
         public void SetName(string name)
         {
             this.Name = name;
         }
 
-        public void SetConstraint(Constraint constraint)
+        /// <summary>Sets the constraint of a node</summary>
+        public void SetConstraint(BHoM.Structural.Constraints.Constraint constraint)
         {
             this.Constraint = constraint;
             this.ConstraintName = constraint.Name;
-            this.IsRestrained = true;
+            this.IsConstrained = true;
         }
 
+        /// <summary>Sets the constraint name of the node</summary>
         public void SetConstraintName(string constraintName)
         {
             this.ConstraintName = constraintName;
-            this.IsRestrained = true;
+            this.IsConstrained = true;
         }
 
+        /// <summary>Sets a default plane as coordinate system</summary>
         public void SetCoordinateSystemAsDefault()
         {
             this.CoordinateSystem = new Plane(Position);
         }
 
+        /// <summary>Sets coordinate system as plane</summary>
         public void SetCoordinateSystem(Plane coordinateSystem)
         {
             this.CoordinateSystem = coordinateSystem;
         }
 
         /// <summary>
-        /// 
+        /// Resets the topology by removing connected bars and setting valence to 0
         /// </summary>
         public void ResetTopology()
         {
