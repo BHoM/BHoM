@@ -44,7 +44,6 @@ namespace BHoM.Materials
         /// </summary>
         /// <param name="i">Index</param>
         /// <param name="name"></param>
-        /// <param name="py">Yield stress</param>
         /// <param name="e">Young's Modulus</param>
         /// <param name="nu">Poisson's ratio</param>
         /// <param name="g">Shear modulus</param>
@@ -83,10 +82,10 @@ namespace BHoM.Materials
             Index = index;
         }
         
-        /// <summary>
-        /// Creates a material class with material model
-        /// </summary>
-        /// <param name="material"></param>
+        // <summary>
+        // Creates a material class with material model
+        // </summary>
+        // <param name="material"></param>
         //public Material(DefaultMaterials material)
         //{
         //    MaterialModel = "MAT_ELAS_ISO"; 

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Loads
 {
+    /// <summary>
+    /// Varying load on a bar
+    /// </summary>
     [Serializable]
     public class BarVaryingDistributedLoad
     {

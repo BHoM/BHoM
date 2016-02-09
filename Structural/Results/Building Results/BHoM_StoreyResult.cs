@@ -238,14 +238,20 @@ namespace BHoM.Structural.Results.Building
         /// Sets the eccentricity (distance between COG and COR) for a
         /// given storey by constructing a BHoM vector object
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="z"></param>
+        /// <param name="ex"></param>
+        /// <param name="ey"></param>
+        /// <param name="ez"></param>
         public void SetEccentricity(double ex, double ey, double ez)
         {
             this.Eccentricity = new BHoM.Geometry.Vector(ex, ey, ez);
         }
 
+        /// <summary>
+        /// Set the moment of inertia
+        /// </summary>
+        /// <param name="ix"></param>
+        /// <param name="iy"></param>
+        /// <param name="iz"></param>
         public void SetMomentOfIntertia(double ix, double iy, double iz)
         {
             this.MomentOfInertia = new BHoM.Geometry.Vector(ix, iy, iz);

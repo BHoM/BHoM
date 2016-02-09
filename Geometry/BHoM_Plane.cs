@@ -1,21 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
+    /// <summary>
+    /// BHoM Plane object
+    /// </summary>
     [Serializable]
     public class Plane
     {
-
+        /// <summary>X vector</summary>
         public Vector X { get; private set; }
+        /// <summary>Y vector</summary>
         public Vector Y { get; private set; }
+        /// <summary>Z vector</summary>
         public Vector Z { get; private set; }
 
+        /// <summary>Origin point</summary>
         public Point Origin { get; private set; }
 
+        /// <summary>
+        /// Constructs a plane in global XYZ, with origin point at 0,0,0
+        /// </summary>
+        public Plane()
+        {
+            Origin = new Point(0, 0, 0);
+            X = new Vector(1.0, 0.0, 0.0);
+            Y = new Vector(0.0, 1.0, 0.0);
+            Z = new Vector(0.0, 0.0, 1.0);
+        }
+
+        /// <summary>
+        /// Constructs a point in global XYZ at a prescribed point
+        /// </summary>
+        /// <param name="origin"></param>
         public Plane(Point origin)
         {
             Origin = origin;
@@ -24,6 +41,12 @@ namespace BHoM.Geometry
             Z = new Vector(0.0, 0.0, 1.0);
         }
 
+        /// <summary>
+        /// Constructs a plane from XY vectors, the cross product and an origin point
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="origin"></param>
         public Plane(Vector x, Vector y, Point origin)
         {
             X = x;
@@ -46,14 +69,14 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static int CalculateOctant(double angle)
         {
-            ///                        |
-            ///                   \  3 | 2  / 
-            ///                  4  \  |  /  1   
-            ///                 ______\|/______
-            ///                       /|\ 
-            ///                  5  /  |  \  8
-            ///                   /  6 | 7  \
-            ///                        | 
+            //                        |
+            //                   \  3 | 2  / 
+            //                  4  \  |  /  1   
+            //                 ______\|/______
+            //                       /|\ 
+            //                  5  /  |  \  8
+            //                   /  6 | 7  \
+            //                        | 
 
             int oct = (int)Math.Floor(Math.Abs(angle) / (Math.PI * 0.25)) + 1;
             if (angle <= 0.0) oct = 9 - oct;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Loads
 {
+    /// <summary>
+    /// Point load along a bar
+    /// </summary>
     [Serializable]
     public class BarPointLoad
     {

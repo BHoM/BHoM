@@ -7,41 +7,74 @@ using BHoM.Geometry;
 
 namespace BHoM.HumanBody
 {
+    /// <summary>
+    /// BHoM Human skeleton class
+    /// </summary>
     public class Skeleton
     {
+        /// <summary>
+        /// Constructs an empty skeleton object
+        /// </summary>
         public Skeleton()
         {
             this.TrackingPoints = new Dictionary<JointName, Point>();
             this.TrackingLines = new Dictionary<string, Line>();
         }
 
+        /// <summary>Head</summary>
         public Head Head { get; private set; }
+        /// <summary>Right hand</summary>
         public HandRight HandRight { get; private set; }
+        /// <summary>Left hand</summary>
         public HandLeft HandLeft { get; private set; }
+        /// <summary>Right thumb</summary>
         public ThumbRight ThumbRight { get; private set; }
+        /// <summary>Left thumb</summary>
         public ThumbLeft ThumbLeft { get; private set; }
+        /// <summary>Neck</summary>
         public Neck Neck { get; private set; }
+        /// <summary>Right shoulder</summary>
         public ShoulderRight ShoulderRight { get; private set; }
+        /// <summary>Left shoulder</summary>
         public ShoulderLeft ShoulderLeft { get; private set; }
+        /// <summary>Spine</summary>
         public Spine Spine { get; private set; }
+        /// <summary>Right hip</summary>
         public HipRight HipRight { get; private set; }
+        /// <summary>Left hip</summary>
         public HipLeft HipLeft { get; private set; }
+        /// <summary>Upper right arm</summary>
         public UpperArmRight UpperArmRight { get; private set; }
+        /// <summary>Upper left arm</summary>
         public UpperArmLeft UpperArmLeft { get; private set; }
+        /// <summary>Lower right arm</summary>
         public LowerArmRight LowerArmRight { get; private set; }
+        /// <summary>Lower left arm</summary>
         public LowerArmLeft LowerArmLeft { get; private set; }
+        /// <summary>Upper right leg</summary>
         public UpperLegRight UpperLegRight { get; private set; }
+        /// <summary>Upper left leg</summary>
         public UpperLegLeft UpperLegLeft { get; private set; }
+        /// <summary>Lower right leg</summary>
         public LowerLegRight LowerLegRight { get; private set; }
+        /// <summary>Lower left leg</summary>
         public LowerLegLeft LowerLegLeft { get; private set; }
+        /// <summary>Right foot</summary>
         public FootRight FootRight { get; private set; }
+        /// <summary>Left foot</summary>
         public FootLeft FootLeft { get; private set; }
 
+        /// <summary>Dictionary of points with joint names as keys</summary>
         public Dictionary<JointName, Point> TrackingPoints { get; set; }
+        /// <summary>Dictionary of tracking lines with string keys</summary>
         public Dictionary<string, Line> TrackingLines { get; private set; }       
 
+        /// <summary>
+        /// Sets the body parts using tracking points. Try loops used for all actions 
+        /// in case body part tracking points are not detected
+        /// </summary>
         public void SetBodyPartsbyTrackingPoints()
-        {
+        {   
             Dictionary<JointName, Point> TP = this.TrackingPoints;
             try { this.Head = new Head(TP[JointName.Head]);} catch{}
             try { this.HandRight = new HandRight(new Line(TP[JointName.WristRight], TP[JointName.HandRight]));} catch{}
@@ -66,6 +99,10 @@ namespace BHoM.HumanBody
             try { this.FootLeft = new FootLeft(new Line(TP[JointName.AnkleLeft], TP[JointName.FootLeft]));} catch{}
         }
 
+        /// <summary>
+        /// Get all the tracking lines from the skeleton
+        /// </summary>
+        /// <returns></returns>
         public Dictionary<string, Line> GetAllTrackingLines()
         {
             this.TrackingLines.Add("Neck", this.Neck.TrackingLine);
@@ -92,44 +129,77 @@ namespace BHoM.HumanBody
         }
     }
 
-
-        
-
+    /// <summary>
+    /// Joint names
+    /// </summary>
     public enum JointName
     {
+        /// <summary>Head</summary>
         Head = 0,
-        SpineShoulder,     
+        /// <summary>Upper spine</summary>
+        SpineShoulder,
+        /// <summary>Right shoulder</summary>  
         ShoulderRight,
+        /// <summary>Left shoulder</summary>
         ShoulderLeft,
+        /// <summary>Neck</summary>
         Neck,
+        /// <summary>Right elbow</summary>
         ElbowRight,
+        /// <summary>Left elbow</summary>
         ElbowLeft,
+        /// <summary>Right hand</summary>
         HandRight,
+        /// <summary>Left hand</summary>
         HandLeft,
+        /// <summary>Tip of the right hand</summary>
         HandTipRight,
+        /// <summary>Tip of the left hand</summary>
         HandTipLeft,
+        /// <summary>Right thumb</summary>
         ThumbRight,
+        /// <summary>Left thumb</summary>
         ThumbLeft,
+        /// <summary>Right wrist</summary>
         WristRight,
+        /// <summary>Left wrist</summary>
         WristLeft,
+        /// <summary>Mid spine</summary>
         SpineMid,
+        /// <summary>Spine base</summary>
         SpineBase,
+        /// <summary>Right hip</summary>
         HipRight,
+        /// <summary>Left hip</summary>
         HipLeft,
+        /// <summary>Right knee</summary>
         KneeRight,
+        /// <summary>Left knee</summary>
         KneeLeft,
+        /// <summary>Right ankle</summary>
         AnkleRight,
+        /// <summary>Left ankle</summary>
         AnkleLeft,
+        /// <summary>Right foot</summary>
         FootRight,
+        /// <summary>Left foot</summary>
         FootLeft
      }
 
+    /// <summary>
+    /// Hand state values
+    /// </summary>
     public enum HandStateName
     {
+        /// <summary>Close</summary>
         Closed = 0,
+        /// <summary>Lasso</summary>
         Lasso,
+        /// <summary>Not tracked</summary>
         NotTracked,
+        /// <summary>Open</summary>
         Open,
+        /// <summary>Not known</summary>
         Unknown
     }
 }

@@ -10,6 +10,7 @@ namespace BHoM.Structural.SectionProperties
     /// </summary>
     public class SteelUC : ISectionProperty
     {
+        /// <summary></summary>
         public string Description
         {
             get
@@ -23,6 +24,7 @@ namespace BHoM.Structural.SectionProperties
             }
         }
 
+        /// <summary></summary>
         public double MassPerMetre
         {
             get
@@ -36,6 +38,7 @@ namespace BHoM.Structural.SectionProperties
             }
         }
 
+        /// <summary></summary>
         public Material Material
         {
             get
@@ -49,6 +52,7 @@ namespace BHoM.Structural.SectionProperties
             }
         }
 
+        /// <summary></summary>
         public string Name
         {
             get
@@ -62,6 +66,7 @@ namespace BHoM.Structural.SectionProperties
             }
         }
 
+        /// <summary></summary>
         public string Type
         {
             get

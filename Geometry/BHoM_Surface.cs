@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
+    /// <summary>
+    /// BHoM Surface object
+    /// </summary>
     [Serializable]
     public class Surface
     {

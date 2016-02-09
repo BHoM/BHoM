@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
+    /// <summary>
+    /// BHoM Meshface object
+    /// </summary>
     [Serializable]
     public class MeshFace
     {

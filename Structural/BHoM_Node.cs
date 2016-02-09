@@ -37,7 +37,9 @@ namespace BHoM.Structural
         /// <summary>Coordinate system as a plane object</summary>
         public Plane CoordinateSystem { get; private set; }
 
-        /// <summary>Constructs an empty node object</summary>
+        /// <summary>
+        /// Constructs an empty node object
+        /// </summary>
         public Node()
         {
             Position = new Point();
@@ -47,14 +49,20 @@ namespace BHoM.Structural
             ConnectedFaces = new List<Face>();
         }
 
-        /// <summary>Constructes an empty node from a number</summary>
+        /// <summary>
+        /// Constructes an empty node from a number
+        /// </summary>
+        /// <param name="index"></param>
         public Node(int index)
             :this()
         {
             Number = index;
         }
 
-        /// <summary>Constructes a node from a point</summary>
+        /// <summary>
+        /// Constructes a node from a point
+        /// </summary>
+        /// <param name="pos"></param>
         public Node(Point pos)
             : this()
         {
@@ -73,14 +81,22 @@ namespace BHoM.Structural
             Position = new Point(x, y, z);       
         }
 
-        /// <summary>Constructes a node from coordinates and an index number</summary>
+        /// <summary>
+        /// Constructes a node from coordinates and an index number
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <param name="index"></param>
         public Node(double x, double y, double z, int index)
             :this(x,y,z)
         {
             Number = index;
         }
 
-        /// <summary>Returns true if node is valid (number < 0 or position is invalid)</summary>
+        /// <summary>
+        /// Returns true if node is valid (number less than 0 or position is invalid)
+        /// </summary>
         public bool IsValid
         {
             get
@@ -91,26 +107,36 @@ namespace BHoM.Structural
             }
         }
 
-        /// <summary>Returns true if node number > 0</summary>
+        /// <summary>
+        /// Returns true if node number is greater than 0
+        /// </summary>
+        /// <returns></returns>
         public bool HasValidNumber()
         {
             return Number > 0; 
         }
 
-        /// <summary>Sets the node number</summary>
+        /// <summary>
+        /// Sets the node number
+        /// </summary>
+        /// <param name="i"></param>
         public void SetNumber(int i)
         {
             this.Number = i;
         }
 
-        /// <summary>gets or sets the XYZ of the node position</summary>
+        /// <summary>
+        /// Gets or sets the XYZ of the node position
+        /// </summary>
         public double[] XYZ
         {
             get { return Position.XYZ; }
             set { Position.XYZ = value;}
         }
 
-        /// <summary>Gets or sets the X value of the node position</summary>
+        /// <summary>
+        /// Gets or sets the X value of the node position
+        /// </summary>
         public double X
         {
             get { return Position.X; }
@@ -120,7 +146,9 @@ namespace BHoM.Structural
             }
         }
 
-        /// <summary>Gets or sets the Y value of the node position</summary>
+        /// <summary>
+        /// Gets or sets the Y value of the node position
+        /// </summary>
         public double Y
         {
             get { return Position.Y; }
@@ -130,7 +158,9 @@ namespace BHoM.Structural
             }
         }
 
-        /// <summary>Gets or sets the Z value of the node position</summary>
+        /// <summary>
+        /// Gets or sets the Z value of the node position
+        /// </summary>
         public double Z
         {
             get { return Position.Z; }
@@ -140,7 +170,11 @@ namespace BHoM.Structural
             }
         }
 
-        /// <summary>Calculates the distance from the input node to this</summary>       
+        /// <summary>
+        /// Calculates the distance from the input node to this
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         public double DistanceTo(Node node)
         {
             double dist = 0;
@@ -155,13 +189,19 @@ namespace BHoM.Structural
             return dist;
         }
 
-        /// <summary>Sets the name of the node</summary>
+        /// <summary>
+        /// Sets the name of the node
+        /// </summary>
+        /// <param name="name"></param>
         public void SetName(string name)
         {
             this.Name = name;
         }
 
-        /// <summary>Sets the constraint of a node</summary>
+        /// <summary>
+        /// Sets the constraint of a node
+        /// </summary>
+        /// <param name="constraint"></param>
         public void SetConstraint(BHoM.Structural.Constraints.Constraint constraint)
         {
             this.Constraint = constraint;
@@ -169,20 +209,28 @@ namespace BHoM.Structural
             this.IsConstrained = true;
         }
 
-        /// <summary>Sets the constraint name of the node</summary>
+        /// <summary>
+        /// Sets the constraint name of the node
+        /// </summary>
+        /// <param name="constraintName"></param>
         public void SetConstraintName(string constraintName)
         {
             this.ConstraintName = constraintName;
             this.IsConstrained = true;
         }
 
-        /// <summary>Sets a default plane as coordinate system</summary>
+        /// <summary>
+        /// Sets a default plane as coordinate system
+        /// </summary>
         public void SetCoordinateSystemAsDefault()
         {
             this.CoordinateSystem = new Plane(Position);
         }
 
-        /// <summary>Sets coordinate system as plane</summary>
+        /// <summary>
+        /// Sets coordinate system as plane
+        /// </summary>
+        /// <param name="coordinateSystem"></param>
         public void SetCoordinateSystem(Plane coordinateSystem)
         {
             this.CoordinateSystem = coordinateSystem;

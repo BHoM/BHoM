@@ -58,14 +58,23 @@ namespace BHoM.Structural
         ////CONSTRUCTORS////
         ////////////////////
 
-        /// <summary>Construct a bar from BHoM nodes</summary>
+        /// <summary>
+        /// Construct a bar from BHoM nodes
+        /// </summary>
+        /// <param name="startNode"></param>
+        /// <param name="endNode"></param>
         public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
         {
             this.StartNode = startNode;
             this.EndNode = endNode;
         }
 
-        /// <summary>Construct a bar from BHoM nodes and set number<summary>
+        /// <summary>
+        /// Construct a bar from BHoM nodes and set number
+        /// </summary>
+        /// <param name="barNumber"></param>
+        /// <param name="startNode"></param>
+        /// <param name="endNode"></param>
         public Bar(int barNumber, BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
         {
             this.Number = barNumber;
@@ -73,7 +82,11 @@ namespace BHoM.Structural
             this.EndNode = endNode;
         }
 
-        /// <summary>Get the node at the opposite end to the known (input) node</summary>
+        /// <summary>
+        /// Get the node at the opposite end to the known (input) node
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         public Node GetOtherEnd(Node node)
         {
             if (EndNode.Number == node.Number)
@@ -82,7 +95,10 @@ namespace BHoM.Structural
                 return EndNode;
         }
 
-        /// <summary>Set the bar number</summary>
+        /// <summary>
+        /// Set the bar number
+        /// </summary>
+        /// <param name="i"></param>
         public void SetNumber(int i)
         {
             this.Number = i;

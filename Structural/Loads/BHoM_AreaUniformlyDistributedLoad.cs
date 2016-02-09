@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Loads
 {
+    /// <summary>
+    /// Uniformly distributed area load
+    /// </summary>
     [Serializable]
     public class AreaUniformalyDistributedLoad
     {

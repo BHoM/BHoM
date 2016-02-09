@@ -7,23 +7,33 @@ using BHoM.Structural.SectionProperties;
 
 namespace BHoM.Structural
 {
+    /// <summary>
+    /// Structure class represents a collection of structural objects
+    /// </summary>
     [Serializable]
     public class Structure
     {
+        /// <summary>List of nodes</summary>
         public List<Node> Nodes { get; private set; }
+        /// <summary>List of bars</summary>
         public List<Bar> Bars { get; private set; }
+        /// <summary>List of faces</summary>
         public List<Face> Faces { get; private set; }
-        
+
+        /// <summary>Dictionary of constraints</summary>
         public Dictionary<string, BHoM.Structural.Constraints.Constraint> Constraints {get; private set;}
+        /// <summary>Dictionary of storeys</summary>
         public Dictionary<int, Storey> Storeys { get; private set; }
-
         
-                
-
+        /// <summary>List of section properties</summary>
         public List<ISectionProperty> SectionProperties { get;  private set; }
-        
+
+        /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
 
+        /// <summary>
+        /// Constructs an empty structure
+        /// </summary>
         public Structure()
         {
             Nodes = new List<Node>();
@@ -62,9 +72,10 @@ namespace BHoM.Structural
 
         /// <summary>
         /// Adds a beam in the structure. First checks uniqueness of end nodes with preexisting nodes in structure.
-        /// This is based on set tolerance of Structure, merging as appropriate
+        /// This is based on set tolerance of Structure, merging as appropriate 
         /// </summary>
-        /// <param name="element">The element to add</param>
+        /// <param name="startNode"></param>
+        /// <param name="endNode"></param>
         public void AddBar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
         {
             BHoM.Structural.Bar b = new BHoM.Structural.Bar(AddOrGetNode(startNode), AddOrGetNode(endNode));
@@ -75,22 +86,40 @@ namespace BHoM.Structural
         }
 
 
+        /// <summary>
+        /// Test whether a node number exists
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public bool NodeNumberClash(Node n)
         {
             return (Nodes.FindIndex(x => x.Number == n.Number) != -1);
         }
 
+        /// <summary>
+        /// Tests whether a bar number exists
+        /// </summary>
+        /// <param name="b"></param>
+        /// <returns></returns>
         public bool BarNumberClash(Bar b)
         {
             return (Bars.FindIndex(x => x.Number == b.Number) != -1);
         }
 
+        /// <summary>
+        /// Tests whether a face number exists
+        /// </summary>
+        /// <param name="f"></param>
+        /// <returns></returns>
         public bool FaceNumberClash(Face f)
         {
             return (Faces.FindIndex(x => x.Number == f.Number) != -1);
         }
 
-
+        /// <summary>
+        /// Find the maximum node number
+        /// </summary>
+        /// <returns></returns>
         public int FindMaxNodeNumber()
         {
             if(Nodes.Count > 0 )
@@ -98,6 +127,10 @@ namespace BHoM.Structural
             return 0;
         }
 
+        /// <summary>
+        /// Find the maximum bar number
+        /// </summary>
+        /// <returns></returns>
         public int FindMaxBarNumber()
         { 
             if (Bars.Count > 0)
@@ -105,6 +138,10 @@ namespace BHoM.Structural
             return 0;
         }
 
+        /// <summary>
+        /// Find the maximum face number
+        /// </summary>
+        /// <returns></returns>
         public int FindMaxFaceNumber()
         {
             if (Faces.Count > 0)
@@ -112,7 +149,9 @@ namespace BHoM.Structural
             return 0;
         }
 
-
+        /// <summary>
+        /// Set the structure topology
+        /// </summary>
         private void SetTopology()
         {
             foreach (Node n in Nodes)
@@ -133,16 +172,31 @@ namespace BHoM.Structural
 
         }
 
+        /// <summary>
+        /// Get a node by number
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public Node GetNodeByNumber(int n)
         {
             return Nodes.Find(delegate(Node node) { return node.Number == n; });
         }
 
+        /// <summary>
+        /// Get a bar by number
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public Bar GetBarByNumber(int n)
         {
             return Bars.Find(delegate(Bar bar) { return bar.Number == n; });
         }
 
+        /// <summary>
+        /// Get a face by number
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public Face GetFaceByNumber(int n)
         {
             return Faces.Find(delegate(Face face) { return face.Number == n; });
@@ -165,7 +219,7 @@ namespace BHoM.Structural
         }
 
         /// <summary>
-        /// 
+        /// Sort nodal faces
         /// </summary>
         /// <returns></returns>
         public bool SortNodalFaces()
@@ -331,7 +385,11 @@ namespace BHoM.Structural
             return false;
         }
 
-
+        /// <summary>
+        /// Find the nearest face
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public Face FindNearestFace(BHoM.Geometry.Point p)
         {
             double minD = Faces.Min(face => face.DistanceTo(p));
@@ -354,7 +412,11 @@ namespace BHoM.Structural
             Tolerance = tol;
         }
 
-
+        /// <summary>
+        /// Set a constraint
+        /// </summary>
+        /// <param name="constraint"></param>
+        /// <returns></returns>
         public BHoM.Structural.Constraints.Constraint SetConstraint(BHoM.Structural.Constraints.Constraint constraint)
         {
             if (this.Constraints.ContainsKey(constraint.Name))
