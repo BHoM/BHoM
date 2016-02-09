@@ -1,4 +1,5 @@
 ﻿
+
 namespace BHoM.Structural
 {
     /// <summary>
@@ -14,7 +15,7 @@ namespace BHoM.Structural
         /// <summary>Base constructor</summary>
         public SectionProperty()
         {
-       
+
         }
 
         /// <summary>Name of section propert - a user defined, instance based parameter</summary>
@@ -22,5 +23,14 @@ namespace BHoM.Structural
 
         /// <summary>Section type</summary>
         public string Type { get; set; }
+
+        /// <summary>Information regarding section property type for the user</summary>
+        public string Description { get; set; }
+
+        /// <summary>Section material</summary>
+        public BHoM.Materials.Material Material {get; set;}
+
+
+
     }
 }

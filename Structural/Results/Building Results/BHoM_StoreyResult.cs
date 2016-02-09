@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results
+namespace BHoM.Structural.Results.Building
 {
     /// <summary>
     /// Results for building storeys for use in multi/tall building post processing

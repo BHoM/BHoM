@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results
+namespace BHoM.Structural.Results.Global
 {
     /// <summary>
     /// This class is used to collect and inspect results for a 
