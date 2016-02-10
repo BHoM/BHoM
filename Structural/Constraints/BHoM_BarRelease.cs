@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BHoM.Structural.Constraints
+namespace BHoM.Structural
 {
     /// <summary>
     /// Bar release applicable to bar objects, contains BHoM.Structural.Constraint objects
@@ -11,17 +11,20 @@ namespace BHoM.Structural.Constraints
     /// </summary>
     public class BarRelease 
     {
+        /// <summary>BHoM unique ID</summary>
+        public System.Guid BHoM_Guid { get; private set; }
+
         /// <summary>Bar release name</summary>
         public string Name { get; private set; }
 
         /// <summary>Start constraint</summary>
-        public BHoM.Structural.Constraints.Constraint StartConstraint { get; private set; }
+        public BHoM.Structural.Constraint StartConstraint { get; private set; }
 
         /// <summary>End constraint</summary>
-        public BHoM.Structural.Constraints.Constraint EndConstraint { get; private set; }
+        public BHoM.Structural.Constraint EndConstraint { get; private set; }
 
         /// <summary>Construct a new constraint using constraint objects for start/end releases</summary>
-        public BarRelease(BHoM.Structural.Constraints.Constraint startConstraint, BHoM.Structural.Constraints.Constraint endConstraint)
+        public BarRelease(BHoM.Structural.Constraint startConstraint, BHoM.Structural.Constraint endConstraint)
         {
             this.StartConstraint = startConstraint;
             this.EndConstraint = endConstraint;
@@ -29,7 +32,7 @@ namespace BHoM.Structural.Constraints
         }
 
         /// <summary>Construct a new constraint using constraint objects for start/end releases and name</summary>          
-        public BarRelease(BHoM.Structural.Constraints.Constraint startConstraint, BHoM.Structural.Constraints.Constraint endConstraint, string name)
+        public BarRelease(BHoM.Structural.Constraint startConstraint, BHoM.Structural.Constraint endConstraint, string name)
         {
             this.StartConstraint = startConstraint;
             this.EndConstraint = endConstraint;

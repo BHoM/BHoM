@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Constraints
+namespace BHoM.Structural
 {
     /// <summary>
     /// Constraint object - base class for all release, restraint, support classes. 
@@ -13,6 +13,9 @@ namespace BHoM.Structural.Constraints
     [Serializable]
     public class Constraint 
     {
+        /// <summary>BHoM unique ID</summary>
+        public System.Guid BHoM_Guid { get; private set; }
+
         /// <summary>Constraint name</summary>
         public string Name { get; private set; }
 

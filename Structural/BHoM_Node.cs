@@ -14,12 +14,21 @@ namespace BHoM.Structural
     [Serializable]
     public class Node
     {
+        /// <summary>BHoM unique ID</summary>
+        public System.Guid BHoM_Guid { get; private set; }
+        /// <summary>Robot unique ID</summary>
+        public int Robot_Guid { get; private set; }
+        /// <summary>GSA unique ID</summary>
+        public int GSA_Guid { get; private set; }
+        /// <summary>ETABS unique ID</summary>
+        public int ETABS_Guid { get; private set; }
+
         /// <summary>Node number</summary>
         public int Number { get; private set; }
         /// <summary>Node position as a point object</summary>
-        public Point Position { get; private set; }
+        public Point Point { get; private set; }
         /// <summary>Node constraint (support/restraint)</summary>
-        public BHoM.Structural.Constraints.Constraint Constraint { get; private set; }
+        public BHoM.Structural.Constraint Constraint { get; private set; }
         /// <summary>Returns true is node is constrained</summary>
         public bool IsConstrained { get; private set; }
         /// <summary>Constraint name - is inherited from constraint object if exists</summary>
@@ -36,13 +45,13 @@ namespace BHoM.Structural
         public List<double> Angles { get; private set; }
         /// <summary>Coordinate system as a plane object</summary>
         public Plane CoordinateSystem { get; private set; }
-
+        
         /// <summary>
         /// Constructs an empty node object
         /// </summary>
         public Node()
         {
-            Position = new Point();
+            Point = new Point();
             Number = -1;
             Name = "";
             ConnectedBars = new List<Bar>();
@@ -66,7 +75,7 @@ namespace BHoM.Structural
         public Node(Point pos)
             : this()
         {
-            Position = pos.Duplicate(); ;
+            Point = pos.Duplicate(); ;
         }
 
         /// <summary>
@@ -78,7 +87,7 @@ namespace BHoM.Structural
         public Node(double x, double y, double z)
             :this()
         {
-            Position = new Point(x, y, z);       
+            Point = new Point(x, y, z);       
         }
 
         /// <summary>
@@ -102,7 +111,7 @@ namespace BHoM.Structural
             get
             {
                 if (Number < 0) { return false; }
-                if (!Position.IsValid) { return false; }
+                if (!Point.IsValid) { return false; }
                 return true;
             }
         }
@@ -130,8 +139,8 @@ namespace BHoM.Structural
         /// </summary>
         public double[] XYZ
         {
-            get { return Position.XYZ; }
-            set { Position.XYZ = value;}
+            get { return Point.XYZ; }
+            set { Point.XYZ = value;}
         }
 
         /// <summary>
@@ -139,10 +148,10 @@ namespace BHoM.Structural
         /// </summary>
         public double X
         {
-            get { return Position.X; }
+            get { return Point.X; }
             set
             { 
-                Position.X = value; 
+                Point.X = value; 
             }
         }
 
@@ -151,10 +160,10 @@ namespace BHoM.Structural
         /// </summary>
         public double Y
         {
-            get { return Position.Y; }
+            get { return Point.Y; }
             set
             {
-                Position.Y = value;
+                Point.Y = value;
             }
         }
 
@@ -163,10 +172,10 @@ namespace BHoM.Structural
         /// </summary>
         public double Z
         {
-            get { return Position.Z; }
+            get { return Point.Z; }
             set
             {
-                Position.Z = value;
+                Point.Z = value;
             }
         }
 
@@ -202,7 +211,7 @@ namespace BHoM.Structural
         /// Sets the constraint of a node
         /// </summary>
         /// <param name="constraint"></param>
-        public void SetConstraint(BHoM.Structural.Constraints.Constraint constraint)
+        public void SetConstraint(BHoM.Structural.Constraint constraint)
         {
             this.Constraint = constraint;
             this.ConstraintName = constraint.Name;
@@ -224,7 +233,7 @@ namespace BHoM.Structural
         /// </summary>
         public void SetCoordinateSystemAsDefault()
         {
-            this.CoordinateSystem = new Plane(Position);
+            this.CoordinateSystem = new Plane(Point);
         }
 
         /// <summary>
@@ -280,11 +289,11 @@ namespace BHoM.Structural
                 nodeRing.Add(b.GetOtherEnd(this));
 
             List<double> angleAccumulator = new List<double>(Valence);
-            Vector v0 = nodeRing[0].Position - this.Position;
+            Vector v0 = nodeRing[0].Point - this.Point;
             angleAccumulator.Add(0.0);
             for (int i = 1; i < Valence; i++)
             {
-                Vector v1 = nodeRing[i].Position - this.Position;
+                Vector v1 = nodeRing[i].Point - this.Point;
                 double angle = Vector.VectorAngle(v0, v1, CoordinateSystem.Z);
                 if (angle < 0) angle += 2.0 * Math.PI;
                 angleAccumulator.Add(angle);

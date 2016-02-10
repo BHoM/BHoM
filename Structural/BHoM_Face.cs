@@ -12,6 +12,9 @@ namespace BHoM.Structural
     [Serializable]
     public class Face
     {
+        /// <summary>BHoM unique ID</summary>
+        public System.Guid BHoM_Guid { get; private set; }
+
         /// <summary>Face number</summary>
         public int Number { get; set; }
         /// <summary>Group number</summary>
@@ -75,7 +78,7 @@ namespace BHoM.Structural
             List<BHoM.Geometry.Point> pts = new List<BHoM.Geometry.Point>(4);
 
             foreach (Node n in Nodes)
-                pts.Add(n.Position);
+                pts.Add(n.Point);
 
             return BHoM.Geometry.Point.Average(pts);
         }

@@ -38,6 +38,8 @@ Thumbs.db
 
 # build folders #
 ###############
+/bin/
+/obj/
 */bin/
 */obj/
 Build/

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BHoM.Structural.SectionProperties;
 
 namespace BHoM.Structural
@@ -13,15 +11,20 @@ namespace BHoM.Structural
     [Serializable]
     public class Structure
     {
+        /// <summary>BHoM unique ID</summary>
+        public System.Guid BHoM_Guid { get; private set; }
+
         /// <summary>List of nodes</summary>
-        public List<Node> Nodes { get; private set; }
+        public Dictionary<int, Node> Nodes { get; private set; }
         /// <summary>List of bars</summary>
-        public List<Bar> Bars { get; private set; }
+        public Dictionary<int, Bar> Bars { get; private set; }
         /// <summary>List of faces</summary>
-        public List<Face> Faces { get; private set; }
+        public Dictionary<int,Face> Faces { get; private set; }
+
+
 
         /// <summary>Dictionary of constraints</summary>
-        public Dictionary<string, BHoM.Structural.Constraints.Constraint> Constraints {get; private set;}
+        public Dictionary<string, BHoM.Structural.Constraint> Constraints {get; private set;}
         /// <summary>Dictionary of storeys</summary>
         public Dictionary<int, Storey> Storeys { get; private set; }
         
@@ -36,10 +39,10 @@ namespace BHoM.Structural
         /// </summary>
         public Structure()
         {
-            Nodes = new List<Node>();
-            Bars = new List<Bar>();
-            Faces = new List<Face>();
-            Constraints = new Dictionary<string, BHoM.Structural.Constraints.Constraint>();
+            Nodes = new Dictionary<int, Node>();
+            Bars = new Dictionary<int,Bar>();
+            Faces = new Dictionary<int,Face>();
+            Constraints = new Dictionary<string, BHoM.Structural.Constraint>();
         }
  
       
@@ -52,7 +55,7 @@ namespace BHoM.Structural
         {
             if (NodeNumberClash(node) || !node.HasValidNumber())
                 node.SetNumber(FindMaxNodeNumber() + 1);
-            Nodes.Add(node);
+            Nodes.Add(node.Number, node);
         }
 
 
@@ -63,7 +66,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Node AddOrGetNode(Node n)
         {
-            foreach (Node n1 in Nodes)
+            foreach (Node n1 in Nodes.Values.ToList())
                 if (Math.Abs(n1.X - n.X) < Tolerance && Math.Abs(n1.Y - n.Y) < Tolerance && Math.Abs(n1.Z - n.Z) < Tolerance)
                     return n1;
             AddNode(n);
@@ -82,7 +85,7 @@ namespace BHoM.Structural
 
             if (BarNumberClash(b)) b.SetNumber(FindMaxBarNumber() + 1);
             
-            Bars.Add(b);
+            Bars.Add(b.Number,b);
         }
 
 
@@ -93,7 +96,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public bool NodeNumberClash(Node n)
         {
-            return (Nodes.FindIndex(x => x.Number == n.Number) != -1);
+            return (Nodes.Values.ToList().FindIndex(x => x.Number == n.Number) != -1);
         }
 
         /// <summary>
@@ -103,7 +106,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public bool BarNumberClash(Bar b)
         {
-            return (Bars.FindIndex(x => x.Number == b.Number) != -1);
+            return (Bars.Values.ToList().FindIndex(x => x.Number == b.Number) != -1);
         }
 
         /// <summary>
@@ -113,7 +116,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public bool FaceNumberClash(Face f)
         {
-            return (Faces.FindIndex(x => x.Number == f.Number) != -1);
+            return (Faces.Values.ToList().FindIndex(x => x.Number == f.Number) != -1);
         }
 
         /// <summary>
@@ -123,7 +126,7 @@ namespace BHoM.Structural
         public int FindMaxNodeNumber()
         {
             if(Nodes.Count > 0 )
-                return Nodes.Max(x => x.Number);
+                return Nodes.Values.ToList().Max(x => x.Number);
             return 0;
         }
 
@@ -134,7 +137,7 @@ namespace BHoM.Structural
         public int FindMaxBarNumber()
         { 
             if (Bars.Count > 0)
-                return Bars.Max(x => x.Number);
+                return Bars.Values.ToList().Max(x => x.Number);
             return 0;
         }
 
@@ -145,7 +148,7 @@ namespace BHoM.Structural
         public int FindMaxFaceNumber()
         {
             if (Faces.Count > 0)
-                return Faces.Max(x => x.Number);
+                return Faces.Values.ToList().Max(x => x.Number);
             return 0;
         }
 
@@ -154,17 +157,17 @@ namespace BHoM.Structural
         /// </summary>
         private void SetTopology()
         {
-            foreach (Node n in Nodes)
+            foreach (Node n in Nodes.Values.ToList())
                 n.ResetTopology();
 
-            foreach(Bar b in Bars)
+            foreach(Bar b in Bars.Values.ToList())
             {
                 ////lace up topology
                 b.StartNode.AddBar(b);
                 b.EndNode.AddBar(b);
             }
 
-            foreach(Face f in Faces)
+            foreach(Face f in Faces.Values.ToList())
             {
 
 
@@ -179,7 +182,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Node GetNodeByNumber(int n)
         {
-            return Nodes.Find(delegate(Node node) { return node.Number == n; });
+            return Nodes.Values.ToList().Find(delegate(Node node) { return node.Number == n; });
         }
 
         /// <summary>
@@ -189,7 +192,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Bar GetBarByNumber(int n)
         {
-            return Bars.Find(delegate(Bar bar) { return bar.Number == n; });
+            return Bars.Values.ToList().Find(delegate(Bar bar) { return bar.Number == n; });
         }
 
         /// <summary>
@@ -199,7 +202,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Face GetFaceByNumber(int n)
         {
-            return Faces.Find(delegate(Face face) { return face.Number == n; });
+            return Faces.Values.ToList().Find(delegate(Face face) { return face.Number == n; });
         }
 
 
@@ -210,7 +213,7 @@ namespace BHoM.Structural
         /// <returns>True if succeded</returns>
         public bool SortNodalBars()
         {
-            foreach (Node n in Nodes)
+            foreach (Node n in Nodes.Values.ToList())
             {
                 n.SetCoordinateSystemAsDefault();
                 n.SortConnectedBars();
@@ -247,7 +250,7 @@ namespace BHoM.Structural
 
             SortNodalBars();
 
-            foreach (Node n0 in Nodes)
+            foreach (Node n0 in Nodes.Values.ToList())
             {
                 if (n0.Valence < 2) continue;
 
@@ -279,7 +282,7 @@ namespace BHoM.Structural
                         face.Edges.Add(b0);
                         face.Edges.Add(b1);
                         face.Edges.Add(b2);
-                        Faces.Add(face); //TODO: check for uniqueness
+                        Faces.Add(face.Number,face); //TODO: check for uniqueness
 
                     }
                     else
@@ -299,7 +302,7 @@ namespace BHoM.Structural
                                 face.Edges.Add(b3);
                                 n0.AddFace(face);
                                 face.Number = Faces.Count + 1;
-                                Faces.Add(face);
+                                Faces.Add(face.Number,face);
                             }
                         }
 
@@ -322,7 +325,7 @@ namespace BHoM.Structural
             List<int> fnum0 = new List<int>(new int[] { f.Nodes[0].Number, f.Nodes[1].Number, f.Nodes[2].Number, f.Nodes[3].Number });
             fnum0.Sort();
 
-            foreach (Face face in Faces)
+            foreach (Face face in Faces.Values.ToList())
             {
                 List<int> fnum1 = new List<int>(new int[] { face.Nodes[0].Number, face.Nodes[1].Number, face.Nodes[2].Number, face.Nodes[3].Number });
                 fnum1.Sort();
@@ -392,9 +395,9 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Face FindNearestFace(BHoM.Geometry.Point p)
         {
-            double minD = Faces.Min(face => face.DistanceTo(p));
+            double minD = Faces.Values.ToList().Min(face => face.DistanceTo(p));
 
-            foreach (Face face in Faces)
+            foreach (Face face in Faces.Values.ToList())
                 if (face.DistanceTo(p) == minD) return face;
 
             return null;
@@ -417,7 +420,7 @@ namespace BHoM.Structural
         /// </summary>
         /// <param name="constraint"></param>
         /// <returns></returns>
-        public BHoM.Structural.Constraints.Constraint SetConstraint(BHoM.Structural.Constraints.Constraint constraint)
+        public BHoM.Structural.Constraint SetConstraint(BHoM.Structural.Constraint constraint)
         {
             if (this.Constraints.ContainsKey(constraint.Name))
             {

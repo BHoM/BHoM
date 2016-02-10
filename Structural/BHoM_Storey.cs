@@ -11,6 +11,15 @@ namespace BHoM.Structural
     /// </summary>
     public class Storey
     {
+        /// <summary>BHoM unique ID</summary>
+        public System.Guid BHoM_Guid { get; private set; }
+        /// <summary>Robot unique ID</summary>
+        public int Robot_Guid { get; private set; }
+        /// <summary>GSA unique ID</summary>
+        public int GSA_Guid { get; private set; }
+        /// <summary>ETABS unique ID</summary>
+        public int ETABS_Guid { get; private set; }
+
         /// <summary>Storey number</summary>
         public int Number { get; private set; }
         /// <summary>Storey level (in metres)</summary>
@@ -73,7 +82,5 @@ namespace BHoM.Structural
         {
             this.Height = height;
         }
-
-      
     }
 }

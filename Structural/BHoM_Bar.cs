@@ -1,26 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BHoM.Structural
+﻿namespace BHoM.Structural
 {
     /// <summary>
     /// Bar objects for 2D finite element bars. Note, cable elements separate.
     /// </summary>
     public class Bar
     {
+        /// <summary>BHoM unique ID</summary>
+        public System.Guid BHoM_Guid { get; private set; }
+        /// <summary>Robot unique ID</summary>
+        public int Robot_Guid { get; private set; }
+        /// <summary>GSA unique ID</summary>
+        public int GSA_Guid { get; private set; }
+        /// <summary>ETABS unique ID</summary>
+        public int ETABS_Guid { get; private set; }
+
         /// <summary>Bar number</summary>
         public int Number { get; private set; }
+
         /// <summary>Bar name</summary>
         public string Name { get; private set; }
+
         /// <summary>
         /// Design type name for design purposes (e.g. Simple Column). Can be used to help 
         /// downstream selections/filters but shouldn't be confused with Groups, which are 
         /// unique to bars (bars and objects can be added to multiple object groups).
         /// </summary>
-        public string DesignTypeName { get; private set; }
+        public string DesignGroupName { get; private set; }
         
         /// <summary>Section property name inherited from section property</summary>
         public string SectionPropertyName { get; private set; }
@@ -35,7 +40,7 @@ namespace BHoM.Structural
         public string MaterialPropertyName { get; private set; }
 
         /// <summary>Releases</summary>
-        public BHoM.Structural.Constraints.BarRelease Release { get; private set; }
+        public BHoM.Structural.BarRelease Release { get; private set; }
 
         /// <summary>Release name is generated from the start and end BHoM.Structural.</summary>
         public string ReleaseName { get; private set; }
@@ -53,6 +58,9 @@ namespace BHoM.Structural
         /// vertical if the distance between end points projected to a horizontal plane is less than 0.0001
         /// </summary>
         public double OrientationAngle { get; set; }
+
+        /// <summary>Storey of the building that the bar is assigned to</summary>
+        public BHoM.Structural.Storey Storey { get; private set; }
 
         ////////////////////
         ////CONSTRUCTORS////
@@ -82,6 +90,10 @@ namespace BHoM.Structural
             this.EndNode = endNode;
         }
 
+        ///////////////
+        ////METHODS////
+        ///////////////
+
         /// <summary>
         /// Get the node at the opposite end to the known (input) node
         /// </summary>
@@ -103,6 +115,25 @@ namespace BHoM.Structural
         {
             this.Number = i;
         }
-    
+
+        /// <summary>
+        /// Set the storey which the bar belongs to
+        /// </summary>
+        /// <param name="storey"></param>
+        public void SetStorey(BHoM.Structural.Storey storey)
+        {
+            this.Storey = storey;
+        }
+
+        /// <summary>
+        /// Set the section property name. 
+        /// </summary>
+        /// <param name="sectionPropertyName"></param>
+        public void SetSectionPropertyName(string sectionPropertyName)
+        {
+            this.SectionPropertyName = sectionPropertyName;
+        }
+
+
     }
 }
