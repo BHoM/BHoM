@@ -12,40 +12,55 @@ namespace BHoM.Structural
     /// Node objects
     /// </summary>
     [Serializable]
-    public class Node
+    public class Node : IStructuralObject
     {
-        /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_Guid { get; private set; }
-        /// <summary>Robot unique ID</summary>
-        public int Robot_Guid { get; private set; }
-        /// <summary>GSA unique ID</summary>
-        public int GSA_Guid { get; private set; }
-        /// <summary>ETABS unique ID</summary>
-        public int ETABS_Guid { get; private set; }
+        /////////////////
+        ////Properties///
+        /////////////////
+
+        /// <summary>BHoM object ID</summary>
+        public Guid BHoM_ID { get { return BHoM_ID; } private set { SetBHoM_ID(); } }
 
         /// <summary>Node number</summary>
         public int Number { get; private set; }
+
+        /// <summary>Node name</summary>
+        public string Name { get; private set; }
+
+        /// <summary>BHoM User Test</summary>
+        public string UserText { get { return UserText; } set { UserText = value; } }
+
         /// <summary>Node position as a point object</summary>
         public Point Point { get; private set; }
+
         /// <summary>Node constraint (support/restraint)</summary>
         public BHoM.Structural.Constraint Constraint { get; private set; }
+
         /// <summary>Returns true is node is constrained</summary>
         public bool IsConstrained { get; private set; }
+
         /// <summary>Constraint name - is inherited from constraint object if exists</summary>
         public string ConstraintName { get; private set; }
-        /// <summary>Node name</summary>
-        public string Name { get; private set;}
+
         /// <summary>Bars connected to the node</summary>
         public List<Bar> ConnectedBars { get; private set; }
+
         /// <summary>Faces connected to the node</summary>
         public List<Face> ConnectedFaces { get; private set; }
+
         /// <summary>Valence of node</summary>
         public int Valence { get; private set; }
+
         /// <summary>Angles between connected bars</summary>
         public List<double> Angles { get; private set; }
+
         /// <summary>Coordinate system as a plane object</summary>
         public Plane CoordinateSystem { get; private set; }
-        
+
+        ///////////////////
+        ////Constructors///
+        ///////////////////
+
         /// <summary>
         /// Constructs an empty node object
         /// </summary>
@@ -56,26 +71,27 @@ namespace BHoM.Structural
             Name = "";
             ConnectedBars = new List<Bar>();
             ConnectedFaces = new List<Face>();
+            SetBHoM_ID();
         }
 
         /// <summary>
-        /// Constructes an empty node from a number
+        /// Constructs an empty node from a number
         /// </summary>
-        /// <param name="index"></param>
-        public Node(int index)
+        /// <param name="number"></param>
+        public Node(int number)
             :this()
         {
-            Number = index;
+            Number = number;
         }
 
         /// <summary>
         /// Constructes a node from a point
         /// </summary>
-        /// <param name="pos"></param>
-        public Node(Point pos)
+        /// <param name="point"></param>
+        public Node(Point point)
             : this()
         {
-            Point = pos.Duplicate(); ;
+            Point = point.Duplicate(); 
         }
 
         /// <summary>
@@ -87,7 +103,7 @@ namespace BHoM.Structural
         public Node(double x, double y, double z)
             :this()
         {
-            Point = new Point(x, y, z);       
+            Point = new Point(x, y, z);
         }
 
         /// <summary>
@@ -96,11 +112,11 @@ namespace BHoM.Structural
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="z"></param>
-        /// <param name="index"></param>
-        public Node(double x, double y, double z, int index)
+        /// <param name="number"></param>
+        public Node(double x, double y, double z, int number)
             :this(x,y,z)
         {
-            Number = index;
+            Number = number;
         }
 
         /// <summary>
@@ -125,13 +141,25 @@ namespace BHoM.Structural
             return Number > 0; 
         }
 
+        //////////////
+        ////Methods///
+        //////////////
+
+        /// <summary>
+        /// Sets the unique object ID
+        /// </summary>
+        private void SetBHoM_ID()
+        {
+            this.BHoM_ID = new Guid();
+        }
+
         /// <summary>
         /// Sets the node number
         /// </summary>
-        /// <param name="i"></param>
-        public void SetNumber(int i)
+        /// <param name="number"></param>
+        public void SetNumber(int number)
         {
-            this.Number = i;
+            this.Number = number;
         }
 
         /// <summary>

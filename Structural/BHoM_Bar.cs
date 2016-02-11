@@ -1,32 +1,36 @@
-﻿namespace BHoM.Structural
+﻿using System;
+using BHoM.Planning;
+
+namespace BHoM.Structural 
 {
     /// <summary>
-    /// Bar objects for 2D finite element bars. Note, cable elements separate.
+    /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Bar
+    public class Bar : IStructuralObject
     {
-        /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_Guid { get; private set; }
-        /// <summary>Robot unique ID</summary>
-        public int Robot_Guid { get; private set; }
-        /// <summary>GSA unique ID</summary>
-        public int GSA_Guid { get; private set; }
-        /// <summary>ETABS unique ID</summary>
-        public int ETABS_Guid { get; private set; }
+        /////////////////
+        ////Properties///
+        /////////////////
+
+        /// <summary>BHoM object ID</summary>
+        public Guid BHoM_ID { get { return BHoM_ID; } private set { SetBHoM_ID(); } }
 
         /// <summary>Bar number</summary>
-        public int Number { get; private set; }
-
+        public int Number { get { return Number; } private set { } }
+                
         /// <summary>Bar name</summary>
-        public string Name { get; private set; }
-
+        public string Name { get { return Name; } private set { } }
+              
+        /// <summary>BHoM User Test</summary>
+        public string UserText { get { return UserText; } set { UserText = value; } }
+        
         /// <summary>
         /// Design type name for design purposes (e.g. Simple Column). Can be used to help 
         /// downstream selections/filters but shouldn't be confused with Groups, which are 
         /// unique to bars (bars and objects can be added to multiple object groups).
         /// </summary>
         public string DesignGroupName { get; private set; }
-        
+
         /// <summary>Section property name inherited from section property</summary>
         public string SectionPropertyName { get; private set; }
 
@@ -51,6 +55,7 @@
         /// <summary>End node</summary>
         public Node EndNode { get; private set; }
 
+
         /// <summary>
         /// Bar orientation angle. For non-vertical bars, angle is measured in the bar YZ plane
         /// betwen the Y axis and the Y vector projected one a vertical plane defined by the start and end
@@ -59,12 +64,22 @@
         /// </summary>
         public double OrientationAngle { get; set; }
 
+        /// <summary>Construction phase</summary>
+        public BHoM.Planning.Construction.ConstructionPhase ConstructionPhase {get; set;}
+
+
         /// <summary>Storey of the building that the bar is assigned to</summary>
         public BHoM.Structural.Storey Storey { get; private set; }
 
+        
         ////////////////////
         ////CONSTRUCTORS////
         ////////////////////
+
+        /// <summary>
+        /// Construct an empty bar object
+        /// </summary>
+        public Bar(){}
 
         /// <summary>
         /// Construct a bar from BHoM nodes
@@ -95,6 +110,32 @@
         ///////////////
 
         /// <summary>
+        /// Sets the unique object ID
+        /// </summary>
+        private void SetBHoM_ID()
+        {
+            this.BHoM_ID = new Guid();
+        }
+
+        /// <summary>
+        /// Sets the bar number
+        /// </summary>
+        /// <param name="number"></param>
+        public void SetNumber(int number)
+        {
+            this.Number = number;
+        }
+
+        /// <summary>
+        /// Sets the bar name
+        /// </summary>
+        /// <param name="name"></param>
+        public void SetName(string name)
+        {
+            this.Name = name;
+        }
+
+        /// <summary>
         /// Get the node at the opposite end to the known (input) node
         /// </summary>
         /// <param name="node"></param>
@@ -105,15 +146,6 @@
                 return StartNode;
             else
                 return EndNode;
-        }
-
-        /// <summary>
-        /// Set the bar number
-        /// </summary>
-        /// <param name="i"></param>
-        public void SetNumber(int i)
-        {
-            this.Number = i;
         }
 
         /// <summary>
@@ -134,6 +166,14 @@
             this.SectionPropertyName = sectionPropertyName;
         }
 
+        /// <summary>
+        /// Set the design group name
+        /// </summary>
+        /// <param name="designGroupName"></param>
+        public void SetDesignGroupName(string designGroupName)
+        {
+            this.DesignGroupName = designGroupName;
+        }
 
     }
 }

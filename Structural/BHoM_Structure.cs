@@ -88,7 +88,6 @@ namespace BHoM.Structural
             Bars.Add(b.Number,b);
         }
 
-
         /// <summary>
         /// Test whether a node number exists
         /// </summary>

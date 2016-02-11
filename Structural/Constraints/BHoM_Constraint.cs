@@ -36,6 +36,13 @@ namespace BHoM.Structural
         /// <summary>Constraint ID object</summary>
         public ConstraintId ID { get; private set; }
 
+        /// <summary>
+        /// Construct an empty constraint object
+        /// </summary>
+        public Constraint()
+        {
+        }
+
         /// <summary>Construct a constraint from DOF objects. Any constraint 
         /// type (linear/non-linear) may be constructed using this.</summary>  
         public Constraint(DOF x, DOF y, DOF z, DOF xx, DOF yy, DOF zz)

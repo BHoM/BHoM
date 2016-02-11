@@ -43,9 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Structural\Structural Framing\BHoM_Brace.cs" />
-    <Compile Include="Structural\Structural Framing\BHoM_Column.cs" />
-    <Compile Include="Structural\Structural Framing\BHoM_Beam.cs" />
+    <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
+    <Compile Include="Planning\Construction\BHoM_IPhase.cs" />
+    <Compile Include="Structural\BHoM_IStructuralObject.cs" />
+    <Compile Include="Structural\BHoM_SuperBar.cs" />
     <Compile Include="HumanBody\BHoM_BodyParts.cs" />
     <Compile Include="HumanBody\BHoM_Skeleton.cs" />
     <Compile Include="Geometry\BHoM_Plane.cs" />
