@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Materials\Concrete\BHoM_RCGrade_C25.cs" />
+    <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
+    <Compile Include="Materials\Steel\BHoM_ISteel.cs" />
+    <Compile Include="Materials\Concrete\BHoM_IConcrete.cs" />
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
-    <Compile Include="Planning\Construction\BHoM_IPhase.cs" />
+    <Compile Include="Planning\BHoM_IPhase.cs" />
     <Compile Include="Structural\BHoM_IStructuralObject.cs" />
     <Compile Include="Structural\BHoM_SuperBar.cs" />
     <Compile Include="HumanBody\BHoM_BodyParts.cs" />
@@ -57,7 +61,7 @@
     <Compile Include="Geometry\BHoM_Surface.cs" />
     <Compile Include="Geometry\BHoM_Point.cs" />
     <Compile Include="Geometry\BHoM_Vector.cs" />
-    <Compile Include="Materials\BHoM_Materials.cs" />
+    <Compile Include="Materials\BHoM_IMaterial.cs" />
     <Compile Include="Materials\BHoM_MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structural\Constraints\BHoM_Constraint.cs" />
@@ -100,7 +104,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Build\$(ProjectName).dll"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Build\$(ProjectName).dll"
+copy /Y "$(TargetDir)$(ProjectName).dll" "C:\Users\rmay\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).dll"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -13,13 +13,13 @@ namespace BHoM.Structural
         /////////////////
 
         /// <summary>BHoM object ID</summary>
-        public Guid BHoM_ID { get { return BHoM_ID; } private set { SetBHoM_ID(); } }
+        public Guid BHoM_ID { get; private set; }
 
         /// <summary>Bar number</summary>
-        public int Number { get { return Number; } private set { } }
+        public int Number { get; set; }
                 
         /// <summary>Bar name</summary>
-        public string Name { get { return Name; } private set { } }
+        public string Name { get; set; }
               
         /// <summary>BHoM User Test</summary>
         public string UserText { get { return UserText; } set { UserText = value; } }
@@ -100,9 +100,11 @@ namespace BHoM.Structural
         /// <param name="endNode"></param>
         public Bar(int barNumber, BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
         {
+            this.SetNumber(barNumber);
             this.Number = barNumber;
             this.StartNode = startNode;
             this.EndNode = endNode;
+            this.SetBHoM_ID();
         }
 
         ///////////////
@@ -114,7 +116,8 @@ namespace BHoM.Structural
         /// </summary>
         private void SetBHoM_ID()
         {
-            this.BHoM_ID = new Guid();
+            
+            this.BHoM_ID = Guid.NewGuid();
         }
 
         /// <summary>

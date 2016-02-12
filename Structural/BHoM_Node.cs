@@ -19,13 +19,13 @@ namespace BHoM.Structural
         /////////////////
 
         /// <summary>BHoM object ID</summary>
-        public Guid BHoM_ID { get { return BHoM_ID; } private set { SetBHoM_ID(); } }
+        public Guid BHoM_ID { get; private set; }
 
         /// <summary>Node number</summary>
-        public int Number { get; private set; }
+        public int Number { get; set; }
 
         /// <summary>Node name</summary>
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>BHoM User Test</summary>
         public string UserText { get { return UserText; } set { UserText = value; } }
@@ -71,7 +71,7 @@ namespace BHoM.Structural
             Name = "";
             ConnectedBars = new List<Bar>();
             ConnectedFaces = new List<Face>();
-            SetBHoM_ID();
+            //SetBHoM_ID();
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace BHoM.Structural
         /// </summary>
         private void SetBHoM_ID()
         {
-            this.BHoM_ID = new Guid();
+           //this.BHoM_ID = new Guid();
         }
 
         /// <summary>
