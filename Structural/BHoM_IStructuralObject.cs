@@ -8,12 +8,9 @@ namespace BHoM.Structural
     /// </summary>
     public interface IStructuralObject
     {
-        /// <summary>BHoM unique ID</summary>
-        System.Guid BHoM_ID { get; }
-
-        /// <summary>User text input. Can be used to store user information in an object
-        /// such as a user ID or a project specific parameter</summary>
-        string UserText { get; set; }
+        /////////////////
+        ////Properties///
+        /////////////////
 
         /// <summary>Object number</summary>
         int Number { get; }
@@ -26,5 +23,12 @@ namespace BHoM.Structural
 
         /// <summary>Set object name</summary>
         void SetName(string name);
+
+        //////////////
+        ////Methods///
+        //////////////
+
+        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        Dictionary<string, object> GetProperties();
     }
 }

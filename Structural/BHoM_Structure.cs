@@ -262,14 +262,14 @@ namespace BHoM.Structural
                     //get pair of adjacent bars - iPlus1 wraps round to 0 when count is met
                     int iPlus1 = (i + 1) % sortedBars.Count;
 
-                    if (n0.Angles[i] > 180) break; // not creating convex faces
+                    if (n0.BarDeltaAngles[i] > 180) break; // not creating convex faces
 
                     Bar b0 = sortedBars[i];
                     Bar b1 = sortedBars[iPlus1];
 
                     //get the two nodes at the other two ends.
-                    Node n1 = b0.GetOtherEnd(n0);
-                    Node n2 = b1.GetOtherEnd(n0);
+                    Node n1 = b0.GetOppositeNode(n0);
+                    Node n2 = b1.GetOppositeNode(n0);
 
 
                     //Check to see if a bar connecting to node1 also connects to node2 
@@ -363,14 +363,14 @@ namespace BHoM.Structural
 
             foreach (Bar bar0 in bars0)
             {
-                node3 = bar0.GetOtherEnd(node0);
+                node3 = bar0.GetOppositeNode(node0);
                 int number = node3.Number;
 
                 if (number == numExclude) continue;
 
                 foreach (Bar bar1 in bars1)
                 {
-                    if (bar1.GetOtherEnd(node1).Number == number)
+                    if (bar1.GetOppositeNode(node1).Number == number)
                     {
                         bar2 = bar0;
                         bar3 = bar1;

@@ -12,14 +12,14 @@ namespace BHoM.Structural
     /// Node objects
     /// </summary>
     [Serializable]
-    public class Node : IStructuralObject
+    public class Node : BHoM.Global.BHoMObject, IStructuralObject
     {
         /////////////////
         ////Properties///
         /////////////////
 
         /// <summary>BHoM object ID</summary>
-        public Guid BHoM_ID { get; private set; }
+        public new Guid BHoM_ID { get; private set; }
 
         /// <summary>Node number</summary>
         public int Number { get; set; }
@@ -28,7 +28,7 @@ namespace BHoM.Structural
         public string Name { get; set; }
 
         /// <summary>BHoM User Test</summary>
-        public string UserText { get { return UserText; } set { UserText = value; } }
+        public new string UserText { get; set; }
 
         /// <summary>Node position as a point object</summary>
         public Point Point { get; private set; }
@@ -51,11 +51,18 @@ namespace BHoM.Structural
         /// <summary>Valence of node</summary>
         public int Valence { get; private set; }
 
-        /// <summary>Angles between connected bars</summary>
-        public List<double> Angles { get; private set; }
+        /// <summary>Absolute angles between connected bars (direct measurement of bar vectors)</summary>
+        public List<double> BarAbsoluteAngles { get; private set; }
 
-        /// <summary>Coordinate system as a plane object</summary>
-        public Plane CoordinateSystem { get; private set; }
+        /// <summary>Delta angles between connected bars measured in the node plane</summary>
+        public List<double> BarDeltaAngles { get; private set; }
+
+        /// <summary>Theta angles between connected bars measured in the node plane</summary>
+        public List<double> BarThetaAngles { get; private set; }
+
+        /// <summary>Node plane for angular and setting out methods</summary>
+        public Plane Plane { get; private set; }
+
 
         ///////////////////
         ////Constructors///
@@ -71,7 +78,7 @@ namespace BHoM.Structural
             Name = "";
             ConnectedBars = new List<Bar>();
             ConnectedFaces = new List<Face>();
-            //SetBHoM_ID();
+            SetBHoM_ID();
         }
 
         /// <summary>
@@ -261,7 +268,7 @@ namespace BHoM.Structural
         /// </summary>
         public void SetCoordinateSystemAsDefault()
         {
-            this.CoordinateSystem = new Plane(Point);
+            this.Plane = new Plane(Point);
         }
 
         /// <summary>
@@ -270,7 +277,7 @@ namespace BHoM.Structural
         /// <param name="coordinateSystem"></param>
         public void SetCoordinateSystem(Plane coordinateSystem)
         {
-            this.CoordinateSystem = coordinateSystem;
+            this.Plane = coordinateSystem;
         }
 
         /// <summary>
@@ -314,7 +321,7 @@ namespace BHoM.Structural
 
             List<Node> nodeRing = new List<Node>(Valence);
             foreach (Bar b in ConnectedBars)
-                nodeRing.Add(b.GetOtherEnd(this));
+                nodeRing.Add(b.GetOppositeNode(this));
 
             List<double> angleAccumulator = new List<double>(Valence);
             Vector v0 = nodeRing[0].Point - this.Point;
@@ -322,7 +329,7 @@ namespace BHoM.Structural
             for (int i = 1; i < Valence; i++)
             {
                 Vector v1 = nodeRing[i].Point - this.Point;
-                double angle = Vector.VectorAngle(v0, v1, CoordinateSystem.Z);
+                double angle = Vector.VectorAngle(v0, v1, Plane.Z);
                 if (angle < 0) angle += 2.0 * Math.PI;
                 angleAccumulator.Add(angle);
             }
@@ -374,13 +381,34 @@ namespace BHoM.Structural
         /// <returns></returns>
         private void SetAngles(List<double> angleAccumulator)
         {
-            Angles = new List<double>(angleAccumulator.Count);
+            BarDeltaAngles = new List<double>(angleAccumulator.Count);
             for (int i = 1; i < angleAccumulator.Count; i++)
-                Angles.Add(angleAccumulator[i] - angleAccumulator[i - 1]);
+                BarDeltaAngles.Add(angleAccumulator[i] - angleAccumulator[i - 1]);
 
-            Angles.Add(2.0 * Math.PI - angleAccumulator.Last());
+            BarDeltaAngles.Add(2.0 * Math.PI - angleAccumulator.Last());
+         }
 
+        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        public Dictionary<string, object> GetProperties()
+        {
+            Dictionary<string, object> PropertiesDictionary = new Dictionary<string, object>();
+            PropertiesDictionary.Add("Number", this.Number);
+            PropertiesDictionary.Add("Name", this.Name);
+            PropertiesDictionary.Add("XYZ", this.XYZ);
+            PropertiesDictionary.Add("Point", this.Point);
+            PropertiesDictionary.Add("Plane", this.Plane);
+            PropertiesDictionary.Add("Constraint", this.Constraint);
+            PropertiesDictionary.Add("ConstraintName", this.ConstraintName);
+            PropertiesDictionary.Add("ConnectedBars", this.ConnectedBars);
+            PropertiesDictionary.Add("ConnectedFaces", this.ConnectedFaces);
+            PropertiesDictionary.Add("BarAbsoluteAngles", this.BarAbsoluteAngles);
+            PropertiesDictionary.Add("BarDeltaAngles", this.BarDeltaAngles);
+            PropertiesDictionary.Add("BarThetaAngles", this.BarThetaAngles);
+            PropertiesDictionary.Add("UserText", this.UserText);
+            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+
+            return PropertiesDictionary;
         }
-     }
+    }
 }
     

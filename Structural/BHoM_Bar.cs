@@ -1,28 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using BHoM.Planning;
+using BHoM.Global;
 
 namespace BHoM.Structural 
 {
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Bar : IStructuralObject
+    public class Bar : BHoM.Global.BHoMObject, IStructuralObject
     {
         /////////////////
         ////Properties///
         /////////////////
 
-        /// <summary>BHoM object ID</summary>
-        public Guid BHoM_ID { get; private set; }
+        /// <summary>BHoM object global ID</summary>
+        public new Guid BHoM_ID { get; private set; }
 
+        /// <summary>User text</summary>
+        public new string UserText { get; set; }
+        
         /// <summary>Bar number</summary>
         public int Number { get; set; }
                 
         /// <summary>Bar name</summary>
-        public string Name { get; set; }
-              
-        /// <summary>BHoM User Test</summary>
-        public string UserText { get { return UserText; } set { UserText = value; } }
+        public string Name { get; set; }     
         
         /// <summary>
         /// Design type name for design purposes (e.g. Simple Column). Can be used to help 
@@ -55,6 +57,11 @@ namespace BHoM.Structural
         /// <summary>End node</summary>
         public Node EndNode { get; private set; }
 
+        /// <summary>The line defining the bar centre or location line</summary>
+        public BHoM.Geometry.Line Line { get; private set; }
+
+        /// <summary>Bar length</summary>
+        public double Length { get; private set; }
 
         /// <summary>
         /// Bar orientation angle. For non-vertical bars, angle is measured in the bar YZ plane
@@ -67,11 +74,10 @@ namespace BHoM.Structural
         /// <summary>Construction phase</summary>
         public BHoM.Planning.Construction.ConstructionPhase ConstructionPhase {get; set;}
 
-
         /// <summary>Storey of the building that the bar is assigned to</summary>
         public BHoM.Structural.Storey Storey { get; private set; }
 
-        
+
         ////////////////////
         ////CONSTRUCTORS////
         ////////////////////
@@ -79,7 +85,12 @@ namespace BHoM.Structural
         /// <summary>
         /// Construct an empty bar object
         /// </summary>
-        public Bar(){}
+        public Bar()
+        {
+            StartNode = new Node();
+            EndNode = new Node();
+            Line = new Geometry.Line();
+         }
 
         /// <summary>
         /// Construct a bar from BHoM nodes
@@ -90,6 +101,8 @@ namespace BHoM.Structural
         {
             this.StartNode = startNode;
             this.EndNode = endNode;
+            this.Line = new Geometry.Line(startNode.Point, endNode.Point);
+            this.Length = Line.Length;
         }
 
         /// <summary>
@@ -99,6 +112,7 @@ namespace BHoM.Structural
         /// <param name="startNode"></param>
         /// <param name="endNode"></param>
         public Bar(int barNumber, BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
+            : this(startNode, endNode)
         {
             this.SetNumber(barNumber);
             this.Number = barNumber;
@@ -116,7 +130,6 @@ namespace BHoM.Structural
         /// </summary>
         private void SetBHoM_ID()
         {
-            
             this.BHoM_ID = Guid.NewGuid();
         }
 
@@ -143,7 +156,7 @@ namespace BHoM.Structural
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public Node GetOtherEnd(Node node)
+        public Node GetOppositeNode(Node node)
         {
             if (EndNode.Number == node.Number)
                 return StartNode;
@@ -177,6 +190,33 @@ namespace BHoM.Structural
         {
             this.DesignGroupName = designGroupName;
         }
+
+        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        public Dictionary<string, object> GetProperties()
+        {
+            Dictionary<string, object> PropertiesDictionary = new Dictionary<string, object>();
+            PropertiesDictionary.Add("Number", this.Number);
+            PropertiesDictionary.Add("Name", this.Name);
+            PropertiesDictionary.Add("Line", this.Line);
+            PropertiesDictionary.Add("Length", this.Length); 
+            PropertiesDictionary.Add("OrientationAngle", this.OrientationAngle);
+            PropertiesDictionary.Add("StartNode", this.StartNode);
+            PropertiesDictionary.Add("EndNode", this.EndNode);
+            PropertiesDictionary.Add("Storey", this.Storey);
+            PropertiesDictionary.Add("Material",this.Material);
+            PropertiesDictionary.Add("MaterialPropertyName", this.MaterialPropertyName);
+            PropertiesDictionary.Add("Release",this.Release);
+            PropertiesDictionary.Add("ReleaseName",this.ReleaseName);
+            PropertiesDictionary.Add("SectionProperty", this.SectionProperty);
+            PropertiesDictionary.Add("SectionPropertyName", this.SectionPropertyName);
+            PropertiesDictionary.Add("DesignGroupName", this.DesignGroupName);
+            PropertiesDictionary.Add("ConstructionPhase", this.ConstructionPhase);
+            PropertiesDictionary.Add("UserText", this.UserText);
+            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+            
+            return PropertiesDictionary;
+         }
+
 
     }
 }
