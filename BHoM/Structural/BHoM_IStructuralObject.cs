@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace BHoM.Structural
 {
     /// <summary>
@@ -29,6 +28,6 @@ namespace BHoM.Structural
         //////////////
 
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        Dictionary<string, object> GetProperties();
+        BHoM.Collections.Dictionary<string, object> GetProperties();
     }
 }

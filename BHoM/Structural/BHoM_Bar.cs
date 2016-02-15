@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using BHoM.Planning;
-using BHoM.Global;
+
 
 namespace BHoM.Structural 
 {
@@ -90,7 +88,8 @@ namespace BHoM.Structural
             StartNode = new Node();
             EndNode = new Node();
             Line = new Geometry.Line();
-         }
+            this.Length = Line.Length;
+        }
 
         /// <summary>
         /// Construct a bar from BHoM nodes
@@ -192,9 +191,9 @@ namespace BHoM.Structural
         }
 
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        public Dictionary<string, object> GetProperties()
+        public BHoM.Collections.Dictionary<string, object> GetProperties()
         {
-            Dictionary<string, object> PropertiesDictionary = new Dictionary<string, object>();
+            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
             PropertiesDictionary.Add("Number", this.Number);
             PropertiesDictionary.Add("Name", this.Name);
             PropertiesDictionary.Add("Line", this.Line);

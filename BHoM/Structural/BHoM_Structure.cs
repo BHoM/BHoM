@@ -9,22 +9,32 @@ namespace BHoM.Structural
     /// Structure class represents a collection of structural objects
     /// </summary>
     [Serializable]
-    public class Structure
+    public class Structure : BHoM.Global.BHoMObject, IStructuralObject
     {
         /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_Guid { get; private set; }
+        public new System.Guid BHoM_ID { get; private set; }
+
+        /// <summary>BHoM User Text</summary>
+        public new string UserText { get; set; }
+
+        /// <summary>Structure number</summary>
+        public int Number { get; private set; }
+
+        /// <summary>Structure name</summary>
+        public string Name { get; private set; }
 
         /// <summary>List of nodes</summary>
         public Dictionary<int, Node> Nodes { get; private set; }
+
         /// <summary>List of bars</summary>
         public Dictionary<int, Bar> Bars { get; private set; }
+
         /// <summary>List of faces</summary>
         public Dictionary<int,Face> Faces { get; private set; }
 
-
-
         /// <summary>Dictionary of constraints</summary>
         public Dictionary<string, BHoM.Structural.Constraint> Constraints {get; private set;}
+
         /// <summary>Dictionary of storeys</summary>
         public Dictionary<int, Storey> Storeys { get; private set; }
         
@@ -43,6 +53,7 @@ namespace BHoM.Structural
             Bars = new Dictionary<int,Bar>();
             Faces = new Dictionary<int,Face>();
             Constraints = new Dictionary<string, BHoM.Structural.Constraint>();
+            this.BHoM_ID = Guid.NewGuid();
         }
  
       
@@ -228,6 +239,22 @@ namespace BHoM.Structural
         {
             return false;
         }
+
+        /// <summary>Sets the structure name</summary>
+        public void SetName(string name)
+        {
+            this.Name = name;
+        }
+
+        /// <summary>
+        /// Set the structure number
+        /// </summary>
+        /// <param name="number"></param>
+        public void SetNumber(int number)
+        {
+            this.Number = number;
+        }
+
 
 
         /// <summary>
@@ -431,6 +458,19 @@ namespace BHoM.Structural
                 return constraint;
             }
         }
+
+        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        public BHoM.Collections.Dictionary<string, object> GetProperties()
+        {
+            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
+            PropertiesDictionary.Add("Number", this.Number);
+            PropertiesDictionary.Add("Name", this.Name);
+            
+            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+
+            return PropertiesDictionary;
+        }
+
 
     }
 }

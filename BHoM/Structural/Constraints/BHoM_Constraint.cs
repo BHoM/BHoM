@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BHoM.Structural
 {
@@ -11,41 +6,73 @@ namespace BHoM.Structural
     /// Constraint object - base class for all release, restraint, support classes. 
     /// </summary>
     [Serializable]
-    public class Constraint 
+    public class Constraint : BHoM.Global.BHoMObject, IStructuralObject
     {
+        /////////////////
+        ////Properties///
+        /////////////////
+
         /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_Guid { get; private set; }
+        public new System.Guid BHoM_ID { get; private set; }
+
+        /// <summary>Constraint number</summary>
+        public int Number { get; private set; }
 
         /// <summary>Constraint name</summary>
         public string Name { get; private set; }
 
         /// <summary>Constraint type</summary>
         public ConstraintType Type { get; private set; }
+
         /// <summary>X degree of freedom</summary>
         public DOF X { get; private set; }
+
         /// <summary>Y degree of freedom</summary>
         public DOF Y { get; private set; }
+
         /// <summary>Z degree of freedom</summary>
         public DOF Z { get; private set; }
+
         /// <summary>XX degree of freedom</summary>
         public DOF XX { get; private set; }
+
         /// <summary>YY degree of freedom</summary>
         public DOF YY { get; private set; }
+
         /// <summary>ZZ degree of freedom</summary>
         public DOF ZZ { get; private set; }
-        /// <summary>Constraint ID object</summary>
-        public ConstraintId ID { get; private set; }
+
+        /// <summary>BHoM User Text</summary>
+        public new string UserText { get; set; }
+
+        ///////////////////
+        ////Constructors///
+        ///////////////////
 
         /// <summary>
         /// Construct an empty constraint object
         /// </summary>
         public Constraint()
         {
+            this.Number = -1;
+            this.Name = "";
+            this.BHoM_ID = Guid.NewGuid();
+        }
+
+        /// <summary>
+        /// Construct an empty constraint object with a name
+        /// </summary>
+        public Constraint(string name)
+        {
+            this.Number = -1;
+            this.Name = name;
+            this.BHoM_ID = Guid.NewGuid();
         }
 
         /// <summary>Construct a constraint from DOF objects. Any constraint 
         /// type (linear/non-linear) may be constructed using this.</summary>  
         public Constraint(DOF x, DOF y, DOF z, DOF xx, DOF yy, DOF zz)
+            :this()
         {
             this.X = x; this.Y = y; this.Z = z; this.XX = xx; this.YY = yy; this.ZZ = zz;
         }
@@ -53,6 +80,7 @@ namespace BHoM.Structural
         /// <summary>Construct a constraint from true/false. True blocks a DOF. 
         /// Only fixed or free constraint types can be constructed using this.</summary>
         public Constraint(bool x, bool y, bool z, bool xx, bool yy, bool zz)
+            :this()
         {
             this.X = (x) ? new DOF(AxisDirection.X, DOFType.Fixed) : new DOF(AxisDirection.X, DOFType.Free);
             this.Y = (y) ? new DOF(AxisDirection.Y, DOFType.Fixed) : new DOF(AxisDirection.Y, DOFType.Free);
@@ -66,14 +94,19 @@ namespace BHoM.Structural
         /// any other number is assumed to be a linear spring constant. 
         /// Any linear contraint types can be constructed using this.</summary>
         public Constraint(double x, double y, double z, double xx, double yy, double zz)
+            :this()
         {
             this.X = (x == -1) ? new DOF(AxisDirection.X, DOFType.Fixed, x) : (x == 0) ? new DOF(AxisDirection.X, DOFType.Free, x) : new DOF(AxisDirection.X, DOFType.Spring, x);
             this.Y = (y == -1) ? new DOF(AxisDirection.Y, DOFType.Fixed, y) : (y == 0) ? new DOF(AxisDirection.Y, DOFType.Free, y) : new DOF(AxisDirection.Y, DOFType.Spring, y);
             this.Z = (z == -1) ? new DOF(AxisDirection.Z, DOFType.Fixed, z) : (z == 0) ? new DOF(AxisDirection.Z, DOFType.Free, z) : new DOF(AxisDirection.Z, DOFType.Spring, z);
             this.XX = (xx == -1) ? new DOF(AxisDirection.XX, DOFType.Fixed, xx) : (xx == 0) ? new DOF(AxisDirection.XX, DOFType.Free, xx) : new DOF(AxisDirection.XX, DOFType.Spring, xx);
             this.YY = (yy == -1) ? new DOF(AxisDirection.YY, DOFType.Fixed, yy) : (yy == 0) ? new DOF(AxisDirection.YY, DOFType.Free, yy) : new DOF(AxisDirection.YY, DOFType.Spring, yy);
-            this.ZZ = (zz == -1) ? new DOF(AxisDirection.ZZ, DOFType.Fixed, zz) : (zz == 0) ? new DOF(AxisDirection.ZZ, DOFType.Free, zz) : new DOF(AxisDirection.ZZ, DOFType.Spring, zz); 
+            this.ZZ = (zz == -1) ? new DOF(AxisDirection.ZZ, DOFType.Fixed, zz) : (zz == 0) ? new DOF(AxisDirection.ZZ, DOFType.Free, zz) : new DOF(AxisDirection.ZZ, DOFType.Spring, zz);
         }
+        
+        //////////////
+        ////Methods///
+        //////////////
 
         /// <summary>Sets all DOF to fixed (-1)</summary>
         public void SetFixed()
@@ -145,79 +178,34 @@ namespace BHoM.Structural
                 this.ZZ.Type.ToString() };
             return descriptions;
         }
-      }
-
-    /// <summary>
-    /// Degrees of freedom class for use in constraint objects
-    /// </summary>
-    public class DOF
-    {
-        /// <summary>Direction</summary>
-        public AxisDirection Direction { get; set; }
-        /// <summary>Type of DOF (linear/non-linear etc)</summary>
-        public DOFType Type { get; set; }
-        /// <summary>DOF value</summary>
-        public double Value { get; set; }
-        /// <summary>DOF non-linear model</summary>
-        public object NonLinearModel { get; set; }
-
-        /// <summary>Constructs a DOF using direction and type</summary>
-        public DOF(AxisDirection direction, DOFType type)
-        {
-            this.Direction = direction;
-            this.Type = type;
-        }
-
-        /// <summary>Constructs a DOF using direciton, type and value</summary>
-        public DOF(AxisDirection direction, DOFType type, double Value)
-        {
-            this.Direction = direction;
-            this.Type = type;
-            this.Value = Value;
-        }
-
-        /// <summary>Constructs a DOF using direction, type and values as objects for non-linear model</summary>
-        public DOF(AxisDirection direction, DOFType type, object Value)
-        {
-            this.Direction = direction;
-            this.Type = type;
-            this.NonLinearModel = Value;
-        }
-     }
-
-    /// <summary>
-    /// Constraint ID object
-    /// </summary>
-    [Serializable]
-    public class ConstraintId : ISerializable
-    {
-        /// <summary>Constraint name</summary>
-        public string Name { get; set; }
-
-        /// <summary></summary>
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("Name", Name, typeof(string));
-        }
-
-        /// <summary>Constructs and ID using name</summary>
-        public ConstraintId(string name)
-        {
-            Name = name;
-        }
 
         /// <summary>
-        /// Ctor used by the serialisation engine
+        /// Set the constraint number
         /// </summary>
-        /// <param name="info"></param>
-        /// <param name="context"></param>
-        public ConstraintId(SerializationInfo info, StreamingContext context)
+        /// <param name="number"></param>
+        public void SetNumber(int number)
         {
-            Name = (string)info.GetValue("Name", typeof(string));
+            this.Number = number;
+        }
+
+
+        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        public BHoM.Collections.Dictionary<string, object> GetProperties()
+        {
+            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
+            PropertiesDictionary.Add("Number", this.Number);
+            PropertiesDictionary.Add("Name", this.Name);
+            PropertiesDictionary.Add("X", this.X);
+            PropertiesDictionary.Add("Y", this.Y);
+            PropertiesDictionary.Add("Z", this.Z);
+            PropertiesDictionary.Add("XX", this.XX);
+            PropertiesDictionary.Add("YY", this.YY);
+            PropertiesDictionary.Add("ZZ", this.ZZ);
+            PropertiesDictionary.Add("ConstraintType", this.Type);
+            PropertiesDictionary.Add("UserText", this.UserText);
+            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+
+            return PropertiesDictionary;
         }
     }
-
-
-
-    
 }

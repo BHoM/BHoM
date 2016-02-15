@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BHoM.Structural.Results.Bars
 {
@@ -10,7 +6,7 @@ namespace BHoM.Structural.Results.Bars
     /// Envelope of bar forces representing the minima and maxima forces and principle
     /// stresses of a collection of bar forces
     /// </summary>
-    public class BarForceEnvelope
+    public class BarForceEnvelope 
     {
         /// <summary>Associated bar number</summary>
         public int[] BarNumbers { get; set; }
@@ -73,6 +69,7 @@ namespace BHoM.Structural.Results.Bars
 
         /// <summary>User text field for any user data</summary>
         public string UserText { get; set; }
+
 
     }
 }

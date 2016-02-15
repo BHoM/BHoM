@@ -9,31 +9,37 @@ namespace BHoM.Structural
     /// <summary>
     /// Storey class to store information about building storeys for post processing of results
     /// </summary>
-    public class Storey
+    public class Storey : BHoM.Global.BHoMObject, IStructuralObject
     {
+        /////////////////
+        ////Properties///
+        /////////////////
+
         /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_Guid { get; private set; }
-        /// <summary>Robot unique ID</summary>
-        public int Robot_Guid { get; private set; }
-        /// <summary>GSA unique ID</summary>
-        public int GSA_Guid { get; private set; }
-        /// <summary>ETABS unique ID</summary>
-        public int ETABS_Guid { get; private set; }
+        public new System.Guid BHoM_ID { get; private set; }
 
         /// <summary>Storey number</summary>
         public int Number { get; private set; }
+
         /// <summary>Storey level (in metres)</summary>
         public double Level { get; private set; }
+
         /// <summary>Storey name</summary>
         public string Name { get; private set; }
+
         /// <summary>Storey height</summary>
         public double Height { get; private set; }
+
+        ///////////////////
+        ////Constructors///
+        ///////////////////
 
         /// <summary>
         /// Constructs and empty storey object
         /// </summary>
         public Storey()
         {
+            this.BHoM_ID = Guid.NewGuid();
         }
        
         /// <summary>
@@ -42,10 +48,15 @@ namespace BHoM.Structural
         /// <param name="number"></param>
         /// <param name="name"></param>
         public Storey(int number, string name)
+            :this()
         {
             this.Number = number;
             this.Name = name;
         }
+
+        //////////////
+        ////Methods///
+        //////////////
 
         /// <summary>
         /// Sets the storey number
@@ -81,6 +92,19 @@ namespace BHoM.Structural
         public void SetHeight(double height)
         {
             this.Height = height;
+        }
+
+        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        public BHoM.Collections.Dictionary<string, object> GetProperties()
+        {
+            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
+            PropertiesDictionary.Add("Number", this.Number);
+            PropertiesDictionary.Add("Name", this.Name);
+
+            PropertiesDictionary.Add("UserText", this.UserText);
+            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+
+            return PropertiesDictionary;
         }
     }
 }

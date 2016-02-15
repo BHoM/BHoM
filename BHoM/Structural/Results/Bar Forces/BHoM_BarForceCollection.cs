@@ -7,7 +7,7 @@ namespace BHoM.Structural.Results.Bars
     /// Collection of bar forces, defines a set of bar forces with the
     /// ability to get and set envelopes
     /// </summary>
-    public class BarForceCollection
+    public class BarForceCollection 
     {
         /// <summary>Bar force dictionary which forms the collection</summary>
         private Dictionary<string, BarForce> barForceDictionary { get; set; }
@@ -32,9 +32,6 @@ namespace BHoM.Structural.Results.Bars
         }
 
 
-
-        
-       
 
     }
 }

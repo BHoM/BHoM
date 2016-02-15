@@ -5,7 +5,7 @@ namespace BHoM.Structural.Results.Bars
     /// Bar force object contains a set of coexisting forces, bar reference
     /// and orientation information
     /// </summary>
-    public class BarForce
+    public class BarForce 
     {
         /// <summary>Associated bar number</summary>
         public int BarNumber { get; set; }
@@ -64,5 +64,6 @@ namespace BHoM.Structural.Results.Bars
             this.LoadcaseName = loadcase.Name;
             this.OrientationPlane = orientationPlane;
         }
+
     }
 }

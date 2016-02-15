@@ -157,7 +157,7 @@ namespace BHoM.Structural
         /// </summary>
         private void SetBHoM_ID()
         {
-           //this.BHoM_ID = new Guid();
+           this.BHoM_ID = Guid.NewGuid();
         }
 
         /// <summary>
@@ -341,7 +341,6 @@ namespace BHoM.Structural
         }
 
 
-
         /// <summary>
         /// WIP - change to use sorted dictionary
         /// Sort the bars by angle, smallest angle first.
@@ -389,9 +388,9 @@ namespace BHoM.Structural
          }
 
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        public Dictionary<string, object> GetProperties()
+        public BHoM.Collections.Dictionary<string, object> GetProperties()
         {
-            Dictionary<string, object> PropertiesDictionary = new Dictionary<string, object>();
+            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
             PropertiesDictionary.Add("Number", this.Number);
             PropertiesDictionary.Add("Name", this.Name);
             PropertiesDictionary.Add("XYZ", this.XYZ);

@@ -5,10 +5,10 @@ namespace BHoM.Structural
     /// <summary>
     /// Beam class, can be used as a wrapper for an analytical bar object
     /// </summary>
-    public class Beam
+    public class Beam 
     {
         /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_Guid { get; private set; }
+        public System.Guid BHoM_ID { get; private set; }
 
         /// <summary>
         /// Bar objects which make up the beam, if only one entry then beam
@@ -72,6 +72,7 @@ namespace BHoM.Structural
         {
             this.EndOffset = distance;
         }
+
 
     }
 }

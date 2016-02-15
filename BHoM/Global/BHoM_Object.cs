@@ -15,4 +15,5 @@ namespace BHoM.Global
         /// such as a user ID or a project specific parameter</summary>
         public string UserText { get; set; }
     }
+
 }
