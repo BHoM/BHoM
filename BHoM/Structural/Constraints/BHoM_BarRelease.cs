@@ -12,7 +12,7 @@ namespace BHoM.Structural
     public class BarRelease 
     {
         /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_ID { get; private set; }
+        public System.Guid BHoM_Guid { get; private set; }
 
         /// <summary>Bar release name</summary>
         public string Name { get; private set; }

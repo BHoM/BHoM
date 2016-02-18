@@ -11,12 +11,6 @@ namespace BHoM.Structural
         /////////////////
         ////Properties///
         /////////////////
-
-        /// <summary>BHoM object global ID</summary>
-        public new Guid BHoM_ID { get; private set; }
-
-        /// <summary>User text</summary>
-        public new string UserText { get; set; }
         
         /// <summary>Bar number</summary>
         public int Number { get; set; }
@@ -117,20 +111,11 @@ namespace BHoM.Structural
             this.Number = barNumber;
             this.StartNode = startNode;
             this.EndNode = endNode;
-            this.SetBHoM_ID();
         }
 
         ///////////////
         ////METHODS////
         ///////////////
-
-        /// <summary>
-        /// Sets the unique object ID
-        /// </summary>
-        private void SetBHoM_ID()
-        {
-            this.BHoM_ID = Guid.NewGuid();
-        }
 
         /// <summary>
         /// Sets the bar number
@@ -210,8 +195,8 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("SectionPropertyName", this.SectionPropertyName);
             PropertiesDictionary.Add("DesignGroupName", this.DesignGroupName);
             PropertiesDictionary.Add("ConstructionPhase", this.ConstructionPhase);
-            PropertiesDictionary.Add("UserText", this.UserText);
-            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+            PropertiesDictionary.Add("UserData", this.UserData);
+            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
             
             return PropertiesDictionary;
          }

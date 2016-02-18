@@ -9,11 +9,12 @@ namespace BHoM.Global
     public abstract class BHoMObject
     {
         /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_ID { get; private set; }
+        public System.Guid BHoM_Guid { get; private set; }
 
         /// <summary>User text input. Can be used to store user information in an object
         /// such as a user ID or a project specific parameter</summary>
-        public string UserText { get; set; }
+        public Dictionary<string,object> UserData { get; set; }
+ 
     }
 
 }

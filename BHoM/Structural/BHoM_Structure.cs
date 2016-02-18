@@ -11,13 +11,7 @@ namespace BHoM.Structural
     [Serializable]
     public class Structure : BHoM.Global.BHoMObject, IStructuralObject
     {
-        /// <summary>BHoM unique ID</summary>
-        public new System.Guid BHoM_ID { get; private set; }
-
-        /// <summary>BHoM User Text</summary>
-        public new string UserText { get; set; }
-
-        /// <summary>Structure number</summary>
+       /// <summary>Structure number</summary>
         public int Number { get; private set; }
 
         /// <summary>Structure name</summary>
@@ -53,7 +47,6 @@ namespace BHoM.Structural
             Bars = new Dictionary<int,Bar>();
             Faces = new Dictionary<int,Face>();
             Constraints = new Dictionary<string, BHoM.Structural.Constraint>();
-            this.BHoM_ID = Guid.NewGuid();
         }
  
       
@@ -225,7 +218,7 @@ namespace BHoM.Structural
         {
             foreach (Node n in Nodes.Values.ToList())
             {
-                n.SetCoordinateSystemAsDefault();
+                n.SetCartesianCoordinatesystemAsDefault();
                 n.SortConnectedBars();
             }
             return true;
@@ -466,7 +459,7 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("Number", this.Number);
             PropertiesDictionary.Add("Name", this.Name);
             
-            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
             return PropertiesDictionary;
         }

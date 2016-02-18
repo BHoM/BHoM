@@ -18,17 +18,11 @@ namespace BHoM.Structural
         ////Properties///
         /////////////////
 
-        /// <summary>BHoM unique ID</summary>
-        public new System.Guid BHoM_ID { get; private set; }
-
         /// <summary>DOF number</summary>
         public int Number { get; private set; }
 
         /// <summary>DOF name</summary>
         public string Name { get; private set; }
-
-        /// <summary>BHoM User Text</summary>
-        public new string UserText { get; set; }
 
         /// <summary>Direction</summary>
         public AxisDirection Direction { get; set; }
@@ -51,7 +45,6 @@ namespace BHoM.Structural
         {
             this.Name = "";
             this.Number = -1;
-            this.BHoM_ID = Guid.NewGuid();
         }
 
         /// <summary>Constructs a DOF using direction and type</summary>
@@ -108,9 +101,9 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("DOFType", this.Type);
             PropertiesDictionary.Add("Value", this.Value);
             PropertiesDictionary.Add("NonlinearModel", this.NonLinearModel);
-            PropertiesDictionary.Add("UserText", this.UserText);
+            PropertiesDictionary.Add("UserData", this.UserData);
 
-            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
             return PropertiesDictionary;
         }

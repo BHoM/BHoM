@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Geometry
+namespace BHoM.Geometry 
 {
     /// <summary>
     /// BHoM Point object
@@ -18,16 +18,15 @@ namespace BHoM.Geometry
         public double Y { get; set; }
         /// <summary>Z coordinate</summary>
         public double Z { get; set; }
-        
+
         /// <summary>
         /// Construct an empty point
         /// </summary>
         public Point()
         {
-
-            X = double.NaN;
-            Y = double.NaN;
-            Z = double.NaN;
+            X = double.MaxValue;
+            Y = double.MaxValue;
+            Z = double.MaxValue;
         }
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace BHoM.Geometry
         /// <summary>
         /// Gets or sets the coordinates as an array
         /// </summary>
-        public double[] XYZ
+        public double[] CartesianCoordinates
         {
             get { return new double[3]{X, Y, Z};}
             set 

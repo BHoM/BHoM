@@ -13,7 +13,7 @@ namespace BHoM.Structural
     public class Face
     {
         /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_ID { get; private set; }
+        public System.Guid BHoM_Guid { get; private set; }
 
         /// <summary>Face number</summary>
         public int Number { get; set; }

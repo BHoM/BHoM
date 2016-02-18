@@ -6,19 +6,22 @@ namespace BHoM.Geometry
     /// Arc object
     /// </summary>
     [Serializable]
-    public class Arc
+    public abstract class Arc
     {
         /// <summary>Base plane for arc</summary>
-        public Plane Plane { get; private set; }
-        /// <summary>Start point as BHoM point</summary>
-        public Point StartPoint { get; private set; }
-        /// <summary>End point as BHoM point</summary>
-        public Point EndPoint { get; private set; }
-        /// <summary>Radius</summary>
-        public double Radius { get; private set; }
-        /// <summary>Angle in radians</summary>
-        public double Angle { get; private set; }
+        public abstract Plane Plane { get; set; }
 
+        /// <summary>Start point as BHoM point</summary>
+        public abstract Point StartPoint { get; set; }
+
+        /// <summary>End point as BHoM point</summary>
+        public abstract Point EndPoint { get; set; }
+
+        /// <summary>Radius</summary>
+        public abstract double Radius { get; set; }
+
+        /// <summary>Angle in radians</summary>
+        public abstract double Angle { get; set; }
 
         /// <summary>
         /// Constructs an arc in default global XY plane

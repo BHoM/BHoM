@@ -50,7 +50,7 @@ namespace BHoM.Structural.Results.Bars
         public BHoM.Geometry.Plane OrientationPlane { get; set; }
 
         /// <summary>User text field for any user data</summary>
-        public string UserText { get; set; }
+        public string UserData { get; set; }
 
         //// CONSTRUCTORS ////
 

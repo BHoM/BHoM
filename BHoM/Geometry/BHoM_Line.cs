@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
@@ -10,16 +6,26 @@ namespace BHoM.Geometry
     /// BHoM Line object
     /// </summary>
     [Serializable]
-    public class Line
+    public class Line : BHoM.Global.BHoMObject
     {
         /// <summary>Start point as BHoM point</summary>
-        public Point StartPoint { get; private set; }
+        public Point StartPoint { get; set; }
 
         /// <summary>End point as BHoM point</summary>
-        public Point EndPoint { get; private set; }
+        public Point EndPoint { get; set; }
 
         /// <summary>Length of the line</summary>
-        public double Length { get; private set; }
+        public double Length
+        {
+            get
+            {
+                return this.Length;
+            }
+            set
+            {
+                this.Length = StartPoint.DistanceTo(EndPoint);
+            }
+        }
 
         /// <summary>
         /// Construct an empty line
@@ -56,5 +62,6 @@ namespace BHoM.Geometry
             this.StartPoint = new Point(start_x, start_y, start_z);
             this.EndPoint = new Point(end_x, end_y, end_z);
         }
+
     }
 }

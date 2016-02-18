@@ -17,18 +17,22 @@ namespace BHoM.Structural
         /////////////////
         ////Properties///
         /////////////////
-
-        /// <summary>BHoM object ID</summary>
-        public new Guid BHoM_ID { get; private set; }
-
+        
         /// <summary>Node number</summary>
-        public int Number { get; set; }
+        public int Number
+        {
+            get
+            {
+                return this.Number;
+            }
+            set
+            {
+                this.Number = value;
+            }
+        }
 
         /// <summary>Node name</summary>
         public string Name { get; set; }
-
-        /// <summary>BHoM User Test</summary>
-        public new string UserText { get; set; }
 
         /// <summary>Node position as a point object</summary>
         public Point Point { get; private set; }
@@ -78,7 +82,6 @@ namespace BHoM.Structural
             Name = "";
             ConnectedBars = new List<Bar>();
             ConnectedFaces = new List<Face>();
-            SetBHoM_ID();
         }
 
         /// <summary>
@@ -98,7 +101,7 @@ namespace BHoM.Structural
         public Node(Point point)
             : this()
         {
-            Point = point.Duplicate(); 
+            Point = point.Duplicate();
         }
 
         /// <summary>
@@ -114,7 +117,7 @@ namespace BHoM.Structural
         }
 
         /// <summary>
-        /// Constructes a node from coordinates and an index number
+        /// Constructes a node from CartesianCoordinates and an index number
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
@@ -153,14 +156,6 @@ namespace BHoM.Structural
         //////////////
 
         /// <summary>
-        /// Sets the unique object ID
-        /// </summary>
-        private void SetBHoM_ID()
-        {
-           this.BHoM_ID = Guid.NewGuid();
-        }
-
-        /// <summary>
         /// Sets the node number
         /// </summary>
         /// <param name="number"></param>
@@ -170,12 +165,12 @@ namespace BHoM.Structural
         }
 
         /// <summary>
-        /// Gets or sets the XYZ of the node position
+        /// Gets or sets the CartesianCoordinates of the node position
         /// </summary>
-        public double[] XYZ
+        public double[] CartesianCoordinates
         {
-            get { return Point.XYZ; }
-            set { Point.XYZ = value;}
+            get { return Point.CartesianCoordinates; }
+            set { Point.CartesianCoordinates = value;}
         }
 
         /// <summary>
@@ -221,9 +216,10 @@ namespace BHoM.Structural
         /// <returns></returns>
         public double DistanceTo(Node node)
         {
+            
             double dist = 0;
-            double[] target = this.XYZ;
-            double[] search = node.XYZ;
+            double[] target = this.CartesianCoordinates;
+            double[] search = node.CartesianCoordinates;
 
             for (int i = 0; i < 3; i++)
             {
@@ -266,7 +262,7 @@ namespace BHoM.Structural
         /// <summary>
         /// Sets a default plane as coordinate system
         /// </summary>
-        public void SetCoordinateSystemAsDefault()
+        public void SetCartesianCoordinatesystemAsDefault()
         {
             this.Plane = new Plane(Point);
         }
@@ -274,10 +270,10 @@ namespace BHoM.Structural
         /// <summary>
         /// Sets coordinate system as plane
         /// </summary>
-        /// <param name="coordinateSystem"></param>
-        public void SetCoordinateSystem(Plane coordinateSystem)
+        /// <param name="CartesianCoordinatesystem"></param>
+        public void SetCartesianCoordinatesystem(Plane CartesianCoordinatesystem)
         {
-            this.Plane = coordinateSystem;
+            this.Plane = CartesianCoordinatesystem;
         }
 
         /// <summary>
@@ -393,7 +389,7 @@ namespace BHoM.Structural
             BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
             PropertiesDictionary.Add("Number", this.Number);
             PropertiesDictionary.Add("Name", this.Name);
-            PropertiesDictionary.Add("XYZ", this.XYZ);
+            PropertiesDictionary.Add("CartesianCoordinates", this.CartesianCoordinates);
             PropertiesDictionary.Add("Point", this.Point);
             PropertiesDictionary.Add("Plane", this.Plane);
             PropertiesDictionary.Add("Constraint", this.Constraint);
@@ -403,8 +399,8 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("BarAbsoluteAngles", this.BarAbsoluteAngles);
             PropertiesDictionary.Add("BarDeltaAngles", this.BarDeltaAngles);
             PropertiesDictionary.Add("BarThetaAngles", this.BarThetaAngles);
-            PropertiesDictionary.Add("UserText", this.UserText);
-            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+            PropertiesDictionary.Add("UserData", this.UserData);
+            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
             return PropertiesDictionary;
         }

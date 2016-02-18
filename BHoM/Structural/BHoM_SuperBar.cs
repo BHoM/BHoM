@@ -8,7 +8,7 @@ namespace BHoM.Structural
     public class Beam 
     {
         /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_ID { get; private set; }
+        public System.Guid BHoM_Guid { get; private set; }
 
         /// <summary>
         /// Bar objects which make up the beam, if only one entry then beam

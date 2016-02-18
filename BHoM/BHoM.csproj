@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\BHoM_Dictionary.cs" />
+    <Compile Include="Geometry\Transformations\BHoM_Scale.cs" />
+    <Compile Include="Geometry\BHoM_Line.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C25.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
@@ -59,7 +61,6 @@
     <Compile Include="Geometry\BHoM_Arc.cs" />
     <Compile Include="Geometry\BHoM_MeshFace.cs" />
     <Compile Include="Geometry\BHoM_Mesh.cs" />
-    <Compile Include="Geometry\BHoM_Line.cs" />
     <Compile Include="Geometry\BHoM_Surface.cs" />
     <Compile Include="Geometry\BHoM_Point.cs" />
     <Compile Include="Geometry\BHoM_Vector.cs" />

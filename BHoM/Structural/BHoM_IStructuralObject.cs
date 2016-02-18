@@ -14,19 +14,13 @@ namespace BHoM.Structural
         /// <summary>Object number</summary>
         int Number { get; }
 
-        /// <summary>Set object number</summary>
-        void SetNumber(int number);
-
         /// <summary>Object name</summary>
         string Name { get; }
-
-        /// <summary>Set object name</summary>
-        void SetName(string name);
 
         //////////////
         ////Methods///
         //////////////
-
+        
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         BHoM.Collections.Dictionary<string, object> GetProperties();
     }

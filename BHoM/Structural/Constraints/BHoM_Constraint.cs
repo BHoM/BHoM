@@ -13,8 +13,8 @@ namespace BHoM.Structural
         /////////////////
 
         /// <summary>BHoM unique ID</summary>
-        public new System.Guid BHoM_ID { get; private set; }
-
+        public new System.Guid BHoM_Guid { get; private set; }
+ 
         /// <summary>Constraint number</summary>
         public int Number { get; private set; }
 
@@ -41,10 +41,7 @@ namespace BHoM.Structural
 
         /// <summary>ZZ degree of freedom</summary>
         public DOF ZZ { get; private set; }
-
-        /// <summary>BHoM User Text</summary>
-        public new string UserText { get; set; }
-
+        
         ///////////////////
         ////Constructors///
         ///////////////////
@@ -56,7 +53,7 @@ namespace BHoM.Structural
         {
             this.Number = -1;
             this.Name = "";
-            this.BHoM_ID = Guid.NewGuid();
+            this.BHoM_Guid = Guid.NewGuid();
         }
 
         /// <summary>
@@ -66,7 +63,7 @@ namespace BHoM.Structural
         {
             this.Number = -1;
             this.Name = name;
-            this.BHoM_ID = Guid.NewGuid();
+            this.BHoM_Guid = Guid.NewGuid();
         }
 
         /// <summary>Construct a constraint from DOF objects. Any constraint 
@@ -202,8 +199,8 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("YY", this.YY);
             PropertiesDictionary.Add("ZZ", this.ZZ);
             PropertiesDictionary.Add("ConstraintType", this.Type);
-            PropertiesDictionary.Add("UserText", this.UserText);
-            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+            PropertiesDictionary.Add("UserData", this.UserData);
+            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
             return PropertiesDictionary;
         }

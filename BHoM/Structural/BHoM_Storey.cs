@@ -16,7 +16,7 @@ namespace BHoM.Structural
         /////////////////
 
         /// <summary>BHoM unique ID</summary>
-        public new System.Guid BHoM_ID { get; private set; }
+        public new System.Guid BHoM_Guid { get; private set; }
 
         /// <summary>Storey number</summary>
         public int Number { get; private set; }
@@ -39,7 +39,7 @@ namespace BHoM.Structural
         /// </summary>
         public Storey()
         {
-            this.BHoM_ID = Guid.NewGuid();
+            this.BHoM_Guid = Guid.NewGuid();
         }
        
         /// <summary>
@@ -101,8 +101,8 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("Number", this.Number);
             PropertiesDictionary.Add("Name", this.Name);
 
-            PropertiesDictionary.Add("UserText", this.UserText);
-            PropertiesDictionary.Add("BHoM_ID", this.BHoM_ID);
+            PropertiesDictionary.Add("UserData", this.UserData);
+            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
             return PropertiesDictionary;
         }
