@@ -8,7 +8,7 @@ namespace BHoM.Structural.SectionProperties
     /// <summary>
     /// 
     /// </summary>
-    public class SteelUC : ISectionProperty
+    public class SteelUC : SectionProperty
     {
         /// <summary></summary>
         public string Description

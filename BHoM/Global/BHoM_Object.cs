@@ -13,8 +13,6 @@ namespace BHoM.Global
 
         /// <summary>User text input. Can be used to store user information in an object
         /// such as a user ID or a project specific parameter</summary>
-        public Dictionary<string,object> UserData { get; set; }
- 
+        public BHoM.Collections.Dictionary<string, object> UserData { get; set; }
     }
-
 }

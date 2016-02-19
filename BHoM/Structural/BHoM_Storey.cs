@@ -9,15 +9,12 @@ namespace BHoM.Structural
     /// <summary>
     /// Storey class to store information about building storeys for post processing of results
     /// </summary>
-    public class Storey : BHoM.Global.BHoMObject, IStructuralObject
+    public class Storey : IStructuralObject
     {
         /////////////////
         ////Properties///
         /////////////////
-
-        /// <summary>BHoM unique ID</summary>
-        public new System.Guid BHoM_Guid { get; private set; }
-
+        
         /// <summary>Storey number</summary>
         public int Number { get; private set; }
 
@@ -39,7 +36,6 @@ namespace BHoM.Structural
         /// </summary>
         public Storey()
         {
-            this.BHoM_Guid = Guid.NewGuid();
         }
        
         /// <summary>
@@ -101,8 +97,8 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("Number", this.Number);
             PropertiesDictionary.Add("Name", this.Name);
 
-            PropertiesDictionary.Add("UserData", this.UserData);
-            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
+            //PropertiesDictionary.Add("UserData", this.UserData);
+            //PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
             return PropertiesDictionary;
         }

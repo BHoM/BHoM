@@ -21,7 +21,7 @@ namespace BHoM.Structural
         ////Methods///
         //////////////
         
-        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        BHoM.Collections.Dictionary<string, object> GetProperties();
+        ///// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        //BHoM.Collections.Dictionary<string, object> GetProperties();
     }
 }

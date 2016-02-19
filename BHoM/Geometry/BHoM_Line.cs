@@ -19,7 +19,14 @@ namespace BHoM.Geometry
         {
             get
             {
-                return this.Length;
+                if (StartPoint.IsValid && EndPoint.IsValid)
+                {
+                    return StartPoint.DistanceTo(EndPoint);
+                }
+                else
+                {
+                    return 0;
+                }
             }
             set
             {
@@ -34,7 +41,6 @@ namespace BHoM.Geometry
         {
             this.StartPoint = new Point();
             this.EndPoint = new Point();
-            this.Length = StartPoint.DistanceTo(EndPoint);
         }
 
         /// <summary>

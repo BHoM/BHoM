@@ -24,9 +24,9 @@ namespace BHoM.Geometry
         /// </summary>
         public Point()
         {
-            X = double.MaxValue;
-            Y = double.MaxValue;
-            Z = double.MaxValue;
+            X = double.NaN;
+            Y = double.NaN;
+            Z = double.NaN;
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ namespace BHoM.Structural
         public string SectionPropertyName { get; private set; }
 
         /// <summary>Section property</summary>
-        public BHoM.Structural.SectionProperties.ISectionProperty SectionProperty { get; set; }
+        public BHoM.Structural.SectionProperties.SectionProperty SectionProperty { get; set; }
 
         /// <summary>Material inherited from section property</summary>
         public BHoM.Materials.Material Material { get; set; }
@@ -81,8 +81,6 @@ namespace BHoM.Structural
         {
             StartNode = new Node();
             EndNode = new Node();
-            Line = new Geometry.Line();
-            this.Length = Line.Length;
         }
 
         /// <summary>
@@ -94,8 +92,11 @@ namespace BHoM.Structural
         {
             this.StartNode = startNode;
             this.EndNode = endNode;
-            this.Line = new Geometry.Line(startNode.Point, endNode.Point);
-            this.Length = Line.Length;
+            if (StartNode.IsValid && EndNode.IsValid)
+            {
+                this.Line = new Geometry.Line(startNode.Point, endNode.Point);
+                this.Length = Line.Length;
+            }
         }
 
         /// <summary>
@@ -104,36 +105,22 @@ namespace BHoM.Structural
         /// <param name="barNumber"></param>
         /// <param name="startNode"></param>
         /// <param name="endNode"></param>
-        public Bar(int barNumber, BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
-            : this(startNode, endNode)
+        public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, int barNumber)
         {
-            this.SetNumber(barNumber);
-            this.Number = barNumber;
             this.StartNode = startNode;
             this.EndNode = endNode;
+            this.Number = barNumber;
+            if (StartNode.IsValid && EndNode.IsValid)
+            {
+                this.Line = new Geometry.Line(startNode.Point, endNode.Point);
+                this.Length = Line.Length;
+            }
         }
 
         ///////////////
         ////METHODS////
         ///////////////
 
-        /// <summary>
-        /// Sets the bar number
-        /// </summary>
-        /// <param name="number"></param>
-        public void SetNumber(int number)
-        {
-            this.Number = number;
-        }
-
-        /// <summary>
-        /// Sets the bar name
-        /// </summary>
-        /// <param name="name"></param>
-        public void SetName(string name)
-        {
-            this.Name = name;
-        }
 
         /// <summary>
         /// Get the node at the opposite end to the known (input) node
@@ -197,7 +184,7 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("ConstructionPhase", this.ConstructionPhase);
             PropertiesDictionary.Add("UserData", this.UserData);
             PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
-            
+
             return PropertiesDictionary;
          }
 

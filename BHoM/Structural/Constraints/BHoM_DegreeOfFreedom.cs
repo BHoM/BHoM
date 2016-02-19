@@ -12,7 +12,7 @@ namespace BHoM.Structural
     /// <summary>
     /// Degrees of freedom class for use in constraint objects
     /// </summary>
-    public class DOF : BHoM.Global.BHoMObject, IStructuralObject 
+    public class DOF : IStructuralObject 
     {
         /////////////////
         ////Properties///
@@ -101,9 +101,9 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("DOFType", this.Type);
             PropertiesDictionary.Add("Value", this.Value);
             PropertiesDictionary.Add("NonlinearModel", this.NonLinearModel);
-            PropertiesDictionary.Add("UserData", this.UserData);
+            //PropertiesDictionary.Add("UserData", this.UserData);
 
-            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
+            //PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
             return PropertiesDictionary;
         }

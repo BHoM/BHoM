@@ -6,7 +6,7 @@ namespace BHoM.Structural.SectionProperties
     /// <summary>
     /// 
     /// </summary>
-     public abstract class SteelISection : ISectionProperty
+     public abstract class SteelISection : SectionProperty
     {
         /// <summary></summary>
         public SteelISection() : base()

@@ -19,17 +19,7 @@ namespace BHoM.Structural
         /////////////////
         
         /// <summary>Node number</summary>
-        public int Number
-        {
-            get
-            {
-                return this.Number;
-            }
-            set
-            {
-                this.Number = value;
-            }
-        }
+        public int Number {get; set; }
 
         /// <summary>Node name</summary>
         public string Name { get; set; }
@@ -270,10 +260,10 @@ namespace BHoM.Structural
         /// <summary>
         /// Sets coordinate system as plane
         /// </summary>
-        /// <param name="CartesianCoordinatesystem"></param>
-        public void SetCartesianCoordinatesystem(Plane CartesianCoordinatesystem)
+        /// <param name="plane"></param>
+        public void SetPlane(Plane plane)
         {
-            this.Plane = CartesianCoordinatesystem;
+            this.Plane = plane;
         }
 
         /// <summary>

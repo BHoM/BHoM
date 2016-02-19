@@ -6,15 +6,12 @@ namespace BHoM.Structural
     /// Constraint object - base class for all release, restraint, support classes. 
     /// </summary>
     [Serializable]
-    public class Constraint : BHoM.Global.BHoMObject, IStructuralObject
+    public class Constraint : IStructuralObject
     {
         /////////////////
         ////Properties///
         /////////////////
 
-        /// <summary>BHoM unique ID</summary>
-        public new System.Guid BHoM_Guid { get; private set; }
- 
         /// <summary>Constraint number</summary>
         public int Number { get; private set; }
 
@@ -53,7 +50,6 @@ namespace BHoM.Structural
         {
             this.Number = -1;
             this.Name = "";
-            this.BHoM_Guid = Guid.NewGuid();
         }
 
         /// <summary>
@@ -63,7 +59,6 @@ namespace BHoM.Structural
         {
             this.Number = -1;
             this.Name = name;
-            this.BHoM_Guid = Guid.NewGuid();
         }
 
         /// <summary>Construct a constraint from DOF objects. Any constraint 
@@ -199,8 +194,8 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("YY", this.YY);
             PropertiesDictionary.Add("ZZ", this.ZZ);
             PropertiesDictionary.Add("ConstraintType", this.Type);
-            PropertiesDictionary.Add("UserData", this.UserData);
-            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
+            //PropertiesDictionary.Add("UserData", this.UserData);
+            //PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
             return PropertiesDictionary;
         }

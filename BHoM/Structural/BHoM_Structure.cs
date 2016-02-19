@@ -9,7 +9,7 @@ namespace BHoM.Structural
     /// Structure class represents a collection of structural objects
     /// </summary>
     [Serializable]
-    public class Structure : BHoM.Global.BHoMObject, IStructuralObject
+    public class Structure : IStructuralObject
     {
        /// <summary>Structure number</summary>
         public int Number { get; private set; }
@@ -33,7 +33,7 @@ namespace BHoM.Structural
         public Dictionary<int, Storey> Storeys { get; private set; }
         
         /// <summary>List of section properties</summary>
-        public List<ISectionProperty> SectionProperties { get;  private set; }
+        public List<SectionProperty> SectionProperties { get;  private set; }
 
         /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
@@ -87,7 +87,7 @@ namespace BHoM.Structural
         {
             BHoM.Structural.Bar b = new BHoM.Structural.Bar(AddOrGetNode(startNode), AddOrGetNode(endNode));
 
-            if (BarNumberClash(b)) b.SetNumber(FindMaxBarNumber() + 1);
+            if (BarNumberClash(b)) b.Number = (FindMaxBarNumber() + 1);
             
             Bars.Add(b.Number,b);
         }
@@ -459,7 +459,7 @@ namespace BHoM.Structural
             PropertiesDictionary.Add("Number", this.Number);
             PropertiesDictionary.Add("Name", this.Name);
             
-            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
+            //PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
             return PropertiesDictionary;
         }
