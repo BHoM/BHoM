@@ -6,7 +6,7 @@ namespace BHoM.Geometry
     /// BHoM Line object
     /// </summary>
     [Serializable]
-    public class Line : BHoM.Global.BHoMObject
+    public class Line : BHoM.Global.BHoMObject, ILine
     {
         /// <summary>Start point as BHoM point</summary>
         public Point StartPoint { get; set; }

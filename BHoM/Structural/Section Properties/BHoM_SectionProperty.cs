@@ -1,5 +1,7 @@
 ﻿
 
+using System;
+
 namespace BHoM.Structural.SectionProperties
 {
     /// <summary>
@@ -7,7 +9,7 @@ namespace BHoM.Structural.SectionProperties
     /// sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
     /// parent class are those that would populate a multi category section database only
     /// </summary>
-    public abstract class SectionProperty
+    public abstract class SectionProperty : BHoM.Global.BHoMObject
     {
         /// <summary>Mass per metre based on section properties</summary>
         public double MassPerMetre { get; set; }
@@ -16,7 +18,7 @@ namespace BHoM.Structural.SectionProperties
         public string Name { get; set; }
 
         /// <summary>Section type</summary>
-        public string Type { get; set; }
+        public ShapeType Type { get; set; }
 
         /// <summary>Cross sectional area</summary>
         public double GrossArea { get; set; }
@@ -36,7 +38,6 @@ namespace BHoM.Structural.SectionProperties
         /// <summary>Section material</summary>
         public BHoM.Materials.Material Material {get; set;}
 
-        
-        
+
     }
 }

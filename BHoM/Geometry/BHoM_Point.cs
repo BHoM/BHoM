@@ -10,7 +10,7 @@ namespace BHoM.Geometry
     /// BHoM Point object
     /// </summary>
     [Serializable]
-    public class Point
+    public class Point : IPoint
     {
         /// <summary>X coordinate</summary>
         public double X { get; set; }

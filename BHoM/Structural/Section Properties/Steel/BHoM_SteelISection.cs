@@ -6,82 +6,40 @@ namespace BHoM.Structural.SectionProperties
     /// <summary>
     /// 
     /// </summary>
-     public abstract class SteelISection : SectionProperty
+     public class SteelISection : SectionProperty, ISteelISection, ISectionFactory
     {
+        
         /// <summary></summary>
         public SteelISection() : base()
         {
-            Type = "SteelISection";
+            this.Type = ShapeType.SteelI;
         }
 
         /// <summary></summary>
-        public string Description
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public double BottomFlangeThickness { get; set; }
+        
+        /// <summary></summary>
+        public double BottomFlangeWidth { get; set; }
 
         /// <summary></summary>
-        public double MassPerMetre
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public double Depth { get; set; }
 
         /// <summary></summary>
-        public Material Material
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public double RootRadius { get; set; }
 
         /// <summary></summary>
-        public string Name
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public double TopFlangeThickness { get; set; }
 
         /// <summary></summary>
-        public string Type
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+        public double TopFlangeWidth { get; set; }
 
-            set
-            {
-                throw new NotImplementedException();
-            }
+        /// <summary></summary>
+        public double WebThickness { get; set; }
+
+        /// <summary></summary>
+        public SectionProperty Create(ShapeType shapeType)
+        {
+            return new SteelISection();
         }
     }
 }

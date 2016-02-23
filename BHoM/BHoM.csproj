@@ -44,6 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\BHoM_Dictionary.cs" />
+    <Compile Include="Geometry\Interfaces\BHoM_ILine.cs" />
+    <Compile Include="Geometry\Interfaces\BHoM_IVector.cs" />
+    <Compile Include="Geometry\Interfaces\BHoM_IPlane.cs" />
+    <Compile Include="Geometry\Interfaces\BHoM_IPoint.cs" />
     <Compile Include="Geometry\Transformations\BHoM_Scale.cs" />
     <Compile Include="Geometry\BHoM_Line.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
@@ -53,7 +57,8 @@
     <Compile Include="Materials\Concrete\BHoM_IConcrete.cs" />
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
-    <Compile Include="Structural\BHoM_IStructuralObject.cs" />
+    <Compile Include="Structural\Interfaces\BHoM_IBar.cs" />
+    <Compile Include="Structural\Interfaces\BHoM_IStructuralObject.cs" />
     <Compile Include="Structural\BHoM_SuperBar.cs" />
     <Compile Include="HumanBody\BHoM_BodyParts.cs" />
     <Compile Include="HumanBody\BHoM_Skeleton.cs" />
@@ -90,18 +95,24 @@
     <Compile Include="Structural\Loads\BHoM_Loadcase.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcombination.cs" />
     <Compile Include="Structural\Loads\BHoM_NodalLoad.cs" />
+    <Compile Include="Structural\Results\Bar Forces\Interfaces\BHoM_IBarForce.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceEnvelope.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceCollection.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForce.cs" />
     <Compile Include="Structural\Results\Building Results\BHoM_StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\BHoM_GlobalResult.cs" />
+    <Compile Include="Structural\Section Properties\BHoM_SectionFactory.cs" />
+    <Compile Include="Structural\Section Properties\Interfaces\BHoM_ISectionFactory.cs" />
+    <Compile Include="Structural\Section Properties\Interfaces\BHoM_ISectionProperty.cs" />
     <Compile Include="Structural\Section Properties\BHoM_ShapeType.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCColumnRectangular.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCBeamRectangular.cs" />
     <Compile Include="Structural\Section Properties\BHoM_SectionProperty.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_IRCSection.cs" />
-    <Compile Include="Structural\Section Properties\Steel\BHoM_ISteelSection.cs" />
-    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelUC.cs" />
+    <Compile Include="Structural\Section Properties\Steel\Interfaces\BHoM_ISteelBoxSection.cs" />
+    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelUCSection.cs" />
+    <Compile Include="Structural\Section Properties\Steel\Interfaces\BHoM_ISteelISection.cs" />
+    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelBoxSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelISection.cs" />
   </ItemGroup>
   <ItemGroup>

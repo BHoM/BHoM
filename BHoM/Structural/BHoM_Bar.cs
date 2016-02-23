@@ -25,11 +25,12 @@ namespace BHoM.Structural
         /// </summary>
         public string DesignGroupName { get; private set; }
 
+        
         /// <summary>Section property name inherited from section property</summary>
-        public string SectionPropertyName { get; private set; }
+        public string SectionPropertyName { get; set; }
 
         /// <summary>Section property</summary>
-        public BHoM.Structural.SectionProperties.SectionProperty SectionProperty { get; set; }
+        public BHoM.Structural.SectionProperties.SectionProperty SectionProperty { get; private set; }
 
         /// <summary>Material inherited from section property</summary>
         public BHoM.Materials.Material Material { get; set; }
@@ -114,6 +115,10 @@ namespace BHoM.Structural
             {
                 this.Line = new Geometry.Line(startNode.Point, endNode.Point);
                 this.Length = Line.Length;
+
+                BHoM.Structural.SectionProperties.SteelBoxSection abc = new BHoM.Structural.SectionProperties.SteelBoxSection();
+                
+                              
             }
         }
 
@@ -147,10 +152,11 @@ namespace BHoM.Structural
         /// <summary>
         /// Set the section property name. 
         /// </summary>
-        /// <param name="sectionPropertyName"></param>
-        public void SetSectionPropertyName(string sectionPropertyName)
+        /// <param name="sectionProperty"></param>
+        public void SetSectionProperty(BHoM.Structural.SectionProperties.SectionProperty sectionProperty)
         {
-            this.SectionPropertyName = sectionPropertyName;
+           this.SectionProperty = sectionProperty;
+           this.SectionPropertyName = sectionProperty.Name;
         }
 
         /// <summary>
