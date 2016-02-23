@@ -17,9 +17,9 @@ namespace BHoM.Structural
         /////////////////
         ////Properties///
         /////////////////
-        
+
         /// <summary>Node number</summary>
-        public int Number {get; set; }
+        public int Number { get; set; }
 
         /// <summary>Node name</summary>
         public string Name { get; set; }
@@ -72,6 +72,7 @@ namespace BHoM.Structural
             Name = "";
             ConnectedBars = new List<Bar>();
             ConnectedFaces = new List<Face>();
+            SetBHoMGuid();
         }
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace BHoM.Structural
         /// </summary>
         /// <param name="number"></param>
         public Node(int number)
-            :this()
+            : this()
         {
             Number = number;
         }
@@ -101,7 +102,7 @@ namespace BHoM.Structural
         /// <param name="y">The y coordinate for the node</param>
         /// <param name="z">The z coordinate for the node</param>
         public Node(double x, double y, double z)
-            :this()
+            : this()
         {
             Point = new Point(x, y, z);
         }
@@ -114,7 +115,7 @@ namespace BHoM.Structural
         /// <param name="z"></param>
         /// <param name="number"></param>
         public Node(double x, double y, double z, int number)
-            :this(x,y,z)
+            : this(x, y, z)
         {
             Number = number;
         }
@@ -138,7 +139,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public bool HasValidNumber()
         {
-            return Number > 0; 
+            return Number > 0;
         }
 
         //////////////
@@ -160,7 +161,7 @@ namespace BHoM.Structural
         public double[] CartesianCoordinates
         {
             get { return Point.CartesianCoordinates; }
-            set { Point.CartesianCoordinates = value;}
+            set { Point.CartesianCoordinates = value; }
         }
 
         /// <summary>
@@ -170,8 +171,8 @@ namespace BHoM.Structural
         {
             get { return Point.X; }
             set
-            { 
-                Point.X = value; 
+            {
+                Point.X = value;
             }
         }
 
@@ -206,7 +207,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public double DistanceTo(Node node)
         {
-            
+
             double dist = 0;
             double[] target = this.CartesianCoordinates;
             double[] search = node.CartesianCoordinates;
@@ -371,29 +372,8 @@ namespace BHoM.Structural
                 BarDeltaAngles.Add(angleAccumulator[i] - angleAccumulator[i - 1]);
 
             BarDeltaAngles.Add(2.0 * Math.PI - angleAccumulator.Last());
-         }
-
-        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        public BHoM.Collections.Dictionary<string, object> GetProperties()
-        {
-            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
-            PropertiesDictionary.Add("Number", this.Number);
-            PropertiesDictionary.Add("Name", this.Name);
-            PropertiesDictionary.Add("CartesianCoordinates", this.CartesianCoordinates);
-            PropertiesDictionary.Add("Point", this.Point);
-            PropertiesDictionary.Add("Plane", this.Plane);
-            PropertiesDictionary.Add("Constraint", this.Constraint);
-            PropertiesDictionary.Add("ConstraintName", this.ConstraintName);
-            PropertiesDictionary.Add("ConnectedBars", this.ConnectedBars);
-            PropertiesDictionary.Add("ConnectedFaces", this.ConnectedFaces);
-            PropertiesDictionary.Add("BarAbsoluteAngles", this.BarAbsoluteAngles);
-            PropertiesDictionary.Add("BarDeltaAngles", this.BarDeltaAngles);
-            PropertiesDictionary.Add("BarThetaAngles", this.BarThetaAngles);
-            PropertiesDictionary.Add("UserData", this.UserData);
-            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
-
-            return PropertiesDictionary;
         }
-    }
+
+   }
 }
     

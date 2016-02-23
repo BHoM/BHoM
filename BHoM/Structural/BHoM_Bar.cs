@@ -82,6 +82,7 @@ namespace BHoM.Structural
         {
             StartNode = new Node();
             EndNode = new Node();
+            SetBHoMGuid();
         }
 
         /// <summary>
@@ -98,6 +99,7 @@ namespace BHoM.Structural
                 this.Line = new Geometry.Line(startNode.Point, endNode.Point);
                 this.Length = Line.Length;
             }
+            SetBHoMGuid();
         }
 
         /// <summary>
@@ -117,9 +119,9 @@ namespace BHoM.Structural
                 this.Length = Line.Length;
 
                 BHoM.Structural.SectionProperties.SteelBoxSection abc = new BHoM.Structural.SectionProperties.SteelBoxSection();
-                
-                              
+                                 
             }
+            SetBHoMGuid();
         }
 
         ///////////////
@@ -168,32 +170,8 @@ namespace BHoM.Structural
             this.DesignGroupName = designGroupName;
         }
 
-        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        public BHoM.Collections.Dictionary<string, object> GetProperties()
-        {
-            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
-            PropertiesDictionary.Add("Number", this.Number);
-            PropertiesDictionary.Add("Name", this.Name);
-            PropertiesDictionary.Add("Line", this.Line);
-            PropertiesDictionary.Add("Length", this.Length); 
-            PropertiesDictionary.Add("OrientationAngle", this.OrientationAngle);
-            PropertiesDictionary.Add("StartNode", this.StartNode);
-            PropertiesDictionary.Add("EndNode", this.EndNode);
-            PropertiesDictionary.Add("Storey", this.Storey);
-            PropertiesDictionary.Add("Material",this.Material);
-            PropertiesDictionary.Add("MaterialPropertyName", this.MaterialPropertyName);
-            PropertiesDictionary.Add("Release",this.Release);
-            PropertiesDictionary.Add("ReleaseName",this.ReleaseName);
-            PropertiesDictionary.Add("SectionProperty", this.SectionProperty);
-            PropertiesDictionary.Add("SectionPropertyName", this.SectionPropertyName);
-            PropertiesDictionary.Add("DesignGroupName", this.DesignGroupName);
-            PropertiesDictionary.Add("ConstructionPhase", this.ConstructionPhase);
-            PropertiesDictionary.Add("UserData", this.UserData);
-            PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
 
-            return PropertiesDictionary;
-         }
-
+        
 
     }
 }

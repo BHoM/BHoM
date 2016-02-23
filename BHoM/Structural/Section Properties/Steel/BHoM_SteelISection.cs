@@ -41,5 +41,20 @@ namespace BHoM.Structural.SectionProperties
         {
             return new SteelISection();
         }
+
+        //////////////
+        ////Methods///
+        //////////////
+
+        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        public BHoM.Collections.Dictionary<string, object> GetProperties()
+        {
+            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
+            foreach (var prop in this.GetType().GetProperties())
+            {
+                PropertiesDictionary.Add(prop.Name, prop.GetValue(this));
+            }
+            return PropertiesDictionary;
+        }
     }
 }

@@ -25,9 +25,6 @@ namespace BHoM.Structural.SectionProperties
                 default: throw new ArgumentException("Invalid type", "type");
             }
         }
-
-
-        
       
         /// <summary>
         /// 

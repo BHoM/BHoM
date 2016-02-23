@@ -664,6 +664,14 @@
             <summary>User text input. Can be used to store user information in an object
             such as a user ID or a project specific parameter</summary>
         </member>
+        <member name="M:BHoM.Global.BHoMObject.SetBHoMGuid">
+            <summary>
+            Set the BHoM_Guid
+            </summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.GetProperties">
+            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        </member>
         <member name="T:BHoM.Materials.Material">
             <summary>
             Material class for use in all other object classes and namespaces
@@ -1353,9 +1361,6 @@
             </summary>
             <param name="designGroupName"></param>
         </member>
-        <member name="M:BHoM.Structural.Bar.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
         <member name="T:BHoM.Structural.Face">
             <summary>
             BHoM Face class
@@ -1599,9 +1604,6 @@
             WIP
             </summary>
             <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Node.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="T:BHoM.Structural.BarRelease">
             <summary>
@@ -3026,6 +3028,9 @@
         </member>
         <member name="M:BHoM.Structural.SectionProperties.SteelISection.Create(BHoM.Structural.SectionProperties.ShapeType)">
             <summary></summary>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SteelISection.GetProperties">
+            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="T:BHoM.HumanBody.Head">
             <summary>

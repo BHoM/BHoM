@@ -53,7 +53,7 @@ namespace BHoM.Structural.SectionProperties
             BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
             foreach (var prop in this.GetType().GetProperties())
             {
-                PropertiesDictionary.Add(prop.Name, prop.GetValue(this, null));
+                PropertiesDictionary.Add(prop.Name, prop.GetValue(this));
             }
             return PropertiesDictionary;
         }
