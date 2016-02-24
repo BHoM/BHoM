@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using BHoM.Structural.SectionProperties;
+using System.Xml;
+using BHoM.Global;
 
 namespace BHoM.Structural
 {
@@ -11,6 +13,10 @@ namespace BHoM.Structural
     [Serializable]
     public class Structure : IStructuralObject
     {
+        private Dictionary<Guid, BHoM.Global.BHoMObject> m_Objects;
+        internal XmlDocument m_Xml;
+
+
        /// <summary>Structure number</summary>
         public int Number { get; private set; }
 
@@ -18,10 +24,22 @@ namespace BHoM.Structural
         public string Name { get; private set; }
 
         /// <summary>List of nodes</summary>
-        public Dictionary<int, Node> Nodes { get; private set; }
+        public List<Node> Nodes
+        {
+            get
+            {
+                return m_Objects.Values.Where(obj => obj.GetType() == typeof(Node)).Cast<Node>().ToList();
+            }
+        }
 
         /// <summary>List of bars</summary>
-        public Dictionary<int, Bar> Bars { get; private set; }
+        public List<Bar> Bars
+        {
+            get
+            {
+                return m_Objects.Values.Where(obj => obj.GetType() == typeof(Bar)).Cast<Bar>().ToList();
+            }
+        }
 
         /// <summary>List of faces</summary>
         public Dictionary<int,Face> Faces { get; private set; }
@@ -38,18 +56,32 @@ namespace BHoM.Structural
         /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
 
+
+   
         /// <summary>
         /// Constructs an empty structure
         /// </summary>
         public Structure()
         {
-            Nodes = new Dictionary<int, Node>();
-            Bars = new Dictionary<int,Bar>();
+            m_Objects = new Dictionary<Guid, Global.BHoMObject>();
             Faces = new Dictionary<int,Face>();
             Constraints = new Dictionary<string, BHoM.Structural.Constraint>();
         }
  
-      
+
+
+        public BHoM.Global.BHoMObject GetObject(Guid id)
+        {
+            BHoM.Global.BHoMObject result = null;
+            m_Objects.TryGetValue(id, out result);
+            return result;
+        }
+
+        public void AddObject(BHoM.Global.BHoMObject value)
+        {
+            //value.Project = this;
+            m_Objects.Add(value.BHoM_Guid, value);
+        }
         /// <summary>
         /// Adds a node in the structure. Private
         /// TODO: implement index clash checks
@@ -59,9 +91,8 @@ namespace BHoM.Structural
         {
             if (NodeNumberClash(node) || !node.HasValidNumber())
                 node.SetNumber(FindMaxNodeNumber() + 1);
-            Nodes.Add(node.Number, node);
+            AddObject(node);
         }
-
 
         /// <summary>
         /// Adds node to structure and returns. If within tolerance with preexisting node original node will be returned instead
@@ -70,7 +101,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Node AddOrGetNode(Node n)
         {
-            foreach (Node n1 in Nodes.Values.ToList())
+            foreach (Node n1 in Nodes)
                 if (Math.Abs(n1.X - n.X) < Tolerance && Math.Abs(n1.Y - n.Y) < Tolerance && Math.Abs(n1.Z - n.Z) < Tolerance)
                     return n1;
             AddNode(n);
@@ -89,7 +120,8 @@ namespace BHoM.Structural
 
             if (BarNumberClash(b)) b.Number = (FindMaxBarNumber() + 1);
             
-            Bars.Add(b.Number,b);
+            //Bars.Add(b.Number,b);
+            AddObject(b);
         }
 
         /// <summary>
@@ -99,7 +131,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public bool NodeNumberClash(Node n)
         {
-            return (Nodes.Values.ToList().FindIndex(x => x.Number == n.Number) != -1);
+            return (Nodes.FindIndex(x => x.Number == n.Number) != -1);
         }
 
         /// <summary>
@@ -109,7 +141,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public bool BarNumberClash(Bar b)
         {
-            return (Bars.Values.ToList().FindIndex(x => x.Number == b.Number) != -1);
+            return (Bars.FindIndex(x => x.Number == b.Number) != -1);
         }
 
         /// <summary>
@@ -129,7 +161,7 @@ namespace BHoM.Structural
         public int FindMaxNodeNumber()
         {
             if(Nodes.Count > 0 )
-                return Nodes.Values.ToList().Max(x => x.Number);
+                return Nodes.Max(x => x.Number);
             return 0;
         }
 
@@ -140,7 +172,7 @@ namespace BHoM.Structural
         public int FindMaxBarNumber()
         { 
             if (Bars.Count > 0)
-                return Bars.Values.ToList().Max(x => x.Number);
+                return Bars.Max(x => x.Number);
             return 0;
         }
 
@@ -160,17 +192,17 @@ namespace BHoM.Structural
         /// </summary>
         private void SetTopology()
         {
-            foreach (Node n in Nodes.Values.ToList())
+            foreach (Node n in Nodes)
                 n.ResetTopology();
 
-            foreach(Bar b in Bars.Values.ToList())
+            foreach(Bar b in Bars)
             {
                 ////lace up topology
                 b.StartNode.AddBar(b);
                 b.EndNode.AddBar(b);
             }
 
-            foreach(Face f in Faces.Values.ToList())
+            foreach(Face f in Faces.Values)
             {
 
 
@@ -185,7 +217,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Node GetNodeByNumber(int n)
         {
-            return Nodes.Values.ToList().Find(delegate(Node node) { return node.Number == n; });
+            return Nodes.Find(delegate(Node node) { return node.Number == n; });
         }
 
         /// <summary>
@@ -195,7 +227,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Bar GetBarByNumber(int n)
         {
-            return Bars.Values.ToList().Find(delegate(Bar bar) { return bar.Number == n; });
+            return Bars.Find(delegate(Bar bar) { return bar.Number == n; });
         }
 
         /// <summary>
@@ -216,7 +248,7 @@ namespace BHoM.Structural
         /// <returns>True if succeded</returns>
         public bool SortNodalBars()
         {
-            foreach (Node n in Nodes.Values.ToList())
+            foreach (Node n in Nodes)
             {
                 n.SetCartesianCoordinatesystemAsDefault();
                 n.SortConnectedBars();
@@ -269,7 +301,7 @@ namespace BHoM.Structural
 
             SortNodalBars();
 
-            foreach (Node n0 in Nodes.Values.ToList())
+            foreach (Node n0 in Nodes)
             {
                 if (n0.Valence < 2) continue;
 
