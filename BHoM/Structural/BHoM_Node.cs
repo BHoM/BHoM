@@ -17,7 +17,7 @@ namespace BHoM.Structural
         /////////////////
         ////Properties///
         /////////////////
-        private Point m_Point;
+
         /// <summary>Node number</summary>
         public int Number { get; set; }
 
@@ -25,14 +25,7 @@ namespace BHoM.Structural
         public string Name { get; set; }
 
         /// <summary>Node position as a point object</summary>
-        public Point Point 
-        {
-            get
-            {
-                return m_Point != null ? m_Point : m_Point = new Point(Parameters["X"].GetValue<double>(), Parameters["Y"].GetValue<double>(),
-                    Parameters["Z"].GetValue<double>());
-            }           
-        }
+        public Point Point { get; private set; }
 
         /// <summary>Node constraint (support/restraint)</summary>
         public BHoM.Structural.Constraint Constraint { get; private set; }
@@ -74,11 +67,9 @@ namespace BHoM.Structural
         /// </summary>
         public Node()
         {
-            SetParameter("X", 0.0);
-            SetParameter("Y", 0.0);
-            SetParameter("Z", 0.0);
+            Point = new Point();
             Number = -1;
-            Name = "-1";
+            Name = "";
             ConnectedBars = new List<Bar>();
             ConnectedFaces = new List<Face>();
             SetBHoMGuid();
@@ -99,7 +90,10 @@ namespace BHoM.Structural
         /// </summary>
         /// <param name="point"></param>
         public Node(Point point)
-            : this(point.X, point.Y,point.Z) { }
+            : this()
+        {
+            Point = point.Duplicate();
+        }
 
         /// <summary>
         /// Represents a three dimensional node in space. Holds results.
@@ -110,10 +104,7 @@ namespace BHoM.Structural
         public Node(double x, double y, double z)
             : this()
         {
-            SetParameter("X", x);
-            SetParameter("Y", y);
-            SetParameter("Z", z);
-            m_Point = new Point(x, y, z);
+            Point = new Point(x, y, z);
         }
 
         /// <summary>

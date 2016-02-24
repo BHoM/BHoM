@@ -1,5 +1,4 @@
-﻿using BHoM.Geometry;
-using System;
+﻿using System;
 
 
 namespace BHoM.Structural 
@@ -12,10 +11,7 @@ namespace BHoM.Structural
         /////////////////
         ////Properties///
         /////////////////
-
-        private Line m_Line;
-        private double m_Length;
-
+        
         /// <summary>Bar number</summary>
         public int Number { get; set; }
                 
@@ -28,6 +24,7 @@ namespace BHoM.Structural
         /// unique to bars (bars and objects can be added to multiple object groups).
         /// </summary>
         public string DesignGroupName { get; private set; }
+
         
         /// <summary>Section property name inherited from section property</summary>
         public string SectionPropertyName { get; set; }
@@ -36,17 +33,7 @@ namespace BHoM.Structural
         public BHoM.Structural.SectionProperties.SectionProperty SectionProperty { get; private set; }
 
         /// <summary>Material inherited from section property</summary>
-        public BHoM.Materials.Material Material 
-        { 
-            get
-            {
-               return Project.GetObject(Parameters["Material"].GetValue<Guid>()) as Materials.Material;
-            }
-            set
-            {
-                Parameters["Material"].SetValue(Material.BHoM_Guid);
-            }
-        }
+        public BHoM.Materials.Material Material { get; set; }
 
         /// <summary>Material name inherited from section property BHoM.Materials.Material name</summary>
         public string MaterialPropertyName { get; private set; }
@@ -58,48 +45,16 @@ namespace BHoM.Structural
         public string ReleaseName { get; private set; }
 
         /// <summary>Start node</summary>
-        public Node StartNode 
-        { 
-            get
-            {
-                return Project.GetObject(Parameters["StartNode"].GetValue<Guid>()) as Node;
-            }
-            private set
-            {
-                SetParameter("StartNode", value.BHoM_Guid);
-            }
-        }
+        public Node StartNode { get; private set; }
 
         /// <summary>End node</summary>
-        public Node EndNode 
-        {
-            get
-            {
-                return Project.GetObject(Parameters["EndNode"].GetValue<Guid>()) as Node;
-            }
-            private set
-            {
-                SetParameter("EndNode", value.BHoM_Guid);
-            } 
-        }
+        public Node EndNode { get; private set; }
 
         /// <summary>The line defining the bar centre or location line</summary>
-        public BHoM.Geometry.Line Line 
-        { 
-            get
-            {
-                return m_Line != null ? m_Line : m_Line = new Line(StartNode.Point, EndNode.Point);
-            }
-        }
+        public BHoM.Geometry.Line Line { get; private set; }
 
         /// <summary>Bar length</summary>
-        public double Length
-        {
-            get
-            {
-                return m_Length != 0 ? m_Length : m_Length = Line.Length;
-            }
-        }
+        public double Length { get; private set; }
 
         /// <summary>
         /// Bar orientation angle. For non-vertical bars, angle is measured in the bar YZ plane
@@ -114,6 +69,7 @@ namespace BHoM.Structural
 
         /// <summary>Storey of the building that the bar is assigned to</summary>
         public BHoM.Structural.Storey Storey { get; private set; }
+
 
         ////////////////////
         ////CONSTRUCTORS////
@@ -138,7 +94,11 @@ namespace BHoM.Structural
         {
             this.StartNode = startNode;
             this.EndNode = endNode;
-           
+            if (StartNode.IsValid && EndNode.IsValid)
+            {
+                this.Line = new Geometry.Line(startNode.Point, endNode.Point);
+                this.Length = Line.Length;
+            }
             SetBHoMGuid();
         }
 
@@ -153,14 +113,14 @@ namespace BHoM.Structural
             this.StartNode = startNode;
             this.EndNode = endNode;
             this.Number = barNumber;
-            //if (StartNode.IsValid && EndNode.IsValid)
-            //{
-            //    this.Line = new Geometry.Line(startNode.Point, endNode.Point);
-            //    this.Length = Line.Length;
+            if (StartNode.IsValid && EndNode.IsValid)
+            {
+                this.Line = new Geometry.Line(startNode.Point, endNode.Point);
+                this.Length = Line.Length;
 
-            //    BHoM.Structural.SectionProperties.SteelBoxSection abc = new BHoM.Structural.SectionProperties.SteelBoxSection();
+                BHoM.Structural.SectionProperties.SteelBoxSection abc = new BHoM.Structural.SectionProperties.SteelBoxSection();
                                  
-            //}
+            }
             SetBHoMGuid();
         }
 

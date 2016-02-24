@@ -38,5 +38,6 @@ namespace BHoM.Structural.SectionProperties
         /// <summary>Section material</summary>
         public BHoM.Materials.Material Material {get; set;}
 
+
     }
 }
