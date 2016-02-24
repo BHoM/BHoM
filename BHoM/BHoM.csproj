@@ -51,6 +51,8 @@
     <Compile Include="Geometry\Transformations\BHoM_Scale.cs" />
     <Compile Include="Geometry\BHoM_Line.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
+    <Compile Include="Global\BHoM_Parameter.cs" />
+    <Compile Include="Global\BHoM_Project.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C25.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
     <Compile Include="Materials\Steel\BHoM_ISteel.cs" />
