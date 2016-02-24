@@ -11,7 +11,7 @@ namespace BHoM.Structural.Loads
     /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
     /// constructor allows for a default force and moment nodal load instance.
     /// </summary>
-    public class NodalLoad
+    public class NodalLoad : BHoM.Structural.Loads.Load
     {
         /// <summary>Loadcase as BHoM object</summary>
         public BHoM.Structural.Loads.Loadcase Loadcase { get; private set; }
@@ -40,11 +40,6 @@ namespace BHoM.Structural.Loads
         /// <summary>RotationalAcceleration - arx, ary, arz defined as a BHoM.Geometry.Vector</summary>
         public BHoM.Geometry.Vector RotationalAcceleration { get; private set; }
 
-        /// <summary>A list of node numbers that the nodal load is applicable to</summary>
-        public List<int> NodeNumbers { get; private set; }
-
-        /// <summary>Stores a load record number specific to Robot</summary>
-        public int RobotLoadRecordNumber { get; private set; }
 
         /// <summary>
         /// Create an empty nodal load as a placeholder
@@ -203,14 +198,14 @@ namespace BHoM.Structural.Loads
         /// <param name="number"></param>
         public void AddNodeNumber(int number)
         {
-            if(this.NodeNumbers != null)
+            if(this.ObjectNumbers != null)
             {
-                this.NodeNumbers.Add(number);
+                this.ObjectNumbers.Add(number);
             }
             else
             {
-                this.NodeNumbers = new List<int>();
-                this.NodeNumbers.Add(number);
+                this.ObjectNumbers = new List<int>();
+                this.ObjectNumbers.Add(number);
             }
         }
 
@@ -220,7 +215,7 @@ namespace BHoM.Structural.Loads
         /// <param name="number"></param>
         public void SetRobotLoadRecordNumber(int number)
         {
-            this.RobotLoadRecordNumber = number;
+            this.RecordNumber = number;
         }
 
     }
