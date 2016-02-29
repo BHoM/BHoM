@@ -41,7 +41,6 @@ namespace BHoM.Global
                     break;
             }
         }
-
         public Parameter(string name, double value)
         {
             Name = name;
@@ -54,7 +53,6 @@ namespace BHoM.Global
             Data = value;
             DataType = StorageType.Integer;
         }
-
         public Parameter(string name, string value)
         {
             Name = name;
@@ -74,6 +72,7 @@ namespace BHoM.Global
             DataType = (StorageType)Enum.Parse(typeof(StorageType),  storage);
             SetValue(value);        
         }
+
 
         internal void SetValue(string value)
         {

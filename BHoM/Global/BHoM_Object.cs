@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
+using System.Linq;
 
 namespace BHoM.Global
 {
@@ -42,7 +43,7 @@ namespace BHoM.Global
             }
             else
             {
-                Parameters.Add(name,new Parameter(name, data));
+                Parameters.Add(name, new Parameter(name, data));
             }
         }
 
@@ -82,7 +83,7 @@ namespace BHoM.Global
             objectNode.Attributes.Append(doc.CreateAttribute("Id")).Value = BHoM_Guid.ToString();
             objectNode.Attributes.Append(doc.CreateAttribute("Name")).Value = Name;
             objectNode.Attributes.Append(doc.CreateAttribute("Type")).Value = this.GetType().ToString();
-           
+
             XmlNode parameter;
             foreach (string key in Parameters.Keys)
             {
@@ -93,7 +94,55 @@ namespace BHoM.Global
 
             }
             return objectNode;
-        }       
+        }
+
+        protected virtual string JSON(string NestedJSON)
+        {
+            string aResult = "{";
+            aResult += string.Format("\"{0}\": \"{1}\",", "primitive", "BHoM_Object");
+            aResult += string.Format("\"{0}\": \"{1}\",", "Id", BHoM_Guid.ToString());
+            aResult += string.Format("\"{0}\": \"{1}\",", "Name", Name);
+            aResult += string.Format("\"{0}\": \"{1}\",", "Type", GetType().ToString());
+
+            if (Parameters.Count > 0)
+            {
+                aResult += string.Format("\"{0}\": {1}", "Parameters", "{");
+                foreach (string key in Parameters.Keys)
+                {
+                    switch(Parameters[key].DataType)
+                    {
+                        case StorageType.Double:
+                            aResult += string.Format("\"{0}\": {1},", Parameters[key].Name, Parameters[key].Data);
+                            break;
+                        case StorageType.String:
+                            aResult += string.Format("\"{0}\": \"{1}\",", Parameters[key].Name, Parameters[key].Data);
+                            break;
+                        case StorageType.Id:
+                            aResult += string.Format("\"{0}\": \"{1}\",", Parameters[key].Name, Parameters[key].Data);
+                            break;
+                        case StorageType.Integer:
+                            aResult += string.Format("\"{0}\": {1},", Parameters[key].Name, Parameters[key].Data);
+                            break;
+                    }
+                    
+                }
+                if (aResult.Last() == ',')
+                    aResult = aResult.Substring(0, aResult.Length - 1);
+                aResult += "}";
+            }
+            if (aResult.Last() == ',')
+                aResult = aResult.Substring(0, aResult.Length - 1);
+
+
+            aResult += NestedJSON;
+            aResult += "}";
+            return aResult;
+        }
+
+        public virtual string JSON()
+        {
+            return JSON(string.Empty);
+        }  
 
     }
 }

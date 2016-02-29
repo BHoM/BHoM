@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\BHoM_Dictionary.cs" />
-    <Compile Include="Geometry\BHoM_PolyLoop.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_ILine.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_IVector.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_IPlane.cs" />
@@ -58,10 +57,12 @@
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
     <Compile Include="Materials\Steel\BHoM_ISteel.cs" />
     <Compile Include="Materials\Concrete\BHoM_IConcrete.cs" />
+    <Compile Include="MEP\BHoM_Pipe.cs" />
     <Compile Include="MEP\BHoM_Element.cs" />
-    <Compile Include="MEP\BHoM_Geometry.cs" />
+    <Compile Include="MEP\BHoM_Shell.cs" />
     <Compile Include="MEP\BHoM_Location.cs" />
-    <Compile Include="MEP\BHoM_Space.cs" />
+    <Compile Include="MEP\BHoM_Duct.cs" />
+    <Compile Include="MEP\BHoM_SpatialElement.cs" />
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
     <Compile Include="Structural\Interfaces\BHoM_IBar.cs" />
