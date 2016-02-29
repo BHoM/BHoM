@@ -143,11 +143,6 @@
             BHoM implemented
             </summary>
         </member>
-        <member name="M:BHoM.Global.BHoMObject.SetBHoMGuid">
-            <summary>
-            Set the BHoM_Guid
-            </summary>
-        </member>
         <member name="M:BHoM.Global.BHoMObject.GetProperties">
             <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
@@ -191,6 +186,14 @@
         <member name="P:BHoM.Geometry.Line.Length">
             <summary>Length of the line</summary>
         </member>
+        <member name="M:BHoM.Global.ConstraintFactory.Create(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="fixity">Constraint string x indicates fixity and f indices freedom must be 6 characters long or nothing will be returned</param>
+            <returns></returns>
+        </member>
         <member name="M:BHoM.Global.Project.#ctor">
             <summary>
             Constructs an empty structure
@@ -201,18 +204,6 @@
         </member>
         <member name="P:BHoM.Global.Project.Name">
             <summary>Structure name</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Nodes">
-            <summary>List of nodes</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Bars">
-            <summary>List of bars</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Faces">
-            <summary>List of faces</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Constraints">
-            <summary>Dictionary of constraints</summary>
         </member>
         <member name="P:BHoM.Global.Project.Storeys">
             <summary>Dictionary of storeys</summary>
@@ -1970,38 +1961,11 @@
             Degrees of freedom class for use in constraint objects
             </summary>
         </member>
-        <member name="M:BHoM.Structural.DOF.#ctor">
-            <summary>Construct an empty DOF object</summary>
-        </member>
-        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.AxisDirection,BHoM.Structural.DOFType)">
-            <summary>Constructs a DOF using direction and type</summary>
-        </member>
-        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.AxisDirection,BHoM.Structural.DOFType,System.Double)">
+        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.DOFType,System.Double)">
             <summary>Constructs a DOF using direciton, type and value</summary>
         </member>
-        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.AxisDirection,BHoM.Structural.DOFType,System.Object)">
+        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.DOFType,System.Object)">
             <summary>Constructs a DOF using direction, type and values as objects for non-linear model</summary>
-        </member>
-        <member name="M:BHoM.Structural.DOF.SetName(System.String)">
-            <summary>Sets the DOF name</summary>
-        </member>
-        <member name="M:BHoM.Structural.DOF.SetNumber(System.Int32)">
-            <summary>
-            Set the DOF number
-            </summary>
-            <param name="number"></param>
-        </member>
-        <member name="M:BHoM.Structural.DOF.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
-        <member name="P:BHoM.Structural.DOF.Number">
-            <summary>DOF number</summary>
-        </member>
-        <member name="P:BHoM.Structural.DOF.Name">
-            <summary>DOF name</summary>
-        </member>
-        <member name="P:BHoM.Structural.DOF.Direction">
-            <summary>Direction</summary>
         </member>
         <member name="P:BHoM.Structural.DOF.Type">
             <summary>Type of DOF (linear/non-linear etc)</summary>
@@ -2027,27 +1991,9 @@
             Construct an empty constraint object with a name
             </summary>
         </member>
-        <member name="M:BHoM.Structural.Constraint.#ctor(BHoM.Structural.DOF,BHoM.Structural.DOF,BHoM.Structural.DOF,BHoM.Structural.DOF,BHoM.Structural.DOF,BHoM.Structural.DOF)">
-            <summary>Construct a constraint from DOF objects. Any constraint 
-            type (linear/non-linear) may be constructed using this.</summary>  
-        </member>
-        <member name="M:BHoM.Structural.Constraint.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:BHoM.Structural.Constraint.#ctor(System.String,System.Boolean[],System.Double[])">
             <summary>Construct a constraint from true/false. True blocks a DOF. 
-            Only fixed or free constraint types can be constructed using this.</summary>
-        </member>
-        <member name="M:BHoM.Structural.Constraint.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>Construct a constraint from double. Set -1 to block a DOF, 0 to release, 
-            any other number is assumed to be a linear spring constant. 
-            Any linear contraint types can be constructed using this.</summary>
-        </member>
-        <member name="M:BHoM.Structural.Constraint.SetFixed">
-            <summary>Sets all DOF to fixed (-1)</summary>
-        </member>
-        <member name="M:BHoM.Structural.Constraint.SetPinned">
-            <summary>Sets all translational DOF to fixed (-1)</summary>
-        </member>
-        <member name="M:BHoM.Structural.Constraint.SetSliding">
-            <summary>Sets vertical (Z) translation to fixed (-1)</summary>
+            Only fixed or free constraint types can be constructed using this.</summary>       
         </member>
         <member name="M:BHoM.Structural.Constraint.SetName(System.String)">
             <summary>Sets the constraint name</summary>
@@ -2067,35 +2013,8 @@
             </summary>
             <param name="number"></param>
         </member>
-        <member name="M:BHoM.Structural.Constraint.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.Number">
-            <summary>Constraint number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.Name">
-            <summary>Constraint name</summary>
-        </member>
         <member name="P:BHoM.Structural.Constraint.Type">
             <summary>Constraint type</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.X">
-            <summary>X degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.Y">
-            <summary>Y degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.Z">
-            <summary>Z degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.XX">
-            <summary>XX degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.YY">
-            <summary>YY degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.ZZ">
-            <summary>ZZ degree of freedom</summary>
         </member>
         <member name="T:BHoM.Structural.Storey">
             <summary>
@@ -2158,18 +2077,6 @@
             Bar objects for 1D finite element bars. Note, cable elements separate.
             </summary>
         </member>
-        <member name="M:BHoM.Structural.Bar.#ctor">
-            <summary>
-            Construct an empty bar object
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Bar.#ctor(BHoM.Structural.Node,BHoM.Structural.Node)">
-            <summary>
-            Construct a bar from BHoM nodes
-            </summary>
-            <param name="startNode"></param>
-            <param name="endNode"></param>
-        </member>
         <member name="M:BHoM.Structural.Bar.#ctor(BHoM.Structural.Node,BHoM.Structural.Node,System.Int32)">
             <summary>
             Construct a bar from BHoM nodes and set number
@@ -2203,12 +2110,6 @@
             </summary>
             <param name="designGroupName"></param>
         </member>
-        <member name="P:BHoM.Structural.Bar.Number">
-            <summary>Bar number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Bar.Name">
-            <summary>Bar name</summary>
-        </member>
         <member name="P:BHoM.Structural.Bar.DesignGroupName">
             <summary>
             Design type name for design purposes (e.g. Simple Column). Can be used to help 
@@ -2225,14 +2126,8 @@
         <member name="P:BHoM.Structural.Bar.Material">
             <summary>Material inherited from section property</summary>
         </member>
-        <member name="P:BHoM.Structural.Bar.MaterialPropertyName">
-            <summary>Material name inherited from section property BHoM.Materials.Material name</summary>
-        </member>
         <member name="P:BHoM.Structural.Bar.Release">
             <summary>Releases</summary>
-        </member>
-        <member name="P:BHoM.Structural.Bar.ReleaseName">
-            <summary>Release name is generated from the start and end BHoM.Structural.</summary>
         </member>
         <member name="P:BHoM.Structural.Bar.StartNode">
             <summary>Start node</summary>
@@ -2318,31 +2213,6 @@
             <summary>
             Node objects
             </summary>
-        </member>
-        <member name="M:BHoM.Structural.Node.#ctor">
-            <summary>
-            Constructs an empty node object
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Node.#ctor(System.Int32)">
-            <summary>
-            Constructs an empty node from a number
-            </summary>
-            <param name="number"></param>
-        </member>
-        <member name="M:BHoM.Structural.Node.#ctor(BHoM.Geometry.Point)">
-            <summary>
-            Constructes a node from a point
-            </summary>
-            <param name="point"></param>
-        </member>
-        <member name="M:BHoM.Structural.Node.#ctor(System.Double,System.Double,System.Double)">
-            <summary>
-            Represents a three dimensional node in space. Holds results.
-            </summary>
-            <param name="x">The x coordinate for the node</param>
-            <param name="y">The y coordinate for the node</param>
-            <param name="z">The z coordinate for the node</param>
         </member>
         <member name="M:BHoM.Structural.Node.#ctor(System.Double,System.Double,System.Double,System.Int32)">
             <summary>
@@ -2440,12 +2310,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:BHoM.Structural.Node.Number">
-            <summary>Node number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.Name">
-            <summary>Node name</summary>
-        </member>
         <member name="P:BHoM.Structural.Node.Point">
             <summary>Node position as a point object</summary>
         </member>
@@ -2516,12 +2380,6 @@
         <member name="M:BHoM.Structural.BarRelease.#ctor(BHoM.Structural.Constraint,BHoM.Structural.Constraint,System.String)">
             <summary>Construct a new constraint using constraint objects for start/end releases and name</summary>          
         </member>
-        <member name="P:BHoM.Structural.BarRelease.BHoM_Guid">
-            <summary>BHoM unique ID</summary>
-        </member>
-        <member name="P:BHoM.Structural.BarRelease.Name">
-            <summary>Bar release name</summary>
-        </member>
         <member name="P:BHoM.Structural.BarRelease.StartConstraint">
             <summary>Start constraint</summary>
         </member>
@@ -2561,104 +2419,6 @@
             Structure class represents a collection of structural objects
             </summary>
         </member>
-        <member name="M:BHoM.Structural.Structure.#ctor">
-            <summary>
-            Constructs an empty structure
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Structure.AddNode(BHoM.Structural.Node)">
-            <summary>
-            Adds a node in the structure. Private
-            TODO: implement index clash checks
-            </summary>
-            <param name="node">The node to add</param>
-        </member>
-        <member name="M:BHoM.Structural.Structure.AddOrGetNode(BHoM.Structural.Node)">
-            <summary>
-            Adds node to structure and returns. If within tolerance with preexisting node original node will be returned instead
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.AddBar(BHoM.Structural.Node,BHoM.Structural.Node)">
-            <summary>
-            Adds a beam in the structure. First checks uniqueness of end nodes with preexisting nodes in structure.
-            This is based on set tolerance of Structure, merging as appropriate 
-            </summary>
-            <param name="startNode"></param>
-            <param name="endNode"></param>
-        </member>
-        <member name="M:BHoM.Structural.Structure.NodeNumberClash(BHoM.Structural.Node)">
-            <summary>
-            Test whether a node number exists
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.BarNumberClash(BHoM.Structural.Bar)">
-            <summary>
-            Tests whether a bar number exists
-            </summary>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FaceNumberClash(BHoM.Structural.Face)">
-            <summary>
-            Tests whether a face number exists
-            </summary>
-            <param name="f"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindMaxNodeNumber">
-            <summary>
-            Find the maximum node number
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindMaxBarNumber">
-            <summary>
-            Find the maximum bar number
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindMaxFaceNumber">
-            <summary>
-            Find the maximum face number
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.SetTopology">
-            <summary>
-            Set the structure topology
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Structure.GetNodeByNumber(System.Int32)">
-            <summary>
-            Get a node by number
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.GetBarByNumber(System.Int32)">
-            <summary>
-            Get a bar by number
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.GetFaceByNumber(System.Int32)">
-            <summary>
-            Get a face by number
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.SortNodalBars">
-            <summary>
-            Calculates the counter clockwise Oring for each node  
-            </summary>
-            <returns>True if succeded</returns>
-        </member>
         <member name="M:BHoM.Structural.Structure.SortNodalFaces">
             <summary>
             Sort nodal faces
@@ -2674,52 +2434,11 @@
             </summary>
             <param name="number"></param>
         </member>
-        <member name="M:BHoM.Structural.Structure.CreateFacesFromBars">
-            <summary>
-            WIP - currently duplicates faces. also does not control winding. 
-            Create face from bars by looping through the bars and trying to find closed edge loops - defining face.
-            First tries to create a triangular panel, if not, quad - aborts after.
-            Concave quads are excluded (angles greater than 180 between bars)
-            Creation of five sided and above are not supported
-            Assumes nodal bar lists are already sorted correctly anticlockwise
-            Also assumes a manifold topology - i.e. suited to meshed slabs and gridshells - and not spaceframes etc.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.CheckFaceUniquenessBySortedNodeNumbers(BHoM.Structural.Face)">
-            <summary>
-            WIP TODO: check efficiency
-            </summary>
-            <param name="f"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindBarWithCommonNodeInBarList(System.Collections.Generic.List{BHoM.Structural.Bar},BHoM.Structural.Node)">
-            <summary>
-            
-            </summary>
-            <param name="bars"></param>
-            <param name="node"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindNearestFace(BHoM.Geometry.Point)">
-            <summary>
-            Find the nearest face
-            </summary>
-            <param name="p"></param>
-            <returns></returns>
-        </member>
         <member name="M:BHoM.Structural.Structure.SetTolerance(System.Double)">
             <summary>
             Sets the internal tolerance for which structural node merging etc. will be performed
             </summary>
             <param name="tol"></param>
-        </member>
-        <member name="M:BHoM.Structural.Structure.SetConstraint(BHoM.Structural.Constraint)">
-            <summary>
-            Set a constraint
-            </summary>
-            <param name="constraint"></param>
-            <returns></returns>
         </member>
         <member name="M:BHoM.Structural.Structure.GetProperties">
             <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
