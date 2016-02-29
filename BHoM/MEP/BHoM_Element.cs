@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BHoM.MEP
 {
-    public class Element : BHoMObject
+    public abstract class Element : BHoMObject
     {
         private Location pLocation;
-        private Shell pShell;
+        private Geometry pGeometry;
 
         public Location Location
         {
@@ -25,31 +25,17 @@ namespace BHoM.MEP
             }
         }
 
-        public Element(Location Location, Shell Shell)
+        public Element(Location Location, Geometry Geometry)
         {
             Initialize();
             pLocation = Location;
-            pShell = Shell;
+            pGeometry = Geometry;
         }
 
         private void Initialize()
         {
             SetBHoMGuid();
 
-        }
-
-        public override string JSON()
-        {
-            string aNestedJSON = ",";
-            aNestedJSON += string.Format("\"{0}\": {1}", "Shell", "");
-            aNestedJSON += pShell.JSON();
-            aNestedJSON += ",";
-            aNestedJSON += string.Format("\"{0}\": {1}", "Location", "");
-            aNestedJSON += pLocation.JSON();
-            if (aNestedJSON.Last() == ',')
-                aNestedJSON = aNestedJSON.Substring(0, aNestedJSON.Length - 1);
-            aNestedJSON += "";
-            return JSON(aNestedJSON);
         }
     }
 }

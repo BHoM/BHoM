@@ -209,5 +209,9 @@ namespace BHoM.Structural
         {
             this.DesignGroupName = designGroupName;
         }
+
+
+        
+
     }
 }
