@@ -29,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\BHoM.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
@@ -53,7 +54,6 @@
     <Compile Include="Geometry\BHoM_Line.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
     <Compile Include="Global\BHoM_Parameter.cs" />
-    <Compile Include="Global\BHoM_Project.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C25.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
     <Compile Include="Materials\Steel\BHoM_ISteel.cs" />
@@ -101,6 +101,7 @@
     <Compile Include="Structural\Loads\BHoM_BarVaryingDistributedLoad.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcase.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcombination.cs" />
+    <Compile Include="Structural\Loads\BHoM_Load.cs" />
     <Compile Include="Structural\Loads\BHoM_NodalLoad.cs" />
     <Compile Include="Structural\Results\Bar Forces\Interfaces\BHoM_IBarForce.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceEnvelope.cs" />
@@ -128,8 +129,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Build\$(ProjectName).dll"
+copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Build\$(ProjectName).xml"
+
+
+copy /Y "$(TargetDir)$(ProjectName).dll" "C:\Users\$(Username)\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).dll"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
