@@ -64,6 +64,7 @@
     <Compile Include="MEP\BHoM_Location.cs" />
     <Compile Include="MEP\BHoM_Pipe.cs" />
     <Compile Include="MEP\BHoM_Shell.cs" />
+    <Compile Include="MEP\BHoM_SpatialElement.cs" />
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
     <Compile Include="Structural\Interfaces\BHoM_IBar.cs" />
