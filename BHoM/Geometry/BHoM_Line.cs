@@ -6,13 +6,13 @@ namespace BHoM.Geometry
     /// BHoM Line object
     /// </summary>
     [Serializable]
-    public class Line : BHoM.Global.BHoMObject, ILine
+    public class Line : Curve, ILine
     {
         /// <summary>Start point as BHoM point</summary>
-        public Point StartPoint { get; set; }
+        public override Point StartPoint { get; set; }
 
         /// <summary>End point as BHoM point</summary>
-        public Point EndPoint { get; set; }
+        public override Point EndPoint { get; set; }
 
         /// <summary>Length of the line</summary>
         public double Length
