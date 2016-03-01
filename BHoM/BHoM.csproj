@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\BHoM_Dictionary.cs" />
+    <Compile Include="Geometry\BHoM_PolyLoop.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_ILine.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_IVector.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_IPlane.cs" />
