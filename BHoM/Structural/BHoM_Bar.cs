@@ -1,5 +1,6 @@
 ﻿using BHoM.Geometry;
 using System;
+using System.Reflection;
 
 
 namespace BHoM.Structural 
@@ -14,13 +15,7 @@ namespace BHoM.Structural
         /////////////////
 
         private Line m_Line;
-        private double m_Length;
-
-        /// <summary>Bar number</summary>
-        public int Number { get; set; }
-                
-        /// <summary>Bar name</summary>
-        public string Name { get; set; }     
+        private double m_Length; 
         
         /// <summary>
         /// Design type name for design purposes (e.g. Simple Column). Can be used to help 
@@ -33,40 +28,53 @@ namespace BHoM.Structural
         public string SectionPropertyName { get; set; }
 
         /// <summary>Section property</summary>
-        public BHoM.Structural.SectionProperties.SectionProperty SectionProperty { get; private set; }
-
+        public BHoM.Structural.SectionProperties.SectionProperty SectionProperty
+        {
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.SectionProperty)) as BHoM.Structural.SectionProperties.SectionProperty;
+            }
+            set
+            {
+                Parameters.AddItem<Guid>(Global.Param.SectionProperty, value.BHoM_Guid);
+            }
+        }
         /// <summary>Material inherited from section property</summary>
         public BHoM.Materials.Material Material 
         { 
             get
             {
-               return Project.GetObject(Parameters["Material"].GetValue<Guid>()) as Materials.Material;
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.Material)) as Materials.Material;
             }
             set
             {
-                Parameters["Material"].SetValue(Material.BHoM_Guid);
+                Parameters.AddItem<Guid>(Global.Param.Material, value.BHoM_Guid);
             }
         }
 
-        /// <summary>Material name inherited from section property BHoM.Materials.Material name</summary>
-        public string MaterialPropertyName { get; private set; }
-
         /// <summary>Releases</summary>
-        public BHoM.Structural.BarRelease Release { get; private set; }
-
-        /// <summary>Release name is generated from the start and end BHoM.Structural.</summary>
-        public string ReleaseName { get; private set; }
+        public BHoM.Structural.BarRelease Release
+        {
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.Release)) as BarRelease;
+            }
+            set
+            {
+                Parameters.AddItem<Guid>(Global.Param.Release, value.BHoM_Guid);
+            }
+        }
 
         /// <summary>Start node</summary>
         public Node StartNode 
         { 
             get
             {
-                return Project.GetObject(Parameters["StartNode"].GetValue<Guid>()) as Node;
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.StartNode)) as Node;
             }
             private set
             {
-                SetParameter("StartNode", value.BHoM_Guid);
+                Parameters.AddItem<Guid>(Global.Param.StartNode, value.BHoM_Guid);
             }
         }
 
@@ -75,11 +83,11 @@ namespace BHoM.Structural
         {
             get
             {
-                return Project.GetObject(Parameters["EndNode"].GetValue<Guid>()) as Node;
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.EndNode)) as Node;
             }
             private set
             {
-                SetParameter("EndNode", value.BHoM_Guid);
+                Parameters.AddItem<Guid>(Global.Param.EndNode, value.BHoM_Guid);
             } 
         }
 
@@ -107,8 +115,17 @@ namespace BHoM.Structural
         /// nodes. For vertical bars, angle is measured between the bar Y axis and global Y axis. A bar is 
         /// vertical if the distance between end points projected to a horizontal plane is less than 0.0001
         /// </summary>
-        public double OrientationAngle { get; set; }
-
+        public double OrientationAngle
+        {
+            get
+            {
+                return Parameters.LookUp<double>(Global.Param.Orientation);
+            }
+            set
+            {
+                Parameters.AddItem<double>(Global.Param.Orientation, value);
+            }
+        }
         /// <summary>Construction phase</summary>
         public BHoM.Planning.Construction.ConstructionPhase ConstructionPhase {get; set;}
 
@@ -119,28 +136,7 @@ namespace BHoM.Structural
         ////CONSTRUCTORS////
         ////////////////////
 
-        /// <summary>
-        /// Construct an empty bar object
-        /// </summary>
-        public Bar()
-        {
-            StartNode = new Node();
-            EndNode = new Node();
-            SetBHoMGuid();
-        }
-
-        /// <summary>
-        /// Construct a bar from BHoM nodes
-        /// </summary>
-        /// <param name="startNode"></param>
-        /// <param name="endNode"></param>
-        public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
-        {
-            this.StartNode = startNode;
-            this.EndNode = endNode;
-           
-            SetBHoMGuid();
-        }
+        internal Bar() { }
 
         /// <summary>
         /// Construct a bar from BHoM nodes and set number
@@ -148,7 +144,7 @@ namespace BHoM.Structural
         /// <param name="barNumber"></param>
         /// <param name="startNode"></param>
         /// <param name="endNode"></param>
-        public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, int barNumber)
+        internal Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, int barNumber)
         {
             this.StartNode = startNode;
             this.EndNode = endNode;
@@ -161,7 +157,6 @@ namespace BHoM.Structural
             //    BHoM.Structural.SectionProperties.SteelBoxSection abc = new BHoM.Structural.SectionProperties.SteelBoxSection();
                                  
             //}
-            SetBHoMGuid();
         }
 
         ///////////////
