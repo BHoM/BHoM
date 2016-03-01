@@ -11,16 +11,28 @@
             <typeparam name="TKey"></typeparam>
             <typeparam name="TValue"></typeparam>
         </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Name">
+            <summary></summary>
+        </member>
         <member name="M:BHoM.Collections.Dictionary`2.Add(`0,`1)">
             <summary></summary>
         </member>
         <member name="M:BHoM.Collections.Dictionary`2.ContainsKey(`0)">
             <summary></summary>
         </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Keys">
+            <summary></summary>
+        </member>
         <member name="M:BHoM.Collections.Dictionary`2.Remove(`0)">
             <summary></summary>
         </member>
         <member name="M:BHoM.Collections.Dictionary`2.TryGetValue(`0,`1@)">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Values">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Item(`0)">
             <summary></summary>
         </member>
         <member name="M:BHoM.Collections.Dictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
@@ -30,6 +42,9 @@
             <summary></summary>
         </member>
         <member name="M:BHoM.Collections.Dictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Count">
             <summary></summary>
         </member>
         <member name="M:BHoM.Collections.Dictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
@@ -46,21 +61,6 @@
             
             </summary>
             <param name="Dictionary"></param>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Name">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Keys">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Values">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Item(`0)">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Count">
-            <summary></summary>
         </member>
         <member name="T:BHoM.Geometry.ILine">
             <summary>
@@ -137,22 +137,14 @@
             BHoM Line object
             </summary>
         </member>
-        <member name="T:BHoM.Global.BHoMObject">
-            <summary>
-            BHoM object abstract class, all methods and attributes applicable to all structural objects with
-            BHoM implemented
-            </summary>
+        <member name="P:BHoM.Geometry.Line.StartPoint">
+            <summary>Start point as BHoM point</summary>
         </member>
-        <member name="M:BHoM.Global.BHoMObject.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        <member name="P:BHoM.Geometry.Line.EndPoint">
+            <summary>End point as BHoM point</summary>
         </member>
-        <member name="P:BHoM.Global.BHoMObject.BHoM_Guid">
-            <summary>BHoM unique ID</summary>
-        </member>
-        <member name="P:BHoM.Global.BHoMObject.Parameters">
-            <summary>User text input. Can be used to store user information in an object
-            such as a user ID or a project specific parameter</summary>
-            
+        <member name="P:BHoM.Geometry.Line.Length">
+            <summary>Length of the line</summary>
         </member>
         <member name="M:BHoM.Geometry.Line.#ctor">
             <summary>
@@ -177,1246 +169,22 @@
             <param name="end_y"></param>
             <param name="end_z"></param>
         </member>
-        <member name="P:BHoM.Geometry.Line.StartPoint">
-            <summary>Start point as BHoM point</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Line.EndPoint">
-            <summary>End point as BHoM point</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Line.Length">
-            <summary>Length of the line</summary>
-        </member>
-        <member name="M:BHoM.Global.ConstraintFactory.Create(System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="fixity">Constraint string x indicates fixity and f indices freedom must be 6 characters long or nothing will be returned</param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Global.Project.#ctor">
-            <summary>
-            Constructs an empty structure
-            </summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Number">
-            <summary>Structure number</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Name">
-            <summary>Structure name</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Storeys">
-            <summary>Dictionary of storeys</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.SectionProperties">
-            <summary>List of section properties</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Tolerance">
-            <summary>Tolerance of structure for node merge etc</summary>
-        </member>
-        <member name="T:BHoM.Materials.Material">
-            <summary>
-            Material class for use in all other object classes and namespaces
-            </summary>
-        </member>
-        <member name="M:BHoM.Materials.Material.#ctor(System.Int32,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Creates a material class
-            </summary>
-            <param name="i">Index</param>
-            <param name="name"></param>
-            <param name="e">Young's Modulus</param>
-            <param name="nu">Poisson's ratio</param>
-            <param name="g">Shear modulus</param>
-            <param name="d">Density</param>
-            <param name="tc">Temperature coefficient</param>
-        </member>
-        <member name="M:BHoM.Materials.Material.#ctor(System.String)">
-            <summary>
-            Creates a simple material class
-            Try to use the full material constructor if possible.
-            </summary>
-            <param name="name"></param>
-        </member>
-        <member name="M:BHoM.Materials.Material.#ctor(System.Int32,System.String)">
-            <summary>
-            Creates a simple material class with index number
-            </summary>
-            <param name="index"></param>
-            <param name="name"></param>
-        </member>
-        <member name="P:BHoM.Materials.Material.Index">
-            <summary>Material index number</summary>   
-        </member>
-        <member name="P:BHoM.Materials.Material.Name">
-            <summary>Material name</summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.Fy">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.Fu">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.E">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.Nu">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.G">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.Density">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.TempCoeff">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.DampingRatio">
-            <summary></summary>
-        </member>
-        <member name="T:BHoM.Materials.Concrete.Grade_C20">
-            <summary>
-            Material class for use in all other object classes and namespaces
-            </summary>
-        </member>
-        <member name="T:BHoM.Materials.IMaterial">
-            <summary>
-            Material class for use in all other object classes and namespaces
-            </summary>
-        </member>
-        <member name="M:BHoM.Materials.IMaterial.CalculateValues">
-            <summary>Calculate material values at construct</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.Index">
-            <summary>Material index number</summary>   
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.Name">
-            <summary>Material name</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.YoungsModulus">
-            <summary>Young's Modulus (MPa)</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.PoissonsRatio">
-            <summary>Poissons ratio</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.ShearModulus">
-            <summary>Shear modulus (MPa)</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.DryDensity">
-            <summary>Dry density</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.CoeffThermalExpansion">
-            <summary>Coefficient of thermal expansion</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.DampingRatio">
-            <summary>Damping ratio</summary>
-        </member>
-        <member name="T:BHoM.Materials.Concrete.IConcrete">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BHoM.Materials.Concrete.Grade_C20.#ctor">
-            <summary>Construct the material</summary>
-        </member>
-        <member name="M:BHoM.Materials.Concrete.Grade_C20.CalculateValues">
-            <summary>Calculate values at construct stage</summary>
-        </member>
-        <member name="M:BHoM.Materials.Concrete.Grade_C20.CalculateShearModulus">
-            <summary>Calculate shear modulus</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.Index">
-            <summary>Index</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.Name">
-            <summary>Name</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.DampingRatio">
-            <summary>Damping ratio</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.DryDensity">
-            <summary>Dry density</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.YoungsModulus">
-            <summary>Youngs Modulus</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.PoissonsRatio">
-            <summary>Poissons ratio</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.ShearModulus">
-            <summary>Shear modulus</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.CoeffThermalExpansion">
-            <summary>Coefficient of thermal expansion</summary>
-        </member>
-        <member name="T:BHoM.Materials.ISteel">
-            <summary>
-            Material class for use in all other object classes and namespaces
-            </summary>
-        </member>
-        <member name="T:BHoM.Planning.Construction.ConstructionPhase">
-            <summary>
-            Construction phase class for use across all BHoM projects. By default, construction phases should be
-            added to all objects intended for the construction site, or construction phase modelling
-            </summary>
-        </member>
-        <member name="T:BHoM.Planning.IPhase">
-            <summary>
-            Phase interface class, holds interface properties for all objects that use phases
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.Name">
-            <summary>
-            Name of phase
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.Number">
-            <summary>
-            Phase sequential number
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.Duration">
-            <summary>
-            Phase duration
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.StartTime">
-            <summary>
-            Phase starting time
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.EndTime">
-            <summary>
-            Phase ending time
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Duration">
-            <summary>
-            Construction stage duration
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Name">
-            <summary>
-            Construction stage name
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Number">
-            <summary>
-            Construction stage sequential number
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.StartTime">
-            <summary>
-            Construction stage start time
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.EndTime">
-            <summary>
-            Construction stage end time
-            </summary>
-        </member>
-        <member name="T:BHoM.Structural.IBar">
-            <summary>
-            Bar objects for 1D finite element bars. Note, cable elements separate.
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Number">
-            <summary>Bar number</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Name">
-            <summary>Bar name</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.DesignGroupName">
-            <summary>
-            Design type name for design purposes (e.g. Simple Column). Can be used to help 
-            downstream selections/filters but shouldn't be confused with Groups, which are 
-            unique to bars (bars and objects can be added to multiple object groups).
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.SectionPropertyName">
-            <summary>Section property name inherited from section property</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.SectionProperty">
-            <summary>Section property</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Material">
-            <summary>Material inherited from section property</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.MaterialPropertyName">
-            <summary>Material name inherited from section property BHoM.Materials.Material name</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Release">
-            <summary>Releases</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.ReleaseName">
-            <summary>Release name is generated from the start and end BHoM.Structural.</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.StartNode">
-            <summary>Start node</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.EndNode">
-            <summary>End node</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Line">
-            <summary>The line defining the bar centre or location line</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Length">
-            <summary>Bar length</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.OrientationAngle">
-            <summary>
-            Bar orientation angle. For non-vertical bars, angle is measured in the bar YZ plane
-            betwen the Y axis and the Y vector projected one a vertical plane defined by the start and end
-            nodes. For vertical bars, angle is measured between the bar Y axis and global Y axis. A bar is 
-            vertical if the distance between end points projected to a horizontal plane is less than 0.0001
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.ConstructionPhase">
-            <summary>Construction phase</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Storey">
-            <summary>Storey of the building that the bar is assigned to</summary>
-        </member>
-        <member name="T:BHoM.Structural.IStructuralObject">
-            <summary>
-            Structural object interface, all methods and attributes applicable to all structural objects with
-            IStructuralObject implemented
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.IStructuralObject.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
-        <member name="P:BHoM.Structural.IStructuralObject.Number">
-            <summary>Object number</summary>
-        </member>
-        <member name="P:BHoM.Structural.IStructuralObject.Name">
-            <summary>Object name</summary>
-        </member>
-        <member name="T:BHoM.Structural.Beam">
-            <summary>
-            Beam class, can be used as a wrapper for an analytical bar object
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Beam.#ctor(BHoM.Structural.Bar)">
-            <summary>
-            Constructs a beam object from a bar object, if data is missing this can be
-            set separately
-            </summary>
-            <param name="bar"></param>
-        </member>
-        <member name="M:BHoM.Structural.Beam.SetLevel(System.String)">
-            <summary>
-            Sets the name of the beam reference level
-            </summary>
-            <param name="levelName"></param>
-        </member>
-        <member name="M:BHoM.Structural.Beam.SetStartOffset(System.Double)">
-            <summary>
-            Set the offset distance between the beam start point and the reference level
-            </summary>
-            <param name="distance"></param>
-        </member>
-        <member name="M:BHoM.Structural.Beam.SetEndOffset(System.Double)">
-            <summary>
-            Set the offset distance between the beam end point and the reference level
-            </summary>
-            <param name="distance"></param>
-        </member>
-        <member name="P:BHoM.Structural.Beam.BHoM_Guid">
-            <summary>BHoM unique ID</summary>
-        </member>
-        <member name="P:BHoM.Structural.Beam.Bars">
-            <summary>
-            Bar objects which make up the beam, if only one entry then beam
-            consists of only one bar
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Beam.StartPoint">
-            <summary>Beam start point</summary>
-        </member>
-        <member name="P:BHoM.Structural.Beam.EndPoint">
-            <summary>Beam end point</summary>
-        </member>
-        <member name="P:BHoM.Structural.Beam.LevelName">
-            <summary>Level for vertical reference</summary>
-        </member>
-        <member name="P:BHoM.Structural.Beam.StartOffset">
-            <summary>Offset of the beam start point from the reference level</summary>
-        </member>
-        <member name="P:BHoM.Structural.Beam.EndOffset">
-            <summary>Offset of the beam end point from the reference level</summary>
-        </member>
-        <member name="T:BHoM.HumanBody.Head">
-            <summary>
-            BHoM Human head object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.Head.#ctor">
-            <summary>
-            Construct an empty head object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.Head.#ctor(BHoM.Geometry.Point)">
-            <summary>
-            Construct a head using a point
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.Head.SetTrackingPoint(BHoM.Geometry.Point)">
-            <summary>
-            Set the tracking point of a head using a point
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.Head.SetTrackingPoint(System.Double,System.Double,System.Double)">
-            <summary>
-            Set the tracking point of a head by coordinates
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.Head.TrackingPoint">
-            <summary>Point at centre of head</summary>
-        </member>
-        <member name="T:BHoM.HumanBody.HandRight">
-            <summary>
-            BHoM Human right hand object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.HandRight.#ctor">
-            <summary>
-            Constructs an empty right hand object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.HandRight.#ctor(BHoM.Geometry.Point)">
-            <summary>
-            Constructs a right hand using a point
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandRight.SetTrackingPoint(BHoM.Geometry.Point)">
-            <summary>
-            Sets the tracking centre point of a right hand using a point
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandRight.SetTrackingPoint(System.Double,System.Double,System.Double)">
-            <summary>
-            Sets the tracking centre point of a right hand using coordinates
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandRight.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a left hand using a tracking centreline
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandRight.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centreline using a line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandRight.SetState(BHoM.HumanBody.HandStateName)">
-            <summary>
-            Sets the hand state
-            </summary>
-            <param name="handState"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.HandRight.TrackingPoint">
-            <summary>hand tracking centre point</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.HandRight.TrackingLine">
-            <summary>hand tracking centre line</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.HandRight.State">
-            <summary>Hand state (open/closed/tracked)</summary>
-        </member>
-        <member name="T:BHoM.HumanBody.HandLeft">
-            <summary>
-            BHoM Human left hand object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.HandLeft.#ctor">
-            <summary>
-            Constructs an empty left hand object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.HandLeft.#ctor(BHoM.Geometry.Point)">
-            <summary>
-            Constructs a left hand using a point
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandLeft.SetTrackingPoint(BHoM.Geometry.Point)">
-            <summary>
-            Sets the left hand tracking centre point using a point
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandLeft.SetTrackingPoint(System.Double,System.Double,System.Double)">
-            <summary>
-            Sets the left hand tracking centre point using coordinates
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandLeft.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a left hand using a tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandLeft.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line of a left hand using a line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HandLeft.SetState(BHoM.HumanBody.HandStateName)">
-            <summary>
-            Sets the state of a left hand
-            </summary>
-            <param name="handState"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.HandLeft.TrackingPoint">
-            <summary>Left hand tracking centre point</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.HandLeft.TrackingLine">
-            <summary>Left hand tracking cenre line</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.HandLeft.State">
-            <summary>Left hand state (open/closed/tracked)</summary>
-        </member>
-        <member name="T:BHoM.HumanBody.ThumbRight">
-            <summary>
-            BHoM Human right thumb object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbRight.#ctor">
-            <summary>
-            Constructs an empty right thumb object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbRight.#ctor(BHoM.Geometry.Point)">
-            <summary>
-            Constructs a right thumb using tracking point
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbRight.SetTrackingPoint(BHoM.Geometry.Point)">
-            <summary>
-            Sets the tracking point of a right thumb
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbRight.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a right thumb using the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbRight.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking line of a right thumb
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbRight.SetTrackingPoint(System.Double,System.Double,System.Double)">
-            <summary>
-            Sets the tracking point of a right thumb using coordinates
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.ThumbRight.TrackingPoint">
-            <summary>Right thumb tracking centre point</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.ThumbRight.TrackingLine">
-            <summary>Right thumb tracking centre line</summary>
-        </member>
-        <member name="T:BHoM.HumanBody.ThumbLeft">
-            <summary>
-            BHoM Human left thumb object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbLeft.#ctor">
-            <summary>
-            Constructs an empty left thumb object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbLeft.#ctor(BHoM.Geometry.Point)">
-            <summary>
-            Constructs a left thumb by tracking point
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbLeft.SetTrackingPoint(BHoM.Geometry.Point)">
-            <summary>
-            Sets the tracking point of a left thumb
-            </summary>
-            <param name="trackingPoint"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbLeft.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a left thumb using a tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbLeft.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line of a left thumb
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ThumbLeft.SetTrackingPoint(System.Double,System.Double,System.Double)">
-            <summary>
-            Sets the left thumb tracking point using coordinates
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.ThumbLeft.TrackingPoint">
-            <summary>Lefth thumb tracking point</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.ThumbLeft.TrackingLine">
-            <summary>Left thumb tracking centre line</summary>
-        </member>
-        <member name="T:BHoM.HumanBody.Neck">
-            <summary>
-            BHoM Human neck object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.Neck.#ctor">
-            <summary>
-            Constructs an empty neck object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.Neck.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a neck using a tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.Neck.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line of a neck
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.Neck.TrackingLine">
-            <summary>
-            The tracking centre line of a neck
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.ShoulderRight">
-            <summary>
-            BHoM Human right shoulder object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.ShoulderRight.#ctor">
-            <summary>
-            Constructs an empty right shoulder
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.ShoulderRight.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a right should using a tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ShoulderRight.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line of the shoulder
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.ShoulderRight.TrackingLine">
-            <summary>
-            Tracking centre line of the shoulder
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.ShoulderLeft">
-            <summary>
-            BHoM Human left shoulder object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.ShoulderLeft.#ctor">
-            <summary>
-            Constructs an empty left shoulder object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.ShoulderLeft.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a left shoulder using a tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.ShoulderLeft.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line of a left shoulder
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.ShoulderLeft.TrackingLine">
-            <summary>
-            Tracking centre line of the left shoulder
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.UpperArmRight">
-            <summary>
-            BHoM Human upper right arm
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperArmRight.#ctor">
-            <summary>
-            Constructs and empty upper right arm
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperArmRight.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs an upper right arm by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperArmRight.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line of the upper right arm
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.UpperArmRight.TrackingLine">
-            <summary>
-            Tracking centre line of the upper arm
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.UpperArmLeft">
-            <summary>
-            BHoM Human left arm object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperArmLeft.#ctor">
-            <summary>
-            Constructs an empty upper left arm object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperArmLeft.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs an upper left arm by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperArmLeft.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line of the upper left arm
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.UpperArmLeft.TrackingLine">
-            <summary>
-            Tracking centre line of the upper left arm
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.LowerArmRight">
-            <summary>
-            BHoM Human lower right arm object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerArmRight.#ctor">
-            <summary>
-            Constructs an empty lower right arm
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerArmRight.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a lower righ arm by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerArmRight.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.LowerArmRight.TrackingLine">
-            <summary>
-            Tracking centre line of the lower right arm
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.LowerArmLeft">
-            <summary>
-            BHoM Human lower left arm
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerArmLeft.#ctor">
-            <summary>
-            Constructs an empty lower left arm 
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerArmLeft.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a lower left arm by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerArmLeft.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.LowerArmLeft.TrackingLine">
-            <summary>
-            Tracking centre line of the lower left arm
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.Spine">
-            <summary>
-            BHoM Human spine object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.Spine.#ctor">
-            <summary>
-            Constructs an empty spine
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.Spine.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a spine by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.Spine.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.Spine.TrackingLine">
-            <summary>
-            Tracking centre line of the spine
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.HipRight">
-            <summary>
-            BHoM Human right hip object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.HipRight.#ctor">
-            <summary>
-            Constructs an empty right hip
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.HipRight.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a right hip by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HipRight.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.HipRight.TrackingLine">
-            <summary>
-            Tracking centre line
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.HipLeft">
-            <summary>
-            BHoM Human left hip object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.HipLeft.#ctor">
-            <summary>
-            Constructs an empty left hip
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.HipLeft.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a left hip by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.HipLeft.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.HipLeft.TrackingLine">
-            <summary>
-            Tracking centre line of left hip
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.UpperLegRight">
-            <summary>
-            BHoM upper right leg object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperLegRight.#ctor">
-            <summary>
-            Constructs an empty upper right leg
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperLegRight.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs an upper right leg by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperLegRight.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.UpperLegRight.TrackingLine">
-            <summary>
-            Tracking centre line of upper right leg
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.UpperLegLeft">
-            <summary>
-            BHoM Human upper left leg
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperLegLeft.#ctor">
-            <summary>
-            Constructs an empty upper left leg
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperLegLeft.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs an upper left leg by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.UpperLegLeft.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.UpperLegLeft.TrackingLine">
-            <summary>
-            Tracking centre line of upper left leg
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.LowerLegRight">
-            <summary>
-            BHoM Human lower right leg
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerLegRight.#ctor">
-            <summary>
-            Constructs an empty lower right leg
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerLegRight.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a lower right leg by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerLegRight.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.LowerLegRight.TrackingLine">
-            <summary>
-            Tracking centre line of lower right leg
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.LowerLegLeft">
-            <summary>
-            BHoM Human lower left leg object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerLegLeft.#ctor">
-            <summary>
-            Constructs an empty lower left leg
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerLegLeft.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a lower left leg by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.LowerLegLeft.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.LowerLegLeft.TrackingLine">
-            <summary>
-            Tracking centre line of the lower left leg
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.FootRight">
-            <summary>
-            BHoM Human right foot object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.FootRight.#ctor">
-            <summary>
-            Constructs an empty right foot
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.FootRight.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a right foot by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.FootRight.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.FootRight.TrackingLine">
-            <summary>
-            Tracking centre line of right foot
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.FootLeft">
-            <summary>
-            BHoM Human left foot object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.FootLeft.#ctor">
-            <summary>
-            Constructs an empty left foot object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.FootLeft.#ctor(BHoM.Geometry.Line)">
-            <summary>
-            Constructs a left foot by tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="M:BHoM.HumanBody.FootLeft.SetTrackingLine(BHoM.Geometry.Line)">
-            <summary>
-            Sets the tracking centre line
-            </summary>
-            <param name="trackingLine"></param>
-        </member>
-        <member name="P:BHoM.HumanBody.FootLeft.TrackingLine">
-            <summary>
-            Tracking centre line of left foot
-            </summary>
-        </member>
-        <member name="T:BHoM.HumanBody.Skeleton">
-            <summary>
-            BHoM Human skeleton class
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.Skeleton.#ctor">
-            <summary>
-            Constructs an empty skeleton object
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.Skeleton.SetBodyPartsbyTrackingPoints">
-            <summary>
-            Sets the body parts using tracking points. Try loops used for all actions 
-            in case body part tracking points are not detected
-            </summary>
-        </member>
-        <member name="M:BHoM.HumanBody.Skeleton.GetAllTrackingLines">
-            <summary>
-            Get all the tracking lines from the skeleton
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.Head">
-            <summary>Head</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.HandRight">
-            <summary>Right hand</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.HandLeft">
-            <summary>Left hand</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.ThumbRight">
-            <summary>Right thumb</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.ThumbLeft">
-            <summary>Left thumb</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.Neck">
-            <summary>Neck</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.ShoulderRight">
-            <summary>Right shoulder</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.ShoulderLeft">
-            <summary>Left shoulder</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.Spine">
-            <summary>Spine</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.HipRight">
-            <summary>Right hip</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.HipLeft">
-            <summary>Left hip</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.UpperArmRight">
-            <summary>Upper right arm</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.UpperArmLeft">
-            <summary>Upper left arm</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.LowerArmRight">
-            <summary>Lower right arm</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.LowerArmLeft">
-            <summary>Lower left arm</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.UpperLegRight">
-            <summary>Upper right leg</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.UpperLegLeft">
-            <summary>Upper left leg</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.LowerLegRight">
-            <summary>Lower right leg</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.LowerLegLeft">
-            <summary>Lower left leg</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.FootRight">
-            <summary>Right foot</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.FootLeft">
-            <summary>Left foot</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.TrackingPoints">
-            <summary>Dictionary of points with joint names as keys</summary>
-        </member>
-        <member name="P:BHoM.HumanBody.Skeleton.TrackingLines">
-            <summary>Dictionary of tracking lines with string keys</summary>
-        </member>
-        <member name="T:BHoM.HumanBody.JointName">
-            <summary>
-            Joint names
-            </summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.Head">
-            <summary>Head</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.SpineShoulder">
-            <summary>Upper spine</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.ShoulderRight">
-            <summary>Right shoulder</summary>  
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.ShoulderLeft">
-            <summary>Left shoulder</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.Neck">
-            <summary>Neck</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.ElbowRight">
-            <summary>Right elbow</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.ElbowLeft">
-            <summary>Left elbow</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.HandRight">
-            <summary>Right hand</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.HandLeft">
-            <summary>Left hand</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.HandTipRight">
-            <summary>Tip of the right hand</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.HandTipLeft">
-            <summary>Tip of the left hand</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.ThumbRight">
-            <summary>Right thumb</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.ThumbLeft">
-            <summary>Left thumb</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.WristRight">
-            <summary>Right wrist</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.WristLeft">
-            <summary>Left wrist</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.SpineMid">
-            <summary>Mid spine</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.SpineBase">
-            <summary>Spine base</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.HipRight">
-            <summary>Right hip</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.HipLeft">
-            <summary>Left hip</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.KneeRight">
-            <summary>Right knee</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.KneeLeft">
-            <summary>Left knee</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.AnkleRight">
-            <summary>Right ankle</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.AnkleLeft">
-            <summary>Left ankle</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.FootRight">
-            <summary>Right foot</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.JointName.FootLeft">
-            <summary>Left foot</summary>
-        </member>
-        <member name="T:BHoM.HumanBody.HandStateName">
-            <summary>
-            Hand state values
-            </summary>
-        </member>
-        <member name="F:BHoM.HumanBody.HandStateName.Closed">
-            <summary>Close</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.HandStateName.Lasso">
-            <summary>Lasso</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.HandStateName.NotTracked">
-            <summary>Not tracked</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.HandStateName.Open">
-            <summary>Open</summary>
-        </member>
-        <member name="F:BHoM.HumanBody.HandStateName.Unknown">
-            <summary>Not known</summary>
-        </member>
         <member name="T:BHoM.Geometry.Plane">
             <summary>
             BHoM Plane object
             </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Plane.X">
+            <summary>X vector</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Plane.Y">
+            <summary>Y vector</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Plane.Z">
+            <summary>Z vector</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Plane.Origin">
+            <summary>Origin point</summary>
         </member>
         <member name="M:BHoM.Geometry.Plane.#ctor">
             <summary>
@@ -1460,22 +228,25 @@
             <param name="octant"></param>
             <returns></returns>
         </member>
-        <member name="P:BHoM.Geometry.Plane.X">
-            <summary>X vector</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Plane.Y">
-            <summary>Y vector</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Plane.Z">
-            <summary>Z vector</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Plane.Origin">
-            <summary>Origin point</summary>
-        </member>
         <member name="T:BHoM.Geometry.Arc">
             <summary>
             Arc object
             </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Arc.Plane">
+            <summary>Base plane for arc</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Arc.StartPoint">
+            <summary>Start point as BHoM point</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Arc.EndPoint">
+            <summary>End point as BHoM point</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Arc.Radius">
+            <summary>Radius</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Arc.Angle">
+            <summary>Angle in radians</summary>
         </member>
         <member name="M:BHoM.Geometry.Arc.#ctor(BHoM.Geometry.Point,BHoM.Geometry.Point,System.Double)">
             <summary>
@@ -1494,21 +265,6 @@
             <param name="radius"></param>
             <param name="plane"></param>
         </member>
-        <member name="P:BHoM.Geometry.Arc.Plane">
-            <summary>Base plane for arc</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.StartPoint">
-            <summary>Start point as BHoM point</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.EndPoint">
-            <summary>End point as BHoM point</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.Radius">
-            <summary>Radius</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.Angle">
-            <summary>Angle in radians</summary>
-        </member>
         <member name="T:BHoM.Geometry.MeshFace">
             <summary>
             BHoM Meshface object
@@ -1518,6 +274,15 @@
             <summary>
             BHoM Mesh geometry object
             </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Mesh.VerticeGroups">
+            <summary>Vertice groups for mesh face definition</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Mesh.Vertices">
+            <summary>Vertices as a list of points</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Mesh.Faces">
+            <summary>Faces as a list of integer arrays</summary>
         </member>
         <member name="M:BHoM.Geometry.Mesh.#ctor">
             <summary>
@@ -1574,15 +339,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:BHoM.Geometry.Mesh.VerticeGroups">
-            <summary>Vertice groups for mesh face definition</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Mesh.Vertices">
-            <summary>Vertices as a list of points</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Mesh.Faces">
-            <summary>Faces as a list of integer arrays</summary>
-        </member>
         <member name="T:BHoM.Geometry.Surface">
             <summary>
             BHoM Surface object
@@ -1592,6 +348,15 @@
             <summary>
             BHoM Point object
             </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Point.X">
+            <summary>X coordinate</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Point.Y">
+            <summary>Y coordinate</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Point.Z">
+            <summary>Z coordinate</summary>
         </member>
         <member name="M:BHoM.Geometry.Point.#ctor">
             <summary>
@@ -1611,6 +376,16 @@
             Duplicate a point
             </summary>
             <param name="dup"></param>
+        </member>
+        <member name="P:BHoM.Geometry.Point.CartesianCoordinates">
+            <summary>
+            Gets or sets the coordinates as an array
+            </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Point.IsValid">
+            <summary>
+            True if the point has valid coordinates
+            </summary>
         </member>
         <member name="M:BHoM.Geometry.Point.Duplicate">
             <summary>
@@ -1696,25 +471,6 @@
             <param name="p"></param>
             <returns></returns>
         </member>
-        <member name="P:BHoM.Geometry.Point.X">
-            <summary>X coordinate</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Point.Y">
-            <summary>Y coordinate</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Point.Z">
-            <summary>Z coordinate</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Point.CartesianCoordinates">
-            <summary>
-            Gets or sets the coordinates as an array
-            </summary>
-        </member>
-        <member name="P:BHoM.Geometry.Point.IsValid">
-            <summary>
-            True if the point has valid coordinates
-            </summary>
-        </member>
         <member name="P:BHoM.Geometry.Point.Origin">
             <summary>
             Constructs a point at 0,0,0
@@ -1724,6 +480,15 @@
             <summary>
             BHoM Vector object
             </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Vector.X">
+            <summary>X coordinate</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Vector.Y">
+            <summary>Y coordinate</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Vector.Z">
+            <summary>Z coordinate</summary>
         </member>
         <member name="M:BHoM.Geometry.Vector.#ctor">
             <summary>
@@ -1814,11 +579,26 @@
             <param name="b"></param>
             <returns></returns>
         </member>
+        <member name="P:BHoM.Geometry.Vector.Length">
+            <summary>
+            Calculates the vector length
+            </summary>
+        </member>
         <member name="M:BHoM.Geometry.Vector.Unitize">
             <summary>
             Sets the vector length to one unit
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:BHoM.Geometry.Vector.IsValid">
+            <summary>
+            True if the vector XYZ values are set
+            </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Vector.U">
+            <summary>
+            Gets the vector length
+            </summary>
         </member>
         <member name="M:BHoM.Geometry.Vector.Duplicate">
             <summary>
@@ -1871,29 +651,324 @@
             <param name="normal"></param>
             <returns></returns>
         </member>
-        <member name="P:BHoM.Geometry.Vector.X">
-            <summary>X coordinate</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Vector.Y">
-            <summary>Y coordinate</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Vector.Z">
-            <summary>Z coordinate</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Vector.Length">
+        <member name="T:BHoM.Global.BHoMObject">
             <summary>
-            Calculates the vector length
+            BHoM object abstract class, all methods and attributes applicable to all structural objects with
+            BHoM implemented
             </summary>
         </member>
-        <member name="P:BHoM.Geometry.Vector.IsValid">
+        <member name="P:BHoM.Global.BHoMObject.BHoM_Guid">
+            <summary>BHoM unique ID</summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.Name">
+            <summary>Name</summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.Number">
+            <summary>Number</summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.Project">
+            <summary>Project</summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.UserData">
+            <summary>User text input. Can be used to store user information in an object
+            such as a user ID or a project specific parameter</summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.Parameters">
+            <summary>Object parameters</summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.GetPropertyNames">
+            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.Xml">
             <summary>
-            True if the vector XYZ values are set
+            Convert object paramters to XML
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Global.ObjectFactory">
+            <summary>
+            
             </summary>
         </member>
-        <member name="P:BHoM.Geometry.Vector.U">
+        <member name="M:BHoM.Global.ObjectFactory.#ctor(BHoM.Global.Project)">
             <summary>
-            Gets the vector length
+            
             </summary>
+            <param name="project"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="project"></param>
+            <param name="items"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.ForceUniqueByNumber">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.ForceUniqueByName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Global.ObjectFactory.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Global.ObjectFactory.Item(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.ContainsName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.ContainsNumber(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.Add(BHoM.Global.BHoMObject)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.FreeNumber">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.System#Collections#IEnumerable#GetEnumerator">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.GetEnumerator">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Global.ObjectFactory.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BHoM.Global.BHoMObjectEnum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BHoM.Global.BHoMObjectEnum._BHoMOjects">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObjectEnum.#ctor(BHoM.Global.BHoMObject[])">
+            <summary></summary>
+            <param name="list"></param>
+        </member>
+        <member name="P:BHoM.Global.BHoMObjectEnum.System#Collections#IEnumerator#Current">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObjectEnum.Current">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObjectEnum.MoveNext">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObjectEnum.Reset">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Global.ObjectParameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BHoM.Global.Project">
+            <summary>
+            A global project class that encapsulates all objects (all disciplines) of a BHoM project
+            </summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Structure">
+            <summary>Structure property - gets or sets the structure of the object as a BHoM.Structural.Structure</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Number">
+            <summary>Structure number</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Name">
+            <summary>Structure name</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Storeys">
+            <summary>Dictionary of storeys</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Tolerance">
+            <summary>Tolerance of structure for node merge etc</summary>
+        </member>
+        <member name="M:BHoM.Global.Project.LoadXml(System.String)">
+            <summary>Loads a BHoM project from an xml file</summary>
+        </member>
+        <member name="M:BHoM.Global.Project.WriteXml(System.String)">
+            <summary>Writes a BHoM project to an xml file</summary>
+        </member>
+        <member name="M:BHoM.Global.Project.#ctor">
+            <summary>
+            Constructs an empty project
+            </summary>
+        </member>
+        <member name="M:BHoM.Global.Project.GetObject(System.Guid)">
+            <summary>Returns a BHoM by unique identifier</summary>
+        </member>
+        <member name="T:BHoM.Materials.Material">
+            <summary>
+            Material class for use in all other object classes and namespaces
+            </summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Index">
+            <summary>Material index number</summary>   
+        </member>
+        <member name="P:BHoM.Materials.Material.Name">
+            <summary>Material name</summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Fy">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Fu">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.E">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Nu">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.G">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.Density">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.TempCoeff">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.DampingRatio">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Materials.Material.#ctor(System.Int32,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a material class
+            </summary>
+            <param name="i">Index</param>
+            <param name="name"></param>
+            <param name="e">Young's Modulus</param>
+            <param name="nu">Poisson's ratio</param>
+            <param name="g">Shear modulus</param>
+            <param name="d">Density</param>
+            <param name="tc">Temperature coefficient</param>
+        </member>
+        <member name="M:BHoM.Materials.Material.#ctor(System.String)">
+            <summary>
+            Creates a simple material class
+            Try to use the full material constructor if possible.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:BHoM.Materials.Material.#ctor(System.Int32,System.String)">
+            <summary>
+            Creates a simple material class with index number
+            </summary>
+            <param name="index"></param>
+            <param name="name"></param>
+        </member>
+        <member name="T:BHoM.Materials.Concrete.Grade_C20">
+            <summary>
+            Material class for use in all other object classes and namespaces
+            </summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.Index">
+            <summary>Index</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.Name">
+            <summary>Name</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.DampingRatio">
+            <summary>Damping ratio</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.DryDensity">
+            <summary>Dry density</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.YoungsModulus">
+            <summary>Youngs Modulus</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.PoissonsRatio">
+            <summary>Poissons ratio</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.ShearModulus">
+            <summary>Shear modulus</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.CoeffThermalExpansion">
+            <summary>Coefficient of thermal expansion</summary>
+        </member>
+        <member name="M:BHoM.Materials.Concrete.Grade_C20.#ctor">
+            <summary>Construct the material</summary>
+        </member>
+        <member name="M:BHoM.Materials.Concrete.Grade_C20.CalculateValues">
+            <summary>Calculate values at construct stage</summary>
+        </member>
+        <member name="M:BHoM.Materials.Concrete.Grade_C20.CalculateShearModulus">
+            <summary>Calculate shear modulus</summary>
+        </member>
+        <member name="T:BHoM.Materials.Concrete.IConcrete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BHoM.Materials.ISteel">
+            <summary>
+            Material class for use in all other object classes and namespaces
+            </summary>
+        </member>
+        <member name="T:BHoM.Materials.IMaterial">
+            <summary>
+            Material class for use in all other object classes and namespaces
+            </summary>
+        </member>
+        <member name="P:BHoM.Materials.IMaterial.Index">
+            <summary>Material index number</summary>   
+        </member>
+        <member name="P:BHoM.Materials.IMaterial.Name">
+            <summary>Material name</summary>
+        </member>
+        <member name="P:BHoM.Materials.IMaterial.YoungsModulus">
+            <summary>Young's Modulus (MPa)</summary>
+        </member>
+        <member name="P:BHoM.Materials.IMaterial.PoissonsRatio">
+            <summary>Poissons ratio</summary>
+        </member>
+        <member name="P:BHoM.Materials.IMaterial.ShearModulus">
+            <summary>Shear modulus (MPa)</summary>
+        </member>
+        <member name="P:BHoM.Materials.IMaterial.DryDensity">
+            <summary>Dry density</summary>
+        </member>
+        <member name="P:BHoM.Materials.IMaterial.CoeffThermalExpansion">
+            <summary>Coefficient of thermal expansion</summary>
+        </member>
+        <member name="P:BHoM.Materials.IMaterial.DampingRatio">
+            <summary>Damping ratio</summary>
+        </member>
+        <member name="M:BHoM.Materials.IMaterial.CalculateValues">
+            <summary>Calculate material values at construct</summary>
         </member>
         <member name="T:BHoM.Materials.SteelGrade">
             <summary>Steel grade</summary>
@@ -1956,16 +1031,342 @@
         <member name="F:BHoM.Materials.MaterialModel.MAT_FABRIC">
             <summary>Fabric</summary>
         </member>
+        <member name="T:BHoM.Planning.Construction.ConstructionPhase">
+            <summary>
+            Construction phase class for use across all BHoM projects. By default, construction phases should be
+            added to all objects intended for the construction site, or construction phase modelling
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Duration">
+            <summary>
+            Construction stage duration
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Name">
+            <summary>
+            Construction stage name
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Number">
+            <summary>
+            Construction stage sequential number
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.StartTime">
+            <summary>
+            Construction stage start time
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.EndTime">
+            <summary>
+            Construction stage end time
+            </summary>
+        </member>
+        <member name="T:BHoM.Planning.IPhase">
+            <summary>
+            Phase interface class, holds interface properties for all objects that use phases
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.Name">
+            <summary>
+            Name of phase
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.Number">
+            <summary>
+            Phase sequential number
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.Duration">
+            <summary>
+            Phase duration
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.StartTime">
+            <summary>
+            Phase starting time
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.EndTime">
+            <summary>
+            Phase ending time
+            </summary>
+        </member>
+        <member name="T:BHoM.Structural.ConstraintFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.#ctor(BHoM.Global.Project)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="constraint"></param>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <param name="xx"></param>
+            <param name="yy"></param>
+            <param name="zz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <param name="xx"></param>
+            <param name="yy"></param>
+            <param name="zz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.Boolean[],System.Double[])">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="fixity"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="fixity">Constraint string x indicates fixity and f indices freedom must be 6 characters long or nothing will be returned</param>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Structural.NodeFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.#ctor(BHoM.Global.Project)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="nodes"></param>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.Create">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.Create(System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.Create(System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Structural.BarFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.BarFactory.#ctor(BHoM.Global.Project)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:BHoM.Structural.BarFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="bars"></param>
+        </member>
+        <member name="M:BHoM.Structural.BarFactory.Create">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.BarFactory.Create(System.Int32,BHoM.Structural.Node,BHoM.Structural.Node)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="n1"></param>
+            <param name="n2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Structural.IBar">
+            <summary>
+            Bar objects for 1D finite element bars. Note, cable elements separate.
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.Number">
+            <summary>Bar number</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.Name">
+            <summary>Bar name</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.DesignGroupName">
+            <summary>
+            Design type name for design purposes (e.g. Simple Column). Can be used to help 
+            downstream selections/filters but shouldn't be confused with Groups, which are 
+            unique to bars (bars and objects can be added to multiple object groups).
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.SectionPropertyName">
+            <summary>Section property name inherited from section property</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.SectionProperty">
+            <summary>Section property</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.Material">
+            <summary>Material inherited from section property</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.MaterialPropertyName">
+            <summary>Material name inherited from section property BHoM.Materials.Material name</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.Release">
+            <summary>Releases</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.ReleaseName">
+            <summary>Release name is generated from the start and end BHoM.Structural.</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.StartNode">
+            <summary>Start node</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.EndNode">
+            <summary>End node</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.Line">
+            <summary>The line defining the bar centre or location line</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.Length">
+            <summary>Bar length</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.OrientationAngle">
+            <summary>
+            Bar orientation angle. For non-vertical bars, angle is measured in the bar YZ plane
+            betwen the Y axis and the Y vector projected one a vertical plane defined by the start and end
+            nodes. For vertical bars, angle is measured between the bar Y axis and global Y axis. A bar is 
+            vertical if the distance between end points projected to a horizontal plane is less than 0.0001
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.ConstructionPhase">
+            <summary>Construction phase</summary>
+        </member>
+        <member name="P:BHoM.Structural.IBar.Storey">
+            <summary>Storey of the building that the bar is assigned to</summary>
+        </member>
+        <member name="T:BHoM.Structural.IStructuralObject">
+            <summary>
+            Structural object interface, all methods and attributes applicable to all structural objects with
+            IStructuralObject implemented
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.IStructuralObject.Number">
+            <summary>Object number</summary>
+        </member>
+        <member name="P:BHoM.Structural.IStructuralObject.Name">
+            <summary>Object name</summary>
+        </member>
+        <member name="T:BHoM.Structural.Beam">
+            <summary>
+            Beam class, can be used as a wrapper for an analytical bar object
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Beam.BHoM_Guid">
+            <summary>BHoM unique ID</summary>
+        </member>
+        <member name="P:BHoM.Structural.Beam.Bars">
+            <summary>
+            Bar objects which make up the beam, if only one entry then beam
+            consists of only one bar
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Beam.StartPoint">
+            <summary>Beam start point</summary>
+        </member>
+        <member name="P:BHoM.Structural.Beam.EndPoint">
+            <summary>Beam end point</summary>
+        </member>
+        <member name="P:BHoM.Structural.Beam.LevelName">
+            <summary>Level for vertical reference</summary>
+        </member>
+        <member name="P:BHoM.Structural.Beam.StartOffset">
+            <summary>Offset of the beam start point from the reference level</summary>
+        </member>
+        <member name="P:BHoM.Structural.Beam.EndOffset">
+            <summary>Offset of the beam end point from the reference level</summary>
+        </member>
+        <member name="M:BHoM.Structural.Beam.#ctor(BHoM.Structural.Bar)">
+            <summary>
+            Constructs a beam object from a bar object, if data is missing this can be
+            set separately
+            </summary>
+            <param name="bar"></param>
+        </member>
+        <member name="M:BHoM.Structural.Beam.SetLevel(System.String)">
+            <summary>
+            Sets the name of the beam reference level
+            </summary>
+            <param name="levelName"></param>
+        </member>
+        <member name="M:BHoM.Structural.Beam.SetStartOffset(System.Double)">
+            <summary>
+            Set the offset distance between the beam start point and the reference level
+            </summary>
+            <param name="distance"></param>
+        </member>
+        <member name="M:BHoM.Structural.Beam.SetEndOffset(System.Double)">
+            <summary>
+            Set the offset distance between the beam end point and the reference level
+            </summary>
+            <param name="distance"></param>
+        </member>
         <member name="T:BHoM.Structural.DOF">
             <summary>
             Degrees of freedom class for use in constraint objects
             </summary>
-        </member>
-        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.DOFType,System.Double)">
-            <summary>Constructs a DOF using direciton, type and value</summary>
-        </member>
-        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.DOFType,System.Object)">
-            <summary>Constructs a DOF using direction, type and values as objects for non-linear model</summary>
         </member>
         <member name="P:BHoM.Structural.DOF.Type">
             <summary>Type of DOF (linear/non-linear etc)</summary>
@@ -1976,10 +1377,22 @@
         <member name="P:BHoM.Structural.DOF.NonLinearModel">
             <summary>DOF non-linear model</summary>
         </member>
+        <member name="M:BHoM.Structural.DOF.#ctor">
+            <summary>Constructs an empty DOF object</summary>
+        </member>
+        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.DOFType,System.Double)">
+            <summary>Constructs a DOF using direciton, type and value</summary>
+        </member>
+        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.DOFType,System.Object)">
+            <summary>Constructs a DOF using direction, type and values as objects for non-linear model</summary>
+        </member>
         <member name="T:BHoM.Structural.Constraint">
             <summary>
             Constraint object - base class for all release, restraint, support classes. 
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Constraint.Type">
+            <summary>Constraint type</summary>
         </member>
         <member name="M:BHoM.Structural.Constraint.#ctor">
             <summary>
@@ -2013,13 +1426,22 @@
             </summary>
             <param name="number"></param>
         </member>
-        <member name="P:BHoM.Structural.Constraint.Type">
-            <summary>Constraint type</summary>
-        </member>
         <member name="T:BHoM.Structural.Storey">
             <summary>
             Storey class to store information about building storeys for post processing of results
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Storey.Number">
+            <summary>Storey number</summary>
+        </member>
+        <member name="P:BHoM.Structural.Storey.Level">
+            <summary>Storey level (in metres)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Storey.Name">
+            <summary>Storey name</summary>
+        </member>
+        <member name="P:BHoM.Structural.Storey.Height">
+            <summary>Storey height</summary>
         </member>
         <member name="M:BHoM.Structural.Storey.#ctor">
             <summary>
@@ -2057,58 +1479,10 @@
             </summary>
             <param name="height"></param>
         </member>
-        <member name="M:BHoM.Structural.Storey.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
-        <member name="P:BHoM.Structural.Storey.Number">
-            <summary>Storey number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Storey.Level">
-            <summary>Storey level (in metres)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Storey.Name">
-            <summary>Storey name</summary>
-        </member>
-        <member name="P:BHoM.Structural.Storey.Height">
-            <summary>Storey height</summary>
-        </member>
         <member name="T:BHoM.Structural.Bar">
             <summary>
             Bar objects for 1D finite element bars. Note, cable elements separate.
             </summary>
-        </member>
-        <member name="M:BHoM.Structural.Bar.#ctor(BHoM.Structural.Node,BHoM.Structural.Node,System.Int32)">
-            <summary>
-            Construct a bar from BHoM nodes and set number
-            </summary>
-            <param name="barNumber"></param>
-            <param name="startNode"></param>
-            <param name="endNode"></param>
-        </member>
-        <member name="M:BHoM.Structural.Bar.GetOppositeNode(BHoM.Structural.Node)">
-            <summary>
-            Get the node at the opposite end to the known (input) node
-            </summary>
-            <param name="node"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Bar.SetStorey(BHoM.Structural.Storey)">
-            <summary>
-            Set the storey which the bar belongs to
-            </summary>
-            <param name="storey"></param>
-        </member>
-        <member name="M:BHoM.Structural.Bar.SetSectionProperty(BHoM.Structural.SectionProperties.SectionProperty)">
-            <summary>
-            Set the section property name. 
-            </summary>
-            <param name="sectionProperty"></param>
-        </member>
-        <member name="M:BHoM.Structural.Bar.SetDesignGroupName(System.String)">
-            <summary>
-            Set the design group name
-            </summary>
-            <param name="designGroupName"></param>
         </member>
         <member name="P:BHoM.Structural.Bar.DesignGroupName">
             <summary>
@@ -2155,10 +1529,64 @@
         <member name="P:BHoM.Structural.Bar.Storey">
             <summary>Storey of the building that the bar is assigned to</summary>
         </member>
+        <member name="M:BHoM.Structural.Bar.#ctor(BHoM.Structural.Node,BHoM.Structural.Node,System.Int32)">
+            <summary>
+            Construct a bar from BHoM nodes and set number
+            </summary>
+            <param name="barNumber"></param>
+            <param name="startNode"></param>
+            <param name="endNode"></param>
+        </member>
+        <member name="M:BHoM.Structural.Bar.GetOppositeNode(BHoM.Structural.Node)">
+            <summary>
+            Get the node at the opposite end to the known (input) node
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.Bar.SetStorey(BHoM.Structural.Storey)">
+            <summary>
+            Set the storey which the bar belongs to
+            </summary>
+            <param name="storey"></param>
+        </member>
+        <member name="M:BHoM.Structural.Bar.SetSectionProperty(BHoM.Structural.SectionProperties.SectionProperty)">
+            <summary>
+            Set the section property name. 
+            </summary>
+            <param name="sectionProperty"></param>
+        </member>
+        <member name="M:BHoM.Structural.Bar.SetDesignGroupName(System.String)">
+            <summary>
+            Set the design group name
+            </summary>
+            <param name="designGroupName"></param>
+        </member>
         <member name="T:BHoM.Structural.Face">
             <summary>
             BHoM Face class
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Face.BHoM_Guid">
+            <summary>BHoM unique ID</summary>
+        </member>
+        <member name="P:BHoM.Structural.Face.Number">
+            <summary>Face number</summary>
+        </member>
+        <member name="P:BHoM.Structural.Face.Group">
+            <summary>Group number</summary>
+        </member>
+        <member name="P:BHoM.Structural.Face.Name">
+            <summary>Face name</summary>
+        </member>
+        <member name="P:BHoM.Structural.Face.Nodes">
+            <summary>Face nodes</summary>
+        </member>
+        <member name="P:BHoM.Structural.Face.Edges">
+            <summary>Face edges</summary>
+        </member>
+        <member name="P:BHoM.Structural.Face.Neighbours">
+            <summary>Face neighbors</summary>
         </member>
         <member name="M:BHoM.Structural.Face.#ctor">
             <summary>
@@ -2188,31 +1616,43 @@
         <member name="M:BHoM.Structural.Face.DistanceTo(BHoM.Geometry.Point)">
             <summary>Get the distance to the centroid from point p</summary>
         </member>
-        <member name="P:BHoM.Structural.Face.BHoM_Guid">
-            <summary>BHoM unique ID</summary>
-        </member>
-        <member name="P:BHoM.Structural.Face.Number">
-            <summary>Face number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Face.Group">
-            <summary>Group number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Face.Name">
-            <summary>Face name</summary>
-        </member>
-        <member name="P:BHoM.Structural.Face.Nodes">
-            <summary>Face nodes</summary>
-        </member>
-        <member name="P:BHoM.Structural.Face.Edges">
-            <summary>Face edges</summary>
-        </member>
-        <member name="P:BHoM.Structural.Face.Neighbours">
-            <summary>Face neighbors</summary>
-        </member>
         <member name="T:BHoM.Structural.Node">
             <summary>
             Node objects
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.Point">
+            <summary>Node position as a point object</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.Constraint">
+            <summary>Node constraint (support/restraint)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.IsConstrained">
+            <summary>Returns true is node is constrained</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.ConstraintName">
+            <summary>Constraint name - is inherited from constraint object if exists</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.ConnectedBars">
+            <summary>Bars connected to the node</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.ConnectedFaces">
+            <summary>Faces connected to the node</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.Valence">
+            <summary>Valence of node</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.BarAbsoluteAngles">
+            <summary>Absolute angles between connected bars (direct measurement of bar vectors)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.BarDeltaAngles">
+            <summary>Delta angles between connected bars measured in the node plane</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.BarThetaAngles">
+            <summary>Theta angles between connected bars measured in the node plane</summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.Plane">
+            <summary>Node plane for angular and setting out methods</summary>
         </member>
         <member name="M:BHoM.Structural.Node.#ctor(System.Double,System.Double,System.Double,System.Int32)">
             <summary>
@@ -2222,6 +1662,11 @@
             <param name="y"></param>
             <param name="z"></param>
             <param name="number"></param>
+        </member>
+        <member name="P:BHoM.Structural.Node.IsValid">
+            <summary>
+            Returns true if node is valid (number less than 0 or position is invalid)
+            </summary>
         </member>
         <member name="M:BHoM.Structural.Node.HasValidNumber">
             <summary>
@@ -2234,6 +1679,26 @@
             Sets the node number
             </summary>
             <param name="number"></param>
+        </member>
+        <member name="P:BHoM.Structural.Node.CartesianCoordinates">
+            <summary>
+            Gets or sets the CartesianCoordinates of the node position
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.X">
+            <summary>
+            Gets or sets the X value of the node position
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.Y">
+            <summary>
+            Gets or sets the Y value of the node position
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.Z">
+            <summary>
+            Gets or sets the Z value of the node position
+            </summary>
         </member>
         <member name="M:BHoM.Structural.Node.DistanceTo(BHoM.Structural.Node)">
             <summary>
@@ -2310,75 +1775,11 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:BHoM.Structural.Node.Point">
-            <summary>Node position as a point object</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.Constraint">
-            <summary>Node constraint (support/restraint)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.IsConstrained">
-            <summary>Returns true is node is constrained</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.ConstraintName">
-            <summary>Constraint name - is inherited from constraint object if exists</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.ConnectedBars">
-            <summary>Bars connected to the node</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.ConnectedFaces">
-            <summary>Faces connected to the node</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.Valence">
-            <summary>Valence of node</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.BarAbsoluteAngles">
-            <summary>Absolute angles between connected bars (direct measurement of bar vectors)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.BarDeltaAngles">
-            <summary>Delta angles between connected bars measured in the node plane</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.BarThetaAngles">
-            <summary>Theta angles between connected bars measured in the node plane</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.Plane">
-            <summary>Node plane for angular and setting out methods</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.IsValid">
-            <summary>
-            Returns true if node is valid (number less than 0 or position is invalid)
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.CartesianCoordinates">
-            <summary>
-            Gets or sets the CartesianCoordinates of the node position
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.X">
-            <summary>
-            Gets or sets the X value of the node position
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.Y">
-            <summary>
-            Gets or sets the Y value of the node position
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.Z">
-            <summary>
-            Gets or sets the Z value of the node position
-            </summary>
-        </member>
         <member name="T:BHoM.Structural.BarRelease">
             <summary>
             Bar release applicable to bar objects, contains BHoM.Structural.Constraint objects
             for the start and end of a bar
             </summary>
-        </member>
-        <member name="M:BHoM.Structural.BarRelease.#ctor(BHoM.Structural.Constraint,BHoM.Structural.Constraint)">
-            <summary>Construct a new constraint using constraint objects for start/end releases</summary>
-        </member>
-        <member name="M:BHoM.Structural.BarRelease.#ctor(BHoM.Structural.Constraint,BHoM.Structural.Constraint,System.String)">
-            <summary>Construct a new constraint using constraint objects for start/end releases and name</summary>          
         </member>
         <member name="P:BHoM.Structural.BarRelease.StartConstraint">
             <summary>Start constraint</summary>
@@ -2386,10 +1787,22 @@
         <member name="P:BHoM.Structural.BarRelease.EndConstraint">
             <summary>End constraint</summary>
         </member>
+        <member name="M:BHoM.Structural.BarRelease.#ctor(BHoM.Structural.Constraint,BHoM.Structural.Constraint)">
+            <summary>Construct a new constraint using constraint objects for start/end releases</summary>
+        </member>
+        <member name="M:BHoM.Structural.BarRelease.#ctor(BHoM.Structural.Constraint,BHoM.Structural.Constraint,System.String)">
+            <summary>Construct a new constraint using constraint objects for start/end releases and name</summary>          
+        </member>
         <member name="T:BHoM.Structural.Offset">
             <summary>
             Offsets for bars
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Offset.Name">
+            <summary>Offset name</summary>
+        </member>
+        <member name="P:BHoM.Structural.Offset.Offsets">
+            <summary>Offset array</summary>
         </member>
         <member name="M:BHoM.Structural.Offset.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
@@ -2408,16 +1821,37 @@
             </summary>
             <param name="name"></param>
         </member>
-        <member name="P:BHoM.Structural.Offset.Name">
-            <summary>Offset name</summary>
-        </member>
-        <member name="P:BHoM.Structural.Offset.Offsets">
-            <summary>Offset array</summary>
-        </member>
         <member name="T:BHoM.Structural.Structure">
             <summary>
             Structure class represents a collection of structural objects
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.Number">
+            <summary>Structure number</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.Name">
+            <summary>Structure name</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.Nodes">
+            <summary>List of nodes</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.Bars">
+            <summary>List of bars</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.Faces">
+            <summary>List of faces</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.Constraints">
+            <summary>Dictionary of constraints</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.SectionProperties">
+            <summary>Dictionary of section properties</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.Storeys">
+            <summary>Dictionary of storeys</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.Tolerance">
+            <summary>Tolerance of structure for node merge etc</summary>
         </member>
         <member name="M:BHoM.Structural.Structure.SortNodalFaces">
             <summary>
@@ -2439,36 +1873,6 @@
             Sets the internal tolerance for which structural node merging etc. will be performed
             </summary>
             <param name="tol"></param>
-        </member>
-        <member name="M:BHoM.Structural.Structure.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Number">
-            <summary>Structure number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Name">
-            <summary>Structure name</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Nodes">
-            <summary>List of nodes</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Bars">
-            <summary>List of bars</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Faces">
-            <summary>List of faces</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Constraints">
-            <summary>Dictionary of constraints</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Storeys">
-            <summary>Dictionary of storeys</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.SectionProperties">
-            <summary>List of section properties</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Tolerance">
-            <summary>Tolerance of structure for node merge etc</summary>
         </member>
         <member name="T:BHoM.Structural.BarStructuralUsage">
             <summary>Usage of the bar for downstream implementations</summary>
@@ -2695,10 +2099,31 @@
             Varying load on a bar
             </summary>
         </member>
+        <member name="T:BHoM.Structural.Loads.Load">
+            <summary>
+            Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
+            constructor allows for a default force and moment nodal load instance.
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Load.Loadcase">
+            <summary>Loadcase as BHoM object</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Load.ObjectNumbers">
+            <summary>A list of node numbers that the nodal load is applicable to</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Load.RecordNumber">
+            <summary>Stores a load record number specific to Robot</summary>
+        </member>
         <member name="T:BHoM.Structural.Loads.Loadcase">
             <summary>
             Loadcase class 
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Loadcase.Name">
+            <summary>Loadcase name</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Loadcase.Number">
+            <summary>Loadcase number</summary>
         </member>
         <member name="M:BHoM.Structural.Loads.Loadcase.#ctor">
             <summary>
@@ -2736,12 +2161,6 @@
             </summary>
             <param name="number"></param>
         </member>
-        <member name="P:BHoM.Structural.Loads.Loadcase.Name">
-            <summary>Loadcase name</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.Loadcase.Number">
-            <summary>Loadcase number</summary>
-        </member>
         <member name="T:BHoM.Structural.Loads.LoadCombination">
             <summary>
             Loadcombination, different to loadcase as combination also contains information
@@ -2753,6 +2172,39 @@
             Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
             constructor allows for a default force and moment nodal load instance.
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Loadcase">
+            <summary>Loadcase as BHoM object</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Force">
+            <summary>Force - fx, fy, fz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Moment">
+            <summary>Moment - mx, my, mz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Translation">
+            <summary>Translation - ux, uy, uz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.Rotation">
+            <summary>Rotation - rx, ry, rz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.TranslationalVelocity">
+            <summary>TranslationalVelocity - vx, vy, vz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.RotationalVelocity">
+            <summary>RotationalVelocity - vrx, vry, vrz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.TranslationalAcceleration">
+            <summary>TranslationalAcceleration - ax, ay, az defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.RotationalAcceleration">
+            <summary>RotationalAcceleration - arx, ary, arz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.NodeNumbers">
+            <summary>A list of node numbers that the nodal load is applicable to</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.NodalLoad.RobotLoadRecordNumber">
+            <summary>Stores a load record number specific to Robot</summary>
         </member>
         <member name="M:BHoM.Structural.Loads.NodalLoad.#ctor">
             <summary>
@@ -2875,39 +2327,6 @@
             </summary>
             <param name="number"></param>
         </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Loadcase">
-            <summary>Loadcase as BHoM object</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Force">
-            <summary>Force - fx, fy, fz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Moment">
-            <summary>Moment - mx, my, mz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Translation">
-            <summary>Translation - ux, uy, uz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Rotation">
-            <summary>Rotation - rx, ry, rz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.TranslationalVelocity">
-            <summary>TranslationalVelocity - vx, vy, vz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.RotationalVelocity">
-            <summary>RotationalVelocity - vrx, vry, vrz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.TranslationalAcceleration">
-            <summary>TranslationalAcceleration - ax, ay, az defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.RotationalAcceleration">
-            <summary>RotationalAcceleration - arx, ary, arz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.NodeNumbers">
-            <summary>A list of node numbers that the nodal load is applicable to</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.RobotLoadRecordNumber">
-            <summary>Stores a load record number specific to Robot</summary>
-        </member>
         <member name="T:BHoM.Structural.Results.Bars.IBarForce">
             <summary>
             Bar force interface class
@@ -2977,6 +2396,7 @@
             <summary>Associated loadcase name</summary>
         </member>
         <member name="P:BHoM.Structural.Results.Bars.BarForceEnvelope.FXMax">
+            <summary>Governing case number</summary>
             <summary>Maximum axial force, tension negative</summary>
         </member>
         <member name="P:BHoM.Structural.Results.Bars.BarForceEnvelope.FXMin">
@@ -3030,6 +2450,9 @@
             ability to get and set envelopes
             </summary>
         </member>
+        <member name="P:BHoM.Structural.Results.Bars.BarForceCollection.barForceDictionary">
+            <summary>Bar force dictionary which forms the collection</summary>
+        </member>
         <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.#ctor">
             <summary>Constructs and empty bar force collection</summary>
         </member>
@@ -3039,17 +2462,11 @@
         <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.Add(BHoM.Structural.Results.Bars.BarForce)">
             <summary>Add a bar force to a collection</summary>
         </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForceCollection.barForceDictionary">
-            <summary>Bar force dictionary which forms the collection</summary>
-        </member>
         <member name="T:BHoM.Structural.Results.Bars.BarForce">
             <summary>
             Bar force object contains a set of coexisting forces, bar reference
             and orientation information
             </summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Bars.BarForce.#ctor(System.Int32,System.Double,BHoM.Structural.Loads.Loadcase,BHoM.Geometry.Plane)">
-            <summary>Construct a bar force with loadcases</summary>
         </member>
         <member name="P:BHoM.Structural.Results.Bars.BarForce.BarNumber">
             <summary>Associated bar number</summary>
@@ -3096,10 +2513,79 @@
         <member name="P:BHoM.Structural.Results.Bars.BarForce.UserData">
             <summary>User text field for any user data</summary>
         </member>
+        <member name="M:BHoM.Structural.Results.Bars.BarForce.#ctor(System.Int32,System.Double,BHoM.Structural.Loads.Loadcase,BHoM.Geometry.Plane)">
+            <summary>Construct a bar force with loadcases</summary>
+        </member>
         <member name="T:BHoM.Structural.Results.Building.StoreyResult">
             <summary>
             Results for building storeys for use in multi/tall building post processing
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.Loadcase">
+            <summary>Loadcase as BHoM object</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.DriftX">
+            <summary>Storey drift in X (refer to ASCE7 for basis)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.DriftY">
+            <summary>Storey drift in Y (refer to ASCE7 for basis)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.DriftRatioX">
+            <summary>Storey drift ratio in X (drift / storey height)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.DriftRatioY">
+            <summary>Storey drift ratio in Y (drift / storey height)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MaximumNodalDisplacementX">
+            <summary>Maximum displacement in X of any point (node) in the story</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MaximumNodalDisplacementY">
+            <summary>Maximum displacement in Y of any point (node) in the story</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MinimumNodalDisplacementX">
+            <summary>Minimum displacement in X of any point (node) in the story</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MinimumNodalDisplacementY">
+            <summary>Minimum displacement in Y of any point (node) in the story</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearX">
+            <summary>Storey shear in X</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearY">
+            <summary>Storey shear in Y</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearToColumnsX">
+            <summary>Total shear force in X in storey columns</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearToColumnsY">
+            <summary>Total shear force in Y in storey columns</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearToWallsX">
+            <summary>Total shear force in X in storey walls</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearToWallsY">
+            <summary>Total shear force in Y in storey walls</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.AxialToColumns">
+            <summary>Total axial force in columns at level</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.AxialToWalls">
+            <summary>Total axial force in walls at level</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.SeismicMass">
+            <summary>Mass of storey used in seismic calculation</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.CentreOfRigidity">
+            <summary>Centre of rigidity of the storey</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.CentreOfGravity">
+            <summary>Centre of mass of the storey</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.Eccentricity">
+            <summary>Eccentricity of the storey (vector distance between COG and COR)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MomentOfInertia">
+            <summary>Moment of inertia of a storey</summary>
         </member>
         <member name="M:BHoM.Structural.Results.Building.StoreyResult.#ctor">
             <summary>
@@ -3231,77 +2717,29 @@
             <param name="iy"></param>
             <param name="iz"></param>
         </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.Loadcase">
-            <summary>Loadcase as BHoM object</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.DriftX">
-            <summary>Storey drift in X (refer to ASCE7 for basis)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.DriftY">
-            <summary>Storey drift in Y (refer to ASCE7 for basis)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.DriftRatioX">
-            <summary>Storey drift ratio in X (drift / storey height)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.DriftRatioY">
-            <summary>Storey drift ratio in Y (drift / storey height)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MaximumNodalDisplacementX">
-            <summary>Maximum displacement in X of any point (node) in the story</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MaximumNodalDisplacementY">
-            <summary>Maximum displacement in Y of any point (node) in the story</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MinimumNodalDisplacementX">
-            <summary>Minimum displacement in X of any point (node) in the story</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MinimumNodalDisplacementY">
-            <summary>Minimum displacement in Y of any point (node) in the story</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearX">
-            <summary>Storey shear in X</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearY">
-            <summary>Storey shear in Y</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearToColumnsX">
-            <summary>Total shear force in X in storey columns</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearToColumnsY">
-            <summary>Total shear force in Y in storey columns</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearToWallsX">
-            <summary>Total shear force in X in storey walls</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.ShearToWallsY">
-            <summary>Total shear force in Y in storey walls</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.AxialToColumns">
-            <summary>Total axial force in columns at level</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.AxialToWalls">
-            <summary>Total axial force in walls at level</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.SeismicMass">
-            <summary>Mass of storey used in seismic calculation</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.CentreOfRigidity">
-            <summary>Centre of rigidity of the storey</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.CentreOfGravity">
-            <summary>Centre of mass of the storey</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.Eccentricity">
-            <summary>Eccentricity of the storey (vector distance between COG and COR)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Building.StoreyResult.MomentOfInertia">
-            <summary>Moment of inertia of a storey</summary>
-        </member>
         <member name="T:BHoM.Structural.Results.Global.GlobalResult">
             <summary>
             This class is used to collect and inspect results for a 
             whole structure for sanity checks - global reactions, mass sums, shears etc
             </summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Global.GlobalResult.Loadcase">
+            <summary>Loadcase as BHoM object</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Global.GlobalResult.BaseShearX">
+            <summary>Base shear force in X direction (reacion in X as a percentage of total mass)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Global.GlobalResult.BaseShearY">
+            <summary>Base shear force in Y direction (reaction in Y as a percentage of total mass)</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Global.GlobalResult.SumOfReactions_F">
+            <summary>Sum of reactions (X, Y, Z) as vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Global.GlobalResult.SumOfReactions_M">
+            <summary>Sum of reactions (MX, MY, MZ) as vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Global.GlobalResult.SumOfMass">
+            <summary>Sum of modal masses as vector</summary>
         </member>
         <member name="M:BHoM.Structural.Results.Global.GlobalResult.#ctor">
             <summary>Constructs an empty GlobalResult</summary>
@@ -3344,41 +2782,36 @@
             </summary>
             <param name="mass"></param>
         </member>
-        <member name="P:BHoM.Structural.Results.Global.GlobalResult.Loadcase">
-            <summary>Loadcase as BHoM object</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Global.GlobalResult.BaseShearX">
-            <summary>Base shear force in X direction (reacion in X as a percentage of total mass)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Global.GlobalResult.BaseShearY">
-            <summary>Base shear force in Y direction (reaction in Y as a percentage of total mass)</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Global.GlobalResult.SumOfReactions_F">
-            <summary>Sum of reactions (X, Y, Z) as vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Global.GlobalResult.SumOfReactions_M">
-            <summary>Sum of reactions (MX, MY, MZ) as vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Global.GlobalResult.SumOfMass">
-            <summary>Sum of modal masses as vector</summary>
-        </member>
         <member name="T:BHoM.Structural.SectionProperties.SectionFactory">
             <summary>
-            Section property class, the parent abstract class for all structural 
-            sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
-            parent class are those that would populate a multi category section database only
+            
             </summary>
         </member>
-        <member name="M:BHoM.Structural.SectionProperties.SectionFactory.Create(BHoM.Structural.SectionProperties.ShapeType)">
+        <member name="M:BHoM.Structural.SectionProperties.SectionFactory.#ctor(BHoM.Global.Project)">
             <summary>
             
             </summary>
-            <param name="shapeType"></param>
+            <param name="p"></param>
         </member>
-        <member name="M:BHoM.Structural.SectionProperties.SectionFactory.GetProperties">
+        <member name="M:BHoM.Structural.SectionProperties.SectionFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
             <summary>
             
             </summary>
+            <param name="p"></param>
+            <param name="sectionProperties"></param>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SectionFactory.CreateSteelI(System.String)">
+            <summary>
+            Create a steel I section property
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SectionFactory.CreateSteelBox(System.String)">
+            <summary>
+            Create a steel I section property
+            </summary>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:BHoM.Structural.SectionProperties.ISectionFactory">
@@ -3388,19 +2821,16 @@
             parent class are those that would populate a multi category section database only
             </summary>
         </member>
-        <member name="M:BHoM.Structural.SectionProperties.ISectionFactory.Create(BHoM.Structural.SectionProperties.ShapeType)">
-            <summary></summary>
-        </member>
         <member name="T:BHoM.Structural.SectionProperties.ISectionProperty">
             <summary>
             Section property interface, all methods and attributes applicable to all section properties
             </summary>
         </member>
-        <member name="M:BHoM.Structural.SectionProperties.ISectionProperty.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
         <member name="P:BHoM.Structural.SectionProperties.ISectionProperty.Name">
             <summary>Object name</summary>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.ISectionProperty.GetProperties">
+            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="T:BHoM.Structural.SectionProperties.ShapeType">
             <summary>
@@ -3417,45 +2847,6 @@
             <summary>Steel rectangular hollow section (RHS or fabricated)</summary>
         </member>
         <member name="T:BHoM.Structural.SectionProperties.RCColumnRectangular">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:BHoM.Structural.SectionProperties.SectionProperty">
-            <summary>
-            Section property class, the parent abstract class for all structural 
-            sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
-            parent class are those that would populate a multi category section database only
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.MassPerMetre">
-            <summary>Mass per metre based on section properties</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Name">
-            <summary>Name of section propert - a user defined, instance based parameter</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Type">
-            <summary>Section type</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.GrossArea">
-            <summary>Cross sectional area</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Ix">
-            <summary>Second moment of inertia - x axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Iy">
-            <summary>Second moment of inertia - y axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Iz">
-            <summary>Second moment of inertia - z axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Description">
-            <summary>Information regarding section property type for the user</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Material">
-            <summary>Section material</summary>
-        </member>
-        <member name="T:BHoM.Structural.SectionProperties.IRCSection">
             <summary>
             
             </summary>
@@ -3495,6 +2886,42 @@
         <member name="P:BHoM.Structural.SectionProperties.RCBeamRectangular.Type">
             <summary></summary>
         </member>
+        <member name="T:BHoM.Structural.SectionProperties.SectionProperty">
+            <summary>
+            Section property class, the parent abstract class for all structural 
+            sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
+            parent class are those that would populate a multi category section database only
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.MassPerMetre">
+            <summary>Mass per metre based on section properties</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Type">
+            <summary>Section type</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.GrossArea">
+            <summary>Cross sectional area</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Ix">
+            <summary>Second moment of inertia - x axis</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Iy">
+            <summary>Second moment of inertia - y axis</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Iz">
+            <summary>Second moment of inertia - z axis</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Description">
+            <summary>Information regarding section property type for the user</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Material">
+            <summary>Section material</summary>
+        </member>
+        <member name="T:BHoM.Structural.SectionProperties.IRCSection">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:BHoM.Structural.SectionProperties.ISteelBoxSection">
             <summary>
             
@@ -3529,6 +2956,27 @@
             
             </summary>
         </member>
+        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.TopFlangeWidth">
+            <summary>Top flange width</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.BottomFlangeWidth">
+            <summary>Bottom flange width</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.Depth">
+            <summary>Section depth (height)</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.TopFlangeThickness">
+            <summary>Top flange thickness</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.BottomFlangeThickness">
+            <summary>Bottom flange thickness</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.WebThickness">
+            <summary>Web thickness</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.RootRadius">
+            <summary>Root radius</summary>
+        </member>
         <member name="T:BHoM.Structural.SectionProperties.ISteelISection">
             <summary>
             
@@ -3555,37 +3003,13 @@
         <member name="P:BHoM.Structural.SectionProperties.ISteelISection.RootRadius">
             <summary>Root radius</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.TopFlangeWidth">
-            <summary>Top flange width</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.BottomFlangeWidth">
-            <summary>Bottom flange width</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.Depth">
-            <summary>Section depth (height)</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.TopFlangeThickness">
-            <summary>Top flange thickness</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.BottomFlangeThickness">
-            <summary>Bottom flange thickness</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.WebThickness">
-            <summary>Web thickness</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.RootRadius">
-            <summary>Root radius</summary>
-        </member>
         <member name="T:BHoM.Structural.SectionProperties.SteelBoxSection">
             <summary>
             
             </summary>
         </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelBoxSection.#ctor">
+        <member name="M:BHoM.Structural.SectionProperties.SteelBoxSection.#ctor(System.String)">
             <summary></summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelBoxSection.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.BottomFlangeThickness">
             <summary></summary>
@@ -3614,19 +3038,16 @@
         <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.Width">
             <summary></summary>
         </member>
+        <member name="M:BHoM.Structural.SectionProperties.SteelBoxSection.GetProperties">
+            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        </member>
         <member name="T:BHoM.Structural.SectionProperties.SteelISection">
             <summary>
             
             </summary>
         </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelISection.#ctor">
+        <member name="M:BHoM.Structural.SectionProperties.SteelISection.#ctor(System.String)">
             <summary></summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelISection.Create(BHoM.Structural.SectionProperties.ShapeType)">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelISection.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="P:BHoM.Structural.SectionProperties.SteelISection.BottomFlangeThickness">
             <summary></summary>
@@ -3648,6 +3069,875 @@
         </member>
         <member name="P:BHoM.Structural.SectionProperties.SteelISection.WebThickness">
             <summary></summary>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SteelISection.GetProperties">
+            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        </member>
+        <member name="T:BHoM.HumanBody.Head">
+            <summary>
+            BHoM Human head object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Head.TrackingPoint">
+            <summary>Point at centre of head</summary>
+        </member>
+        <member name="M:BHoM.HumanBody.Head.#ctor">
+            <summary>
+            Construct an empty head object
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.Head.#ctor(BHoM.Geometry.Point)">
+            <summary>
+            Construct a head using a point
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.Head.SetTrackingPoint(BHoM.Geometry.Point)">
+            <summary>
+            Set the tracking point of a head using a point
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.Head.SetTrackingPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Set the tracking point of a head by coordinates
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.HandRight">
+            <summary>
+            BHoM Human right hand object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.HandRight.TrackingPoint">
+            <summary>hand tracking centre point</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.HandRight.TrackingLine">
+            <summary>hand tracking centre line</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.HandRight.State">
+            <summary>Hand state (open/closed/tracked)</summary>
+        </member>
+        <member name="M:BHoM.HumanBody.HandRight.#ctor">
+            <summary>
+            Constructs an empty right hand object
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.HandRight.#ctor(BHoM.Geometry.Point)">
+            <summary>
+            Constructs a right hand using a point
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandRight.SetTrackingPoint(BHoM.Geometry.Point)">
+            <summary>
+            Sets the tracking centre point of a right hand using a point
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandRight.SetTrackingPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the tracking centre point of a right hand using coordinates
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandRight.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a left hand using a tracking centreline
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandRight.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centreline using a line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandRight.SetState(BHoM.HumanBody.HandStateName)">
+            <summary>
+            Sets the hand state
+            </summary>
+            <param name="handState"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.HandLeft">
+            <summary>
+            BHoM Human left hand object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.HandLeft.TrackingPoint">
+            <summary>Left hand tracking centre point</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.HandLeft.TrackingLine">
+            <summary>Left hand tracking cenre line</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.HandLeft.State">
+            <summary>Left hand state (open/closed/tracked)</summary>
+        </member>
+        <member name="M:BHoM.HumanBody.HandLeft.#ctor">
+            <summary>
+            Constructs an empty left hand object
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.HandLeft.#ctor(BHoM.Geometry.Point)">
+            <summary>
+            Constructs a left hand using a point
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandLeft.SetTrackingPoint(BHoM.Geometry.Point)">
+            <summary>
+            Sets the left hand tracking centre point using a point
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandLeft.SetTrackingPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the left hand tracking centre point using coordinates
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandLeft.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a left hand using a tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandLeft.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line of a left hand using a line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HandLeft.SetState(BHoM.HumanBody.HandStateName)">
+            <summary>
+            Sets the state of a left hand
+            </summary>
+            <param name="handState"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.ThumbRight">
+            <summary>
+            BHoM Human right thumb object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.ThumbRight.TrackingPoint">
+            <summary>Right thumb tracking centre point</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.ThumbRight.TrackingLine">
+            <summary>Right thumb tracking centre line</summary>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbRight.#ctor">
+            <summary>
+            Constructs an empty right thumb object
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbRight.#ctor(BHoM.Geometry.Point)">
+            <summary>
+            Constructs a right thumb using tracking point
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbRight.SetTrackingPoint(BHoM.Geometry.Point)">
+            <summary>
+            Sets the tracking point of a right thumb
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbRight.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a right thumb using the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbRight.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking line of a right thumb
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbRight.SetTrackingPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the tracking point of a right thumb using coordinates
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.ThumbLeft">
+            <summary>
+            BHoM Human left thumb object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.ThumbLeft.TrackingPoint">
+            <summary>Lefth thumb tracking point</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.ThumbLeft.TrackingLine">
+            <summary>Left thumb tracking centre line</summary>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbLeft.#ctor">
+            <summary>
+            Constructs an empty left thumb object
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbLeft.#ctor(BHoM.Geometry.Point)">
+            <summary>
+            Constructs a left thumb by tracking point
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbLeft.SetTrackingPoint(BHoM.Geometry.Point)">
+            <summary>
+            Sets the tracking point of a left thumb
+            </summary>
+            <param name="trackingPoint"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbLeft.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a left thumb using a tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbLeft.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line of a left thumb
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ThumbLeft.SetTrackingPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Sets the left thumb tracking point using coordinates
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.Neck">
+            <summary>
+            BHoM Human neck object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Neck.TrackingLine">
+            <summary>
+            The tracking centre line of a neck
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.Neck.#ctor">
+            <summary>
+            Constructs an empty neck object
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.Neck.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a neck using a tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.Neck.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line of a neck
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.ShoulderRight">
+            <summary>
+            BHoM Human right shoulder object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.ShoulderRight.TrackingLine">
+            <summary>
+            Tracking centre line of the shoulder
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.ShoulderRight.#ctor">
+            <summary>
+            Constructs an empty right shoulder
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.ShoulderRight.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a right should using a tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ShoulderRight.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line of the shoulder
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.ShoulderLeft">
+            <summary>
+            BHoM Human left shoulder object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.ShoulderLeft.TrackingLine">
+            <summary>
+            Tracking centre line of the left shoulder
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.ShoulderLeft.#ctor">
+            <summary>
+            Constructs an empty left shoulder object
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.ShoulderLeft.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a left shoulder using a tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.ShoulderLeft.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line of a left shoulder
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.UpperArmRight">
+            <summary>
+            BHoM Human upper right arm
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.UpperArmRight.TrackingLine">
+            <summary>
+            Tracking centre line of the upper arm
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperArmRight.#ctor">
+            <summary>
+            Constructs and empty upper right arm
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperArmRight.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs an upper right arm by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperArmRight.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line of the upper right arm
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.UpperArmLeft">
+            <summary>
+            BHoM Human left arm object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.UpperArmLeft.TrackingLine">
+            <summary>
+            Tracking centre line of the upper left arm
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperArmLeft.#ctor">
+            <summary>
+            Constructs an empty upper left arm object
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperArmLeft.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs an upper left arm by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperArmLeft.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line of the upper left arm
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.LowerArmRight">
+            <summary>
+            BHoM Human lower right arm object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.LowerArmRight.TrackingLine">
+            <summary>
+            Tracking centre line of the lower right arm
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerArmRight.#ctor">
+            <summary>
+            Constructs an empty lower right arm
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerArmRight.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a lower righ arm by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerArmRight.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.LowerArmLeft">
+            <summary>
+            BHoM Human lower left arm
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.LowerArmLeft.TrackingLine">
+            <summary>
+            Tracking centre line of the lower left arm
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerArmLeft.#ctor">
+            <summary>
+            Constructs an empty lower left arm 
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerArmLeft.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a lower left arm by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerArmLeft.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.Spine">
+            <summary>
+            BHoM Human spine object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Spine.TrackingLine">
+            <summary>
+            Tracking centre line of the spine
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.Spine.#ctor">
+            <summary>
+            Constructs an empty spine
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.Spine.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a spine by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.Spine.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.HipRight">
+            <summary>
+            BHoM Human right hip object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.HipRight.TrackingLine">
+            <summary>
+            Tracking centre line
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.HipRight.#ctor">
+            <summary>
+            Constructs an empty right hip
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.HipRight.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a right hip by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HipRight.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.HipLeft">
+            <summary>
+            BHoM Human left hip object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.HipLeft.TrackingLine">
+            <summary>
+            Tracking centre line of left hip
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.HipLeft.#ctor">
+            <summary>
+            Constructs an empty left hip
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.HipLeft.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a left hip by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.HipLeft.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.UpperLegRight">
+            <summary>
+            BHoM upper right leg object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.UpperLegRight.TrackingLine">
+            <summary>
+            Tracking centre line of upper right leg
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperLegRight.#ctor">
+            <summary>
+            Constructs an empty upper right leg
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperLegRight.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs an upper right leg by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperLegRight.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.UpperLegLeft">
+            <summary>
+            BHoM Human upper left leg
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.UpperLegLeft.TrackingLine">
+            <summary>
+            Tracking centre line of upper left leg
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperLegLeft.#ctor">
+            <summary>
+            Constructs an empty upper left leg
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperLegLeft.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs an upper left leg by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.UpperLegLeft.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.LowerLegRight">
+            <summary>
+            BHoM Human lower right leg
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.LowerLegRight.TrackingLine">
+            <summary>
+            Tracking centre line of lower right leg
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerLegRight.#ctor">
+            <summary>
+            Constructs an empty lower right leg
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerLegRight.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a lower right leg by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerLegRight.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.LowerLegLeft">
+            <summary>
+            BHoM Human lower left leg object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.LowerLegLeft.TrackingLine">
+            <summary>
+            Tracking centre line of the lower left leg
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerLegLeft.#ctor">
+            <summary>
+            Constructs an empty lower left leg
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerLegLeft.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a lower left leg by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.LowerLegLeft.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.FootRight">
+            <summary>
+            BHoM Human right foot object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.FootRight.TrackingLine">
+            <summary>
+            Tracking centre line of right foot
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.FootRight.#ctor">
+            <summary>
+            Constructs an empty right foot
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.FootRight.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a right foot by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.FootRight.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.FootLeft">
+            <summary>
+            BHoM Human left foot object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.FootLeft.TrackingLine">
+            <summary>
+            Tracking centre line of left foot
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.FootLeft.#ctor">
+            <summary>
+            Constructs an empty left foot object
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.FootLeft.#ctor(BHoM.Geometry.Line)">
+            <summary>
+            Constructs a left foot by tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="M:BHoM.HumanBody.FootLeft.SetTrackingLine(BHoM.Geometry.Line)">
+            <summary>
+            Sets the tracking centre line
+            </summary>
+            <param name="trackingLine"></param>
+        </member>
+        <member name="T:BHoM.HumanBody.Skeleton">
+            <summary>
+            BHoM Human skeleton class
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.Skeleton.#ctor">
+            <summary>
+            Constructs an empty skeleton object
+            </summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.Head">
+            <summary>Head</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.HandRight">
+            <summary>Right hand</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.HandLeft">
+            <summary>Left hand</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.ThumbRight">
+            <summary>Right thumb</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.ThumbLeft">
+            <summary>Left thumb</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.Neck">
+            <summary>Neck</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.ShoulderRight">
+            <summary>Right shoulder</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.ShoulderLeft">
+            <summary>Left shoulder</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.Spine">
+            <summary>Spine</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.HipRight">
+            <summary>Right hip</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.HipLeft">
+            <summary>Left hip</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.UpperArmRight">
+            <summary>Upper right arm</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.UpperArmLeft">
+            <summary>Upper left arm</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.LowerArmRight">
+            <summary>Lower right arm</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.LowerArmLeft">
+            <summary>Lower left arm</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.UpperLegRight">
+            <summary>Upper right leg</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.UpperLegLeft">
+            <summary>Upper left leg</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.LowerLegRight">
+            <summary>Lower right leg</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.LowerLegLeft">
+            <summary>Lower left leg</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.FootRight">
+            <summary>Right foot</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.FootLeft">
+            <summary>Left foot</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.TrackingPoints">
+            <summary>Dictionary of points with joint names as keys</summary>
+        </member>
+        <member name="P:BHoM.HumanBody.Skeleton.TrackingLines">
+            <summary>Dictionary of tracking lines with string keys</summary>
+        </member>
+        <member name="M:BHoM.HumanBody.Skeleton.SetBodyPartsbyTrackingPoints">
+            <summary>
+            Sets the body parts using tracking points. Try loops used for all actions 
+            in case body part tracking points are not detected
+            </summary>
+        </member>
+        <member name="M:BHoM.HumanBody.Skeleton.GetAllTrackingLines">
+            <summary>
+            Get all the tracking lines from the skeleton
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.HumanBody.JointName">
+            <summary>
+            Joint names
+            </summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.Head">
+            <summary>Head</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.SpineShoulder">
+            <summary>Upper spine</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.ShoulderRight">
+            <summary>Right shoulder</summary>  
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.ShoulderLeft">
+            <summary>Left shoulder</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.Neck">
+            <summary>Neck</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.ElbowRight">
+            <summary>Right elbow</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.ElbowLeft">
+            <summary>Left elbow</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.HandRight">
+            <summary>Right hand</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.HandLeft">
+            <summary>Left hand</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.HandTipRight">
+            <summary>Tip of the right hand</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.HandTipLeft">
+            <summary>Tip of the left hand</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.ThumbRight">
+            <summary>Right thumb</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.ThumbLeft">
+            <summary>Left thumb</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.WristRight">
+            <summary>Right wrist</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.WristLeft">
+            <summary>Left wrist</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.SpineMid">
+            <summary>Mid spine</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.SpineBase">
+            <summary>Spine base</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.HipRight">
+            <summary>Right hip</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.HipLeft">
+            <summary>Left hip</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.KneeRight">
+            <summary>Right knee</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.KneeLeft">
+            <summary>Left knee</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.AnkleRight">
+            <summary>Right ankle</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.AnkleLeft">
+            <summary>Left ankle</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.FootRight">
+            <summary>Right foot</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.JointName.FootLeft">
+            <summary>Left foot</summary>
+        </member>
+        <member name="T:BHoM.HumanBody.HandStateName">
+            <summary>
+            Hand state values
+            </summary>
+        </member>
+        <member name="F:BHoM.HumanBody.HandStateName.Closed">
+            <summary>Close</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.HandStateName.Lasso">
+            <summary>Lasso</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.HandStateName.NotTracked">
+            <summary>Not tracked</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.HandStateName.Open">
+            <summary>Open</summary>
+        </member>
+        <member name="F:BHoM.HumanBody.HandStateName.Unknown">
+            <summary>Not known</summary>
         </member>
     </members>
 </doc>

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace BHoM.Global
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ObjectParameters : IEnumerable
     {
         Dictionary<string, Parameter> m_Parameters;

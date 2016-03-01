@@ -9,14 +9,18 @@ using System.Xml;
 
 namespace BHoM.Global
 {
+    /// <summary>
+    /// A global project class that encapsulates all objects (all disciplines) of a BHoM project
+    /// </summary>
     public class Project
     {
         private Dictionary<Guid, BHoM.Global.BHoMObject> m_Objects;
         internal XmlDocument m_Xml;
 
-
+        /// <summary>Structure property - gets or sets the structure of the object as a BHoM.Structural.Structure</summary>
         public Structure Structure { get; private set; }
-       /// <summary>Structure number</summary>
+
+        /// <summary>Structure number</summary>
         public int Number { get; private set; }
 
         /// <summary>Structure name</summary>
@@ -25,12 +29,11 @@ namespace BHoM.Global
         /// <summary>Dictionary of storeys</summary>
         public Dictionary<int, Storey> Storeys { get; private set; }
         
-        /// <summary>List of section properties</summary>
-        public List<SectionProperty> SectionProperties { get;  private set; }
 
         /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
 
+        /// <summary>Loads a BHoM project from an xml file</summary>
         public static Project LoadXml(string fileName)
         {
             Project structure = new Project();
@@ -61,6 +64,7 @@ namespace BHoM.Global
             return structure;
         }
 
+        /// <summary>Writes a BHoM project to an xml file</summary>
         public void WriteXml(string filePath)
         {
             m_Xml = new XmlDocument();
@@ -73,14 +77,15 @@ namespace BHoM.Global
         }
 
         /// <summary>
-        /// Constructs an empty structure
+        /// Constructs an empty project
         /// </summary>
         public Project()
         {
             m_Objects = new Dictionary<Guid, Global.BHoMObject>();
             Structure = new Structure(this, m_Objects);
         }
- 
+
+        /// <summary>Returns a BHoM by unique identifier</summary>
         public BHoM.Global.BHoMObject GetObject(Guid id)
         {
             BHoM.Global.BHoMObject result = null;
@@ -93,7 +98,6 @@ namespace BHoM.Global
             value.Project = this;
             m_Objects.Add(value.BHoM_Guid, value);
         }
-
 
         internal void RemoveObject(Guid guid)
         {

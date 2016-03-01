@@ -89,18 +89,5 @@ namespace BHoM.Structural
         {
             this.Height = height;
         }
-
-        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        public BHoM.Collections.Dictionary<string, object> GetProperties()
-        {
-            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
-            PropertiesDictionary.Add("Number", this.Number);
-            PropertiesDictionary.Add("Name", this.Name);
-
-            //PropertiesDictionary.Add("UserData", this.UserData);
-            //PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
-
-            return PropertiesDictionary;
-        }
-    }
+         }
 }

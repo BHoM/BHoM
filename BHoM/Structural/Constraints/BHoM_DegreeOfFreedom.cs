@@ -12,7 +12,7 @@ namespace BHoM.Structural
     /// <summary>
     /// Degrees of freedom class for use in constraint objects
     /// </summary>
-    public class DOF
+    public class DOF : BHoM.Global.BHoMObject
     {
         /////////////////
         ////Properties///
@@ -32,6 +32,9 @@ namespace BHoM.Structural
         ///////////////////
         ////Constructors///
         ///////////////////
+
+        /// <summary>Constructs an empty DOF object</summary>
+        public DOF() { }
 
         /// <summary>Constructs a DOF using direciton, type and value</summary>
         public DOF(DOFType type, double Value)

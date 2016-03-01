@@ -9,7 +9,6 @@ namespace BHoM.Structural.SectionProperties
     /// </summary>
     public interface ISectionFactory
     {
-        /// <summary></summary>
-        SectionProperty Create(ShapeType shapeType);        
+         
     }
 }

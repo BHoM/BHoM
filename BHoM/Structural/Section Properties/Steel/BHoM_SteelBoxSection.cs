@@ -11,11 +11,12 @@ namespace BHoM.Structural.SectionProperties
     {
         
         /// <summary></summary>
-        public SteelBoxSection() : base()
+        internal SteelBoxSection(string name) : base()
         {
             this.Type = ShapeType.SteelI;
+            this.Name = name;
         }
-
+        
         /// <summary></summary>
         public double BottomFlangeThickness { get; set; }
         

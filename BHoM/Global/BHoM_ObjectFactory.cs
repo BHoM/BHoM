@@ -1,18 +1,37 @@
 ﻿using BHoM.Structural;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BHoM.Global
 {
-    public abstract class ObjectFactory //: IList<T>
+    /// <summary>
+    /// 
+    /// </summary>
+    public abstract class ObjectFactory : System.Collections.IEnumerable
     {
         private Project m_Project;
         private Dictionary<string, BHoMObject> m_Data;
         private int m_FreeNumber;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="project"></param>
+        public ObjectFactory(Project project)
+        {
+            m_Project = project;
+            m_Data = new Dictionary<string, BHoMObject>();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="project"></param>
+        /// <param name="items"></param>
         public ObjectFactory(Project project, List<BHoMObject> items)
         {
             m_Project = project;
@@ -23,9 +42,13 @@ namespace BHoM.Global
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ObjectFactory ForceUniqueByNumber()
         {
-            Dictionary<string, BHoMObject> newDictionary = new Dictionary<string,BHoMObject>();
+            Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
             foreach (BHoMObject value in m_Data.Values)
             {
                 newDictionary.Add(value.Number.ToString(), value);
@@ -35,6 +58,10 @@ namespace BHoM.Global
             return this;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ObjectFactory ForceUniqueByName()
         {
             Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
@@ -60,6 +87,11 @@ namespace BHoM.Global
         //    return m_Data.First(o => o.Number == number);
         //}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public BHoMObject this[int key]
         {
             get
@@ -76,6 +108,11 @@ namespace BHoM.Global
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public BHoMObject this[string key]
         {
             get
@@ -92,18 +129,32 @@ namespace BHoM.Global
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public bool ContainsName(string name)
         {
             BHoMObject obj = null;
             return m_Data.Count == 0 ? false : m_Data.TryGetValue(name.ToString(), out obj);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public bool ContainsNumber(int number)
         {
             BHoMObject obj = null;
             return m_Data.Count == 0 ? false : m_Data.TryGetValue(number.ToString(), out obj);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
         protected void Add(BHoMObject obj)
         {
             m_Data.Add(obj.Number.ToString(), obj);
@@ -111,14 +162,33 @@ namespace BHoM.Global
             m_FreeNumber = Math.Max(obj.Number, m_FreeNumber) + 1;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public int FreeNumber()
         {
             if (m_FreeNumber == 0)
             {
-                m_FreeNumber = m_Data.Count == 0 ? 1 : m_Data.Values.Max(o=>o.Number) + 1;
+                m_FreeNumber = m_Data.Count == 0 ? 1 : m_Data.Values.Max(o => o.Number) + 1;
             }
             return m_FreeNumber;
         }
+
+
+        /// <summary></summary>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
+        }
+
+        /// <summary></summary>
+        public BHoMObjectEnum GetEnumerator()
+        {
+            return new BHoMObjectEnum(m_Data.Values.ToArray());
+        }
+
+
 
         //public T AddUnique(T item, bool checkNumber)
         //{
@@ -148,139 +218,71 @@ namespace BHoM.Global
         //    return default(T);
         //}
 
-        public int Count
-        {
-            get 
-            { 
-                return m_Data.Count; 
-            }
-        }
-    }
-
-    public class NodeFactory : ObjectFactory
-    {
-        public NodeFactory(Project p, List<BHoM.Global.BHoMObject> nodes) : base(p, nodes) { }
-
-        public Node Create(int number, double x, double y, double z)
-        {
-            if (this.ContainsNumber(number))
-            {
-                return this[number] as Node;
-            }
-            else
-            {
-                Node node = new Node(x, y, z, number);
-                this.Add(node);
-                return node;
-            }
-        }
-
-        public Node Create(double x, double y, double z)
-        {
-            Node node = new Node(x, y, z, FreeNumber());
-            this.Add(node);
-            return node;
-        }
-    }
-
-    public class BarFactory : ObjectFactory
-    {
-        public BarFactory(Project p, List<BHoM.Global.BHoMObject> bars) : base(p, bars) { }
-
-        public Bar Create(int number, Node n1, Node n2)
-        {
-            if (this.ContainsNumber(number))
-            {
-                return this[number] as Bar;
-            }
-            else
-            {
-                Bar bar = new Bar(n1, n2, number);
-                this.Add(bar);
-                return bar;
-            }
-        }
-
-        public Bar Create(Node n1, Node n2)
-        {          
-            Bar bar = new Bar(n1, n2, FreeNumber());
-            this.Add(bar);
-            return bar;          
-        }
-    }
-
-    public class ConstraintFactory : ObjectFactory
-    {
-        public ConstraintFactory(Project p, List<BHoM.Global.BHoMObject> constraint) : base(p, constraint) { }
-
-        public Constraint Create(string name, double x, double y, double z, double xx, double yy, double zz)
-        {
-            if (this.ContainsName(name))
-            {
-                return this[name] as Constraint;
-            }
-            else
-            {
-                return new Constraint(name, new double[] { 0, 0, 0, 0, 0, 0 });
-            }
-        }
-
-        public Constraint Create(string name, bool x, bool y, bool z, bool xx, bool yy, bool zz)
-        {
-            if (this.ContainsName(name))
-            {
-                return this[name] as Constraint;
-            }
-            else
-            {
-                Constraint c = new Constraint(name, new bool[] { x, y, z, xx, yy, zz}, new double[6]);
-                this.Add(c);
-                return c;
-            }
-        }
-
-        public Constraint Create(string name, bool[] fixity, double[] values)
-        {
-            if (this.ContainsName(name))
-            {
-                return this[name] as Constraint;
-            }
-            else
-            {
-                Constraint c = new Constraint(name, fixity, values);
-                this.Add(c);
-                return c;
-            }
-        }
-
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="fixity">Constraint string x indicates fixity and f indices freedom must be 6 characters long or nothing will be returned</param>
-        /// <returns></returns>
-        public Constraint Create(string name, string fixity)
+        public int Count
         {
-            if (this.ContainsName(name))
+            get
             {
-                return this[name] as Constraint;
+                return m_Data.Count;
             }
-            else
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class BHoMObjectEnum : IEnumerator
+    {
+        /// <summary></summary>
+        public BHoMObject[] _BHoMOjects;
+
+        int position = -1;
+
+        /// <summary></summary>
+        /// <param name="list"></param>
+        public BHoMObjectEnum(BHoMObject[] list)
+        {
+            _BHoMOjects = list;
+        }
+
+        /// <summary></summary>
+        object IEnumerator.Current
+        {
+            get
             {
-                if (fixity.Length == 6)
+                return Current;
+            }
+        }
+
+        /// <summary></summary>
+        public BHoMObject Current
+        {
+            get
+            {
+                try
                 {
-                    bool[] f = new bool[6];
-                    for (int i = 0; i < 6;i++)
-                    {
-                        f[i]= fixity[i] == 'x';
-                    }
-                    return new Constraint(name, f, new double[6]);
+                    return _BHoMOjects[position];
                 }
-                else
+                catch (IndexOutOfRangeException)
                 {
-                    return null;
+                    throw new InvalidOperationException();
                 }
             }
+        }
+
+        /// <summary></summary>
+        public bool MoveNext()
+        {
+            position++;
+            return (position < _BHoMOjects.Length);
+        }
+
+        /// <summary></summary>
+        public void Reset()
+        {
+            position = -1;
         }
     }
 }

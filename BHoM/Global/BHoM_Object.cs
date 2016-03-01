@@ -12,15 +12,22 @@ namespace BHoM.Global
     {
         /// <summary>BHoM unique ID</summary>
         public System.Guid BHoM_Guid { get; internal set; }
-        public string Name { get; internal set; }
-        public int Number { get; internal set; }
-        public Project Project { get; set; }
 
+        /// <summary>Name</summary>
+        public string Name { get; internal set; }
+
+        /// <summary>Number</summary>
+        public int Number { get; internal set; }
+
+        /// <summary>Project</summary>
+        public Project Project { get; set; }
+               
         /// <summary>User text input. Can be used to store user information in an object
         /// such as a user ID or a project specific parameter</summary>
-        /// 
-        public ObjectParameters Parameters { get; set; }
         public BHoM.Collections.Dictionary<string, object> UserData { get; set; }
+
+        /// <summary>Object parameters</summary>
+        public ObjectParameters Parameters { get; set; }
 
         internal BHoMObject()
         {
@@ -68,16 +75,21 @@ namespace BHoM.Global
         //////////////
 
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        public BHoM.Collections.Dictionary<string, object> GetProperties()
+        public List<string> GetPropertyNames()
         {
-            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
+            List<string> propertyNames = new List<string>();
             foreach (var prop in this.GetType().GetProperties())
             {
-                PropertiesDictionary.Add(prop.Name, prop.GetValue(this));
+                propertyNames.Add(prop.Name);
             }
-            return PropertiesDictionary;
+            propertyNames.Sort();
+            return propertyNames;
         }
 
+        /// <summary>
+        /// Convert object paramters to XML
+        /// </summary>
+        /// <returns></returns>
         public virtual XmlNode Xml()
         {
             XmlDocument doc = Project.m_Xml;

@@ -60,11 +60,18 @@ namespace BHoM.Structural
             }
         }
 
+        /// <summary>Dictionary of section properties</summary>
+        public SectionFactory SectionProperties
+        {
+            get
+            {
+                return new SectionFactory(m_Project, m_Objects.Values.Where(obj => obj.GetType() == typeof(SectionProperty)).ToList());
+            }
+        }
+
         /// <summary>Dictionary of storeys</summary>
         public Dictionary<int, Storey> Storeys { get; private set; }
         
-        /// <summary>List of section properties</summary>
-        public List<SectionProperty> SectionProperties { get;  private set; }
 
         /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
@@ -497,19 +504,6 @@ namespace BHoM.Structural
         //        return this.Constraints.Create(constraint.Name, constraint);
         //    }
         //}
-
-        /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        public BHoM.Collections.Dictionary<string, object> GetProperties()
-        {
-            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
-            PropertiesDictionary.Add("Number", this.Number);
-            PropertiesDictionary.Add("Name", this.Name);
-            
-            //PropertiesDictionary.Add("BHoM_Guid", this.BHoM_Guid);
-
-            return PropertiesDictionary;
-        }
-
 
     }
 }
