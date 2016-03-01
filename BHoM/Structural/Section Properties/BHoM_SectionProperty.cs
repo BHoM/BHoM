@@ -14,8 +14,6 @@ namespace BHoM.Structural.SectionProperties
         /// <summary>Mass per metre based on section properties</summary>
         public double MassPerMetre { get; set; }
 
-        /// <summary>Name of section propert - a user defined, instance based parameter</summary>
-        public string Name { get; set; }
 
         /// <summary>Section type</summary>
         public ShapeType Type { get; set; }
@@ -38,5 +36,6 @@ namespace BHoM.Structural.SectionProperties
         /// <summary>Section material</summary>
         public BHoM.Materials.Material Material {get; set;}
 
+            
     }
 }

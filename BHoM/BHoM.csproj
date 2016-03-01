@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\BHoM_Dictionary.cs" />
+    <Compile Include="Geometry\BHoM_PolyLoop.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_ILine.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_IVector.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_IPlane.cs" />
@@ -51,14 +52,21 @@
     <Compile Include="Geometry\Transformations\BHoM_Scale.cs" />
     <Compile Include="Geometry\BHoM_Line.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
+    <Compile Include="Global\BHoM_ObjectFactory.cs" />
+    <Compile Include="Global\BHoM_Param.cs" />
     <Compile Include="Global\BHoM_Parameter.cs" />
+    <Compile Include="Global\BHoM_Parameters.cs" />
     <Compile Include="Global\BHoM_Project.cs" />
+    <Compile Include="Global\BHoM_Utils.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C25.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
     <Compile Include="Materials\Steel\BHoM_ISteel.cs" />
     <Compile Include="Materials\Concrete\BHoM_IConcrete.cs" />
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
+    <Compile Include="Structural\Factories\BHoM_ConstraintFactory.cs" />
+    <Compile Include="Structural\Factories\BHoM_NodeFactory.cs" />
+    <Compile Include="Structural\Factories\BHoM_BarFactory.cs" />
     <Compile Include="Structural\Interfaces\BHoM_IBar.cs" />
     <Compile Include="Structural\Interfaces\BHoM_IStructuralObject.cs" />
     <Compile Include="Structural\BHoM_SuperBar.cs" />
@@ -94,6 +102,7 @@
     <Compile Include="Structural\Loads\BHoM_BarTemperatureLoad.cs" />
     <Compile Include="Structural\Loads\BHoM_BarUniformlyDistributedLoad.cs" />
     <Compile Include="Structural\Loads\BHoM_BarVaryingDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\BHoM_Load.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcase.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcombination.cs" />
     <Compile Include="Structural\Loads\BHoM_NodalLoad.cs" />

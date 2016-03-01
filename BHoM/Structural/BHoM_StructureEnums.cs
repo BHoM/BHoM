@@ -93,15 +93,15 @@ namespace BHoM.Structural
         /// <summary>X direction</summary>
         X = 0,
         /// <summary>Y direction</summary>
-        Y,
+        Y = 1,
         /// <summary>Z direction</summary>
-        Z,
+        Z = 2,
         /// <summary>Clockwise rotation about X-Axis looking in positive X direction</summary>
-        XX,
+        XX = 3,
         /// <summary>Clockwise rotation about Y-Axis looking in positive Y direction</summary>
-        YY,
+        YY = 4,
         /// <summary>Clockwise rotation about Z-Axis looking in positive Z direction</summary>
-        ZZ
+        ZZ = 5
     }
 
     /// <summary>
@@ -112,31 +112,31 @@ namespace BHoM.Structural
         /// <summary>Free - all DOF's released</summary>
         Free = 0,
         /// <summary>Fixed - all DOF's blocked</summary>
-        Fixed,
+        Fixed = 1,
         /// <summary>Zero stiffness in the positive direction</summary>
-        FixedNegative,
+        FixedNegative = 2,
         /// <summary>Zero stiffness in the negative direction</summary>
-        FixedPositive,
+        FixedPositive = 3,
         /// <summary>Linear spring constant</summary>
-        Spring,
+        Spring = 4,
         /// <summary>Non-linear, zero stiffnss in positive direction</summary>
-        SpringNegative,
+        SpringNegative =5,
         /// <summary>Non-linear, zero stiffness in negative direction</summary>
-        SpringPositive,
+        SpringPositive = 6,
         /// <summary>Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness)</summary>
-        SpringRelative,
+        SpringRelative = 7,
         /// <summary>As spring negative, but relative stiffness</summary>
-        SpringRelativeNegative,
+        SpringRelativeNegative = 8,
         /// <summary>As spring positive but relative stiffness</summary>
-        SpringRelativePositive,
+        SpringRelativePositive = 9,
         /// <summary>Non-linear spring model</summary>
-        NonLinear,
+        NonLinear = 10,
         /// <summary>Friction model (relative to the load applied)</summary>
-        Friction,
+        Friction = 11,
         /// <summary>Damped velocities/accelerations</summary>
-        Damped,
+        Damped = 12,
         /// <summary>Gap model</summary>
-        Gap
+        Gap = 13
     }
 
     /// <summary>Constraint type</summary>

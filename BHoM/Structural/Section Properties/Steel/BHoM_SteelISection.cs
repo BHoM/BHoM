@@ -10,9 +10,10 @@ namespace BHoM.Structural.SectionProperties
     {
         
         /// <summary></summary>
-        public SteelISection() : base()
+        internal SteelISection(string name) : base()
         {
             this.Type = ShapeType.SteelI;
+            this.Name = name;
         }
 
         /// <summary></summary>
@@ -36,11 +37,6 @@ namespace BHoM.Structural.SectionProperties
         /// <summary></summary>
         public double WebThickness { get; set; }
 
-        /// <summary></summary>
-        public SectionProperty Create(ShapeType shapeType)
-        {
-            return new SteelISection();
-        }
 
         //////////////
         ////Methods///

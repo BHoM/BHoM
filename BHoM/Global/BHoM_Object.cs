@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 
 namespace BHoM.Global
@@ -11,69 +12,84 @@ namespace BHoM.Global
     {
         /// <summary>BHoM unique ID</summary>
         public System.Guid BHoM_Guid { get; internal set; }
-        public string Name { get; internal set; }
-        public Project Project { get; set; }
 
+        /// <summary>Name</summary>
+        public string Name { get; internal set; }
+
+        /// <summary>Number</summary>
+        public int Number { get; internal set; }
+
+        /// <summary>Project</summary>
+        public Project Project { get; set; }
+               
         /// <summary>User text input. Can be used to store user information in an object
         /// such as a user ID or a project specific parameter</summary>
-        /// 
-        public Dictionary<string, Parameter> Parameters { get; set; }
         public BHoM.Collections.Dictionary<string, object> UserData { get; set; }
+
+        /// <summary>Object parameters</summary>
+        public ObjectParameters Parameters { get; set; }
 
         internal BHoMObject()
         {
-            Parameters = new Dictionary<string, Parameter>();
-        }
-
-        /// <summary>
-        /// Set the BHoM_Guid
-        /// </summary>
-        public void SetBHoMGuid()
-        {
+            Parameters = new ObjectParameters();
+            Number = -1;
             this.BHoM_Guid = System.Guid.NewGuid();
         }
 
-        public void SetParameter(string name, object data)
-        {
-            Parameter p = null;
-            if (Parameters.TryGetValue(name, out p))
-            {
-                p.SetValue(data);
-            }
-            else
-            {
-                Parameters.Add(name,new Parameter(name, data));
-            }
-        }
+        ///// <summary>
+        ///// Set the BHoM_Guid
+        ///// </summary>
+        //public void SetBHoMGuid()
+        //{
+        //    this.BHoM_Guid = System.Guid.NewGuid();
+        //}
 
-        internal void SetParameter(string name, string data, string storage)
-        {
-            Parameter p = null;
-            if (Parameters.TryGetValue(name, out p))
-            {
-                p.SetValue(data);
-            }
-            else
-            {
-                Parameters.Add(name, new Parameter(name, data, storage));
-            }
-        }
+        //public void SetParameter(string name, object data)
+        //{
+        //    Parameter p = null;
+        //    if (Parameters.TryGetValue(name, out p))
+        //    {
+        //        p.SetValue(data);
+        //    }
+        //    else
+        //    {
+        //        Parameters.Add(name,new Parameter(name, data));
+        //    }
+        //}
+
+        //internal void SetParameter(string name, string data, string storage)
+        //{
+        //    Parameter p = null;
+        //    if (Parameters.TryGetValue(name, out p))
+        //    {
+        //        p.SetValue(data);
+        //    }
+        //    else
+        //    {
+        //        Parameters.Add(name, new Parameter(name, data, storage));
+        //    }
+        //}
 
         //////////////
         ////Methods///
         //////////////
 
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        public BHoM.Collections.Dictionary<string, object> GetProperties()
+        public List<string> GetPropertyNames()
         {
-            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
+            List<string> propertyNames = new List<string>();
             foreach (var prop in this.GetType().GetProperties())
             {
-                PropertiesDictionary.Add(prop.Name, prop.GetValue(this));
+                propertyNames.Add(prop.Name);
             }
-            return PropertiesDictionary;
+            propertyNames.Sort();
+            return propertyNames;
         }
 
+        /// <summary>
+        /// Convert object paramters to XML
+        /// </summary>
+        /// <returns></returns>
         public virtual XmlNode Xml()
         {
             XmlDocument doc = Project.m_Xml;
@@ -81,15 +97,17 @@ namespace BHoM.Global
             XmlNode objectNode = doc.CreateElement("BHoM_Object");
             objectNode.Attributes.Append(doc.CreateAttribute("Id")).Value = BHoM_Guid.ToString();
             objectNode.Attributes.Append(doc.CreateAttribute("Name")).Value = Name;
+            objectNode.Attributes.Append(doc.CreateAttribute("Number")).Value = Number.ToString();
             objectNode.Attributes.Append(doc.CreateAttribute("Type")).Value = this.GetType().ToString();
            
             XmlNode parameter;
-            foreach (string key in Parameters.Keys)
+            foreach (Parameter p in Parameters)
             {
                 parameter = objectNode.AppendChild(doc.CreateElement("Parameter"));
-                parameter.Attributes.Append(doc.CreateAttribute("Name")).Value = Parameters[key].Name;
-                parameter.Attributes.Append(doc.CreateAttribute("DataType")).Value = Parameters[key].DataType.ToString();
-                parameter.Attributes.Append(doc.CreateAttribute("Value")).Value = Parameters[key].Data.ToString();
+                parameter.Attributes.Append(doc.CreateAttribute("Name")).Value = p.Name;
+                parameter.Attributes.Append(doc.CreateAttribute("Type")).Value = p.GetType().ToString();
+                parameter.Attributes.Append(doc.CreateAttribute("Value")).Value = p.DataString();
+                parameter.Attributes.Append(doc.CreateAttribute("Access")).Value = p.Access.ToString();
 
             }
             return objectNode;
