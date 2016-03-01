@@ -54,14 +54,17 @@
     <Compile Include="Geometry\BHoM_Line.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
     <Compile Include="Global\BHoM_Parameter.cs" />
+    <Compile Include="Global\BHoM_Project.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C25.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
     <Compile Include="Materials\Steel\BHoM_ISteel.cs" />
     <Compile Include="Materials\Concrete\BHoM_IConcrete.cs" />
+    <Compile Include="MEP\BHoM_Duct.cs" />
     <Compile Include="MEP\BHoM_Element.cs" />
-    <Compile Include="MEP\BHoM_Geometry.cs" />
     <Compile Include="MEP\BHoM_Location.cs" />
-    <Compile Include="MEP\BHoM_Space.cs" />
+    <Compile Include="MEP\BHoM_Pipe.cs" />
+    <Compile Include="MEP\BHoM_Shell.cs" />
+    <Compile Include="MEP\BHoM_SpatialElement.cs" />
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
     <Compile Include="Structural\Interfaces\BHoM_IBar.cs" />
@@ -129,11 +132,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Build\$(ProjectName).dll"
-copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Build\$(ProjectName).xml"
-
-
-copy /Y "$(TargetDir)$(ProjectName).dll" "C:\Users\mcunliff\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).dll"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
