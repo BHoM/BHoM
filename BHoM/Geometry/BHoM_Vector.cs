@@ -43,6 +43,18 @@ namespace BHoM.Geometry
         }
 
         /// <summary>
+        /// Constructs a vector from two points
+        /// </summary>
+        /// <param name="StartPoint">Start Point</param>
+        /// <param name="EndPoint">End Point</param>
+        public Vector(Point StartPoint, Point EndPoint)
+        {
+            X = EndPoint.X - StartPoint.X;
+            Y = EndPoint.Y - StartPoint.Y;
+            Z = EndPoint.Z - StartPoint.Z;
+        }
+
+        /// <summary>
         /// Duplicates a vector
         /// </summary>
         /// <param name="dup"></param>
@@ -248,7 +260,6 @@ namespace BHoM.Geometry
         {
             return this * -1.0;
         }
-
 
         /// <summary>
         /// Calculate the angle in radians between two vectors

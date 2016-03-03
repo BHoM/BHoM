@@ -4,133 +4,61 @@
         <name>BHoM</name>
     </assembly>
     <members>
-        <member name="T:BHoM.Collections.Dictionary`2">
+        <member name="T:BHoM.Geometry.Arc">
             <summary>
-            BHoM dictionary using system dictionary with additional functionality. 
-            </summary>
-            <typeparam name="TKey"></typeparam>
-            <typeparam name="TValue"></typeparam>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Name">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.Add(`0,`1)">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.ContainsKey(`0)">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Keys">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.Remove(`0)">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.TryGetValue(`0,`1@)">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Values">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Item(`0)">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.Clear">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Collections.Dictionary`2.Count">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.KeyList">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.GetEnumerator">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Collections.Dictionary`2.op_Explicit(System.Collections.Generic.Dictionary{`0,`1})~BHoM.Collections.Dictionary{`0,`1}">
-            <summary>
-            
-            </summary>
-            <param name="Dictionary"></param>
-        </member>
-        <member name="T:BHoM.Geometry.ILine">
-            <summary>
-            BHoM Line interface
+            Arc object
             </summary>
         </member>
-        <member name="P:BHoM.Geometry.ILine.StartPoint">
-            <summary>Start point as BHoM point</summary>
-        </member>
-        <member name="P:BHoM.Geometry.ILine.EndPoint">
-            <summary>End point as BHoM point</summary>
-        </member>
-        <member name="P:BHoM.Geometry.ILine.Length">
-            <summary>Length of the line</summary>
-        </member>
-        <member name="T:BHoM.Geometry.IVector">
+        <member name="M:BHoM.Geometry.Arc.#ctor(BHoM.Geometry.Circle,BHoM.Geometry.Point,BHoM.Geometry.Point)">
             <summary>
-            BHoM IVector interface
+            Constructs an arc based on circle, start and end point
+            </summary>
+            <param name="Circle">Circle</param>
+            <param name="StartPoint">Start Point</param>
+            <param name="EndPoint">End Point</param>
+        </member>
+        <member name="P:BHoM.Geometry.Arc.StartPoint">
+            <summary>Start point of arc</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Arc.EndPoint">
+            <summary>End point of arc</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Arc.MidPoint">
+            <summary>Mid point of the line</summary>
+        </member>
+        <member name="T:BHoM.Geometry.Circle">
+            <summary>
+            Arc object
             </summary>
         </member>
-        <member name="P:BHoM.Geometry.IVector.X">
-            <summary>X coordinate</summary>
+        <member name="P:BHoM.Geometry.Circle.StartPoint">
+            <summary>Start point as BHoM curve</summary>
         </member>
-        <member name="P:BHoM.Geometry.IVector.Y">
-            <summary>Y coordinate</summary>
+        <member name="P:BHoM.Geometry.Circle.EndPoint">
+            <summary>End point as BHoM curve</summary>
         </member>
-        <member name="P:BHoM.Geometry.IVector.Z">
-            <summary>Z coordinate</summary>
+        <member name="P:BHoM.Geometry.Circle.Center">
+            <summary>Center</summary>
         </member>
-        <member name="T:BHoM.Geometry.IPlane">
+        <member name="P:BHoM.Geometry.Circle.Radius">
+            <summary>Radius</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Circle.Normal">
+            <summary>Normal</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Circle.Plane">
+            <summary>Plane</summary>
+        </member>
+        <member name="T:BHoM.Geometry.Curve">
             <summary>
-            BHoM IPlane interface
+            Arc object
             </summary>
         </member>
-        <member name="P:BHoM.Geometry.IPlane.X">
-            <summary>X vector</summary>
+        <member name="P:BHoM.Geometry.Curve.StartPoint">
+            <summary>Start point as BHoM curve</summary>
         </member>
-        <member name="P:BHoM.Geometry.IPlane.Y">
-            <summary>Y vector</summary>
-        </member>
-        <member name="P:BHoM.Geometry.IPlane.Z">
-            <summary>Z vector</summary>
-        </member>
-        <member name="P:BHoM.Geometry.IPlane.Origin">
-            <summary>Origin point</summary>
-        </member>
-        <member name="T:BHoM.Geometry.IPoint">
-            <summary>
-            BHoM IPoint interface
-            </summary>
-        </member>
-        <member name="P:BHoM.Geometry.IPoint.X">
-            <summary>X coordinate</summary>
-        </member>
-        <member name="P:BHoM.Geometry.IPoint.Y">
-            <summary>Y coordinate</summary>
-        </member>
-        <member name="P:BHoM.Geometry.IPoint.Z">
-            <summary>Z coordinate</summary>
-        </member>
-        <member name="T:BHoM.Geometry.Transformation.Translation">
-            <summary>
-            Transformations
-            </summary>
-        </member>
-        <member name="M:BHoM.Geometry.Transformation.Translation.#ctor(BHoM.Geometry.Vector)">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Geometry.Transformation.Translation.#ctor(System.Double,System.Double,System.Double)">
-            <summary></summary>
+        <member name="P:BHoM.Geometry.Curve.EndPoint">
+            <summary>End point as BHoM curve</summary>
         </member>
         <member name="T:BHoM.Geometry.Line">
             <summary>
@@ -169,106 +97,8 @@
             <param name="end_y"></param>
             <param name="end_z"></param>
         </member>
-        <member name="T:BHoM.Geometry.Plane">
-            <summary>
-            BHoM Plane object
-            </summary>
-        </member>
-        <member name="P:BHoM.Geometry.Plane.X">
-            <summary>X vector</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Plane.Y">
-            <summary>Y vector</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Plane.Z">
-            <summary>Z vector</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Plane.Origin">
-            <summary>Origin point</summary>
-        </member>
-        <member name="M:BHoM.Geometry.Plane.#ctor">
-            <summary>
-            Constructs a plane in global XYZ, with origin point at 0,0,0
-            </summary>
-        </member>
-        <member name="M:BHoM.Geometry.Plane.#ctor(BHoM.Geometry.Point)">
-            <summary>
-            Constructs a point in global XYZ at a prescribed point
-            </summary>
-            <param name="origin"></param>
-        </member>
-        <member name="M:BHoM.Geometry.Plane.#ctor(BHoM.Geometry.Vector,BHoM.Geometry.Vector,BHoM.Geometry.Point)">
-            <summary>
-            Constructs a plane from XY vectors, the cross product and an origin point
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="origin"></param>
-        </member>
-        <member name="M:BHoM.Geometry.Plane.CalculateOctant(System.Double)">
-            <summary>
-            Calculate which planar octant an angle lies within. 
-            Convention for Cardinal lines is 0 => 1, PI/4 => 2, PI/2 => 3, -PI/4 => 8 etc.
-            </summary>
-            <param name="angle"> Angle in Radians</param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Geometry.Plane.GetAxisVectorFromOctant(System.Int32)">
-            <summary>
-            Returns the nearest local axis based on the octant number 
-            </summary>
-            <param name="octant"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Geometry.Plane.Get45DegreeVectorFromOctant(System.Int32)">
-            <summary>
-            Returns the nearest 45 degree axis vector based on the octant number 
-            This vector is not unitised, having a magnitude of root2
-            </summary>
-            <param name="octant"></param>
-            <returns></returns>
-        </member>
-        <member name="T:BHoM.Geometry.Arc">
-            <summary>
-            Arc object
-            </summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.Plane">
-            <summary>Base plane for arc</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.StartPoint">
-            <summary>Start point as BHoM point</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.EndPoint">
-            <summary>End point as BHoM point</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.Radius">
-            <summary>Radius</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.Angle">
-            <summary>Angle in radians</summary>
-        </member>
-        <member name="M:BHoM.Geometry.Arc.#ctor(BHoM.Geometry.Point,BHoM.Geometry.Point,System.Double)">
-            <summary>
-            Constructs an arc in default global XY plane
-            </summary>
-            <param name="startpoint"></param>
-            <param name="endpoint"></param>
-            <param name="radius"></param>
-        </member>
-        <member name="M:BHoM.Geometry.Arc.#ctor(BHoM.Geometry.Point,BHoM.Geometry.Point,System.Double,BHoM.Geometry.Plane)">
-            <summary>
-            Construct an arc using start point, end point and base plane
-            </summary>
-            <param name="startpoint"></param>
-            <param name="endpoint"></param>
-            <param name="radius"></param>
-            <param name="plane"></param>
-        </member>
-        <member name="T:BHoM.Geometry.MeshFace">
-            <summary>
-            BHoM Meshface object
-            </summary>
+        <member name="P:BHoM.Geometry.Line.MidPoint">
+            <summary>Mid point of the line</summary>
         </member>
         <member name="T:BHoM.Geometry.Mesh">
             <summary>
@@ -339,10 +169,75 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:BHoM.Geometry.Surface">
+        <member name="T:BHoM.Geometry.MeshFace">
             <summary>
-            BHoM Surface object
+            BHoM Meshface object
             </summary>
+        </member>
+        <member name="T:BHoM.Geometry.Plane">
+            <summary>
+            BHoM Plane object
+            </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Plane.X">
+            <summary>X vector</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Plane.Y">
+            <summary>Y vector</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Plane.Z">
+            <summary>Z vector</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Plane.Origin">
+            <summary>Origin point</summary>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.#ctor">
+            <summary>
+            Constructs a plane in global XYZ, with origin point at 0,0,0
+            </summary>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.#ctor(BHoM.Geometry.Point)">
+            <summary>
+            Constructs a point in global XYZ at a prescribed point
+            </summary>
+            <param name="origin"></param>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.#ctor(BHoM.Geometry.Vector,BHoM.Geometry.Vector,BHoM.Geometry.Point)">
+            <summary>
+            Constructs a plane from XY vectors, the cross product and an origin point
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="origin"></param>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.CalculateOctant(System.Double)">
+            <summary>
+            Calculate which planar octant an angle lies within. 
+            Convention for Cardinal lines is 0 => 1, PI/4 => 2, PI/2 => 3, -PI/4 => 8 etc.
+            </summary>
+            <param name="angle"> Angle in Radians</param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.GetAxisVectorFromOctant(System.Int32)">
+            <summary>
+            Returns the nearest local axis based on the octant number 
+            </summary>
+            <param name="octant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.Get45DegreeVectorFromOctant(System.Int32)">
+            <summary>
+            Returns the nearest 45 degree axis vector based on the octant number 
+            This vector is not unitised, having a magnitude of root2
+            </summary>
+            <param name="octant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.Project(BHoM.Geometry.Point)">
+            <summary>
+            Projects point on the plane
+            </summary>
+            <param name="Point">Point</param>
         </member>
         <member name="T:BHoM.Geometry.Point">
             <summary>
@@ -476,6 +371,11 @@
             Constructs a point at 0,0,0
             </summary>
         </member>
+        <member name="T:BHoM.Geometry.Surface">
+            <summary>
+            BHoM Surface object
+            </summary>
+        </member>
         <member name="T:BHoM.Geometry.Vector">
             <summary>
             BHoM Vector object
@@ -502,6 +402,13 @@
             <param name="x"></param>
             <param name="y"></param>
             <param name="z"></param>
+        </member>
+        <member name="M:BHoM.Geometry.Vector.#ctor(BHoM.Geometry.Point,BHoM.Geometry.Point)">
+            <summary>
+            Constructs a vector from two points
+            </summary>
+            <param name="StartPoint">Start Point</param>
+            <param name="EndPoint">End Point</param>
         </member>
         <member name="M:BHoM.Geometry.Vector.#ctor(BHoM.Geometry.Vector)">
             <summary>
@@ -651,6 +558,134 @@
             <param name="normal"></param>
             <returns></returns>
         </member>
+        <member name="T:BHoM.Geometry.ILine">
+            <summary>
+            BHoM Line interface
+            </summary>
+        </member>
+        <member name="P:BHoM.Geometry.ILine.StartPoint">
+            <summary>Start point as BHoM point</summary>
+        </member>
+        <member name="P:BHoM.Geometry.ILine.EndPoint">
+            <summary>End point as BHoM point</summary>
+        </member>
+        <member name="P:BHoM.Geometry.ILine.Length">
+            <summary>Length of the line</summary>
+        </member>
+        <member name="T:BHoM.Geometry.IVector">
+            <summary>
+            BHoM IVector interface
+            </summary>
+        </member>
+        <member name="P:BHoM.Geometry.IVector.X">
+            <summary>X coordinate</summary>
+        </member>
+        <member name="P:BHoM.Geometry.IVector.Y">
+            <summary>Y coordinate</summary>
+        </member>
+        <member name="P:BHoM.Geometry.IVector.Z">
+            <summary>Z coordinate</summary>
+        </member>
+        <member name="T:BHoM.Geometry.IPlane">
+            <summary>
+            BHoM IPlane interface
+            </summary>
+        </member>
+        <member name="P:BHoM.Geometry.IPlane.X">
+            <summary>X vector</summary>
+        </member>
+        <member name="P:BHoM.Geometry.IPlane.Y">
+            <summary>Y vector</summary>
+        </member>
+        <member name="P:BHoM.Geometry.IPlane.Z">
+            <summary>Z vector</summary>
+        </member>
+        <member name="P:BHoM.Geometry.IPlane.Origin">
+            <summary>Origin point</summary>
+        </member>
+        <member name="T:BHoM.Geometry.IPoint">
+            <summary>
+            BHoM IPoint interface
+            </summary>
+        </member>
+        <member name="P:BHoM.Geometry.IPoint.X">
+            <summary>X coordinate</summary>
+        </member>
+        <member name="P:BHoM.Geometry.IPoint.Y">
+            <summary>Y coordinate</summary>
+        </member>
+        <member name="P:BHoM.Geometry.IPoint.Z">
+            <summary>Z coordinate</summary>
+        </member>
+        <member name="T:BHoM.Geometry.Transformation.Translation">
+            <summary>
+            Transformations
+            </summary>
+        </member>
+        <member name="M:BHoM.Geometry.Transformation.Translation.#ctor(BHoM.Geometry.Vector)">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Geometry.Transformation.Translation.#ctor(System.Double,System.Double,System.Double)">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Collections.Dictionary`2">
+            <summary>
+            BHoM dictionary using system dictionary with additional functionality. 
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Name">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.Add(`0,`1)">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.ContainsKey(`0)">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Keys">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.Remove(`0)">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.TryGetValue(`0,`1@)">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Values">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Item(`0)">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.Clear">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Collections.Dictionary`2.Count">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.KeyList">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.GetEnumerator">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Collections.Dictionary`2.op_Explicit(System.Collections.Generic.Dictionary{`0,`1})~BHoM.Collections.Dictionary{`0,`1}">
+            <summary>
+            
+            </summary>
+            <param name="Dictionary"></param>
+        </member>
         <member name="T:BHoM.Global.BHoMObject">
             <summary>
             BHoM object abstract class, all methods and attributes applicable to all structural objects with
@@ -675,6 +710,11 @@
         </member>
         <member name="P:BHoM.Global.BHoMObject.Parameters">
             <summary>Object parameters</summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.SetBHoMGuid">
+            <summary>
+            Set the BHoM_Guid
+            </summary>
         </member>
         <member name="M:BHoM.Global.BHoMObject.GetPropertyNames">
             <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>

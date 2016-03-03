@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
+using System.Linq;
 
 namespace BHoM.Global
 {
@@ -36,13 +37,13 @@ namespace BHoM.Global
             this.BHoM_Guid = System.Guid.NewGuid();
         }
 
-        ///// <summary>
-        ///// Set the BHoM_Guid
-        ///// </summary>
-        //public void SetBHoMGuid()
-        //{
-        //    this.BHoM_Guid = System.Guid.NewGuid();
-        //}
+        /// <summary>
+        /// Set the BHoM_Guid
+        /// </summary>
+        internal void SetBHoMGuid()
+        {
+            BHoM_Guid = Guid.NewGuid();
+        }
 
         //public void SetParameter(string name, object data)
         //{
@@ -111,7 +112,47 @@ namespace BHoM.Global
 
             }
             return objectNode;
-        }       
+        }
+
+        protected virtual string JSON(string NestedJSON)
+        {
+            string aResult = "{";
+            aResult += string.Format("\"{0}\": \"{1}\",", "primitive", "BHoM_Object");
+            aResult += string.Format("\"{0}\": \"{1}\",", "Id", BHoM_Guid.ToString());
+            aResult += string.Format("\"{0}\": \"{1}\",", "Name", Name);
+            aResult += string.Format("\"{0}\": \"{1}\",", "Type", GetType().ToString());
+
+            if (Parameters.Count > 0)
+            {
+                aResult += string.Format("\"{0}\": {1}", "Parameters", "{");
+                foreach (Parameter aParameter in Parameters)
+                    if (aParameter != null)
+                        if (aParameter is BH_Double)
+                            aResult += string.Format("\"{0}\": {1},", aParameter.Name, aParameter.Value as double?);
+                        else if (aParameter is BH_Interger)
+                            aResult += string.Format("\"{0}\": {1},", aParameter.Name, aParameter.Value as int?);
+                        else if (aParameter is BH_String)
+                            aResult += string.Format("\"{0}\": \"{1}\",", aParameter.Name, aParameter.Value as string);
+                        else if (aParameter is BH_Guid)
+                            aResult += string.Format("\"{0}\": \"{1}\",", aParameter.Name, (aParameter.Value as Guid?).ToString());
+
+                if (aResult.Last() == ',')
+                    aResult = aResult.Substring(0, aResult.Length - 1);
+                aResult += "}";
+            }
+            if (aResult.Last() == ',')
+                aResult = aResult.Substring(0, aResult.Length - 1);
+
+
+            aResult += NestedJSON;
+            aResult += "}";
+            return aResult;
+        }
+
+        public virtual string JSON()
+        {
+            return JSON(string.Empty);
+        }
 
     }
 }
