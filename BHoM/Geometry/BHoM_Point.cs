@@ -12,44 +12,12 @@ namespace BHoM.Geometry
     [Serializable]
     public class Point : IPoint
     {
-        private double[] m_Coordinates;
-
         /// <summary>X coordinate</summary>
-        public double X 
-        { 
-            get
-            {
-                return m_Coordinates[0];
-            }     
-            set
-            {
-                m_Coordinates[0] = value;
-            }
-        }
+        public double X { get; set; }
         /// <summary>Y coordinate</summary>
-        public double Y  
-        {
-            get
-            {
-                return m_Coordinates[1];
-            }     
-            set
-            {
-                m_Coordinates[1] = value;
-            }
-        }
+        public double Y { get; set; }
         /// <summary>Z coordinate</summary>
-        public double Z 
-        {
-            get
-            {
-                return m_Coordinates[2];
-            }     
-            set
-            {
-                m_Coordinates[2] = value;
-            }
-        }
+        public double Z { get; set; }
 
         /// <summary>
         /// Construct an empty point
@@ -69,7 +37,9 @@ namespace BHoM.Geometry
         /// <param name="z"></param>
         public Point(double x, double y, double z)
         {
-            m_Coordinates = new double[] {x, y, z};
+            X = x;
+            Y = y;
+            Z = z;
         }
 
         /// <summary>
@@ -78,12 +48,10 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Point(Point dup)
         {
-            m_Coordinates = new double[] { dup.X, dup.Y, dup.Z };           
-        }
+            X = dup.X;
+            Y = dup.Y;
+            Z = dup.Z;
 
-        internal Point(double[] coords)
-        {
-            m_Coordinates = coords;
         }
        
         /// <summary>
@@ -91,7 +59,13 @@ namespace BHoM.Geometry
         /// </summary>
         public double[] CartesianCoordinates
         {
-            get { return m_Coordinates;}        
+            get { return new double[3]{X, Y, Z};}
+            set 
+            {
+                X = value[0];
+                Y = value[1];
+                Z = value[2];
+            }
         }
 
         /// <summary>

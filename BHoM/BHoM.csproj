@@ -43,14 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collections\BHoM_Dictionary.cs" />
+    <Compile Include="Geometry\BHoM_Arc.cs" />
+    <Compile Include="Geometry\BHoM_Circle.cs" />
+    <Compile Include="Geometry\BHoM_Curve.cs" />
+    <Compile Include="Geometry\BHoM_Line.cs" />
+    <Compile Include="Geometry\BHoM_Mesh.cs" />
+    <Compile Include="Geometry\BHoM_MeshFace.cs" />
+    <Compile Include="Geometry\BHoM_Plane.cs" />
+    <Compile Include="Geometry\BHoM_Point.cs" />
     <Compile Include="Geometry\BHoM_PolyLoop.cs" />
+    <Compile Include="Geometry\BHoM_Surface.cs" />
+    <Compile Include="Geometry\BHoM_Vector.cs" />
+    <Compile Include="MEP\BHoM_Duct.cs" />
+    <Compile Include="MEP\BHoM_Element.cs" />
+    <Compile Include="MEP\BHoM_Location.cs" />
+    <Compile Include="MEP\BHoM_Pipe.cs" />
+    <Compile Include="MEP\BHoM_Shell.cs" />
+    <Compile Include="MEP\BHoM_SpatialElement.cs" />
+    <Compile Include="Collections\BHoM_Dictionary.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_ILine.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_IVector.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_IPlane.cs" />
     <Compile Include="Geometry\Interfaces\BHoM_IPoint.cs" />
     <Compile Include="Geometry\Transformations\BHoM_Scale.cs" />
-    <Compile Include="Geometry\BHoM_Line.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
     <Compile Include="Global\BHoM_ObjectFactory.cs" />
     <Compile Include="Global\BHoM_Param.cs" />
@@ -72,13 +87,6 @@
     <Compile Include="Structural\BHoM_SuperBar.cs" />
     <Compile Include="HumanBody\BHoM_BodyParts.cs" />
     <Compile Include="HumanBody\BHoM_Skeleton.cs" />
-    <Compile Include="Geometry\BHoM_Plane.cs" />
-    <Compile Include="Geometry\BHoM_Arc.cs" />
-    <Compile Include="Geometry\BHoM_MeshFace.cs" />
-    <Compile Include="Geometry\BHoM_Mesh.cs" />
-    <Compile Include="Geometry\BHoM_Surface.cs" />
-    <Compile Include="Geometry\BHoM_Point.cs" />
-    <Compile Include="Geometry\BHoM_Vector.cs" />
     <Compile Include="Materials\BHoM_IMaterial.cs" />
     <Compile Include="Materials\BHoM_MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,10 +140,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Build\$(ProjectName).dll"
-copy /Y "$(TargetDir)$(ProjectName).xml" "$(SolutionDir)Build\$(ProjectName).xml"
-copy /Y "$(TargetDir)$(ProjectName).dll" "C:\Users\rmay\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).dll"
-copy /Y "$(TargetDir)$(ProjectName).xml" "C:\Users\rmay\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).xml"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
