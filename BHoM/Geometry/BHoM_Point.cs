@@ -12,12 +12,44 @@ namespace BHoM.Geometry
     [Serializable]
     public class Point : IPoint
     {
+        private double[] m_Coordinates;
+
         /// <summary>X coordinate</summary>
-        public double X { get; set; }
+        public double X 
+        { 
+            get
+            {
+                return m_Coordinates[0];
+            }     
+            set
+            {
+                m_Coordinates[0] = value;
+            }
+        }
         /// <summary>Y coordinate</summary>
-        public double Y { get; set; }
+        public double Y  
+        {
+            get
+            {
+                return m_Coordinates[1];
+            }     
+            set
+            {
+                m_Coordinates[1] = value;
+            }
+        }
         /// <summary>Z coordinate</summary>
-        public double Z { get; set; }
+        public double Z 
+        {
+            get
+            {
+                return m_Coordinates[2];
+            }     
+            set
+            {
+                m_Coordinates[2] = value;
+            }
+        }
 
         /// <summary>
         /// Construct an empty point
@@ -37,9 +69,7 @@ namespace BHoM.Geometry
         /// <param name="z"></param>
         public Point(double x, double y, double z)
         {
-            X = x;
-            Y = y;
-            Z = z;
+            m_Coordinates = new double[] {x, y, z};
         }
 
         /// <summary>
@@ -48,10 +78,12 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Point(Point dup)
         {
-            X = dup.X;
-            Y = dup.Y;
-            Z = dup.Z;
+            m_Coordinates = new double[] { dup.X, dup.Y, dup.Z };           
+        }
 
+        internal Point(double[] coords)
+        {
+            m_Coordinates = coords;
         }
        
         /// <summary>
@@ -59,13 +91,7 @@ namespace BHoM.Geometry
         /// </summary>
         public double[] CartesianCoordinates
         {
-            get { return new double[3]{X, Y, Z};}
-            set 
-            {
-                X = value[0];
-                Y = value[1];
-                Z = value[2];
-            }
+            get { return m_Coordinates;}        
         }
 
         /// <summary>

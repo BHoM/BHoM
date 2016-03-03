@@ -12,8 +12,8 @@ namespace BHoM.Structural.Loads
     [Serializable]
     public class AreaUniformalyDistributedLoad : Load
     {
-       public BHoM.Geometry.Vector Pressure { get; private set; }
-       public AreaUniformalyDistributedLoad(double px, double py, double pz)
+        public BHoM.Geometry.Vector Pressure { get; private set; }
+        public AreaUniformalyDistributedLoad(double px, double py, double pz)
         {
             Pressure = new Geometry.Vector(px, py, pz);
         }

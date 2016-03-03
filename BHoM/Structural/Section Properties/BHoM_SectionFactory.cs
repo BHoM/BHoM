@@ -1,53 +1,62 @@
-﻿using System.Reflection;
+﻿using BHoM.Global;
 using System.Collections.Generic;
-using System;
-using System.Linq;
 
 namespace BHoM.Structural.SectionProperties
 {
     /// <summary>
-    /// Section property class, the parent abstract class for all structural 
-    /// sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
-    /// parent class are those that would populate a multi category section database only
+    /// 
     /// </summary>
-    public class SectionFactory 
+    public class SectionFactory : ObjectFactory
     {
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="shapeType"></param>
-        public SectionProperty Create(ShapeType shapeType)
-        {
-            switch (shapeType)
-            {
-                case ShapeType.SteelCircularHollow : return new  SteelISection();
-                case ShapeType.SteelI: return new SteelISection();
-                default: throw new ArgumentException("Invalid type", "type");
-            }
-        }
-      
+        /// <param name="p"></param>
+        public SectionFactory(Project p) : base(p) { }
+
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
-        public static BHoM.Collections.Dictionary<string, object> GetProperties()
-        {
-            BHoM.Collections.Dictionary<string, object> prop_dict = new Collections.Dictionary<string, object>();
-            BHoM.Structural.SectionProperties.SectionFactory dummyFactory = new SectionFactory();
-            
-            Type lookupType = typeof(ISectionProperty);
-            IEnumerable<Type> lookupTypes = dummyFactory.GetType().Assembly.GetTypes().Where(
-                t => lookupType.IsAssignableFrom(t) && !t.IsInterface);
+        /// <param name="p"></param>
+        /// <param name="sectionProperties"></param>
+        public SectionFactory(Project p, List<BHoM.Global.BHoMObject> sectionProperties) : base(p, sectionProperties) { }
 
-            foreach(Type t in lookupTypes)
+        /// <summary>
+        /// Create a steel I section property
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public SectionProperty CreateSteelI(string name)
+        {
+            if (this.ContainsName(name))
             {
-                if (t.IsAssignableFrom(lookupType))
-                    foreach (var prop in t.GetType().GetProperties())
-                    {
-                        if (!prop_dict.ContainsKey(prop.Name)) prop_dict.Add(prop.Name, prop.GetValue(t));
-                    }
+                return this[name] as SectionProperty;
             }
-            return prop_dict;
+            else
+            {
+                SteelISection sectionProperty = new SteelISection(name);
+                this.Add(sectionProperty);
+                return sectionProperty;
+            }
+        }
+
+        /// <summary>
+        /// Create a steel I section property
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public SectionProperty CreateSteelBox(string name)
+        {
+            if (this.ContainsName(name))
+            {
+                return this[name] as SectionProperty;
+            }
+            else
+            {
+                SteelBoxSection sectionProperty = new SteelBoxSection(name);
+                this.Add(sectionProperty);
+                return sectionProperty;
+            }
         }
     }
 }

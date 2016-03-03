@@ -8,7 +8,7 @@ namespace BHoM.Structural.SectionProperties
     /// <summary>
     /// 
     /// </summary>
-    public class RCColumnRectangular : SectionProperty, IRCSection
+    public class RCColumnRectangular 
     {
         /// <summary></summary>
         public string Description
