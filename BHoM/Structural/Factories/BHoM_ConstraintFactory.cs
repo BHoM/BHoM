@@ -25,8 +25,10 @@ namespace BHoM.Structural
         /// 
         /// </summary>
         /// <returns></returns>
-        public Constraint Create()
+        public Constraint Create(string name)
         {
+            Constraint constraint = new Constraint(name);
+            this.Add(constraint);
             return new Constraint();
         }
 

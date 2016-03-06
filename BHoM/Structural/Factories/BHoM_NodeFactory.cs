@@ -27,7 +27,9 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Node Create()
         {
-            return new Node();
+            Node node = new Node(FreeNumber());
+            this.Add(node);
+            return node;
         }
 
         /// <summary>

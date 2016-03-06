@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BHoM.Structural.SectionProperties;
 using System.Xml;
 using BHoM.Global;
 
@@ -52,6 +51,15 @@ namespace BHoM.Structural
         }
 
         /// <summary>Dictionary of constraints</summary>
+        public LoadcaseFactory Loadcases
+        {
+            get
+            {
+                return new LoadcaseFactory(m_Project, m_Objects.Values.Where(obj => obj.GetType() == typeof(Loads.Loadcase)).ToList());
+            }
+        }
+
+        /// <summary>Dictionary of constraints</summary>
         public ConstraintFactory Constraints 
         {
             get
@@ -65,7 +73,7 @@ namespace BHoM.Structural
         {
             get
             {
-                return new SectionFactory(m_Project, m_Objects.Values.Where(obj => obj.GetType() == typeof(SectionProperty)).ToList());
+                return new SectionFactory(m_Project, m_Objects.Values.Where(obj => obj.GetType() == typeof(BHoM.Structural.Sections.SectionProperty)).ToList());
             }
         }
 

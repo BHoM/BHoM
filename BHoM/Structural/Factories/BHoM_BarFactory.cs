@@ -25,8 +25,10 @@ namespace BHoM.Structural
         /// 
         /// </summary>
         /// <returns></returns>
-        public Bar Create()
+        public Bar Create() 
         {
+            Bar bar = new Bar(this.FreeNumber());
+            this.Add(bar);
             return new Bar();
         }
 
@@ -34,10 +36,8 @@ namespace BHoM.Structural
         /// 
         /// </summary>
         /// <param name="number"></param>
-        /// <param name="n1"></param>
-        /// <param name="n2"></param>
         /// <returns></returns>
-        public Bar Create(int number, Node n1, Node n2)
+        public Bar Create(int number)
         {
             if (this.ContainsNumber(number))
             {
@@ -45,7 +45,7 @@ namespace BHoM.Structural
             }
             else
             {
-                Bar bar = new Bar(n1, n2, number);
+                Bar bar = new Bar(number);
                 this.Add(bar);
                 return bar;
             }

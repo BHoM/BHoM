@@ -91,7 +91,7 @@ namespace BHoM.Structural
         ////Constructors///
         ///////////////////
 
-        internal Node() { }
+        internal Node(int number) { }
 
         /// <summary>
         /// Constructes a node from CartesianCoordinates and an index number

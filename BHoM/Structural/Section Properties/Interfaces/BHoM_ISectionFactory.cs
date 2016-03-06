@@ -1,6 +1,6 @@
 ﻿
 
-namespace BHoM.Structural.SectionProperties
+namespace BHoM.Structural.Sections
 {
     /// <summary>
     /// Section property class, the parent abstract class for all structural 

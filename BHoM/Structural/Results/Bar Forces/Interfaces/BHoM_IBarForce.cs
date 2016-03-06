@@ -9,9 +9,15 @@ namespace BHoM.Structural.Results.Bars
         /// <summary>Associated bar number</summary>
         int BarNumber { get; set; }
 
+        /// <summary>Position along the bar as an integer 0 = start, 1 = end</summary>
+        int Position { get; set; }
+
         /// <summary>Position along the bar of the force. Set 0 for 1 for end</summary>
-        double ForcePosition { get; set; }
-        
+        double RelativePosition { get; set; }
+
+        /// <summary>Represents the number of positions along the bar</summary>
+        int Divisions { get; set; }
+
         /// <summary>Loadcase</summary>
         BHoM.Structural.Loads.Loadcase Loadcase { get; set; }
 

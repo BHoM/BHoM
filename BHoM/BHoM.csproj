@@ -65,6 +65,7 @@
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
     <Compile Include="Structural\Factories\BHoM_ConstraintFactory.cs" />
+    <Compile Include="Structural\Factories\BHoM_LoadcaseFactory.cs" />
     <Compile Include="Structural\Factories\BHoM_NodeFactory.cs" />
     <Compile Include="Structural\Factories\BHoM_BarFactory.cs" />
     <Compile Include="Structural\Interfaces\BHoM_IBar.cs" />
@@ -112,7 +113,7 @@
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForce.cs" />
     <Compile Include="Structural\Results\Building Results\BHoM_StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\BHoM_GlobalResult.cs" />
-    <Compile Include="Structural\Section Properties\BHoM_SectionFactory.cs" />
+    <Compile Include="Structural\Factories\BHoM_SectionFactory.cs" />
     <Compile Include="Structural\Section Properties\Interfaces\BHoM_ISectionFactory.cs" />
     <Compile Include="Structural\Section Properties\Interfaces\BHoM_ISectionProperty.cs" />
     <Compile Include="Structural\Section Properties\BHoM_ShapeType.cs" />
@@ -121,10 +122,7 @@
     <Compile Include="Structural\Section Properties\BHoM_SectionProperty.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_IRCSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\Interfaces\BHoM_ISteelBoxSection.cs" />
-    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelUCSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\Interfaces\BHoM_ISteelISection.cs" />
-    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelBoxSection.cs" />
-    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelISection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />
