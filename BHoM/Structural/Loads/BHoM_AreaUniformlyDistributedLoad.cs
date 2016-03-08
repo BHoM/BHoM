@@ -10,9 +10,13 @@ namespace BHoM.Structural.Loads
     /// Uniformly distributed area load
     /// </summary>
     [Serializable]
-    public class AreaUniformalyDistributedLoad
+    public class AreaUniformalyDistributedLoad : Load
     {
-       
+        public BHoM.Geometry.Vector Pressure { get; private set; }
+        public AreaUniformalyDistributedLoad(double px, double py, double pz)
+        {
+            Pressure = new Geometry.Vector(px, py, pz);
+        }
         //Perhaps we can have one area load object for all 'area' type objects - panels, walls, floors, finite elements
     }
 }

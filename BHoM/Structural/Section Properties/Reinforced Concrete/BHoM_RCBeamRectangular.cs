@@ -3,12 +3,12 @@
 using System;
 using BHoM.Materials;
 
-namespace BHoM.Structural.SectionProperties
+namespace BHoM.Structural.Sections
 {
     /// <summary>
     /// 
     /// </summary>
-    public class RCBeamRectangular : SectionProperty, IRCSection
+    public class RCBeamRectangular
     {
         /// <summary></summary>
         public string Description

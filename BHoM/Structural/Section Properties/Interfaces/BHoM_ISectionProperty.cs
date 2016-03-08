@@ -2,7 +2,7 @@
 
 using System;
 
-namespace BHoM.Structural.SectionProperties
+namespace BHoM.Structural.Sections
 {
     /// <summary>
     /// Section property interface, all methods and attributes applicable to all section properties

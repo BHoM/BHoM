@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BHoM.Geometry;
+using System;
+using System.Reflection;
 
 
 namespace BHoM.Structural 
@@ -11,12 +13,9 @@ namespace BHoM.Structural
         /////////////////
         ////Properties///
         /////////////////
-        
-        /// <summary>Bar number</summary>
-        public int Number { get; set; }
-                
-        /// <summary>Bar name</summary>
-        public string Name { get; set; }     
+
+        private Line m_Line;
+        private double m_Length; 
         
         /// <summary>
         /// Design type name for design purposes (e.g. Simple Column). Can be used to help 
@@ -24,37 +23,91 @@ namespace BHoM.Structural
         /// unique to bars (bars and objects can be added to multiple object groups).
         /// </summary>
         public string DesignGroupName { get; private set; }
-
         
         /// <summary>Section property name inherited from section property</summary>
         public string SectionPropertyName { get; set; }
 
         /// <summary>Section property</summary>
-        public BHoM.Structural.SectionProperties.SectionProperty SectionProperty { get; private set; }
-
+        public BHoM.Structural.Sections.SectionProperty SectionProperty
+        {
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.SectionProperty)) as BHoM.Structural.Sections.SectionProperty;
+            }
+            private set
+            {
+                Parameters.AddItem<Guid>(Global.Param.SectionProperty, value.BHoM_Guid);
+            }
+        }
         /// <summary>Material inherited from section property</summary>
-        public BHoM.Materials.Material Material { get; set; }
-
-        /// <summary>Material name inherited from section property BHoM.Materials.Material name</summary>
-        public string MaterialPropertyName { get; private set; }
+        public BHoM.Materials.Material Material 
+        { 
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.Material)) as Materials.Material;
+            }
+            set
+            {
+                Parameters.AddItem<Guid>(Global.Param.Material, value.BHoM_Guid);
+            }
+        }
 
         /// <summary>Releases</summary>
-        public BHoM.Structural.BarRelease Release { get; private set; }
-
-        /// <summary>Release name is generated from the start and end BHoM.Structural.</summary>
-        public string ReleaseName { get; private set; }
+        public BHoM.Structural.BarRelease Release
+        {
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.Release)) as BarRelease;
+            }
+            set
+            {
+                Parameters.AddItem<Guid>(Global.Param.Release, value.BHoM_Guid);
+            }
+        }
 
         /// <summary>Start node</summary>
-        public Node StartNode { get; private set; }
+        public Node StartNode 
+        { 
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.StartNode)) as Node;
+            }
+            private set
+            {
+                Parameters.AddItem<Guid>(Global.Param.StartNode, value.BHoM_Guid);
+            }
+        }
 
         /// <summary>End node</summary>
-        public Node EndNode { get; private set; }
-
+        public Node EndNode 
+        {
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.EndNode)) as Node;
+            }
+            private set
+            {
+                Parameters.AddItem<Guid>(Global.Param.EndNode, value.BHoM_Guid);
+            } 
+        }
+        
         /// <summary>The line defining the bar centre or location line</summary>
-        public BHoM.Geometry.Line Line { get; private set; }
+        public BHoM.Geometry.Line Line 
+        { 
+            get
+            {
+                return m_Line != null ? m_Line : m_Line = new Line(StartNode.Point, EndNode.Point);
+            }
+        }
 
         /// <summary>Bar length</summary>
-        public double Length { get; private set; }
+        public double Length
+        {
+            get
+            {
+                return m_Length != 0 ? m_Length : m_Length = Line.Length;
+            }
+        }
 
         /// <summary>
         /// Bar orientation angle. For non-vertical bars, angle is measured in the bar YZ plane
@@ -62,44 +115,36 @@ namespace BHoM.Structural
         /// nodes. For vertical bars, angle is measured between the bar Y axis and global Y axis. A bar is 
         /// vertical if the distance between end points projected to a horizontal plane is less than 0.0001
         /// </summary>
-        public double OrientationAngle { get; set; }
-
+        public double OrientationAngle
+        {
+            get
+            {
+                return Parameters.LookUp<double>(Global.Param.Orientation);
+            }
+            set
+            {
+                Parameters.AddItem<double>(Global.Param.Orientation, value);
+            }
+        }
         /// <summary>Construction phase</summary>
         public BHoM.Planning.Construction.ConstructionPhase ConstructionPhase {get; set;}
 
         /// <summary>Storey of the building that the bar is assigned to</summary>
         public BHoM.Structural.Storey Storey { get; private set; }
 
-
         ////////////////////
         ////CONSTRUCTORS////
         ////////////////////
 
-        /// <summary>
-        /// Construct an empty bar object
-        /// </summary>
-        public Bar()
-        {
-            StartNode = new Node();
-            EndNode = new Node();
-            SetBHoMGuid();
-        }
+        internal Bar() { }
 
         /// <summary>
-        /// Construct a bar from BHoM nodes
+        /// Construct a bar with a number
         /// </summary>
-        /// <param name="startNode"></param>
-        /// <param name="endNode"></param>
-        public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
+        /// <param name="barNumber"></param>
+        internal Bar(int barNumber)
         {
-            this.StartNode = startNode;
-            this.EndNode = endNode;
-            if (StartNode.IsValid && EndNode.IsValid)
-            {
-                this.Line = new Geometry.Line(startNode.Point, endNode.Point);
-                this.Length = Line.Length;
-            }
-            SetBHoMGuid();
+            this.Number = barNumber;
         }
 
         /// <summary>
@@ -108,20 +153,11 @@ namespace BHoM.Structural
         /// <param name="barNumber"></param>
         /// <param name="startNode"></param>
         /// <param name="endNode"></param>
-        public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, int barNumber)
+        internal Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, int barNumber)
         {
             this.StartNode = startNode;
             this.EndNode = endNode;
             this.Number = barNumber;
-            if (StartNode.IsValid && EndNode.IsValid)
-            {
-                this.Line = new Geometry.Line(startNode.Point, endNode.Point);
-                this.Length = Line.Length;
-
-                BHoM.Structural.SectionProperties.SteelBoxSection abc = new BHoM.Structural.SectionProperties.SteelBoxSection();
-                                 
-            }
-            SetBHoMGuid();
         }
 
         ///////////////
@@ -143,6 +179,24 @@ namespace BHoM.Structural
         }
 
         /// <summary>
+        /// Set the start node of a bar
+        /// </summary>
+        /// <param name="node"></param>
+        public void SetStartNode(Node node)
+        {
+            this.StartNode = node;
+        }
+
+        /// <summary>
+        /// Set the end node of a bar
+        /// </summary>
+        /// <param name="node"></param>
+        public void SetEndNode(Node node)
+        {
+            this.EndNode = node;
+        }
+
+        /// <summary>
         /// Set the storey which the bar belongs to
         /// </summary>
         /// <param name="storey"></param>
@@ -155,10 +209,10 @@ namespace BHoM.Structural
         /// Set the section property name. 
         /// </summary>
         /// <param name="sectionProperty"></param>
-        public void SetSectionProperty(BHoM.Structural.SectionProperties.SectionProperty sectionProperty)
+        public void SetSectionProperty(BHoM.Structural.Sections.SectionProperty sectionProperty)
         {
-           this.SectionProperty = sectionProperty;
-           this.SectionPropertyName = sectionProperty.Name;
+            this.SectionProperty = sectionProperty;
+            this.SectionPropertyName = sectionProperty.Name;
         }
 
         /// <summary>

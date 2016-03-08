@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BHoM.Geometry;
+using System.Reflection;
 
 namespace BHoM.Structural
 {
@@ -17,18 +18,46 @@ namespace BHoM.Structural
         /////////////////
         ////Properties///
         /////////////////
+        private double[] m_Point;
 
-        /// <summary>Node number</summary>
-        public int Number { get; set; }
-
-        /// <summary>Node name</summary>
-        public string Name { get; set; }
+        public double[] Coordinates
+        {
+            get
+            {
+                return m_Point != null ? m_Point : m_Point = Parameters.LookUp<List<double>>(Global.Param.Coordinates).ToArray();
+            }
+            set
+            {
+                m_Point = value;
+                Parameters.AddList<double>(Global.Param.Coordinates, value.ToList());
+            }
+        }
 
         /// <summary>Node position as a point object</summary>
-        public Point Point { get; private set; }
+        public Point Point 
+        {
+            get
+            {           
+                return new Point(Coordinates);
+            }
+            set
+            {
+                Coordinates = Point.CartesianCoordinates;
+            }
+        }
 
         /// <summary>Node constraint (support/restraint)</summary>
-        public BHoM.Structural.Constraint Constraint { get; private set; }
+        public BHoM.Structural.Constraint Constraint
+        {
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.Constraint)) as Constraint;
+            }
+            set
+            {
+                Parameters.AddItem<Guid>(Global.Param.Constraint, value.BHoM_Guid);
+            }
+        }
 
         /// <summary>Returns true is node is constrained</summary>
         public bool IsConstrained { get; private set; }
@@ -62,50 +91,7 @@ namespace BHoM.Structural
         ////Constructors///
         ///////////////////
 
-        /// <summary>
-        /// Constructs an empty node object
-        /// </summary>
-        public Node()
-        {
-            Point = new Point();
-            Number = -1;
-            Name = "";
-            ConnectedBars = new List<Bar>();
-            ConnectedFaces = new List<Face>();
-            SetBHoMGuid();
-        }
-
-        /// <summary>
-        /// Constructs an empty node from a number
-        /// </summary>
-        /// <param name="number"></param>
-        public Node(int number)
-            : this()
-        {
-            Number = number;
-        }
-
-        /// <summary>
-        /// Constructes a node from a point
-        /// </summary>
-        /// <param name="point"></param>
-        public Node(Point point)
-            : this()
-        {
-            Point = point.Duplicate();
-        }
-
-        /// <summary>
-        /// Represents a three dimensional node in space. Holds results.
-        /// </summary>
-        /// <param name="x">The x coordinate for the node</param>
-        /// <param name="y">The y coordinate for the node</param>
-        /// <param name="z">The z coordinate for the node</param>
-        public Node(double x, double y, double z)
-            : this()
-        {
-            Point = new Point(x, y, z);
-        }
+        internal Node(int number) { }
 
         /// <summary>
         /// Constructes a node from CartesianCoordinates and an index number
@@ -114,9 +100,9 @@ namespace BHoM.Structural
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <param name="number"></param>
-        public Node(double x, double y, double z, int number)
-            : this(x, y, z)
+        internal Node(double x, double y, double z, int number)
         {
+            Coordinates = new double[] { x, y, z };
             Number = number;
         }
 
@@ -160,8 +146,7 @@ namespace BHoM.Structural
         /// </summary>
         public double[] CartesianCoordinates
         {
-            get { return Point.CartesianCoordinates; }
-            set { Point.CartesianCoordinates = value; }
+            get { return m_Point; }
         }
 
         /// <summary>
@@ -169,10 +154,14 @@ namespace BHoM.Structural
         /// </summary>
         public double X
         {
-            get { return Point.X; }
+            get 
+            {
+                return m_Point[0]; 
+            }
             set
             {
-                Point.X = value;
+                m_Point[0] = value;
+                Coordinates = m_Point;
             }
         }
 
@@ -181,10 +170,14 @@ namespace BHoM.Structural
         /// </summary>
         public double Y
         {
-            get { return Point.Y; }
+            get
+            {
+                return m_Point[1];
+            }
             set
             {
-                Point.Y = value;
+                m_Point[1] = value;
+                Coordinates = m_Point;
             }
         }
 
@@ -193,10 +186,14 @@ namespace BHoM.Structural
         /// </summary>
         public double Z
         {
-            get { return Point.Z; }
+            get
+            {
+                return m_Point[2];
+            }
             set
             {
-                Point.Z = value;
+                m_Point[2] = value;
+                Coordinates = m_Point;
             }
         }
 

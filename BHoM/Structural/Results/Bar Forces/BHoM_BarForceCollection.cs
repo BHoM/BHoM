@@ -10,28 +10,44 @@ namespace BHoM.Structural.Results.Bars
     public class BarForceCollection 
     {
         /// <summary>Bar force dictionary which forms the collection</summary>
-        private Dictionary<string, BarForce> barForceDictionary { get; set; }
+        private Dictionary<string, BarForce> internalDict { get; set; }
 
         /// <summary>Constructs and empty bar force collection</summary>
         public BarForceCollection()
         {
-            barForceDictionary = new Dictionary<string, BarForce>();
+            internalDict = new Dictionary<string, BarForce>();
         }
+        
+        /////////////////
+        //// METHODS ////
+        /////////////////
 
-        /// <summary>Generates a key from a bar force object</summary>
-        private string GenerateKey (BarForce barForce)
-        {
-            string key = barForce.BarNumber.ToString() + ":" + barForce.LoadcaseNumber.ToString() + ":" + barForce.ForcePosition;
-            return key;
-        }
-
-        /// <summary>Add a bar force to a collection</summary>
+        /// <summary>Adds a bar force to the collection, using a key "LoadcaseNumber:BarNumber:ForcePosition"</summary>
         public void Add (BarForce barForce)
         {
-            barForceDictionary.Add(GenerateKey(barForce), barForce);
+            string key = 
+                System.Convert.ToString(barForce.LoadcaseNumber)+ ":" +
+                System.Convert.ToString(barForce.BarNumber) + ":" +
+                System.Convert.ToString(barForce.Position);
+            if (!internalDict.ContainsKey(key)) internalDict.Add(key, barForce);
         }
 
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="loadcaseNumber"></param>
+        /// <param name="barNumber"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        public BarForce TryGetBarForce(int loadcaseNumber, int barNumber, int position)
+        {
+            BarForce barForce;
+            internalDict.TryGetValue(
+                System.Convert.ToString(loadcaseNumber) + ":" +
+                System.Convert.ToString(barNumber) + ":" +
+                System.Convert.ToString(position),
+                out barForce);
+            return barForce;
+        }
     }
 }

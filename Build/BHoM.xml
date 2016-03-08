@@ -660,17 +660,174 @@
         <member name="P:BHoM.Global.BHoMObject.BHoM_Guid">
             <summary>BHoM unique ID</summary>
         </member>
+        <member name="P:BHoM.Global.BHoMObject.Name">
+            <summary>Name</summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.Number">
+            <summary>Number</summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.Project">
+            <summary>Project</summary>
+        </member>
         <member name="P:BHoM.Global.BHoMObject.UserData">
             <summary>User text input. Can be used to store user information in an object
             such as a user ID or a project specific parameter</summary>
         </member>
-        <member name="M:BHoM.Global.BHoMObject.SetBHoMGuid">
+        <member name="P:BHoM.Global.BHoMObject.Parameters">
+            <summary>Object parameters</summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.GetPropertyNames">
+            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.Xml">
             <summary>
-            Set the BHoM_Guid
+            Convert object paramters to XML
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Global.ObjectFactory">
+            <summary>
+            
             </summary>
         </member>
-        <member name="M:BHoM.Global.BHoMObject.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        <member name="M:BHoM.Global.ObjectFactory.#ctor(BHoM.Global.Project)">
+            <summary>
+            
+            </summary>
+            <param name="project"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="project"></param>
+            <param name="items"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.ForceUniqueByNumber">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.ForceUniqueByName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Global.ObjectFactory.Item(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Global.ObjectFactory.Item(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.ContainsName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.ContainsNumber(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.Add(BHoM.Global.BHoMObject)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.FreeNumber">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.System#Collections#IEnumerable#GetEnumerator">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.ObjectFactory.GetEnumerator">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Global.ObjectFactory.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BHoM.Global.BHoMObjectEnum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BHoM.Global.BHoMObjectEnum._BHoMOjects">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObjectEnum.#ctor(BHoM.Global.BHoMObject[])">
+            <summary></summary>
+            <param name="list"></param>
+        </member>
+        <member name="P:BHoM.Global.BHoMObjectEnum.System#Collections#IEnumerator#Current">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObjectEnum.Current">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObjectEnum.MoveNext">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObjectEnum.Reset">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Global.ObjectParameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BHoM.Global.Project">
+            <summary>
+            A global project class that encapsulates all objects (all disciplines) of a BHoM project
+            </summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Structure">
+            <summary>Structure property - gets or sets the structure of the object as a BHoM.Structural.Structure</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Number">
+            <summary>Structure number</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Name">
+            <summary>Structure name</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Storeys">
+            <summary>Dictionary of storeys</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Tolerance">
+            <summary>Tolerance of structure for node merge etc</summary>
+        </member>
+        <member name="M:BHoM.Global.Project.LoadXml(System.String)">
+            <summary>Loads a BHoM project from an xml file</summary>
+        </member>
+        <member name="M:BHoM.Global.Project.WriteXml(System.String)">
+            <summary>Writes a BHoM project to an xml file</summary>
+        </member>
+        <member name="M:BHoM.Global.Project.#ctor">
+            <summary>
+            Constructs an empty project
+            </summary>
+        </member>
+        <member name="M:BHoM.Global.Project.GetObject(System.Guid)">
+            <summary>Returns a BHoM by unique identifier</summary>
         </member>
         <member name="T:BHoM.Materials.Material">
             <summary>
@@ -935,6 +1092,173 @@
             Phase ending time
             </summary>
         </member>
+        <member name="T:BHoM.Structural.ConstraintFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.#ctor(BHoM.Global.Project)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="constraint"></param>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <param name="xx"></param>
+            <param name="yy"></param>
+            <param name="zz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <param name="xx"></param>
+            <param name="yy"></param>
+            <param name="zz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.Boolean[],System.Double[])">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="fixity"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="fixity">Constraint string x indicates fixity and f indices freedom must be 6 characters long or nothing will be returned</param>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Structural.LoadcaseFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.LoadcaseFactory.#ctor(BHoM.Global.Project)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:BHoM.Structural.LoadcaseFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="loadcases"></param>
+        </member>
+        <member name="M:BHoM.Structural.LoadcaseFactory.Create(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Structural.NodeFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.#ctor(BHoM.Global.Project)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="nodes"></param>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.Create">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.Create(System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.NodeFactory.Create(System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Structural.BarFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.BarFactory.#ctor(BHoM.Global.Project)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:BHoM.Structural.BarFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="bars"></param>
+        </member>
+        <member name="M:BHoM.Structural.BarFactory.Create">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.BarFactory.Create(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
         <member name="T:BHoM.Structural.IBar">
             <summary>
             Bar objects for 1D finite element bars. Note, cable elements separate.
@@ -1009,9 +1333,6 @@
         <member name="P:BHoM.Structural.IStructuralObject.Name">
             <summary>Object name</summary>
         </member>
-        <member name="M:BHoM.Structural.IStructuralObject.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
         <member name="T:BHoM.Structural.Beam">
             <summary>
             Beam class, can be used as a wrapper for an analytical bar object
@@ -1071,15 +1392,6 @@
             Degrees of freedom class for use in constraint objects
             </summary>
         </member>
-        <member name="P:BHoM.Structural.DOF.Number">
-            <summary>DOF number</summary>
-        </member>
-        <member name="P:BHoM.Structural.DOF.Name">
-            <summary>DOF name</summary>
-        </member>
-        <member name="P:BHoM.Structural.DOF.Direction">
-            <summary>Direction</summary>
-        </member>
         <member name="P:BHoM.Structural.DOF.Type">
             <summary>Type of DOF (linear/non-linear etc)</summary>
         </member>
@@ -1090,60 +1402,21 @@
             <summary>DOF non-linear model</summary>
         </member>
         <member name="M:BHoM.Structural.DOF.#ctor">
-            <summary>Construct an empty DOF object</summary>
+            <summary>Constructs an empty DOF object</summary>
         </member>
-        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.AxisDirection,BHoM.Structural.DOFType)">
-            <summary>Constructs a DOF using direction and type</summary>
-        </member>
-        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.AxisDirection,BHoM.Structural.DOFType,System.Double)">
+        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.DOFType,System.Double)">
             <summary>Constructs a DOF using direciton, type and value</summary>
         </member>
-        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.AxisDirection,BHoM.Structural.DOFType,System.Object)">
+        <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.DOFType,System.Object)">
             <summary>Constructs a DOF using direction, type and values as objects for non-linear model</summary>
-        </member>
-        <member name="M:BHoM.Structural.DOF.SetName(System.String)">
-            <summary>Sets the DOF name</summary>
-        </member>
-        <member name="M:BHoM.Structural.DOF.SetNumber(System.Int32)">
-            <summary>
-            Set the DOF number
-            </summary>
-            <param name="number"></param>
-        </member>
-        <member name="M:BHoM.Structural.DOF.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="T:BHoM.Structural.Constraint">
             <summary>
             Constraint object - base class for all release, restraint, support classes. 
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Constraint.Number">
-            <summary>Constraint number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.Name">
-            <summary>Constraint name</summary>
-        </member>
         <member name="P:BHoM.Structural.Constraint.Type">
             <summary>Constraint type</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.X">
-            <summary>X degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.Y">
-            <summary>Y degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.Z">
-            <summary>Z degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.XX">
-            <summary>XX degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.YY">
-            <summary>YY degree of freedom</summary>
-        </member>
-        <member name="P:BHoM.Structural.Constraint.ZZ">
-            <summary>ZZ degree of freedom</summary>
         </member>
         <member name="M:BHoM.Structural.Constraint.#ctor">
             <summary>
@@ -1155,27 +1428,9 @@
             Construct an empty constraint object with a name
             </summary>
         </member>
-        <member name="M:BHoM.Structural.Constraint.#ctor(BHoM.Structural.DOF,BHoM.Structural.DOF,BHoM.Structural.DOF,BHoM.Structural.DOF,BHoM.Structural.DOF,BHoM.Structural.DOF)">
-            <summary>Construct a constraint from DOF objects. Any constraint 
-            type (linear/non-linear) may be constructed using this.</summary>  
-        </member>
-        <member name="M:BHoM.Structural.Constraint.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:BHoM.Structural.Constraint.#ctor(System.String,System.Boolean[],System.Double[])">
             <summary>Construct a constraint from true/false. True blocks a DOF. 
-            Only fixed or free constraint types can be constructed using this.</summary>
-        </member>
-        <member name="M:BHoM.Structural.Constraint.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>Construct a constraint from double. Set -1 to block a DOF, 0 to release, 
-            any other number is assumed to be a linear spring constant. 
-            Any linear contraint types can be constructed using this.</summary>
-        </member>
-        <member name="M:BHoM.Structural.Constraint.SetFixed">
-            <summary>Sets all DOF to fixed (-1)</summary>
-        </member>
-        <member name="M:BHoM.Structural.Constraint.SetPinned">
-            <summary>Sets all translational DOF to fixed (-1)</summary>
-        </member>
-        <member name="M:BHoM.Structural.Constraint.SetSliding">
-            <summary>Sets vertical (Z) translation to fixed (-1)</summary>
+            Only fixed or free constraint types can be constructed using this.</summary>       
         </member>
         <member name="M:BHoM.Structural.Constraint.SetName(System.String)">
             <summary>Sets the constraint name</summary>
@@ -1194,9 +1449,6 @@
             Set the constraint number
             </summary>
             <param name="number"></param>
-        </member>
-        <member name="M:BHoM.Structural.Constraint.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="T:BHoM.Structural.Storey">
             <summary>
@@ -1251,19 +1503,10 @@
             </summary>
             <param name="height"></param>
         </member>
-        <member name="M:BHoM.Structural.Storey.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
         <member name="T:BHoM.Structural.Bar">
             <summary>
             Bar objects for 1D finite element bars. Note, cable elements separate.
             </summary>
-        </member>
-        <member name="P:BHoM.Structural.Bar.Number">
-            <summary>Bar number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Bar.Name">
-            <summary>Bar name</summary>
         </member>
         <member name="P:BHoM.Structural.Bar.DesignGroupName">
             <summary>
@@ -1281,14 +1524,8 @@
         <member name="P:BHoM.Structural.Bar.Material">
             <summary>Material inherited from section property</summary>
         </member>
-        <member name="P:BHoM.Structural.Bar.MaterialPropertyName">
-            <summary>Material name inherited from section property BHoM.Materials.Material name</summary>
-        </member>
         <member name="P:BHoM.Structural.Bar.Release">
             <summary>Releases</summary>
-        </member>
-        <member name="P:BHoM.Structural.Bar.ReleaseName">
-            <summary>Release name is generated from the start and end BHoM.Structural.</summary>
         </member>
         <member name="P:BHoM.Structural.Bar.StartNode">
             <summary>Start node</summary>
@@ -1316,17 +1553,11 @@
         <member name="P:BHoM.Structural.Bar.Storey">
             <summary>Storey of the building that the bar is assigned to</summary>
         </member>
-        <member name="M:BHoM.Structural.Bar.#ctor">
+        <member name="M:BHoM.Structural.Bar.#ctor(System.Int32)">
             <summary>
-            Construct an empty bar object
+            Construct a bar with a number
             </summary>
-        </member>
-        <member name="M:BHoM.Structural.Bar.#ctor(BHoM.Structural.Node,BHoM.Structural.Node)">
-            <summary>
-            Construct a bar from BHoM nodes
-            </summary>
-            <param name="startNode"></param>
-            <param name="endNode"></param>
+            <param name="barNumber"></param>
         </member>
         <member name="M:BHoM.Structural.Bar.#ctor(BHoM.Structural.Node,BHoM.Structural.Node,System.Int32)">
             <summary>
@@ -1343,13 +1574,25 @@
             <param name="node"></param>
             <returns></returns>
         </member>
+        <member name="M:BHoM.Structural.Bar.SetStartNode(BHoM.Structural.Node)">
+            <summary>
+            Set the start node of a bar
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:BHoM.Structural.Bar.SetEndNode(BHoM.Structural.Node)">
+            <summary>
+            Set the end node of a bar
+            </summary>
+            <param name="node"></param>
+        </member>
         <member name="M:BHoM.Structural.Bar.SetStorey(BHoM.Structural.Storey)">
             <summary>
             Set the storey which the bar belongs to
             </summary>
             <param name="storey"></param>
         </member>
-        <member name="M:BHoM.Structural.Bar.SetSectionProperty(BHoM.Structural.SectionProperties.SectionProperty)">
+        <member name="M:BHoM.Structural.Bar.SetSectionProperty(BHoM.Structural.Sections.SectionProperty)">
             <summary>
             Set the section property name. 
             </summary>
@@ -1420,12 +1663,6 @@
             Node objects
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Node.Number">
-            <summary>Node number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.Name">
-            <summary>Node name</summary>
-        </member>
         <member name="P:BHoM.Structural.Node.Point">
             <summary>Node position as a point object</summary>
         </member>
@@ -1458,31 +1695,6 @@
         </member>
         <member name="P:BHoM.Structural.Node.Plane">
             <summary>Node plane for angular and setting out methods</summary>
-        </member>
-        <member name="M:BHoM.Structural.Node.#ctor">
-            <summary>
-            Constructs an empty node object
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Node.#ctor(System.Int32)">
-            <summary>
-            Constructs an empty node from a number
-            </summary>
-            <param name="number"></param>
-        </member>
-        <member name="M:BHoM.Structural.Node.#ctor(BHoM.Geometry.Point)">
-            <summary>
-            Constructes a node from a point
-            </summary>
-            <param name="point"></param>
-        </member>
-        <member name="M:BHoM.Structural.Node.#ctor(System.Double,System.Double,System.Double)">
-            <summary>
-            Represents a three dimensional node in space. Holds results.
-            </summary>
-            <param name="x">The x coordinate for the node</param>
-            <param name="y">The y coordinate for the node</param>
-            <param name="z">The z coordinate for the node</param>
         </member>
         <member name="M:BHoM.Structural.Node.#ctor(System.Double,System.Double,System.Double,System.Int32)">
             <summary>
@@ -1611,12 +1823,6 @@
             for the start and end of a bar
             </summary>
         </member>
-        <member name="P:BHoM.Structural.BarRelease.BHoM_Guid">
-            <summary>BHoM unique ID</summary>
-        </member>
-        <member name="P:BHoM.Structural.BarRelease.Name">
-            <summary>Bar release name</summary>
-        </member>
         <member name="P:BHoM.Structural.BarRelease.StartConstraint">
             <summary>Start constraint</summary>
         </member>
@@ -1677,115 +1883,20 @@
         <member name="P:BHoM.Structural.Structure.Faces">
             <summary>List of faces</summary>
         </member>
+        <member name="P:BHoM.Structural.Structure.Loadcases">
+            <summary>Dictionary of constraints</summary>
+        </member>
         <member name="P:BHoM.Structural.Structure.Constraints">
             <summary>Dictionary of constraints</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.SectionProperties">
+            <summary>Dictionary of section properties</summary>
         </member>
         <member name="P:BHoM.Structural.Structure.Storeys">
             <summary>Dictionary of storeys</summary>
         </member>
-        <member name="P:BHoM.Structural.Structure.SectionProperties">
-            <summary>List of section properties</summary>
-        </member>
         <member name="P:BHoM.Structural.Structure.Tolerance">
             <summary>Tolerance of structure for node merge etc</summary>
-        </member>
-        <member name="M:BHoM.Structural.Structure.#ctor">
-            <summary>
-            Constructs an empty structure
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Structure.AddNode(BHoM.Structural.Node)">
-            <summary>
-            Adds a node in the structure. Private
-            TODO: implement index clash checks
-            </summary>
-            <param name="node">The node to add</param>
-        </member>
-        <member name="M:BHoM.Structural.Structure.AddOrGetNode(BHoM.Structural.Node)">
-            <summary>
-            Adds node to structure and returns. If within tolerance with preexisting node original node will be returned instead
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.AddBar(BHoM.Structural.Node,BHoM.Structural.Node)">
-            <summary>
-            Adds a beam in the structure. First checks uniqueness of end nodes with preexisting nodes in structure.
-            This is based on set tolerance of Structure, merging as appropriate 
-            </summary>
-            <param name="startNode"></param>
-            <param name="endNode"></param>
-        </member>
-        <member name="M:BHoM.Structural.Structure.NodeNumberClash(BHoM.Structural.Node)">
-            <summary>
-            Test whether a node number exists
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.BarNumberClash(BHoM.Structural.Bar)">
-            <summary>
-            Tests whether a bar number exists
-            </summary>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FaceNumberClash(BHoM.Structural.Face)">
-            <summary>
-            Tests whether a face number exists
-            </summary>
-            <param name="f"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindMaxNodeNumber">
-            <summary>
-            Find the maximum node number
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindMaxBarNumber">
-            <summary>
-            Find the maximum bar number
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindMaxFaceNumber">
-            <summary>
-            Find the maximum face number
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.SetTopology">
-            <summary>
-            Set the structure topology
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Structure.GetNodeByNumber(System.Int32)">
-            <summary>
-            Get a node by number
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.GetBarByNumber(System.Int32)">
-            <summary>
-            Get a bar by number
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.GetFaceByNumber(System.Int32)">
-            <summary>
-            Get a face by number
-            </summary>
-            <param name="n"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.SortNodalBars">
-            <summary>
-            Calculates the counter clockwise Oring for each node  
-            </summary>
-            <returns>True if succeded</returns>
         </member>
         <member name="M:BHoM.Structural.Structure.SortNodalFaces">
             <summary>
@@ -1802,55 +1913,11 @@
             </summary>
             <param name="number"></param>
         </member>
-        <member name="M:BHoM.Structural.Structure.CreateFacesFromBars">
-            <summary>
-            WIP - currently duplicates faces. also does not control winding. 
-            Create face from bars by looping through the bars and trying to find closed edge loops - defining face.
-            First tries to create a triangular panel, if not, quad - aborts after.
-            Concave quads are excluded (angles greater than 180 between bars)
-            Creation of five sided and above are not supported
-            Assumes nodal bar lists are already sorted correctly anticlockwise
-            Also assumes a manifold topology - i.e. suited to meshed slabs and gridshells - and not spaceframes etc.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.CheckFaceUniquenessBySortedNodeNumbers(BHoM.Structural.Face)">
-            <summary>
-            WIP TODO: check efficiency
-            </summary>
-            <param name="f"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindBarWithCommonNodeInBarList(System.Collections.Generic.List{BHoM.Structural.Bar},BHoM.Structural.Node)">
-            <summary>
-            
-            </summary>
-            <param name="bars"></param>
-            <param name="node"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.FindNearestFace(BHoM.Geometry.Point)">
-            <summary>
-            Find the nearest face
-            </summary>
-            <param name="p"></param>
-            <returns></returns>
-        </member>
         <member name="M:BHoM.Structural.Structure.SetTolerance(System.Double)">
             <summary>
             Sets the internal tolerance for which structural node merging etc. will be performed
             </summary>
             <param name="tol"></param>
-        </member>
-        <member name="M:BHoM.Structural.Structure.SetConstraint(BHoM.Structural.Constraint)">
-            <summary>
-            Set a constraint
-            </summary>
-            <param name="constraint"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Structure.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="T:BHoM.Structural.BarStructuralUsage">
             <summary>Usage of the bar for downstream implementations</summary>
@@ -2077,52 +2144,32 @@
             Varying load on a bar
             </summary>
         </member>
+        <member name="T:BHoM.Structural.Loads.Load">
+            <summary>
+            Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
+            constructor allows for a default force and moment nodal load instance.
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Load.Loadcase">
+            <summary>Loadcase as BHoM object</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Load.ObjectNumbers">
+            <summary>A list of node numbers that the nodal load is applicable to</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Load.RecordNumber">
+            <summary>Stores a load record number specific to Robot</summary>
+        </member>
         <member name="T:BHoM.Structural.Loads.Loadcase">
             <summary>
             Loadcase class 
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.Loadcase.Name">
-            <summary>Loadcase name</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.Loadcase.Number">
-            <summary>Loadcase number</summary>
-        </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor">
-            <summary>
-            Constructs an empty loadcase
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor(System.String)">
-            <summary>
-            Constructs a loadcase by name
-            </summary>
-            <param name="name"></param>
-        </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor(System.Int32)">
+        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor(System.Int32,System.String)">
             <summary>
             Constructs a loadcase by number
             </summary>
             <param name="number"></param>
-        </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor(System.Int32,System.String)">
-            <summary>
-            Constructrs a loadcase by name and number
-            </summary>
-            <param name="number"></param>
             <param name="name"></param>
-        </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.SetName(System.String)">
-            <summary>
-            Set the loadcase name
-            </summary>
-            <param name="name"></param>
-        </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.SetNumber(System.Int32)">
-            <summary>
-            Set the loadcase number
-            </summary>
-            <param name="number"></param>
         </member>
         <member name="T:BHoM.Structural.Loads.LoadCombination">
             <summary>
@@ -2298,8 +2345,14 @@
         <member name="P:BHoM.Structural.Results.Bars.IBarForce.BarNumber">
             <summary>Associated bar number</summary>
         </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.ForcePosition">
+        <member name="P:BHoM.Structural.Results.Bars.IBarForce.Position">
+            <summary>Position along the bar as an integer 0 = start, 1 = end</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Bars.IBarForce.RelativePosition">
             <summary>Position along the bar of the force. Set 0 for 1 for end</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Bars.IBarForce.Divisions">
+            <summary>Represents the number of positions along the bar</summary>
         </member>
         <member name="P:BHoM.Structural.Results.Bars.IBarForce.Loadcase">
             <summary>Loadcase</summary>
@@ -2413,17 +2466,23 @@
             ability to get and set envelopes
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForceCollection.barForceDictionary">
+        <member name="P:BHoM.Structural.Results.Bars.BarForceCollection.internalDict">
             <summary>Bar force dictionary which forms the collection</summary>
         </member>
         <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.#ctor">
             <summary>Constructs and empty bar force collection</summary>
         </member>
-        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.GenerateKey(BHoM.Structural.Results.Bars.BarForce)">
-            <summary>Generates a key from a bar force object</summary>
-        </member>
         <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.Add(BHoM.Structural.Results.Bars.BarForce)">
-            <summary>Add a bar force to a collection</summary>
+            <summary>Adds a bar force to the collection, using a key "LoadcaseNumber:BarNumber:ForcePosition"</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.TryGetBarForce(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="loadcaseNumber"></param>
+            <param name="barNumber"></param>
+            <param name="position"></param>
+            <returns></returns>
         </member>
         <member name="T:BHoM.Structural.Results.Bars.BarForce">
             <summary>
@@ -2434,8 +2493,14 @@
         <member name="P:BHoM.Structural.Results.Bars.BarForce.BarNumber">
             <summary>Associated bar number</summary>
         </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.ForcePosition">
+        <member name="P:BHoM.Structural.Results.Bars.BarForce.Position">
+            <summary>Position along the bar as an integer 0 = start, 1 = end</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Bars.BarForce.RelativePosition">
             <summary>Position along the bar of the force. Set 0 for 1 for end</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Bars.BarForce.Divisions">
+            <summary>Represents the number of positions along the bar</summary>
         </member>
         <member name="P:BHoM.Structural.Results.Bars.BarForce.Loadcase">
             <summary>Loadcase</summary>
@@ -2476,7 +2541,10 @@
         <member name="P:BHoM.Structural.Results.Bars.BarForce.UserData">
             <summary>User text field for any user data</summary>
         </member>
-        <member name="M:BHoM.Structural.Results.Bars.BarForce.#ctor(System.Int32,System.Double,BHoM.Structural.Loads.Loadcase,BHoM.Geometry.Plane)">
+        <member name="M:BHoM.Structural.Results.Bars.BarForce.#ctor(BHoM.Structural.Loads.Loadcase,System.Int32,System.Int32)">
+            <summary>Construct a bar force with loadcases</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Bars.BarForce.#ctor(BHoM.Structural.Loads.Loadcase,System.Int32,System.Int32,BHoM.Geometry.Plane)">
             <summary>Construct a bar force with loadcases</summary>
         </member>
         <member name="T:BHoM.Structural.Results.Building.StoreyResult">
@@ -2745,292 +2813,222 @@
             </summary>
             <param name="mass"></param>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.SectionFactory">
-            <summary>
-            Section property class, the parent abstract class for all structural 
-            sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
-            parent class are those that would populate a multi category section database only
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.SectionFactory.Create(BHoM.Structural.SectionProperties.ShapeType)">
+        <member name="T:BHoM.Structural.SectionFactory">
             <summary>
             
             </summary>
-            <param name="shapeType"></param>
         </member>
-        <member name="M:BHoM.Structural.SectionProperties.SectionFactory.GetProperties">
+        <member name="M:BHoM.Structural.SectionFactory.#ctor(BHoM.Global.Project)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:BHoM.Structural.SectionFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="sectionProperty"></param>
+        </member>
+        <member name="M:BHoM.Structural.SectionFactory.Create(BHoM.Structural.Sections.ShapeType,System.String)">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.ISectionFactory">
+        <member name="T:BHoM.Structural.Sections.ISectionFactory">
             <summary>
             Section property class, the parent abstract class for all structural 
             sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
             parent class are those that would populate a multi category section database only
             </summary>
         </member>
-        <member name="M:BHoM.Structural.SectionProperties.ISectionFactory.Create(BHoM.Structural.SectionProperties.ShapeType)">
-            <summary></summary>
-        </member>
-        <member name="T:BHoM.Structural.SectionProperties.ISectionProperty">
+        <member name="T:BHoM.Structural.Sections.ISectionProperty">
             <summary>
             Section property interface, all methods and attributes applicable to all section properties
             </summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISectionProperty.Name">
+        <member name="P:BHoM.Structural.Sections.ISectionProperty.Name">
             <summary>Object name</summary>
         </member>
-        <member name="M:BHoM.Structural.SectionProperties.ISectionProperty.GetProperties">
+        <member name="M:BHoM.Structural.Sections.ISectionProperty.GetProperties">
             <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.ShapeType">
+        <member name="T:BHoM.Structural.Sections.ShapeType">
             <summary>
             Section shape time (circular, I section etc.)
             </summary>
         </member>
-        <member name="F:BHoM.Structural.SectionProperties.ShapeType.SteelI">
+        <member name="F:BHoM.Structural.Sections.ShapeType.SteelI">
             <summary> Steel I section, hot rolled or welded up</summary>
         </member>
-        <member name="F:BHoM.Structural.SectionProperties.ShapeType.SteelCircularHollow">
+        <member name="F:BHoM.Structural.Sections.ShapeType.SteelCircular">
             <summary>Steel circular section (CHS or fabricated)</summary>
         </member>
-        <member name="F:BHoM.Structural.SectionProperties.ShapeType.SteelRectangularHollow">
+        <member name="F:BHoM.Structural.Sections.ShapeType.SteelBox">
             <summary>Steel rectangular hollow section (RHS or fabricated)</summary>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.RCColumnRectangular">
+        <member name="T:BHoM.Structural.Sections.RCColumnRectangular">
             <summary>
             
             </summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCColumnRectangular.Description">
+        <member name="P:BHoM.Structural.Sections.RCColumnRectangular.Description">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCColumnRectangular.MassPerMetre">
+        <member name="P:BHoM.Structural.Sections.RCColumnRectangular.MassPerMetre">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCColumnRectangular.Material">
+        <member name="P:BHoM.Structural.Sections.RCColumnRectangular.Material">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCColumnRectangular.Name">
+        <member name="P:BHoM.Structural.Sections.RCColumnRectangular.Name">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCColumnRectangular.Type">
+        <member name="P:BHoM.Structural.Sections.RCColumnRectangular.Type">
             <summary></summary>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.RCBeamRectangular">
+        <member name="T:BHoM.Structural.Sections.RCBeamRectangular">
             <summary>
             
             </summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCBeamRectangular.Description">
+        <member name="P:BHoM.Structural.Sections.RCBeamRectangular.Description">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCBeamRectangular.MassPerMetre">
+        <member name="P:BHoM.Structural.Sections.RCBeamRectangular.MassPerMetre">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCBeamRectangular.Material">
+        <member name="P:BHoM.Structural.Sections.RCBeamRectangular.Material">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCBeamRectangular.Name">
+        <member name="P:BHoM.Structural.Sections.RCBeamRectangular.Name">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.RCBeamRectangular.Type">
+        <member name="P:BHoM.Structural.Sections.RCBeamRectangular.Type">
             <summary></summary>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.SectionProperty">
+        <member name="T:BHoM.Structural.Sections.SectionProperty">
             <summary>
             Section property class, the parent abstract class for all structural 
             sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
             parent class are those that would populate a multi category section database only
             </summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.MassPerMetre">
+        <member name="P:BHoM.Structural.Sections.SectionProperty.MassPerMetre">
             <summary>Mass per metre based on section properties</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Name">
-            <summary>Name of section propert - a user defined, instance based parameter</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Type">
+        <member name="P:BHoM.Structural.Sections.SectionProperty.ShapeType">
             <summary>Section type</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.GrossArea">
+        <member name="P:BHoM.Structural.Sections.SectionProperty.GrossArea">
             <summary>Cross sectional area</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Ix">
+        <member name="P:BHoM.Structural.Sections.SectionProperty.Ix">
             <summary>Second moment of inertia - x axis</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Iy">
+        <member name="P:BHoM.Structural.Sections.SectionProperty.Iy">
             <summary>Second moment of inertia - y axis</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Iz">
+        <member name="P:BHoM.Structural.Sections.SectionProperty.Iz">
             <summary>Second moment of inertia - z axis</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Description">
+        <member name="P:BHoM.Structural.Sections.SectionProperty.Description">
             <summary>Information regarding section property type for the user</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Material">
+        <member name="P:BHoM.Structural.Sections.SectionProperty.Material">
             <summary>Section material</summary>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.IRCSection">
+        <member name="P:BHoM.Structural.Sections.SectionProperty.BottomFlangeThickness">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.Sections.SectionProperty.BottomFlangeWidth">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.Sections.SectionProperty.Depth">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.Sections.SectionProperty.RootRadius">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.Sections.SectionProperty.TopFlangeThickness">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.Sections.SectionProperty.TopFlangeWidth">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.Sections.SectionProperty.WebThickness">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.Sections.SectionProperty.WebThicknessLeft">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.Sections.SectionProperty.WebThicknessRight">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Structural.Sections.SectionProperty.Width">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Structural.Sections.IRCSection">
             <summary>
             
             </summary>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.ISteelBoxSection">
+        <member name="T:BHoM.Structural.Sections.ISteelBoxSection">
             <summary>
             
             </summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelBoxSection.TopFlangeWidth">
+        <member name="P:BHoM.Structural.Sections.ISteelBoxSection.TopFlangeWidth">
             <summary>Top flange width</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelBoxSection.BottomFlangeWidth">
+        <member name="P:BHoM.Structural.Sections.ISteelBoxSection.BottomFlangeWidth">
             <summary>Bottom flange width</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelBoxSection.Depth">
+        <member name="P:BHoM.Structural.Sections.ISteelBoxSection.Depth">
             <summary>Section depth (height)</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelBoxSection.Width">
+        <member name="P:BHoM.Structural.Sections.ISteelBoxSection.Width">
             <summary>Width of the section</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelBoxSection.TopFlangeThickness">
+        <member name="P:BHoM.Structural.Sections.ISteelBoxSection.TopFlangeThickness">
             <summary>Top flange thickness</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelBoxSection.BottomFlangeThickness">
+        <member name="P:BHoM.Structural.Sections.ISteelBoxSection.BottomFlangeThickness">
             <summary>Bottom flange thickness</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelBoxSection.WebThicknessLeft">
+        <member name="P:BHoM.Structural.Sections.ISteelBoxSection.WebThicknessLeft">
             <summary>Web thickness - left hand side</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelBoxSection.WebThicknessRight">
+        <member name="P:BHoM.Structural.Sections.ISteelBoxSection.WebThicknessRight">
             <summary>Web thickness - right hand side</summary>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.SteelUCSection">
+        <member name="T:BHoM.Structural.Sections.ISteelISection">
             <summary>
             
             </summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.TopFlangeWidth">
+        <member name="P:BHoM.Structural.Sections.ISteelISection.TopFlangeWidth">
             <summary>Top flange width</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.BottomFlangeWidth">
+        <member name="P:BHoM.Structural.Sections.ISteelISection.BottomFlangeWidth">
             <summary>Bottom flange width</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.Depth">
+        <member name="P:BHoM.Structural.Sections.ISteelISection.Depth">
             <summary>Section depth (height)</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.TopFlangeThickness">
+        <member name="P:BHoM.Structural.Sections.ISteelISection.TopFlangeThickness">
             <summary>Top flange thickness</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.BottomFlangeThickness">
+        <member name="P:BHoM.Structural.Sections.ISteelISection.BottomFlangeThickness">
             <summary>Bottom flange thickness</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.WebThickness">
+        <member name="P:BHoM.Structural.Sections.ISteelISection.WebThickness">
             <summary>Web thickness</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelUCSection.RootRadius">
+        <member name="P:BHoM.Structural.Sections.ISteelISection.RootRadius">
             <summary>Root radius</summary>
-        </member>
-        <member name="T:BHoM.Structural.SectionProperties.ISteelISection">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelISection.TopFlangeWidth">
-            <summary>Top flange width</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelISection.BottomFlangeWidth">
-            <summary>Bottom flange width</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelISection.Depth">
-            <summary>Section depth (height)</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelISection.TopFlangeThickness">
-            <summary>Top flange thickness</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelISection.BottomFlangeThickness">
-            <summary>Bottom flange thickness</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelISection.WebThickness">
-            <summary>Web thickness</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISteelISection.RootRadius">
-            <summary>Root radius</summary>
-        </member>
-        <member name="T:BHoM.Structural.SectionProperties.SteelBoxSection">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelBoxSection.#ctor">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.BottomFlangeThickness">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.BottomFlangeWidth">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.Depth">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.RootRadius">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.TopFlangeThickness">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.TopFlangeWidth">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.WebThicknessLeft">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.WebThicknessRight">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelBoxSection.Width">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelBoxSection.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
-        <member name="T:BHoM.Structural.SectionProperties.SteelISection">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelISection.#ctor">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelISection.BottomFlangeThickness">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelISection.BottomFlangeWidth">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelISection.Depth">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelISection.RootRadius">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelISection.TopFlangeThickness">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelISection.TopFlangeWidth">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SteelISection.WebThickness">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelISection.Create(BHoM.Structural.SectionProperties.ShapeType)">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.SteelISection.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="T:BHoM.HumanBody.Head">
             <summary>

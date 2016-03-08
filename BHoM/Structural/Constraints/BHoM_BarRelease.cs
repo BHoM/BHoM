@@ -9,19 +9,33 @@ namespace BHoM.Structural
     /// Bar release applicable to bar objects, contains BHoM.Structural.Constraint objects
     /// for the start and end of a bar
     /// </summary>
-    public class BarRelease 
+    public class BarRelease : BHoM.Global.BHoMObject
     {
-        /// <summary>BHoM unique ID</summary>
-        public System.Guid BHoM_Guid { get; private set; }
-
-        /// <summary>Bar release name</summary>
-        public string Name { get; private set; }
-
         /// <summary>Start constraint</summary>
-        public BHoM.Structural.Constraint StartConstraint { get; private set; }
+        public BHoM.Structural.Constraint StartConstraint 
+        {
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.StartConstraint)) as Constraint;
+            }
+            set
+            {
+                Parameters.AddItem<Guid>(Global.Param.Constraint, value.BHoM_Guid);
+            }
+        }
 
         /// <summary>End constraint</summary>
-        public BHoM.Structural.Constraint EndConstraint { get; private set; }
+        public BHoM.Structural.Constraint EndConstraint
+        {
+            get
+            {
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.EndConstraint)) as Constraint;
+            }
+            set
+            {
+                Parameters.AddItem<Guid>(Global.Param.Constraint, value.BHoM_Guid);
+            }
+        }
 
         /// <summary>Construct a new constraint using constraint objects for start/end releases</summary>
         public BarRelease(BHoM.Structural.Constraint startConstraint, BHoM.Structural.Constraint endConstraint)
@@ -38,9 +52,5 @@ namespace BHoM.Structural
             this.EndConstraint = endConstraint;
             this.Name = name;
         }
-
-
-    }
-
-  
+    }  
 }

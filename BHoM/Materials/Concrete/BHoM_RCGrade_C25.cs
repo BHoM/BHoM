@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BHoM.Global;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace BHoM.Materials
     /// <summary>
     /// Material class for use in all other object classes and namespaces
     /// </summary>
-    public class Material 
+    public class Material : BHoMObject
     {
         /// <summary>Material index number</summary>   
         public int Index { get; private set; }

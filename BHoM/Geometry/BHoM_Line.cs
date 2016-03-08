@@ -6,13 +6,13 @@ namespace BHoM.Geometry
     /// BHoM Line object
     /// </summary>
     [Serializable]
-    public class Line : BHoM.Global.BHoMObject, ILine
+    public class Line : Curve, ILine
     {
         /// <summary>Start point as BHoM point</summary>
-        public Point StartPoint { get; set; }
+        public override Point StartPoint { get; set; }
 
         /// <summary>End point as BHoM point</summary>
-        public Point EndPoint { get; set; }
+        public override Point EndPoint { get; set; }
 
         /// <summary>Length of the line</summary>
         public double Length
@@ -67,6 +67,15 @@ namespace BHoM.Geometry
         {
             this.StartPoint = new Point(start_x, start_y, start_z);
             this.EndPoint = new Point(end_x, end_y, end_z);
+        }
+
+        /// <summary>Mid point of the line</summary>
+        public Point MidPoint
+        {
+            get
+            {
+                return new Point((StartPoint.X + EndPoint.X) / 2, (StartPoint.Y + EndPoint.Y) / 2, (StartPoint.Y + EndPoint.Y) / 2);
+            }
         }
 
     }

@@ -60,6 +60,37 @@ namespace BHoM.Geometry
             Origin = origin;
         }
 
+        public Plane(Point Point_1, Point Point_2, Point Point_3)
+        {
+            Origin = Point_2;
+            Vector aVector_1 = new Vector(Point_2.X - Point_1.X, Point_2.Y - Point_1.Y, Point_2.Z - Point_1.Z);
+            Vector aVector_2 = new Vector(Point_2.X - Point_3.X, Point_2.Y - Point_3.Y, Point_2.Z - Point_3.Z);
+            Z = Vector.CrossProduct(aVector_2, aVector_1);
+            X = Vector.CrossProduct(aVector_1, Z);
+            Y = aVector_1; 
+
+            X.Unitize();
+            Y.Unitize();
+            Z.Unitize();
+        }
+
+        public Plane(Point Origin, Vector Normal)
+        {
+            this.Origin = Origin;
+            Z = Normal;
+            X = new Vector(-Normal.Y, Normal.X, 0);
+            if(X.Length == 0)
+            {
+                X = new Vector(-Normal.Z, 0, Normal.X);
+                if (X.Length == 0)
+                    X = new Vector(0, -Normal.Z, Normal.Y);
+            }
+            Y = Vector.CrossProduct(Z, X);
+
+            X.Unitize();
+            Y.Unitize();
+            Z.Unitize();
+        }
 
         /// <summary>
         /// Calculate which planar octant an angle lies within. 
@@ -135,5 +166,15 @@ namespace BHoM.Geometry
         }
 
 
+        /// <summary>
+        /// Projects point on the plane
+        /// </summary>
+        /// <param name="Point">Point</param>
+        public Point Project(Point Point)
+        {
+            Vector aVector = new Vector(Point, Origin);
+            aVector = Z * Vector.DotProduct(aVector, Z);
+            return Point - aVector;
+        }
     }
 }

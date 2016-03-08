@@ -30,7 +30,7 @@ namespace BHoM.Structural
         string SectionPropertyName { get; set; }
 
         /// <summary>Section property</summary>
-        BHoM.Structural.SectionProperties.SectionProperty SectionProperty { get; set; }
+        BHoM.Structural.Sections.SectionProperty SectionProperty { get; set; }
 
         /// <summary>Material inherited from section property</summary>
         BHoM.Materials.Material Material { get; set; }
