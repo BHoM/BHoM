@@ -38,7 +38,7 @@ namespace BHoM.Structural
         {
             get
             {           
-                return new Point(Coordinates);
+                return new Point(this.CartesianCoordinates[0], CartesianCoordinates[0], CartesianCoordinates[0]);
             }
             set
             {
