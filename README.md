@@ -13,7 +13,7 @@ You will need the following to build BHoM:
 
 ## Contribute ##
 
-BHoM is a BuroHappold open-source project and would be nothing without its community.  You can submit your own code to the Dynamo project via a Github [pull request](https://help.github.com/articles/using-pull-requests).
+BHoM is a BuroHappold open-source project and would be nothing without its community.  You can submit your own code to the BHoM project via a Github [pull request](https://help.github.com/articles/using-pull-requests).
 
 ## Releases ##
 ###0.0.1 ###
