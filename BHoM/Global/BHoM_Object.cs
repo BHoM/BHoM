@@ -117,10 +117,15 @@ namespace BHoM.Global
         protected virtual string JSON(string NestedJSON)
         {
             string aResult = "{";
-            aResult += string.Format("\"{0}\": \"{1}\",", "primitive", "BHoM_Object");
+            aResult += string.Format("\"{0}\": \"{1}\",", "primitive", GetType().Name);
             aResult += string.Format("\"{0}\": \"{1}\",", "Id", BHoM_Guid.ToString());
             aResult += string.Format("\"{0}\": \"{1}\",", "Name", Name);
+<<<<<<< HEAD
             aResult += string.Format("\"{0}\": \"{1}\",", "Type", GetType().Name);
+=======
+            aResult += string.Format("\"{0}\": \"{1}\",", "Number", Number);
+            aResult += string.Format("\"{0}\": \"{1}\",", "Type", GetType().ToString());
+>>>>>>> origin/develop
 
             if (Parameters.Count > 0)
             {
