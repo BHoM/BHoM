@@ -13,6 +13,7 @@ namespace BHoM.Global
     /// </summary>
     public abstract class ObjectFactory : System.Collections.IEnumerable
     {
+        protected bool m_UniqueByNumber;
         private Project m_Project;
         private Dictionary<string, BHoMObject> m_Data;
         private int m_FreeNumber;
@@ -36,6 +37,7 @@ namespace BHoM.Global
         {
             m_Project = project;
             m_Data = new Dictionary<string, BHoMObject>();
+            m_UniqueByNumber = true;
             for (int i = 0; i < items.Count; i++)
             {
                 m_Data.Add(items[i].Number.ToString(), items[i]);
@@ -48,13 +50,16 @@ namespace BHoM.Global
         /// <returns></returns>
         public ObjectFactory ForceUniqueByNumber()
         {
-            Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
-            foreach (BHoMObject value in m_Data.Values)
+            if (!m_UniqueByNumber)
             {
-                newDictionary.Add(value.Number.ToString(), value);
-            }
+                Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
+                foreach (BHoMObject value in m_Data.Values)
+                {
+                    newDictionary.Add(value.Number.ToString(), value);
+                }
 
-            m_Data = newDictionary;
+                m_Data = newDictionary;
+            }
             return this;
         }
 
@@ -64,13 +69,16 @@ namespace BHoM.Global
         /// <returns></returns>
         public ObjectFactory ForceUniqueByName()
         {
-            Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
-            foreach (BHoMObject value in m_Data.Values)
+            if (m_UniqueByNumber)
             {
-                newDictionary.Add(value.Name, value);
-            }
+                Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
+                foreach (BHoMObject value in m_Data.Values)
+                {
+                    newDictionary.Add(value.Name, value);
+                }
 
-            m_Data = newDictionary;
+                m_Data = newDictionary;
+            }
             return this;
         }
         //public void Clear()
