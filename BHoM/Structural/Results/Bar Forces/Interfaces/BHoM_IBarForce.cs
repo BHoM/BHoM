@@ -16,7 +16,7 @@ namespace BHoM.Structural.Results.Bars
         double RelativePosition { get; set; }
 
         /// <summary>Represents the number of positions along the bar</summary>
-        int Divisions { get; set; }
+        int BarDivisions { get; set; }
 
         /// <summary>Loadcase</summary>
         BHoM.Structural.Loads.Loadcase Loadcase { get; set; }

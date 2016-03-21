@@ -8,11 +8,17 @@ using System.Threading.Tasks;
 
 namespace BHoM.MEP
 {
+    /// <summary>
+    /// Jakub - please fill this in
+    /// </summary>
     public class Element : BHoMObject
     {
         private Location pLocation;
         private Shell pShell;
 
+        /// <summary>
+        /// Jakub - please fill this in
+        /// </summary>
         public Location Location
         {
             get
@@ -23,6 +29,12 @@ namespace BHoM.MEP
             {
                 pLocation = value;
             }
+        }
+
+        public Element(Location Location, SpatialBoundary spatialBoundary)
+        {
+            Initialize();
+            pLocation = Location;
         }
 
         public Element(Location Location, Shell Shell)

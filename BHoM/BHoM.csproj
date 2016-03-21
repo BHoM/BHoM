@@ -21,6 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\BHoM.XML</DocumentationFile>
+    <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -64,6 +65,13 @@
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
     <Compile Include="Materials\Steel\BHoM_ISteel.cs" />
     <Compile Include="Materials\Concrete\BHoM_IConcrete.cs" />
+    <Compile Include="MEP\BHoM_Duct.cs" />
+    <Compile Include="MEP\BHoM_Element.cs" />
+    <Compile Include="MEP\BHoM_Location.cs" />
+    <Compile Include="MEP\BHoM_Pipe.cs" />
+    <Compile Include="MEP\BHoM_Shell.cs" />
+    <Compile Include="MEP\BHoM_Space.cs" />
+    <Compile Include="MEP\BHoM_SpatialElement.cs" />
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
     <Compile Include="Structural\Factories\BHoM_ConstraintFactory.cs" />

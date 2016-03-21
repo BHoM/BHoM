@@ -1071,6 +1071,16 @@
         <member name="F:BHoM.Materials.MaterialModel.MAT_FABRIC">
             <summary>Fabric</summary>
         </member>
+        <member name="T:BHoM.MEP.Element">
+            <summary>
+            Jakub - please fill this in
+            </summary>
+        </member>
+        <member name="P:BHoM.MEP.Element.Location">
+            <summary>
+            Jakub - please fill this in
+            </summary>
+        </member>
         <member name="T:BHoM.Planning.Construction.ConstructionPhase">
             <summary>
             Construction phase class for use across all BHoM projects. By default, construction phases should be
@@ -2391,7 +2401,7 @@
         <member name="P:BHoM.Structural.Results.Bars.IBarForce.RelativePosition">
             <summary>Position along the bar of the force. Set 0 for 1 for end</summary>
         </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.Divisions">
+        <member name="P:BHoM.Structural.Results.Bars.IBarForce.BarDivisions">
             <summary>Represents the number of positions along the bar</summary>
         </member>
         <member name="P:BHoM.Structural.Results.Bars.IBarForce.Loadcase">
@@ -2537,9 +2547,9 @@
             <summary>Position along the bar as an integer 0 = start, 1 = end</summary>
         </member>
         <member name="P:BHoM.Structural.Results.Bars.BarForce.RelativePosition">
-            <summary>Position along the bar of the force. Set 0 for 1 for end</summary>
+            <summary>Position along the bar of the force relative to the bar length. Set 0 for 1 for end</summary>
         </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.Divisions">
+        <member name="P:BHoM.Structural.Results.Bars.BarForce.BarDivisions">
             <summary>Represents the number of positions along the bar</summary>
         </member>
         <member name="P:BHoM.Structural.Results.Bars.BarForce.Loadcase">
