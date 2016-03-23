@@ -12,21 +12,51 @@ namespace BHoM.Geometry
     [Serializable]
     public class Vector
     {
+        private double[] Coordinates;
+
         /// <summary>X coordinate</summary>
-        public double X { get; private set; }
+        public double X
+        {
+            get
+            {
+                return Coordinates[0];
+            } 
+            private set
+            {
+                Coordinates[0] = value;
+            }
+        }
         /// <summary>Y coordinate</summary>
-        public double Y { get; private set; }
+        public double Y
+        {
+            get
+            {
+                return Coordinates[1];
+            }
+            private set
+            {
+                Coordinates[1] = value;
+            }
+        }
         /// <summary>Z coordinate</summary>
-        public double Z { get; private set; }
+        public double Z
+        {
+            get
+            {
+                return Coordinates[2];
+            }
+            private set
+            {
+                Coordinates[2] = value;
+            }
+        }
 
         /// <summary>
         /// Constructs an empty vector
         /// </summary>
         public Vector()
         {
-            X = double.NaN;
-            Y = double.NaN;
-            Z = double.NaN;
+            Coordinates = new double[4];
         }
 
         /// <summary>
@@ -37,9 +67,7 @@ namespace BHoM.Geometry
         /// <param name="z"></param>
         public Vector(double x, double y, double z)
         {
-            X = x;
-            Y = y;
-            Z = z;
+            Coordinates = new double[] { x, y, z, 0 };
         }
 
         /// <summary>
@@ -64,6 +92,31 @@ namespace BHoM.Geometry
             Z = pt.Z;
         }
 
+        internal Vector(double[] v)
+        {
+            Coordinates = v;
+        }
+
+        public static implicit operator double[](Vector v)
+        {
+            return v.Coordinates;
+        }
+
+
+        public static Vector XAxis(double n = 1)
+        {
+            return new Vector(n, 0, 0);
+        }
+
+        public static Vector YAxis(double n = 1)
+        {
+            return new Vector(0, n, 0);
+        }
+
+        public static Vector ZAxis(double n = 1)
+        {
+            return new Vector(0, 0, n);
+        }
         /// <summary>
         /// Vector operations
         /// </summary>
@@ -72,7 +125,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator +(Vector a, Vector b)
         {
-            return new Vector(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+            return new Vector(VectorUtils.Add(a, b));
         }
 
         /// <summary>
@@ -83,7 +136,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator -(Vector a, Vector b)
         {
-            return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+            return new Vector(VectorUtils.Sub(a,b));
         }
 
         /// <summary>
@@ -94,7 +147,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator /(Vector a, double b)
         {
-            return new Vector(a.X / b, a.Y / b, a.Z / b);
+            return new Vector(VectorUtils.Divide(a, b));
         }
 
         /// <summary>
@@ -105,7 +158,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator *(Vector a, double b)
         {
-            return new Vector(a.X * b, a.Y * b, a.Z * b);
+            return new Vector(VectorUtils.Multiply(a, b));
         }
 
         /// <summary>
@@ -116,7 +169,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator *(double a, Vector b)
         {
-            return new Vector(a * b.X, a * b.Y, a * b.Z);
+            return new Vector(VectorUtils.Multiply(b, a));
         }
 
         /// <summary>
@@ -127,7 +180,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static double operator *(Vector a, Vector b)
         {
-            return (a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z);
+            return VectorUtils.DotProduct(a, b);
         }
 
         /// <summary>
@@ -138,7 +191,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector CrossProduct(Vector a, Vector b)
         {
-            return new Vector((a.Y * b.Z) - (a.Z * b.Y), (a.Z * b.X) - (a.X * b.Z), (a.X * b.Y) - (a.Y * b.X));
+            return new Vector(VectorUtils.CrossProduct(a,b));
         }
 
         /// <summary>
@@ -157,7 +210,7 @@ namespace BHoM.Geometry
         /// </summary>
         public double Length
         {
-            get { return Math.Sqrt(this * this); }
+            get { return VectorUtils.Length(this); }
         }
 
         /// <summary>
@@ -170,9 +223,7 @@ namespace BHoM.Geometry
             {
                 double length = this.Length;
 
-                this.X = this.X / length;
-                this.Y = this.Y / length;
-                this.Z = this.Z / length;
+                Coordinates = VectorUtils.Normalise(this);
                 return true;
             }
             else
@@ -215,17 +266,12 @@ namespace BHoM.Geometry
         /// <param name="plane"></param>
         /// <returns></returns>
         public Vector Project(Plane plane)
-        {
-            Vector u = this;
-            Vector n = plane.Z;
-
-            Vector proj = u - ((u * n) / (Math.Pow(n.Length, 2))) * n;
-
-            return proj;
+        {          
+            return new Vector(plane.ProjectionVectors(this));
         }
 
         /// <summary>
-        /// Roates vector using Rodrigues' rotation formula
+        /// Rotates vector using Rodrigues' rotation formula
         /// </summary>
         /// <param name="rad"></param>
         /// <param name="axis"></param>
@@ -258,14 +304,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static double VectorAngle(Vector a, Vector b)
         {
-            Vector u = a.Duplicate();
-            Vector v = b.Duplicate();
-            if (!u.Unitize() || !v.Unitize())
-                return double.NegativeInfinity;
-
-            double d = DotProduct(u, v);
-
-            return SafeAcos(d);
+            return VectorUtils.Angle(a, b);
         }
 
         /// <summary>
@@ -300,5 +339,9 @@ namespace BHoM.Geometry
                 return -1.0 * angle;
         }
 
+        public override string ToString()
+        {
+            return "{" + X + ", " + Y + ", " + Z + "}";
+        }
     }
 }

@@ -42,7 +42,7 @@ namespace BHoM.Structural
             }
             set
             {
-                Coordinates = Point.CartesianCoordinates;
+                Coordinates = Point;
             }
         }
 
@@ -313,7 +313,7 @@ namespace BHoM.Structural
             for (int i = 1; i < Valence; i++)
             {
                 Vector v1 = nodeRing[i].Point - this.Point;
-                double angle = Vector.VectorAngle(v0, v1, Plane.Z);
+                double angle = Vector.VectorAngle(v0, v1, Plane.Normal);
                 if (angle < 0) angle += 2.0 * Math.PI;
                 angleAccumulator.Add(angle);
             }

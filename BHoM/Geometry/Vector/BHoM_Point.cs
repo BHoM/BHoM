@@ -3,51 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Common;
 
-namespace BHoM.Geometry 
+namespace BHoM.Geometry
 {
     /// <summary>
     /// BHoM Point object
     /// </summary>
     [Serializable]
-    public class Point : IPoint
+    public class Point
     {
-        private double[] m_Coordinates;
+        private double[] Coordinates;
 
         /// <summary>X coordinate</summary>
-        public double X 
-        { 
+        public double X
+        {
             get
             {
-                return m_Coordinates[0];
-            }     
+                return Coordinates[0];
+            }
             set
             {
-                m_Coordinates[0] = value;
+                Coordinates[0] = value;
             }
         }
         /// <summary>Y coordinate</summary>
-        public double Y  
+        public double Y
         {
             get
             {
-                return m_Coordinates[1];
-            }     
+                return Coordinates[1];
+            }
             set
             {
-                m_Coordinates[1] = value;
+                Coordinates[1] = value;
             }
         }
         /// <summary>Z coordinate</summary>
-        public double Z 
+        public double Z
         {
             get
             {
-                return m_Coordinates[2];
-            }     
+                return Coordinates[2];
+            }
             set
             {
-                m_Coordinates[2] = value;
+                Coordinates[2] = value;
             }
         }
 
@@ -56,9 +57,7 @@ namespace BHoM.Geometry
         /// </summary>
         public Point()
         {
-            X = double.NaN;
-            Y = double.NaN;
-            Z = double.NaN;
+            Coordinates = new double[] { 0, 0, 0, 1 };
         }
 
         /// <summary>
@@ -69,7 +68,18 @@ namespace BHoM.Geometry
         /// <param name="z"></param>
         public Point(double x, double y, double z)
         {
-            m_Coordinates = new double[] {x, y, z};
+            Coordinates = new double[] { x, y, z, 1 };
+        }
+
+        /// <summary>
+        /// Construct a point from a double array
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        internal Point(double[] v)
+        {
+            Coordinates = Utils.Copy<double>(v);
         }
 
         /// <summary>
@@ -78,20 +88,12 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Point(Point dup)
         {
-            m_Coordinates = new double[] { dup.X, dup.Y, dup.Z };           
+            Coordinates = Utils.Copy<double>(dup);
         }
 
-        internal Point(double[] coords)
+        public static implicit operator double[](Point v)
         {
-            m_Coordinates = coords;
-        }
-       
-        /// <summary>
-        /// Gets or sets the coordinates as an array
-        /// </summary>
-        public double[] CartesianCoordinates
-        {
-            get { return m_Coordinates;}        
+            return v.Coordinates;
         }
 
         /// <summary>
@@ -225,7 +227,48 @@ namespace BHoM.Geometry
                 mean += pts[i];
 
             return mean /= count;
+        }
 
+        /// <summary>
+        /// Calcualte max pt from list of points
+        /// </summary>
+        /// <param name="pts"></param>
+        /// <returns></returns>
+        public static Point Max(List<Point> pts)
+        {
+            int count = pts.Count;
+            if (count < 1) return null;
+            Point max = new Point(pts[0]);
+
+            for (int i = 1; i < count; i++)
+                max = Max(max, pts[i]);
+
+            return max;
+        }
+        /// <summary>
+        /// Calcualte min pt from list of points
+        /// </summary>
+        /// <param name="pts"></param>
+        /// <returns></returns>
+        public static Point Min(List<Point> pts)
+        {
+            int count = pts.Count;
+            if (count < 1) return null;
+            Point min = new Point(pts[0]);
+
+            for (int i = 1; i < count; i++)
+                min = Max(min, pts[i]);
+
+            return min;
+        }
+        public static Point Max(Point p1, Point p2)
+        {
+            return new Point(VectorUtils.Max(p1, p2));
+        }
+
+        public static Point Min(Point p1, Point p2)
+        {
+            return new Point(VectorUtils.Min(p1, p2));
         }
 
         /// <summary>
@@ -249,6 +292,10 @@ namespace BHoM.Geometry
             }
         }
 
- 
+        public override string ToString()
+        {
+            return "{" + X + ", " + Y + ", " + Z + "}";
+        }
+
     }
 }
