@@ -69,6 +69,19 @@ namespace BHoM.Geometry
             this.EndPoint = new Point(end_x, end_y, end_z);
         }
 
+        /// <summary>
+        /// Construct line from json
+        /// </summary>
+        /// <param name="json"></param>
+        public Line(string json) : this()
+        {
+            int index = json.IndexOf("\"start\": ");
+            this.StartPoint = new Geometry.Point(json.Substring(index + 9));
+
+            index = json.IndexOf("\"end\": ");
+            this.EndPoint = new Geometry.Point(json.Substring(index + 7));
+        }
+
         /// <summary>Mid point of the line</summary>
         public Point MidPoint
         {
