@@ -62,6 +62,40 @@
             </summary>
             <param name="Dictionary"></param>
         </member>
+        <member name="T:BHoM.Geometry.Circle">
+            <summary>
+            Arc object
+            </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Circle.StartPoint">
+            <summary>Start point as BHoM curve</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Circle.EndPoint">
+            <summary>End point as BHoM curve</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Circle.Center">
+            <summary>Center</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Circle.Radius">
+            <summary>Radius</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Circle.Normal">
+            <summary>Normal</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Circle.Plane">
+            <summary>Plane</summary>
+        </member>
+        <member name="T:BHoM.Geometry.Curve">
+            <summary>
+            Arc object
+            </summary>
+        </member>
+        <member name="P:BHoM.Geometry.Curve.StartPoint">
+            <summary>Start point as BHoM curve</summary>
+        </member>
+        <member name="P:BHoM.Geometry.Curve.EndPoint">
+            <summary>End point as BHoM curve</summary>
+        </member>
         <member name="T:BHoM.Geometry.ILine">
             <summary>
             BHoM Line interface
@@ -169,6 +203,9 @@
             <param name="end_y"></param>
             <param name="end_z"></param>
         </member>
+        <member name="P:BHoM.Geometry.Line.MidPoint">
+            <summary>Mid point of the line</summary>
+        </member>
         <member name="T:BHoM.Geometry.Plane">
             <summary>
             BHoM Plane object
@@ -228,42 +265,33 @@
             <param name="octant"></param>
             <returns></returns>
         </member>
+        <member name="M:BHoM.Geometry.Plane.Project(BHoM.Geometry.Point)">
+            <summary>
+            Projects point on the plane
+            </summary>
+            <param name="Point">Point</param>
+        </member>
         <member name="T:BHoM.Geometry.Arc">
             <summary>
             Arc object
             </summary>
         </member>
-        <member name="P:BHoM.Geometry.Arc.Plane">
-            <summary>Base plane for arc</summary>
+        <member name="M:BHoM.Geometry.Arc.#ctor(BHoM.Geometry.Circle,BHoM.Geometry.Point,BHoM.Geometry.Point)">
+            <summary>
+            Constructs an arc based on circle, start and end point
+            </summary>
+            <param name="Circle">Circle</param>
+            <param name="StartPoint">Start Point</param>
+            <param name="EndPoint">End Point</param>
         </member>
         <member name="P:BHoM.Geometry.Arc.StartPoint">
-            <summary>Start point as BHoM point</summary>
+            <summary>Start point of arc</summary>
         </member>
         <member name="P:BHoM.Geometry.Arc.EndPoint">
-            <summary>End point as BHoM point</summary>
+            <summary>End point of arc</summary>
         </member>
-        <member name="P:BHoM.Geometry.Arc.Radius">
-            <summary>Radius</summary>
-        </member>
-        <member name="P:BHoM.Geometry.Arc.Angle">
-            <summary>Angle in radians</summary>
-        </member>
-        <member name="M:BHoM.Geometry.Arc.#ctor(BHoM.Geometry.Point,BHoM.Geometry.Point,System.Double)">
-            <summary>
-            Constructs an arc in default global XY plane
-            </summary>
-            <param name="startpoint"></param>
-            <param name="endpoint"></param>
-            <param name="radius"></param>
-        </member>
-        <member name="M:BHoM.Geometry.Arc.#ctor(BHoM.Geometry.Point,BHoM.Geometry.Point,System.Double,BHoM.Geometry.Plane)">
-            <summary>
-            Construct an arc using start point, end point and base plane
-            </summary>
-            <param name="startpoint"></param>
-            <param name="endpoint"></param>
-            <param name="radius"></param>
-            <param name="plane"></param>
+        <member name="P:BHoM.Geometry.Arc.MidPoint">
+            <summary>Mid point of the line</summary>
         </member>
         <member name="T:BHoM.Geometry.MeshFace">
             <summary>
@@ -503,6 +531,13 @@
             <param name="y"></param>
             <param name="z"></param>
         </member>
+        <member name="M:BHoM.Geometry.Vector.#ctor(BHoM.Geometry.Point,BHoM.Geometry.Point)">
+            <summary>
+            Constructs a vector from two points
+            </summary>
+            <param name="StartPoint">Start Point</param>
+            <param name="EndPoint">End Point</param>
+        </member>
         <member name="M:BHoM.Geometry.Vector.#ctor(BHoM.Geometry.Vector)">
             <summary>
             Duplicates a vector
@@ -675,6 +710,11 @@
         </member>
         <member name="P:BHoM.Global.BHoMObject.Parameters">
             <summary>Object parameters</summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.SetBHoMGuid">
+            <summary>
+            Set the BHoM_Guid
+            </summary>
         </member>
         <member name="M:BHoM.Global.BHoMObject.GetPropertyNames">
             <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
