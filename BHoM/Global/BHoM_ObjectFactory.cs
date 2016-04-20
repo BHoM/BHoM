@@ -13,7 +13,6 @@ namespace BHoM.Global
     /// </summary>
     public abstract class ObjectCollection : System.Collections.IEnumerable
     {
-        protected bool m_UniqueByNumber;
         private Project m_Project;
         private Dictionary<string, BHoMObject> m_Data;
         private int m_FreeNumber;
@@ -37,7 +36,6 @@ namespace BHoM.Global
         {
             m_Project = project;
             m_Data = new Dictionary<string, BHoMObject>();
-            m_UniqueByNumber = true;
             for (int i = 0; i < items.Count; i++)
             {
                 m_Data.Add(items[i].Number.ToString(), items[i]);
@@ -53,7 +51,6 @@ namespace BHoM.Global
         {
             m_Project = project;
             m_Data = new Dictionary<string, BHoMObject>();
-            m_UniqueByNumber = true;
             for (int i = 0; i < items.Count; i++)
             {
                 m_Data.Add(items[i].Number.ToString(), items[i]);
@@ -64,18 +61,17 @@ namespace BHoM.Global
         /// 
         /// </summary>
         /// <returns></returns>
-        public ObjectCollection SetKeyParameter(string name)
+        public ObjectCollection SetKeyParameter(string parameterName)
         {
-            if (!m_UniqueByNumber)
+            
+            Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
+            foreach (BHoMObject value in m_Data.Values)
             {
-                Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
-                foreach (BHoMObject value in m_Data.Values)
-                {
-                    newDictionary.Add(value.Parameters[name].DataString(), value);
-                }
-
-                m_Data = newDictionary;
+                newDictionary.Add(value.Parameters[parameterName].DataString(), value);
             }
+
+            m_Data = newDictionary;
+            
             return this;
         }
 
@@ -124,12 +120,12 @@ namespace BHoM.Global
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="nameKey"></param>
         /// <returns></returns>
-        public bool Contains(string name)
+        public bool Contains(string nameKey)
         {
             BHoMObject obj = null;
-            return m_Data.Count == 0 ? false : m_Data.TryGetValue(name.ToString(), out obj);
+            return m_Data.Count == 0 ? false : m_Data.TryGetValue(nameKey.ToString(), out obj);
         }
 
         /// <summary>

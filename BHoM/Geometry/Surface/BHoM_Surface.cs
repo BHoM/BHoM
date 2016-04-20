@@ -21,12 +21,9 @@ namespace BHoM.Geometry
         private int m_Columns;
         protected int[] m_MaxMin;
 
-        public BoundingBox Bounds
+        public BoundingBox Bounds()
         {
-            get
-            {
-                return new BoundingBox(Max, Min);
-            }
+            return new BoundingBox(Max, Min);          
         }
 
         internal Surface() { }
@@ -163,7 +160,7 @@ namespace BHoM.Geometry
                 Curve xY = boundary.DuplicateCurve();
                 Plane plane = null;
 
-                Point centre = xY.Bounds.Centre;
+                Point centre = xY.Bounds().Centre;
                 Vector axis = plane.Normal;
                 double angle = Vector.VectorAngle(Vector.ZAxis(), axis);
 
@@ -171,7 +168,7 @@ namespace BHoM.Geometry
                 Transform t2 = Geometry.Transform.Translation(Point.Origin - centre) * t1;
 
                 xY.Transform(t2);
-                Vector extents = xY.Bounds.Extents;
+                Vector extents = xY.Bounds().Extents;
 
                 Point p1 = new Point(extents.X, -extents.Y, 0);
                 Point p2 = new Point(extents.X, extents.Y, 0);

@@ -62,12 +62,9 @@ namespace BHoM.Geometry
             return m_CurveArray[i].TangentAt(t - m_Knots[i]);
         }
 
-        public override BoundingBox Bounds
+        public override BoundingBox Bounds()
         {
-            get
-            {
-                return m_CurveArray.Bounds;
-            }
+            return m_CurveArray.Bounds();            
         }
 
         public override List<Curve> Explode()

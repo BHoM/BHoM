@@ -17,13 +17,11 @@ namespace BHoM.Geometry
             m_Array = new List<double[]>();
         }
 
-        public BoundingBox Bounds
+        public BoundingBox Bounds()
         {
-            get
-            {
                 if (m_Max == null || m_Min == null) Update();
                 return new BoundingBox(new Point(m_Min), new Point(m_Max));
-            }
+            
         }
 
         public Point this[int i]

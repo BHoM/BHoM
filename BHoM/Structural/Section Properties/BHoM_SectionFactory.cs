@@ -6,7 +6,7 @@ namespace BHoM.Structural.SectionProperties
     /// <summary>
     /// 
     /// </summary>
-    public class SectionFactory : ObjectFactory
+    public class SectionFactory : ObjectCollection
     {
         /// <summary>
         /// 
@@ -28,7 +28,7 @@ namespace BHoM.Structural.SectionProperties
         /// <returns></returns>
         public SectionProperty CreateSteelI(string name)
         {
-            if (this.ContainsName(name))
+            if (this.Contains(name))
             {
                 return this[name] as SectionProperty;
             }
@@ -47,7 +47,7 @@ namespace BHoM.Structural.SectionProperties
         /// <returns></returns>
         public SectionProperty CreateSteelBox(string name)
         {
-            if (this.ContainsName(name))
+            if (this.Contains(name))
             {
                 return this[name] as SectionProperty;
             }

@@ -10,19 +10,16 @@ namespace BHoM.Geometry
     {
         private List<Curve> m_Curves;
 
-        public BoundingBox Bounds
+        public BoundingBox Bounds()
         {
-            get
+            Point max = m_Curves[0].Max;
+            Point min = m_Curves[0].Min;
+            for (int i = 1; i < m_Curves.Count;i++)
             {
-                Point max = m_Curves[0].Max;
-                Point min = m_Curves[0].Min;
-                for (int i = 1; i < m_Curves.Count;i++)
-                {
-                    max = Point.Max(max, m_Curves[i].Max);
-                    min = Point.Min(min, m_Curves[i].Min);
-                }
-                return new BoundingBox(min, max);
+                max = Point.Max(max, m_Curves[i].Max);
+                min = Point.Min(min, m_Curves[i].Min);
             }
+            return new BoundingBox(min, max);
         }
 
         public Curve this[int i]

@@ -6,7 +6,7 @@ namespace BHoM.Structural
     /// <summary>
     /// 
     /// </summary>
-    public class BarFactory : ObjectFactory
+    public class BarFactory : ObjectCollection
     {
         /// <summary>
         /// 
@@ -39,7 +39,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Bar Create(int number, Node n1, Node n2)
         {
-            if (this.ContainsNumber(number))
+            if (this.Contains(number.ToString()))
             {
                 return this[number] as Bar;
             }

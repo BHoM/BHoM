@@ -26,20 +26,17 @@ namespace BHoM.Geometry
             m_Geometry.Add(geometry);
         }
 
-        public BoundingBox Bounds
+        public BoundingBox Bounds()
         {
-            get
+            if (m_Bounds == null)
             {
-                if (m_Bounds == null)
+                m_Bounds = m_Geometry[0].Bounds();
+                for (int i = 1; i < m_Geometry.Count; i++)
                 {
-                    m_Bounds = m_Geometry[0].Bounds;
-                    for (int i = 1; i < m_Geometry.Count; i++)
-                    {
-                        m_Bounds = BoundingBox.Merge(m_Bounds, m_Geometry[i].Bounds);
-                    }
+                    m_Bounds = BoundingBox.Merge(m_Bounds, m_Geometry[i].Bounds());
                 }
-                return m_Bounds;
             }
+            return m_Bounds;           
         }
 
         public Guid Id

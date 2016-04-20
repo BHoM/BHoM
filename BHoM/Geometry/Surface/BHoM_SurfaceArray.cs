@@ -8,12 +8,9 @@ namespace BHoM.Geometry
 {
     public class SurfaceArray : IGeometry
     {
-        public BoundingBox Bounds
+        public BoundingBox Bounds()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            throw new NotImplementedException();
         }
 
         public Guid Id

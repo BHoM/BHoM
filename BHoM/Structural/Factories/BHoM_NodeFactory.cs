@@ -6,7 +6,7 @@ namespace BHoM.Structural
     /// <summary>
     /// 
     /// </summary>
-    public class NodeFactory : ObjectFactory
+    public class NodeFactory : ObjectCollection
     {
         /// <summary>
         /// 
@@ -40,7 +40,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Node Create(int number, double x, double y, double z)
         {
-            if (m_UniqueByNumber && this.ContainsNumber(number))
+            if (this.Contains(number.ToString()))
             {
                 return this[number] as Node;
             }
@@ -62,7 +62,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Node Create(string name, double x, double y, double z)
         {
-            if (!m_UniqueByNumber && this.ContainsName(name))
+            if (this.Contains(name))
             {
                 return this[name] as Node;
             }

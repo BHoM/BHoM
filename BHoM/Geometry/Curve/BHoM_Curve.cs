@@ -62,12 +62,9 @@ namespace BHoM.Geometry
             }
         }
 
-        public virtual BoundingBox Bounds
+        public virtual BoundingBox Bounds()
         {
-            get
-            {
                 return new BoundingBox(Max, Min);
-            }
         }
 
         public virtual double[] Domain

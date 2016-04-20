@@ -6,7 +6,7 @@ namespace BHoM.Structural
     /// <summary>
     /// 
     /// </summary>
-    public class ConstraintFactory : ObjectFactory
+    public class ConstraintFactory : ObjectCollection
     {
         /// <summary>
         /// 
@@ -43,7 +43,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Constraint Create(string name, double x, double y, double z, double xx, double yy, double zz)
         {
-            if (this.ContainsName(name))
+            if (this.Contains(name))
             {
                 return this[name] as Constraint;
             }
@@ -66,7 +66,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Constraint Create(string name, bool x, bool y, bool z, bool xx, bool yy, bool zz)
         {
-            if (this.ContainsName(name))
+            if (this.Contains(name))
             {
                 return this[name] as Constraint;
             }
@@ -87,7 +87,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Constraint Create(string name, bool[] fixity, double[] values)
         {
-            if (this.ContainsName(name))
+            if (this.Contains(name))
             {
                 return this[name] as Constraint;
             }
@@ -107,7 +107,7 @@ namespace BHoM.Structural
         /// <returns></returns>
         public Constraint Create(string name, string fixity)
         {
-            if (this.ContainsName(name))
+            if (this.Contains(name))
             {
                 return this[name] as Constraint;
             }

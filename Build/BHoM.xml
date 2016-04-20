@@ -4,6 +4,13 @@
         <name>BHoM</name>
     </assembly>
     <members>
+        <member name="M:BHoM.Application.IApplication.SetNodes(System.Collections.Generic.List{BHoM.Structural.Node})">
+            <summary>
+            Sets the Nodes in the application
+            </summary>
+            <param name="nodes"></param>
+            <returns>A list of ids used in the application corresponding to each node</returns>
+        </member>
         <member name="T:BHoM.Collections.Dictionary`2">
             <summary>
             BHoM dictionary using system dictionary with additional functionality. 
@@ -599,83 +606,77 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:BHoM.Global.ObjectFactory">
+        <member name="T:BHoM.Global.ObjectCollection">
             <summary>
             
             </summary>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.#ctor(BHoM.Global.Project)">
+        <member name="M:BHoM.Global.ObjectCollection.#ctor(BHoM.Global.Project)">
             <summary>
             
             </summary>
             <param name="project"></param>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
+        <member name="M:BHoM.Global.ObjectCollection.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
             <summary>
             
             </summary>
             <param name="project"></param>
             <param name="items"></param>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.ForceUniqueByNumber">
+        <member name="M:BHoM.Global.ObjectCollection.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="project"></param>
+            <param name="items"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectCollection.SetKeyParameter(System.String)">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.ForceUniqueByName">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:BHoM.Global.ObjectFactory.Item(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="P:BHoM.Global.ObjectFactory.Item(System.String)">
+        <member name="P:BHoM.Global.ObjectCollection.Item(System.Int32)">
             <summary>
             
             </summary>
             <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.ContainsName(System.String)">
+        <member name="P:BHoM.Global.ObjectCollection.Item(System.String)">
             <summary>
             
             </summary>
-            <param name="name"></param>
+            <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.ContainsNumber(System.Int32)">
+        <member name="M:BHoM.Global.ObjectCollection.Contains(System.String)">
             <summary>
             
             </summary>
-            <param name="number"></param>
+            <param name="nameKey"></param>
             <returns></returns>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.Add(BHoM.Global.BHoMObject)">
+        <member name="M:BHoM.Global.ObjectCollection.Add(BHoM.Global.BHoMObject)">
             <summary>
             
             </summary>
             <param name="obj"></param>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.FreeNumber">
+        <member name="M:BHoM.Global.ObjectCollection.FreeNumber">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:BHoM.Global.ObjectCollection.System#Collections#IEnumerable#GetEnumerator">
             <summary></summary>
         </member>
-        <member name="M:BHoM.Global.ObjectFactory.GetEnumerator">
+        <member name="M:BHoM.Global.ObjectCollection.GetEnumerator">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Global.ObjectFactory.Count">
+        <member name="P:BHoM.Global.ObjectCollection.Count">
             <summary>
             
             </summary>

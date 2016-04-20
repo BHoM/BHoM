@@ -39,12 +39,9 @@ namespace BHoM.Geometry
             }
         }
 
-        public BoundingBox Bounds
+        public BoundingBox Bounds()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            throw new NotImplementedException();
         }
 
         public Vector FaceNormal(int face)
