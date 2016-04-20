@@ -43,12 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Settings.cs" />
     <Compile Include="Collections\BHoM_Dictionary.cs" />
+    <Compile Include="Application\IApplication.cs" />
     <Compile Include="Geometry\BHoM_BoundingBox.cs" />
     <Compile Include="Geometry\BHoM_GeometryUtils.cs" />
     <Compile Include="Geometry\BHoM_Group.cs" />
     <Compile Include="Geometry\BHoM_IGeometry.cs" />
-    <Compile Include="Geometry\BHoM_Intersect.cs" />
     <Compile Include="Geometry\BHoM_Quarternion.cs" />
     <Compile Include="Geometry\BHoM_Transform.cs" />
     <Compile Include="Geometry\BHoM_Utils.cs" />

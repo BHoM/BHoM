@@ -52,5 +52,16 @@ namespace BHoM.Geometry
                 return length;
             }
         }
+
+        public override List<Curve> Explode()
+        {
+            List<Curve> lineSegments = new List<Curve>();
+            lineSegments.Add(new Line(ControlPoint(0), ControlPoint(1)));
+            for (int i = 1; i < NumControlPoints - 1;i++)
+            {
+                lineSegments.Add(new Line(lineSegments[i - 1].EndPoint, ControlPoint(i + 1)));
+            }
+            return lineSegments;
+        }
     }
 }

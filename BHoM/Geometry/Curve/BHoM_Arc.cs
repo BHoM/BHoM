@@ -160,7 +160,7 @@ namespace BHoM.Geometry
         {
             get
             {
-                return m_Radius != 0 ? m_Radius : VectorUtils.Length(VectorUtils.Sub(Centre, Utils.SubArray<double>(m_ControlPoints, 0, 4)));
+                return m_Radius != 0 ? m_Radius : m_Radius = VectorUtils.Length(VectorUtils.Sub(Centre, Utils.SubArray<double>(m_ControlPoints, 0, 4)));
             }
         }
     }

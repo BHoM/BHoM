@@ -11,7 +11,7 @@ namespace BHoM.Global
     /// <summary>
     /// 
     /// </summary>
-    public abstract class ObjectFactory : System.Collections.IEnumerable
+    public abstract class ObjectCollection : System.Collections.IEnumerable
     {
         protected bool m_UniqueByNumber;
         private Project m_Project;
@@ -22,7 +22,7 @@ namespace BHoM.Global
         /// 
         /// </summary>
         /// <param name="project"></param>
-        public ObjectFactory(Project project)
+        public ObjectCollection(Project project)
         {
             m_Project = project;
             m_Data = new Dictionary<string, BHoMObject>();
@@ -33,7 +33,23 @@ namespace BHoM.Global
         /// </summary>
         /// <param name="project"></param>
         /// <param name="items"></param>
-        public ObjectFactory(Project project, List<BHoMObject> items)
+        public ObjectCollection(Project project, List<BHoMObject> items)
+        {
+            m_Project = project;
+            m_Data = new Dictionary<string, BHoMObject>();
+            m_UniqueByNumber = true;
+            for (int i = 0; i < items.Count; i++)
+            {
+                m_Data.Add(items[i].Number.ToString(), items[i]);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="project"></param>
+        /// <param name="items"></param>
+        public ObjectCollection(Project project, List<BHoMObject> items, string parameter)
         {
             m_Project = project;
             m_Data = new Dictionary<string, BHoMObject>();
@@ -48,52 +64,20 @@ namespace BHoM.Global
         /// 
         /// </summary>
         /// <returns></returns>
-        public ObjectFactory ForceUniqueByNumber()
+        public ObjectCollection SetKeyParameter(string name)
         {
             if (!m_UniqueByNumber)
             {
                 Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
                 foreach (BHoMObject value in m_Data.Values)
                 {
-                    newDictionary.Add(value.Number.ToString(), value);
+                    newDictionary.Add(value.Parameters[name].DataString(), value);
                 }
 
                 m_Data = newDictionary;
             }
             return this;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public ObjectFactory ForceUniqueByName()
-        {
-            if (m_UniqueByNumber)
-            {
-                Dictionary<string, BHoMObject> newDictionary = new Dictionary<string, BHoMObject>();
-                foreach (BHoMObject value in m_Data.Values)
-                {
-                    newDictionary.Add(value.Name, value);
-                }
-
-                m_Data = newDictionary;
-            }
-            return this;
-        }
-        //public void Clear()
-        //{
-        //    foreach (int i = 0; i < m_Data.Count; i++)
-        //    {               
-        //        m_Project.RemoveObject(m_Data[i].BHoM_Guid);              
-        //    }
-        //    m_Data.Clear();
-        //}
-
-        //public BHoMObject Get(int number)
-        //{
-        //    return m_Data.First(o => o.Number == number);
-        //}
 
         /// <summary>
         /// 
@@ -142,21 +126,10 @@ namespace BHoM.Global
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public bool ContainsName(string name)
+        public bool Contains(string name)
         {
             BHoMObject obj = null;
             return m_Data.Count == 0 ? false : m_Data.TryGetValue(name.ToString(), out obj);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        public bool ContainsNumber(int number)
-        {
-            BHoMObject obj = null;
-            return m_Data.Count == 0 ? false : m_Data.TryGetValue(number.ToString(), out obj);
         }
 
         /// <summary>

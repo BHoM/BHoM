@@ -109,9 +109,9 @@ namespace BHoM.Geometry
                 int count = 0;
                 for (int i = 0; i < m_CurveArray.Count; i++)
                 {
-                    count += m_CurveArray[i].NumControlPoints;
+                    count += m_CurveArray[i].NumControlPoints - 1;
                 }
-                return count - 1;
+                return count;
             }
         }
 
@@ -166,7 +166,5 @@ namespace BHoM.Geometry
             }
             return base.Flip();
         }
-
-
     }
 }

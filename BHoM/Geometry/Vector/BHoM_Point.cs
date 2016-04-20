@@ -11,7 +11,7 @@ namespace BHoM.Geometry
     /// BHoM Point object
     /// </summary>
     [Serializable]
-    public class Point
+    public class Point : IGeometry
     {
         private double[] Coordinates;
 
@@ -292,10 +292,52 @@ namespace BHoM.Geometry
             }
         }
 
+        public Guid Id
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public override string ToString()
         {
             return "{" + X + ", " + Y + ", " + Z + "}";
         }
 
+        public BoundingBox Bounds()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Transform(Transform t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Translate(Vector v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Mirror(Plane p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Project(Plane p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        IGeometry IGeometry.Duplicate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

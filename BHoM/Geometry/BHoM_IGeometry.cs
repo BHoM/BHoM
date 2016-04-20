@@ -9,7 +9,7 @@ namespace BHoM.Geometry
     public interface IGeometry
     {
         Guid Id { get; }
-        BoundingBox Bounds { get; }
+        BoundingBox Bounds();
         void Transform(Transform t);
         void Translate(Vector v);
         void Mirror(Plane p);
