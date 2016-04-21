@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace BHoM.Structural.Results.Bars
+namespace BHoM.Structural.Results.Bars        // #AD - Not sure we actually need this
 {
     /// <summary>
     /// Collection of bar forces, defines a set of bar forces with the

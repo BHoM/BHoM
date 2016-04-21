@@ -6,7 +6,7 @@ namespace BHoM.Structural.SectionProperties
     /// <summary>
     /// 
     /// </summary>
-    public class SteelUCSection : SectionProperty, ISteelISection
+    public class SteelUCSection : SectionProperty
     {
         /// <summary>Top flange width</summary>
         public double TopFlangeWidth {get; set; }

@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collections\BHoM_Dictionary.cs" />
     <Compile Include="Geometry\BHoM_BoundingBox.cs" />
     <Compile Include="Geometry\BHoM_Group.cs" />
     <Compile Include="Geometry\BHoM_IGeometry.cs" />
@@ -70,7 +69,7 @@
     <Compile Include="Geometry\Vector\BHoM_Vector.cs" />
     <Compile Include="Geometry\Vector\BHoM_VectorUtils.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
-    <Compile Include="Global\BHoM_ObjectFactory.cs" />
+    <Compile Include="Global\BHoM_ObjectCollection.cs" />
     <Compile Include="Global\BHoM_Param.cs" />
     <Compile Include="Global\BHoM_Parameter.cs" />
     <Compile Include="Global\BHoM_Parameters.cs" />
@@ -118,15 +117,11 @@
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForce.cs" />
     <Compile Include="Structural\Results\Building Results\BHoM_StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\BHoM_GlobalResult.cs" />
-    <Compile Include="Structural\Section Properties\BHoM_SectionFactory.cs" />
     <Compile Include="Structural\Section Properties\BHoM_ShapeType.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCColumnRectangular.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCBeamRectangular.cs" />
     <Compile Include="Structural\Section Properties\BHoM_SectionProperty.cs" />
-    <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_IRCSection.cs" />
-    <Compile Include="Structural\Section Properties\Steel\Interfaces\BHoM_ISteelBoxSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelUCSection.cs" />
-    <Compile Include="Structural\Section Properties\Steel\Interfaces\BHoM_ISteelISection.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelBoxSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelISection.cs" />
   </ItemGroup>

@@ -17,10 +17,10 @@ namespace BHoM.Global
         public string Name { get; internal set; }
 
         /// <summary>Number</summary>
-        public int Number { get; internal set; }
+        public int Number { get; internal set; }        // #AD - This should be moved to parameters and Guid should be used instead
 
         /// <summary>Project</summary>
-        public Project Project { get; set; }
+        public Project Project { get; set; }            // #AD - I don't think this should be there at all
 
         /// <summary>Object parameters</summary>
         public ObjectParameters Parameters { get; set; }
@@ -31,6 +31,7 @@ namespace BHoM.Global
             Number = -1;
             this.BHoM_Guid = System.Guid.NewGuid();
         }
+
 
         //////////////
         ////Methods///

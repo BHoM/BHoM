@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BHoM.Materials;
 
 namespace BHoM.Structural.SectionProperties 
@@ -6,7 +7,7 @@ namespace BHoM.Structural.SectionProperties
     /// <summary>
     /// 
     /// </summary>
-     public class SteelISection : SectionProperty, ISteelISection
+     public class SteelISection : SectionProperty
     {
         
         /// <summary></summary>
@@ -43,9 +44,9 @@ namespace BHoM.Structural.SectionProperties
         //////////////
 
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        public BHoM.Collections.Dictionary<string, object> GetProperties()
+        public Dictionary<string, object> GetProperties()
         {
-            BHoM.Collections.Dictionary<string, object> PropertiesDictionary = new BHoM.Collections.Dictionary<string, object>();
+            Dictionary<string, object> PropertiesDictionary = new Dictionary<string, object>();
             foreach (var prop in this.GetType().GetProperties())
             {
                 PropertiesDictionary.Add(prop.Name, prop.GetValue(this));
