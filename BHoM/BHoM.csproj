@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Application\Settings.cs" />
     <Compile Include="Collections\BHoM_Dictionary.cs" />
-    <Compile Include="Application\IApplication.cs" />
     <Compile Include="Geometry\BHoM_BoundingBox.cs" />
     <Compile Include="Geometry\BHoM_GeometryUtils.cs" />
     <Compile Include="Geometry\BHoM_Group.cs" />

@@ -4,13 +4,6 @@
         <name>BHoM</name>
     </assembly>
     <members>
-        <member name="M:BHoM.Application.IApplication.SetNodes(System.Collections.Generic.List{BHoM.Structural.Node})">
-            <summary>
-            Sets the Nodes in the application
-            </summary>
-            <param name="nodes"></param>
-            <returns>A list of ids used in the application corresponding to each node</returns>
-        </member>
         <member name="T:BHoM.Collections.Dictionary`2">
             <summary>
             BHoM dictionary using system dictionary with additional functionality. 
