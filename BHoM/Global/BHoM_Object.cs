@@ -21,10 +21,6 @@ namespace BHoM.Global
 
         /// <summary>Project</summary>
         public Project Project { get; set; }
-               
-        /// <summary>User text input. Can be used to store user information in an object
-        /// such as a user ID or a project specific parameter</summary>
-        public BHoM.Collections.Dictionary<string, object> UserData { get; set; }
 
         /// <summary>Object parameters</summary>
         public ObjectParameters Parameters { get; set; }
@@ -35,40 +31,6 @@ namespace BHoM.Global
             Number = -1;
             this.BHoM_Guid = System.Guid.NewGuid();
         }
-
-        ///// <summary>
-        ///// Set the BHoM_Guid
-        ///// </summary>
-        //public void SetBHoMGuid()
-        //{
-        //    this.BHoM_Guid = System.Guid.NewGuid();
-        //}
-
-        //public void SetParameter(string name, object data)
-        //{
-        //    Parameter p = null;
-        //    if (Parameters.TryGetValue(name, out p))
-        //    {
-        //        p.SetValue(data);
-        //    }
-        //    else
-        //    {
-        //        Parameters.Add(name,new Parameter(name, data));
-        //    }
-        //}
-
-        //internal void SetParameter(string name, string data, string storage)
-        //{
-        //    Parameter p = null;
-        //    if (Parameters.TryGetValue(name, out p))
-        //    {
-        //        p.SetValue(data);
-        //    }
-        //    else
-        //    {
-        //        Parameters.Add(name, new Parameter(name, data, storage));
-        //    }
-        //}
 
         //////////////
         ////Methods///

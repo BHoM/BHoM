@@ -6,7 +6,7 @@ namespace BHoM.Structural.SectionProperties
     /// <summary>
     /// 
     /// </summary>
-     public class SteelISection : SectionProperty, ISteelISection, ISectionFactory
+     public class SteelISection : SectionProperty, ISteelISection
     {
         
         /// <summary></summary>

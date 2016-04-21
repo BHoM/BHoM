@@ -583,10 +583,6 @@
         <member name="P:BHoM.Global.BHoMObject.Project">
             <summary>Project</summary>
         </member>
-        <member name="P:BHoM.Global.BHoMObject.UserData">
-            <summary>User text input. Can be used to store user information in an object
-            such as a user ID or a project specific parameter</summary>
-        </member>
         <member name="P:BHoM.Global.BHoMObject.Parameters">
             <summary>Object parameters</summary>
         </member>
@@ -1000,232 +996,11 @@
             Phase ending time
             </summary>
         </member>
-        <member name="T:BHoM.Structural.ConstraintFactory">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.ConstraintFactory.#ctor(BHoM.Global.Project)">
-            <summary>
-            
-            </summary>
-            <param name="p"></param>
-        </member>
-        <member name="M:BHoM.Structural.ConstraintFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
-            <summary>
-            
-            </summary>
-            <param name="p"></param>
-            <param name="constraint"></param>
-        </member>
-        <member name="M:BHoM.Structural.ConstraintFactory.Create">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-            <param name="xx"></param>
-            <param name="yy"></param>
-            <param name="zz"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-            <param name="xx"></param>
-            <param name="yy"></param>
-            <param name="zz"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.Boolean[],System.Double[])">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="fixity"></param>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.ConstraintFactory.Create(System.String,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="fixity">Constraint string x indicates fixity and f indices freedom must be 6 characters long or nothing will be returned</param>
-            <returns></returns>
-        </member>
-        <member name="T:BHoM.Structural.NodeFactory">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.NodeFactory.#ctor(BHoM.Global.Project)">
-            <summary>
-            
-            </summary>
-            <param name="p"></param>
-        </member>
-        <member name="M:BHoM.Structural.NodeFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
-            <summary>
-            
-            </summary>
-            <param name="p"></param>
-            <param name="nodes"></param>
-        </member>
-        <member name="M:BHoM.Structural.NodeFactory.Create">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.NodeFactory.Create(System.Int32,System.Double,System.Double,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="number"></param>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.NodeFactory.Create(System.String,System.Double,System.Double,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.NodeFactory.Create(System.Double,System.Double,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-            <returns></returns>
-        </member>
-        <member name="T:BHoM.Structural.BarFactory">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.BarFactory.#ctor(BHoM.Global.Project)">
-            <summary>
-            
-            </summary>
-            <param name="p"></param>
-        </member>
-        <member name="M:BHoM.Structural.BarFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
-            <summary>
-            
-            </summary>
-            <param name="p"></param>
-            <param name="bars"></param>
-        </member>
-        <member name="M:BHoM.Structural.BarFactory.Create">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.BarFactory.Create(System.Int32,BHoM.Structural.Node,BHoM.Structural.Node)">
-            <summary>
-            
-            </summary>
-            <param name="number"></param>
-            <param name="n1"></param>
-            <param name="n2"></param>
-            <returns></returns>
-        </member>
-        <member name="T:BHoM.Structural.IBar">
-            <summary>
-            Bar objects for 1D finite element bars. Note, cable elements separate.
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Number">
-            <summary>Bar number</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Name">
-            <summary>Bar name</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.DesignGroupName">
-            <summary>
-            Design type name for design purposes (e.g. Simple Column). Can be used to help 
-            downstream selections/filters but shouldn't be confused with Groups, which are 
-            unique to bars (bars and objects can be added to multiple object groups).
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.SectionPropertyName">
-            <summary>Section property name inherited from section property</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.SectionProperty">
-            <summary>Section property</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Material">
-            <summary>Material inherited from section property</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.MaterialPropertyName">
-            <summary>Material name inherited from section property BHoM.Materials.Material name</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Release">
-            <summary>Releases</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.ReleaseName">
-            <summary>Release name is generated from the start and end BHoM.Structural.</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.StartNode">
-            <summary>Start node</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.EndNode">
-            <summary>End node</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Line">
-            <summary>The line defining the bar centre or location line</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Length">
-            <summary>Bar length</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.OrientationAngle">
-            <summary>
-            Bar orientation angle. For non-vertical bars, angle is measured in the bar YZ plane
-            betwen the Y axis and the Y vector projected one a vertical plane defined by the start and end
-            nodes. For vertical bars, angle is measured between the bar Y axis and global Y axis. A bar is 
-            vertical if the distance between end points projected to a horizontal plane is less than 0.0001
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.ConstructionPhase">
-            <summary>Construction phase</summary>
-        </member>
-        <member name="P:BHoM.Structural.IBar.Storey">
-            <summary>Storey of the building that the bar is assigned to</summary>
-        </member>
         <member name="T:BHoM.Structural.IStructuralObject">
             <summary>
             Structural object interface, all methods and attributes applicable to all structural objects with
             IStructuralObject implemented
             </summary>
-        </member>
-        <member name="P:BHoM.Structural.IStructuralObject.Number">
-            <summary>Object number</summary>
-        </member>
-        <member name="P:BHoM.Structural.IStructuralObject.Name">
-            <summary>Object name</summary>
         </member>
         <member name="T:BHoM.Structural.Beam">
             <summary>
@@ -1750,21 +1525,6 @@
         <member name="P:BHoM.Structural.Structure.Name">
             <summary>Structure name</summary>
         </member>
-        <member name="P:BHoM.Structural.Structure.Nodes">
-            <summary>List of nodes</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Bars">
-            <summary>List of bars</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Faces">
-            <summary>List of faces</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.Constraints">
-            <summary>Dictionary of constraints</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.SectionProperties">
-            <summary>Dictionary of section properties</summary>
-        </member>
         <member name="P:BHoM.Structural.Structure.Storeys">
             <summary>Dictionary of storeys</summary>
         </member>
@@ -2245,56 +2005,6 @@
             </summary>
             <param name="number"></param>
         </member>
-        <member name="T:BHoM.Structural.Results.Bars.IBarForce">
-            <summary>
-            Bar force interface class
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.BarNumber">
-            <summary>Associated bar number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.ForcePosition">
-            <summary>Position along the bar of the force. Set 0 for 1 for end</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.Loadcase">
-            <summary>Loadcase</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.LoadcaseNumber">
-            <summary>Associated loadcase number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.LoadcaseName">
-            <summary>Associated loadcase name</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.FX">
-            <summary>Axial force, tension negative</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.FY">
-            <summary>Shear force, minor axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.FZ">
-            <summary>Shear force, major axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.MX">
-            <summary>Torsion</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.MY">
-            <summary>Bending moment, minor axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.MZ">
-            <summary>Bending moment, major axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.SMax">
-            <summary>Maximum principle stress</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.SMin">
-            <summary>Minimum principle stress</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.OrientationPlane">
-            <summary>Orientation of bar forces inherited from bar</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.IBarForce.UserData">
-            <summary>User text field for any user data</summary>
-        </member>
         <member name="T:BHoM.Structural.Results.Bars.BarForceEnvelope">
             <summary>
             Envelope of bar forces representing the minima and maxima forces and principle
@@ -2731,24 +2441,6 @@
             </summary>
             <param name="name"></param>
             <returns></returns>
-        </member>
-        <member name="T:BHoM.Structural.SectionProperties.ISectionFactory">
-            <summary>
-            Section property class, the parent abstract class for all structural 
-            sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
-            parent class are those that would populate a multi category section database only
-            </summary>
-        </member>
-        <member name="T:BHoM.Structural.SectionProperties.ISectionProperty">
-            <summary>
-            Section property interface, all methods and attributes applicable to all section properties
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.ISectionProperty.Name">
-            <summary>Object name</summary>
-        </member>
-        <member name="M:BHoM.Structural.SectionProperties.ISectionProperty.GetProperties">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         </member>
         <member name="T:BHoM.Structural.SectionProperties.ShapeType">
             <summary>

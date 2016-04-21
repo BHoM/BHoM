@@ -7,7 +7,7 @@ namespace BHoM.Structural.SectionProperties
     /// <summary>
     /// 
     /// </summary>
-     public class SteelBoxSection : SectionProperty, ISectionProperty, ISteelBoxSection
+     public class SteelBoxSection : SectionProperty
     {
         
         /// <summary></summary>
