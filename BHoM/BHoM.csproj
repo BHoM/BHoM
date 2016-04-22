@@ -119,9 +119,11 @@
     <Compile Include="Structural\Loads\BHoM_Loadcase.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcombination.cs" />
     <Compile Include="Structural\Loads\BHoM_NodalLoad.cs" />
+    <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceCollection.cs" />
+    <Compile Include="Structural\Results\Bar Forces\BHoM_NodalResult.cs" />
     <Compile Include="Structural\Results\Bar Forces\Interfaces\BHoM_IBarForce.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceEnvelope.cs" />
-    <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceCollection.cs" />
+    <Compile Include="Structural\Results\Bar Forces\BHoM_NodalResultCollection.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForce.cs" />
     <Compile Include="Structural\Results\Building Results\BHoM_StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\BHoM_GlobalResult.cs" />
