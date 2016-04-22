@@ -30,7 +30,7 @@ namespace BHoM.Structural
         /// <summary>Section property</summary>
         public BHoM.Structural.SectionProperties.SectionProperty SectionProperty
         {
-            get
+            get     // #AD - I think this is wrong. We should simply store sectionPropertyName or sectionProperty not do a lookup into a project
             {
                 return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.SectionProperty)) as BHoM.Structural.SectionProperties.SectionProperty;
             }
