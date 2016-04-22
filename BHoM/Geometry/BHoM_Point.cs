@@ -53,7 +53,27 @@ namespace BHoM.Geometry
             Z = dup.Z;
 
         }
-       
+
+        /// <summary>
+        /// Create a point from Json
+        /// </summary>
+        /// <param name="json"></param>
+        public Point(string json)
+        {
+            int i1 = json.IndexOf('[');
+            int i2 = json.IndexOf(']');
+
+            string[] values = json.Substring(i1+1, i2-i1-1).Split(',');
+
+            if (values.Length > 0)
+                X = double.Parse(values[0]);
+            if (values.Length > 1)
+                Y = double.Parse(values[1]);
+            if (values.Length > 2)
+                Z = double.Parse(values[2]);
+
+        }
+
         /// <summary>
         /// Gets or sets the coordinates as an array
         /// </summary>

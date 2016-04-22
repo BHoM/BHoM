@@ -21,6 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\BHoM.XML</DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -64,9 +65,18 @@
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
     <Compile Include="Materials\Steel\BHoM_ISteel.cs" />
     <Compile Include="Materials\Concrete\BHoM_IConcrete.cs" />
+    <Compile Include="MEP\BHoM_Duct.cs" />
+    <Compile Include="MEP\BHoM_Element.cs" />
+    <Compile Include="MEP\BHoM_Location.cs" />
+    <Compile Include="MEP\BHoM_Pipe.cs" />
+    <Compile Include="MEP\BHoM_Shell.cs" />
+    <Compile Include="MEP\BHoM_Space.cs" />
+    <Compile Include="MEP\BHoM_SpatialElement.cs" />
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
+    <Compile Include="Structural\BHoM_Grid.cs" />
     <Compile Include="Structural\Factories\BHoM_ConstraintFactory.cs" />
+    <Compile Include="Structural\Factories\BHoM_GridFactory.cs" />
     <Compile Include="Structural\Factories\BHoM_LoadcaseFactory.cs" />
     <Compile Include="Structural\Factories\BHoM_NodeFactory.cs" />
     <Compile Include="Structural\Factories\BHoM_BarFactory.cs" />
@@ -134,8 +144,8 @@
   <PropertyGroup>
     <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Build\$(ProjectName).dll"
 copy /Y "$(TargetDir)$(ProjectName).xml" "$(SolutionDir)Build\$(ProjectName).xml"
-copy /Y "$(TargetDir)$(ProjectName).dll" "C:\Users\rmay\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).dll"
-copy /Y "$(TargetDir)$(ProjectName).xml" "C:\Users\rmay\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).xml"</PostBuildEvent>
+copy /Y "$(TargetDir)$(ProjectName).dll" "C:\Users\$(Username)\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).dll"
+copy /Y "$(TargetDir)$(ProjectName).xml" "C:\Users\$(Username)\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).xml</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

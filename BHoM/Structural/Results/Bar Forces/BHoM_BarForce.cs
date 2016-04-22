@@ -13,11 +13,11 @@ namespace BHoM.Structural.Results.Bars
         /// <summary>Position along the bar as an integer 0 = start, 1 = end</summary>
         public int Position { get; set; }
 
-        /// <summary>Position along the bar of the force. Set 0 for 1 for end</summary>
+        /// <summary>Position along the bar of the force relative to the bar length. Set 0 for 1 for end</summary>
         public double RelativePosition { get; set; }
 
         /// <summary>Represents the number of positions along the bar</summary>
-        public int Divisions { get; set; }
+        public int BarDivisions { get; set; }
 
         /// <summary>Loadcase</summary>
         public BHoM.Structural.Loads.Loadcase Loadcase { get; set; }

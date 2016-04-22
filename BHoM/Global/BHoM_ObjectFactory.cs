@@ -157,6 +157,8 @@ namespace BHoM.Global
         /// <param name="obj"></param>
         protected void Add(BHoMObject obj)
         {
+            if (obj.Number < 0)
+                obj.Number = FreeNumber();
             m_Data.Add(obj.Number.ToString(), obj);
             m_Project.AddObject(obj);
             m_FreeNumber = Math.Max(obj.Number, m_FreeNumber) + 1;
