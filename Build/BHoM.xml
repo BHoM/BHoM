@@ -203,12 +203,6 @@
             <param name="end_y"></param>
             <param name="end_z"></param>
         </member>
-        <member name="M:BHoM.Geometry.Line.#ctor(System.String)">
-            <summary>
-            Construct line from json
-            </summary>
-            <param name="json"></param>
-        </member>
         <member name="P:BHoM.Geometry.Line.MidPoint">
             <summary>Mid point of the line</summary>
         </member>
@@ -410,12 +404,6 @@
             Duplicate a point
             </summary>
             <param name="dup"></param>
-        </member>
-        <member name="M:BHoM.Geometry.Point.#ctor(System.String)">
-            <summary>
-            Create a point from Json
-            </summary>
-            <param name="json"></param>
         </member>
         <member name="P:BHoM.Geometry.Point.CartesianCoordinates">
             <summary>
@@ -1154,24 +1142,6 @@
             Phase ending time
             </summary>
         </member>
-        <member name="T:BHoM.Structural.Grid">
-            <summary>
-            Grid object
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.Grid.#ctor(BHoM.Geometry.ILine,System.String)">
-            <summary>
-            Construct a grid from a list of curves
-            </summary>
-            <param name="curves"></param>
-            <param name="name"></param>
-        </member>
-        <member name="M:BHoM.Structural.Grid.#ctor(System.String)">
-            <summary>
-            Construct a grid from a json string
-            </summary>
-            <param name="json"></param>
-        </member>
         <member name="T:BHoM.Structural.ConstraintFactory">
             <summary>
             
@@ -1237,38 +1207,6 @@
             </summary>
             <param name="name"></param>
             <param name="fixity">Constraint string x indicates fixity and f indices freedom must be 6 characters long or nothing will be returned</param>
-            <returns></returns>
-        </member>
-        <member name="T:BHoM.Structural.GridFactory">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BHoM.Structural.GridFactory.#ctor(BHoM.Global.Project)">
-            <summary>
-            
-            </summary>
-            <param name="p"></param>
-        </member>
-        <member name="M:BHoM.Structural.GridFactory.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
-            <summary>
-            
-            </summary>
-            <param name="p"></param>
-            <param name="Grids"></param>
-        </member>
-        <member name="M:BHoM.Structural.GridFactory.Create(BHoM.Geometry.ILine,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="number"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.GridFactory.Create(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="json"></param>
             <returns></returns>
         </member>
         <member name="T:BHoM.Structural.LoadcaseFactory">
@@ -2449,30 +2387,6 @@
             </summary>
             <param name="number"></param>
         </member>
-        <member name="T:BHoM.Structural.Results.Bars.BarForceCollection">
-            <summary>
-            Collection of bar forces, defines a set of bar forces with the
-            ability to get and set envelopes
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForceCollection.internalDict">
-            <summary>Bar force dictionary which forms the collection</summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.#ctor">
-            <summary>Constructs and empty bar force collection</summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.Add(BHoM.Structural.Results.Bars.BarForce,System.Double)">
-            <summary>Adds a bar force to the collection, using a key "LoadcaseNumber:BarNumber:ForcePosition:timeStep"</summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.TryGetBarForce(System.Int32,System.Int32,System.Int32,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="loadcaseNumber"></param>
-            <param name="barNumber"></param>
-            <param name="position"></param>
-            <returns></returns>
-        </member>
         <member name="T:BHoM.Structural.Results.Bars.IBarForce">
             <summary>
             Bar force interface class
@@ -2596,6 +2510,30 @@
         <member name="P:BHoM.Structural.Results.Bars.BarForceEnvelope.UserData">
             <summary>User text field for any user data</summary>
         </member>
+        <member name="T:BHoM.Structural.Results.Bars.BarForceCollection">
+            <summary>
+            Collection of bar forces, defines a set of bar forces with the
+            ability to get and set envelopes
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Bars.BarForceCollection.internalDict">
+            <summary>Bar force dictionary which forms the collection</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.#ctor">
+            <summary>Constructs and empty bar force collection</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.Add(BHoM.Structural.Results.Bars.BarForce)">
+            <summary>Adds a bar force to the collection, using a key "LoadcaseNumber:BarNumber:ForcePosition"</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.TryGetBarForce(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="loadcaseNumber"></param>
+            <param name="barNumber"></param>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
         <member name="T:BHoM.Structural.Results.Bars.BarForce">
             <summary>
             Bar force object contains a set of coexisting forces, bar reference
@@ -2658,83 +2596,6 @@
         </member>
         <member name="M:BHoM.Structural.Results.Bars.BarForce.#ctor(BHoM.Structural.Loads.Loadcase,System.Int32,System.Int32,BHoM.Geometry.Plane)">
             <summary>Construct a bar force with loadcases</summary>
-        </member>
-        <member name="T:BHoM.Structural.Results.Nodes.NodalResult">
-            <summary>
-            Bar force object contains a set of coexisting forces, bar reference
-            and orientation information
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.NodeNumber">
-            <summary>Associated bar number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Loadcase">
-            <summary>Loadcase</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.LoadcaseNumber">
-            <summary>Associated loadcase number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.LoadcaseName">
-            <summary>Associated loadcase name</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Translation">
-            <summary>Translation vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Rotation">
-            <summary>Rotation vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Acceleration">
-            <summary>Acceleration vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.AngularAcceleration">
-            <summary>Angular acceleration vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Velocity">
-            <summary>Velocity vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.AngularVelocity">
-            <summary>Angular velocity vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Force">
-            <summary>Force vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Moment">
-            <summary>Moment vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.OrientationPlane">
-            <summary>Orientation of node results</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.UserData">
-            <summary>User text field for any user data</summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Nodes.NodalResult.#ctor(System.Int32)">
-            <summary>Construct a nodal result</summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Nodes.NodalResult.#ctor(System.Int32,BHoM.Geometry.Plane)">
-            <summary>Construct a nodal result with orientation plane</summary>
-        </member>
-        <member name="T:BHoM.Structural.Results.Nodes.NodalResultCollection">
-            <summary>
-            Collection of bar forces, defines a set of bar forces with the
-            ability to get and set envelopes
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Nodes.NodalResultCollection.internalDict">
-            <summary>Nodal result dictionary which forms the collection</summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Nodes.NodalResultCollection.#ctor">
-            <summary>Constructs and empty nodal result collection</summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Nodes.NodalResultCollection.Add(BHoM.Structural.Results.Nodes.NodalResult,System.Double)">
-            <summary>Adds a nodal result to the collection, using a key "NodeNumber:timeStep"</summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Nodes.NodalResultCollection.TryGetNodalResult(System.Int32,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="nodeNumber"></param>
-            <param name="timeStep"></param>
-            <returns></returns>
         </member>
         <member name="T:BHoM.Structural.Results.Building.StoreyResult">
             <summary>

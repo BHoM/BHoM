@@ -22,14 +22,13 @@ namespace BHoM.Structural.Results.Bars
         //// METHODS ////
         /////////////////
 
-        /// <summary>Adds a bar force to the collection, using a key "LoadcaseNumber:BarNumber:ForcePosition:timeStep"</summary>
-        public void Add (BarForce barForce, double timeStep)
+        /// <summary>Adds a bar force to the collection, using a key "LoadcaseNumber:BarNumber:ForcePosition"</summary>
+        public void Add (BarForce barForce)
         {
             string key = 
                 System.Convert.ToString(barForce.LoadcaseNumber)+ ":" +
                 System.Convert.ToString(barForce.BarNumber) + ":" +
-                System.Convert.ToString(barForce.Position) + ":" +
-                System.Convert.ToString(timeStep);
+                System.Convert.ToString(barForce.Position);
             if (!internalDict.ContainsKey(key)) internalDict.Add(key, barForce);
         }
 
@@ -40,14 +39,13 @@ namespace BHoM.Structural.Results.Bars
         /// <param name="barNumber"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        public BarForce TryGetBarForce(int loadcaseNumber, int barNumber, int position, double timeStep)
+        public BarForce TryGetBarForce(int loadcaseNumber, int barNumber, int position)
         {
             BarForce barForce;
             internalDict.TryGetValue(
                 System.Convert.ToString(loadcaseNumber) + ":" +
                 System.Convert.ToString(barNumber) + ":" +
-                System.Convert.ToString(position) + ":" +
-                System.Convert.ToString(timeStep),
+                System.Convert.ToString(position),
                 out barForce);
             return barForce;
         }
