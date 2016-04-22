@@ -28,13 +28,13 @@ namespace BHoM.Structural
         public string SectionPropertyName { get; set; }
 
         /// <summary>Section property</summary>
-        public BHoM.Structural.Sections.SectionProperty SectionProperty
+        public BHoM.Structural.SectionProperties.SectionProperty SectionProperty
         {
             get
             {
-                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.SectionProperty)) as BHoM.Structural.Sections.SectionProperty;
+                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.SectionProperty)) as BHoM.Structural.SectionProperties.SectionProperty;
             }
-            private set
+            set
             {
                 Parameters.AddItem<Guid>(Global.Param.SectionProperty, value.BHoM_Guid);
             }
@@ -90,7 +90,7 @@ namespace BHoM.Structural
                 Parameters.AddItem<Guid>(Global.Param.EndNode, value.BHoM_Guid);
             } 
         }
-        
+
         /// <summary>The line defining the bar centre or location line</summary>
         public BHoM.Geometry.Line Line 
         { 
@@ -139,15 +139,6 @@ namespace BHoM.Structural
         internal Bar() { }
 
         /// <summary>
-        /// Construct a bar with a number
-        /// </summary>
-        /// <param name="barNumber"></param>
-        internal Bar(int barNumber)
-        {
-            this.Number = barNumber;
-        }
-
-        /// <summary>
         /// Construct a bar from BHoM nodes and set number
         /// </summary>
         /// <param name="barNumber"></param>
@@ -158,6 +149,14 @@ namespace BHoM.Structural
             this.StartNode = startNode;
             this.EndNode = endNode;
             this.Number = barNumber;
+            //if (StartNode.IsValid && EndNode.IsValid)
+            //{
+            //    this.Line = new Geometry.Line(startNode.Point, endNode.Point);
+            //    this.Length = Line.Length;
+
+            //    BHoM.Structural.SectionProperties.SteelBoxSection abc = new BHoM.Structural.SectionProperties.SteelBoxSection();
+                                 
+            //}
         }
 
         ///////////////
@@ -179,24 +178,6 @@ namespace BHoM.Structural
         }
 
         /// <summary>
-        /// Set the start node of a bar
-        /// </summary>
-        /// <param name="node"></param>
-        public void SetStartNode(Node node)
-        {
-            this.StartNode = node;
-        }
-
-        /// <summary>
-        /// Set the end node of a bar
-        /// </summary>
-        /// <param name="node"></param>
-        public void SetEndNode(Node node)
-        {
-            this.EndNode = node;
-        }
-
-        /// <summary>
         /// Set the storey which the bar belongs to
         /// </summary>
         /// <param name="storey"></param>
@@ -209,10 +190,10 @@ namespace BHoM.Structural
         /// Set the section property name. 
         /// </summary>
         /// <param name="sectionProperty"></param>
-        public void SetSectionProperty(BHoM.Structural.Sections.SectionProperty sectionProperty)
+        public void SetSectionProperty(BHoM.Structural.SectionProperties.SectionProperty sectionProperty)
         {
-            this.SectionProperty = sectionProperty;
-            this.SectionPropertyName = sectionProperty.Name;
+           this.SectionProperty = sectionProperty;
+           this.SectionPropertyName = sectionProperty.Name;
         }
 
         /// <summary>

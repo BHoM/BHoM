@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Global
 {
-    public static class BHoM_Utils
+    public static class Utils
     {
         public static List<T> IntToEnumList<T>(List<int> values)
         {
@@ -27,6 +27,35 @@ namespace BHoM.Global
                 result.Add(Convert.ToInt32(values[i]));
             }
             return result;
+        }
+    }
+
+    public static class Units
+    {
+        public enum LengthUnit
+        {
+            Millimetre,
+            Centimetre,
+            Metre,
+            Kilometre,
+            Inch,
+            Foot,
+            Yard
+        }
+
+        public enum TimeUnit
+        {
+            Millisecond,
+            Second,
+            Minute,
+            Hour
+        }
+
+        public enum TemperatureUnit
+        {
+            Celsius,
+            Kelvin,
+            Fahrenheit
         }
     }
 }

@@ -22,11 +22,11 @@ namespace BHoM.Structural
             get
             {
                 return m_DOFTypes != null ? m_DOFTypes :
-                    m_DOFTypes = Global.BHoM_Utils.IntToEnumList<DOFType>(Parameters.LookUp<List<int>>(Global.Param.DOFTypes));
+                    m_DOFTypes = Global.Utils.IntToEnumList<DOFType>(Parameters.LookUp<List<int>>(Global.Param.DOFTypes));
             }
             set
             {
-                Parameters.AddList<int>(Global.Param.DOFTypes, Global.BHoM_Utils.EnumToIntList<DOFType>(value));
+                Parameters.AddList<int>(Global.Param.DOFTypes, Global.Utils.EnumToIntList<DOFType>(value));
             }
         }
 

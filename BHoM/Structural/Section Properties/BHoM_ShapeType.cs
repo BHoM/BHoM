@@ -1,6 +1,6 @@
 ﻿
 
-namespace BHoM.Structural.Sections
+namespace BHoM.Structural.SectionProperties
 {
     /// <summary>
     /// Section shape time (circular, I section etc.)
@@ -11,10 +11,10 @@ namespace BHoM.Structural.Sections
        SteelI = 0,
         
        /// <summary>Steel circular section (CHS or fabricated)</summary>
-       SteelCircular,
+       SteelCircularHollow,
 
        /// <summary>Steel rectangular hollow section (RHS or fabricated)</summary>
-       SteelBox,
+       SteelRectangularHollow,
        
 
     }

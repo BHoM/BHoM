@@ -3,7 +3,7 @@
 using System;
 using BHoM.Materials;
 
-namespace BHoM.Structural.Sections
+namespace BHoM.Structural.SectionProperties
 {
     /// <summary>
     /// 

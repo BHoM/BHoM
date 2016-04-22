@@ -1,5 +1,5 @@
 ﻿using BHoM.Structural;
-using BHoM.Structural.Sections;
+using BHoM.Structural.SectionProperties;
 using System;
 using System.Collections.Generic;
 using System.Linq;

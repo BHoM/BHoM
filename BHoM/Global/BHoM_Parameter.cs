@@ -21,13 +21,6 @@ namespace BHoM.Global
        List
     }
 
-    public class ParameterFactory
-    {
-
-
-
-    }
-
     public interface IParam
     {
 
