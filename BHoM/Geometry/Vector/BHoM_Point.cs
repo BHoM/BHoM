@@ -91,6 +91,47 @@ namespace BHoM.Geometry
             Coordinates = Utils.Copy<double>(dup);
         }
 
+        /// <summary>
+        /// Create a point from json
+        /// </summary>
+        public static Point FromJSON(string json)
+        {
+            Point newPoint = new Point();
+            int i0 = json.IndexOf('{') + 1;
+            int i1 = json.LastIndexOf('}');
+            string[] parts = json.Substring(i0, i1-i0).Split(',');
+            foreach (string part in parts)
+            {
+                string[] pair = part.Split(':');
+                if (pair.Length != 2) continue;
+
+                string prop = pair[0].Trim().Replace("\"", "");
+                System.Reflection.PropertyInfo pInfo = newPoint.GetType().GetProperty(prop);
+                if (pInfo == null) continue;
+
+                Type pType = pInfo.PropertyType;
+                string valueString = pair[1].Trim().Replace("\"", "");
+                if (pType == typeof(System.String))
+                    pInfo.SetValue(newPoint, valueString);
+                else
+                {
+                    System.Reflection.MethodInfo jsonMethod = pType.GetMethod("FromJSON");
+                    if (jsonMethod != null)
+                        pInfo.SetValue(newPoint, jsonMethod.Invoke(newPoint, new object[] { valueString }));
+                    else
+                    {
+                        System.Reflection.MethodInfo parseMethod = pType.GetMethod("Parse", new Type[] { typeof(string) });
+                        if (parseMethod != null)
+                            pInfo.SetValue(newPoint, parseMethod.Invoke(newPoint, new object[] { valueString }));
+                    }
+                }
+                
+            }
+
+            return newPoint;
+        }
+
+
         public static implicit operator double[](Point v)
         {
             return v.Coordinates;
@@ -303,6 +344,11 @@ namespace BHoM.Geometry
         public override string ToString()
         {
             return "{" + X + ", " + Y + ", " + Z + "}";
+        }
+
+        public string ToJSON()
+        {
+            return "{\"X\": " + X + ", \"Y\": " + Y + ", \"Z\": " + Z + "}"; 
         }
 
         public BoundingBox Bounds()

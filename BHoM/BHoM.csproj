@@ -46,6 +46,7 @@
     <Compile Include="Generic\Graph.cs" />
     <Compile Include="Generic\GraphLink.cs" />
     <Compile Include="Generic\GraphNode.cs" />
+    <Compile Include="Generic\PriorityQueue.cs" />
     <Compile Include="Geometry\BHoM_BoundingBox.cs" />
     <Compile Include="Geometry\BHoM_Group.cs" />
     <Compile Include="Geometry\BHoM_IGeometry.cs" />
@@ -120,6 +121,8 @@
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForce.cs" />
     <Compile Include="Structural\Results\Building Results\BHoM_StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\BHoM_GlobalResult.cs" />
+    <Compile Include="Structural\Results\Nodal Results\BHoM_NodalResultCollection.cs" />
+    <Compile Include="Structural\Results\Nodal Results\BHoM_NodalResult.cs" />
     <Compile Include="Structural\Section Properties\BHoM_ShapeType.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCColumnRectangular.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCBeamRectangular.cs" />

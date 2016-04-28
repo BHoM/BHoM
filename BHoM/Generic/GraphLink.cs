@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Generic
 {
-    public class GraphLink<T>
+    public class GraphLink<T> : IComparable<GraphLink<T>>
     {
         public double Weight { get; set; }
         public GraphNode<T> StartNode { get; private set; }
@@ -27,6 +27,11 @@ namespace BHoM.Generic
                 return StartNode;
             else
                 return null;
+        }
+
+        public int CompareTo(GraphLink<T> other)
+        {
+            return Weight.CompareTo(other.Weight);
         }
     }
 }

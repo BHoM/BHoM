@@ -224,6 +224,11 @@
             </summary>
             <param name="dup"></param>
         </member>
+        <member name="M:BHoM.Geometry.Point.FromJSON(System.String)">
+            <summary>
+            Create a point from json
+            </summary>
+        </member>
         <member name="P:BHoM.Geometry.Point.IsValid">
             <summary>
             True if the point has valid coordinates
@@ -530,6 +535,16 @@
         </member>
         <member name="M:BHoM.Global.BHoMObject.GetPropertyNames">
             <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.ToJSON(System.String)">
+            <summary>
+            Method which convert the object as a Json string
+            </summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.FromJSON(System.String)">
+            <summary>
+            Method which convert the object as a Json string
+            </summary>
         </member>
         <member name="M:BHoM.Global.BHoMObject.Xml">
             <summary>
@@ -2026,10 +2041,10 @@
         <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.#ctor">
             <summary>Constructs and empty bar force collection</summary>
         </member>
-        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.GenerateKey(BHoM.Structural.Results.Bars.BarForce)">
+        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.GenerateKey(BHoM.Structural.Results.Bars.BarForce,System.Double)">
             <summary>Generates a key from a bar force object</summary>
         </member>
-        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.Add(BHoM.Structural.Results.Bars.BarForce)">
+        <member name="M:BHoM.Structural.Results.Bars.BarForceCollection.Add(BHoM.Structural.Results.Bars.BarForce,System.Double)">
             <summary>Add a bar force to a collection</summary>
         </member>
         <member name="T:BHoM.Structural.Results.Bars.BarForce">
@@ -2351,6 +2366,83 @@
             Sets the sum of mass for the given loadcase
             </summary>
             <param name="mass"></param>
+        </member>
+        <member name="T:BHoM.Structural.Results.Nodes.NodalResultCollection">
+            <summary>
+            Collection of bar forces, defines a set of bar forces with the
+            ability to get and set envelopes
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResultCollection.internalDict">
+            <summary>Nodal result dictionary which forms the collection</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Nodes.NodalResultCollection.#ctor">
+            <summary>Constructs and empty nodal result collection</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Nodes.NodalResultCollection.Add(BHoM.Structural.Results.Nodes.NodalResult,System.Double)">
+            <summary>Adds a nodal result to the collection, using a key "NodeNumber:timeStep"</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Nodes.NodalResultCollection.TryGetNodalResult(System.Int32,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="nodeNumber"></param>
+            <param name="timeStep"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Structural.Results.Nodes.NodalResult">
+            <summary>
+            Bar force object contains a set of coexisting forces, bar reference
+            and orientation information
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.NodeNumber">
+            <summary>Associated bar number</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Loadcase">
+            <summary>Loadcase</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.LoadcaseNumber">
+            <summary>Associated loadcase number</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.LoadcaseName">
+            <summary>Associated loadcase name</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Translation">
+            <summary>Translation vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Rotation">
+            <summary>Rotation vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Acceleration">
+            <summary>Acceleration vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.AngularAcceleration">
+            <summary>Angular acceleration vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Velocity">
+            <summary>Velocity vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.AngularVelocity">
+            <summary>Angular velocity vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Force">
+            <summary>Force vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.Moment">
+            <summary>Moment vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.OrientationPlane">
+            <summary>Orientation of node results</summary>
+        </member>
+        <member name="P:BHoM.Structural.Results.Nodes.NodalResult.UserData">
+            <summary>User text field for any user data</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Nodes.NodalResult.#ctor(System.Int32)">
+            <summary>Construct a nodal result</summary>
+        </member>
+        <member name="M:BHoM.Structural.Results.Nodes.NodalResult.#ctor(System.Int32,BHoM.Geometry.Plane)">
+            <summary>Construct a nodal result with orientation plane</summary>
         </member>
         <member name="T:BHoM.Structural.SectionProperties.ShapeType">
             <summary>

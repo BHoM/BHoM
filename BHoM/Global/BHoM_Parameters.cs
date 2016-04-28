@@ -82,6 +82,14 @@ namespace BHoM.Global
             return m_Parameters.Values.GetEnumerator();
         }
 
+        public int Count
+        {
+            get
+            {
+                return m_Parameters.Count;
+            }
+        }
+
       
         //internal void SetObject(string key, object value)
         //{

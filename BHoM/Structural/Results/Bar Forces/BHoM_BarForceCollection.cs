@@ -19,16 +19,16 @@ namespace BHoM.Structural.Results.Bars        // #AD - Not sure we actually need
         }
 
         /// <summary>Generates a key from a bar force object</summary>
-        private string GenerateKey (BarForce barForce)
+        private string GenerateKey (BarForce barForce, double timeStep)
         {
-            string key = barForce.BarNumber.ToString() + ":" + barForce.LoadcaseNumber.ToString() + ":" + barForce.ForcePosition;
+            string key = barForce.BarNumber.ToString() + ":" + barForce.LoadcaseNumber.ToString() + ":" + barForce.ForcePosition + ":" + timeStep.ToString();
             return key;
         }
 
         /// <summary>Add a bar force to a collection</summary>
-        public void Add (BarForce barForce)
+        public void Add (BarForce barForce, double timeStep)
         {
-            barForceDictionary.Add(GenerateKey(barForce), barForce);
+            barForceDictionary.Add(GenerateKey(barForce, timeStep), barForce);
         }
 
 
