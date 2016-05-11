@@ -42,16 +42,6 @@ namespace BHoM.Structural.Results.Global
         }
 
         /// <summary>
-        /// Constructs a global result by loadcase name and number. If name or number are not know, set to "" and 0 respectively.
-        /// </summary>
-        /// <param name="loadcaseNumber"></param>
-        /// <param name="loadcaseName"></param>
-        public GlobalResult(int loadcaseNumber, string loadcaseName)
-        {
-            this.Loadcase = new Loads.Loadcase(loadcaseNumber, loadcaseName);
-        }
-
-        /// <summary>
         /// Sets the base shear in X and Y for the loadcase
         /// </summary>
         /// <param name="vX"></param>

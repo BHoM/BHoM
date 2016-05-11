@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
-    public class VertexArray :IGeometry
+    public class VertexArray :GeometryBase
     {
         List<double[]> m_Array;
         private double[] m_Max;
@@ -17,7 +17,7 @@ namespace BHoM.Geometry
             m_Array = new List<double[]>();
         }
 
-        public BoundingBox Bounds()
+        public override BoundingBox Bounds()
         {
                 if (m_Max == null || m_Min == null) Update();
                 return new BoundingBox(new Point(m_Min), new Point(m_Max));
@@ -66,7 +66,7 @@ namespace BHoM.Geometry
             }
         }
 
-        public IGeometry Duplicate()
+        public override GeometryBase Duplicate()
         {
             return Copy();
         }
@@ -84,7 +84,7 @@ namespace BHoM.Geometry
             return array;
         }
 
-        public void Mirror(Plane p)
+        public override void Mirror(Plane p)
         {
             for (int i = 0; i < m_Array.Count; i++)
             {
@@ -93,7 +93,7 @@ namespace BHoM.Geometry
             }
         }
 
-        public void Project(Plane p)
+        public override void Project(Plane p)
         {
             for (int i = 0; i < m_Array.Count; i++)
             {
@@ -102,7 +102,7 @@ namespace BHoM.Geometry
             }
         }
 
-        public void Transform(Transform t)
+        public override void Transform(Transform t)
         {
             for (int i = 0; i < m_Array.Count; i++)
             {
@@ -110,7 +110,7 @@ namespace BHoM.Geometry
             }
         }
 
-        public void Translate(Vector v)
+        public override void Translate(Vector v)
         {
             for (int i = 0; i < m_Array.Count; i++)
             {
@@ -118,13 +118,23 @@ namespace BHoM.Geometry
             }
         }
 
-        public void Update()
+        public override void Update()
         {
             for (int i = 0; i < m_Array.Count; i++)
             {
                 m_Max = VectorUtils.Max(m_Max, m_Array[i]);
                 m_Min = VectorUtils.Max(m_Min, m_Array[i]);
             }
+        }
+
+        public override string ToJSON()
+        {
+            throw new NotImplementedException();
+        }
+
+        public GeometryBase FromJSON()
+        {
+            throw new NotImplementedException();
         }
     }
 }

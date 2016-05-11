@@ -18,6 +18,11 @@ namespace BHoM.Structural
         private double m_Length; 
         
         /// <summary>
+        /// Bar Number
+        /// </summary>
+        public int Number { get; set; }
+
+        /// <summary>
         /// Design type name for design purposes (e.g. Simple Column). Can be used to help 
         /// downstream selections/filters but shouldn't be confused with Groups, which are 
         /// unique to bars (bars and objects can be added to multiple object groups).
@@ -28,67 +33,25 @@ namespace BHoM.Structural
         public string SectionPropertyName { get; set; }
 
         /// <summary>Section property</summary>
-        public BHoM.Structural.SectionProperties.SectionProperty SectionProperty
-        {
-            get     // #AD - I think this is wrong. We should simply store sectionPropertyName or sectionProperty not do a lookup into a project
-            {
-                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.SectionProperty)) as BHoM.Structural.SectionProperties.SectionProperty;
-            }
-            set
-            {
-                Parameters.AddItem<Guid>(Global.Param.SectionProperty, value.BHoM_Guid);
-            }
-        }
+        public BHoM.Structural.SectionProperties.SectionProperty SectionProperty { get; set; }
         /// <summary>Material inherited from section property</summary>
-        public BHoM.Materials.Material Material 
-        { 
-            get
-            {
-                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.Material)) as Materials.Material;
-            }
-            set
-            {
-                Parameters.AddItem<Guid>(Global.Param.Material, value.BHoM_Guid);
-            }
-        }
+        public BHoM.Materials.Material Material  {  get; set; }
 
         /// <summary>Releases</summary>
-        public BHoM.Structural.BarRelease Release
-        {
-            get
-            {
-                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.Release)) as BarRelease;
-            }
-            set
-            {
-                Parameters.AddItem<Guid>(Global.Param.Release, value.BHoM_Guid);
-            }
-        }
+        public BHoM.Structural.BarRelease Release { get; set; }
 
         /// <summary>Start node</summary>
         public Node StartNode 
-        { 
-            get
-            {
-                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.StartNode)) as Node;
-            }
-            private set
-            {
-                Parameters.AddItem<Guid>(Global.Param.StartNode, value.BHoM_Guid);
-            }
+        {
+            get;
+            internal set;
         }
 
         /// <summary>End node</summary>
         public Node EndNode 
         {
-            get
-            {
-                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.EndNode)) as Node;
-            }
-            private set
-            {
-                Parameters.AddItem<Guid>(Global.Param.EndNode, value.BHoM_Guid);
-            } 
+            get;
+            internal set;
         }
 
         /// <summary>The line defining the bar centre or location line</summary>
@@ -117,14 +80,8 @@ namespace BHoM.Structural
         /// </summary>
         public double OrientationAngle
         {
-            get
-            {
-                return Parameters.LookUp<double>(Global.Param.Orientation);
-            }
-            set
-            {
-                Parameters.AddItem<double>(Global.Param.Orientation, value);
-            }
+            get;
+            set;
         }
         /// <summary>Construction phase</summary>
         public BHoM.Planning.Construction.ConstructionPhase ConstructionPhase {get; set;}

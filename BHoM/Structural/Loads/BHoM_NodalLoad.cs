@@ -11,45 +11,18 @@ namespace BHoM.Structural.Loads
     /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
     /// constructor allows for a default force and moment nodal load instance.
     /// </summary>
-    public class NodalLoad
+    public class PointForce : Load
     {
-        /// <summary>Loadcase as BHoM object</summary>
-        public BHoM.Structural.Loads.Loadcase Loadcase { get; private set; }
-
         /// <summary>Force - fx, fy, fz defined as a BHoM.Geometry.Vector</summary>
         public BHoM.Geometry.Vector Force { get; private set; }
 
         /// <summary>Moment - mx, my, mz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector Moment { get; private set; }
-
-        /// <summary>Translation - ux, uy, uz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector Translation { get; private set; }
-
-        /// <summary>Rotation - rx, ry, rz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector Rotation { get; private set; }
-
-        /// <summary>TranslationalVelocity - vx, vy, vz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector TranslationalVelocity { get; private set; }
-
-        /// <summary>RotationalVelocity - vrx, vry, vrz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector RotationalVelocity { get; private set; }
-
-        /// <summary>TranslationalAcceleration - ax, ay, az defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector TranslationalAcceleration { get; private set; }
-
-        /// <summary>RotationalAcceleration - arx, ary, arz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector RotationalAcceleration { get; private set; }
-
-        /// <summary>A list of node numbers that the nodal load is applicable to</summary>
-        public List<int> NodeNumbers { get; private set; }
-
-        /// <summary>Stores a load record number specific to Robot</summary>
-        public int RobotLoadRecordNumber { get; private set; }
+        public BHoM.Geometry.Vector Moment { get; private set; }   
 
         /// <summary>
         /// Create an empty nodal load as a placeholder
         /// </summary>
-        public NodalLoad() { }
+        public PointForce() { }
 
         /// <summary>
         /// Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
@@ -62,52 +35,12 @@ namespace BHoM.Structural.Loads
         /// <param name="mx"></param>
         /// <param name="my"></param>
         /// <param name="mz"></param>
-        public NodalLoad(BHoM.Structural.Loads.Loadcase loadcase, double fx, double fy, double fz, double mx, double my, double mz)
+        public PointForce(BHoM.Structural.Loads.Loadcase loadcase, double fx, double fy, double fz, double mx, double my, double mz)
         {
             this.Loadcase = loadcase;
             this.Force = new Vector(fx, fy, fz);
             this.Moment = new Vector(mx, my, mz);
         }
-
-        /// <summary>
-        /// Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
-        /// values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
-        /// </summary>
-        /// <param name="loadcaseNumber"></param>
-        /// <param name="loadcaseName"></param>
-        /// <param name="fx"></param>
-        /// <param name="fy"></param>
-        /// <param name="fz"></param>
-        /// <param name="mx"></param>
-        /// <param name="my"></param>
-        /// <param name="mz"></param>
-        public NodalLoad(int loadcaseNumber, string loadcaseName, double fx, double fy, double fz, double mx, double my, double mz)
-        {
-            this.Loadcase = new Loadcase(loadcaseNumber, loadcaseName);
-            this.Force = new Vector(fx, fy, fz);
-            this.Moment = new Vector(mx, my, mz);
-        }
-
-        /// <summary>
-        /// Sets the loadcase for the nodal force as a BHoM loadcase object
-        /// </summary>
-        /// <param name="loadcase"></param>
-        public void SetLoadcase(BHoM.Structural.Loads.Loadcase loadcase)
-        {
-            this.Loadcase = loadcase;
-        }
-
-        /// <summary>
-        /// Sets the loadcase for the nodal force as a BHoM loadcase object
-        /// </summary>
-        /// <param name="number"></param>
-        /// <param name="name"></param>
-        public void NewLoadcase(int number, string name)
-        {
-            this.Loadcase = new Loadcase(number, name);
-        }
-
-
 
         /// <summary>
         /// Set the forces of a nodal load
@@ -130,98 +63,120 @@ namespace BHoM.Structural.Loads
         {
             this.Moment = new Vector(mx, my, mz);
         }
+    }
+    /// <summary>
+    /// Point Displacement class
+    /// </summary>
+    public class PointDisplacement : Load
+    {
+        /// <summary>Translation - tx, ty, tz defined as a BHoM.Geometry.Vector</summary>
+        public BHoM.Geometry.Vector Translation { get; set; }
+
+        /// <summary>Rotation - rx, ry, rz defined as a BHoM.Geometry.Vector</summary>
+        public BHoM.Geometry.Vector Rotation { get; set; }
+        
+        /// <summary>Stores a load record number specific to Robot</summary>
+        public int RobotLoadRecordNumber { get; private set; }
 
         /// <summary>
-        /// Set translations of a nodal load (imposed displacements)
+        /// Create an empty nodal load as a placeholder
         /// </summary>
-        /// <param name="ux"></param>
-        /// <param name="uy"></param>
-        /// <param name="uz"></param>
-        public void SetTranslation(double ux, double uy, double uz)
-        {
-            this.Translation = new Vector(ux, uy, uz);
-        }
+        public PointDisplacement() { }
 
         /// <summary>
-        /// Set the rotations of a nodal load (imposed rotations)
+        /// Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
+        /// values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
         /// </summary>
-        /// <param name="rx"></param>
-        /// <param name="ry"></param>
-        /// <param name="rz"></param>
-        public void SetRotation(double rx, double ry, double rz)
+        /// <param name="loadcase"></param>
+        /// <param name="fx"></param>
+        /// <param name="fy"></param>
+        /// <param name="fz"></param>
+        /// <param name="mx"></param>
+        /// <param name="my"></param>
+        /// <param name="mz"></param>
+        public PointDisplacement(BHoM.Structural.Loads.Loadcase loadcase, double tx, double ty, double tz, double rx, double ry, double rz)
         {
+            this.Loadcase = loadcase;
+            this.Translation = new Vector(tx, ty, tz);
             this.Rotation = new Vector(rx, ry, rz);
         }
+    }
+
+    /// <summary>
+    /// Point Velocity class
+    /// </summary>
+    public class PointVelocity : Load
+    {
+        /// <summary>TranslationalVelocity - vx, vy, vz defined as a BHoM.Geometry.Vector</summary>
+        public BHoM.Geometry.Vector TranslationalVelocity { get; private set; }
+
+        /// <summary>RotationalVelocity - vrx, vry, vrz defined as a BHoM.Geometry.Vector</summary>
+        public BHoM.Geometry.Vector RotationalVelocity { get; private set; }
+
+        /// <summary>Stores a load record number specific to Robot</summary>
+        public int RobotLoadRecordNumber { get; private set; }
 
         /// <summary>
-        /// Set the translational velocities of a nodal load
+        /// Create an empty nodal load as a placeholder
         /// </summary>
-        /// <param name="vx"></param>
-        /// <param name="vy"></param>
-        /// <param name="vz"></param>
-        public void SetTranslationalVelocity(double vx, double vy, double vz)
+        public PointVelocity() { }
+
+        /// <summary>
+        /// Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
+        /// values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
+        /// </summary>
+        /// <param name="loadcase"></param>
+        /// <param name="fx"></param>
+        /// <param name="fy"></param>
+        /// <param name="fz"></param>
+        /// <param name="mx"></param>
+        /// <param name="my"></param>
+        /// <param name="mz"></param>
+        public PointVelocity(BHoM.Structural.Loads.Loadcase loadcase, double vx, double vy, double vz, double vrx, double vry, double vrz)
         {
+            this.Loadcase = loadcase;
             this.TranslationalVelocity = new Vector(vx, vy, vz);
-        }
-
-        /// <summary>
-        /// Set the rotational velocities of a nodal load
-        /// </summary>
-        /// <param name="vrx"></param>
-        /// <param name="vry"></param>
-        /// <param name="vrz"></param>
-        public void SetRotationalVelocity(double vrx, double vry, double vrz)
-        {
             this.RotationalVelocity = new Vector(vrx, vry, vrz);
         }
+    }
+
+    /// <summary>
+    /// Point Acceleration class
+    /// </summary>
+    public class PointAcceleration : Load
+    {
+        /// <summary>TranslationalAcceleration - ax, ay, az defined as a BHoM.Geometry.Vector</summary>
+        public BHoM.Geometry.Vector TranslationalAcceleration { get; private set; }
+
+        /// <summary>RotationalAcceleration - arx, ary, arz defined as a BHoM.Geometry.Vector</summary>
+        public BHoM.Geometry.Vector RotationalAcceleration { get; private set; }
+
+        /// <summary>Stores a load record number specific to Robot</summary>
+        public int RobotLoadRecordNumber { get; private set; }
 
         /// <summary>
-        /// Set the translational accelerations of a nodal load
+        /// Create an empty nodal load as a placeholder
         /// </summary>
-        /// <param name="ax"></param>
-        /// <param name="ay"></param>
-        /// <param name="az"></param>
-        public void SetTranslationalAcceleration(double ax, double ay, double az)
+        public PointAcceleration() { }
+
+        /// <summary>
+        /// Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
+        /// values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
+        /// </summary>
+        /// <param name="loadcase"></param>
+        /// <param name="fx"></param>
+        /// <param name="fy"></param>
+        /// <param name="fz"></param>
+        /// <param name="mx"></param>
+        /// <param name="my"></param>
+        /// <param name="mz"></param>
+        public PointAcceleration(BHoM.Structural.Loads.Loadcase loadcase, double ax, double ay, double az, double arx, double ary, double arz)
         {
+            this.Loadcase = loadcase;
             this.TranslationalAcceleration = new Vector(ax, ay, az);
-        }
-
-        /// <summary>
-        /// Set the rotational accelerations of a nodal load
-        /// </summary>
-        /// <param name="arx"></param>
-        /// <param name="ary"></param>
-        /// <param name="arz"></param>
-        public void SetRotationalAcceleration(double arx, double ary, double arz)
-        {
             this.RotationalAcceleration = new Vector(arx, ary, arz);
         }
-
-        /// <summary>
-        /// Add a node number to the list. If first number, a new list will be created.
-        /// </summary>
-        /// <param name="number"></param>
-        public void AddNodeNumber(int number)
-        {
-            if(this.NodeNumbers != null)
-            {
-                this.NodeNumbers.Add(number);
-            }
-            else
-            {
-                this.NodeNumbers = new List<int>();
-                this.NodeNumbers.Add(number);
-            }
-        }
-
-        /// <summary>
-        /// Set a record number for Robot loads - to retrieve later (and prevent duplicated loads)
-        /// </summary>
-        /// <param name="number"></param>
-        public void SetRobotLoadRecordNumber(int number)
-        {
-            this.RobotLoadRecordNumber = number;
-        }
-
     }
+
+
 }

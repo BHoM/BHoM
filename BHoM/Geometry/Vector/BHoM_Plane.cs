@@ -18,7 +18,7 @@ namespace BHoM.Geometry
         public Plane(Point origin, Vector normal)
         {          
             m_Normal = VectorUtils.Normalise(normal);
-            Origin = origin.Duplicate();
+            Origin = origin.DuplicatePoint();
             D = -VectorUtils.DotProduct(normal, origin);           
         }
 
@@ -26,7 +26,7 @@ namespace BHoM.Geometry
         {
             m_Normal = VectorUtils.Normalise(VectorUtils.CrossProduct(p2 - p1, p3 - p1));
             D = -VectorUtils.DotProduct(m_Normal, p1);
-            Origin = p1.Duplicate();
+            Origin = p1.DuplicatePoint();
         }
 
         internal Plane(double[] pnts)

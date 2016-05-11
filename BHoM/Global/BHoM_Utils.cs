@@ -28,6 +28,37 @@ namespace BHoM.Global
             }
             return result;
         }
+
+        internal static Dictionary<string, string> GetDefinitionFromJSON(string json)
+        {
+            int i0 = 0;
+            int level = 0;
+            string key = "";
+            string value = "";
+            string inside = json.Substring(json.IndexOf('{') + 1, json.LastIndexOf('}') - 1);
+
+            Dictionary<string, string> definition = new Dictionary<string, string>();
+            for (int i = 0; i < inside.Length; i++)
+            {
+                if (inside[i] == '{')
+                    level++;
+                else if (inside[i] == '}')
+                    level--;
+                else if (level == 0 && inside[i] == ':')
+                {
+                    key = inside.Substring(i0, i - i0).Trim().Replace("\"", "");
+                    i0 = i + 1;
+                }
+                else if (level == 0 && inside[i] == ',')
+                {
+                    value = inside.Substring(i0, i - i0).Trim();
+                    definition.Add(key, value);
+                    i0 = i + 1;
+                }
+            }
+
+            return definition;
+        }
     }
 
     public static class Units

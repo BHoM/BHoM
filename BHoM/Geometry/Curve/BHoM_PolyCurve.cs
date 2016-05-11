@@ -8,23 +8,23 @@ namespace BHoM.Geometry
 {
     public class PolyCurve : Curve
     {
-        private CurveArray m_CurveArray;
+        private List<Curve> m_Curves;
 
         internal PolyCurve() { }
         internal PolyCurve(Curve c1, Curve c2)
         {
-            m_CurveArray = new CurveArray(new List<Curve>() { c1, c2 });
+            m_Curves = new List<Curve>() { c1, c2 };
             m_Dimensions = 3;
         }
 
         public override void CreateNurbForm()
         {
-            m_Knots = new double[m_CurveArray.Count];
+            m_Knots = new double[m_Curves.Count];
 
             double accum = 0;
-            for (int i = 1; i < m_CurveArray.Count; i++)
+            for (int i = 1; i < m_Curves.Count; i++)
             {
-                accum += m_CurveArray[i].Domain[1];
+                accum += m_Curves[i].Domain[1];
                 m_Knots[i] = accum;
             }
             IsNurbForm = true;
@@ -34,7 +34,7 @@ namespace BHoM.Geometry
         {
             get
             {
-                return m_CurveArray.Count > 0 ? m_CurveArray[0].StartPoint : null;
+                return m_Curves.Count > 0 ? m_Curves[0].StartPoint : null;
             }
         }
 
@@ -42,7 +42,7 @@ namespace BHoM.Geometry
         {
             get
             {
-                return m_CurveArray.Count > 0 ? m_CurveArray[m_CurveArray.Count - 1].EndPoint : null;
+                return m_Curves.Count > 0 ? m_Curves[m_Curves.Count - 1].EndPoint : null;
             }
         }
 
@@ -51,7 +51,7 @@ namespace BHoM.Geometry
             int i = 0;
             while (t > m_Knots[i] && i < m_Knots.Length) i++;
 
-            return m_CurveArray[i].PointAt(t - m_Knots[i]);
+            return m_Curves[i].PointAt(t - m_Knots[i]);
         }
 
         public override Vector TangentAt(double t)
@@ -59,20 +59,27 @@ namespace BHoM.Geometry
             int i = 0;
             while (t > m_Knots[i] && i < m_Knots.Length) i++;
 
-            return m_CurveArray[i].TangentAt(t - m_Knots[i]);
+            return m_Curves[i].TangentAt(t - m_Knots[i]);
         }
 
         public override BoundingBox Bounds()
         {
-            return m_CurveArray.Bounds();            
+            Point max = m_Curves[0].Max;
+            Point min = m_Curves[0].Min;
+            for (int i = 1; i < m_Curves.Count; i++)
+            {
+                max = Point.Max(max, m_Curves[i].Max);
+                min = Point.Min(min, m_Curves[i].Min);
+            }
+            return new BoundingBox(min, max);
         }
 
         public override List<Curve> Explode()
         {
             List<Curve> exploded = new List<Curve>();
-            for (int i = 0; i < m_CurveArray.Count; i++)
+            for (int i = 0; i < m_Curves.Count; i++)
             {
-                exploded.AddRange(m_CurveArray[i].Explode());
+                exploded.AddRange(m_Curves[i].Explode());
             }
             return exploded;
         }
@@ -80,21 +87,25 @@ namespace BHoM.Geometry
         public override Curve DuplicateCurve()
         {
             PolyCurve c = base.DuplicateCurve() as PolyCurve;
-            c.m_CurveArray = m_CurveArray.Duplicate() as CurveArray;
-            return c;       
+            c.m_Curves = new List<Curve>();
+            for (int i = 0; i < m_Curves.Count; i++)
+            {
+                c.m_Curves.Add(m_Curves[i].DuplicateCurve());
+            }
+            return c;
         }
 
         public override Point ControlPoint(int i)
         {
             int currentIndex = i;
 
-            for (int j = 0; j < m_CurveArray.Count; j++)
+            for (int j = 0; j < m_Curves.Count; j++)
             {
-                if (currentIndex < m_CurveArray[j].NumControlPoints)
+                if (currentIndex < m_Curves[j].NumControlPoints)
                 {
-                    return m_CurveArray[j].ControlPoint(currentIndex);
+                    return m_Curves[j].ControlPoint(currentIndex);
                 }
-                currentIndex = currentIndex -m_CurveArray[j].NumControlPoints + 1;
+                currentIndex = currentIndex -m_Curves[j].NumControlPoints + 1;
             }
             return null;
         }
@@ -104,9 +115,9 @@ namespace BHoM.Geometry
             get
             {
                 int count = 0;
-                for (int i = 0; i < m_CurveArray.Count; i++)
+                for (int i = 0; i < m_Curves.Count; i++)
                 {
-                    count += m_CurveArray[i].NumControlPoints - 1;
+                    count += m_Curves[i].NumControlPoints - 1;
                 }
                 return count;
             }
@@ -125,41 +136,52 @@ namespace BHoM.Geometry
             return Plane.SamePlane(controlPoint, m_Dimensions);
         }
 
-        public override void Project(Plane p)
-        {
-            base.Project(p);
-            m_CurveArray.Project(p);
-        }
-
-        public override void Mirror(Plane p)
-        {
-            base.Mirror(p);
-            m_CurveArray.Mirror(p);
-        }
 
         public override void Transform(Transform t)
         {
-            base.Transform(t);
-            m_CurveArray.Transform(t);
+            for (int i = 0; i < m_Curves.Count; i++)
+            {
+                m_Curves[i].Transform(t);
+            }
         }
 
         public override void Translate(Vector v)
         {
-            base.Translate(v);
-            m_CurveArray.Translate(v);
+            for (int i = 0; i < m_Curves.Count; i++)
+            {
+                m_Curves[i].Translate(v);
+            }
+        }
+
+        public override void Mirror(Plane p)
+        {
+            for (int i = 0; i < m_Curves.Count; i++)
+            {
+                m_Curves[i].Mirror(p);
+            }
+        }
+
+        public override void Project(Plane p)
+        {
+            for (int i = 0; i < m_Curves.Count; i++)
+            {
+                m_Curves[i].Project(p);
+            }
         }
 
         public override void Update()
         {
-            base.Update();
-            m_CurveArray.Update();
+            for (int i = 0; i < m_Curves.Count; i++)
+            {
+                m_Curves[i].Update();
+            }
         }
 
         public override Curve Flip()
         {
-            for (int i = 0; i < m_CurveArray.Count; i++)
+            for (int i = 0; i < m_Curves.Count; i++)
             {
-                m_CurveArray[i].Flip();
+                m_Curves[i].Flip();
             }
             return base.Flip();
         }

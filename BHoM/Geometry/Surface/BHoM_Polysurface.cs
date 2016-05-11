@@ -8,7 +8,7 @@ namespace BHoM.Geometry
 {
     public class PolySurface : Surface
     {
-        private SurfaceArray m_Surfaces;
+        private Group<Surface> m_Surfaces;
 
         internal PolySurface()
         {

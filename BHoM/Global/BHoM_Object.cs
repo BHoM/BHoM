@@ -17,22 +17,14 @@ namespace BHoM.Global
         /// <summary>Name</summary>
         public string Name { get; internal set; }
 
-        /// <summary>Number</summary>
-        public int Number { get; internal set; }        // #AD - This should be moved to parameters and Guid should be used instead
-
-        /// <summary>Project</summary>
-        public Project Project { get; set; }            // #AD - I don't think this should be there at all
-
         /// <summary>Object parameters</summary>
-        public ObjectParameters Parameters { get; set; }
+        public ObjectParameters UserData { get; set; }
 
-        public BHoMObject()
+        internal BHoMObject()
         {
-            Parameters = new ObjectParameters();
-            Number = -1;
+            UserData = new ObjectParameters();
             this.BHoM_Guid = System.Guid.NewGuid();
         }
-
 
         //////////////
         ////Methods///
@@ -62,7 +54,10 @@ namespace BHoM.Global
             aResult += "\"Properties\": {";
             foreach (var prop in this.GetType().GetProperties())
             {
+                if (!prop.CanRead || !prop.CanWrite) continue;
+
                 var value = prop.GetValue(this, null);
+                
                 if (value == null) continue;
 
                 if (value is BHoMObject)
@@ -108,7 +103,7 @@ namespace BHoM.Global
         public static BHoMObject FromJSON(string json)
         {
             // Get the top level definition of the json content
-            Dictionary<string, string> definition = GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = Utils.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive") || !definition.ContainsKey("Properties")) return null;
 
             // Try to create an object that correponds the object type stored in "Primitive"
@@ -118,7 +113,7 @@ namespace BHoM.Global
             BHoMObject newObject = Activator.CreateInstance(type) as BHoMObject;
 
             // Get the definition of the properties
-            Dictionary<string, string> properties = GetDefinitionFromJSON(definition["Properties"]);
+            Dictionary<string, string> properties = Utils.GetDefinitionFromJSON(definition["Properties"]);
             foreach (KeyValuePair<string, string> kvp in properties)
             {
                 string prop = kvp.Key.Trim().Replace("\"", "");
@@ -145,65 +140,14 @@ namespace BHoM.Global
             }
 
             return newObject;
-        }
-
-        private static Dictionary<string, string> GetDefinitionFromJSON(string json)
-        {
-            int i0 = 0;
-            int level = 0;
-            string key = "";
-            string value = "";
-            string inside = json.Substring(json.IndexOf('{') + 1, json.LastIndexOf('}') - 1);
-
-            Dictionary<string, string> definition = new Dictionary<string, string>();
-            for (int i = 0; i < inside.Length; i++)
-            {
-                if (inside[i] == '{')
-                    level++;
-                else if (inside[i] == '}')
-                    level--;
-                else if (level == 0 && inside[i] == ':')
-                {
-                    key = inside.Substring(i0, i - i0).Trim().Replace("\"", "");
-                    i0 = i + 1;
-                }
-                else if (level == 0 && inside[i] == ',')
-                {
-                    value = inside.Substring(i0, i - i0).Trim();
-                    definition.Add(key, value);
-                    i0 = i + 1;
-                }
-            }
-
-            return definition;
-        }
-
+        }      
         /// <summary>
-        /// Convert object paramters to XML
+        /// BHoM Object will return its name as default 
         /// </summary>
         /// <returns></returns>
-        public virtual XmlNode Xml()
+        public override string ToString()
         {
-            XmlDocument doc = Project.m_Xml;
-
-            XmlNode objectNode = doc.CreateElement("BHoM_Object");
-            objectNode.Attributes.Append(doc.CreateAttribute("Id")).Value = BHoM_Guid.ToString();
-            objectNode.Attributes.Append(doc.CreateAttribute("Name")).Value = Name;
-            objectNode.Attributes.Append(doc.CreateAttribute("Number")).Value = Number.ToString();
-            objectNode.Attributes.Append(doc.CreateAttribute("Type")).Value = this.GetType().ToString();
-           
-            XmlNode parameter;
-            foreach (Parameter p in Parameters)
-            {
-                parameter = objectNode.AppendChild(doc.CreateElement("Parameter"));
-                parameter.Attributes.Append(doc.CreateAttribute("Name")).Value = p.Name;
-                parameter.Attributes.Append(doc.CreateAttribute("Type")).Value = p.GetType().ToString();
-                parameter.Attributes.Append(doc.CreateAttribute("Value")).Value = p.DataString();
-                parameter.Attributes.Append(doc.CreateAttribute("Access")).Value = p.Access.ToString();
-
-            }
-            return objectNode;
-        }       
-
+            return Name;
+        }
     }
 }

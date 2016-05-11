@@ -19,42 +19,21 @@ namespace BHoM.Structural
 
         internal List<DOFType> DOFTypes
         {
-            get
-            {
-                return m_DOFTypes != null ? m_DOFTypes :
-                    m_DOFTypes = Global.Utils.IntToEnumList<DOFType>(Parameters.LookUp<List<int>>(Global.Param.DOFTypes));
-            }
-            set
-            {
-                Parameters.AddList<int>(Global.Param.DOFTypes, Global.Utils.EnumToIntList<DOFType>(value));
-            }
+            get;
+            set;
         }
 
         internal List<double> Values
         {
-            get
-            {
-                return m_Values != null ? m_Values:
-                    m_Values = Parameters.LookUp<List<double>>(Global.Param.Values);
-            }
-            set
-            {
-                m_Values = value;
-                Parameters.AddList<double>(Global.Param.Values, value);
-            }
+            get;
+            set;
         }
 
         /// <summary>Constraint type</summary>
         public ConstraintType Type 
-        { 
-            get
-            {
-                return (ConstraintType)Enum.ToObject(typeof(ConstraintType), (Parameters.LookUp<int>(Global.Param.ConstraintType)));
-            }
-            private set
-            {
-                Parameters.AddItem<int>(Global.Param.ConstraintType, (int)value);
-            }
+        {
+            get;
+            set;
         }
 
         public DOF DOF(AxisDirection axisDir)
@@ -85,7 +64,6 @@ namespace BHoM.Structural
         /// </summary>
         public Constraint(string name)
         {
-            this.Number = -1;
             this.Name = name;
         }
 
@@ -192,15 +170,6 @@ namespace BHoM.Structural
             }
 
             return descriptions;
-        }
-
-        /// <summary>
-        /// Set the constraint number
-        /// </summary>
-        /// <param name="number"></param>
-        public void SetNumber(int number)
-        {
-            this.Number = number;
         }
     }
 }

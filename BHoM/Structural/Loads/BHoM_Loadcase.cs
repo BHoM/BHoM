@@ -3,72 +3,64 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Global;
 
 namespace BHoM.Structural.Loads
 {
     /// <summary>
     /// Loadcase class 
     /// </summary>
-    public class Loadcase
+    public abstract class Loadcase : BHoMObject
     {
-        /// <summary>Loadcase name</summary>
-        public string Name { get; private set; }
-
         /// <summary>Loadcase number</summary>
-        public int Number { get; private set; }
+        public int Number { get; set; }
 
         /// <summary>
-        /// Constructs an empty loadcase
+        /// Case Type
         /// </summary>
-        public Loadcase()
+        public abstract CaseType CaseType { get; }
+    }
+
+    /// <summary>
+    /// Simple Loadcase class
+    /// </summary>
+    public class SimpleCase : Loadcase
+    {
+        /// <summary>
+        /// Gets or Sets the loading nature of the loadcase
+        /// </summary>
+        public LoadNature Nature { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selfweight multiplier of the loadcase
+        /// </summary>
+        public double SelfWeightMultiplier { get; set; }
+
+
+        /// <summary>
+        /// Gets the Case type of loadcase
+        /// </summary>
+        public override CaseType CaseType
         {
+            get
+            {
+                return CaseType.Simple;
+            }
         }
 
         /// <summary>
-        /// Constructs a loadcase by name
+        /// 
         /// </summary>
-        /// <param name="name"></param>
-        public Loadcase(string name)
+        /// <param name="number">LC number</param>
+        /// <param name="name">LC name</param>
+        /// <param name="nature">Loading nature</param>
+        /// <param name="selfWeightMultiplier"></param>
+        public SimpleCase(int number, string name, LoadNature nature, double selfWeightMultiplier = 0)
         {
-            this.Name = name;
-        }
-
-        /// <summary>
-        /// Constructs a loadcase by number
-        /// </summary>
-        /// <param name="number"></param>
-        public Loadcase(int number)
-        {
-            this.Number = number;
-        }
-
-        /// <summary>
-        /// Constructrs a loadcase by name and number
-        /// </summary>
-        /// <param name="number"></param>
-        /// <param name="name"></param>
-        public Loadcase(int number, string name)
-        {
-            this.Number = number;
-            this.Name = name;
-        }
-
-        /// <summary>
-        /// Set the loadcase name
-        /// </summary>
-        /// <param name="name"></param>
-        public void SetName(string name)
-        {
-            this.Name = name;
-        }
-
-        /// <summary>
-        /// Set the loadcase number
-        /// </summary>
-        /// <param name="number"></param>
-        public void SetNumber(int number)
-        {
-            this.Number = number;
+            Number = number;
+            Name = name;
+            Nature = nature;
+            SelfWeightMultiplier = selfWeightMultiplier;
         }
     }
 }

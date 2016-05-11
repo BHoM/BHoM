@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
-    public abstract class Curve : IGeometry
+    public abstract class Curve : GeometryBase
     {
         protected bool IsNurbForm = false;
         protected double[] m_ControlPoints;
@@ -62,7 +62,7 @@ namespace BHoM.Geometry
             }
         }
 
-        public virtual BoundingBox Bounds()
+        public override BoundingBox Bounds()
         {
                 return new BoundingBox(Max, Min);
         }
@@ -220,30 +220,30 @@ namespace BHoM.Geometry
             return EndPoint == StartPoint;
         }
 
-        public virtual void Transform(Transform t)
+        public override void Transform(Transform t)
         {
             m_ControlPoints = VectorUtils.MultiplyMany(t, m_ControlPoints);
             Update();
         }
 
-        public virtual void Translate(Vector v)
+        public override void Translate(Vector v)
         {
             m_ControlPoints = VectorUtils.Add(m_ControlPoints, v);
         }
 
-        public virtual void Mirror(Plane p)
+        public override void Mirror(Plane p)
         {
             m_ControlPoints = VectorUtils.Add(VectorUtils.Multiply(p.ProjectionVectors(m_ControlPoints), 2), m_ControlPoints);
             Update();
         }
 
-        public virtual void Project(Plane p)
+        public override void Project(Plane p)
         {
             m_ControlPoints = VectorUtils.Add(p.ProjectionVectors(m_ControlPoints), m_ControlPoints);
             Update();
         }
 
-        public virtual void Update()
+        public override void Update()
         {
             m_MaxMin = null;
         }
@@ -291,7 +291,7 @@ namespace BHoM.Geometry
         }
 
         #endregion
-        public virtual IGeometry Duplicate()
+        public override GeometryBase Duplicate()
         {
             return DuplicateCurve();
         }
@@ -305,6 +305,16 @@ namespace BHoM.Geometry
             c.m_Knots = Common.Utils.Copy<double>(m_Knots);
             c.m_Order = m_Order;
             return c;
+        }
+
+        public override string ToJSON()
+        {
+            throw new NotImplementedException();
+        }
+
+        public GeometryBase FromJSON()
+        {
+            throw new NotImplementedException();
         }
     }
 }

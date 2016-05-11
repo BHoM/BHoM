@@ -234,6 +234,12 @@
             True if the point has valid coordinates
             </summary>
         </member>
+        <member name="M:BHoM.Geometry.Point.DuplicatePoint">
+            <summary>
+            Duplicates a point
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:BHoM.Geometry.Point.Duplicate">
             <summary>
             Duplicates a point
@@ -524,13 +530,7 @@
         <member name="P:BHoM.Global.BHoMObject.Name">
             <summary>Name</summary>
         </member>
-        <member name="P:BHoM.Global.BHoMObject.Number">
-            <summary>Number</summary>
-        </member>
-        <member name="P:BHoM.Global.BHoMObject.Project">
-            <summary>Project</summary>
-        </member>
-        <member name="P:BHoM.Global.BHoMObject.Parameters">
+        <member name="P:BHoM.Global.BHoMObject.UserData">
             <summary>Object parameters</summary>
         </member>
         <member name="M:BHoM.Global.BHoMObject.GetPropertyNames">
@@ -546,83 +546,89 @@
             Method which convert the object as a Json string
             </summary>
         </member>
-        <member name="M:BHoM.Global.BHoMObject.Xml">
+        <member name="M:BHoM.Global.BHoMObject.ToString">
             <summary>
-            Convert object paramters to XML
+            BHoM Object will return its name as default 
             </summary>
             <returns></returns>
         </member>
-        <member name="T:BHoM.Global.ObjectCollection">
+        <member name="T:BHoM.Global.ObjectCollection`1">
             <summary>
             
             </summary>
         </member>
-        <member name="M:BHoM.Global.ObjectCollection.#ctor(BHoM.Global.Project)">
+        <member name="M:BHoM.Global.ObjectCollection`1.#ctor">
+            <summary>
+            
+            </summary>
+            <param name="project"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectCollection`1.#ctor(BHoM.Global.Project,System.Collections.Generic.IEnumerable{`0})">
             <summary>
             
             </summary>
             <param name="project"></param>
         </member>
-        <member name="M:BHoM.Global.ObjectCollection.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject})">
-            <summary>
-            
-            </summary>
-            <param name="project"></param>
-            <param name="items"></param>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection.#ctor(BHoM.Global.Project,System.Collections.Generic.List{BHoM.Global.BHoMObject},System.String)">
-            <summary>
-            
-            </summary>
-            <param name="project"></param>
-            <param name="items"></param>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection.SetKeyParameter(System.String)">
+        <member name="M:BHoM.Global.ObjectCollection`1.SetUniqueByUserData(System.String)">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="P:BHoM.Global.ObjectCollection.Item(System.Int32)">
+        <member name="M:BHoM.Global.ObjectCollection`1.SetUniqueByProperty(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectCollection`1.OfClass(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Global.ObjectCollection`1.Item(System.Int32)">
             <summary>
             
             </summary>
             <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="P:BHoM.Global.ObjectCollection.Item(System.String)">
+        <member name="P:BHoM.Global.ObjectCollection`1.Item(System.String)">
             <summary>
             
             </summary>
             <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="M:BHoM.Global.ObjectCollection.Contains(System.String)">
+        <member name="M:BHoM.Global.ObjectCollection`1.Contains(System.String)">
             <summary>
             
             </summary>
             <param name="nameKey"></param>
             <returns></returns>
         </member>
-        <member name="M:BHoM.Global.ObjectCollection.Add(BHoM.Global.BHoMObject)">
+        <member name="M:BHoM.Global.ObjectCollection`1.Add(`0)">
             <summary>
             
             </summary>
             <param name="obj"></param>
         </member>
-        <member name="M:BHoM.Global.ObjectCollection.FreeNumber">
+        <member name="M:BHoM.Global.ObjectCollection`1.UniqueNumber">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BHoM.Global.ObjectCollection.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:BHoM.Global.ObjectCollection`1.System#Collections#IEnumerable#GetEnumerator">
             <summary></summary>
         </member>
-        <member name="M:BHoM.Global.ObjectCollection.GetEnumerator">
+        <member name="M:BHoM.Global.ObjectCollection`1.GetEnumerator">
             <summary></summary>
         </member>
-        <member name="P:BHoM.Global.ObjectCollection.Count">
+        <member name="P:BHoM.Global.ObjectCollection`1.Count">
             <summary>
             
             </summary>
@@ -664,14 +670,8 @@
         <member name="P:BHoM.Global.Project.Structure">
             <summary>Structure property - gets or sets the structure of the object as a BHoM.Structural.Structure</summary>
         </member>
-        <member name="P:BHoM.Global.Project.Number">
-            <summary>Structure number</summary>
-        </member>
         <member name="P:BHoM.Global.Project.Name">
             <summary>Structure name</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Storeys">
-            <summary>Dictionary of storeys</summary>
         </member>
         <member name="P:BHoM.Global.Project.Tolerance">
             <summary>Tolerance of structure for node merge etc</summary>
@@ -1070,12 +1070,6 @@
         <member name="M:BHoM.Structural.Constraint.GetDescriptions">
             <summary>Returns the descriptions for each DOF type</summary>
         </member>
-        <member name="M:BHoM.Structural.Constraint.SetNumber(System.Int32)">
-            <summary>
-            Set the constraint number
-            </summary>
-            <param name="number"></param>
-        </member>
         <member name="T:BHoM.Structural.Storey">
             <summary>
             Storey class to store information about building storeys for post processing of results
@@ -1132,6 +1126,11 @@
         <member name="T:BHoM.Structural.Bar">
             <summary>
             Bar objects for 1D finite element bars. Note, cable elements separate.
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Bar.Number">
+            <summary>
+            Bar Number
             </summary>
         </member>
         <member name="P:BHoM.Structural.Bar.DesignGroupName">
@@ -1269,6 +1268,11 @@
         <member name="T:BHoM.Structural.Node">
             <summary>
             Node objects
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Node.Number">
+            <summary>
+            Node Number
             </summary>
         </member>
         <member name="P:BHoM.Structural.Node.Point">
@@ -1487,6 +1491,11 @@
         </member>
         <member name="P:BHoM.Structural.Structure.Tolerance">
             <summary>Tolerance of structure for node merge etc</summary>
+        </member>
+        <member name="P:BHoM.Structural.Structure.NodeCollection">
+            <summary>
+            Collection of Node objects
+            </summary>
         </member>
         <member name="M:BHoM.Structural.Structure.SortNodalFaces">
             <summary>
@@ -1743,58 +1752,50 @@
         <member name="P:BHoM.Structural.Loads.Load.Loadcase">
             <summary>Loadcase as BHoM object</summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.Load.ObjectNumbers">
-            <summary>A list of node numbers that the nodal load is applicable to</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.Load.RecordNumber">
-            <summary>Stores a load record number specific to Robot</summary>
+        <member name="P:BHoM.Structural.Loads.Load.Objects">
+            <summary>A list of structural elements numbers that the nodal load is applicable to</summary>
         </member>
         <member name="T:BHoM.Structural.Loads.Loadcase">
             <summary>
             Loadcase class 
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.Loadcase.Name">
-            <summary>Loadcase name</summary>
-        </member>
         <member name="P:BHoM.Structural.Loads.Loadcase.Number">
             <summary>Loadcase number</summary>
         </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor">
+        <member name="P:BHoM.Structural.Loads.Loadcase.CaseType">
             <summary>
-            Constructs an empty loadcase
+            Case Type
             </summary>
         </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor(System.String)">
+        <member name="T:BHoM.Structural.Loads.SimpleCase">
             <summary>
-            Constructs a loadcase by name
+            Simple Loadcase class
             </summary>
-            <param name="name"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor(System.Int32)">
+        <member name="P:BHoM.Structural.Loads.SimpleCase.Nature">
             <summary>
-            Constructs a loadcase by number
+            Gets or Sets the loading nature of the loadcase
             </summary>
-            <param name="number"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor(System.Int32,System.String)">
+        <member name="P:BHoM.Structural.Loads.SimpleCase.SelfWeightMultiplier">
             <summary>
-            Constructrs a loadcase by name and number
+            Gets or sets the selfweight multiplier of the loadcase
             </summary>
-            <param name="number"></param>
-            <param name="name"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.SetName(System.String)">
+        <member name="P:BHoM.Structural.Loads.SimpleCase.CaseType">
             <summary>
-            Set the loadcase name
+            Gets the Case type of loadcase
             </summary>
-            <param name="name"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.Loadcase.SetNumber(System.Int32)">
+        <member name="M:BHoM.Structural.Loads.SimpleCase.#ctor(System.Int32,System.String,BHoM.Structural.Loads.LoadNature,System.Double)">
             <summary>
-            Set the loadcase number
+            
             </summary>
-            <param name="number"></param>
+            <param name="number">LC number</param>
+            <param name="name">LC name</param>
+            <param name="nature">Loading nature</param>
+            <param name="selfWeightMultiplier"></param>
         </member>
         <member name="T:BHoM.Structural.Loads.LoadCombination">
             <summary>
@@ -1802,51 +1803,24 @@
             on the combinations of loads with load factors
             </summary>
         </member>
-        <member name="T:BHoM.Structural.Loads.NodalLoad">
+        <member name="T:BHoM.Structural.Loads.PointForce">
             <summary>
             Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
             constructor allows for a default force and moment nodal load instance.
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Loadcase">
-            <summary>Loadcase as BHoM object</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Force">
+        <member name="P:BHoM.Structural.Loads.PointForce.Force">
             <summary>Force - fx, fy, fz defined as a BHoM.Geometry.Vector</summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Moment">
+        <member name="P:BHoM.Structural.Loads.PointForce.Moment">
             <summary>Moment - mx, my, mz defined as a BHoM.Geometry.Vector</summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Translation">
-            <summary>Translation - ux, uy, uz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.Rotation">
-            <summary>Rotation - rx, ry, rz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.TranslationalVelocity">
-            <summary>TranslationalVelocity - vx, vy, vz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.RotationalVelocity">
-            <summary>RotationalVelocity - vrx, vry, vrz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.TranslationalAcceleration">
-            <summary>TranslationalAcceleration - ax, ay, az defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.RotationalAcceleration">
-            <summary>RotationalAcceleration - arx, ary, arz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.NodeNumbers">
-            <summary>A list of node numbers that the nodal load is applicable to</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.NodalLoad.RobotLoadRecordNumber">
-            <summary>Stores a load record number specific to Robot</summary>
-        </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.#ctor">
+        <member name="M:BHoM.Structural.Loads.PointForce.#ctor">
             <summary>
             Create an empty nodal load as a placeholder
             </summary>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.#ctor(BHoM.Structural.Loads.Loadcase,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:BHoM.Structural.Loads.PointForce.#ctor(BHoM.Structural.Loads.Loadcase,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
             values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
@@ -1859,34 +1833,7 @@
             <param name="my"></param>
             <param name="mz"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.#ctor(System.Int32,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
-            values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
-            </summary>
-            <param name="loadcaseNumber"></param>
-            <param name="loadcaseName"></param>
-            <param name="fx"></param>
-            <param name="fy"></param>
-            <param name="fz"></param>
-            <param name="mx"></param>
-            <param name="my"></param>
-            <param name="mz"></param>
-        </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetLoadcase(BHoM.Structural.Loads.Loadcase)">
-            <summary>
-            Sets the loadcase for the nodal force as a BHoM loadcase object
-            </summary>
-            <param name="loadcase"></param>
-        </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.NewLoadcase(System.Int32,System.String)">
-            <summary>
-            Sets the loadcase for the nodal force as a BHoM loadcase object
-            </summary>
-            <param name="number"></param>
-            <param name="name"></param>
-        </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetForce(System.Double,System.Double,System.Double)">
+        <member name="M:BHoM.Structural.Loads.PointForce.SetForce(System.Double,System.Double,System.Double)">
             <summary>
             Set the forces of a nodal load
             </summary>
@@ -1894,7 +1841,7 @@
             <param name="fy"></param>
             <param name="fz"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetMoment(System.Double,System.Double,System.Double)">
+        <member name="M:BHoM.Structural.Loads.PointForce.SetMoment(System.Double,System.Double,System.Double)">
             <summary>
             Set the moments of a nodal load
             </summary>
@@ -1902,65 +1849,101 @@
             <param name="my"></param>
             <param name="mz"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetTranslation(System.Double,System.Double,System.Double)">
+        <member name="T:BHoM.Structural.Loads.PointDisplacement">
             <summary>
-            Set translations of a nodal load (imposed displacements)
+            Point Displacement class
             </summary>
-            <param name="ux"></param>
-            <param name="uy"></param>
-            <param name="uz"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetRotation(System.Double,System.Double,System.Double)">
-            <summary>
-            Set the rotations of a nodal load (imposed rotations)
-            </summary>
-            <param name="rx"></param>
-            <param name="ry"></param>
-            <param name="rz"></param>
+        <member name="P:BHoM.Structural.Loads.PointDisplacement.Translation">
+            <summary>Translation - tx, ty, tz defined as a BHoM.Geometry.Vector</summary>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetTranslationalVelocity(System.Double,System.Double,System.Double)">
-            <summary>
-            Set the translational velocities of a nodal load
-            </summary>
-            <param name="vx"></param>
-            <param name="vy"></param>
-            <param name="vz"></param>
+        <member name="P:BHoM.Structural.Loads.PointDisplacement.Rotation">
+            <summary>Rotation - rx, ry, rz defined as a BHoM.Geometry.Vector</summary>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetRotationalVelocity(System.Double,System.Double,System.Double)">
-            <summary>
-            Set the rotational velocities of a nodal load
-            </summary>
-            <param name="vrx"></param>
-            <param name="vry"></param>
-            <param name="vrz"></param>
+        <member name="P:BHoM.Structural.Loads.PointDisplacement.RobotLoadRecordNumber">
+            <summary>Stores a load record number specific to Robot</summary>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetTranslationalAcceleration(System.Double,System.Double,System.Double)">
+        <member name="M:BHoM.Structural.Loads.PointDisplacement.#ctor">
             <summary>
-            Set the translational accelerations of a nodal load
+            Create an empty nodal load as a placeholder
             </summary>
-            <param name="ax"></param>
-            <param name="ay"></param>
-            <param name="az"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetRotationalAcceleration(System.Double,System.Double,System.Double)">
+        <member name="M:BHoM.Structural.Loads.PointDisplacement.#ctor(BHoM.Structural.Loads.Loadcase,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Set the rotational accelerations of a nodal load
+            Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
+            values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
             </summary>
-            <param name="arx"></param>
-            <param name="ary"></param>
-            <param name="arz"></param>
+            <param name="loadcase"></param>
+            <param name="fx"></param>
+            <param name="fy"></param>
+            <param name="fz"></param>
+            <param name="mx"></param>
+            <param name="my"></param>
+            <param name="mz"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.AddNodeNumber(System.Int32)">
+        <member name="T:BHoM.Structural.Loads.PointVelocity">
             <summary>
-            Add a node number to the list. If first number, a new list will be created.
+            Point Velocity class
             </summary>
-            <param name="number"></param>
         </member>
-        <member name="M:BHoM.Structural.Loads.NodalLoad.SetRobotLoadRecordNumber(System.Int32)">
+        <member name="P:BHoM.Structural.Loads.PointVelocity.TranslationalVelocity">
+            <summary>TranslationalVelocity - vx, vy, vz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.PointVelocity.RotationalVelocity">
+            <summary>RotationalVelocity - vrx, vry, vrz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.PointVelocity.RobotLoadRecordNumber">
+            <summary>Stores a load record number specific to Robot</summary>
+        </member>
+        <member name="M:BHoM.Structural.Loads.PointVelocity.#ctor">
             <summary>
-            Set a record number for Robot loads - to retrieve later (and prevent duplicated loads)
+            Create an empty nodal load as a placeholder
             </summary>
-            <param name="number"></param>
+        </member>
+        <member name="M:BHoM.Structural.Loads.PointVelocity.#ctor(BHoM.Structural.Loads.Loadcase,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
+            values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
+            </summary>
+            <param name="loadcase"></param>
+            <param name="fx"></param>
+            <param name="fy"></param>
+            <param name="fz"></param>
+            <param name="mx"></param>
+            <param name="my"></param>
+            <param name="mz"></param>
+        </member>
+        <member name="T:BHoM.Structural.Loads.PointAcceleration">
+            <summary>
+            Point Acceleration class
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.PointAcceleration.TranslationalAcceleration">
+            <summary>TranslationalAcceleration - ax, ay, az defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.PointAcceleration.RotationalAcceleration">
+            <summary>RotationalAcceleration - arx, ary, arz defined as a BHoM.Geometry.Vector</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.PointAcceleration.RobotLoadRecordNumber">
+            <summary>Stores a load record number specific to Robot</summary>
+        </member>
+        <member name="M:BHoM.Structural.Loads.PointAcceleration.#ctor">
+            <summary>
+            Create an empty nodal load as a placeholder
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.Loads.PointAcceleration.#ctor(BHoM.Structural.Loads.Loadcase,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
+            values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
+            </summary>
+            <param name="loadcase"></param>
+            <param name="fx"></param>
+            <param name="fy"></param>
+            <param name="fz"></param>
+            <param name="mx"></param>
+            <param name="my"></param>
+            <param name="mz"></param>
         </member>
         <member name="T:BHoM.Structural.Results.Bars.BarForceEnvelope">
             <summary>
@@ -2183,25 +2166,11 @@
             </summary>
             <param name="loadcase"></param>
         </member>
-        <member name="M:BHoM.Structural.Results.Building.StoreyResult.#ctor(System.Int32,System.String)">
-            <summary>
-            Constructs a storey result by loadcase name and number. If name or number are not know, set to "" and 0 respectively.
-            </summary>
-            <param name="loadcaseNumber"></param>
-            <param name="loadcaseName"></param>
-        </member>
         <member name="M:BHoM.Structural.Results.Building.StoreyResult.SetLoadcase(BHoM.Structural.Loads.Loadcase)">
             <summary>
             Sets the loadcase by using an existing BHoM loadcase object
             </summary>
             <param name="loadcase"></param>
-        </member>
-        <member name="M:BHoM.Structural.Results.Building.StoreyResult.SetLoadcase(System.Int32,System.String)">
-            <summary>
-            Sets the loadcase by constructing a new BHoM loadcase object
-            </summary>
-            <param name="number"></param>
-            <param name="name"></param>
         </member>
         <member name="M:BHoM.Structural.Results.Building.StoreyResult.SetDrift(System.Double,System.Double)">
             <summary>
@@ -2334,13 +2303,6 @@
             Constructs a global result using a BHoM loadcase object
             </summary>
             <param name="loadcase"></param>
-        </member>
-        <member name="M:BHoM.Structural.Results.Global.GlobalResult.#ctor(System.Int32,System.String)">
-            <summary>
-            Constructs a global result by loadcase name and number. If name or number are not know, set to "" and 0 respectively.
-            </summary>
-            <param name="loadcaseNumber"></param>
-            <param name="loadcaseName"></param>
         </member>
         <member name="M:BHoM.Structural.Results.Global.GlobalResult.SetBaseShear(System.Double,System.Double)">
             <summary>
