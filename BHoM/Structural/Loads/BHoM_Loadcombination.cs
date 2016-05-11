@@ -11,9 +11,16 @@ namespace BHoM.Structural.Loads
     /// on the combinations of loads with load factors
     /// </summary>
     [Serializable]
-    public class LoadCombination
+    public class LoadCombination : Loadcase
     {
-       
+
         //Combination
+        public override CaseType CaseType
+        {
+            get
+            {
+                return CaseType.Combination;
+            }
+        }
     }
 }

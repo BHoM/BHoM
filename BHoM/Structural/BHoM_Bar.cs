@@ -101,18 +101,19 @@ namespace BHoM.Structural
         /// <param name="barNumber"></param>
         /// <param name="startNode"></param>
         /// <param name="endNode"></param>
-        internal Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, int barNumber)
+        public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, int barNumber)
         {
             this.StartNode = startNode;
             this.EndNode = endNode;
             this.Number = barNumber;
+            Name = barNumber.ToString();
             //if (StartNode.IsValid && EndNode.IsValid)
             //{
             //    this.Line = new Geometry.Line(startNode.Point, endNode.Point);
             //    this.Length = Line.Length;
 
             //    BHoM.Structural.SectionProperties.SteelBoxSection abc = new BHoM.Structural.SectionProperties.SteelBoxSection();
-                                 
+
             //}
         }
 

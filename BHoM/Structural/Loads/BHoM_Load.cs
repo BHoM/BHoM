@@ -12,13 +12,13 @@ namespace BHoM.Structural.Loads
     /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
     /// constructor allows for a default force and moment nodal load instance.
     /// </summary>
-    public abstract class Load : BHoMObject
+    public interface ILoad<T> where T : BHoMObject
     {
         /// <summary>Loadcase as BHoM object</summary>
-        public BHoM.Structural.Loads.Loadcase Loadcase { get; set; }
+        BHoM.Structural.Loads.Loadcase Loadcase { get; set; }
 
          /// <summary>A list of structural elements numbers that the nodal load is applicable to</summary>
-        public ObjectCollection Objects { get; set; }
+        List<T> Objects { get; set; }
         
     }
 }

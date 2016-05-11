@@ -17,6 +17,7 @@ namespace BHoM.Global
     {
         private enum Option
         {
+            Default,
             Property,
             UserData
         }
@@ -35,6 +36,13 @@ namespace BHoM.Global
         {
             m_Project = Project.ActiveProject;
             m_Data = new Dictionary<string, T>();
+            foreach (BHoMObject obj in m_Project.Objects)
+            {
+                if (obj.GetType() == typeof(T))
+                {
+                    m_Data.Add(obj.Name, obj as T);
+                }
+            }
         }
 
         /// <summary>
@@ -45,12 +53,26 @@ namespace BHoM.Global
         {
             m_Project = project;
             m_Data = new Dictionary<string, T>();
-            m_Option = Option.Property;
-            m_Name = "Name";
             foreach (T obj in data)
             {
                 m_Data.Add(obj.Name, obj);
             }
+        }
+
+        /// <summary>
+        ///  sets the unique identifier to the default which is the name of the object
+        /// </summary>
+        /// <returns></returns>
+        public ObjectCollection<T> SetUniqueDefault()
+        {
+            ObjectCollection<T> newCollection = new ObjectCollection<T>();
+            newCollection.m_Option = Option.Default;
+            foreach (T value in m_Data.Values)
+            {
+                newCollection.Add(value);
+            }
+
+            return newCollection;
         }
 
         /// <summary>
@@ -59,17 +81,15 @@ namespace BHoM.Global
         /// <returns></returns>
         public ObjectCollection<T> SetUniqueByUserData(string name)
         {
-            m_Option = Option.UserData;
-            m_Name = name;
-            Dictionary<string, T> newDictionary = new Dictionary<string, T>();
+            ObjectCollection<T> newCollection = new ObjectCollection<T>();
+            newCollection.m_Name = name;
+            newCollection.m_Option = Option.UserData;
             foreach (T value in m_Data.Values)
             {
-                newDictionary.Add(value.UserData[name].DataString(), value);
+                newCollection.Add(value);
             }
 
-            m_Data = newDictionary;
-            
-            return this;
+            return newCollection;
         }
         /// <summary>
         /// 
@@ -78,32 +98,32 @@ namespace BHoM.Global
         /// <returns></returns>
         public ObjectCollection<T> SetUniqueByProperty(string name)
         {
-            m_Option = Option.Property;
-            m_Name = name;
-            Dictionary<string, T> newDictionary = new Dictionary<string, T>();
-            foreach (T obj in m_Data.Values)
+            ObjectCollection<T> newCollection = new ObjectCollection<T>();
+            newCollection.m_Name = name;
+            newCollection.m_Option = Option.Property;
+            foreach (T value in m_Data.Values)
             {
-                System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(name);
-                if (pInfo != null)
-                {
-                    newDictionary.Add(pInfo.GetValue(obj).ToString(), obj);
-                }
+                newCollection.Add(value);
             }
 
-            m_Data = newDictionary;
-            return this;
+            return newCollection;
         }
+        
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="t"></param>
-        /// <returns></returns>
-        public ObjectCollection<T> OfClass(Type t)
-        {
-            IEnumerable<T> data = m_Project.Objects.Cast<T>().Where(obj => obj.GetType() == t);
-            return new ObjectCollection<T>(m_Project, data);
-        }
+        //public ObjectCollection<T> GetAll()
+        //{
+        //    ObjectCollection<T> newCollection = new ObjectCollection<T>();
+        //    newCollection.m_Name = this.m_Name;
+        //    newCollection.m_Option = this.m_Option;
+        //    foreach (BHoMObject obj in m_Project.Objects)
+        //    {
+        //        if (obj.GetType() == typeof(T))
+        //        {
+        //            newCollection.m_Data.Add(obj.Name, obj as T);
+        //        }
+        //    }
+        //    return newCollection;
+        //}
 
         /// <summary>
         /// 
@@ -147,6 +167,9 @@ namespace BHoM.Global
             }
         }
 
+        /// <summary>
+        /// Returns all the unique identifiers of the collection
+        /// </summary>
         public List<string> Keys
         {
             get
@@ -167,25 +190,46 @@ namespace BHoM.Global
         }
 
         /// <summary>
-        /// 
+        /// Adds an object to the collection using a data key based on the specified option. Note: key must be unique or object won't be added.
         /// </summary>
-        /// <param name="obj"></param>
-        protected void Add(T obj)
+        /// <param name="obj">BHoMObject to add</param>
+        /// <returns>True if the object was added to collection, false otherwise</returns>
+        public bool Add(T obj)
         {
-            if (m_Option == Option.Property)
+            bool result = false;
+            switch (m_Option)
             {
-                System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(m_Name);
-                if (pInfo != null)
-                {
-                    m_Data.Add(pInfo.GetValue(obj).ToString(), obj);
-                }
+                case Option.Default:
+                     result = Add(obj.Name, obj);
+                    break;
+                case Option.Property:
+                    System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(m_Name);
+                    if (pInfo != null)
+                    {
+                        result = Add(pInfo.GetValue(obj).ToString(), obj);
+                    }
+                    break;
+                case Option.UserData:
+                    result = Add(obj.UserData[m_Name].DataString(), obj);
+                    break;
             }
-            else
+            if (result)
             {
-                m_Data.Add(obj.UserData[m_Name].DataString(), obj);
+                m_Project.AddObject(obj);
+                m_UniqueNumber = m_UniqueNumber > 0 ? m_UniqueNumber + 1 : 0;
             }
-            m_Project.AddObject(obj);
-            m_UniqueNumber = m_UniqueNumber > 0 ? m_UniqueNumber + 1 : 0;
+            return result;
+        }
+
+        private bool Add(string key, T obj)
+        {
+            T value;
+            if (!m_Data.TryGetValue(key, out value))
+            {
+                m_Data.Add(key, obj);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -199,17 +243,21 @@ namespace BHoM.Global
                 foreach (T obj in m_Data.Values)
                 {
                     string value = "";
-                    if (m_Option == Option.Property)
+                    switch (m_Option)
                     {
-                        System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(m_Name);
-                        if (pInfo != null)
-                        {
-                            value = pInfo.GetValue(obj).ToString();
-                        }
-                    }
-                    else
-                    {
-                        value =  obj.UserData[m_Name].Value.ToString();
+                        case Option.Default:
+                            value = obj.Name;
+                            break;
+                        case Option.Property:
+                            System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(m_Name);
+                            if (pInfo != null)
+                            {
+                                value = pInfo.GetValue(obj).ToString();
+                            }
+                            break;
+                        case Option.UserData:
+                            value = obj.UserData[m_Name].Value.ToString();
+                            break;
                     }
 
                     int currentValue = 0;
@@ -219,7 +267,7 @@ namespace BHoM.Global
                     }
                 }
             }
-            return m_UniqueNumber;
+            return ++m_UniqueNumber;
         }
 
 
@@ -234,36 +282,6 @@ namespace BHoM.Global
         {
             return new BHoMObjectEnum(m_Data.Values.ToArray());
         }
-
-
-
-        //public T AddUnique(T item, bool checkNumber)
-        //{
-        //    BHoMObject obj = item as BHoMObject;
-        //    if (obj != null)
-        //    {
-        //        int counter = 0;
-        //        foreach (T element in m_Data)
-        //        {
-        //            BHoMObject currentObj = element as BHoMObject;
-        //            if (currentObj.Name == obj.Name)
-        //            {
-        //                break;
-        //            }
-        //            counter++;
-        //        }
-        //        if (counter == 0)
-        //        {
-        //            m_Data.Add(item);
-        //            m_Project.AddObject(obj);
-        //        }
-        //        else
-        //        {
-        //            return m_Data[counter];
-        //        }
-        //    }
-        //    return default(T);
-        //}
 
         /// <summary>
         /// 

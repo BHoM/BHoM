@@ -6,15 +6,6 @@ using System.Threading.Tasks;
 
 namespace BHoM.Global
 {
-    //public enum StorageType
-    //{
-    //    Integer,
-    //    Double,
-    //    String,
-    //    Id,
-    //    Generic
-    //}
-
     public enum AccessType
     {
        Item,

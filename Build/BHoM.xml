@@ -584,7 +584,7 @@
         </member>
         <member name="M:BHoM.Global.ObjectCollection`1.OfClass(System.Type)">
             <summary>
-            
+            Filters all the objects in the collection by class
             </summary>
             <param name="t"></param>
             <returns></returns>
@@ -603,6 +603,11 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="P:BHoM.Global.ObjectCollection`1.Keys">
+            <summary>
+            Returns all the unique identifiers of the collection
+            </summary>
+        </member>
         <member name="M:BHoM.Global.ObjectCollection`1.Contains(System.String)">
             <summary>
             
@@ -612,7 +617,7 @@
         </member>
         <member name="M:BHoM.Global.ObjectCollection`1.Add(`0)">
             <summary>
-            
+            Add a BHoMObject to the collection
             </summary>
             <param name="obj"></param>
         </member>
@@ -1728,14 +1733,44 @@
             Point load along a bar
             </summary>
         </member>
-        <member name="T:BHoM.Structural.Loads.BarTemperatureLoad">
+        <member name="P:BHoM.Structural.Loads.BarPointLoad.Loadcase">
             <summary>
-            Temperature load on a bar
+            Loadcase of load
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.BarPointLoad.Objects">
+            <summary>
+             Bars which have been assigned with this loading value
             </summary>
         </member>
         <member name="T:BHoM.Structural.Loads.BarUniformlyDistributedLoad">
             <summary>
-            Uniformly distributed load on a bar
+            Uniform load on bar
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.BarUniformlyDistributedLoad.Loadcase">
+            <summary>
+            Loadcase of load
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.BarUniformlyDistributedLoad.Objects">
+            <summary>
+             Bars which have been assigned with this loading value
+            </summary>
+        </member>
+        <member name="T:BHoM.Structural.Loads.BarTemperatureLoad">
+            <summary>
+            bar temperature load class
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.BarTemperatureLoad.Loadcase">
+            <summary>
+            Loadcase of load
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.BarTemperatureLoad.Objects">
+            <summary>
+             Bars which have been assigned with this loading value
             </summary>
         </member>
         <member name="T:BHoM.Structural.Loads.BarVaryingDistributedLoad">
@@ -1743,16 +1778,26 @@
             Varying load on a bar
             </summary>
         </member>
-        <member name="T:BHoM.Structural.Loads.Load">
+        <member name="P:BHoM.Structural.Loads.BarVaryingDistributedLoad.Loadcase">
+            <summary>
+            Loadcase of load
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.BarVaryingDistributedLoad.Objects">
+            <summary>
+             Bars which have been assigned with this loading value
+            </summary>
+        </member>
+        <member name="T:BHoM.Structural.Loads.ILoad`1">
             <summary>
             Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
             constructor allows for a default force and moment nodal load instance.
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.Load.Loadcase">
+        <member name="P:BHoM.Structural.Loads.ILoad`1.Loadcase">
             <summary>Loadcase as BHoM object</summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.Load.Objects">
+        <member name="P:BHoM.Structural.Loads.ILoad`1.Objects">
             <summary>A list of structural elements numbers that the nodal load is applicable to</summary>
         </member>
         <member name="T:BHoM.Structural.Loads.Loadcase">
@@ -1815,6 +1860,11 @@
         <member name="P:BHoM.Structural.Loads.PointForce.Moment">
             <summary>Moment - mx, my, mz defined as a BHoM.Geometry.Vector</summary>
         </member>
+        <member name="P:BHoM.Structural.Loads.PointForce.Objects">
+            <summary>
+             Nodes which have been assigned with this loading
+            </summary>
+        </member>
         <member name="M:BHoM.Structural.Loads.PointForce.#ctor">
             <summary>
             Create an empty nodal load as a placeholder
@@ -1863,6 +1913,16 @@
         <member name="P:BHoM.Structural.Loads.PointDisplacement.RobotLoadRecordNumber">
             <summary>Stores a load record number specific to Robot</summary>
         </member>
+        <member name="P:BHoM.Structural.Loads.PointDisplacement.Loadcase">
+            <summary>
+            Loadcase of load
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.PointDisplacement.Objects">
+            <summary>
+             Nodes which have been assigned with this loading
+            </summary>
+        </member>
         <member name="M:BHoM.Structural.Loads.PointDisplacement.#ctor">
             <summary>
             Create an empty nodal load as a placeholder
@@ -1895,6 +1955,16 @@
         <member name="P:BHoM.Structural.Loads.PointVelocity.RobotLoadRecordNumber">
             <summary>Stores a load record number specific to Robot</summary>
         </member>
+        <member name="P:BHoM.Structural.Loads.PointVelocity.Loadcase">
+            <summary>
+            Loadcase of load
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.PointVelocity.Objects">
+            <summary>
+             Nodes which have been assigned with this loading
+            </summary>
+        </member>
         <member name="M:BHoM.Structural.Loads.PointVelocity.#ctor">
             <summary>
             Create an empty nodal load as a placeholder
@@ -1926,6 +1996,16 @@
         </member>
         <member name="P:BHoM.Structural.Loads.PointAcceleration.RobotLoadRecordNumber">
             <summary>Stores a load record number specific to Robot</summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.PointAcceleration.Loadcase">
+            <summary>
+            Loadcase of load
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Loads.PointAcceleration.Objects">
+            <summary>
+             Nodes which have been assigned with this loading
+            </summary>
         </member>
         <member name="M:BHoM.Structural.Loads.PointAcceleration.#ctor">
             <summary>
