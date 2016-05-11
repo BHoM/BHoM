@@ -11,7 +11,7 @@ namespace BHoM.Geometry
     /// BHoM Point object
     /// </summary>
     [Serializable]
-    public class Point : IGeometry
+    public class Point : GeometryBase
     {
         private double[] Coordinates;
 
@@ -159,11 +159,20 @@ namespace BHoM.Geometry
        /// Duplicates a point
        /// </summary>
        /// <returns></returns>
-        public Point Duplicate()
+        public Point DuplicatePoint()
         {
             return new Point(this);
         }
 
+
+        /// <summary>
+        /// Duplicates a point
+        /// </summary>
+        /// <returns></returns>
+        public override GeometryBase Duplicate()
+        {
+            return DuplicatePoint();
+        }
         /// <summary>
         /// Vector operations a-b
         /// </summary>
@@ -333,57 +342,44 @@ namespace BHoM.Geometry
             }
         }
 
-        public Guid Id
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public override string ToString()
         {
             return "{" + X + ", " + Y + ", " + Z + "}";
         }
 
-        public string ToJSON()
-        {
-            return "{\"X\": " + X + ", \"Y\": " + Y + ", \"Z\": " + Z + "}"; 
-        }
-
-        public BoundingBox Bounds()
+        public override BoundingBox Bounds()
         {
             throw new NotImplementedException();
         }
 
-        public void Transform(Transform t)
+        public override void Transform(Transform t)
         {
             throw new NotImplementedException();
         }
 
-        public void Translate(Vector v)
+        public override void Translate(Vector v)
         {
             throw new NotImplementedException();
         }
 
-        public void Mirror(Plane p)
+        public override void Mirror(Plane p)
         {
             throw new NotImplementedException();
         }
 
-        public void Project(Plane p)
+        public override void Project(Plane p)
         {
             throw new NotImplementedException();
         }
 
-        public void Update()
+        public override void Update()
         {
             throw new NotImplementedException();
-        }
+        }        
 
-        IGeometry IGeometry.Duplicate()
+        public override string ToJSON()
         {
-            throw new NotImplementedException();
+            return "{\"X\": " + X + ", \"Y\": " + Y + ", \"Z\": " + Z + "}";
         }
     }
 }

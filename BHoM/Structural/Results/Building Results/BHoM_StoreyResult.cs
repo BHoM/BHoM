@@ -82,17 +82,7 @@ namespace BHoM.Structural.Results.Building
         public StoreyResult(BHoM.Structural.Loads.Loadcase loadcase)
         {
             this.Loadcase = loadcase;
-        }
-
-        /// <summary>
-        /// Constructs a storey result by loadcase name and number. If name or number are not know, set to "" and 0 respectively.
-        /// </summary>
-        /// <param name="loadcaseNumber"></param>
-        /// <param name="loadcaseName"></param>
-        public StoreyResult(int loadcaseNumber, string loadcaseName)
-        {
-            this.Loadcase = new Loads.Loadcase(loadcaseNumber, loadcaseName);
-        }
+        }  
 
         /// <summary>
         /// Sets the loadcase by using an existing BHoM loadcase object
@@ -101,16 +91,6 @@ namespace BHoM.Structural.Results.Building
         public void SetLoadcase(BHoM.Structural.Loads.Loadcase loadcase)
         {
             this.Loadcase = loadcase;
-        }
-
-        /// <summary>
-        /// Sets the loadcase by constructing a new BHoM loadcase object
-        /// </summary>
-        /// <param name="number"></param>
-        /// <param name="name"></param>
-        public void SetLoadcase(int number, string name)
-        {
-            this.Loadcase = new Loads.Loadcase(number, name);
         }
 
         /// <summary>

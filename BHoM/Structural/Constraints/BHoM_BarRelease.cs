@@ -14,27 +14,15 @@ namespace BHoM.Structural
         /// <summary>Start constraint</summary>
         public BHoM.Structural.Constraint StartConstraint 
         {
-            get
-            {
-                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.StartConstraint)) as Constraint;
-            }
-            set
-            {
-                Parameters.AddItem<Guid>(Global.Param.Constraint, value.BHoM_Guid);
-            }
+            get;
+            set;
         }
 
         /// <summary>End constraint</summary>
         public BHoM.Structural.Constraint EndConstraint
         {
-            get
-            {
-                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.EndConstraint)) as Constraint;
-            }
-            set
-            {
-                Parameters.AddItem<Guid>(Global.Param.Constraint, value.BHoM_Guid);
-            }
+            get;
+            set;
         }
 
         /// <summary>Construct a new constraint using constraint objects for start/end releases</summary>

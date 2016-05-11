@@ -49,14 +49,13 @@
     <Compile Include="Generic\PriorityQueue.cs" />
     <Compile Include="Geometry\BHoM_BoundingBox.cs" />
     <Compile Include="Geometry\BHoM_Group.cs" />
-    <Compile Include="Geometry\BHoM_IGeometry.cs" />
+    <Compile Include="Geometry\BHoM_GeometryBase.cs" />
     <Compile Include="Geometry\BHoM_Quarternion.cs" />
     <Compile Include="Geometry\BHoM_Transform.cs" />
     <Compile Include="Geometry\BHoM_Utils.cs" />
     <Compile Include="Geometry\Curve\BHoM_Arc.cs" />
     <Compile Include="Geometry\Curve\BHoM_Circle.cs" />
     <Compile Include="Geometry\Curve\BHoM_Curve.cs" />
-    <Compile Include="Geometry\Curve\BHoM_CurveArray.cs" />
     <Compile Include="Geometry\Curve\BHoM_Line.cs" />
     <Compile Include="Geometry\Curve\BHoM_PolyCurve.cs" />
     <Compile Include="Geometry\Curve\BHoM_Polyline.cs" />
@@ -66,7 +65,6 @@
     <Compile Include="Geometry\Mesh\BHoM_VertexArray.cs" />
     <Compile Include="Geometry\Surface\BHoM_Polysurface.cs" />
     <Compile Include="Geometry\Surface\BHoM_Surface.cs" />
-    <Compile Include="Geometry\Surface\BHoM_SurfaceArray.cs" />
     <Compile Include="Geometry\Surface\BHoM_TrimmedSurface.cs" />
     <Compile Include="Geometry\Vector\BHoM_Plane.cs" />
     <Compile Include="Geometry\Vector\BHoM_Point.cs" />
@@ -74,7 +72,6 @@
     <Compile Include="Geometry\Vector\BHoM_VectorUtils.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
     <Compile Include="Global\BHoM_ObjectCollection.cs" />
-    <Compile Include="Global\BHoM_Param.cs" />
     <Compile Include="Global\BHoM_Parameter.cs" />
     <Compile Include="Global\BHoM_Parameters.cs" />
     <Compile Include="Global\BHoM_Project.cs" />
@@ -115,6 +112,7 @@
     <Compile Include="Structural\Loads\BHoM_Load.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcase.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcombination.cs" />
+    <Compile Include="Structural\Loads\BHoM_LoadEnums.cs" />
     <Compile Include="Structural\Loads\BHoM_NodalLoad.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceEnvelope.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceCollection.cs" />
