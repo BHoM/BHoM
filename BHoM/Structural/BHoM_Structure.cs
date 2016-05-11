@@ -37,6 +37,7 @@ namespace BHoM.Structural
         {
             get
             {
+                return new ObjectCollection<Node>();
             }
         }
 

@@ -48,46 +48,35 @@ namespace BHoM.Global
         public virtual string ToJSON(string extra = "")
         {
             string aResult = "{";
-            aResult += string.Format("\"{0}\": \"{1}\",", "Primitive", "{"+GetType().AssemblyQualifiedName+"}");
+            aResult += string.Format("\"{0}\": {1},", "Primitive", "{\""+GetType().AssemblyQualifiedName+"\"}");
 
             // Write all the properties
             aResult += "\"Properties\": {";
             foreach (var prop in this.GetType().GetProperties())
             {
                 if (!prop.CanRead || !prop.CanWrite) continue;
-
                 var value = prop.GetValue(this, null);
-                
                 if (value == null) continue;
 
-                if (value is BHoMObject)
-                    aResult += string.Format("\"{0}\": \"{1}\",", prop.Name, (value as BHoMObject).BHoM_Guid);
-                else if (value.GetType().GetMethod("ToJSON") != null)
-                    aResult += string.Format("\"{0}\": {1},", prop.Name, value.GetType().GetMethod("ToJSON").Invoke(value, null));
-                else
-                    aResult += string.Format("\"{0}\": \"{1}\",", prop.Name, value.ToString());
+                aResult += Utils.WriteProperty(prop.Name, value);
             }
             if (aResult.Last() == ',')
                 aResult = aResult.Substring(0, aResult.Length - 1);
             aResult += "}";
 
-            // Write all the parameters
-            aResult += ",\"Parameters\": {";
-            foreach (Parameter param in Parameters)
-            {
-                var value = param.Value;
-                if (value == null) continue;
+            //aResult += ",\"UserData\": {";
+            //foreach (Parameter param in UserData)
+            //{
+            //    var value = param.Value;
+            //    if (value == null) continue;
 
-                if (value is BHoMObject)
-                    aResult += string.Format("\"{0}\": \"{1}\",", param.Name, (value as BHoMObject).BHoM_Guid);
-                else if (value.GetType().GetMethod("ToJSON") != null)
-                    aResult += string.Format("\"{0}\": {1},", param.Name, value.GetType().GetMethod("ToJSON").Invoke(value, null));
-                else
-                    aResult += string.Format("\"{0}\": \"{1}\",", param.Name, value.ToString());
-            }           
-            if (aResult.Last() == ',')
-                aResult = aResult.Substring(0, aResult.Length - 1);
-            aResult += "}";
+            //    if (value is BHoMObject)
+            //        aResult += string.Format("\"{0}\": \"{1}\",", param.Name, (value as BHoMObject).BHoM_Guid);
+            //    else if (value.GetType().GetMethod("ToJSON") != null)
+            //        aResult += string.Format("\"{0}\": {1},", param.Name, value.GetType().GetMethod("ToJSON").Invoke(value, null));
+            //    else
+            //        aResult += string.Format("\"{0}\": \"{1}\",", param.Name, value.ToString());
+            //}           
 
             // Write the extra information
             if (extra.Length > 0)
@@ -110,33 +99,47 @@ namespace BHoM.Global
             var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
             Type type = Type.GetType(typeString);
             if (type == null) return null;
-            BHoMObject newObject = Activator.CreateInstance(type) as BHoMObject;
+            BHoMObject newObject = Activator.CreateInstance(type, true) as BHoMObject;
 
             // Get the definition of the properties
             Dictionary<string, string> properties = Utils.GetDefinitionFromJSON(definition["Properties"]);
             foreach (KeyValuePair<string, string> kvp in properties)
             {
                 string prop = kvp.Key.Trim().Replace("\"", "");
-                System.Reflection.PropertyInfo pInfo = newObject.GetType().GetProperty(prop);
-                if (pInfo == null) continue;
-
-                Type pType = pInfo.PropertyType;
                 string valueString = kvp.Value.Trim().Replace("\"", "");
-                if (pType == typeof(System.String))
-                    pInfo.SetValue(newObject, valueString);
-                else
-                {
-                    System.Reflection.MethodInfo jsonMethod = pType.GetMethod("FromJSON");
-                    if (jsonMethod != null)
-                        pInfo.SetValue(newObject, jsonMethod.Invoke(newObject, new object[] { valueString }));
-                    else
-                    {
-                        System.Reflection.MethodInfo parseMethod = pType.GetMethod("Parse", new Type[] { typeof(string) });
-                        if (parseMethod != null)
-                            pInfo.SetValue(newObject, parseMethod.Invoke(newObject, new object[] { valueString }));
-                    }
-                }
+                Utils.ReadProperty(newObject, prop, valueString);
 
+                //System.Reflection.PropertyInfo pInfo = newObject.GetType().GetProperty(prop);
+                //if (pInfo == null) continue;
+
+                //Type pType = pInfo.PropertyType;
+                //string valueString = kvp.Value.Trim().Replace("\"", "");
+                //if (pType == typeof(System.String))
+                //    pInfo.SetValue(newObject, valueString);
+                //else if (pType.BaseType == typeof(BHoMObject))
+                //{
+                //    BHoMObject b = Project.ActiveProject.GetObject(new Guid(valueString));
+                //    if (b != null)
+                //    {
+                //        pInfo.SetValue(newObject, b);
+                //    }
+                //    else
+                //    {
+                //        Project.ActiveProject.AddTask(new Task());
+                //    }
+                //}
+                //else
+                //{
+                //    System.Reflection.MethodInfo jsonMethod = pType.GetMethod("FromJSON");
+                //    if (jsonMethod != null)
+                //        pInfo.SetValue(newObject, jsonMethod.Invoke(newObject, new object[] { valueString }));
+                //    else
+                //    {
+                //        System.Reflection.MethodInfo parseMethod = pType.GetMethod("Parse", new Type[] { typeof(string) });
+                //        if (parseMethod != null)
+                //            pInfo.SetValue(newObject, parseMethod.Invoke(newObject, new object[] { valueString }));
+                //    }
+                //}
             }
 
             return newObject;
@@ -147,7 +150,7 @@ namespace BHoM.Global
         /// <returns></returns>
         public override string ToString()
         {
-            return Name;
+            return this.GetType().Name + ": " + Name;
         }
     }
 }
