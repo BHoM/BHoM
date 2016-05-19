@@ -7,7 +7,7 @@ namespace BHoM.Geometry
     /// BHoM Plane object
     /// </summary>
     [Serializable]
-    public class Plane
+    public class Plane : GeometryBase
     {
         //Plane: ax + by + cz + d = 0
         //Normal: { a, b, c, 0 }
@@ -18,7 +18,7 @@ namespace BHoM.Geometry
         public Plane(Point origin, Vector normal)
         {          
             m_Normal = VectorUtils.Normalise(normal);
-            Origin = origin.Duplicate();
+            Origin = origin.DuplicatePoint();
             D = -VectorUtils.DotProduct(normal, origin);           
         }
 
@@ -26,7 +26,7 @@ namespace BHoM.Geometry
         {
             m_Normal = VectorUtils.Normalise(VectorUtils.CrossProduct(p2 - p1, p3 - p1));
             D = -VectorUtils.DotProduct(m_Normal, p1);
-            Origin = p1.Duplicate();
+            Origin = p1.DuplicatePoint();
         }
 
         internal Plane(double[] pnts)
@@ -138,7 +138,7 @@ namespace BHoM.Geometry
             return sum < 0.0001 && sum > -0.0001;
         }
 
-        public static bool SamePlane(double[] pnts, int length)
+        internal static Plane PlaneFromPoints(double[] pnts, int length)
         {
             if (pnts.Length > 3 * length)
             {
@@ -169,13 +169,73 @@ namespace BHoM.Geometry
                         {
                             Array.Copy(nextPoint, 0, planePts, 2 * length, length);
                             Plane plane = new Plane(planePts);
-                            return plane.InPlane(pnts, length);
+                            return plane.InPlane(pnts, length) ? plane : null;
                         }
                     }
                 }
             }
-            return true;
+            return null;
         }
 
+        internal static bool PointsInSamePlane(double[] pnts, int length)
+        {
+            return PlaneFromPoints(pnts, length) != null;
+        }
+
+        public override BoundingBox Bounds()
+        {
+            return null;
+        }
+
+        public override void Transform(Transform t)
+        {
+            m_Normal = VectorUtils.Multiply(t, m_Normal);
+            Origin = new Point(VectorUtils.Multiply(t, Origin));
+        }
+
+        public override void Translate(Vector v)
+        {
+            Origin = new Point(VectorUtils.Add(v, Origin));
+        }
+
+        /// <summary>
+        /// Mirrors vector about a plane
+        /// </summary>
+        /// <param name="p"></param>
+        public override void Mirror(Plane p)
+        {
+            m_Normal = VectorUtils.Add(p.ProjectionVectors(m_Normal, 2), m_Normal);
+            Origin = new Point(VectorUtils.Add(p.ProjectionVectors(Origin, 2), Origin));
+        }
+
+        /// <summary>
+        /// Projects a vector onto a plane
+        /// </summary>
+        /// <param name="plane"></param>
+        public override void Project(Plane p)
+        {
+            Origin = new Point(VectorUtils.Add(p.ProjectionVectors(Origin), Origin));
+            m_Normal = p.m_Normal;
+        }
+
+        public override void Update()
+        {
+           
+        }
+
+        public override GeometryBase Duplicate()
+        {
+            return DuplicatePlane();
+        }
+
+        public Plane DuplicatePlane()
+        {
+            return new Plane(Origin.DuplicatePoint(), Normal.DuplicateVector());
+        }
+
+        public override string ToJSON()
+        {
+            return "{\"Primitive\": \"plane\", \"normal\": " + Normal + ", \"origin\":" + Origin + "}";
+        }
     }
 }

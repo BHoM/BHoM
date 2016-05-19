@@ -10,9 +10,8 @@ namespace BHoM.Geometry
     /// BHoM Surface object
     /// </summary>
     [Serializable]
-    public class Surface : IGeometry
+    public class Surface : Brep
     {
-        private CurveArray m_Edges;
         private double[] m_ControlPoints;
         private double[] m_Weights;
         private double[][] m_Knots;
@@ -21,7 +20,7 @@ namespace BHoM.Geometry
         private int m_Columns;
         protected int[] m_MaxMin;
 
-        public BoundingBox Bounds()
+        public override BoundingBox Bounds()
         {
             return new BoundingBox(Max, Min);          
         }
@@ -35,7 +34,7 @@ namespace BHoM.Geometry
             edges.Add(new Line(p2, p3));
             edges.Add(new Line(p3, p4));
             edges.Add(new Line(p4, p1));
-            m_Edges = new CurveArray(Curve.Join(edges));
+            m_Edges = new Group<Curve>(Curve.Join(edges));
             m_Dimensions = 3;
 
             Curve c = m_Edges[0];
@@ -43,8 +42,8 @@ namespace BHoM.Geometry
             m_Columns = 2;
             m_ControlPoints = new double[4 * (m_Dimensions + 1)];
 
-            double[] row1 = Common.Utils.SubArray<double>(c.ControlPoints, 0, (m_Dimensions + 1) * 2);
-            double[] row2 = Common.Utils.Reverse<double>(Common.Utils.SubArray<double>(c.ControlPoints, (m_Dimensions + 1) * 2, (m_Dimensions + 1) * 2), m_Dimensions + 1);
+            double[] row1 = Common.Utils.SubArray<double>(c.ControlPointVector, 0, (m_Dimensions + 1) * 2);
+            double[] row2 = Common.Utils.Reverse<double>(Common.Utils.SubArray<double>(c.ControlPointVector, (m_Dimensions + 1) * 2, (m_Dimensions + 1) * 2), m_Dimensions + 1);
 
             m_ControlPoints = Common.Utils.Merge<double>(row1, row2);
 
@@ -80,45 +79,41 @@ namespace BHoM.Geometry
             }
         }
 
-        public Guid Id
+        public override void Transform(Transform t)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public void Transform(Transform t)
-        {
+            base.Transform(t);
             m_ControlPoints = VectorUtils.MultiplyMany(t, m_ControlPoints);
             Update();
         }
 
-        public void Translate(Vector v)
+        public override void Translate(Vector v)
         {
+            base.Translate(v);
             m_ControlPoints = VectorUtils.Add(m_ControlPoints, v);
         }
 
-        public void Mirror(Plane p)
+        public override void Mirror(Plane p)
         {
+            base.Mirror(p);
             m_ControlPoints = VectorUtils.Add(VectorUtils.Multiply(p.ProjectionVectors(m_ControlPoints), 2), m_ControlPoints);
             Update();
         }
 
-        public void Project(Plane p)
+        public override void Project(Plane p)
         {
+            base.Project(p);
             Update();
             m_ControlPoints = VectorUtils.Add(p.ProjectionVectors(m_ControlPoints), m_ControlPoints);
         }
 
-        public void Update()
+        public override void Update()
         {
             m_MaxMin = null;
         }
 
         public Surface DuplicateSurface()
         {
-            Surface s = new Surface();
+            Surface s = (Surface)Activator.CreateInstance(this.GetType(), true);
             s.m_ControlPoints = Common.Utils.Copy<double>(m_ControlPoints);
             s.m_Columns = m_Columns;
             s.m_Dimensions = m_Dimensions;
@@ -131,12 +126,12 @@ namespace BHoM.Geometry
             }
             s.m_Order = m_Order;
 
-            s.m_Edges = m_Edges.Copy();
+            s.m_Edges = m_Edges.DuplicateGroup();
             return s;
         }
 
 
-        public IGeometry Duplicate()
+        public override GeometryBase Duplicate()
         {
             return DuplicateSurface();
         }
@@ -150,15 +145,16 @@ namespace BHoM.Geometry
             return s;
         }
 
-        public static TrimmedSurface CreateFromBoundary(Curve boundary)
+        public static Surface CreateFromBoundary(Curve boundary)
         {
             if (boundary.IsPlanar() && boundary.IsClosed())
             {
-                TrimmedSurface surface = new TrimmedSurface();
-                surface.m_Edges = new CurveArray(new List<Curve>() { boundary });
+                Surface surface = new Surface();
+                surface.m_Edges = new Group<Curve>(new List<Curve>() { boundary });
 
                 Curve xY = boundary.DuplicateCurve();
                 Plane plane = null;
+                xY.TryGetPlane(out plane);
 
                 Point centre = xY.Bounds().Centre;
                 Vector axis = plane.Normal;
@@ -178,12 +174,34 @@ namespace BHoM.Geometry
                 surface.CreateFrom4Points(p1, p2, p3, p4);
 
                 surface.Transform(t2.Inverse());
+                surface.m_TrimCurves.Add(boundary);
                 return surface;
             }
             return null;
         }
 
-
+        public override string ToJSON()
+        {
+            string points = "\"points\": {{ ";
+            for (int i = 0; i < m_ControlPoints.Length - 1; i++)
+            {
+                if (i > 0 && (i + 1) % 4 == 0)
+                {
+                    points = points.Trim(',') + "},{";
+                }
+                else
+                {
+                    points += m_ControlPoints[i] + ",";
+                }
+            }
+            points = points.Trim(',') + "}}";
+            string uknots = "\"uknots\": {" + Common.Utils.CollectionToString(m_Knots[0], ',') + "}";
+            string vknots = "\"vknots\": {" + Common.Utils.CollectionToString(m_Knots[1], ',') + "}";
+            string weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"weights\": {" + Common.Utils.CollectionToString(m_Weights, ',') + "}" : "";
+            string degree = "\"degree\": " + (m_Order - 1);
+            return "{\"Primitive\": \"curve\"," + points + "," + degree + "," + uknots + "," + vknots + (weights != "" ? "," : "") + weights + "}";
+        }
+    
         #endregion
     }
 }

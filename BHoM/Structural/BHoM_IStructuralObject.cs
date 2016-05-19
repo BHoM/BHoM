@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace BHoM.Structural
 {
     /// <summary>
@@ -10,7 +12,7 @@ namespace BHoM.Structural
         /////////////////
         ////Properties///
         /////////////////
-
+        //List<Loads.ILoad> Loads { get; set; }
         //////////////
         ////Methods///
         //////////////
