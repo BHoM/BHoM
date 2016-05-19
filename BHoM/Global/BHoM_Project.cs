@@ -16,7 +16,6 @@ namespace BHoM.Global
         public string Value;
     }
 
-
     /// <summary>
     /// A global project class that encapsulates all objects (all disciplines) of a BHoM project
     /// </summary>

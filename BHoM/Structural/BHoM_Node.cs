@@ -65,7 +65,7 @@ namespace BHoM.Structural
         public List<double> BarThetaAngles { get; private set; }
 
         /// <summary>Node plane for angular and setting out methods</summary>
-        public Plane Plane { get; private set; }
+        internal Plane Plane { get; private set; }
 
 
         ///////////////////
