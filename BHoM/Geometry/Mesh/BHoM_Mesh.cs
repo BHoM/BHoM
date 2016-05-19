@@ -8,7 +8,7 @@ namespace BHoM.Geometry
     /// BHoM Mesh geometry object
     /// </summary>
     [Serializable]
-    public class Mesh : IGeometry
+    public class Mesh : GeometryBase
     {
         private VertexArray m_Vertices;
         private FaceArray m_Faces;
@@ -39,7 +39,7 @@ namespace BHoM.Geometry
             }
         }
 
-        public BoundingBox Bounds()
+        public override BoundingBox Bounds()
         {
             throw new NotImplementedException();
         }
@@ -79,32 +79,32 @@ namespace BHoM.Geometry
             m_Vertices.Add(vertices);
         }
 
-        public void Transform(Transform t)
+        public override void Transform(Transform t)
         {
             throw new NotImplementedException();
         }
 
-        public void Translate(Vector v)
+        public override void Translate(Vector v)
         {
             throw new NotImplementedException();
         }
 
-        public void Mirror(Plane p)
+        public override void Mirror(Plane p)
         {
             throw new NotImplementedException();
         }
 
-        public void Project(Plane p)
+        public override void Project(Plane p)
         {
             throw new NotImplementedException();
         }
 
-        public void Update()
+        public override void Update()
         {
             throw new NotImplementedException();
         }
 
-        public IGeometry Duplicate()
+        public override GeometryBase Duplicate()
         {
             throw new NotImplementedException();
         }
@@ -115,6 +115,16 @@ namespace BHoM.Geometry
             m.m_Faces = m_Faces.Copy();
             m.m_Vertices = m_Vertices.Copy();
             return m;
+        }
+
+        public override string ToJSON()
+        {
+            throw new NotImplementedException();
+        }
+
+        public GeometryBase FromJSON()
+        {
+            throw new NotImplementedException();
         }
     }
 }

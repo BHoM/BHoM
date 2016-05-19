@@ -10,19 +10,7 @@ namespace BHoM.Geometry
     {
         internal Polyline() { }
 
-        public Polyline(List<Point> points)
-        {
-            m_Dimensions = 3;
-            m_ControlPoints = new double[points.Count * (m_Dimensions + 1)];
-            for (int i = 0; i < points.Count; i++)
-            {
-                double[] p = points[i];
-                for (int j = 0; j < 4; j++)
-                {
-                    m_ControlPoints[i / 4 + j] = p[j];
-                }
-            }
-        }
+        public Polyline(List<Point> points) : base(points) { }
 
         public override void CreateNurbForm()
         {
@@ -57,11 +45,30 @@ namespace BHoM.Geometry
         {
             List<Curve> lineSegments = new List<Curve>();
             lineSegments.Add(new Line(ControlPoint(0), ControlPoint(1)));
-            for (int i = 1; i < NumControlPoints - 1;i++)
+            for (int i = 1; i < PointCount - 1;i++)
             {
                 lineSegments.Add(new Line(lineSegments[i - 1].EndPoint, ControlPoint(i + 1)));
             }
             return lineSegments;
         }
+
+        public override string ToJSON()
+        {
+            string aResult = "{{";
+            for (int i = 0; i < m_ControlPoints.Length - 1; i++)
+            {
+                if (i > 0 && (i + 1) % 4 == 0)
+                {
+                    aResult = aResult.Trim(',') + "},{";
+                }
+                else
+                { 
+                    aResult += m_ControlPoints[i] + ",";
+                }
+            }
+            aResult = aResult.Trim(',') + "}}";
+            return "{\"Primitive\": \"polyline\"," + "\"points\": " + aResult + "}";
+        }
+
     }
 }

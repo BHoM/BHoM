@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -49,14 +49,13 @@
     <Compile Include="Generic\PriorityQueue.cs" />
     <Compile Include="Geometry\BHoM_BoundingBox.cs" />
     <Compile Include="Geometry\BHoM_Group.cs" />
-    <Compile Include="Geometry\BHoM_IGeometry.cs" />
+    <Compile Include="Geometry\BHoM_GeometryBase.cs" />
     <Compile Include="Geometry\BHoM_Quarternion.cs" />
     <Compile Include="Geometry\BHoM_Transform.cs" />
     <Compile Include="Geometry\BHoM_Utils.cs" />
     <Compile Include="Geometry\Curve\BHoM_Arc.cs" />
     <Compile Include="Geometry\Curve\BHoM_Circle.cs" />
     <Compile Include="Geometry\Curve\BHoM_Curve.cs" />
-    <Compile Include="Geometry\Curve\BHoM_CurveArray.cs" />
     <Compile Include="Geometry\Curve\BHoM_Line.cs" />
     <Compile Include="Geometry\Curve\BHoM_PolyCurve.cs" />
     <Compile Include="Geometry\Curve\BHoM_Polyline.cs" />
@@ -64,19 +63,17 @@
     <Compile Include="Geometry\Mesh\BHoM_FaceArray.cs" />
     <Compile Include="Geometry\Mesh\BHoM_Mesh.cs" />
     <Compile Include="Geometry\Mesh\BHoM_VertexArray.cs" />
+    <Compile Include="Geometry\Surface\BHoM_Brep.cs" />
     <Compile Include="Geometry\Surface\BHoM_Polysurface.cs" />
     <Compile Include="Geometry\Surface\BHoM_Surface.cs" />
-    <Compile Include="Geometry\Surface\BHoM_SurfaceArray.cs" />
-    <Compile Include="Geometry\Surface\BHoM_TrimmedSurface.cs" />
     <Compile Include="Geometry\Vector\BHoM_Plane.cs" />
     <Compile Include="Geometry\Vector\BHoM_Point.cs" />
     <Compile Include="Geometry\Vector\BHoM_Vector.cs" />
     <Compile Include="Geometry\Vector\BHoM_VectorUtils.cs" />
+    <Compile Include="Global\BHoM_IO.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
-    <Compile Include="Global\BHoM_ObjectCollection.cs" />
-    <Compile Include="Global\BHoM_Param.cs" />
-    <Compile Include="Global\BHoM_Parameter.cs" />
-    <Compile Include="Global\BHoM_Parameters.cs" />
+    <Compile Include="Global\BHoM_ObjectFilter.cs" />
+    <Compile Include="Global\BHoM_ObjectManager.cs" />
     <Compile Include="Global\BHoM_Project.cs" />
     <Compile Include="Global\BHoM_Utils.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C25.cs" />
@@ -86,6 +83,7 @@
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
     <Compile Include="Structural\BHoM_IStructuralObject.cs" />
+    <Compile Include="Structural\BHoM_Panel.cs" />
     <Compile Include="Structural\BHoM_SuperBar.cs" />
     <Compile Include="HumanBody\BHoM_BodyParts.cs" />
     <Compile Include="HumanBody\BHoM_Skeleton.cs" />
@@ -102,20 +100,18 @@
     <Compile Include="Structural\BHoM_Offset.cs" />
     <Compile Include="Structural\BHoM_Structure.cs" />
     <Compile Include="Structural\BHoM_StructureEnums.cs" />
+    <Compile Include="Structural\Constraints\BHoM_Springs.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCBeam.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCColumn.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_EquivalentStatic.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_ResponseSpectrum.cs" />
-    <Compile Include="Structural\Loads\BHoM_AreaUniformlyDistributedLoad.cs" />
-    <Compile Include="Structural\Loads\BHoM_AreaVaryingDistributedLoad.cs" />
-    <Compile Include="Structural\Loads\BHoM_BarPointLoad.cs" />
-    <Compile Include="Structural\Loads\BHoM_BarTemperatureLoad.cs" />
-    <Compile Include="Structural\Loads\BHoM_BarUniformlyDistributedLoad.cs" />
-    <Compile Include="Structural\Loads\BHoM_BarVaryingDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\BHoM_AreaLoads.cs" />
+    <Compile Include="Structural\Loads\BHoM_BarLoad.cs" />
     <Compile Include="Structural\Loads\BHoM_Load.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcase.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcombination.cs" />
-    <Compile Include="Structural\Loads\BHoM_NodalLoad.cs" />
+    <Compile Include="Structural\Loads\BHoM_LoadEnums.cs" />
+    <Compile Include="Structural\Loads\BHoM_NodeLoad.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceEnvelope.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceCollection.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForce.cs" />
@@ -130,6 +126,7 @@
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelUCSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelBoxSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelISection.cs" />
+    <Compile Include="Structural\Thickness Properties\BHoM_ThicknessProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />
@@ -137,10 +134,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)Build\$(ProjectName).dll"
-copy /Y "$(TargetDir)$(ProjectName).xml" "$(SolutionDir)Build\$(ProjectName).xml"
-copy /Y "$(TargetDir)$(ProjectName).dll" "C:\Users\$(Username)\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).dll"
-copy /Y "$(TargetDir)$(ProjectName).xml" "C:\Users\$(Username)\AppData\Roaming\Dynamo\0.9\packages\BH Dynamo Tools\bin\$(ProjectName).xml"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

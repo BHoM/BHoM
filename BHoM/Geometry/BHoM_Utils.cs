@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,16 @@ namespace BHoM.Common
             Array.Copy(data1, result, data1.Length);
             Array.Copy(data2, 0, result, data1.Length, data2.Length);
             return result;
+        }
+
+        public static string CollectionToString(IEnumerable data, char separator)
+        {
+            string result = "";
+            foreach (object value in data)
+            {
+                result += value + separator.ToString();
+            }
+            return result.Trim(separator);
         }
 
         public static bool InRange(double value, double upper, double lower, double tolerance)

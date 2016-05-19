@@ -10,7 +10,7 @@ namespace BHoM.Geometry
     /// BHoM Vector object
     /// </summary>
     [Serializable]
-    public class Vector
+    public class Vector : GeometryBase
     {
         private double[] Coordinates;
 
@@ -255,20 +255,12 @@ namespace BHoM.Geometry
         /// Duplicates the vector
         /// </summary>
         /// <returns></returns>
-        public Vector Duplicate()
+        public Vector DuplicateVector()
         {
             return new Vector(this);
         }
 
-        /// <summary>
-        /// Projects a vector onto a plane
-        /// </summary>
-        /// <param name="plane"></param>
-        /// <returns></returns>
-        public Vector Project(Plane plane)
-        {          
-            return new Vector(plane.ProjectionVectors(this));
-        }
+    
 
         /// <summary>
         /// Rotates vector using Rodrigues' rotation formula
@@ -342,6 +334,52 @@ namespace BHoM.Geometry
         public override string ToString()
         {
             return "{" + X + ", " + Y + ", " + Z + "}";
+        }
+
+        public override BoundingBox Bounds()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Transform Vector
+        /// </summary>
+        /// <param name="t">Transformation matrix</param>
+        public override void Transform(Transform t)
+        {
+            Coordinates = VectorUtils.Multiply(t, Coordinates);
+        }
+
+        public override void Translate(Vector v) { }
+
+        /// <summary>
+        /// Mirrors vector about a plane
+        /// </summary>
+        /// <param name="p"></param>
+        public override void Mirror(Plane p)
+        {
+            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates, 2), Coordinates);
+        }
+
+        /// <summary>
+        /// Projects a vector onto a plane
+        /// </summary>
+        /// <param name="plane"></param>
+        public override void Project(Plane p)
+        {
+            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates), Coordinates);
+        }
+
+        public override void Update() { }
+
+        public override GeometryBase Duplicate()
+        {
+            return this.DuplicateVector();
+        }
+
+        public override string ToJSON()
+        {
+            return "{\"Primitive\": \"vector\", \"vector\": " + ToString() + "}";
         }
     }
 }
