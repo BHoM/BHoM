@@ -99,33 +99,12 @@ namespace BHoM.Geometry
             Point newPoint = new Point();
             int i0 = json.IndexOf('{') + 1;
             int i1 = json.LastIndexOf('}');
-            string[] parts = json.Substring(i0, i1-i0).Split(',');
-            foreach (string part in parts)
+            string[] coords = json.Substring(i0, i1-i0).Split(',');
+
+            if (coords.Length != 3) return null;
+            for (int i = 0; i < 3; i++)
             {
-                string[] pair = part.Split(':');
-                if (pair.Length != 2) continue;
-
-                string prop = pair[0].Trim().Replace("\"", "");
-                System.Reflection.PropertyInfo pInfo = newPoint.GetType().GetProperty(prop);
-                if (pInfo == null) continue;
-
-                Type pType = pInfo.PropertyType;
-                string valueString = pair[1].Trim().Replace("\"", "");
-                if (pType == typeof(System.String))
-                    pInfo.SetValue(newPoint, valueString);
-                else
-                {
-                    System.Reflection.MethodInfo jsonMethod = pType.GetMethod("FromJSON");
-                    if (jsonMethod != null)
-                        pInfo.SetValue(newPoint, jsonMethod.Invoke(newPoint, new object[] { valueString }));
-                    else
-                    {
-                        System.Reflection.MethodInfo parseMethod = pType.GetMethod("Parse", new Type[] { typeof(string) });
-                        if (parseMethod != null)
-                            pInfo.SetValue(newPoint, parseMethod.Invoke(newPoint, new object[] { valueString }));
-                    }
-                }
-                
+                double.TryParse(coords[i], out newPoint.Coordinates[i]);
             }
 
             return newPoint;
@@ -152,13 +131,12 @@ namespace BHoM.Geometry
                 else
                     return true;
             }
-
         }
 
-       /// <summary>
-       /// Duplicates a point
-       /// </summary>
-       /// <returns></returns>
+        /// <summary>
+        /// Duplicates a point
+        /// </summary>
+        /// <returns></returns>
         public Point DuplicatePoint()
         {
             return new Point(this);
@@ -173,6 +151,7 @@ namespace BHoM.Geometry
         {
             return DuplicatePoint();
         }
+
         /// <summary>
         /// Vector operations a-b
         /// </summary>
@@ -261,7 +240,6 @@ namespace BHoM.Geometry
             return new Point(a / b.X, a / b.Y, a / b.Z);
         }
 
-
         /// <summary>
         /// Calcualte mean pt from list of points
         /// </summary>
@@ -295,6 +273,7 @@ namespace BHoM.Geometry
 
             return max;
         }
+
         /// <summary>
         /// Calcualte min pt from list of points
         /// </summary>
@@ -311,6 +290,7 @@ namespace BHoM.Geometry
 
             return min;
         }
+
         public static Point Max(Point p1, Point p2)
         {
             return new Point(VectorUtils.Max(p1, p2));
@@ -349,37 +329,36 @@ namespace BHoM.Geometry
 
         public override BoundingBox Bounds()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public override void Transform(Transform t)
         {
-            throw new NotImplementedException();
+            Coordinates = VectorUtils.Multiply(t, Coordinates);
         }
 
         public override void Translate(Vector v)
         {
-            throw new NotImplementedException();
+            Coordinates = VectorUtils.Add(v, Coordinates);
         }
 
         public override void Mirror(Plane p)
         {
-            throw new NotImplementedException();
+            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates, 2), Coordinates);
         }
 
         public override void Project(Plane p)
         {
-            throw new NotImplementedException();
+            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates), Coordinates);
         }
 
         public override void Update()
         {
-            throw new NotImplementedException();
         }        
 
         public override string ToJSON()
         {
-            return "{\"X\": " + X + ", \"Y\": " + Y + ", \"Z\": " + Z + "}";
+            return "{\"Primitive\": \"point\", \"point\": " + ToString() + "}";
         }
     }
 }

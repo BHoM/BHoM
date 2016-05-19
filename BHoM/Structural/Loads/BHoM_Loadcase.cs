@@ -10,22 +10,24 @@ namespace BHoM.Structural.Loads
     /// <summary>
     /// Loadcase class 
     /// </summary>
-    public abstract class Loadcase : BHoMObject
+    public interface ICase 
     {
         /// <summary>Loadcase number</summary>
-        public int Number { get; set; }
+        int Number { get; set; }
 
         /// <summary>
         /// Case Type
         /// </summary>
-        public abstract CaseType CaseType { get; }
+        CaseType CaseType { get; }
     }
 
     /// <summary>
     /// Simple Loadcase class
     /// </summary>
-    public class SimpleCase : Loadcase
+    public class Loadcase : BHoMObject, ICase
     {
+        private List<ILoad> m_Loads;
+
         /// <summary>
         /// Gets or Sets the loading nature of the loadcase
         /// </summary>
@@ -36,17 +38,32 @@ namespace BHoM.Structural.Loads
         /// </summary>
         public double SelfWeightMultiplier { get; set; }
 
+        /// <summary>
+        /// Collection of nodes that are applied under this loadcase
+        /// </summary>
+        /// <returns></returns>
+        public List<ILoad> LoadRecords
+        {
+            get { return m_Loads; }
+        }
 
         /// <summary>
         /// Gets the Case type of loadcase
         /// </summary>
-        public override CaseType CaseType
+        public CaseType CaseType
         {
             get
             {
                 return CaseType.Simple;
             }
         }
+
+        public int Number
+        {
+            get; set;
+        }
+
+        internal Loadcase() { }
 
         /// <summary>
         /// 
@@ -55,12 +72,13 @@ namespace BHoM.Structural.Loads
         /// <param name="name">LC name</param>
         /// <param name="nature">Loading nature</param>
         /// <param name="selfWeightMultiplier"></param>
-        public SimpleCase(int number, string name, LoadNature nature, double selfWeightMultiplier = 0)
+        public Loadcase(int number, string name, LoadNature nature, double selfWeightMultiplier = 0)
         {
             Number = number;
             Name = name;
             Nature = nature;
             SelfWeightMultiplier = selfWeightMultiplier;
+            m_Loads = new List<ILoad>();
         }
     }
 }

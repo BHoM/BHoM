@@ -26,19 +26,18 @@ namespace BHoM.Structural
         public double Value { get; set; }
 
         /// <summary>DOF non-linear model</summary>
-        public object NonLinearModel { get; set; }
+        //public object NonLinearModel { get; set; }
 
         ///////////////////
         ////Constructors///
         ///////////////////
 
         /// <summary>Constructs an empty DOF object</summary>
-        public DOF() { }
+        internal DOF() { }
 
         /// <summary>Constructs a DOF using direciton, type and value</summary>
         public DOF(DOFType type, double Value)
         {
-            //this.Direction = direction;
             this.Type = type;
             this.Value = Value;
         }
@@ -48,7 +47,7 @@ namespace BHoM.Structural
         {
             //this.Direction = direction;
             this.Type = type;
-            this.NonLinearModel = Value;
+            //this.NonLinearModel = Value;
         }
 
         //////////////

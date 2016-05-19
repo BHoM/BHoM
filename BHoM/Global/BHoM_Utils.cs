@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BHoM.Structural.Loads;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace BHoM.Global
             string key = "";
             string value = "";
             string inside = json.Substring(json.IndexOf('{') + 1, json.LastIndexOf('}') - 1);
-
+            int index = 0;
             Dictionary<string, string> definition = new Dictionary<string, string>();
             for (int i = 0; i < inside.Length; i++)
             {
@@ -54,13 +55,13 @@ namespace BHoM.Global
                 else if (level == 0 && inside[i] == ',')
                 {
                     value = inside.Substring(i0, i - i0).Trim();
-                    definition.Add(key, value);
+                    definition.Add(key == "" ? index++.ToString() : key, value);
                     i0 = i + 1;
                 }
                 if (i == inside.Length - 1)
                 {
                     value = inside.Substring(i0, i + 1 - i0).Trim();
-                    definition.Add(key, value);
+                    definition.Add(key == "" ? index++.ToString() : key, value);
                     i0 = i + 1;
                 }
             }
@@ -74,10 +75,10 @@ namespace BHoM.Global
             if (pInfo == null) return;
 
             Type pType = pInfo.PropertyType;
-            pInfo.SetValue(obj, ReadValue(pType, obj, value));        
+            pInfo.SetValue(obj, ReadValue(pType, value));        
         }
 
-        internal static object ReadValue(Type type, object obj, string value)
+        internal static object ReadValue(Type type, string value)
         {
             if (type == typeof(System.String))
                 return value;
@@ -98,12 +99,12 @@ namespace BHoM.Global
             {
                 System.Reflection.MethodInfo jsonMethod = type.GetMethod("FromJSON");
                 if (jsonMethod != null)
-                    return jsonMethod.Invoke(obj, new object[] { value });
+                    return jsonMethod.Invoke(null, new object[] { value });
                 else
                 {
                     System.Reflection.MethodInfo parseMethod = type.GetMethod("Parse", new Type[] { typeof(string) });
                     if (parseMethod != null)
-                        return parseMethod.Invoke(obj, new object[] { value });
+                        return parseMethod.Invoke(null, new object[] { value });
                 }
             }
             return null;
@@ -118,9 +119,11 @@ namespace BHoM.Global
                 var newList = typeof(List<>);
                 var listOfType = newList.MakeGenericType(listType);
                 IList list = Activator.CreateInstance(listOfType) as IList;
-                foreach (var item in data.Trim(' ','[',']','{','}').Split(','))
+                Dictionary<string, string> values = GetDefinitionFromJSON(data);
+
+                foreach (var item in values.Values)
                 {
-                    list.Add(ReadValue(listType, null, item));
+                    list.Add(ReadValue(listType, item));
                 }
                 return list;
             }
@@ -131,7 +134,7 @@ namespace BHoM.Global
                 int index = 0;
                 foreach (var item in items)
                 {
-                    array.SetValue(ReadValue(array.GetValue(0).GetType(), null, item), index++);
+                    array.SetValue(ReadValue(array.GetValue(0).GetType(), item), index++);
                 }
                 return array;
             }
@@ -145,7 +148,7 @@ namespace BHoM.Global
                 IDictionary list = Activator.CreateInstance(listOfType) as IDictionary;
                 foreach (var item in items)
                 {
-                    list.Add(ReadValue(keyType, null, item.Key), ReadValue(valueType, null, item.Value));
+                    list.Add(ReadValue(keyType, item.Key), ReadValue(valueType, item.Value));
                 }
                 return list;
             }
@@ -197,6 +200,18 @@ namespace BHoM.Global
             else
                 aResult += value.ToString();
             return aResult;
+        }
+
+        internal static IEnumerable<T> GetObjectsFromGuid<T>(Project p, List<Guid> ids) where T : class 
+        {
+            List<T> objects = new List<T>();
+            for (int i = 0; i < ids.Count; i++)
+            {
+                T obj = p.GetObject(ids[i]) as T;
+                if (obj != null) objects.Add(obj);
+                else ids.RemoveAt(i--);
+            }
+            return objects;
         }
     }
 

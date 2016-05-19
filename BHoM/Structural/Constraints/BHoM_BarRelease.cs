@@ -25,6 +25,8 @@ namespace BHoM.Structural
             set;
         }
 
+        internal BarRelease() { }
+
         /// <summary>Construct a new constraint using constraint objects for start/end releases</summary>
         public BarRelease(BHoM.Structural.Constraint startConstraint, BHoM.Structural.Constraint endConstraint)
         {

@@ -28,6 +28,11 @@ namespace BHoM.Geometry
             m_Geometry.Add(geometry);
         }
 
+        internal List<T> Geometry()
+        {
+            return m_Geometry;
+        }
+
         public T this[int i]
         {
             get
@@ -36,6 +41,13 @@ namespace BHoM.Geometry
             }
         }
 
+        public int Count
+        {
+            get
+            {
+                return m_Geometry.Count;
+            }
+        }
 
         public override BoundingBox Bounds()
         {

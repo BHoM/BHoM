@@ -10,17 +10,11 @@ namespace BHoM.Structural.Loads
     /// <summary>
     /// Point load along a bar
     /// </summary>
-    public class BarPointLoad : BHoMObject, ILoad<Bar>
+    public class BarPointLoad : Load<Bar>
     {
-        /// <summary>
-        /// Loadcase of load
-        /// </summary>
-        public Loadcase Loadcase { get; set; }
-
-        /// <summary>
-        ///  Bars which have been assigned with this loading value
-        /// </summary>
-        public List<Bar> Objects { get; set; }
+        public double DistanceFromA { get; set; }
+        public Geometry.Vector ForceVector { get; set; }
+        public Geometry.Vector MomentVector { get; set; }
 
         internal BarPointLoad() { }
         //Bar point load object - different to nodal or point load as it needs a 'position' variable
@@ -29,38 +23,18 @@ namespace BHoM.Structural.Loads
     /// <summary>
     /// Uniform load on bar
     /// </summary>
-    public class BarUniformlyDistributedLoad : BHoMObject, ILoad<Bar>
+    public class BarUniformlyDistributedLoad : Load<Bar>
     {
-        /// <summary>
-        /// Loadcase of load
-        /// </summary>
-        public Loadcase Loadcase { get; set; }
-
-        /// <summary>
-        ///  Bars which have been assigned with this loading value
-        /// </summary>
-        public List<Bar> Objects { get; set; }
-        //Bar uniformly distributed load. This should include ability to define uniformly distributed moments. 
-
+        public Geometry.Vector ForceVector { get; set; }
         internal BarUniformlyDistributedLoad() { }
-
     }
 
     /// <summary>
     /// bar temperature load class
     /// </summary>
-    public class BarTemperatureLoad : BHoMObject, ILoad<Bar>
+    public class BarTemperatureLoad : Load<Bar>
     {
-        /// <summary>
-        /// Loadcase of load
-        /// </summary>
-        public Loadcase Loadcase { get; set; }
-
-        /// <summary>
-        ///  Bars which have been assigned with this loading value
-        /// </summary>
-        public List<Bar> Objects { get; set; }
-    
+        public double TemperatureChange { get; set; }
         internal BarTemperatureLoad() { }
         //Bar temp load object. Expansion in XYZ
     }
@@ -68,18 +42,12 @@ namespace BHoM.Structural.Loads
     /// <summary>
     /// Varying load on a bar
     /// </summary>
-    public class BarVaryingDistributedLoad : BHoMObject, ILoad<Bar>
+    public class BarVaryingDistributedLoad : Load<Bar>
     {
-        /// <summary>
-        /// Loadcase of load
-        /// </summary>
-        public Loadcase Loadcase { get; set; }
-
-        /// <summary>
-        ///  Bars which have been assigned with this loading value
-        /// </summary>
-        public List<Bar> Objects { get; set; }
-    
+        public double DistanceFromA { get; set; }
+        public Geometry.Vector ForceVectorA { get; set; }
+        public double DistanceFromB { get; set; }
+        public Geometry.Vector ForceVectorB { get; set; }
         internal BarVaryingDistributedLoad() { }
         //patch load for bars. Should include patch moments. 
     }

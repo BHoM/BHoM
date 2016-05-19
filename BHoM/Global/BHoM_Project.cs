@@ -20,13 +20,17 @@ namespace BHoM.Global
     /// <summary>
     /// A global project class that encapsulates all objects (all disciplines) of a BHoM project
     /// </summary>
+    
     public class Project
     {
         private Dictionary<Guid, BHoM.Global.BHoMObject> m_Objects;
         private Queue<Task> m_TaskQueue;
 
         private static readonly Lazy<Project> m_Instance = new Lazy<Project>(() => new Project());
-
+        
+        /// <summary>
+        /// All object currently in the model
+        /// </summary>
         public IEnumerable<BHoMObject> Objects
         {
             get
@@ -44,8 +48,14 @@ namespace BHoM.Global
         /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
 
+        /// <summary>
+        /// Project Id
+        /// </summary>
         public Guid Id { get; set; }
 
+        /// <summary>
+        /// Active project
+        /// </summary>
         public static Project ActiveProject
         {
             get
@@ -53,7 +63,11 @@ namespace BHoM.Global
                 return m_Instance.Value;
             }
         }
-
+        /// <summary>
+        /// Writes the entire project to JSON Format
+        /// </summary>
+        /// <param name="extra"></param>
+        /// <returns>JSON formatted text</returns>
         public string ToJSON(string extra = "")
         {
             string aResult = "{";
@@ -100,6 +114,11 @@ namespace BHoM.Global
             return aResult;
         }
 
+        /// <summary>
+        /// Loads an entire Project from JSON Format
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         public static Project FromJSON(string json)
         {
             Dictionary<string, string> definition = Utils.GetDefinitionFromJSON(json);
@@ -147,11 +166,19 @@ namespace BHoM.Global
             return result;
         }
 
+        /// <summary>
+        /// Adds a BHoM Object to the project
+        /// </summary>
+        /// <param name="value"></param>
         public void AddObject(BHoM.Global.BHoMObject value)
         {
             m_Objects.Add(value.BHoM_Guid, value);
         }
 
+        /// <summary>
+        /// Removes an object from the project
+        /// </summary>
+        /// <param name="guid"></param>
         public void RemoveObject(Guid guid)
         {
             m_Objects.Remove(guid);

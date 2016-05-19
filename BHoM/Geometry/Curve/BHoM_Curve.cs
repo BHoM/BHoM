@@ -18,6 +18,19 @@ namespace BHoM.Geometry
 
         protected Curve() { }
 
+        internal Curve(List<Point> points) 
+        {
+            m_Dimensions = 3;
+            m_ControlPoints = new double[points.Count * (m_Dimensions + 1)];
+            for (int i = 0; i < points.Count; i++)
+            {
+                double[] p = points[i];
+                for (int j = 0; j < 4; j++)
+                {
+                    m_ControlPoints[i * 4 + j] = p[j];
+                }
+            }
+        }
 
         /// <summary>Start point as BHoM point</summary>
         /// 
@@ -76,18 +89,68 @@ namespace BHoM.Geometry
             }
         }
 
-        internal double[] ControlPoints
+        internal double[] ControlPointVector
         {
             get
             {
                 return m_ControlPoints;
             }
         }
-
+        
         public virtual Point ControlPoint(int i)
         {
             return i < (int)(m_ControlPoints.Length / (m_Dimensions + 1)) ? 
                 new Point(Common.Utils.SubArray<double>(m_ControlPoints, i * (m_Dimensions + 1), m_Dimensions + 1)) : null;
+        }
+
+        public IEnumerable<Point> ControlPoints
+        {
+            get
+            {
+                List < Point > cPnts = new List<Point>();
+                for (int i = 0; i < PointCount; i++)
+                {
+                    cPnts.Add(ControlPoint(i));
+                }
+                return cPnts;
+            }
+        }
+
+
+        public double[] Knots
+        {
+            get
+            {
+                if (m_Knots == null)
+                {
+                    CreateNurbForm();
+                }
+                return m_Knots;
+            }
+        }
+
+        public double[] Weights
+        {
+            get
+            {
+                if (m_Weights == null)
+                {
+                    CreateNurbForm();
+                }
+                return m_Weights;
+            }
+        }
+
+        public int Degree
+        {
+            get
+            {
+                if (m_Order == 0)
+                {
+                    CreateNurbForm();
+                }
+                return m_Order - 1;
+            }
         }
 
         public virtual double Length
@@ -99,19 +162,11 @@ namespace BHoM.Geometry
         }
 
 
-        public virtual int NumControlPoints
+        public virtual int PointCount
         {
             get
             {
                 return m_ControlPoints.Length / (m_Dimensions + 1);
-            }
-        }
-
-        public Guid Id
-        {
-            get
-            {
-                throw new NotImplementedException();
             }
         }
 
@@ -212,12 +267,18 @@ namespace BHoM.Geometry
 
         public virtual bool IsPlanar()
         {
-            return Plane.SamePlane(m_ControlPoints, m_Dimensions + 1);
+            return Plane.PointsInSamePlane(m_ControlPoints, m_Dimensions + 1);
         }
 
         public bool IsClosed()
         {
             return EndPoint == StartPoint;
+        }
+
+        public virtual bool TryGetPlane(out Plane plane)
+        {
+            plane = Plane.PlaneFromPoints(m_ControlPoints, m_Dimensions + 1);
+            return plane != null;
         }
 
         public override void Transform(Transform t)
@@ -249,6 +310,11 @@ namespace BHoM.Geometry
         }
 
         #region Static Functions
+
+        public static List<Curve> Join(Group<Curve> curves)
+        {
+            return Join(curves);
+        }
 
         public static List<Curve> Join(List<Curve> curves)
         {
@@ -308,13 +374,45 @@ namespace BHoM.Geometry
         }
 
         public override string ToJSON()
+        {       
+            string points = "\"points\": {{ ";
+            for (int i = 0; i < m_ControlPoints.Length - 1; i++)
+            {
+                if (i > 0 && (i + 1) % 4 == 0)
+                {
+                    points = points.Trim(',') + "},{";
+                }
+                else
+                {
+                    points += m_ControlPoints[i] + ",";
+                }
+            }
+            points = points.Trim(',') + "}}";
+            string knots = "\"knots\": {" + Common.Utils.CollectionToString(m_Knots, ',') + "}";
+            string weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"weights\": {" + Common.Utils.CollectionToString(m_Weights, ',') + "}" : "";
+            string degree = "\"degree\": " + (m_Order - 1);
+            return "{\"Primitive\": \"curve\"," +  points + "," + degree + "," + knots + (weights != "" ? "," : "") + weights + "}";
+        }
+    }
+
+    public class NurbCurve : Curve
+    {
+        internal NurbCurve(List<Point> points, int degree, double[] knots, double[] weights) : base(points)
         {
-            throw new NotImplementedException();
+            m_Dimensions = 3;
+            m_Order = degree + 1;
+            m_Knots = knots;
+            m_Weights = weights != null ? weights : VectorUtils.Splat(1, points.Count);
         }
 
-        public GeometryBase FromJSON()
+        public override void CreateNurbForm()
         {
-            throw new NotImplementedException();
+            IsNurbForm = true;
+        }
+
+        public static NurbCurve Create(List<Point> points, int degree, double[] knots, double[] weights)           
+        {
+            return new NurbCurve(points, degree, knots, weights);
         }
     }
 }

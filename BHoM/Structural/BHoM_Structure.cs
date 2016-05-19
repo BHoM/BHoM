@@ -29,18 +29,6 @@ namespace BHoM.Structural
         /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
 
-
-        /// <summary>
-        /// Collection of Node objects
-        /// </summary>
-        public ObjectCollection<Node> NodeCollection
-        {
-            get
-            {
-                return new ObjectCollection<Node>();
-            }
-        }
-
         internal Structure(Project project, Dictionary<Guid, BHoMObject> objects)
         {
             this.m_Project = project;

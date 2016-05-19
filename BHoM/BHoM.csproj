@@ -63,17 +63,16 @@
     <Compile Include="Geometry\Mesh\BHoM_FaceArray.cs" />
     <Compile Include="Geometry\Mesh\BHoM_Mesh.cs" />
     <Compile Include="Geometry\Mesh\BHoM_VertexArray.cs" />
+    <Compile Include="Geometry\Surface\BHoM_Brep.cs" />
     <Compile Include="Geometry\Surface\BHoM_Polysurface.cs" />
     <Compile Include="Geometry\Surface\BHoM_Surface.cs" />
-    <Compile Include="Geometry\Surface\BHoM_TrimmedSurface.cs" />
     <Compile Include="Geometry\Vector\BHoM_Plane.cs" />
     <Compile Include="Geometry\Vector\BHoM_Point.cs" />
     <Compile Include="Geometry\Vector\BHoM_Vector.cs" />
     <Compile Include="Geometry\Vector\BHoM_VectorUtils.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
-    <Compile Include="Global\BHoM_ObjectCollection.cs" />
-    <Compile Include="Global\BHoM_Parameter.cs" />
-    <Compile Include="Global\BHoM_Parameters.cs" />
+    <Compile Include="Global\BHoM_ObjectFilter.cs" />
+    <Compile Include="Global\BHoM_ObjectManager.cs" />
     <Compile Include="Global\BHoM_Project.cs" />
     <Compile Include="Global\BHoM_Utils.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C25.cs" />
@@ -83,6 +82,7 @@
     <Compile Include="Planning\Construction\BHoM_ConstructionPhase.cs" />
     <Compile Include="Planning\BHoM_IPhase.cs" />
     <Compile Include="Structural\BHoM_IStructuralObject.cs" />
+    <Compile Include="Structural\BHoM_Panel.cs" />
     <Compile Include="Structural\BHoM_SuperBar.cs" />
     <Compile Include="HumanBody\BHoM_BodyParts.cs" />
     <Compile Include="HumanBody\BHoM_Skeleton.cs" />
@@ -99,12 +99,12 @@
     <Compile Include="Structural\BHoM_Offset.cs" />
     <Compile Include="Structural\BHoM_Structure.cs" />
     <Compile Include="Structural\BHoM_StructureEnums.cs" />
+    <Compile Include="Structural\Constraints\BHoM_Springs.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCBeam.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCColumn.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_EquivalentStatic.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_ResponseSpectrum.cs" />
     <Compile Include="Structural\Loads\BHoM_AreaLoads.cs" />
-    <Compile Include="Structural\Loads\BHoM_AreaVaryingDistributedLoad.cs" />
     <Compile Include="Structural\Loads\BHoM_BarLoad.cs" />
     <Compile Include="Structural\Loads\BHoM_Load.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcase.cs" />
@@ -125,6 +125,7 @@
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelUCSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelBoxSection.cs" />
     <Compile Include="Structural\Section Properties\Steel\BHoM_SteelISection.cs" />
+    <Compile Include="Structural\Thickness Properties\BHoM_ThicknessProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />

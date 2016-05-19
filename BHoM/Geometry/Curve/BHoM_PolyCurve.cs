@@ -101,23 +101,23 @@ namespace BHoM.Geometry
 
             for (int j = 0; j < m_Curves.Count; j++)
             {
-                if (currentIndex < m_Curves[j].NumControlPoints)
+                if (currentIndex < m_Curves[j].PointCount)
                 {
                     return m_Curves[j].ControlPoint(currentIndex);
                 }
-                currentIndex = currentIndex -m_Curves[j].NumControlPoints + 1;
+                currentIndex = currentIndex -m_Curves[j].PointCount + 1;
             }
             return null;
         }
 
-        public override int NumControlPoints
+        public override int PointCount
         {
             get
             {
                 int count = 0;
                 for (int i = 0; i < m_Curves.Count; i++)
                 {
-                    count += m_Curves[i].NumControlPoints - 1;
+                    count += m_Curves[i].PointCount - 1;
                 }
                 return count;
             }
@@ -125,7 +125,7 @@ namespace BHoM.Geometry
 
         public override bool IsPlanar()
         {
-            double[] controlPoint = new double[NumControlPoints * ( m_Dimensions)];
+            double[] controlPoint = new double[PointCount * ( m_Dimensions)];
             for (int i = 0; i < controlPoint.Length; i += m_Dimensions)
             {
                 Point p = ControlPoint(i / m_Dimensions);
@@ -133,7 +133,7 @@ namespace BHoM.Geometry
                 controlPoint[i + 1] = p.Y;
                 controlPoint[i + 2] = p.Z;
             }
-            return Plane.SamePlane(controlPoint, m_Dimensions);
+            return Plane.PointsInSamePlane(controlPoint, m_Dimensions);
         }
 
 

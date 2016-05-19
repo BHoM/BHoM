@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BHoM.Global;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,16 +12,21 @@ namespace BHoM.Structural.Loads
     /// on the combinations of loads with load factors
     /// </summary>
     [Serializable]
-    public class LoadCombination : Loadcase
+    public class LoadCombination : BHoMObject, ICase
     {
 
         //Combination
-        public override CaseType CaseType
+        public CaseType CaseType
         {
             get
             {
                 return CaseType.Combination;
             }
+        }
+
+        public int Number
+        {
+            get; set;
         }
     }
 }

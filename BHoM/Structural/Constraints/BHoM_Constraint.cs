@@ -1,32 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Reflection;
 
 namespace BHoM.Structural
-{
+{       
     /// <summary>
     /// Constraint object - base class for all release, restraint, support classes. 
     /// </summary>
     [Serializable]
     public class Constraint : Global.BHoMObject, IStructuralObject
     {
-        private List<DOFType> m_DOFTypes;
-        private List<double> m_Values;
-
         /////////////////
         ////Properties///
         /////////////////
+        private DOF[] m_DOF;
 
-        internal List<DOFType> DOFTypes
+
+        public DOF UX
         {
-            get;
-            set;
+            get
+            {
+                return m_DOF[0];
+            }
+            set
+            {
+                m_DOF[0] = value;
+            }
         }
 
-        internal List<double> Values
+        public DOF UY
         {
-            get;
-            set;
+            get
+            {
+                return m_DOF[1];
+            }
+            set
+            {
+                m_DOF[1] = value;
+            }
+        }
+
+        public DOF UZ
+        {
+            get
+            {
+                return m_DOF[2];
+            }
+            set
+            {
+                m_DOF[2] = value;
+            }
+        }
+
+        public DOF RX
+        {
+            get
+            {
+                return m_DOF[3];
+            }
+            set
+            {
+                m_DOF[3] = value;
+            }
+        }
+
+        public DOF RY
+        {
+            get
+            {
+                return m_DOF[4];
+            }
+            set
+            {
+                m_DOF[4] = value;
+            }
+        }
+
+        public DOF RZ
+        {
+            get
+            {
+                return m_DOF[5];
+            }
+            set
+            {
+                m_DOF[5] = value;
+            }
         }
 
         /// <summary>Constraint type</summary>
@@ -34,22 +94,8 @@ namespace BHoM.Structural
         {
             get;
             set;
-        }
+        }    
 
-        public DOF DOF(AxisDirection axisDir)
-        {
-            return new DOF(DOFTypes[(int)axisDir], Values[(int)axisDir]);
-        }
-
-        public DOFType DoFType(AxisDirection axisDir)
-        {
-            return DOFTypes[(int)axisDir];
-        }
-
-        public double Value(AxisDirection axisDir)
-        {
-            return Values[(int)axisDir];
-        }
         ///////////////////
         ////Constructors///
         ///////////////////
@@ -57,7 +103,10 @@ namespace BHoM.Structural
         /// <summary>
         /// Construct an empty constraint object
         /// </summary>
-        public Constraint() { }
+        internal Constraint()
+        {
+            m_DOF = new DOF[6];
+        }
 
         /// <summary>
         /// Construct an empty constraint object with a name
@@ -65,6 +114,7 @@ namespace BHoM.Structural
         public Constraint(string name)
         {
             this.Name = name;
+            m_DOF = new DOF[6];
         }
 
         ///// <summary>Construct a constraint from DOF objects. Any constraint 
@@ -80,30 +130,32 @@ namespace BHoM.Structural
 
         public Constraint(string name, bool[] fixity, double[] values)
         {
-            List<DOFType> dofTypes = new List<DOFType>(6);
-            List<double> vals = new List<double>(6);
+            m_DOF = new DOF[6];
             for (int i = 0; i < 6;i++)
             {
-                dofTypes.Add((fixity[i]) ? DOFType.Fixed : DOFType.Free);
-                vals.Add(values[i]);
+                m_DOF[i] = new DOF((fixity[i]) ? DOFType.Fixed : DOFType.Free, values[i]);
             }
-            DOFTypes = dofTypes;
-            Values = vals;
         }
 
         public Constraint(string name, double[] values)
         {
-            List<DOFType> dofTypes = new List<DOFType>(6);
-            List<double> vals = new List<double>(6);
+            m_DOF = new DOF[6];
             for (int i = 0; i < 6; i++)
             {
-                dofTypes.Add((values[i] == -1) ? DOFType.Fixed : (values[i] == 0) ? DOFType.Free : DOFType.Spring);
-                Values.Add(values[i]);
+                m_DOF[i] = new DOF((values[i] == -1) ? DOFType.Fixed : (values[i] == 0) ? DOFType.Free : DOFType.Spring, values[i]);           
             }
-            DOFTypes = dofTypes;
-            Values = vals;
         }
         
+        public Constraint(string name, IEnumerable<DOF> dof)
+        {
+            m_DOF = new DOF[6];
+            int index = 0;
+            foreach (DOF d in dof)
+            {
+                m_DOF[index++] = d;
+            }
+        }
+
 
         //////////////
         ////Methods///
@@ -152,24 +204,6 @@ namespace BHoM.Structural
         public void SetType(ConstraintType type)
         {
             this.Type = type;
-        }
-
-        /// <summary>Returns the values for each DOF</summary>
-        public double[] GetValues()
-        {            
-            return Values.ToArray();
-        }
-
-        /// <summary>Returns the descriptions for each DOF type</summary>
-        public string[] GetDescriptions()
-        {
-            string[] descriptions = new string[6];
-            for (int i = 0; i < 6; i++)
-            {
-                descriptions[i] = DOFTypes[i].ToString();
-            }
-
-            return descriptions;
-        }
+        }      
     }
 }

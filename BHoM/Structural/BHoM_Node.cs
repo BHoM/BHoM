@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using BHoM.Geometry;
 using System.Reflection;
 using BHoM.Global;
+using BHoM.Structural.Loads;
+using System.ComponentModel;
 
 namespace BHoM.Structural
 {
@@ -16,6 +18,9 @@ namespace BHoM.Structural
     [Serializable]
     public class Node : BHoM.Global.BHoMObject, IStructuralObject
     {
+        private List<Bar> m_ConnectedBars;
+        private List<Face> m_ConnectedFaces;
+
         /////////////////
         ////Properties///
         /////////////////
@@ -23,20 +28,16 @@ namespace BHoM.Structural
         /// <summary>
         /// Node Number
         /// </summary>
-        public int Number { get; set; }
-
-        public double[] Coordinates
-        {
-            get
-            {
-                return Point;
-            }
-        }
 
         /// <summary>Node position as a point object</summary>
+        [DisplayName("Point")]
+        [Description("Node location")]
         public Point Point { get; set; }
 
         /// <summary>Node constraint (support/restraint)</summary>
+        [DisplayName("Constraint")]
+        [Description("Constraint assigned to the point object")]
+        [DefaultValue(null)]
         public BHoM.Structural.Constraint Constraint { get; set; }
 
         /// <summary>Returns true is node is constrained</summary>
@@ -46,10 +47,10 @@ namespace BHoM.Structural
         public string ConstraintName { get; private set; }
 
         /// <summary>Bars connected to the node</summary>
-        public List<Bar> ConnectedBars { get; private set; }
+        public List<Bar> ConnectedBars { get { return m_ConnectedBars; } }
 
         /// <summary>Faces connected to the node</summary>
-        public List<Face> ConnectedFaces { get; private set; }
+        public List<Face> ConnectedFaces { get; }
 
         /// <summary>Valence of node</summary>
         public int Valence { get; private set; }
@@ -71,7 +72,11 @@ namespace BHoM.Structural
         ////Constructors///
         ///////////////////
 
-        internal Node() { }
+        internal Node()
+        {
+            m_ConnectedBars = new List<Bar>();
+            m_ConnectedFaces = new List<Face>();
+        }
 
         /// <summary>
         /// Constructes a node from CartesianCoordinates and an index number
@@ -80,11 +85,22 @@ namespace BHoM.Structural
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <param name="number"></param>
-        public Node(double x, double y, double z, int number)
+        public Node(double x, double y, double z) : this()
         {
             Point = new Point(x, y, z);
-            Number = number;
-            Name = number.ToString();
+        }
+
+        /// <summary>
+        /// Constructes a node from CartesianCoordinates and an index number
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <param name="name"></param>
+        public Node(double x, double y, double z, string name) : this()
+        {
+            Point = new Point(x, y, z);
+            Name = name;
         }
 
         /// <summary>
@@ -99,27 +115,9 @@ namespace BHoM.Structural
             }
         }
 
-        /// <summary>
-        /// Returns true if node number is greater than 0
-        /// </summary>
-        /// <returns></returns>
-        public bool HasValidNumber()
-        {
-            return Number > 0;
-        }
-
         //////////////
         ////Methods///
         //////////////
-
-        /// <summary>
-        /// Sets the node number
-        /// </summary>
-        /// <param name="number"></param>
-        public void SetNumber(int number)
-        {
-            this.Number = number;
-        }
 
         /// <summary>
         /// Gets or sets the CartesianCoordinates of the node position
@@ -138,10 +136,10 @@ namespace BHoM.Structural
             {
                 return Point.X; 
             }
-            set
-            {
-                Point.X = value;
-            }
+            //set
+            //{
+            //    Point.X = value;
+            //}
         }
 
         /// <summary>
@@ -153,10 +151,10 @@ namespace BHoM.Structural
             {
                 return Point.Y;
             }
-            set
-            {
-                Point.Y = value;
-            }
+            //set
+            //{
+            //    Point.Y = value;
+            //}
         }
 
         /// <summary>
@@ -168,9 +166,21 @@ namespace BHoM.Structural
             {
                 return Point.Z;
             }
-            set
+            //set
+            //{
+            //    Point.Z = value;
+            //}
+        }
+
+        public List<ILoad> Loads
+        {
+            get
             {
-                Point.Z = value;
+                throw new NotImplementedException();
+            }
+            internal set
+            {
+                throw new NotImplementedException();
             }
         }
 
@@ -245,7 +255,7 @@ namespace BHoM.Structural
         /// </summary>
         public void ResetTopology()
         {
-            this.ConnectedBars = new List<Bar>();
+            this.ConnectedBars.Clear();
             Valence = 0;
         }
 

@@ -9,16 +9,44 @@ using BHoM.Global;
 namespace BHoM.Structural.Loads
 {
     /// <summary>
-    /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
-    /// constructor allows for a default force and moment nodal load instance.
+    /// Interface implemented by all loading related classes
     /// </summary>
-    public interface ILoad<T> where T : BHoMObject
+    public interface ILoad
     {
         /// <summary>Loadcase as BHoM object</summary>
         BHoM.Structural.Loads.Loadcase Loadcase { get; set; }
+    }
 
-         /// <summary>A list of structural elements numbers that the nodal load is applicable to</summary>
-        List<T> Objects { get; set; }
-        
+    /// <summary>
+    /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
+    /// constructor allows for a default force and moment nodal load instance.
+    /// </summary>
+    public abstract class Load<T> : BHoMObject, ILoad where T : BHoMObject
+    {
+        private Loadcase m_Loadcase;
+        private List<T> m_Objects;
+
+        internal Load() { m_Objects = new List<T>(); }
+
+        /// <summary>Loadcase as BHoM object</summary>
+        public BHoM.Structural.Loads.Loadcase Loadcase
+        {
+            get
+            {
+                return m_Loadcase;
+            }
+            set
+            {            
+                if (m_Loadcase != null) m_Loadcase.LoadRecords.Remove(this);                
+                m_Loadcase = value;
+                if (m_Loadcase != null) m_Loadcase.LoadRecords.Add(this);
+            }
+        }
+
+        /// <summary>A list of structural elements that the nodal load is applicable to</summary>
+        public List<T> Objects
+        {
+            get { return m_Objects; }
+        }     
     }
 }
