@@ -25,7 +25,7 @@ namespace BHoM.Global
         [DefaultValue(null)]
         public Dictionary<string, object> CustomData { get; set; }
 
-        internal BHoMObject()
+        public BHoMObject()
         {
             CustomData = new Dictionary<string, object>();
             this.BHoM_Guid = System.Guid.NewGuid();
