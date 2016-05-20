@@ -47,24 +47,60 @@ namespace BHoM.Global
             m_Name = name;
         }
         
+        public TValue Add(TKey key, TValue value)
+        {
+            TValue result = default(TValue);
+            if (!m_Data.TryGetValue(key, out result))
+            {
+                m_Data.Add(key, value);
+                Project.ActiveProject.AddObject(value);
+                if (m_UniqueNumber > 0) m_UniqueNumber++;
+                result = value;
+                switch (m_Option)
+                {
+                    case FilterOption.Guid:
+                        break;
+                    case FilterOption.Name:
+                        value.Name = key.ToString();
+                        break;
+                    case FilterOption.Property:
+                        value.GetType().GetProperty(m_Name).SetValue(value, key);
+                        break; ;
+                    case FilterOption.UserData:
+                        object objValue = null;
+                        if (value.CustomData.TryGetValue(m_Name, out objValue))
+                        {
+                            value.CustomData[m_Name] = key;
+                        }
+                        else
+                        {
+                            value.CustomData.Add(m_Name, key);
+                        }
+
+                        break;
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// Adds an object to the collection checking if the defined key is unique
         /// </summary>
         /// <param name="obj">BHoM object to add to the collection</param>
         /// <returns>True is object was added, false otherwise</returns>
-        public bool Add(TValue obj)
-        {
-            TValue value;
-            TKey key = ObjectFilter.GetKey<TKey>(obj, m_Name, m_Option);
-            if (!m_Data.TryGetValue(key, out value))
-            {
-                m_Data.Add(key, obj);
-                Project.ActiveProject.AddObject(obj);
-                if (m_UniqueNumber > 0) m_UniqueNumber++;
-                return true;
-            }
-            return false;
-        }
+        //public bool Add(TValue obj)
+        //{
+        //    TValue value;
+        //    TKey key = ObjectFilter.GetKey<TKey>(obj, m_Name, m_Option);
+        //    if (!m_Data.TryGetValue(key, out value))
+        //    {
+        //        m_Data.Add(key, obj);
+        //        Project.ActiveProject.AddObject(obj);
+        //        if (m_UniqueNumber > 0) m_UniqueNumber++;
+        //        return true;
+        //    }
+        //    return false;
+        //}
         /// <summary>
         /// 
         /// </summary>
