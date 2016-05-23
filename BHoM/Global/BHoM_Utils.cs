@@ -100,6 +100,8 @@ namespace BHoM.Global
                 System.Reflection.MethodInfo jsonMethod = type.GetMethod("FromJSON");
                 if (jsonMethod != null)
                     return jsonMethod.Invoke(null, new object[] { value });
+                else if ((jsonMethod = type.BaseType.GetMethod("FromJSON")) != null)
+                    return jsonMethod.Invoke(null, new object[] { value });
                 else
                 {
                     System.Reflection.MethodInfo parseMethod = type.GetMethod("Parse", new Type[] { typeof(string) });

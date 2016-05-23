@@ -413,6 +413,35 @@ namespace BHoM.Geometry
             return result;
         }
 
+        internal static double[] Intersect(double[] s1, double[] v1, double[] s2, double[] v2, bool bound)
+        {
+            int a1 = 0;
+            int a2 = 1;
+
+            if (v1[a1] == 0 && v2[a1] == 0) a1++;
+            if (v1[a2] == 0 && v2[a2] == 0) a2++;
+
+            double[] rhs = VectorUtils.Sub(s2, s1);
+            int tries = 0;
+            while (tries++ < 2)
+            {
+                double multiplier = v1[a1] / v1[a2];
+
+                if (!double.IsInfinity(multiplier))
+                {
+                    double t = (rhs[a2] * multiplier - rhs[a1]) / (v2[a1] - v2[a2] * multiplier);
+                    return double.IsNaN(t) || bound && (t > 1 || t < 0) ? null : VectorUtils.Add(s2, VectorUtils.Multiply(v2, t));
+                }
+                else
+                {
+                    int temp = a2;
+                    a2 = a1;
+                    a1 = temp;
+                }
+            }
+            return null;
+        }
+
         internal static double[] Intersect(double[] s1, double[] v1, double[] s2, double[] v2)
         {
             int a1 = 0;
@@ -437,7 +466,6 @@ namespace BHoM.Geometry
                     int temp = a2;
                     a2 = a1;
                     a1 = temp;
-                    tries++;
                 }
             }
             return null;

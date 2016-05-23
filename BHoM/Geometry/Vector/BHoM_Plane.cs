@@ -39,6 +39,15 @@ namespace BHoM.Geometry
             Origin = new Point(Utils.SubArray<double>(pnts, 0, 4));
         }
 
+        internal bool IsSameSide(double[] p1, double[] p2)
+        {
+            if (VectorUtils.DotProduct(p1, m_Normal) + D >= 0 && VectorUtils.DotProduct(p2, m_Normal) + D >= 0)
+                return true;
+            else if(VectorUtils.DotProduct(p1, m_Normal) + D < 0 && VectorUtils.DotProduct(p2, m_Normal) + D < 0)
+                return true;
+            return false;
+        }
+
         internal List<int> SameSide(double[] pnts)
         {
             double[] result = VectorUtils.DotProduct(pnts, m_Normal, m_Normal.Length);
@@ -128,14 +137,14 @@ namespace BHoM.Geometry
         public bool InPlane(Point p)
         {
             double dotProduct = VectorUtils.DotProduct(m_Normal, p);
-            return dotProduct < 0.0001 && dotProduct > -0.0001;
+            return dotProduct < 0.001 && dotProduct > -0.001;
         }
 
         internal bool InPlane(double[] pnts, int length)
         {
             double[] dotProducts = VectorUtils.DotProduct(pnts, m_Normal, length);
             double sum = VectorUtils.Sum(dotProducts);
-            return sum < 0.0001 && sum > -0.0001;
+            return sum + D < 0.001 && sum + D > -0.001;
         }
 
         internal static Plane PlaneFromPoints(double[] pnts, int length)

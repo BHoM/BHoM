@@ -32,6 +32,20 @@ namespace BHoM.Geometry
             }
         }
 
+        internal Curve(List<double[]> points)
+        {
+            m_Dimensions = 3;
+            m_ControlPoints = new double[points.Count * (m_Dimensions + 1)];
+            for (int i = 0; i < points.Count; i++)
+            {
+                double[] p = points[i];
+                for (int j = 0; j < 4; j++)
+                {
+                    m_ControlPoints[i * 4 + j] = j == 3 && p.Length < 4 ? 1 :p[j];
+                }
+            }
+        }
+
         /// <summary>Start point as BHoM point</summary>
         /// 
         public virtual Point StartPoint
@@ -216,9 +230,12 @@ namespace BHoM.Geometry
             if (!IsNurbForm) CreateNurbForm();
             double[] sumNwP = new double[m_Dimensions];
             double sumNw = 0;
+            if (t == 0) return StartPoint;
+            else if (t >= m_Knots[m_Knots.Length - 1]) return EndPoint;
             for (int i = 0; i < m_ControlPoints.Length / (m_Dimensions + 1); i++)
             {
-                double Nt = BasisFunction(i, m_Order - 1, t);                
+                double Nt = BasisFunction(i, m_Order - 1, t);
+                if (Nt == 0) continue;          
                 sumNwP = VectorUtils.Add(sumNwP, VectorUtils.Multiply(m_ControlPoints, Nt * m_Weights[i], i * (m_Dimensions + 1), m_Dimensions));
                 sumNw += Nt * m_Weights[i];
             }

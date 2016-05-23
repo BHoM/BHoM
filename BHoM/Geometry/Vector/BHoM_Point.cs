@@ -11,7 +11,7 @@ namespace BHoM.Geometry
     /// BHoM Point object
     /// </summary>
     [Serializable]
-    public class Point : GeometryBase
+    public class Point : GeometryBase, IComparable<Point>
     {
         private double[] Coordinates;
 
@@ -79,7 +79,9 @@ namespace BHoM.Geometry
         /// <param name="z"></param>
         internal Point(double[] v)
         {
-            Coordinates = Utils.Copy<double>(v);
+            Coordinates = new double[4];
+            Array.Copy(v, Coordinates, v.Length);
+            Coordinates[3] = 1;
         }
 
         /// <summary>
@@ -94,21 +96,21 @@ namespace BHoM.Geometry
         /// <summary>
         /// Create a point from json
         /// </summary>
-        public static Point FromJSON(string json)
-        {
-            Point newPoint = new Point();
-            int i0 = json.IndexOf('{') + 1;
-            int i1 = json.LastIndexOf('}');
-            string[] coords = json.Substring(i0, i1-i0).Split(',');
+        //public static Point FromJSON(string json)
+        //{
+        //    Point newPoint = new Point();
+        //    int i0 = json.IndexOf('{') + 1;
+        //    int i1 = json.LastIndexOf('}');
+        //    string[] coords = json.Substring(i0, i1-i0).Split(',');
 
-            if (coords.Length != 3) return null;
-            for (int i = 0; i < 3; i++)
-            {
-                double.TryParse(coords[i], out newPoint.Coordinates[i]);
-            }
+        //    if (coords.Length != 3) return null;
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        double.TryParse(coords[i], out newPoint.Coordinates[i]);
+        //    }
 
-            return newPoint;
-        }
+        //    return newPoint;
+        //}
 
 
         public static implicit operator double[](Point v)
@@ -354,11 +356,19 @@ namespace BHoM.Geometry
 
         public override void Update()
         {
-        }        
+        }
 
         public override string ToJSON()
         {
             return "{\"Primitive\": \"point\", \"point\": " + ToString() + "}";
+
+        }
+
+        public int CompareTo(Point other)
+        {
+            double value1 = X * 1E16 + Y * 1E8 + Z;
+            double value2 = other.X * 1E16 + Y * 1E8 + Z;
+            return value1.CompareTo(value2);
         }
     }
 }

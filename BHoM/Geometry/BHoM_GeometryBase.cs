@@ -9,13 +9,11 @@ namespace BHoM.Geometry
 {
     public abstract class GeometryBase
     {
-        public Guid Id
-        {
-            get
-            {
-                return Guid.NewGuid();
-            }
-        }
+        public Guid Id { get; set; }
+        
+
+        internal GeometryBase() { Id = new Guid(); }
+
         public abstract BoundingBox Bounds();
         public abstract void Transform(Transform t);
         public abstract void Translate(Vector v);
@@ -40,24 +38,24 @@ namespace BHoM.Geometry
             switch (typeString)
             {
                 case "point":
-                    return Utils.ReadValue(typeof(Point), definition["point"]) as Point;
+                    return new Point(Utils.ReadValue(typeof(double[]), definition["point"]) as double[]);
                 case "vector":
                     return new Vector(Utils.ReadValue(typeof(double[]), definition["vector"]) as double[]);
                 case "plane":
-                    Point origin = Utils.ReadValue(typeof(Point), definition["start"]) as Point;
+                    Point origin = new Point(Utils.ReadValue(typeof(double[]), definition["origin"]) as double[]);
                     Vector normal = new Vector(Utils.ReadValue(typeof(double[]), definition["point"]) as double[]);
                     return new Plane(origin, normal);
                 case "arc":
-                    Point start = Utils.ReadValue(typeof(Point), definition["start"]) as Point;
-                    Point middle = Utils.ReadValue(typeof(Point), definition["middle"]) as Point;
-                    Point end = Utils.ReadValue(typeof(Point), definition["end"]) as Point;
+                    Point start = new Point(Utils.ReadValue(typeof(double[]), definition["start"]) as double[]);
+                    Point middle = new Point(Utils.ReadValue(typeof(double[]), definition["middle"]) as double[]);
+                    Point end = new Point(Utils.ReadValue(typeof(double[]), definition["end"]) as double[]);
                     return new Arc(start, middle, end);
                 case "line":
-                    Point startP = Utils.ReadValue(typeof(Point), definition["start"]) as Point;
-                    Point endP = Utils.ReadValue(typeof(Point), definition["end"]) as Point;
+                    Point startP = new Point(Utils.ReadValue(typeof(double[]), definition["start"]) as double[]);
+                    Point endP = new Point(Utils.ReadValue(typeof(double[]), definition["end"]) as double[]);
                     return new Line(startP, endP);
                 case "polyline":
-                    List<Point> points = Utils.ReadValue(typeof(List<Point>), definition["points"]) as List<Point>;
+                    List<double[]> points = Utils.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
                     return new Polyline(points);
                 case "curve":
                     List<Point> curvePoints = Utils.ReadValue(typeof(List<Point>), definition["points"]) as List<Point>;

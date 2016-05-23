@@ -83,8 +83,8 @@ namespace BHoM.Geometry
             if (rotationAngle > 0)
             {
                 Vector rotationAxis = Vector.CrossProduct(plane.Normal, Vector.ZAxis());
-                Transform t = Geometry.Transform.Rotation(plane.Origin, rotationAxis, rotationAngle);
-
+                Transform t = Geometry.Transform.Rotation(Point.Origin, rotationAxis, rotationAngle);
+                t = Geometry.Transform.Translation(plane.Origin - Point.Origin) * t;
                 m_ControlPoints = VectorUtils.MultiplyMany(t, m_ControlPoints);
             }
         }
@@ -109,7 +109,7 @@ namespace BHoM.Geometry
             double arcAngle = VectorUtils.Angle(V1,V2);
 
             m_Weights = new double[] { 1, w2, 1 };
-            m_Knots = new double[] { 0, 0, 0, arcAngle, arcAngle };
+            m_Knots = new double[] { 0, 0, 0, arcAngle, arcAngle, arcAngle };
             m_Order = 3;
 
             Array.Copy(cP2, 0, m_ControlPoints, m_Dimensions + 1, m_Dimensions + 1);

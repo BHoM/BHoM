@@ -12,6 +12,8 @@ namespace BHoM.Geometry
 
         public Polyline(List<Point> points) : base(points) { }
 
+        internal Polyline(List<double[]> pnts) : base(pnts) { }
+
         public override void CreateNurbForm()
         {
             m_Order = 2;

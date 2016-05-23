@@ -19,6 +19,7 @@ namespace BHoM.Geometry
             m_Dimensions = 3;
             m_Order = 3;
             m_Plane = p;
+            CreateNurbForm();
         }
 
         public override void CreateNurbForm()
@@ -51,6 +52,15 @@ namespace BHoM.Geometry
             }
 
             IsNurbForm= true;
+        }
+
+        public override int PointCount
+        {
+            get
+            {
+                if (!IsNurbForm) CreateNurbForm();
+                return base.PointCount;
+            }
         }
 
         public Point Centre
