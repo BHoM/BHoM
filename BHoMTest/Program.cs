@@ -9,14 +9,56 @@ using BHoM.Global;
 using BHoM.Structural.Loads;
 using System.IO;
 using System.Diagnostics;
+using R = Rhino.Geometry;
+
 
 namespace BHoMTest
 {
+    public class TestObj : BHoMObject
+    {
+        public List<Point> Data { get; set; }
+        public TestObj()
+        {
+            Point p1 = new Point(0, 0, 0);
+            Point p2 = new Point(1, 2, 4);
+            Data = new List<Point>() { p1, p2 };
+        }
+    }
+
+
     class Program
     {
         static void Main(string[] args)
         {
-            
+            Polyline line = new Polyline(new List<Point>() { new Point(-150, 10, 0), new Point(150, 10, 0) });
+
+            Polyline line1 = new Polyline(
+                new List<Point>() {
+                    new Point(-50, -200, 0),
+                    new Point(-50, 200, 0),
+                    new Point(100,100,0),
+                    new Point(100,-100,0)
+                });
+
+            Circle c = new Circle(100, new Plane(new Point(0, 0, 0), new Vector(0, 0, 1)));
+
+            Group<Curve> crvs = new Group<Curve>(new List<Curve>() { c,line });
+
+            string groupJson = crvs.ToJSON();
+
+            GeometryBase jsonResult = GeometryBase.FromJSON(groupJson);
+
+
+            Plane plane = new Plane(new Point(0, 0, 0), new Vector(0, 0, 1));
+            Arc arc1 = new Arc(Math.PI, Math.PI / 2, 2, new Plane(new Point(2, 0, -1), new Vector(0, 1, 0)));
+            List<Point> p5 = Intersect.PlaneCurve(plane, arc1);
+            string[] sections = new BHoM.Structural.SectionProperties.SectionDB().SectionNames().ToArray();
+
+            TestObj obj = new TestObj();
+            string objS = obj.ToJSON();
+
+            BHoMObject bOo = BHoMObject.FromJSON(objS);
+
             Arc a = new Arc(new Point(0, 0, 0), new Point(1, 0, 0), new Point(0.5, 0.1, 0));
             string s = a.ToJSON();
             Arc b = GeometryBase.FromJSON(s) as Arc;
@@ -36,14 +78,22 @@ namespace BHoMTest
             Stopwatch sw = new Stopwatch();
 
             sw.Start();
+           // R.Arc rArc= new Rhino.Geometry.Arc(new R.Plane(new Rhino.Geometry.Point3d(2, 0, -1), new Rhino.Geometry.Vector3d(0, 1, 0)), 2, Math.PI / 2);
+
             for (int i = 0; i < 10000; i++)
             {
-                nodes.Add((i+1).ToString(), new Node(i, i, i));
+               // List<Point> p19 = Intersect.PlaneCurve(plane, arc1);
+                Intersect.CurveCurve(line, c);
+                // R.Intersect.CurveIntersections cI = R.Intersect.Intersection.CurvePlane(R.NurbsCurve.CreateFromArc(rArc), new Rhino.Geometry.Plane(R.Point3d.Origin, R.Vector3d.ZAxis),0.01);
+                //nodes.Add((i+1).ToString(), new Node(i, i, i));
             }
 
-            for (int i = 0; i < 10000 - 1; i++)
+            for (int i = 0; i < 100 - 1; i++)
             {
-                bars.Add((i + 1).ToString(), new Bar(nodes[(i + 1).ToString()], nodes[(i + 2).ToString()]));
+                //BHoM.Structural.SectionProperties.SectionCalculator sC = new BHoM.Structural.SectionProperties.SectionCalculator(crvs);
+
+                //double Area = sC.Area;
+                // bars.Add((i + 1).ToString(), new Bar(nodes[(i + 1).ToString()], nodes[(i + 2).ToString()]));
             }
 
            IEnumerable<Bar> barFilteredList = new ObjectFilter<Bar>().Where(bar => bar.Name.Contains("1"));
@@ -63,7 +113,7 @@ namespace BHoMTest
             Console.WriteLine("Time to Add {0} nodes and {1} bars was {2} ", nodes.Count, bars.Count, sw.Elapsed);
            
 
-            Console.WriteLine("Node {0} is located at {1}", 4, nodes[4.ToString()].Point.ToString());
+            //Console.WriteLine("Node {0} is located at {1}", 4, nodes[4.ToString()].Point.ToString());
             
             Console.ReadLine();
             ////PointForce pF = new PointForce(null, 1, 1, 1, 1, 1, 1);

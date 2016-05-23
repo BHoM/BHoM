@@ -58,11 +58,23 @@ namespace BHoM.Geometry
                     List<double[]> points = Utils.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
                     return new Polyline(points);
                 case "curve":
-                    List<Point> curvePoints = Utils.ReadValue(typeof(List<Point>), definition["points"]) as List<Point>;
+                    List<double[]> curvePoints = Utils.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
                     double[] knots = (double[])Utils.ReadValue(typeof(double[]), definition["knots"]);
                     double[] weights = definition.ContainsKey("weights") ? (double[])Utils.ReadValue(typeof(double[]), definition["weights"]) : null;
                     int degree = (int)Utils.ReadValue(typeof(int), definition["degree"]);
                     return new NurbCurve(curvePoints, degree, knots, weights);
+                case "group":
+                    Type groupDataType = Type.GetType(definition["groupType"].Trim('\"', '\"'));
+                    var groupType = typeof(Group<>);
+                    var dataType = typeof(List<>);
+                    var data = dataType.MakeGenericType(groupDataType);
+                    var groupofType = groupType.MakeGenericType(groupDataType);
+                    var group = Activator.CreateInstance(groupofType);
+                    System.Reflection.MethodInfo jsonMethod = groupofType.GetMethod("AddRange");
+                    if (jsonMethod != null)
+                        return jsonMethod.Invoke(group, new object[] { Utils.ReadValue(data, definition["group"]) }) as GeometryBase;
+                    return group as GeometryBase;
+
             }
             return null;
         }

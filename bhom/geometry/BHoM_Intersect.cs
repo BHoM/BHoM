@@ -71,16 +71,19 @@ namespace BHoM.Geometry
                             double[] p2Max = c2.PointAt(maxT2);
                             double[] p2Min = c2.PointAt(minT2);
 
-                            double[] cP1 = c1.Degree == 1 ? intersectPoint : CurveNearestPoint(c1, intersectPoint, minT1, maxT1, p1Min, p1Max);
-                            double[] cP2 = c2.Degree == 1 ? intersectPoint : CurveNearestPoint(c2, intersectPoint, minT2, maxT2, p2Min, p2Max);
+                            double[] cP1 = p1Min;// : CurveNearestPoint(c1, intersectPoint, minT1, maxT1, p1Min, p1Max);
+                            double[] cP2 = intersectPoint;// : CurveNearestPoint(c2, intersectPoint, minT2, maxT2, p2Min, p2Max);
 
                             int interations = 0;
-                            while (interations++ < 5 && !VectorUtils.Equal(cP1, cP2, 0.001))
+                            while (interations++ < 20 && !VectorUtils.Equal(cP1, cP2, 0.001))
                             {
-                                cP1 = CurveNearestPoint(c1, cP2, minT1, maxT1, p1Min, p1Max);
-                                cP2 = CurveNearestPoint(c2, cP1, minT2, maxT2, p2Min, p2Max);
+                                UpdateNearestEnd(c1, cP2, ref minT1, ref maxT1, ref p1Min, ref p1Max);
+                                cP1 = VectorUtils.Average(p1Max, p1Min);
+                                UpdateNearestEnd(c2, cP1, ref minT2, ref maxT2, ref p2Min, ref p2Max);
+                                cP2 = VectorUtils.Average(p2Max, p2Min);
+                                
                             }
-                            if (VectorUtils.Equal(cP1, cP2, 0.001))
+                            //if (VectorUtils.Equal(cP1, cP2, 0.001))
                             result.Add(new Point(cP1));
                         }
                         p21 = p22;
@@ -91,10 +94,53 @@ namespace BHoM.Geometry
             return result;
         }
 
+        private static void UpdateNearestEnd(Curve c, double[] pointComparison, ref double minT, ref double maxT, ref double[] pMin, ref double[] pMax)
+        {
+            double distance1 = VectorUtils.LengthSq(VectorUtils.Sub(pointComparison, pMin));
+            double distance2 = VectorUtils.LengthSq(VectorUtils.Sub(pointComparison, pMax));
+            double distanceRatio = distance1 / distance2;
+            if (distanceRatio < 1.01 && distanceRatio > 0.99)
+            {
+                double midQuart = (maxT - minT) / 4;
+                minT = minT + midQuart;
+                maxT = maxT - midQuart;
+                pMin = c.PointAt(minT);
+                pMax = c.PointAt(maxT);
+
+            }
+            else
+            {
+                double mid = (minT + maxT) / 2;
+                double[] midP = c.PointAt(mid);
+
+                if (distance1 < distance2)//(InRange(pointComparison, pMin, midP))
+                {
+                    maxT = mid;
+                    pMax = midP;
+                }
+                else
+                {
+                    minT = mid;
+                    pMin = midP;
+                }
+            }
+        }
+
+        private static bool InRange(double[] value, double[] min, double[] max)
+        {
+            for (int i = 0; i < value.Length;i++)
+            {
+                if (value[i] >= min[i] && value[i] <= max[i]) continue;
+                if (value[i] >= max[i] && value[i] <= min[i]) continue;
+                return false;
+            }
+            return true;
+        }
+
         private static double[] CurveNearestPoint(Curve c, double[] point, double minT, double maxT, double[] p1, double[] p2)
         {
             
-            if (VectorUtils.Equal(p1, p2, 0.001)) return p1;
+            if (VectorUtils.Equal(p1, p2, 0.1)) return p1;
 
             double mid = (minT + maxT) / 2;
 

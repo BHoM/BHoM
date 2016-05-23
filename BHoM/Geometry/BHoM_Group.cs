@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace BHoM.Geometry
 {
     public class Group : Group<GeometryBase> { }
 
-    public class Group<T> : GeometryBase where T : GeometryBase 
+    public class Group<T> : GeometryBase, IEnumerable<T> where T : GeometryBase 
     {
         private List<T> m_Geometry;
         private BoundingBox m_Bounds;
@@ -28,10 +29,17 @@ namespace BHoM.Geometry
             m_Geometry.Add(geometry);
         }
 
+        public void AddRange(IEnumerable<T> geometry)
+        {
+            m_Geometry.AddRange(geometry);
+        }
+
         internal List<T> Geometry()
         {
             return m_Geometry;
         }
+
+        internal List<T> GeometryData { set { m_Geometry = value; } }
 
         public T this[int i]
         {
@@ -60,14 +68,6 @@ namespace BHoM.Geometry
                 }
             }
             return m_Bounds;           
-        }
-
-        public Guid Id
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
         }
 
         public Group<T> DuplicateGroup()
@@ -132,12 +132,17 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            throw new NotImplementedException();
+            return "{\"Primitive\": \"group\", \"groupType\": \""+ typeof(T).FullName + "\"," + BHoM.Global.Utils.WriteProperty("group", m_Geometry).Trim(',') + "}";
         }
 
-        public GeometryBase FromJSON()
+        public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return m_Geometry.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return m_Geometry.GetEnumerator();
         }
     }
 }

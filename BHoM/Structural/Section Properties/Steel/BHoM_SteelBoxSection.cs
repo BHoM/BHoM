@@ -13,7 +13,7 @@ namespace BHoM.Structural.SectionProperties
         /// <summary></summary>
         internal SteelBoxSection(string name) : base()
         {
-            this.Type = ShapeType.SteelI;
+            //this.Type = ShapeType.SteelI;
             this.Name = name;
         }
         

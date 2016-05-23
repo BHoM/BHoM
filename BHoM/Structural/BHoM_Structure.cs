@@ -29,6 +29,14 @@ namespace BHoM.Structural
         /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
 
+        public SectionDB SectionDatabase
+        {
+            get; private set;
+        }
+
+        //public MaterialDB Materials { get; private set; }
+
+
         internal Structure(Project project, Dictionary<Guid, BHoMObject> objects)
         {
             this.m_Project = project;

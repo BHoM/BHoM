@@ -414,6 +414,14 @@ namespace BHoM.Geometry
 
     public class NurbCurve : Curve
     {
+        internal NurbCurve(List<double[]> points, int degree, double[] knots, double[] weights) : base(points)
+        {
+            m_Dimensions = 3;
+            m_Order = degree + 1;
+            m_Knots = knots;
+            m_Weights = weights != null ? weights : VectorUtils.Splat(1, points.Count);
+        }
+
         internal NurbCurve(List<Point> points, int degree, double[] knots, double[] weights) : base(points)
         {
             m_Dimensions = 3;
