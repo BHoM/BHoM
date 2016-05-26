@@ -10,21 +10,33 @@ namespace BHoM.Generic
     {
         private List<GraphNode<T>> nodes;
 
-        public Graph() { }
-
-        public void CleanLinkWeights(double weight = 0)
+        public Graph()
         {
-            foreach( GraphNode<T> node in nodes)
-            {
-                foreach (GraphLink<T> link in node.Links)
-                    link.Weight = weight;
-            }
+            nodes = new List<GraphNode<T>>();
         }
 
 
         /**********************************/
         /**** Manipulation using Nodes ****/
         /**********************************/
+
+        public GraphNode<T> ClosestNode(T value, Func<T,T,double> nodeDist)
+        {
+            double minDist = 1e10;
+            GraphNode<T> bestNode = null;
+
+            foreach (GraphNode<T> node in nodes)
+            {
+                double dist = nodeDist(value, node.Value);
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    bestNode = node;
+                }
+            }
+
+            return bestNode;
+        }
 
         public void AddNode(GraphNode<T> node)
         {
@@ -73,29 +85,59 @@ namespace BHoM.Generic
             return newNode;
         }
 
-        public void AddDirectedLink(T from, T to, double weight = 0)
+        public bool AddDirectedLink(T from, T to, double weight = 0)
         {
-            AddDirectedLink(nodes.Find(x => x.Value.Equals(from)), nodes.Find(x => x.Value.Equals(to)), weight);
+            GraphNode<T> n1 = nodes.Find(x => x.Value.Equals(from));
+            GraphNode<T> n2 = nodes.Find(x => x.Value.Equals(to));
+            if (n1 != null && n2 != null)
+            {
+                AddDirectedLink(n1, n2, weight);
+                return true;
+            }
+            else
+                return false;  
         }
 
-        public void AddUndirectedLink(T node1, T node2, double weight = 0)
+        public bool AddUndirectedLink(T node1, T node2, double weight = 0)
         {
-            AddDirectedLink(nodes.Find(x => x.Value.Equals(node1)), nodes.Find(x => x.Value.Equals(node2)), weight);
+            GraphNode<T> n1 = nodes.Find(x => x.Value.Equals(node1));
+            GraphNode<T> n2 = nodes.Find(x => x.Value.Equals(node2));
+            if (n1 != null && n2 != null)
+            { 
+                AddDirectedLink(n1, n2, weight);
+                return true;
+            }
+            else
+                return false;
         }
 
         public bool RemoveNode(T value)
         {
-            return RemoveNode(nodes.Find(x => x.Value.Equals(value)));
+            GraphNode<T> node = nodes.Find(x => x.Value.Equals(value));
+            if (node != null)
+                return RemoveNode(node);
+            else
+                return false;
         }
 
         public bool RemoveDirectedLink(T from, T to)
         {
-            return RemoveDirectedLink(nodes.Find(x => x.Value.Equals(from)), nodes.Find(x => x.Value.Equals(to)));
+            GraphNode<T> n1 = nodes.Find(x => x.Value.Equals(from));
+            GraphNode<T> n2 = nodes.Find(x => x.Value.Equals(to));
+            if (n1 != null && n2 != null)
+                return RemoveDirectedLink(n1, n2);
+            else
+                return false;
         }
 
         public bool RemoveUndirectedLink(T node1, T node2)
         {
-            return RemoveUndirectedLink(nodes.Find(x => x.Value.Equals(node1)), nodes.Find(x => x.Value.Equals(node2)));
+            GraphNode<T> n1 = nodes.Find(x => x.Value.Equals(node1));
+            GraphNode<T> n2 = nodes.Find(x => x.Value.Equals(node2));
+            if (n1 != null && n2 != null)
+                return RemoveUndirectedLink(n1, n2);
+            else
+                return false;
         }
 
     }
