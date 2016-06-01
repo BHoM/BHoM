@@ -11,7 +11,7 @@ namespace BHoM.Geometry
     /// BHoM Point object
     /// </summary>
     [Serializable]
-    public class Point : IGeometry
+    public class Point : GeometryBase, IComparable<Point>
     {
         private double[] Coordinates;
 
@@ -79,7 +79,9 @@ namespace BHoM.Geometry
         /// <param name="z"></param>
         internal Point(double[] v)
         {
-            Coordinates = Utils.Copy<double>(v);
+            Coordinates = new double[4];
+            Array.Copy(v, Coordinates, v.Length);
+            Coordinates[3] = 1;
         }
 
         /// <summary>
@@ -90,6 +92,26 @@ namespace BHoM.Geometry
         {
             Coordinates = Utils.Copy<double>(dup);
         }
+
+        /// <summary>
+        /// Create a point from json
+        /// </summary>
+        //public static Point FromJSON(string json)
+        //{
+        //    Point newPoint = new Point();
+        //    int i0 = json.IndexOf('{') + 1;
+        //    int i1 = json.LastIndexOf('}');
+        //    string[] coords = json.Substring(i0, i1-i0).Split(',');
+
+        //    if (coords.Length != 3) return null;
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        double.TryParse(coords[i], out newPoint.Coordinates[i]);
+        //    }
+
+        //    return newPoint;
+        //}
+
 
         public static implicit operator double[](Point v)
         {
@@ -111,16 +133,25 @@ namespace BHoM.Geometry
                 else
                     return true;
             }
-
         }
 
-       /// <summary>
-       /// Duplicates a point
-       /// </summary>
-       /// <returns></returns>
-        public Point Duplicate()
+        /// <summary>
+        /// Duplicates a point
+        /// </summary>
+        /// <returns></returns>
+        public Point DuplicatePoint()
         {
             return new Point(this);
+        }
+
+
+        /// <summary>
+        /// Duplicates a point
+        /// </summary>
+        /// <returns></returns>
+        public override GeometryBase Duplicate()
+        {
+            return DuplicatePoint();
         }
 
         /// <summary>
@@ -211,7 +242,6 @@ namespace BHoM.Geometry
             return new Point(a / b.X, a / b.Y, a / b.Z);
         }
 
-
         /// <summary>
         /// Calcualte mean pt from list of points
         /// </summary>
@@ -245,6 +275,7 @@ namespace BHoM.Geometry
 
             return max;
         }
+
         /// <summary>
         /// Calcualte min pt from list of points
         /// </summary>
@@ -261,6 +292,7 @@ namespace BHoM.Geometry
 
             return min;
         }
+
         public static Point Max(Point p1, Point p2)
         {
             return new Point(VectorUtils.Max(p1, p2));
@@ -292,52 +324,51 @@ namespace BHoM.Geometry
             }
         }
 
-        public Guid Id
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public override string ToString()
         {
             return "{" + X + ", " + Y + ", " + Z + "}";
         }
 
-        public BoundingBox Bounds()
+        public override BoundingBox Bounds()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public void Transform(Transform t)
+        public override void Transform(Transform t)
         {
-            throw new NotImplementedException();
+            Coordinates = VectorUtils.Multiply(t, Coordinates);
         }
 
-        public void Translate(Vector v)
+        public override void Translate(Vector v)
         {
-            throw new NotImplementedException();
+            Coordinates = VectorUtils.Add(v, Coordinates);
         }
 
-        public void Mirror(Plane p)
+        public override void Mirror(Plane p)
         {
-            throw new NotImplementedException();
+            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates, 2), Coordinates);
         }
 
-        public void Project(Plane p)
+        public override void Project(Plane p)
         {
-            throw new NotImplementedException();
+            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates), Coordinates);
         }
 
-        public void Update()
+        public override void Update()
         {
-            throw new NotImplementedException();
         }
 
-        IGeometry IGeometry.Duplicate()
+        public override string ToJSON()
         {
-            throw new NotImplementedException();
+            return "{\"Primitive\": \"point\", \"point\": " + ToString() + "}";
+
+        }
+
+        public int CompareTo(Point other)
+        {
+            double value1 = X * 1E16 + Y * 1E8 + Z;
+            double value2 = other.X * 1E16 + Y * 1E8 + Z;
+            return value1.CompareTo(value2);
         }
     }
 }

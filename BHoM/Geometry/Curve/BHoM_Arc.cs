@@ -83,8 +83,8 @@ namespace BHoM.Geometry
             if (rotationAngle > 0)
             {
                 Vector rotationAxis = Vector.CrossProduct(plane.Normal, Vector.ZAxis());
-                Transform t = Geometry.Transform.Rotation(plane.Origin, rotationAxis, rotationAngle);
-
+                Transform t = Geometry.Transform.Rotation(Point.Origin, rotationAxis, rotationAngle);
+                t = Geometry.Transform.Translation(plane.Origin - Point.Origin) * t;
                 m_ControlPoints = VectorUtils.MultiplyMany(t, m_ControlPoints);
             }
         }
@@ -102,14 +102,14 @@ namespace BHoM.Geometry
             double[] T1 = VectorUtils.CrossProduct(V1, Normal);
             double[] T2 = VectorUtils.CrossProduct(V2, Normal);
 
-            double[] cP2 = VectorUtils.Intersect(P1, V1, P2, V2);
+            double[] cP2 = VectorUtils.Intersect(P1, T1, P2, T2);
 
-            double w2 = Radius / VectorUtils.Length(cP2);
+            double w2 = Radius / VectorUtils.Length(VectorUtils.Sub(cP2, Centre));
 
             double arcAngle = VectorUtils.Angle(V1,V2);
 
             m_Weights = new double[] { 1, w2, 1 };
-            m_Knots = new double[] { 0, 0, 0, arcAngle, arcAngle };
+            m_Knots = new double[] { 0, 0, 0, arcAngle, arcAngle, arcAngle };
             m_Order = 3;
 
             Array.Copy(cP2, 0, m_ControlPoints, m_Dimensions + 1, m_Dimensions + 1);
@@ -132,6 +132,23 @@ namespace BHoM.Geometry
                 return m_Knots.Length > 4 ? m_Knots[3] : 0;
             }
         }
+
+        public Point MiddlePoint
+        {
+            get
+            {
+                if (IsNurbForm)
+                {
+                    return PointAt(Domain[1] / 2);
+                }
+                else
+                {
+                    return new Point(Utils.SubArray<double>(m_ControlPoints, 4, 4));
+                }
+            }
+        }
+
+
 
         public Point Centre
         {
@@ -162,6 +179,11 @@ namespace BHoM.Geometry
             {
                 return m_Radius != 0 ? m_Radius : m_Radius = VectorUtils.Length(VectorUtils.Sub(Centre, Utils.SubArray<double>(m_ControlPoints, 0, 4)));
             }
+        }
+
+        public override string ToJSON()
+        {
+            return "{ \"Primitive\": \"arc\", \"start\": " + StartPoint + ", \"middle\": " + MiddlePoint + ", \"end\": " + EndPoint + "}";
         }
     }
 }

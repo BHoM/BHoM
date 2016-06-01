@@ -62,6 +62,27 @@ namespace BHoM.Geometry
             return result;
         }
 
+        internal static double MinValue(double[] v)
+        {
+            double min = double.MaxValue;
+            for (int i = 0; i < v.Length; i++)
+            {
+                min = Math.Min(v[i], min);
+            }
+            return min;
+        }
+
+
+        internal static double MaxValue(double[] v)
+        {
+            double max = double.MinValue;
+            for (int i = 0; i < v.Length; i++)
+            {
+                max = Math.Max(v[i], max);
+            }
+            return max;
+        }
+
         internal static int[] MaxMin(double[] v, int length)
         {
             int[] result = new int[(length * 2)];
@@ -80,6 +101,16 @@ namespace BHoM.Geometry
         }
 
         //internal static double[] AddMany(double[] v1, double[] v2)
+
+        internal static double[] Splat(double value, int length)
+        {
+            double[] result = new double[length];
+            for (int i = 0; i < length; i++)
+            {
+                result[i] = value;
+            }
+            return result;
+        }
 
         internal static void Add(double[] v1, double[] v2, double[] vOut)
         {
@@ -330,7 +361,8 @@ namespace BHoM.Geometry
             return new double[] {
                 v1[1] * v2[2] - v1[2] * v2[1],
                 v1[2] * v2[0] - v1[0] * v2[2],
-                v1[0] * v2[1] - v1[1] * v2[0]
+                v1[0] * v2[1] - v1[1] * v2[0],
+                0
             };
         }
 
@@ -381,6 +413,35 @@ namespace BHoM.Geometry
             return result;
         }
 
+        internal static double[] Intersect(double[] s1, double[] v1, double[] s2, double[] v2, bool bound)
+        {
+            int a1 = 0;
+            int a2 = 1;
+
+            if (v1[a1] == 0 && v2[a1] == 0) a1++;
+            if (v1[a2] == 0 && v2[a2] == 0) a2++;
+
+            double[] rhs = VectorUtils.Sub(s2, s1);
+            int tries = 0;
+            while (tries++ < 2)
+            {
+                double multiplier = v1[a1] / v1[a2];
+
+                if (!double.IsInfinity(multiplier))
+                {
+                    double t = (rhs[a2] * multiplier - rhs[a1]) / (v2[a1] - v2[a2] * multiplier);
+                    return double.IsNaN(t) || bound && (t > 1 || t < 0) ? null : VectorUtils.Add(s2, VectorUtils.Multiply(v2, t));
+                }
+                else
+                {
+                    int temp = a2;
+                    a2 = a1;
+                    a1 = temp;
+                }
+            }
+            return null;
+        }
+
         internal static double[] Intersect(double[] s1, double[] v1, double[] s2, double[] v2)
         {
             int a1 = 0;
@@ -389,7 +450,7 @@ namespace BHoM.Geometry
             if (v1[a1] == 0 && v2[a1] == 0) a1++;
             if (v1[a2] == 0 && v2[a2] == 0) a2++;
 
-            double[] rhs = VectorUtils.Sub(s1, s2);
+            double[] rhs = VectorUtils.Sub(s2, s1);
             int tries = 0;
             while (tries++ < 2)
             {
@@ -397,8 +458,8 @@ namespace BHoM.Geometry
 
                 if (!double.IsInfinity(multiplier))
                 {
-                    double t = (rhs[a2] - rhs[a1] * multiplier) / (v2[a2] - v2[a1] * multiplier);
-                    return VectorUtils.Add(s1, VectorUtils.Multiply(v1, t));
+                    double t = (rhs[a2] * multiplier - rhs[a1]) / (v2[a1] - v2[a2] * multiplier);
+                    return VectorUtils.Add(s2, VectorUtils.Multiply(v2, t));
                 }
                 else
                 {

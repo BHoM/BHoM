@@ -47,3 +47,6 @@ Thumbs.db
 ###########################
 *.suo
 ComputationalEngineering.sln
+Build/BHoM.xml
+Build/BHoM.xml
+Build/BHoM.dll

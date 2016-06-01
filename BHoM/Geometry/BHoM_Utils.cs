@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,6 +49,16 @@ namespace BHoM.Common
             return result;
         }
 
+        public static string CollectionToString(IEnumerable data, char separator)
+        {
+            string result = "";
+            foreach (object value in data)
+            {
+                result += value + separator.ToString();
+            }
+            return result.Trim(separator);
+        }
+
         public static bool InRange(double value, double upper, double lower, double tolerance)
         {
             return value < upper + tolerance && value > lower - tolerance;
@@ -64,5 +75,7 @@ namespace BHoM.Common
                 return InRange(value, b2, b1, tolerance);
             }
         }
+
+
     }
 }

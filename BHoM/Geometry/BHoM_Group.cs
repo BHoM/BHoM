@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,27 +7,57 @@ using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
-    public class Group : IGeometry
+    public class Group : Group<GeometryBase> { }
+
+    public class Group<T> : GeometryBase, IEnumerable<T> where T : GeometryBase 
     {
-        private List<IGeometry> m_Geometry;
+        private List<T> m_Geometry;
         private BoundingBox m_Bounds;
 
         public Group()
         {
-            m_Geometry = new List<IGeometry>();
+            m_Geometry = new List<T>();
         }
 
-        public Group(List<IGeometry> geometry)
+        public Group(List<T> geometry)
         {
             m_Geometry = geometry;
         }
 
-        public void Add(IGeometry geometry)
+        public void Add(T geometry)
         {
             m_Geometry.Add(geometry);
         }
 
-        public BoundingBox Bounds()
+        public void AddRange(IEnumerable<T> geometry)
+        {
+            m_Geometry.AddRange(geometry);
+        }
+
+        internal List<T> Geometry()
+        {
+            return m_Geometry;
+        }
+
+        internal List<T> GeometryData { set { m_Geometry = value; } }
+
+        public T this[int i]
+        {
+            get
+            {
+                return m_Geometry.Count > i ? m_Geometry[i] : default(T);
+            }
+        }
+
+        public int Count
+        {
+            get
+            {
+                return m_Geometry.Count;
+            }
+        }
+
+        public override BoundingBox Bounds()
         {
             if (m_Bounds == null)
             {
@@ -39,25 +70,22 @@ namespace BHoM.Geometry
             return m_Bounds;           
         }
 
-        public Guid Id
+        public Group<T> DuplicateGroup()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public IGeometry Duplicate()
-        {
-            Group group = new Group();
+            Group<T> group = new Group<T>();
             for (int i = 0; i < m_Geometry.Count; i++)
             {
-                group.m_Geometry.Add(m_Geometry[i].Duplicate());
+                group.m_Geometry.Add((T)m_Geometry[i].Duplicate());
             }
             return group;
         }
 
-        public void Mirror(Plane p)
+        public override GeometryBase Duplicate()
+        {
+            return DuplicateGroup();
+        }
+
+        public override void Mirror(Plane p)
         {
             for (int i = 0; i < m_Geometry.Count; i++)
             {
@@ -66,7 +94,7 @@ namespace BHoM.Geometry
             Update();
         }
 
-        public void Project(Plane p)
+        public override void Project(Plane p)
         {
             for (int i = 0; i < m_Geometry.Count; i++)
             {
@@ -75,7 +103,7 @@ namespace BHoM.Geometry
             Update();
         }
 
-        public void Transform(Transform t)
+        public override void Transform(Transform t)
         {
             for (int i = 0; i < m_Geometry.Count; i++)
             {
@@ -84,7 +112,7 @@ namespace BHoM.Geometry
             Update();
         }
 
-        public void Translate(Vector v)
+        public override void Translate(Vector v)
         {
             for (int i = 0; i < m_Geometry.Count; i++)
             {
@@ -93,13 +121,28 @@ namespace BHoM.Geometry
             Update();
         }
 
-        public void Update()
+        public override void Update()
         {
             for (int i = 0; i < m_Geometry.Count; i++)
             {
                 m_Geometry[i].Update();
             }
             m_Bounds = null;
+        }
+
+        public override string ToJSON()
+        {
+            return "{\"Primitive\": \"group\", \"groupType\": \""+ typeof(T).FullName + "\"," + BHoM.Global.Utils.WriteProperty("group", m_Geometry).Trim(',') + "}";
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return m_Geometry.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return m_Geometry.GetEnumerator();
         }
     }
 }

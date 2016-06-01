@@ -7,7 +7,7 @@ namespace BHoM.Geometry
     /// BHoM Plane object
     /// </summary>
     [Serializable]
-    public class Plane
+    public class Plane : GeometryBase
     {
         //Plane: ax + by + cz + d = 0
         //Normal: { a, b, c, 0 }
@@ -18,7 +18,7 @@ namespace BHoM.Geometry
         public Plane(Point origin, Vector normal)
         {          
             m_Normal = VectorUtils.Normalise(normal);
-            Origin = origin.Duplicate();
+            Origin = origin.DuplicatePoint();
             D = -VectorUtils.DotProduct(normal, origin);           
         }
 
@@ -26,7 +26,7 @@ namespace BHoM.Geometry
         {
             m_Normal = VectorUtils.Normalise(VectorUtils.CrossProduct(p2 - p1, p3 - p1));
             D = -VectorUtils.DotProduct(m_Normal, p1);
-            Origin = p1.Duplicate();
+            Origin = p1.DuplicatePoint();
         }
 
         internal Plane(double[] pnts)
@@ -37,6 +37,15 @@ namespace BHoM.Geometry
             m_Normal = VectorUtils.Normalise(VectorUtils.CrossProduct(v1, v2));
             D = -VectorUtils.DotProduct(m_Normal, Utils.SubArray<double>(pnts, 0, 3));
             Origin = new Point(Utils.SubArray<double>(pnts, 0, 4));
+        }
+
+        internal bool IsSameSide(double[] p1, double[] p2)
+        {
+            if (VectorUtils.DotProduct(p1, m_Normal) + D >= 0 && VectorUtils.DotProduct(p2, m_Normal) + D >= 0)
+                return true;
+            else if(VectorUtils.DotProduct(p1, m_Normal) + D < 0 && VectorUtils.DotProduct(p2, m_Normal) + D < 0)
+                return true;
+            return false;
         }
 
         internal List<int> SameSide(double[] pnts)
@@ -128,17 +137,17 @@ namespace BHoM.Geometry
         public bool InPlane(Point p)
         {
             double dotProduct = VectorUtils.DotProduct(m_Normal, p);
-            return dotProduct < 0.0001 && dotProduct > -0.0001;
+            return dotProduct < 0.001 && dotProduct > -0.001;
         }
 
         internal bool InPlane(double[] pnts, int length)
         {
             double[] dotProducts = VectorUtils.DotProduct(pnts, m_Normal, length);
             double sum = VectorUtils.Sum(dotProducts);
-            return sum < 0.0001 && sum > -0.0001;
+            return sum + D < 0.001 && sum + D > -0.001;
         }
 
-        public static bool SamePlane(double[] pnts, int length)
+        internal static Plane PlaneFromPoints(double[] pnts, int length)
         {
             if (pnts.Length > 3 * length)
             {
@@ -169,13 +178,73 @@ namespace BHoM.Geometry
                         {
                             Array.Copy(nextPoint, 0, planePts, 2 * length, length);
                             Plane plane = new Plane(planePts);
-                            return plane.InPlane(pnts, length);
+                            return plane.InPlane(pnts, length) ? plane : null;
                         }
                     }
                 }
             }
-            return true;
+            return null;
         }
 
+        internal static bool PointsInSamePlane(double[] pnts, int length)
+        {
+            return PlaneFromPoints(pnts, length) != null;
+        }
+
+        public override BoundingBox Bounds()
+        {
+            return null;
+        }
+
+        public override void Transform(Transform t)
+        {
+            m_Normal = VectorUtils.Multiply(t, m_Normal);
+            Origin = new Point(VectorUtils.Multiply(t, Origin));
+        }
+
+        public override void Translate(Vector v)
+        {
+            Origin = new Point(VectorUtils.Add(v, Origin));
+        }
+
+        /// <summary>
+        /// Mirrors vector about a plane
+        /// </summary>
+        /// <param name="p"></param>
+        public override void Mirror(Plane p)
+        {
+            m_Normal = VectorUtils.Add(p.ProjectionVectors(m_Normal, 2), m_Normal);
+            Origin = new Point(VectorUtils.Add(p.ProjectionVectors(Origin, 2), Origin));
+        }
+
+        /// <summary>
+        /// Projects a vector onto a plane
+        /// </summary>
+        /// <param name="plane"></param>
+        public override void Project(Plane p)
+        {
+            Origin = new Point(VectorUtils.Add(p.ProjectionVectors(Origin), Origin));
+            m_Normal = p.m_Normal;
+        }
+
+        public override void Update()
+        {
+           
+        }
+
+        public override GeometryBase Duplicate()
+        {
+            return DuplicatePlane();
+        }
+
+        public Plane DuplicatePlane()
+        {
+            return new Plane(Origin.DuplicatePoint(), Normal.DuplicateVector());
+        }
+
+        public override string ToJSON()
+        {
+            return "{\"Primitive\": \"plane\", \"normal\": " + Normal + ", \"origin\":" + Origin + "}";
+        }
     }
 }

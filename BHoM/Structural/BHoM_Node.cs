@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 using BHoM.Geometry;
 using System.Reflection;
+using BHoM.Global;
+using BHoM.Structural.Loads;
+using System.ComponentModel;
 
 namespace BHoM.Structural
 {
@@ -15,49 +18,27 @@ namespace BHoM.Structural
     [Serializable]
     public class Node : BHoM.Global.BHoMObject, IStructuralObject
     {
+        private List<Bar> m_ConnectedBars;
+        private List<Face> m_ConnectedFaces;
+
         /////////////////
         ////Properties///
         /////////////////
-        private double[] m_Point;
 
-        public double[] Coordinates
-        {
-            get
-            {
-                return m_Point != null ? m_Point : m_Point = Parameters.LookUp<List<double>>(Global.Param.Coordinates).ToArray();
-            }
-            set
-            {
-                m_Point = value;
-                Parameters.AddList<double>(Global.Param.Coordinates, value.ToList());
-            }
-        }
+        /// <summary>
+        /// Node Number
+        /// </summary>
 
         /// <summary>Node position as a point object</summary>
-        public Point Point 
-        {
-            get
-            {           
-                return new Point(Coordinates);
-            }
-            set
-            {
-                Coordinates = Point;
-            }
-        }
+        [DisplayName("Point")]
+        [Description("Node location")]
+        public Point Point { get; set; }
 
         /// <summary>Node constraint (support/restraint)</summary>
-        public BHoM.Structural.Constraint Constraint
-        {
-            get
-            {
-                return Project.GetObject(Parameters.LookUp<Guid>(Global.Param.Constraint)) as Constraint;
-            }
-            set
-            {
-                Parameters.AddItem<Guid>(Global.Param.Constraint, value.BHoM_Guid);
-            }
-        }
+        [DisplayName("Constraint")]
+        [Description("Constraint assigned to the point object")]
+        [DefaultValue(null)]
+        public BHoM.Structural.Constraint Constraint { get; set; }
 
         /// <summary>Returns true is node is constrained</summary>
         public bool IsConstrained { get; private set; }
@@ -66,10 +47,10 @@ namespace BHoM.Structural
         public string ConstraintName { get; private set; }
 
         /// <summary>Bars connected to the node</summary>
-        public List<Bar> ConnectedBars { get; private set; }
+        public List<Bar> ConnectedBars { get { return m_ConnectedBars; } }
 
         /// <summary>Faces connected to the node</summary>
-        public List<Face> ConnectedFaces { get; private set; }
+        public List<Face> ConnectedFaces { get; }
 
         /// <summary>Valence of node</summary>
         public int Valence { get; private set; }
@@ -84,14 +65,18 @@ namespace BHoM.Structural
         public List<double> BarThetaAngles { get; private set; }
 
         /// <summary>Node plane for angular and setting out methods</summary>
-        public Plane Plane { get; private set; }
+        internal Plane Plane { get; private set; }
 
 
         ///////////////////
         ////Constructors///
         ///////////////////
 
-        internal Node() { }
+        internal Node()
+        {
+            m_ConnectedBars = new List<Bar>();
+            m_ConnectedFaces = new List<Face>();
+        }
 
         /// <summary>
         /// Constructes a node from CartesianCoordinates and an index number
@@ -100,10 +85,22 @@ namespace BHoM.Structural
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <param name="number"></param>
-        internal Node(double x, double y, double z, int number)
+        public Node(double x, double y, double z) : this()
         {
-            Coordinates = new double[] { x, y, z };
-            Number = number;
+            Point = new Point(x, y, z);
+        }
+
+        /// <summary>
+        /// Constructes a node from CartesianCoordinates and an index number
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <param name="name"></param>
+        public Node(double x, double y, double z, string name) : this()
+        {
+            Point = new Point(x, y, z);
+            Name = name;
         }
 
         /// <summary>
@@ -113,19 +110,9 @@ namespace BHoM.Structural
         {
             get
             {
-                if (Number < 0) { return false; }
                 if (!Point.IsValid) { return false; }
                 return true;
             }
-        }
-
-        /// <summary>
-        /// Returns true if node number is greater than 0
-        /// </summary>
-        /// <returns></returns>
-        public bool HasValidNumber()
-        {
-            return Number > 0;
         }
 
         //////////////
@@ -133,20 +120,11 @@ namespace BHoM.Structural
         //////////////
 
         /// <summary>
-        /// Sets the node number
-        /// </summary>
-        /// <param name="number"></param>
-        public void SetNumber(int number)
-        {
-            this.Number = number;
-        }
-
-        /// <summary>
         /// Gets or sets the CartesianCoordinates of the node position
         /// </summary>
         public double[] CartesianCoordinates
         {
-            get { return m_Point; }
+            get { return Point; }
         }
 
         /// <summary>
@@ -156,13 +134,12 @@ namespace BHoM.Structural
         {
             get 
             {
-                return m_Point[0]; 
+                return Point.X; 
             }
-            set
-            {
-                m_Point[0] = value;
-                Coordinates = m_Point;
-            }
+            //set
+            //{
+            //    Point.X = value;
+            //}
         }
 
         /// <summary>
@@ -172,13 +149,12 @@ namespace BHoM.Structural
         {
             get
             {
-                return m_Point[1];
+                return Point.Y;
             }
-            set
-            {
-                m_Point[1] = value;
-                Coordinates = m_Point;
-            }
+            //set
+            //{
+            //    Point.Y = value;
+            //}
         }
 
         /// <summary>
@@ -188,12 +164,23 @@ namespace BHoM.Structural
         {
             get
             {
-                return m_Point[2];
+                return Point.Z;
             }
-            set
+            //set
+            //{
+            //    Point.Z = value;
+            //}
+        }
+
+        public List<ILoad> Loads
+        {
+            get
             {
-                m_Point[2] = value;
-                Coordinates = m_Point;
+                throw new NotImplementedException();
+            }
+            internal set
+            {
+                throw new NotImplementedException();
             }
         }
 
@@ -204,7 +191,6 @@ namespace BHoM.Structural
         /// <returns></returns>
         public double DistanceTo(Node node)
         {
-
             double dist = 0;
             double[] target = this.CartesianCoordinates;
             double[] search = node.CartesianCoordinates;
@@ -269,7 +255,7 @@ namespace BHoM.Structural
         /// </summary>
         public void ResetTopology()
         {
-            this.ConnectedBars = new List<Bar>();
+            this.ConnectedBars.Clear();
             Valence = 0;
         }
 
@@ -291,7 +277,6 @@ namespace BHoM.Structural
         {
             ConnectedFaces.Add(f);
         }
-
 
         /// <summary>
         /// WIP
@@ -370,7 +355,6 @@ namespace BHoM.Structural
 
             BarDeltaAngles.Add(2.0 * Math.PI - angleAccumulator.Last());
         }
-
    }
 }
     

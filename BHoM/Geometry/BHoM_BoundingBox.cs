@@ -20,11 +20,10 @@ namespace BHoM.Geometry
         {
             get
             {
-                return Centre + Extents;
+                return Centre - Extents;
             }
         }
-
-        
+      
         public Vector Extents { get; private set; }
         public Point Centre { get; private set; }
 
@@ -61,6 +60,17 @@ namespace BHoM.Geometry
             Point Max = Point.Max(b1.Max, b2.Max);
             Point Min = Point.Min(b1.Min, b2.Min);
             return new BoundingBox(Min, Max);
+        }
+
+        public static bool InRange(BoundingBox b1, BoundingBox b2)
+        {
+            double[] v1 = b2.Centre - b1.Centre;
+            double[] v2 = b1.Extents + b2.Extents;
+            for (int i = 0; i < v1.Length; i++)
+            {
+                if (v1[i] > v2[i]) return false;
+            }
+            return true;
         }
     }
 }

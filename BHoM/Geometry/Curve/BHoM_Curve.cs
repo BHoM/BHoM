@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
-    public abstract class Curve : IGeometry
+    public abstract class Curve : GeometryBase
     {
         protected bool IsNurbForm = false;
         protected double[] m_ControlPoints;
@@ -18,6 +18,33 @@ namespace BHoM.Geometry
 
         protected Curve() { }
 
+        internal Curve(List<Point> points) 
+        {
+            m_Dimensions = 3;
+            m_ControlPoints = new double[points.Count * (m_Dimensions + 1)];
+            for (int i = 0; i < points.Count; i++)
+            {
+                double[] p = points[i];
+                for (int j = 0; j < 4; j++)
+                {
+                    m_ControlPoints[i * 4 + j] = p[j];
+                }
+            }
+        }
+
+        internal Curve(List<double[]> points)
+        {
+            m_Dimensions = 3;
+            m_ControlPoints = new double[points.Count * (m_Dimensions + 1)];
+            for (int i = 0; i < points.Count; i++)
+            {
+                double[] p = points[i];
+                for (int j = 0; j < 4; j++)
+                {
+                    m_ControlPoints[i * 4 + j] = j == 3 && p.Length < 4 ? 1 :p[j];
+                }
+            }
+        }
 
         /// <summary>Start point as BHoM point</summary>
         /// 
@@ -62,7 +89,7 @@ namespace BHoM.Geometry
             }
         }
 
-        public virtual BoundingBox Bounds()
+        public override BoundingBox Bounds()
         {
                 return new BoundingBox(Max, Min);
         }
@@ -76,18 +103,68 @@ namespace BHoM.Geometry
             }
         }
 
-        internal double[] ControlPoints
+        internal double[] ControlPointVector
         {
             get
             {
                 return m_ControlPoints;
             }
         }
-
+        
         public virtual Point ControlPoint(int i)
         {
             return i < (int)(m_ControlPoints.Length / (m_Dimensions + 1)) ? 
                 new Point(Common.Utils.SubArray<double>(m_ControlPoints, i * (m_Dimensions + 1), m_Dimensions + 1)) : null;
+        }
+
+        public IEnumerable<Point> ControlPoints
+        {
+            get
+            {
+                List < Point > cPnts = new List<Point>();
+                for (int i = 0; i < PointCount; i++)
+                {
+                    cPnts.Add(ControlPoint(i));
+                }
+                return cPnts;
+            }
+        }
+
+
+        public double[] Knots
+        {
+            get
+            {
+                if (m_Knots == null)
+                {
+                    CreateNurbForm();
+                }
+                return m_Knots;
+            }
+        }
+
+        public double[] Weights
+        {
+            get
+            {
+                if (m_Weights == null)
+                {
+                    CreateNurbForm();
+                }
+                return m_Weights;
+            }
+        }
+
+        public int Degree
+        {
+            get
+            {
+                if (m_Order == 0)
+                {
+                    CreateNurbForm();
+                }
+                return m_Order - 1;
+            }
         }
 
         public virtual double Length
@@ -99,19 +176,11 @@ namespace BHoM.Geometry
         }
 
 
-        public virtual int NumControlPoints
+        public virtual int PointCount
         {
             get
             {
                 return m_ControlPoints.Length / (m_Dimensions + 1);
-            }
-        }
-
-        public Guid Id
-        {
-            get
-            {
-                throw new NotImplementedException();
             }
         }
 
@@ -161,9 +230,12 @@ namespace BHoM.Geometry
             if (!IsNurbForm) CreateNurbForm();
             double[] sumNwP = new double[m_Dimensions];
             double sumNw = 0;
+            if (t == 0) return StartPoint;
+            else if (t >= m_Knots[m_Knots.Length - 1]) return EndPoint;
             for (int i = 0; i < m_ControlPoints.Length / (m_Dimensions + 1); i++)
             {
-                double Nt = BasisFunction(i, m_Order - 1, t);                
+                double Nt = BasisFunction(i, m_Order - 1, t);
+                if (Nt == 0) continue;          
                 sumNwP = VectorUtils.Add(sumNwP, VectorUtils.Multiply(m_ControlPoints, Nt * m_Weights[i], i * (m_Dimensions + 1), m_Dimensions));
                 sumNw += Nt * m_Weights[i];
             }
@@ -212,7 +284,7 @@ namespace BHoM.Geometry
 
         public virtual bool IsPlanar()
         {
-            return Plane.SamePlane(m_ControlPoints, m_Dimensions + 1);
+            return Plane.PointsInSamePlane(m_ControlPoints, m_Dimensions + 1);
         }
 
         public bool IsClosed()
@@ -220,35 +292,46 @@ namespace BHoM.Geometry
             return EndPoint == StartPoint;
         }
 
-        public virtual void Transform(Transform t)
+        public virtual bool TryGetPlane(out Plane plane)
+        {
+            plane = Plane.PlaneFromPoints(m_ControlPoints, m_Dimensions + 1);
+            return plane != null;
+        }
+
+        public override void Transform(Transform t)
         {
             m_ControlPoints = VectorUtils.MultiplyMany(t, m_ControlPoints);
             Update();
         }
 
-        public virtual void Translate(Vector v)
+        public override void Translate(Vector v)
         {
             m_ControlPoints = VectorUtils.Add(m_ControlPoints, v);
         }
 
-        public virtual void Mirror(Plane p)
+        public override void Mirror(Plane p)
         {
             m_ControlPoints = VectorUtils.Add(VectorUtils.Multiply(p.ProjectionVectors(m_ControlPoints), 2), m_ControlPoints);
             Update();
         }
 
-        public virtual void Project(Plane p)
+        public override void Project(Plane p)
         {
             m_ControlPoints = VectorUtils.Add(p.ProjectionVectors(m_ControlPoints), m_ControlPoints);
             Update();
         }
 
-        public virtual void Update()
+        public override void Update()
         {
             m_MaxMin = null;
         }
 
         #region Static Functions
+
+        public static List<Curve> Join(Group<Curve> curves)
+        {
+            return Join(curves);
+        }
 
         public static List<Curve> Join(List<Curve> curves)
         {
@@ -291,7 +374,7 @@ namespace BHoM.Geometry
         }
 
         #endregion
-        public virtual IGeometry Duplicate()
+        public override GeometryBase Duplicate()
         {
             return DuplicateCurve();
         }
@@ -305,6 +388,56 @@ namespace BHoM.Geometry
             c.m_Knots = Common.Utils.Copy<double>(m_Knots);
             c.m_Order = m_Order;
             return c;
+        }
+
+        public override string ToJSON()
+        {       
+            string points = "\"points\": {{ ";
+            for (int i = 0; i < m_ControlPoints.Length - 1; i++)
+            {
+                if (i > 0 && (i + 1) % 4 == 0)
+                {
+                    points = points.Trim(',') + "},{";
+                }
+                else
+                {
+                    points += m_ControlPoints[i] + ",";
+                }
+            }
+            points = points.Trim(',') + "}}";
+            string knots = "\"knots\": {" + Common.Utils.CollectionToString(m_Knots, ',') + "}";
+            string weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"weights\": {" + Common.Utils.CollectionToString(m_Weights, ',') + "}" : "";
+            string degree = "\"degree\": " + (m_Order - 1);
+            return "{\"Primitive\": \"curve\"," +  points + "," + degree + "," + knots + (weights != "" ? "," : "") + weights + "}";
+        }
+    }
+
+    public class NurbCurve : Curve
+    {
+        internal NurbCurve(List<double[]> points, int degree, double[] knots, double[] weights) : base(points)
+        {
+            m_Dimensions = 3;
+            m_Order = degree + 1;
+            m_Knots = knots;
+            m_Weights = weights != null ? weights : VectorUtils.Splat(1, points.Count);
+        }
+
+        internal NurbCurve(List<Point> points, int degree, double[] knots, double[] weights) : base(points)
+        {
+            m_Dimensions = 3;
+            m_Order = degree + 1;
+            m_Knots = knots;
+            m_Weights = weights != null ? weights : VectorUtils.Splat(1, points.Count);
+        }
+
+        public override void CreateNurbForm()
+        {
+            IsNurbForm = true;
+        }
+
+        public static NurbCurve Create(List<Point> points, int degree, double[] knots, double[] weights)           
+        {
+            return new NurbCurve(points, degree, knots, weights);
         }
     }
 }
