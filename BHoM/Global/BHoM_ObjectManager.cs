@@ -131,7 +131,7 @@ namespace BHoM.Global
         }
 
         /// <summary>
-        /// Lookup object which corresponds to the input key. Note: if the key does not exists an exception will be thrown. Use TryLookup as a safe alternative
+        /// Lookup object which corresponds to the input key. Note: if the key does not exists nothing will be returned
         /// </summary>
         /// <param name="key">object key</param>
         /// <returns>object corresponding to key</returns>
@@ -139,8 +139,18 @@ namespace BHoM.Global
         {
             get
             {
-                return m_Data[key];
+                return TryLookup(key);
             }
+        }
+
+        public List<TValue> GetRange(IEnumerable<TKey> keys)
+        {
+            List<TValue> values = new List<TValue>();
+            foreach (TKey key in keys)
+            {
+                values.Add(TryLookup(key));
+            }
+            return values;
         }
 
         /// <summary>

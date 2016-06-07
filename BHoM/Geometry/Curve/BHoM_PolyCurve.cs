@@ -95,7 +95,7 @@ namespace BHoM.Geometry
             return c;
         }
 
-        public override Point ControlPoint(int i)
+        internal override double[] ControlPoint(int i)
         {
             int currentIndex = i;
 
@@ -128,10 +128,10 @@ namespace BHoM.Geometry
             double[] controlPoint = new double[PointCount * ( m_Dimensions)];
             for (int i = 0; i < controlPoint.Length; i += m_Dimensions)
             {
-                Point p = ControlPoint(i / m_Dimensions);
-                controlPoint[i] = p.X;
-                controlPoint[i + 1] = p.Y;
-                controlPoint[i + 2] = p.Z;
+                double[] p = ControlPoint(i / m_Dimensions);
+                controlPoint[i] = p[0];
+                controlPoint[i + 1] = p[1];
+                controlPoint[i + 2] = p[2];
             }
             return Plane.PointsInSamePlane(controlPoint, m_Dimensions);
         }

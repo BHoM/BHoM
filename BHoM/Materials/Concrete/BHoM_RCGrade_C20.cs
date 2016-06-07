@@ -8,7 +8,7 @@ namespace BHoM.Materials.Concrete
     /// </summary>
 
 
-    public class Grade_C20 : IMaterial, IConcrete
+    public class Grade_C20 : IConcrete
     {
         //////////////////
         ////Properties////

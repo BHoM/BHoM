@@ -26,6 +26,16 @@ namespace BHoM.Geometry
             m_ControlPoints = Common.Utils.Merge<double>(startpoint, endpoint);     
         }
 
+        internal Line(double[] startpoint, double[] endpoint)
+        {
+            m_Dimensions = 3;
+            m_ControlPoints = new double[8];
+            Array.Copy(startpoint, m_ControlPoints, startpoint.Length);
+            Array.Copy(endpoint,0, m_ControlPoints, 4, endpoint.Length);
+            m_ControlPoints[3] = 1;
+            m_ControlPoints[7] = 1;
+        }
+
         /// <summary>
         /// Construct line by start and end point coordinates
         /// </summary>
@@ -56,6 +66,22 @@ namespace BHoM.Geometry
             {
                 return VectorUtils.Length(VectorUtils.Sub(m_ControlPoints, 0, m_Dimensions + 1, m_Dimensions));
             }
+        }
+
+        public override string ToJSON()
+        {
+            return "{ \"Primitive\": \"line\", \"start\": " + StartPoint + ", \"end\": " + EndPoint + "}";
+        }
+
+        public static new Line FromJSON(string json)
+        {
+            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
+
+            Point startP = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["start"]) as double[]);
+            Point endP = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["end"]) as double[]);
+            return new Line(startP, endP);
         }
     }
 }

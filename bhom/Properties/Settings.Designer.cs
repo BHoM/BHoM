@@ -26,12 +26,22 @@ namespace BHoM.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Structural\\S" +
-            "ection Properties\\Databases\\UK Sections.mdf\";Integrated Security=True;Connect Ti" +
-            "meout=30")]
-        public string UK_SectionsConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Structural\\Da" +
+            "tabases\\SteelSections.mdf;Integrated Security=True;Connect Timeout=30")]
+        public string SteelSectionConnectionsString {
             get {
-                return ((string)(this["UK_SectionsConnectionString"]));
+                return ((string)(this["SteelSectionConnectionsString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Structural\\Da" +
+            "tabases\\Materials.mdf;Integrated Security=True;Connect Timeout=30")]
+        public string MaterialConnectionString {
+            get {
+                return ((string)(this["MaterialConnectionString"]));
             }
         }
     }
