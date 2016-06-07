@@ -43,7 +43,8 @@ namespace BHoMTest
             int tolalCount = 0;
             results.ClearData();
             Stopwatch sw = new Stopwatch();
-            sw.Start();
+            sw.Start(); 
+
 
             for (int j = 0; j < 50/*loadCase.Length*/; j++)
             {

@@ -24,11 +24,11 @@ namespace BHoM.Structural
         bool GetLoads(out List<ILoad> loads, string option = "");
         bool GetLoadcases(out List<ICase> cases);
 
-        bool SetNodes(List<Node> nodes, string option = "");
-        bool SetBars(List<Bar> bars, string option = "");
-        bool SetPanels(List<Panel> panels, string option = "");
-        bool SetOpenings(List<Opening> opening, string option = "");
-        bool SetLevels(List<Storey> stores, string option = "");
+        bool SetNodes(List<Node> nodes, out List<string> ids, string option = "");
+        bool SetBars(List<Bar> bars, out List<string> ids, string option = "");
+        bool SetPanels(List<Panel> panels, out List<string> ids, string option = "");
+        bool SetOpenings(List<Opening> opening, out List<string> ids, string option = "");
+        bool SetLevels(List<Storey> stores, out List<string> ids, string option = "");
 
         bool SetLoads(List<ILoad> loads, string option = "");
         bool SetLoadcases(List<ICase> cases);
