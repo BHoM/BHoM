@@ -1,5 +1,7 @@
 ﻿using System;
 using BHoM.Common;
+using System.Collections.Generic;
+
 namespace BHoM.Geometry
 {
     /// <summary>
@@ -41,12 +43,18 @@ namespace BHoM.Geometry
 
             double radius = VectorUtils.Length(v1);
 
-            double[] localXAxis = plane.Normal.Z == 0 ? new double[] { 1, 0, 0, 0 } : VectorUtils.CrossProduct(plane.Normal, new double[] { 0, 0, 1, 0 });
+            double[] localXAxis = plane.Normal.Z == 1 ? new double[] { 1, 0, 0, 0 } : VectorUtils.CrossProduct(plane.Normal, new double[] { 0, 0, 1, 0 });
+            double[] localYAxis = VectorUtils.CrossProduct(plane.Normal, localXAxis);
 
-            double startAngle = VectorUtils.Angle(v1, localXAxis);
-            double endAngle = VectorUtils.Angle(v2, localXAxis);
+            double[] crossProduct = VectorUtils.Normalise(VectorUtils.CrossProduct(v1, v2));
+            double multiplier = VectorUtils.DotProduct(crossProduct, plane.Normal);
 
-            Initialise(startAngle, endAngle, radius, plane);
+            double startAngle = VectorUtils.Angle(localXAxis, v1) * multiplier;
+            double arcAngle = VectorUtils.Angle(v1, v2) * multiplier;
+
+            //double end = (endAngle - startAngle);
+
+            Initialise(startAngle, startAngle + arcAngle, radius, plane);
         }
 
         /// <summary>
@@ -84,9 +92,9 @@ namespace BHoM.Geometry
             {
                 Vector rotationAxis = Vector.CrossProduct(plane.Normal, Vector.ZAxis());
                 Transform t = Geometry.Transform.Rotation(Point.Origin, rotationAxis, rotationAngle);
-                t = Geometry.Transform.Translation(plane.Origin - Point.Origin) * t;
                 m_ControlPoints = VectorUtils.MultiplyMany(t, m_ControlPoints);
             }
+            m_ControlPoints = VectorUtils.MultiplyMany(Geometry.Transform.Translation(plane.Origin - Point.Origin), m_ControlPoints);
         }
 
         public override void CreateNurbForm()
@@ -184,6 +192,16 @@ namespace BHoM.Geometry
         public override string ToJSON()
         {
             return "{ \"Primitive\": \"arc\", \"start\": " + StartPoint + ", \"middle\": " + MiddlePoint + ", \"end\": " + EndPoint + "}";
+        }
+        public static new Arc FromJSON(string json)
+        {
+            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+
+            Point start = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["start"]) as double[]);
+            Point middle = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["middle"]) as double[]);
+            Point end = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["end"]) as double[]);
+            return new Arc(start, middle, end);
         }
     }
 }

@@ -6,12 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-
+using System.IO;
 namespace BHoM.Global
 {
     public struct Task
     {
-        public Guid BHoMGuid;
+        public Task(BHoMObject bhomObject, string property, string value)
+        {
+            BhomObject = bhomObject;
+            Property = property;
+            Value = value;
+        }
+
+        public BHoMObject BhomObject;
         public string Property;
         public string Value;
     }
@@ -42,7 +49,7 @@ namespace BHoM.Global
         public Structure Structure { get; private set; }
 
         /// <summary>Structure name</summary>
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
@@ -192,12 +199,8 @@ namespace BHoM.Global
         {
             while(m_TaskQueue.Count > 0)
             {
-                Task t = m_TaskQueue.Dequeue();
-                BHoMObject obj = null;
-                if (m_Objects.TryGetValue(t.BHoMGuid, out obj))
-                {
-                    Utils.ReadProperty(obj, t.Property, t.Value);
-                }
+                Task t = m_TaskQueue.Dequeue();               
+                Utils.ReadProperty(t.BhomObject, t.Property, t.Value);               
             }
         }
     }

@@ -75,38 +75,47 @@ namespace BHoM.Global
             if (pInfo == null) return;
 
             Type pType = pInfo.PropertyType;
-            pInfo.SetValue(obj, ReadValue(pType, value));        
+            object result = ReadValue(pType, value, obj);
+            if (result == null && obj is BHoMObject)
+            {
+                Project.ActiveProject.AddTask(new Task(obj as BHoMObject, propertyName, value));
+            }
+            else
+            {
+                pInfo.SetValue(obj, result);
+            }
         }
 
-        internal static object ReadValue(Type type, string value)
+        internal static object ReadValue(Type type, string value, object obj = null)
         {
-            if (type == typeof(System.String))
+            System.Reflection.MethodInfo jsonMethod = null;
+            if (type == typeof(System.String) || type == typeof(System.Object))
                 return value;
             else if (type.BaseType == typeof(BHoMObject))
             {
-                BHoMObject b = Project.ActiveProject.GetObject(new Guid(value));
-                if (b == null)
-                { 
-                    Project.ActiveProject.AddTask(new Task());               
-                }
+                BHoMObject b = Project.ActiveProject.GetObject(new Guid(value));             
                 return b;
+            }
+            else if ((jsonMethod = type.GetMethod("FromJSON")) != null)
+            {
+                return jsonMethod.Invoke(null, new object[] { value });
             }
             else if (IsEnumerableType(type))
             {
                 return ReadCollection(type, value);
-            }
-            else
+            }            
+            else 
             {
-                System.Reflection.MethodInfo jsonMethod = type.GetMethod("FromJSON");
-                if (jsonMethod != null)
-                    return jsonMethod.Invoke(null, new object[] { value });
-                else if ((jsonMethod = type.BaseType.GetMethod("FromJSON")) != null)
+                if (type.BaseType != null && (jsonMethod = type.BaseType.GetMethod("FromJSON")) != null)
                     return jsonMethod.Invoke(null, new object[] { value });
                 else
                 {
                     System.Reflection.MethodInfo parseMethod = type.GetMethod("Parse", new Type[] { typeof(string) });
                     if (parseMethod != null)
                         return parseMethod.Invoke(null, new object[] { value });
+                    parseMethod = type.BaseType.GetMethod("Parse", new Type[] { typeof(Type), typeof(string) });
+                    if (parseMethod != null)
+                        return parseMethod.Invoke(null, new object[] { type, value });
                 }
             }
             return null;
@@ -154,6 +163,10 @@ namespace BHoM.Global
                 }
                 return list;
             }
+            else
+            {
+
+            }
             return null;
         }
 
@@ -179,8 +192,7 @@ namespace BHoM.Global
                     aResult += WriteValue(obj) +",";
                 }
             }
-            if (aResult.Length > 0 && aResult.Last() == ',')
-                aResult = aResult.Substring(0, aResult.Length - 1);
+                aResult = aResult.Trim(',');
             return aResult;
         }
 
@@ -203,6 +215,7 @@ namespace BHoM.Global
                 aResult += value.ToString();
             return aResult;
         }
+
 
         internal static IEnumerable<T> GetObjectsFromGuid<T>(Project p, List<Guid> ids) where T : class 
         {

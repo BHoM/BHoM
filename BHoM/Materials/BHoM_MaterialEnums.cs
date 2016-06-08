@@ -24,6 +24,19 @@ namespace BHoM.Materials
         /// <summary>Not known</summary>
         unknown
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum MaterialType
+    {
+        Aluminium,
+        Steel,
+        Concrete,
+        Timber,
+        Rebar,
+        Tendon,
+        Glass
+    }
 
     /// <summary>
     /// Default materials

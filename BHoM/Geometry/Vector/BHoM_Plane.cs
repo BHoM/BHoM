@@ -39,30 +39,39 @@ namespace BHoM.Geometry
             Origin = new Point(Utils.SubArray<double>(pnts, 0, 4));
         }
 
-        internal bool IsSameSide(double[] p1, double[] p2)
+        internal bool IsSameSide(double[] p1, double[] p2, double tolerance)
         {
-            if (VectorUtils.DotProduct(p1, m_Normal) + D >= 0 && VectorUtils.DotProduct(p2, m_Normal) + D >= 0)
+            double dotProduct1 = VectorUtils.DotProduct(p1, m_Normal, p1.Length)[0];
+            double dotProduct2 = VectorUtils.DotProduct(p2, m_Normal, p2.Length)[0];
+
+            if (dotProduct1 + D >= -tolerance && dotProduct2 + D >= -tolerance)
                 return true;
-            else if(VectorUtils.DotProduct(p1, m_Normal) + D < 0 && VectorUtils.DotProduct(p2, m_Normal) + D < 0)
+            else if(dotProduct1 + D < tolerance && dotProduct2 + D < tolerance)
                 return true;
             return false;
         }
 
-        internal List<int> SameSide(double[] pnts)
+        internal List<int> SameSide(double[] pnts, double tolerance)
         {
             double[] result = VectorUtils.DotProduct(pnts, m_Normal, m_Normal.Length);
             List<int> sameSide = new List<int>();
+            int inPlaneCount = 0;
             bool isNegative = false;
             for (int i = 0; i < result.Length; i++)
             {
-                if (result[i] + D >= 0 && !isNegative)
+                if (result[i] + D > tolerance)
                 {
-                    sameSide.Add(i);
+                    if (!isNegative) sameSide.Add(i);
                 }
-                else if (result[i] + D < 0)
+                else if (result[i] + D < -tolerance)
                 {
-                    if (i == 0) isNegative = true;
+                    if (i - inPlaneCount == 0) isNegative = true;
                     if (isNegative) sameSide.Add(i);
+                }
+                else
+                {
+                    inPlaneCount++;
+                    sameSide.Add(i);
                 }
             }
             return sameSide;
@@ -134,17 +143,25 @@ namespace BHoM.Geometry
         /// </summary>
         public double D { get; private set; }
 
-        public bool InPlane(Point p)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="tolerance"></param>
+        /// <returns></returns>
+        public bool InPlane(Point p, double tolerance)
         {
-            double dotProduct = VectorUtils.DotProduct(m_Normal, p);
-            return dotProduct < 0.001 && dotProduct > -0.001;
+            double dotProduct = VectorUtils.DotProduct(m_Normal, p) + D;
+            return dotProduct < tolerance && dotProduct > -tolerance;
         }
 
-        internal bool InPlane(double[] pnts, int length)
+
+        internal bool InPlane(double[] pnts, int length, double tolerance)
         {
             double[] dotProducts = VectorUtils.DotProduct(pnts, m_Normal, length);
             double sum = VectorUtils.Sum(dotProducts);
-            return sum + D < 0.001 && sum + D > -0.001;
+            
+            return sum + D < tolerance && sum + D > -tolerance;
         }
 
         internal static Plane PlaneFromPoints(double[] pnts, int length)
@@ -178,7 +195,7 @@ namespace BHoM.Geometry
                         {
                             Array.Copy(nextPoint, 0, planePts, 2 * length, length);
                             Plane plane = new Plane(planePts);
-                            return plane.InPlane(pnts, length) ? plane : null;
+                            return plane.InPlane(pnts, length, 0.0001) ? plane : null;
                         }
                     }
                 }
@@ -246,5 +263,16 @@ namespace BHoM.Geometry
         {
             return "{\"Primitive\": \"plane\", \"normal\": " + Normal + ", \"origin\":" + Origin + "}";
         }
+
+        public static new Plane FromJSON(string json)
+        {
+            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+
+            Point origin = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["origin"]) as double[]);
+            Vector normal = new Vector(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["point"]) as double[]);
+            return new Plane(origin, normal);
+        }
+            
     }
 }
