@@ -5,6 +5,7 @@
 *.exe
 *.o
 *.so
+*.dll
 
 # Packages #
 ############
@@ -42,6 +43,7 @@ Thumbs.db
 /obj/
 */bin/
 */obj
+/Build/
 
 # Visual Studio User File #
 ###########################
