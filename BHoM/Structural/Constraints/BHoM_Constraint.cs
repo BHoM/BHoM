@@ -9,85 +9,23 @@ namespace BHoM.Structural
     /// Constraint object - base class for all release, restraint, support classes. 
     /// </summary>
     [Serializable]
-    public class Constraint : Global.BHoMObject, IStructuralObject
+    public class NodeConstraint : Global.BHoMObject, IStructuralObject
     {
         /////////////////
         ////Properties///
         /////////////////
-        private DOF[] m_DOF;
+     
+        public DOF UX { get; set; }
+       
+        public DOF UY { get; set; }
 
+        public DOF UZ { get; set; }
 
-        public DOF UX
-        {
-            get
-            {
-                return m_DOF[0];
-            }
-            set
-            {
-                m_DOF[0] = value;
-            }
-        }
+        public DOF RX { get; set; }
 
-        public DOF UY
-        {
-            get
-            {
-                return m_DOF[1];
-            }
-            set
-            {
-                m_DOF[1] = value;
-            }
-        }
+        public DOF RY { get; set; }
 
-        public DOF UZ
-        {
-            get
-            {
-                return m_DOF[2];
-            }
-            set
-            {
-                m_DOF[2] = value;
-            }
-        }
-
-        public DOF RX
-        {
-            get
-            {
-                return m_DOF[3];
-            }
-            set
-            {
-                m_DOF[3] = value;
-            }
-        }
-
-        public DOF RY
-        {
-            get
-            {
-                return m_DOF[4];
-            }
-            set
-            {
-                m_DOF[4] = value;
-            }
-        }
-
-        public DOF RZ
-        {
-            get
-            {
-                return m_DOF[5];
-            }
-            set
-            {
-                m_DOF[5] = value;
-            }
-        }
+        public DOF RZ { get; set; }
 
         /// <summary>Constraint type</summary>
         public ConstraintType Type 
@@ -103,18 +41,22 @@ namespace BHoM.Structural
         /// <summary>
         /// Construct an empty constraint object
         /// </summary>
-        internal Constraint()
+        public NodeConstraint()
         {
-            m_DOF = new DOF[6];
+            UX = new DOF();
+            UY = new DOF();
+            UZ = new DOF();
+            RX = new DOF();
+            RY = new DOF();
+            RZ = new DOF();
         }
 
         /// <summary>
         /// Construct an empty constraint object with a name
         /// </summary>
-        public Constraint(string name)
+        public NodeConstraint(string name) : this()
         {
             this.Name = name;
-            m_DOF = new DOF[6];
         }
 
         ///// <summary>Construct a constraint from DOF objects. Any constraint 
@@ -128,82 +70,95 @@ namespace BHoM.Structural
         /// <summary>Construct a constraint from true/false. True blocks a DOF. 
         /// Only fixed or free constraint types can be constructed using this.</summary>       
 
-        public Constraint(string name, bool[] fixity, double[] values)
+        public NodeConstraint(string name, bool[] fixity, double[] values)
         {
-            m_DOF = new DOF[6];
-            for (int i = 0; i < 6;i++)
-            {
-                m_DOF[i] = new DOF((fixity[i]) ? DOFType.Fixed : DOFType.Free, values[i]);
-            }
+            UX = new DOF((fixity[0]) ? DOFType.Fixed : DOFType.Free, values[0]);
+            UY = new DOF((fixity[1]) ? DOFType.Fixed : DOFType.Free, values[1]);
+            UZ = new DOF((fixity[2]) ? DOFType.Fixed : DOFType.Free, values[2]);
+            RX = new DOF((fixity[3]) ? DOFType.Fixed : DOFType.Free, values[3]);
+            RY = new DOF((fixity[4]) ? DOFType.Fixed : DOFType.Free, values[4]);
+            RZ = new DOF((fixity[5]) ? DOFType.Fixed : DOFType.Free, values[5]);
         }
 
-        public Constraint(string name, double[] values)
+        public NodeConstraint(string name, double[] values)
         {
-            m_DOF = new DOF[6];
-            for (int i = 0; i < 6; i++)
-            {
-                m_DOF[i] = new DOF((values[i] == -1) ? DOFType.Fixed : (values[i] == 0) ? DOFType.Free : DOFType.Spring, values[i]);           
-            }
-        }
-        
-        public Constraint(string name, IEnumerable<DOF> dof)
+            UX = new DOF((values[0] == -1) ? DOFType.Fixed : (values[0] == 0) ? DOFType.Free : DOFType.Spring, values[0]);
+            UY = new DOF((values[1] == -1) ? DOFType.Fixed : (values[1] == 0) ? DOFType.Free : DOFType.Spring, values[1]);
+            UZ = new DOF((values[2] == -1) ? DOFType.Fixed : (values[2] == 0) ? DOFType.Free : DOFType.Spring, values[2]);
+            RX = new DOF((values[3] == -1) ? DOFType.Fixed : (values[3] == 0) ? DOFType.Free : DOFType.Spring, values[3]);
+            RY = new DOF((values[4] == -1) ? DOFType.Fixed : (values[4] == 0) ? DOFType.Free : DOFType.Spring, values[4]);
+            RZ = new DOF((values[5] == -1) ? DOFType.Fixed : (values[5] == 0) ? DOFType.Free : DOFType.Spring, values[5]);
+        }     
+    }
+
+    public class BarConstraint : BHoM.Global.BHoMObject
+    {
+
+
+        public DOF Horizontal { get; set; }
+
+        public DOF Vertical { get; set; }
+
+        public DOF Axial { get; set; }
+
+        public DOF Rotational { get; set; }
+
+        ///////////////////
+        ////Constructors///
+        ///////////////////
+
+        /// <summary>
+        /// Construct an empty constraint object
+        /// </summary>
+        internal BarConstraint()
         {
-            m_DOF = new DOF[6];
-            int index = 0;
-            foreach (DOF d in dof)
-            {
-                m_DOF[index++] = d;
-            }
+            Horizontal = new DOF();
+            Vertical = new DOF();
+            Axial = new DOF();
+            Rotational = new DOF();
         }
 
-
-        //////////////
-        ////Methods///
-        //////////////
-
-        ///// <summary>Sets all DOF to fixed (-1)</summary>
-        //public void SetFixed()
-        //{
-        //    this.X = new DOF(AxisDirection.X, DOFType.Fixed, -1);
-        //    this.Y = new DOF(AxisDirection.Y, DOFType.Fixed, -1);
-        //    this.Z = new DOF(AxisDirection.Z, DOFType.Fixed, -1);
-        //    this.XX = new DOF(AxisDirection.XX, DOFType.Fixed, -1);
-        //    this.YY = new DOF(AxisDirection.YY, DOFType.Fixed, -1);
-        //    this.ZZ = new DOF(AxisDirection.ZZ, DOFType.Fixed, -1);
-        //}
-
-        ///// <summary>Sets all translational DOF to fixed (-1)</summary>
-        //public void SetPinned()
-        //{
-        //    this.X = new DOF(AxisDirection.X, DOFType.Fixed, -1);
-        //    this.Y = new DOF(AxisDirection.Y, DOFType.Fixed, -1);
-        //    this.Z = new DOF(AxisDirection.Z, DOFType.Fixed, -1);
-        //    this.XX = new DOF(AxisDirection.XX, DOFType.Free, 0);
-        //    this.YY = new DOF(AxisDirection.YY, DOFType.Free, 0);
-        //    this.ZZ = new DOF(AxisDirection.ZZ, DOFType.Free, 0);
-        //}
-
-        ///// <summary>Sets vertical (Z) translation to fixed (-1)</summary>
-        //public void SetSliding()
-        //{
-        //    this.X = new DOF(AxisDirection.X, DOFType.Free, 0);
-        //    this.Y = new DOF(AxisDirection.Y, DOFType.Free, 0);
-        //    this.Z = new DOF(AxisDirection.Z, DOFType.Fixed, -1);
-        //    this.XX = new DOF(AxisDirection.XX, DOFType.Free, 0);
-        //    this.YY = new DOF(AxisDirection.YY, DOFType.Free, 0);
-        //    this.ZZ = new DOF(AxisDirection.ZZ, DOFType.Free, 0);
-        //}
-
-        /// <summary>Sets the constraint name</summary>
-        public void SetName(string name)
+        /// <summary>
+        /// Construct an empty constraint object with a name
+        /// </summary>
+        public BarConstraint(string name) : this()
         {
             this.Name = name;
         }
+    }
 
-        /// <summary>Sets the constraint type</summary>
-        public void SetType(ConstraintType type)
+    public class SurfaceConstraint : BHoM.Global.BHoMObject
+    {
+        /////////////////
+        ////Properties///
+        /////////////////
+      
+        public DOF UX { get; set; }
+
+        public DOF UY { get; set; }
+
+        public DOF Normal { get; set; }
+
+        ///////////////////
+        ////Constructors///
+        ///////////////////
+
+        /// <summary>
+        /// Construct an empty constraint object
+        /// </summary>
+        internal SurfaceConstraint()
         {
-            this.Type = type;
-        }      
+            UX = new DOF();
+            UY = new DOF();
+            Normal = new DOF();
+        }
+
+        /// <summary>
+        /// Construct an empty constraint object with a name
+        /// </summary>
+        public SurfaceConstraint(string name) : this()
+        {
+            this.Name = name;
+        }
     }
 }

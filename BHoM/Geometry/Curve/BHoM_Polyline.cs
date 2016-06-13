@@ -24,7 +24,7 @@ namespace BHoM.Geometry
             for (int i = 0; i < m_Weights.Length; i++)
             {
                 m_Knots[i + 1] = i;
-                m_Weights[i] = 1; 
+                m_Weights[i] = 1;
             }
 
             IsNurbForm = true;
@@ -35,7 +35,7 @@ namespace BHoM.Geometry
             get
             {
                 double length = 0;
-                for (int i = 0; i < m_ControlPoints.Length/(m_Dimensions +1) - (m_Dimensions + 1);i++)
+                for (int i = 0; i < m_ControlPoints.Length / (m_Dimensions + 1) - (m_Dimensions + 1); i++)
                 {
                     length += VectorUtils.Length(VectorUtils.Sub(m_ControlPoints, i, i + m_Dimensions + 1, m_Dimensions + 1));
                 }
@@ -47,7 +47,7 @@ namespace BHoM.Geometry
         {
             List<Curve> lineSegments = new List<Curve>();
             lineSegments.Add(new Line(ControlPoint(0), ControlPoint(1)));
-            for (int i = 1; i < PointCount - 1;i++)
+            for (int i = 1; i < PointCount - 1; i++)
             {
                 lineSegments.Add(new Line(lineSegments[i - 1].EndPoint, ControlPoint(i + 1)));
             }
@@ -64,7 +64,7 @@ namespace BHoM.Geometry
                     aResult = aResult.Trim(',') + "},{";
                 }
                 else
-                { 
+                {
                     aResult += m_ControlPoints[i] + ",";
                 }
             }
@@ -72,5 +72,12 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"polyline\"," + "\"points\": " + aResult + "}";
         }
 
+        public static new Polyline FromJSON(string json)
+        {
+            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+            List<double[]> points = BHoM.Global.Utils.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
+            return new Polyline(points);
+        }
     }
 }

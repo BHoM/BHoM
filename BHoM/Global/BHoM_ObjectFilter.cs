@@ -21,7 +21,7 @@ namespace BHoM.Global
     /// <summary>
     /// 
     /// </summary>
-    public class ObjectFilter<T> : IEnumerable<T> where T : BHoMObject
+    public class ObjectFilter<T> : IEnumerable<T>, IEnumerable where T : BHoMObject
     {
         private Project m_Project;
         private List<T> m_Data;
@@ -97,8 +97,9 @@ namespace BHoM.Global
             for (int i = 0; i < m_Data.Count; i++)
             {
                 TKey key = GetKey<TKey>(m_Data[i], propertyName, option);
+
                 T value = default(T);
-                if (key != null && !result.TryGetValue(key, out value))
+                if (key != null  && !result.TryGetValue(key, out value))
                 {
                     result.Add(key, m_Data[i]);
                 }
@@ -107,7 +108,6 @@ namespace BHoM.Global
         }
         internal static TKey GetKey<TKey>(T obj, string name, FilterOption option)
         {
-            bool result = false;
             switch (option)
             {
                 case FilterOption.Name:
@@ -122,17 +122,35 @@ namespace BHoM.Global
                     }
                     break;
                 case FilterOption.UserData:
-                    return (TKey)(object)obj.CustomData[name];
+                    object keyResult = null;
+                    if (obj.CustomData.TryGetValue(name, out keyResult))
+                    {
+                        if (keyResult.GetType() != typeof(TKey))
+                        {
+                            System.Reflection.MethodInfo parseMethod = typeof(TKey).GetMethod("Parse", new Type[] { typeof(string) });
+                            if (parseMethod != null)
+                            {
+                                obj.CustomData[name] = (obj.CustomData[name] = parseMethod.Invoke(null, new object[] { keyResult.ToString() }));
+                                return (TKey)(object)obj.CustomData[name];
+                            }
+                        }
+                        else
+                        {
+                            return (TKey)(object)keyResult;
+                        }
+                       
+                    }
+                    return default(TKey);
             }
             return default(TKey);
         }
-
-        public IEnumerator<T> GetEnumerator()
+   
+        public IEnumerator GetEnumerator()
         {
             return m_Data.GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             return m_Data.GetEnumerator();
         }

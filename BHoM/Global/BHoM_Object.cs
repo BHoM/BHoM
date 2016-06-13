@@ -40,10 +40,26 @@ namespace BHoM.Global
         {
             return Activator.CreateInstance(type, true) as BHoMObject;
         }
-
+        /// <summary>
+        /// Looks for the key in the custom data dictionary
+        /// </summary>
+        /// <param name="key">Data key</param>
+        /// <returns>The corresponding object if the key exists, null otherwise</returns>
+        public object this[string key]
+        {
+            get
+            {
+                object value = null;
+                CustomData.TryGetValue(key, out value);
+                return value;
+            }
+        }
         //////////////
         ////Methods///
         //////////////
+
+
+
 
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
         public List<string> GetPropertyNames()
@@ -119,7 +135,7 @@ namespace BHoM.Global
         /// <returns></returns>
         public override string ToString()
         {
-            return this.GetType().Name + (Name != "" ? ": " + Name : "");
+            return this.GetType().Name + (!string.IsNullOrEmpty(Name) ? ": " + Name : "");
         }
     }
 }

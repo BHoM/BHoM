@@ -22,6 +22,14 @@ namespace BHoM.Geometry
             CreateNurbForm();
         }
 
+        public Circle(Point p1, Point p2, Point p3)
+        {
+            Arc arc = new Arc(p1, p2, p3);
+            m_Radius = arc.Radius;
+            arc.TryGetPlane(out m_Plane);
+            CreateNurbForm();
+        }
+
         public override void CreateNurbForm()
         {
             double root2on2 = Math.Sqrt(2) / 2;

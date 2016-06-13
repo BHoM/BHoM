@@ -21,16 +21,6 @@ namespace BHoM.Structural.Loads
         public BHoM.Geometry.Vector Moment { get; private set; }
 
         /// <summary>
-        ///  Nodes which have been assigned with this loading
-        /// </summary>
-        public int[] TT { get; set; }
-
-        /// <summary>
-        ///  Nodes which have been assigned with this loading
-        /// </summary>
-        public Dictionary<string, string> T2 { get; set; }
-
-        /// <summary>
         /// Create an empty nodal load as a placeholder
         /// </summary>
         public PointForce() { }
@@ -51,10 +41,6 @@ namespace BHoM.Structural.Loads
             this.Loadcase = loadcase;
             this.Force = new Vector(fx, fy, fz);
             this.Moment = new Vector(mx, my, mz);
-            TT = new int[] { 1, 2, 3, 4 };
-            T2 = new Dictionary<string, string>();
-            T2.Add("t", "t");
-            T2.Add("aee", "tee");
         }
 
         /// <summary>

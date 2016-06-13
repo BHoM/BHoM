@@ -12,14 +12,14 @@ namespace BHoM.Structural
     public class BarRelease : BHoM.Global.BHoMObject
     {
         /// <summary>Start constraint</summary>
-        public BHoM.Structural.Constraint StartConstraint 
+        public BHoM.Structural.NodeConstraint StartConstraint 
         {
             get;
             set;
         }
 
         /// <summary>End constraint</summary>
-        public BHoM.Structural.Constraint EndConstraint
+        public BHoM.Structural.NodeConstraint EndConstraint
         {
             get;
             set;
@@ -28,7 +28,7 @@ namespace BHoM.Structural
         internal BarRelease() { }
 
         /// <summary>Construct a new constraint using constraint objects for start/end releases</summary>
-        public BarRelease(BHoM.Structural.Constraint startConstraint, BHoM.Structural.Constraint endConstraint)
+        public BarRelease(BHoM.Structural.NodeConstraint startConstraint, BHoM.Structural.NodeConstraint endConstraint)
         {
             this.StartConstraint = startConstraint;
             this.EndConstraint = endConstraint;
@@ -36,7 +36,7 @@ namespace BHoM.Structural
         }
 
         /// <summary>Construct a new constraint using constraint objects for start/end releases and name</summary>          
-        public BarRelease(BHoM.Structural.Constraint startConstraint, BHoM.Structural.Constraint endConstraint, string name)
+        public BarRelease(BHoM.Structural.NodeConstraint startConstraint, BHoM.Structural.NodeConstraint endConstraint, string name)
         {
             this.StartConstraint = startConstraint;
             this.EndConstraint = endConstraint;

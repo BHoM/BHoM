@@ -47,6 +47,7 @@ namespace BHoM.Structural.Loads
         public List<T> Objects
         {
             get { return m_Objects; }
+            set { m_Objects = value; }
         }     
     }
 }

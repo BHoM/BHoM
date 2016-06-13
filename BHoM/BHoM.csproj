@@ -11,6 +11,7 @@
     <AssemblyName>BHoM</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -86,13 +86,12 @@
     <Compile Include="Geometry\Vector\BHoM_Point.cs" />
     <Compile Include="Geometry\Vector\BHoM_Vector.cs" />
     <Compile Include="Geometry\Vector\BHoM_VectorUtils.cs" />
-    <Compile Include="Global\BHoM_IO.cs" />
+    <Compile Include="Structural\BHoM_IStructrualAdapter.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
     <Compile Include="Global\BHoM_ObjectFilter.cs" />
     <Compile Include="Global\BHoM_ObjectManager.cs" />
     <Compile Include="Global\BHoM_Project.cs" />
     <Compile Include="Global\BHoM_Utils.cs" />
-    <Compile Include="Materials\Concrete\BHoM_RCGrade_C25.cs" />
     <Compile Include="Materials\Concrete\BHoM_RCGrade_C20.cs" />
     <Compile Include="Materials\Steel\BHoM_ISteel.cs" />
     <Compile Include="Materials\Concrete\BHoM_IConcrete.cs" />
@@ -104,19 +103,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Structural\BHoM_IStructuralObject.cs" />
-    <Compile Include="Structural\BHoM_Panel.cs" />
+    <Compile Include="Structural\Elements\BHoM_Opening.cs" />
+    <Compile Include="Structural\Elements\BHoM_Panel.cs" />
     <Compile Include="Structural\BHoM_SuperBar.cs" />
     <Compile Include="HumanBody\BHoM_BodyParts.cs" />
     <Compile Include="HumanBody\BHoM_Skeleton.cs" />
-    <Compile Include="Materials\BHoM_IMaterial.cs" />
+    <Compile Include="Materials\BHoM_Material.cs" />
     <Compile Include="Materials\BHoM_MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structural\Constraints\BHoM_DegreeOfFreedom.cs" />
     <Compile Include="Structural\Constraints\BHoM_Constraint.cs" />
-    <Compile Include="Structural\BHoM_Storey.cs" />
-    <Compile Include="Structural\BHoM_Bar.cs" />
-    <Compile Include="Structural\BHoM_Face.cs" />
-    <Compile Include="Structural\BHoM_Node.cs" />
+    <Compile Include="Structural\Elements\BHoM_Storey.cs" />
+    <Compile Include="Structural\Elements\BHoM_Bar.cs" />
+    <Compile Include="Structural\Elements\BHoM_Face.cs" />
+    <Compile Include="Structural\Elements\BHoM_Node.cs" />
     <Compile Include="Structural\Constraints\BHoM_BarRelease.cs" />
     <Compile Include="Structural\BHoM_Offset.cs" />
     <Compile Include="Structural\BHoM_Structure.cs" />
@@ -136,12 +136,15 @@
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceEnvelope.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceCollection.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForce.cs" />
+    <Compile Include="Structural\Results\BHoM_IResultAdapter.cs" />
+    <Compile Include="Structural\Results\BHoM_ResultServer.cs" />
     <Compile Include="Structural\Results\Building Results\BHoM_StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\BHoM_GlobalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\BHoM_NodalResultCollection.cs" />
     <Compile Include="Structural\Results\Nodal Results\BHoM_NodalResult.cs" />
+    <Compile Include="Structural\Results\Nodal Results\NodeForce.cs" />
     <Compile Include="Structural\Section Properties\BHoM_Calculator.cs" />
-    <Compile Include="Structural\Section Properties\BHoM_SectionDB.cs" />
+    <Compile Include="Structural\Databases\BHoM_Adapter.cs" />
     <Compile Include="Structural\Section Properties\BHoM_ShapeType.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCColumnRectangular.cs" />
     <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCBeamRectangular.cs" />
@@ -191,12 +194,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Structural\Section Properties\Databases\UK Sections.mdf">
+    <Content Include="Structural\Databases\Materials.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Structural\Section Properties\Databases\UK Sections_log.ldf">
+    <Content Include="Structural\Databases\Materials_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>UK Sections.mdf</DependentUpon>
+      <DependentUpon>Materials.mdf</DependentUpon>
+    </Content>
+    <Content Include="Structural\Databases\SteelSections.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Structural\Databases\SteelSections_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SteelSections.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

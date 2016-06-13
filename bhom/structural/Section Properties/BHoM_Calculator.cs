@@ -96,33 +96,51 @@ namespace BHoM.Structural.SectionProperties
                 }
 
                 currentValue = (sliceSegments[i] + sliceSegments[i + 1]) / 2;
+                if (i == 52)
+                {
 
+                }
                 //y.AddRange(m_Edges.ValueAt(currentValue, direction, (direction + 1) % 2));
                 for (int edgeIndex = 0; edgeIndex < m_Edges.Count; edgeIndex++)
                 {
-                    y.AddRange(Intersect.PlaneCurve(new Plane(new Point(p.Normal * currentValue), p.Normal), m_Edges[edgeIndex]));
+                    if (edgeIndex == 3)
+                    {
+
+                    }
+                    y.AddRange(Intersect.PlaneCurve(new Plane(new Point(p.Normal * currentValue), p.Normal), m_Edges[edgeIndex], 0.00001));
                 }
 
-                y.Sort();
-
-                if (y.Count % 2 != 0)
+                List<double> isolatedCoords = new List<double>();
+                
+                for (int point = 0; point < y.Count; point++)
                 {
-                    for (int k = 0; k < y.Count - 1; k++)
+                    if (p.Normal.X > 0)
                     {
-                        if (y[k] == y[k + 1])
+                        isolatedCoords.Add(y[point].Y);
+                    }
+                    else
+                    {
+                        isolatedCoords.Add(y[point].X);
+                    }
+                }
+
+
+                isolatedCoords.Sort();
+
+                if (isolatedCoords.Count % 2 != 0)
+                {
+                    for (int k = 0; k < isolatedCoords.Count - 1; k++)
+                    {
+                        if (isolatedCoords[k] == isolatedCoords[k + 1])
                         {
-                            y.RemoveAt(k + 1);
+                            isolatedCoords.RemoveAt(k + 1);
                         }
                     }
                 }
 
-                if  (i == 100)
+                for (int j = 0; j < isolatedCoords.Count - 1; j += 2)
                 {
-
-                }
-                for (int j = 0; j < y.Count - 1; j += 2)
-                {
-                    length = length + y[j + 1].DistanceTo(y[j]);
+                    length = length + isolatedCoords[j + 1]- isolatedCoords[j];
                 }
 
                 slices.Add(new Slice(-sliceSegments[i] + sliceSegments[i + 1], length, currentValue, null));
@@ -198,7 +216,7 @@ namespace BHoM.Structural.SectionProperties
             {
                 if (m_Area > 0) return m_Area;
 
-                foreach (Slice slice in HorizontalSlices)
+                foreach (Slice slice in VerticalSlices)
                 {
                     m_Area += slice.Width * slice.Length;
                 }

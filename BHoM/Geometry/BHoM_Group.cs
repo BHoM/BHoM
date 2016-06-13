@@ -135,6 +135,25 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"group\", \"groupType\": \""+ typeof(T).FullName + "\"," + BHoM.Global.Utils.WriteProperty("group", m_Geometry).Trim(',') + "}";
         }
 
+        public static new GeometryBase FromJSON(string json)
+        {
+            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
+            Type groupDataType = Type.GetType(definition["groupType"].Trim('\"', '\"'));
+            var groupType = typeof(Group<>);
+            var dataType = typeof(List<>);
+            var data = dataType.MakeGenericType(groupDataType);
+            var groupofType = groupType.MakeGenericType(groupDataType);
+            var group = Activator.CreateInstance(groupofType);
+            System.Reflection.MethodInfo jsonMethod = groupofType.GetMethod("AddRange");
+            if (jsonMethod != null)
+            {
+                object result = jsonMethod.Invoke(group, new object[] { BHoM.Global.Utils.ReadValue(data, definition["group"]) });
+            }      
+            return group as GeometryBase;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             return m_Geometry.GetEnumerator();

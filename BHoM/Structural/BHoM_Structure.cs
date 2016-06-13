@@ -29,7 +29,7 @@ namespace BHoM.Structural
         /// <summary>Tolerance of structure for node merge etc</summary>
         public double Tolerance { get; private set; }
 
-        public SectionDB SectionDatabase
+        public DataBaseAdapter SectionDatabase
         {
             get; private set;
         }
@@ -41,6 +41,7 @@ namespace BHoM.Structural
         {
             this.m_Project = project;
             this.m_Objects = objects;
+            SectionDatabase = new DataBaseAdapter(Database.SteelSection, "UK_Sections");
         }
 
         public BHoM.Global.BHoMObject GetObject(Guid id)

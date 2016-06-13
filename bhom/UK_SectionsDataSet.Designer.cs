@@ -1828,7 +1828,7 @@ SELECT Id, Type, L1, L2, L3, Shape, Mass, H, B, T1, T2, r1, r2, GAP, [Cx+], [Cx-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::BHoM.Properties.Settings.Default.UK_SectionsConnectionString;
+            this._connection.ConnectionString = global::BHoM.Properties.Settings.Default.SteelSectionConnectionsString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

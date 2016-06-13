@@ -18,7 +18,7 @@ namespace BHoM.Geometry
 
         protected Curve() { }
 
-        internal Curve(List<Point> points) 
+        internal Curve(List<Point> points)
         {
             m_Dimensions = 3;
             m_ControlPoints = new double[points.Count * (m_Dimensions + 1)];
@@ -41,7 +41,7 @@ namespace BHoM.Geometry
                 double[] p = points[i];
                 for (int j = 0; j < 4; j++)
                 {
-                    m_ControlPoints[i * 4 + j] = j == 3 && p.Length < 4 ? 1 :p[j];
+                    m_ControlPoints[i * 4 + j] = j == 3 && p.Length < 4 ? 1 : p[j];
                 }
             }
         }
@@ -91,7 +91,7 @@ namespace BHoM.Geometry
 
         public override BoundingBox Bounds()
         {
-                return new BoundingBox(Max, Min);
+            return new BoundingBox(Max, Min);
         }
 
         public virtual double[] Domain
@@ -110,21 +110,30 @@ namespace BHoM.Geometry
                 return m_ControlPoints;
             }
         }
-        
-        public virtual Point ControlPoint(int i)
+
+        internal virtual double[] ControlPoint(int i)
         {
-            return i < (int)(m_ControlPoints.Length / (m_Dimensions + 1)) ? 
-                new Point(Common.Utils.SubArray<double>(m_ControlPoints, i * (m_Dimensions + 1), m_Dimensions + 1)) : null;
+            return i < (int)(m_ControlPoints.Length / (m_Dimensions + 1)) ?
+                new Point(Common.Utils.SubArray<double>(m_ControlPoints, i * (m_Dimensions + 1), m_Dimensions)) : null;
         }
+
+        public Point this[int i]
+        {
+            get
+            {
+                return new Point(ControlPoint(i));
+            }
+        }
+
 
         public IEnumerable<Point> ControlPoints
         {
             get
             {
-                List < Point > cPnts = new List<Point>();
+                List<Point> cPnts = new List<Point>();
                 for (int i = 0; i < PointCount; i++)
                 {
-                    cPnts.Add(ControlPoint(i));
+                    cPnts.Add(new Point(ControlPoint(i)));
                 }
                 return cPnts;
             }
@@ -189,7 +198,7 @@ namespace BHoM.Geometry
             if (n > 0 && t >= m_Knots[i] && t < m_Knots[i + n + 1])
             {
                 double result = 0;
-                if (m_Knots[i + n] - m_Knots[i] > 0 )
+                if (m_Knots[i + n] - m_Knots[i] > 0)
                 {
                     result += BasisFunction(i, n - 1, t) * (t - m_Knots[i]) / (m_Knots[i + n] - m_Knots[i]);
                 }
@@ -197,7 +206,7 @@ namespace BHoM.Geometry
                 {
                     result += BasisFunction(i + 1, n - 1, t) * (m_Knots[i + n + 1] - t) / (m_Knots[i + n + 1] - m_Knots[i + 1]);
                 }
-                
+
                 return result;
             }
             else
@@ -213,7 +222,7 @@ namespace BHoM.Geometry
                 double result = 0;
                 if (i + n < m_Knots.Length && m_Knots[i + n] - m_Knots[i] > 0)
                 {
-                    result += BasisFunction(i, n - 1, t) * n / (m_Knots[i + n] - m_Knots[i]) ;
+                    result += BasisFunction(i, n - 1, t) * n / (m_Knots[i + n] - m_Knots[i]);
                 }
                 if (i + n + 1 < m_Knots.Length && m_Knots[i + n + 1] - m_Knots[i + 1] > 0)
                 {
@@ -228,18 +237,23 @@ namespace BHoM.Geometry
         public virtual Point PointAt(double t)
         {
             if (!IsNurbForm) CreateNurbForm();
+            return new Point(UnsafePointAt(t));
+        }
+
+        internal double[] UnsafePointAt(double t)
+        {
             double[] sumNwP = new double[m_Dimensions];
             double sumNw = 0;
-            if (t == 0) return StartPoint;
-            else if (t >= m_Knots[m_Knots.Length - 1]) return EndPoint;
+            if (t == 0) return Common.Utils.SubArray<double>(m_ControlPoints, 0, 3);
+            else if (t >= m_Knots[m_Knots.Length - 1]) return Common.Utils.SubArray<double>(m_ControlPoints, m_ControlPoints.Length - 4, 3);
             for (int i = 0; i < m_ControlPoints.Length / (m_Dimensions + 1); i++)
             {
                 double Nt = BasisFunction(i, m_Order - 1, t);
-                if (Nt == 0) continue;          
+                if (Nt == 0) continue;
                 sumNwP = VectorUtils.Add(sumNwP, VectorUtils.Multiply(m_ControlPoints, Nt * m_Weights[i], i * (m_Dimensions + 1), m_Dimensions));
                 sumNw += Nt * m_Weights[i];
             }
-            return new Point(VectorUtils.Divide(sumNwP, sumNw));
+            return VectorUtils.Divide(sumNwP, sumNw);
         }
 
         public virtual Vector TangentAt(double t)
@@ -249,6 +263,7 @@ namespace BHoM.Geometry
             double[] sumNwPDer = new double[m_Dimensions];
             double sumNw = 0;
             double sumNwDer = 0;
+
             for (int i = 0; i < m_ControlPoints.Length / (m_Dimensions + 1); i++)
             {
                 double Nt = BasisFunction(i, m_Order - 1, t);
@@ -289,7 +304,7 @@ namespace BHoM.Geometry
 
         public bool IsClosed()
         {
-            return EndPoint == StartPoint;
+            return VectorUtils.Equal(EndPoint, StartPoint, 0.0001);
         }
 
         public virtual bool TryGetPlane(out Plane plane)
@@ -330,13 +345,13 @@ namespace BHoM.Geometry
 
         public static List<Curve> Join(Group<Curve> curves)
         {
-            return Join(curves);
+            return Join(curves.ToList());
         }
 
         public static List<Curve> Join(List<Curve> curves)
         {
             List<Curve> result = new List<Curve>();
-            for (int i = 0; i < curves.Count;i++)
+            for (int i = 0; i < curves.Count; i++)
             {
                 result.Add(curves[i]);
             }
@@ -344,7 +359,7 @@ namespace BHoM.Geometry
             {
                 for (int j = i + 1; j < result.Count; j++)
                 {
-                    if (VectorUtils.Equal(result[i].StartPoint,result[j].StartPoint,0.0001))
+                    if (VectorUtils.Equal(result[i].StartPoint, result[j].StartPoint, 0.0001))
                     {
                         result[j] = new PolyCurve(result[i].Flip(), result[j]);
                         result.RemoveAt(i--);
@@ -378,7 +393,7 @@ namespace BHoM.Geometry
         {
             return DuplicateCurve();
         }
-        
+
         public virtual Curve DuplicateCurve()
         {
             Curve c = (Curve)Activator.CreateInstance(this.GetType(), true);
@@ -391,7 +406,7 @@ namespace BHoM.Geometry
         }
 
         public override string ToJSON()
-        {       
+        {
             string points = "\"points\": {{ ";
             for (int i = 0; i < m_ControlPoints.Length - 1; i++)
             {
@@ -408,7 +423,34 @@ namespace BHoM.Geometry
             string knots = "\"knots\": {" + Common.Utils.CollectionToString(m_Knots, ',') + "}";
             string weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"weights\": {" + Common.Utils.CollectionToString(m_Weights, ',') + "}" : "";
             string degree = "\"degree\": " + (m_Order - 1);
-            return "{\"Primitive\": \"curve\"," +  points + "," + degree + "," + knots + (weights != "" ? "," : "") + weights + "}";
+            return "{\"Primitive\": \"curve\"," + points + "," + degree + "," + knots + (weights != "" ? "," : "") + weights + "}";
+        }
+
+
+        public static new Curve FromJSON(string json)
+        {
+            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+
+            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
+
+            switch (typeString)
+            {               
+                case "arc":
+                    return Arc.FromJSON(json);
+                case "line":
+                    return Line.FromJSON(json);
+                case "polyline":
+                    return Polyline.FromJSON(json);
+                case "circle":
+                    return Circle.FromJSON(json);
+                default:
+                    List<double[]> curvePoints = BHoM.Global.Utils.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
+                    double[] knots = (double[])BHoM.Global.Utils.ReadValue(typeof(double[]), definition["knots"]);
+                    double[] weights = definition.ContainsKey("weights") ? (double[])BHoM.Global.Utils.ReadValue(typeof(double[]), definition["weights"]) : null;
+                    int degree = (int)BHoM.Global.Utils.ReadValue(typeof(int), definition["degree"]);
+                    return new NurbCurve(curvePoints, degree, knots, weights);
+            }      
         }
     }
 

@@ -361,13 +361,20 @@ namespace BHoM.Geometry
         public override string ToJSON()
         {
             return "{\"Primitive\": \"point\", \"point\": " + ToString() + "}";
+        }
 
+        public static new Point FromJSON(string json)
+        {
+            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+
+            return new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["point"]) as double[]);
         }
 
         public int CompareTo(Point other)
         {
-            double value1 = X * 1E16 + Y * 1E8 + Z;
-            double value2 = other.X * 1E16 + Y * 1E8 + Z;
+            double value1 = X * 1E6 + Y * 1E3 + Z;
+            double value2 = other.X * 1E6 + other.Y * 1E3 + other.Z;
             return value1.CompareTo(value2);
         }
     }
