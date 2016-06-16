@@ -79,7 +79,7 @@ namespace BHoM.Global
         public virtual string ToJSON(string extra = "")
         {
             string aResult = "{";
-            aResult += string.Format("\"{0}\": {1},", "Primitive", "{\""+GetType().AssemblyQualifiedName+"\"}");
+            aResult += string.Format("\"{0}\": {1},", "Primitive", "\""+GetType().AssemblyQualifiedName.Replace(",", ";") + "\"");
 
             // Write all the properties
             aResult += "\"Properties\": {";
@@ -113,7 +113,7 @@ namespace BHoM.Global
             if (!definition.ContainsKey("Primitive") || !definition.ContainsKey("Properties")) return null;
 
             // Try to create an object that correponds the object type stored in "Primitive"
-            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
+            var typeString = definition["Primitive"].Replace("\"", "").Replace(";", ",");
             Type type = Type.GetType(typeString);
             if (type == null) return null;
             BHoMObject newObject = Activator.CreateInstance(type, true) as BHoMObject;
