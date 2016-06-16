@@ -4,6 +4,22 @@
         <name>BHoM</name>
     </assembly>
     <members>
+        <member name="M:BHoM.Geometry.GeometryBase.FromJSON(System.String)">
+            <summary>
+            Creates a geometry object from a json format string
+            </summary>
+            <param name="json"></param>
+            <returns>Geometry object</returns>
+        </member>
+        <member name="M:BHoM.Geometry.Intersect.PlaneCurve(BHoM.Geometry.Plane,BHoM.Geometry.Curve,System.Double)">
+            <summary>
+            Gets the plane curve intersection geometry within the provided tolerance
+            </summary>
+            <param name="p">Plane</param>
+            <param name="c">Curve</param>
+            <param name="tolerance"></param>
+            <returns></returns>
+        </member>
         <member name="M:BHoM.Geometry.Transform.Rotation(BHoM.Geometry.Point,BHoM.Geometry.Vector,System.Double)">
             <summary>
             Creates a new Rotational Transformation
@@ -183,6 +199,26 @@
             
             </summary>
         </member>
+        <member name="M:BHoM.Geometry.Plane.InPlane(BHoM.Geometry.Point,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="tolerance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.Mirror(BHoM.Geometry.Plane)">
+            <summary>
+            Mirrors vector about a plane
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:BHoM.Geometry.Plane.Project(BHoM.Geometry.Plane)">
+            <summary>
+            Projects a vector onto a plane
+            </summary>
+            <param name="plane"></param>
+        </member>
         <member name="T:BHoM.Geometry.Point">
             <summary>
             BHoM Point object
@@ -224,7 +260,7 @@
             </summary>
             <param name="dup"></param>
         </member>
-        <member name="M:BHoM.Geometry.Point.FromJSON(System.String)">
+        <member name="M:BHoM.Geometry.Point.op_Implicit(BHoM.Geometry.Point)~System.Double[]">
             <summary>
             Create a point from json
             </summary>
@@ -467,17 +503,10 @@
             Gets the vector length
             </summary>
         </member>
-        <member name="M:BHoM.Geometry.Vector.Duplicate">
+        <member name="M:BHoM.Geometry.Vector.DuplicateVector">
             <summary>
             Duplicates the vector
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Geometry.Vector.Project(BHoM.Geometry.Plane)">
-            <summary>
-            Projects a vector onto a plane
-            </summary>
-            <param name="plane"></param>
             <returns></returns>
         </member>
         <member name="M:BHoM.Geometry.Vector.Rotate(System.Double,BHoM.Geometry.Vector)">
@@ -518,444 +547,27 @@
             <param name="normal"></param>
             <returns></returns>
         </member>
-        <member name="T:BHoM.Global.BHoMObject">
+        <member name="M:BHoM.Geometry.Vector.Transform(BHoM.Geometry.Transform)">
             <summary>
-            BHoM object abstract class, all methods and attributes applicable to all structural objects with
-            BHoM implemented
+            Transform Vector
             </summary>
+            <param name="t">Transformation matrix</param>
         </member>
-        <member name="P:BHoM.Global.BHoMObject.BHoM_Guid">
-            <summary>BHoM unique ID</summary>
-        </member>
-        <member name="P:BHoM.Global.BHoMObject.Name">
-            <summary>Name</summary>
-        </member>
-        <member name="P:BHoM.Global.BHoMObject.UserData">
-            <summary>Object parameters</summary>
-        </member>
-        <member name="M:BHoM.Global.BHoMObject.GetPropertyNames">
-            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
-        </member>
-        <member name="M:BHoM.Global.BHoMObject.ToJSON(System.String)">
+        <member name="M:BHoM.Geometry.Vector.Mirror(BHoM.Geometry.Plane)">
             <summary>
-            Method which convert the object as a Json string
+            Mirrors vector about a plane
             </summary>
+            <param name="p"></param>
         </member>
-        <member name="M:BHoM.Global.BHoMObject.FromJSON(System.String)">
+        <member name="M:BHoM.Geometry.Vector.Project(BHoM.Geometry.Plane)">
             <summary>
-            Method which convert the object as a Json string
+            Projects a vector onto a plane
             </summary>
+            <param name="plane"></param>
         </member>
-        <member name="M:BHoM.Global.BHoMObject.ToString">
+        <member name="T:BHoM.Structural.IStructuralAdapter">
             <summary>
-            BHoM Object will return its name as default 
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:BHoM.Global.ObjectCollection`1">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.#ctor">
-            <summary>
-            
-            </summary>
-            <param name="project"></param>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.#ctor(BHoM.Global.Project,System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            
-            </summary>
-            <param name="project"></param>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.SetUniqueByUserData(System.String)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.SetUniqueByProperty(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.OfClass(System.Type)">
-            <summary>
-            Filters all the objects in the collection by class
-            </summary>
-            <param name="t"></param>
-            <returns></returns>
-        </member>
-        <member name="P:BHoM.Global.ObjectCollection`1.Item(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="P:BHoM.Global.ObjectCollection`1.Item(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="P:BHoM.Global.ObjectCollection`1.Keys">
-            <summary>
-            Returns all the unique identifiers of the collection
-            </summary>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.Contains(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="nameKey"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.Add(`0)">
-            <summary>
-            Add a BHoMObject to the collection
-            </summary>
-            <param name="obj"></param>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.UniqueNumber">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.System#Collections#IEnumerable#GetEnumerator">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Global.ObjectCollection`1.GetEnumerator">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Global.ObjectCollection`1.Count">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:BHoM.Global.BHoMObjectEnum">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:BHoM.Global.BHoMObjectEnum._BHoMOjects">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Global.BHoMObjectEnum.#ctor(BHoM.Global.BHoMObject[])">
-            <summary></summary>
-            <param name="list"></param>
-        </member>
-        <member name="P:BHoM.Global.BHoMObjectEnum.System#Collections#IEnumerator#Current">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Global.BHoMObjectEnum.Current">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Global.BHoMObjectEnum.MoveNext">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Global.BHoMObjectEnum.Reset">
-            <summary></summary>
-        </member>
-        <member name="T:BHoM.Global.ObjectParameters">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:BHoM.Global.Project">
-            <summary>
-            A global project class that encapsulates all objects (all disciplines) of a BHoM project
-            </summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Structure">
-            <summary>Structure property - gets or sets the structure of the object as a BHoM.Structural.Structure</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Name">
-            <summary>Structure name</summary>
-        </member>
-        <member name="P:BHoM.Global.Project.Tolerance">
-            <summary>Tolerance of structure for node merge etc</summary>
-        </member>
-        <member name="M:BHoM.Global.Project.LoadXml(System.String)">
-            <summary>Loads a BHoM project from an xml file</summary>
-        </member>
-        <member name="M:BHoM.Global.Project.WriteXml(System.String)">
-            <summary>Writes a BHoM project to an xml file</summary>
-        </member>
-        <member name="M:BHoM.Global.Project.#ctor">
-            <summary>
-            Constructs an empty project
-            </summary>
-        </member>
-        <member name="M:BHoM.Global.Project.GetObject(System.Guid)">
-            <summary>Returns a BHoM by unique identifier</summary>
-        </member>
-        <member name="T:BHoM.Materials.Material">
-            <summary>
-            Material class for use in all other object classes and namespaces
-            </summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.Index">
-            <summary>Material index number</summary>   
-        </member>
-        <member name="P:BHoM.Materials.Material.Name">
-            <summary>Material name</summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.Fy">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.Fu">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.E">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.Nu">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.G">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.Density">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.TempCoeff">
-            <summary></summary>
-        </member>
-        <member name="P:BHoM.Materials.Material.DampingRatio">
-            <summary></summary>
-        </member>
-        <member name="M:BHoM.Materials.Material.#ctor(System.Int32,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Creates a material class
-            </summary>
-            <param name="i">Index</param>
-            <param name="name"></param>
-            <param name="e">Young's Modulus</param>
-            <param name="nu">Poisson's ratio</param>
-            <param name="g">Shear modulus</param>
-            <param name="d">Density</param>
-            <param name="tc">Temperature coefficient</param>
-        </member>
-        <member name="M:BHoM.Materials.Material.#ctor(System.String)">
-            <summary>
-            Creates a simple material class
-            Try to use the full material constructor if possible.
-            </summary>
-            <param name="name"></param>
-        </member>
-        <member name="M:BHoM.Materials.Material.#ctor(System.Int32,System.String)">
-            <summary>
-            Creates a simple material class with index number
-            </summary>
-            <param name="index"></param>
-            <param name="name"></param>
-        </member>
-        <member name="T:BHoM.Materials.Concrete.Grade_C20">
-            <summary>
-            Material class for use in all other object classes and namespaces
-            </summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.Index">
-            <summary>Index</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.Name">
-            <summary>Name</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.DampingRatio">
-            <summary>Damping ratio</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.DryDensity">
-            <summary>Dry density</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.YoungsModulus">
-            <summary>Youngs Modulus</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.PoissonsRatio">
-            <summary>Poissons ratio</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.ShearModulus">
-            <summary>Shear modulus</summary>
-        </member>
-        <member name="P:BHoM.Materials.Concrete.Grade_C20.CoeffThermalExpansion">
-            <summary>Coefficient of thermal expansion</summary>
-        </member>
-        <member name="M:BHoM.Materials.Concrete.Grade_C20.#ctor">
-            <summary>Construct the material</summary>
-        </member>
-        <member name="M:BHoM.Materials.Concrete.Grade_C20.CalculateValues">
-            <summary>Calculate values at construct stage</summary>
-        </member>
-        <member name="M:BHoM.Materials.Concrete.Grade_C20.CalculateShearModulus">
-            <summary>Calculate shear modulus</summary>
-        </member>
-        <member name="T:BHoM.Materials.Concrete.IConcrete">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:BHoM.Materials.ISteel">
-            <summary>
-            Material class for use in all other object classes and namespaces
-            </summary>
-        </member>
-        <member name="T:BHoM.Materials.IMaterial">
-            <summary>
-            Material class for use in all other object classes and namespaces
-            </summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.Index">
-            <summary>Material index number</summary>   
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.Name">
-            <summary>Material name</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.YoungsModulus">
-            <summary>Young's Modulus (MPa)</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.PoissonsRatio">
-            <summary>Poissons ratio</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.ShearModulus">
-            <summary>Shear modulus (MPa)</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.DryDensity">
-            <summary>Dry density</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.CoeffThermalExpansion">
-            <summary>Coefficient of thermal expansion</summary>
-        </member>
-        <member name="P:BHoM.Materials.IMaterial.DampingRatio">
-            <summary>Damping ratio</summary>
-        </member>
-        <member name="M:BHoM.Materials.IMaterial.CalculateValues">
-            <summary>Calculate material values at construct</summary>
-        </member>
-        <member name="T:BHoM.Materials.SteelGrade">
-            <summary>Steel grade</summary>
-        </member>
-        <member name="F:BHoM.Materials.SteelGrade.S235">
-            <summary>UK S235</summary>
-        </member>
-        <member name="F:BHoM.Materials.SteelGrade.S275">
-            <summary>UK S275</summary>
-        </member>
-        <member name="F:BHoM.Materials.SteelGrade.S355">
-            <summary>UK S355</summary>
-        </member>
-        <member name="F:BHoM.Materials.SteelGrade.S420">
-            <summary>UK S420</summary>
-        </member>
-        <member name="F:BHoM.Materials.SteelGrade.S450">
-            <summary>UK S450</summary>
-        </member>
-        <member name="F:BHoM.Materials.SteelGrade.S460">
-            <summary>UK S460</summary>
-        </member>
-        <member name="F:BHoM.Materials.SteelGrade.unknown">
-            <summary>Not known</summary>
-        </member>
-        <member name="T:BHoM.Materials.DefaultMaterials">
-            <summary>
-            Default materials
-            </summary>
-        </member>
-        <member name="F:BHoM.Materials.DefaultMaterials.Steel">
-            <summary>Steel</summary>
-        </member>
-        <member name="F:BHoM.Materials.DefaultMaterials.ConcreteShortTerm">
-            <summary>Concrete - short term properties</summary>
-        </member>
-        <member name="F:BHoM.Materials.DefaultMaterials.ConcreteLongTerm">
-            <summary>Concrete - long term properties</summary>
-        </member>
-        <member name="F:BHoM.Materials.DefaultMaterials.Aluminium">
-            <summary>Aluminium</summary>
-        </member>
-        <member name="F:BHoM.Materials.DefaultMaterials.Glass">
-            <summary>Glass</summary>
-        </member>
-        <member name="T:BHoM.Materials.MaterialModel">
-            <summary>
-            Material analytical model
-            </summary>
-        </member>
-        <member name="F:BHoM.Materials.MaterialModel.MAT_ELAS_ISO">
-            <summary>Elastic isotropic</summary>
-        </member>
-        <member name="F:BHoM.Materials.MaterialModel.MAT_ELAS_ORTHO">
-            <summary>Elastic orthotropic</summary>
-        </member>
-        <member name="F:BHoM.Materials.MaterialModel.MAT_ELAS_PLAS_ISO">
-            <summary>Elasto-plastic isotropic</summary>
-        </member>
-        <member name="F:BHoM.Materials.MaterialModel.MAT_FABRIC">
-            <summary>Fabric</summary>
-        </member>
-        <member name="T:BHoM.Planning.Construction.ConstructionPhase">
-            <summary>
-            Construction phase class for use across all BHoM projects. By default, construction phases should be
-            added to all objects intended for the construction site, or construction phase modelling
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Duration">
-            <summary>
-            Construction stage duration
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Name">
-            <summary>
-            Construction stage name
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Number">
-            <summary>
-            Construction stage sequential number
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.StartTime">
-            <summary>
-            Construction stage start time
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.Construction.ConstructionPhase.EndTime">
-            <summary>
-            Construction stage end time
-            </summary>
-        </member>
-        <member name="T:BHoM.Planning.IPhase">
-            <summary>
-            Phase interface class, holds interface properties for all objects that use phases
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.Name">
-            <summary>
-            Name of phase
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.Number">
-            <summary>
-            Phase sequential number
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.Duration">
-            <summary>
-            Phase duration
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.StartTime">
-            <summary>
-            Phase starting time
-            </summary>
-        </member>
-        <member name="P:BHoM.Planning.IPhase.EndTime">
-            <summary>
-            Phase ending time
+            An interface class which should be inherited by an external application in order to import and export BHoMObjects
             </summary>
         </member>
         <member name="T:BHoM.Structural.IStructuralObject">
@@ -963,6 +575,23 @@
             Structural object interface, all methods and attributes applicable to all structural objects with
             IStructuralObject implemented
             </summary>
+        </member>
+        <member name="T:BHoM.Structural.Panel">
+            <summary>
+            Panel Class
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.Panel.Edges">
+            <summary>
+            A group of curves which define the perimeter of panel object
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.Panel.#ctor(BHoM.Geometry.Group{BHoM.Geometry.Curve})">
+            <summary>
+            Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
+            </summary>
+            <param name="edges"></param>
+            <param name="number"></param>
         </member>
         <member name="T:BHoM.Structural.Beam">
             <summary>
@@ -1029,9 +658,6 @@
         <member name="P:BHoM.Structural.DOF.Value">
             <summary>DOF value</summary>
         </member>
-        <member name="P:BHoM.Structural.DOF.NonLinearModel">
-            <summary>DOF non-linear model</summary>
-        </member>
         <member name="M:BHoM.Structural.DOF.#ctor">
             <summary>Constructs an empty DOF object</summary>
         </member>
@@ -1041,39 +667,47 @@
         <member name="M:BHoM.Structural.DOF.#ctor(BHoM.Structural.DOFType,System.Object)">
             <summary>Constructs a DOF using direction, type and values as objects for non-linear model</summary>
         </member>
-        <member name="T:BHoM.Structural.Constraint">
+        <member name="T:BHoM.Structural.NodeConstraint">
             <summary>
             Constraint object - base class for all release, restraint, support classes. 
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Constraint.Type">
+        <member name="P:BHoM.Structural.NodeConstraint.Type">
             <summary>Constraint type</summary>
         </member>
-        <member name="M:BHoM.Structural.Constraint.#ctor">
+        <member name="M:BHoM.Structural.NodeConstraint.#ctor">
             <summary>
             Construct an empty constraint object
             </summary>
         </member>
-        <member name="M:BHoM.Structural.Constraint.#ctor(System.String)">
+        <member name="M:BHoM.Structural.NodeConstraint.#ctor(System.String)">
             <summary>
             Construct an empty constraint object with a name
             </summary>
         </member>
-        <member name="M:BHoM.Structural.Constraint.#ctor(System.String,System.Boolean[],System.Double[])">
+        <member name="M:BHoM.Structural.NodeConstraint.#ctor(System.String,System.Boolean[],System.Double[])">
             <summary>Construct a constraint from true/false. True blocks a DOF. 
             Only fixed or free constraint types can be constructed using this.</summary>       
         </member>
-        <member name="M:BHoM.Structural.Constraint.SetName(System.String)">
-            <summary>Sets the constraint name</summary>
+        <member name="M:BHoM.Structural.BarConstraint.#ctor">
+            <summary>
+            Construct an empty constraint object
+            </summary>
         </member>
-        <member name="M:BHoM.Structural.Constraint.SetType(BHoM.Structural.ConstraintType)">
-            <summary>Sets the constraint type</summary>
+        <member name="M:BHoM.Structural.BarConstraint.#ctor(System.String)">
+            <summary>
+            Construct an empty constraint object with a name
+            </summary>
         </member>
-        <member name="M:BHoM.Structural.Constraint.GetValues">
-            <summary>Returns the values for each DOF</summary>
+        <member name="M:BHoM.Structural.SurfaceConstraint.#ctor">
+            <summary>
+            Construct an empty constraint object
+            </summary>
         </member>
-        <member name="M:BHoM.Structural.Constraint.GetDescriptions">
-            <summary>Returns the descriptions for each DOF type</summary>
+        <member name="M:BHoM.Structural.SurfaceConstraint.#ctor(System.String)">
+            <summary>
+            Construct an empty constraint object with a name
+            </summary>
         </member>
         <member name="T:BHoM.Structural.Storey">
             <summary>
@@ -1104,38 +738,9 @@
             <param name="number"></param>
             <param name="name"></param>
         </member>
-        <member name="M:BHoM.Structural.Storey.SetNumber(System.Int32)">
-            <summary>
-            Sets the storey number
-            </summary>
-            <param name="number"></param>
-        </member>
-        <member name="M:BHoM.Structural.Storey.SetName(System.String)">
-            <summary>
-            Sets the storey name
-            </summary>
-            <param name="name"></param>
-        </member>
-        <member name="M:BHoM.Structural.Storey.SetLevel(System.Double)">
-            <summary>
-            Sets the storey level
-            </summary>
-            <param name="level"></param>
-        </member>
-        <member name="M:BHoM.Structural.Storey.SetHeight(System.Double)">
-            <summary>
-            Sets the storey height
-            </summary>
-            <param name="height"></param>
-        </member>
         <member name="T:BHoM.Structural.Bar">
             <summary>
             Bar objects for 1D finite element bars. Note, cable elements separate.
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Bar.Number">
-            <summary>
-            Bar Number
             </summary>
         </member>
         <member name="P:BHoM.Structural.Bar.DesignGroupName">
@@ -1145,9 +750,6 @@
             unique to bars (bars and objects can be added to multiple object groups).
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Bar.SectionPropertyName">
-            <summary>Section property name inherited from section property</summary>
-        </member>
         <member name="P:BHoM.Structural.Bar.SectionProperty">
             <summary>Section property</summary>
         </member>
@@ -1156,6 +758,9 @@
         </member>
         <member name="P:BHoM.Structural.Bar.Release">
             <summary>Releases</summary>
+        </member>
+        <member name="P:BHoM.Structural.Bar.Spring">
+            <summary>Spring</summary>
         </member>
         <member name="P:BHoM.Structural.Bar.StartNode">
             <summary>Start node</summary>
@@ -1177,17 +782,22 @@
             vertical if the distance between end points projected to a horizontal plane is less than 0.0001
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Bar.ConstructionPhase">
-            <summary>Construction phase</summary>
-        </member>
         <member name="P:BHoM.Structural.Bar.Storey">
             <summary>Storey of the building that the bar is assigned to</summary>
+            
         </member>
-        <member name="M:BHoM.Structural.Bar.#ctor(BHoM.Structural.Node,BHoM.Structural.Node,System.Int32)">
+        <member name="M:BHoM.Structural.Bar.#ctor(BHoM.Structural.Node,BHoM.Structural.Node)">
             <summary>
             Construct a bar from BHoM nodes and set number
             </summary>
-            <param name="barNumber"></param>
+            <param name="startNode"></param>
+            <param name="endNode"></param>
+        </member>
+        <member name="M:BHoM.Structural.Bar.#ctor(BHoM.Structural.Node,BHoM.Structural.Node,System.String)">
+            <summary>
+            Construct a bar from BHoM nodes and set number
+            </summary>
+            <param name="barName"></param>
             <param name="startNode"></param>
             <param name="endNode"></param>
         </member>
@@ -1215,6 +825,12 @@
             Set the design group name
             </summary>
             <param name="designGroupName"></param>
+        </member>
+        <member name="M:BHoM.Structural.Bar.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:BHoM.Structural.Face">
             <summary>
@@ -1275,12 +891,10 @@
             Node objects
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Node.Number">
+        <member name="P:BHoM.Structural.Node.Point">
             <summary>
             Node Number
             </summary>
-        </member>
-        <member name="P:BHoM.Structural.Node.Point">
             <summary>Node position as a point object</summary>
         </member>
         <member name="P:BHoM.Structural.Node.Constraint">
@@ -1313,7 +927,7 @@
         <member name="P:BHoM.Structural.Node.Plane">
             <summary>Node plane for angular and setting out methods</summary>
         </member>
-        <member name="M:BHoM.Structural.Node.#ctor(System.Double,System.Double,System.Double,System.Int32)">
+        <member name="M:BHoM.Structural.Node.#ctor(System.Double,System.Double,System.Double)">
             <summary>
             Constructes a node from CartesianCoordinates and an index number
             </summary>
@@ -1322,22 +936,19 @@
             <param name="z"></param>
             <param name="number"></param>
         </member>
+        <member name="M:BHoM.Structural.Node.#ctor(System.Double,System.Double,System.Double,System.String)">
+            <summary>
+            Constructes a node from CartesianCoordinates and an index number
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <param name="name"></param>
+        </member>
         <member name="P:BHoM.Structural.Node.IsValid">
             <summary>
             Returns true if node is valid (number less than 0 or position is invalid)
             </summary>
-        </member>
-        <member name="M:BHoM.Structural.Node.HasValidNumber">
-            <summary>
-            Returns true if node number is greater than 0
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BHoM.Structural.Node.SetNumber(System.Int32)">
-            <summary>
-            Sets the node number
-            </summary>
-            <param name="number"></param>
         </member>
         <member name="P:BHoM.Structural.Node.CartesianCoordinates">
             <summary>
@@ -1372,7 +983,7 @@
             </summary>
             <param name="name"></param>
         </member>
-        <member name="M:BHoM.Structural.Node.SetConstraint(BHoM.Structural.Constraint)">
+        <member name="M:BHoM.Structural.Node.SetConstraint(BHoM.Structural.NodeConstraint)">
             <summary>
             Sets the constraint of a node
             </summary>
@@ -1446,10 +1057,10 @@
         <member name="P:BHoM.Structural.BarRelease.EndConstraint">
             <summary>End constraint</summary>
         </member>
-        <member name="M:BHoM.Structural.BarRelease.#ctor(BHoM.Structural.Constraint,BHoM.Structural.Constraint)">
+        <member name="M:BHoM.Structural.BarRelease.#ctor(BHoM.Structural.NodeConstraint,BHoM.Structural.NodeConstraint)">
             <summary>Construct a new constraint using constraint objects for start/end releases</summary>
         </member>
-        <member name="M:BHoM.Structural.BarRelease.#ctor(BHoM.Structural.Constraint,BHoM.Structural.Constraint,System.String)">
+        <member name="M:BHoM.Structural.BarRelease.#ctor(BHoM.Structural.NodeConstraint,BHoM.Structural.NodeConstraint,System.String)">
             <summary>Construct a new constraint using constraint objects for start/end releases and name</summary>          
         </member>
         <member name="T:BHoM.Structural.Offset">
@@ -1496,11 +1107,6 @@
         </member>
         <member name="P:BHoM.Structural.Structure.Tolerance">
             <summary>Tolerance of structure for node merge etc</summary>
-        </member>
-        <member name="P:BHoM.Structural.Structure.NodeCollection">
-            <summary>
-            Collection of Node objects
-            </summary>
         </member>
         <member name="M:BHoM.Structural.Structure.SortNodalFaces">
             <summary>
@@ -1733,29 +1339,9 @@
             Point load along a bar
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.BarPointLoad.Loadcase">
-            <summary>
-            Loadcase of load
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.BarPointLoad.Objects">
-            <summary>
-             Bars which have been assigned with this loading value
-            </summary>
-        </member>
         <member name="T:BHoM.Structural.Loads.BarUniformlyDistributedLoad">
             <summary>
             Uniform load on bar
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.BarUniformlyDistributedLoad.Loadcase">
-            <summary>
-            Loadcase of load
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.BarUniformlyDistributedLoad.Objects">
-            <summary>
-             Bars which have been assigned with this loading value
             </summary>
         </member>
         <member name="T:BHoM.Structural.Loads.BarTemperatureLoad">
@@ -1763,77 +1349,71 @@
             bar temperature load class
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.BarTemperatureLoad.Loadcase">
-            <summary>
-            Loadcase of load
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.BarTemperatureLoad.Objects">
-            <summary>
-             Bars which have been assigned with this loading value
-            </summary>
-        </member>
         <member name="T:BHoM.Structural.Loads.BarVaryingDistributedLoad">
             <summary>
             Varying load on a bar
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.BarVaryingDistributedLoad.Loadcase">
+        <member name="T:BHoM.Structural.Loads.ILoad">
             <summary>
-            Loadcase of load
+            Interface implemented by all loading related classes
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.BarVaryingDistributedLoad.Objects">
-            <summary>
-             Bars which have been assigned with this loading value
-            </summary>
+        <member name="P:BHoM.Structural.Loads.ILoad.Loadcase">
+            <summary>Loadcase as BHoM object</summary>
         </member>
-        <member name="T:BHoM.Structural.Loads.ILoad`1">
+        <member name="T:BHoM.Structural.Loads.Load`1">
             <summary>
             Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
             constructor allows for a default force and moment nodal load instance.
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.ILoad`1.Loadcase">
+        <member name="P:BHoM.Structural.Loads.Load`1.Loadcase">
             <summary>Loadcase as BHoM object</summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.ILoad`1.Objects">
-            <summary>A list of structural elements numbers that the nodal load is applicable to</summary>
+        <member name="P:BHoM.Structural.Loads.Load`1.Objects">
+            <summary>A list of structural elements that the nodal load is applicable to</summary>
         </member>
-        <member name="T:BHoM.Structural.Loads.Loadcase">
+        <member name="T:BHoM.Structural.Loads.ICase">
             <summary>
             Loadcase class 
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.Loadcase.Number">
+        <member name="P:BHoM.Structural.Loads.ICase.Number">
             <summary>Loadcase number</summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.Loadcase.CaseType">
+        <member name="P:BHoM.Structural.Loads.ICase.CaseType">
             <summary>
             Case Type
             </summary>
         </member>
-        <member name="T:BHoM.Structural.Loads.SimpleCase">
+        <member name="T:BHoM.Structural.Loads.Loadcase">
             <summary>
             Simple Loadcase class
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.SimpleCase.Nature">
+        <member name="P:BHoM.Structural.Loads.Loadcase.Nature">
             <summary>
             Gets or Sets the loading nature of the loadcase
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.SimpleCase.SelfWeightMultiplier">
+        <member name="P:BHoM.Structural.Loads.Loadcase.SelfWeightMultiplier">
             <summary>
             Gets or sets the selfweight multiplier of the loadcase
             </summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.SimpleCase.CaseType">
+        <member name="P:BHoM.Structural.Loads.Loadcase.LoadRecords">
+            <summary>
+            Collection of nodes that are applied under this loadcase
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Structural.Loads.Loadcase.CaseType">
             <summary>
             Gets the Case type of loadcase
             </summary>
         </member>
-        <member name="M:BHoM.Structural.Loads.SimpleCase.#ctor(System.Int32,System.String,BHoM.Structural.Loads.LoadNature,System.Double)">
+        <member name="M:BHoM.Structural.Loads.Loadcase.#ctor(System.Int32,System.String,BHoM.Structural.Loads.LoadNature,System.Double)">
             <summary>
             
             </summary>
@@ -1859,11 +1439,6 @@
         </member>
         <member name="P:BHoM.Structural.Loads.PointForce.Moment">
             <summary>Moment - mx, my, mz defined as a BHoM.Geometry.Vector</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.PointForce.Objects">
-            <summary>
-             Nodes which have been assigned with this loading
-            </summary>
         </member>
         <member name="M:BHoM.Structural.Loads.PointForce.#ctor">
             <summary>
@@ -1913,16 +1488,6 @@
         <member name="P:BHoM.Structural.Loads.PointDisplacement.RobotLoadRecordNumber">
             <summary>Stores a load record number specific to Robot</summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.PointDisplacement.Loadcase">
-            <summary>
-            Loadcase of load
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.PointDisplacement.Objects">
-            <summary>
-             Nodes which have been assigned with this loading
-            </summary>
-        </member>
         <member name="M:BHoM.Structural.Loads.PointDisplacement.#ctor">
             <summary>
             Create an empty nodal load as a placeholder
@@ -1955,16 +1520,6 @@
         <member name="P:BHoM.Structural.Loads.PointVelocity.RobotLoadRecordNumber">
             <summary>Stores a load record number specific to Robot</summary>
         </member>
-        <member name="P:BHoM.Structural.Loads.PointVelocity.Loadcase">
-            <summary>
-            Loadcase of load
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.PointVelocity.Objects">
-            <summary>
-             Nodes which have been assigned with this loading
-            </summary>
-        </member>
         <member name="M:BHoM.Structural.Loads.PointVelocity.#ctor">
             <summary>
             Create an empty nodal load as a placeholder
@@ -1996,16 +1551,6 @@
         </member>
         <member name="P:BHoM.Structural.Loads.PointAcceleration.RobotLoadRecordNumber">
             <summary>Stores a load record number specific to Robot</summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.PointAcceleration.Loadcase">
-            <summary>
-            Loadcase of load
-            </summary>
-        </member>
-        <member name="P:BHoM.Structural.Loads.PointAcceleration.Objects">
-            <summary>
-             Nodes which have been assigned with this loading
-            </summary>
         </member>
         <member name="M:BHoM.Structural.Loads.PointAcceleration.#ctor">
             <summary>
@@ -2115,54 +1660,22 @@
             Bar force object contains a set of coexisting forces, bar reference
             and orientation information
             </summary>
+            
         </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.BarNumber">
-            <summary>Associated bar number</summary>
+        <member name="P:BHoM.Structural.Results.ResultServer`1.NameSelection">
+            <summary>
+            Sets the Names of the results to load, if left blank all bar names will be loaded
+            </summary>
         </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.ForcePosition">
-            <summary>Position along the bar of the force. Set 0 for 1 for end</summary>
+        <member name="P:BHoM.Structural.Results.ResultServer`1.LoadcaseSelection">
+            <summary>
+            Sets the names of the loadcases to load, if left blank all loadcases will be loaded
+            </summary>
         </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.Loadcase">
-            <summary>Loadcase</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.LoadcaseNumber">
-            <summary>Associated loadcase number</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.LoadcaseName">
-            <summary>Associated loadcase name</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.FX">
-            <summary>Axial force, tension negative</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.FY">
-            <summary>Shear force, minor axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.FZ">
-            <summary>Shear force, major axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.MX">
-            <summary>Torsion</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.MY">
-            <summary>Bending moment, minor axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.MZ">
-            <summary>Bending moment, major axis</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.SMax">
-            <summary>Maximum principle stress</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.SMin">
-            <summary>Minimum principle stress</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.OrientationPlane">
-            <summary>Orientation of bar forces inherited from bar</summary>
-        </member>
-        <member name="P:BHoM.Structural.Results.Bars.BarForce.UserData">
-            <summary>User text field for any user data</summary>
-        </member>
-        <member name="M:BHoM.Structural.Results.Bars.BarForce.#ctor(System.Int32,System.Double,BHoM.Structural.Loads.Loadcase,BHoM.Geometry.Plane)">
-            <summary>Construct a bar force with loadcases</summary>
+        <member name="P:BHoM.Structural.Results.ResultServer`1.TimeStepSelection">
+            <summary>
+            Sets the names of the time steps to load, if left blank all bar names will be loaded
+            </summary>
         </member>
         <member name="T:BHoM.Structural.Results.Building.StoreyResult">
             <summary>
@@ -2486,19 +1999,78 @@
         <member name="M:BHoM.Structural.Results.Nodes.NodalResult.#ctor(System.Int32,BHoM.Geometry.Plane)">
             <summary>Construct a nodal result with orientation plane</summary>
         </member>
-        <member name="T:BHoM.Structural.SectionProperties.ShapeType">
+        <member name="M:BHoM.Structural.SectionProperties.ShapeBuilder.CreateISecction(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Section shape time (circular, I section etc.)
+            Create an I Section shape
             </summary>
+            <param name="tft">Thickness of top Flange</param>
+            <param name="tfw">Width of Top flange</param>
+            <param name="bft">Thicknees of bottom flange</param>
+            <param name="bfw">With of bottom flange</param>
+            <param name="wt">thickness of web</param>
+            <param name="wd">depth of web</param>
+            <param name="r1">web radius</param>
+            <param name="r2">toe radius</param>
+            <returns></returns>
         </member>
-        <member name="F:BHoM.Structural.SectionProperties.ShapeType.SteelI">
-            <summary> Steel I section, hot rolled or welded up</summary>
+        <member name="M:BHoM.Structural.SectionProperties.ShapeBuilder.CreateTee(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create an T Section shape
+            </summary>
+            <param name="tft">Thickness of Flange</param>
+            <param name="tfw">Width of flange</param>
+            <param name="wt">thickness of web</param>
+            <param name="wd">depth of web</param>
+            <param name="r1">web radius</param>
+            <param name="r2">toe radius</param>
+            <returns></returns>
         </member>
-        <member name="F:BHoM.Structural.SectionProperties.ShapeType.SteelCircularHollow">
-            <summary>Steel circular section (CHS or fabricated)</summary>
+        <member name="M:BHoM.Structural.SectionProperties.ShapeBuilder.CreateAngle(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="width"></param>
+            <param name="depth"></param>
+            <param name="flangeThickness"></param>
+            <param name="webThickness"></param>
+            <param name="innerRadius"></param>
+            <param name="toeRadius"></param>
+            <returns></returns>
         </member>
-        <member name="F:BHoM.Structural.SectionProperties.ShapeType.SteelRectangularHollow">
-            <summary>Steel rectangular hollow section (RHS or fabricated)</summary>
+        <member name="M:BHoM.Structural.SectionProperties.ShapeBuilder.CreateRectangle(System.Double,System.Double,System.Double)">
+            <summary>
+            Create a rectange in the XY plane with it's centre at the origin
+            </summary>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+            <param name="radius">Radius at sharp edge</param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.ShapeBuilder.CreateBox(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create a Box in the XY plane with it's centre at the origin
+            </summary>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+            <param name="thickness">plate thickness</param>
+            <param name="innerRadius">inner radius</param>
+            <param name="outerRadius">outer radius</param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.ShapeBuilder.CreateCircle(System.Double)">
+            <summary>
+            Create a Circle in the XY plane with it's centre at the origin
+            </summary>
+            <param name="radius">Radius</param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.ShapeBuilder.CreateTube(System.Double,System.Double)">
+            <summary>
+            Create a hollow tube in the XY plane with it's centre at the origin
+            </summary>
+            <param name="outerRadius"></param>
+            <param name="thickness"></param>
+            <returns></returns>
         </member>
         <member name="T:BHoM.Structural.SectionProperties.RCColumnRectangular">
             <summary>
@@ -2547,29 +2119,149 @@
             parent class are those that would populate a multi category section database only
             </summary>
         </member>
+        <member name="M:BHoM.Structural.SectionProperties.SectionProperty.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SectionProperty.#ctor(BHoM.Structural.SectionProperties.ShapeType,BHoM.Structural.SectionProperties.SectionType,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create a section property from standard input values
+            </summary>
+            <param name="sType">Shape type</param>
+            <param name="mType">Material type</param>
+            <param name="height">Total Height</param>
+            <param name="width">Total width</param>
+            <param name="t1">Flange Thickness</param>
+            <param name="t2">Web Thickness</param>
+            <param name="r1">Radius 1</param>
+            <param name="r2">Radius 2</param>
+            <param name="mass">Mass per metre</param>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SectionProperty.#ctor(BHoM.Geometry.Group{BHoM.Geometry.Curve},BHoM.Structural.SectionProperties.ShapeType,BHoM.Structural.SectionProperties.SectionType)">
+            <summary>
+            Create a section property from a list of edges, shape type and material
+            </summary>
+            <param name="edges"></param>
+            <param name="sType"></param>
+            <param name="mType"></param>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Edges">
+            <summary>
+            Geometry of the cross section
+            </summary>
+        </member>
         <member name="P:BHoM.Structural.SectionProperties.SectionProperty.MassPerMetre">
             <summary>Mass per metre based on section properties</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Type">
+        <member name="M:BHoM.Structural.SectionProperties.SectionProperty.LoadFromDB(System.String)">
+            <summary>
+            Searches for the input name in the selected database and returns the corresponding section
+            </summary>
+            <param name="name">Name of section to search for</param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SectionProperty.CreateISection(BHoM.Structural.SectionProperties.SectionType,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create an I Shaped section property
+            </summary>
+            <param name="mType"></param>
+            <param name="widthTopFlange"></param>
+            <param name="widthBotFlange"></param>
+            <param name="totalDepth"></param>
+            <param name="flangeThicknessTop"></param>
+            <param name="flangeThicknessBot"></param>
+            <param name="webThickness"></param>
+            <param name="webRadius"></param>
+            <param name="toeRadius"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SectionProperty.CreateRectangularSection(BHoM.Structural.SectionProperties.SectionType,System.Double,System.Double,System.Double)">
+            <summary>
+            Create a rectangular shaped section
+            </summary>
+            <param name="mType"></param>
+            <param name="height"></param>
+            <param name="width"></param>
+            <param name="outerRadius"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SectionProperty.CreateAngleSection(BHoM.Structural.SectionProperties.SectionType,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create an angle section
+            </summary>
+            <param name="mType"></param>
+            <param name="height"></param>
+            <param name="width"></param>
+            <param name="flangeThickness"></param>
+            <param name="webThickness"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Structural.SectionProperties.SectionProperty.CreateCircularSection(BHoM.Structural.SectionProperties.SectionType,System.Double)">
+            <summary>
+            create a circular section
+            </summary>
+            <param name="mType"></param>
+            <param name="diameter"></param>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Shape">
             <summary>Section type</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.SectionMaterial">
+            <summary>
+            Type of material
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Orientation">
+            <summary>
+            Orientation
+            </summary>
         </member>
         <member name="P:BHoM.Structural.SectionProperties.SectionProperty.GrossArea">
             <summary>Cross sectional area</summary>
         </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.TotalDepth">
+            <summary>
+            Total height of section
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.TotalWidth">
+            <summary>
+            Total width of section
+            </summary>
+        </member>
         <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Ix">
-            <summary>Second moment of inertia - x axis</summary>
+            <summary>Second moment of inertia about the major axis</summary>
         </member>
         <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Iy">
-            <summary>Second moment of inertia - y axis</summary>
+            <summary>Second moment of inertia about the minor axis</summary>
         </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Iz">
-            <summary>Second moment of inertia - z axis</summary>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.J">
+            <summary>Torsion Constant</summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Sx">
+            <summary>
+            Plastic Section modulus about the major axis
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Sy">
+            <summary>
+            Plastic Section modulus about the minor axis
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Zx">
+            <summary>
+            Elastic Section modulus about the major axis
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Zy">
+            <summary>
+            Plastic Section modulus about the minor axis
+            </summary>
         </member>
         <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Description">
             <summary>Information regarding section property type for the user</summary>
-        </member>
-        <member name="P:BHoM.Structural.SectionProperties.SectionProperty.Material">
-            <summary>Section material</summary>
         </member>
         <member name="T:BHoM.Structural.SectionProperties.SteelUCSection">
             <summary>
@@ -2666,6 +2358,522 @@
         </member>
         <member name="M:BHoM.Structural.SectionProperties.SteelISection.GetProperties">
             <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        </member>
+        <member name="T:BHoM.Structural.SectionTableColumn">
+            <summary>
+            enums with name/index matching the columns in the section databases
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.Type">
+            <summary>
+            Section type (ie UC, UB)
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.Shape">
+            <summary>
+            Shape type 
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.Mass">
+            <summary>
+            Mass
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.Height">
+            <summary>
+            Total Height
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.Width">
+            <summary>
+            total width
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.B1">
+            <summary>
+            Custom dimension, usually corresponds with top flange width
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.B2">
+            <summary>
+            Custom dimension, usually corresponds with bottom flange width
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.B3">
+            <summary>
+            custom dimension
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.TW">
+            <summary>
+            plate thickness of web
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.TF1">
+            <summary>
+            Plate thickness of top flange
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.TF2">
+            <summary>
+            thickness of bot flange
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.r1">
+            <summary>
+            Radius 1 - web/flange radius in Tee/ISection/angle or outer radius in box/rectangular sections
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.r2">
+            <summary>
+            Radius 2 - toe or inner radius
+            </summary>
+        </member>
+        <member name="F:BHoM.Structural.SectionTableColumn.Spacing">
+            <summary>
+            Spacing between double section members
+            </summary>
+        </member>
+        <member name="P:BHoM.Structural.DataBaseAdapter.TableName">
+            <summary>
+            Set the default table name
+            </summary>
+        </member>
+        <member name="M:BHoM.Structural.DataBaseAdapter.GetTableNames">
+            <summary>
+            Gets all the tables in the current database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Structural.ThicknessProperty">
+            <summary>
+            Thickness Property
+            </summary>
+        </member>
+        <member name="T:BHoM.Global.BHoMObject">
+            <summary>
+            BHoM object abstract class, all methods and attributes applicable to all structural objects with
+            BHoM implemented
+            </summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.BHoM_Guid">
+            <summary>BHoM unique ID</summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.Name">
+            <summary>Name</summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.CustomData">
+            <summary>Object parameters</summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.CreateInstance(System.Type)">
+            <summary>
+            Creates a BHoM Object of the specified type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Global.BHoMObject.Item(System.String)">
+            <summary>
+            Looks for the key in the custom data dictionary
+            </summary>
+            <param name="key">Data key</param>
+            <returns>The corresponding object if the key exists, null otherwise</returns>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.GetPropertyNames">
+            <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.ToJSON(System.String)">
+            <summary>
+            Method which convert the object as a Json string
+            </summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.FromJSON(System.String)">
+            <summary>
+            Method which convert the object as a Json string
+            </summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObject.ToString">
+            <summary>
+            BHoM Object will return its name as default 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BHoM.Global.ObjectFilter`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BHoM.Global.ObjectFilter`1.#ctor">
+            <summary>
+            
+            </summary>
+            <param name="project"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectFilter`1.#ctor(BHoM.Global.Project,System.Collections.Generic.List{`0})">
+            <summary>
+            
+            </summary>
+            <param name="project"></param>
+        </member>
+        <member name="M:BHoM.Global.ObjectFilter`1.ToDictionary``1(System.String,BHoM.Global.FilterOption)">
+            <summary>
+            Create a dictionary based on a defined unqiue key, Note: if duplicate keys exists on the first one found will be added
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <param name="propertyName"></param>
+            <param name="option"></param>
+            <returns>A key, value pair based on the input option</returns>
+        </member>
+        <member name="T:BHoM.Global.BHoMObjectEnum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BHoM.Global.BHoMObjectEnum._BHoMOjects">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObjectEnum.#ctor(BHoM.Global.BHoMObject[])">
+            <summary></summary>
+            <param name="list"></param>
+        </member>
+        <member name="P:BHoM.Global.BHoMObjectEnum.System#Collections#IEnumerator#Current">
+            <summary></summary>
+        </member>
+        <member name="P:BHoM.Global.BHoMObjectEnum.Current">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObjectEnum.MoveNext">
+            <summary></summary>
+        </member>
+        <member name="M:BHoM.Global.BHoMObjectEnum.Reset">
+            <summary></summary>
+        </member>
+        <member name="T:BHoM.Global.ObjectManager`1">
+            <summary>
+            Object manager Class.
+            Used to add objects to the project where a unique identifier other than a Guid is required. Just inputting the BHoMObject type will default the key to the object name.
+            </summary>
+            <typeparam name="TValue">Type of BHoMObject</typeparam>
+        </member>
+        <member name="M:BHoM.Global.ObjectManager`1.#ctor">
+            <summary>
+            Initialises a new object manager where the BHoM object name is used as the default key
+            </summary>
+        </member>
+        <member name="T:BHoM.Global.ObjectManager`2">
+            <summary>
+            Object manager Class.
+            Used to add objects to the project where a unique identifier other than a Guid is required
+            </summary>
+            <typeparam name="TKey">Type of unique identifier</typeparam>
+            <typeparam name="TValue">Type of BHoMObject</typeparam>
+        </member>
+        <member name="M:BHoM.Global.ObjectManager`2.#ctor(System.String,BHoM.Global.FilterOption)">
+            <summary>
+            Initialises a new object manager based on the input name and option
+            </summary>
+            <param name="name">Name of the BHoM Property or userdata name</param>
+            <param name="option">Fliter option defines the type of key to be used</param>
+        </member>
+        <member name="M:BHoM.Global.ObjectManager`2.GetUniqueNumber">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Global.ObjectManager`2.Item(`0)">
+            <summary>
+            Lookup object which corresponds to the input key. Note: if the key does not exists nothing will be returned
+            </summary>
+            <param name="key">object key</param>
+            <returns>object corresponding to key</returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectManager`2.TryLookup(`0)">
+            <summary>
+            Safe method for looking up value in dictionary
+            </summary>
+            <param name="key">object key</param>
+            <returns>if key exists it will return the object, null otherwise</returns>
+        </member>
+        <member name="M:BHoM.Global.ObjectManager`2.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BHoM.Global.ObjectManager`2.Count">
+            <summary>
+            Number of objects in the collection
+            </summary>
+        </member>
+        <member name="T:BHoM.Global.Project">
+            <summary>
+            A global project class that encapsulates all objects (all disciplines) of a BHoM project
+            </summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Objects">
+            <summary>
+            All object currently in the model
+            </summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Structure">
+            <summary>Structure property - gets or sets the structure of the object as a BHoM.Structural.Structure</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Name">
+            <summary>Structure name</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Tolerance">
+            <summary>Tolerance of structure for node merge etc</summary>
+        </member>
+        <member name="P:BHoM.Global.Project.Id">
+            <summary>
+            Project Id
+            </summary>
+        </member>
+        <member name="P:BHoM.Global.Project.ActiveProject">
+            <summary>
+            Active project
+            </summary>
+        </member>
+        <member name="M:BHoM.Global.Project.ToJSON(System.String)">
+            <summary>
+            Writes the entire project to JSON Format
+            </summary>
+            <param name="extra"></param>
+            <returns>JSON formatted text</returns>
+        </member>
+        <member name="M:BHoM.Global.Project.FromJSON(System.String)">
+            <summary>
+            Loads an entire Project from JSON Format
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BHoM.Global.Project.#ctor">
+            <summary>
+            Constructs an empty project
+            </summary>
+        </member>
+        <member name="M:BHoM.Global.Project.GetObject(System.Guid)">
+            <summary>Returns a BHoM by unique identifier</summary>
+        </member>
+        <member name="M:BHoM.Global.Project.AddObject(BHoM.Global.BHoMObject)">
+            <summary>
+            Adds a BHoM Object to the project
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:BHoM.Global.Project.RemoveObject(System.Guid)">
+            <summary>
+            Removes an object from the project
+            </summary>
+            <param name="guid"></param>
+        </member>
+        <member name="T:BHoM.Materials.Concrete.Grade_C20">
+            <summary>
+            Material class for use in all other object classes and namespaces
+            </summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.Index">
+            <summary>Index</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.Name">
+            <summary>Name</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.DampingRatio">
+            <summary>Damping ratio</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.DryDensity">
+            <summary>Dry density</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.YoungsModulus">
+            <summary>Youngs Modulus</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.PoissonsRatio">
+            <summary>Poissons ratio</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.ShearModulus">
+            <summary>Shear modulus</summary>
+        </member>
+        <member name="P:BHoM.Materials.Concrete.Grade_C20.CoeffThermalExpansion">
+            <summary>Coefficient of thermal expansion</summary>
+        </member>
+        <member name="M:BHoM.Materials.Concrete.Grade_C20.#ctor">
+            <summary>Construct the material</summary>
+        </member>
+        <member name="M:BHoM.Materials.Concrete.Grade_C20.CalculateValues">
+            <summary>Calculate values at construct stage</summary>
+        </member>
+        <member name="M:BHoM.Materials.Concrete.Grade_C20.CalculateShearModulus">
+            <summary>Calculate shear modulus</summary>
+        </member>
+        <member name="T:BHoM.Materials.Concrete.IConcrete">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BHoM.Materials.ISteel">
+            <summary>
+            Material class for use in all other object classes and namespaces
+            </summary>
+        </member>
+        <member name="T:BHoM.Materials.Material">
+            <summary>
+            Material class for use in all other object classes and namespaces
+            </summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.YoungsModulus">
+            <summary>Young's Modulus (MPa)</summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.PoissonsRatio">
+            <summary>Poissons ratio</summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.ShearModulus">
+            <summary>Shear modulus (MPa)</summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.DryDensity">
+            <summary>Dry density</summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.CoeffThermalExpansion">
+            <summary>Coefficient of thermal expansion</summary>
+        </member>
+        <member name="P:BHoM.Materials.Material.DampingRatio">
+            <summary>Damping ratio</summary>
+        </member>
+        <member name="M:BHoM.Materials.Material.#ctor">
+            <summary>Calculate material values at construct</summary>
+        </member>
+        <member name="T:BHoM.Materials.SteelGrade">
+            <summary>Steel grade</summary>
+        </member>
+        <member name="F:BHoM.Materials.SteelGrade.S235">
+            <summary>UK S235</summary>
+        </member>
+        <member name="F:BHoM.Materials.SteelGrade.S275">
+            <summary>UK S275</summary>
+        </member>
+        <member name="F:BHoM.Materials.SteelGrade.S355">
+            <summary>UK S355</summary>
+        </member>
+        <member name="F:BHoM.Materials.SteelGrade.S420">
+            <summary>UK S420</summary>
+        </member>
+        <member name="F:BHoM.Materials.SteelGrade.S450">
+            <summary>UK S450</summary>
+        </member>
+        <member name="F:BHoM.Materials.SteelGrade.S460">
+            <summary>UK S460</summary>
+        </member>
+        <member name="F:BHoM.Materials.SteelGrade.unknown">
+            <summary>Not known</summary>
+        </member>
+        <member name="T:BHoM.Materials.MaterialType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BHoM.Materials.DefaultMaterials">
+            <summary>
+            Default materials
+            </summary>
+        </member>
+        <member name="F:BHoM.Materials.DefaultMaterials.Steel">
+            <summary>Steel</summary>
+        </member>
+        <member name="F:BHoM.Materials.DefaultMaterials.ConcreteShortTerm">
+            <summary>Concrete - short term properties</summary>
+        </member>
+        <member name="F:BHoM.Materials.DefaultMaterials.ConcreteLongTerm">
+            <summary>Concrete - long term properties</summary>
+        </member>
+        <member name="F:BHoM.Materials.DefaultMaterials.Aluminium">
+            <summary>Aluminium</summary>
+        </member>
+        <member name="F:BHoM.Materials.DefaultMaterials.Glass">
+            <summary>Glass</summary>
+        </member>
+        <member name="T:BHoM.Materials.MaterialModel">
+            <summary>
+            Material analytical model
+            </summary>
+        </member>
+        <member name="F:BHoM.Materials.MaterialModel.MAT_ELAS_ISO">
+            <summary>Elastic isotropic</summary>
+        </member>
+        <member name="F:BHoM.Materials.MaterialModel.MAT_ELAS_ORTHO">
+            <summary>Elastic orthotropic</summary>
+        </member>
+        <member name="F:BHoM.Materials.MaterialModel.MAT_ELAS_PLAS_ISO">
+            <summary>Elasto-plastic isotropic</summary>
+        </member>
+        <member name="F:BHoM.Materials.MaterialModel.MAT_FABRIC">
+            <summary>Fabric</summary>
+        </member>
+        <member name="T:BHoM.Planning.Construction.ConstructionPhase">
+            <summary>
+            Construction phase class for use across all BHoM projects. By default, construction phases should be
+            added to all objects intended for the construction site, or construction phase modelling
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Duration">
+            <summary>
+            Construction stage duration
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Name">
+            <summary>
+            Construction stage name
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.Number">
+            <summary>
+            Construction stage sequential number
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.StartTime">
+            <summary>
+            Construction stage start time
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.Construction.ConstructionPhase.EndTime">
+            <summary>
+            Construction stage end time
+            </summary>
+        </member>
+        <member name="T:BHoM.Planning.IPhase">
+            <summary>
+            Phase interface class, holds interface properties for all objects that use phases
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.Name">
+            <summary>
+            Name of phase
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.Number">
+            <summary>
+            Phase sequential number
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.Duration">
+            <summary>
+            Phase duration
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.StartTime">
+            <summary>
+            Phase starting time
+            </summary>
+        </member>
+        <member name="P:BHoM.Planning.IPhase.EndTime">
+            <summary>
+            Phase ending time
+            </summary>
         </member>
         <member name="T:BHoM.HumanBody.Head">
             <summary>
@@ -3532,6 +3740,71 @@
         </member>
         <member name="F:BHoM.HumanBody.HandStateName.Unknown">
             <summary>Not known</summary>
+        </member>
+        <member name="T:BHoM.UK_SectionsDataSet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:BHoM.UK_SectionsDataSet.SectionsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:BHoM.UK_SectionsDataSet.SectionsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:BHoM.UK_SectionsDataSet.SectionsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:BHoM.UK_SectionsDataSetTableAdapters.SectionsTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:BHoM.UK_SectionsDataSetTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:BHoM.UK_SectionsDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(BHoM.UK_SectionsDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:BHoM.UK_SectionsDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(BHoM.UK_SectionsDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:BHoM.UK_SectionsDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(BHoM.UK_SectionsDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:BHoM.UK_SectionsDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:BHoM.UK_SectionsDataSetTableAdapters.TableAdapterManager.UpdateAll(BHoM.UK_SectionsDataSet)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:BHoM.UK_SectionsDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:BHoM.UK_SectionsDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
         </member>
     </members>
 </doc>
