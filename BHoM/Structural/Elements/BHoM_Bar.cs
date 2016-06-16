@@ -41,13 +41,13 @@ namespace BHoM.Structural
         public BHoM.Materials.Material Material  {  get; set; }
 
         /// <summary>Releases</summary>
-        [DisplayName("Bar Releases")]
+        [DisplayName("Releases")]
         [Description("Bar Releases assigned to bar object")]       
         [DefaultValue(null)]
         public BHoM.Structural.BarRelease Release { get; set; }
 
         /// <summary>Spring</summary>
-        [DisplayName("Bar Spring")]
+        [DisplayName("Spring")]
         [Description("Elastic bar constraint")]
         [DefaultValue(null)]
         public BHoM.Structural.BarConstraint Spring { get; set; }
@@ -116,8 +116,8 @@ namespace BHoM.Structural
         /// nodes. For vertical bars, angle is measured between the bar Y axis and global Y axis. A bar is 
         /// vertical if the distance between end points projected to a horizontal plane is less than 0.0001
         /// </summary>
-        [DisplayName("Orientation")]
-        [Description("Bar axis rotation")]
+        [DisplayName("OrientationAngle")]
+        [Description("Bar orientation angle")]
         [DefaultValue(0)]
         public double OrientationAngle
         {
@@ -129,7 +129,7 @@ namespace BHoM.Structural
 
         /// <summary>Storey of the building that the bar is assigned to</summary>
         /// 
-        [DisplayName("Story")]
+        [DisplayName("Storey")]
         [Description("Storey that the bar is assigned to")]
         [DefaultValue(null)]
         public BHoM.Structural.Storey Storey { get; private set; }
@@ -143,7 +143,6 @@ namespace BHoM.Structural
         /// <summary>
         /// Construct a bar from BHoM nodes and set number
         /// </summary>
-        /// <param name="barNumber"></param>
         /// <param name="startNode"></param>
         /// <param name="endNode"></param>
         public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
@@ -156,7 +155,7 @@ namespace BHoM.Structural
         /// <summary>
         /// Construct a bar from BHoM nodes and set number
         /// </summary>
-        /// <param name="barNumber"></param>
+        /// <param name="barName"></param>
         /// <param name="startNode"></param>
         /// <param name="endNode"></param>
         public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, string barName)
@@ -211,6 +210,10 @@ namespace BHoM.Structural
             this.DesignGroupName = designGroupName;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Bar: " + m_StartNode.Point + " -> " + m_EndNode.Point;
