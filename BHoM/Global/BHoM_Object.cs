@@ -79,6 +79,7 @@ namespace BHoM.Global
         public virtual string ToJSON(string extra = "")
         {
             string aResult = "{";
+            aResult += string.Format("\"{0}\": {1},", "Type", "\"" + GetType() + "\"");
             aResult += string.Format("\"{0}\": {1},", "Primitive", "\""+GetType().AssemblyQualifiedName.Replace(",", ";") + "\"");
 
             // Write all the properties

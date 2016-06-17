@@ -13,8 +13,6 @@ using System.Diagnostics;
 using R = Rhino.Geometry;
 using BHoM.Structural.Results;
 using BHoM.Structural.Results.Bars;
-using MongoDB.Driver;
-using MongoDB.Bson;
 
 namespace BHoMTest
 {
@@ -33,65 +31,11 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            TestMongo();
+            TestWrite();
 
             Console.Read();
         }
 
-        static void TestMongo()
-        {
-            // Create a fake project
-            List<Node> nodes = new List<Node>();
-            for (int i = 0; i < 10; i++)
-                nodes.Add(new Node(i, 2, 3));
-
-            List<Bar> bars = new List<Bar>();
-            for (int i = 1; i < 10; i++)
-                bars.Add(new Bar(nodes[i - 1], nodes[i]));
-
-            var project = Project.ActiveProject;
-            foreach (Node node in nodes)
-                project.AddObject(node);
-            foreach (Bar bar in bars)
-                project.AddObject(bar);
-
-            /*// Start mongo server
-            string mongoFolder = "c:\\Mongo\\test";
-            ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = "mongod";
-            start.WindowStyle = ProcessWindowStyle.Hidden;
-            start.Arguments = "--dbpath " + mongoFolder;
-            Process mongod = Process.Start(start);*/
-
-
-            // Create database
-            var mongo = new MongoClient();
-            var database = mongo.GetDatabase("project");
-            var collection = database.GetCollection<BsonDocument>("bhom");
-
-            // Test writing to and from JSON
-            string json = project.Objects.First().ToJSON();
-            Node n = (Node) Node.FromJSON(json);
-
-            // Write the first project element into the database
-            //string json = project.Objects.First().ToJSON();
-            BsonDocument doc = BsonDocument.Parse(json);
-            collection.InsertOne(doc);
-
-            // Write project into database
-            var documents = project.Objects.Select(x => BsonDocument.Parse(x.ToJSON()));
-            collection.InsertMany(documents);
-
-            // Get the number of elements in the database
-            var count = collection.Count(new BsonDocument());
-            Console.WriteLine("{0} elements are in eth database", count);
-
-            var filter = new BsonDocument();
-            var result = collection.Find(filter);
-            var js = result.ToList().Select(x => BHoMObject.FromJSON(x.ToString()));
-
-            //mongod.Kill();
-        }
 
         static void TestWrite()
         {
