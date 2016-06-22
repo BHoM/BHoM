@@ -29,7 +29,7 @@ namespace BHoM.Structural
                 List<Curve> curve = Curve.Join(value);
                 if (curve.Count == 1 && curve[0].IsClosed())
                 {
-                    m_Edges = new Group<Curve>((curve[0] as PolyCurve).Explode());
+                    m_Edges = new Group<Curve>(curve[0].Explode());
                 }
             }
         }
