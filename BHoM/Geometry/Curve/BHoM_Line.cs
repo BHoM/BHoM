@@ -68,6 +68,28 @@ namespace BHoM.Geometry
             }
         }
 
+        public Vector Direction
+        {
+            get
+            {
+                return EndPoint - StartPoint;
+            }
+        }
+
+        public Point ProjectOnInfiniteLine(Point pt)
+        {
+            Vector dir = (EndPoint - StartPoint) / Length;
+            double t = dir * (pt - StartPoint);
+            return StartPoint + t * dir;
+	    }
+
+        public Point ClosestPoint(Point pt)
+        {
+            Vector dir = (EndPoint - StartPoint) / Length;
+            double t = Math.Min(Math.Max(dir * (pt - StartPoint), 0), Length);
+            return StartPoint + t * dir;
+        }
+
         public override string ToJSON()
         {
             return "{ \"Primitive\": \"line\", \"start\": " + StartPoint + ", \"end\": " + EndPoint + "}";

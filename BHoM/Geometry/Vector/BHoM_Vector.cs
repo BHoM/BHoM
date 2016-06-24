@@ -21,7 +21,7 @@ namespace BHoM.Geometry
             {
                 return Coordinates[0];
             } 
-            private set
+            set
             {
                 Coordinates[0] = value;
             }
@@ -33,7 +33,7 @@ namespace BHoM.Geometry
             {
                 return Coordinates[1];
             }
-            private set
+            set
             {
                 Coordinates[1] = value;
             }
@@ -45,7 +45,7 @@ namespace BHoM.Geometry
             {
                 return Coordinates[2];
             }
-            private set
+            set
             {
                 Coordinates[2] = value;
             }
@@ -329,6 +329,11 @@ namespace BHoM.Geometry
                 return angle;
             else
                 return -1.0 * angle;
+        }
+
+        public bool IsParallel(Vector v, double tolerance = 0.0001)
+        {
+            return (VectorUtils.Parallel(Coordinates, v.Coordinates, tolerance) == 0);
         }
 
         public override string ToString()
