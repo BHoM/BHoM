@@ -39,11 +39,11 @@ namespace BHoM.Structural
         {
             this.Bars = new List<BHoM.Structural.Bar>();
             this.Bars.Add(bar);
-            this.StartPoint = new Geometry.Point(bar.StartNode.Point);
-            this.EndPoint = new Geometry.Point(bar.EndNode.Point);
+            this.StartPoint = new Geometry.Point(bar.StartPoint);
+            this.EndPoint = new Geometry.Point(bar.EndPoint);
             this.LevelName = bar.Storey.Name;
-            this.StartOffset = bar.StartNode.Z - bar.Storey.Level;
-            this.EndOffset = bar.EndNode.Z - bar.Storey.Level;
+            this.StartOffset = bar.StartPoint.Z - bar.Storey.Level;
+            this.EndOffset = bar.EndPoint.Z - bar.Storey.Level;
         }
 
         /// <summary>

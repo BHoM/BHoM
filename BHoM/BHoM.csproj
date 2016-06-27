@@ -86,6 +86,7 @@
     <Compile Include="Geometry\Vector\BHoM_Point.cs" />
     <Compile Include="Geometry\Vector\BHoM_Vector.cs" />
     <Compile Include="Geometry\Vector\BHoM_VectorUtils.cs" />
+    <Compile Include="Global\BHoM_JSON.cs" />
     <Compile Include="Structural\BHoM_IStructrualAdapter.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
     <Compile Include="Global\BHoM_ObjectFilter.cs" />

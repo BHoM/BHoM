@@ -31,9 +31,20 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            TestWrite();
+            TestBarNodes();
 
             Console.Read();
+        }
+
+        static void TestBarNodes()
+        {
+            Point p1 = new Point(1, 1, 1);
+            Point p2 = new Point(2, 2, 1);
+            Node n1 = new Node(p1);
+            Node n2 = new Node(p2);
+
+            Bar b = new Bar(p1, p2);
+            b.StartNode = null;
         }
 
 
@@ -49,7 +60,6 @@ namespace BHoMTest
             ObjectManager<int, Bar> bars = new ObjectManager<int, Bar>("Number", FilterOption.UserData);
 
             Bar b = new Bar(nodes[0], nodes[2]);
-
             bars.Add(1, b);
 
             string output = b.ToJSON();
