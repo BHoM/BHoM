@@ -69,6 +69,34 @@ namespace BHoM.Global
             return definition;
         }
 
+        internal static List<String> GetArrayFromJSON(string json)
+        {
+            int i0 = 0;
+            int level = 0;
+            string inside = json.Substring(json.IndexOf('[') + 1, json.LastIndexOf(']') - 1);
+            int index = 0;
+            List<string> array = new List<string>();
+            for (int i = 0; i < inside.Length; i++)
+            {
+                if (inside[i] == '{')
+                    level++;
+                else if (inside[i] == '}')
+                    level--;
+                else if (level == 0 && inside[i] == ',')
+                {
+                    array.Add(inside.Substring(i0, i - i0).Trim());
+                    i0 = i + 1;
+                }
+                if (i == inside.Length - 1)
+                {
+                    array.Add(inside.Substring(i0, i + 1 - i0).Trim());
+                    i0 = i + 1;
+                }
+            }
+
+            return array;
+        }
+
         internal static void ReadProperty(object obj, string propertyName, string value)
         {
             System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(propertyName);
@@ -130,9 +158,10 @@ namespace BHoM.Global
                 var newList = typeof(List<>);
                 var listOfType = newList.MakeGenericType(listType);
                 IList list = Activator.CreateInstance(listOfType) as IList;
-                Dictionary<string, string> values = GetDefinitionFromJSON(data);
+                // Dictionary<string, string> values = GetDefinitionFromJSON(data);
+                List<string> items = GetArrayFromJSON(data);
 
-                foreach (var item in values.Values)
+                foreach (var item in items)
                 {
                     list.Add(ReadValue(listType, item));
                 }
@@ -140,7 +169,7 @@ namespace BHoM.Global
             }
             else if (t.BaseType == typeof(System.Array))
             {
-                string[] items = data.Trim(' ', '[', ']', '{', '}').Split(',');
+                string[] items = data.Trim(' ', '[', ']').Split(',');
                 Array array = Activator.CreateInstance(t, items.Length) as Array;
                 int index = 0;
                 foreach (var item in items)
@@ -180,19 +209,25 @@ namespace BHoM.Global
             string aResult = "";
             if (typeof(IDictionary).IsAssignableFrom(collection.GetType()))
             {
+                aResult += "{";
                 foreach (DictionaryEntry obj in collection as IDictionary)
                 {
-                    aResult += WriteProperty(WriteValue(obj.Key), obj.Value);
+                    aResult += WriteProperty(WriteValue(obj.Key).Trim('"'), obj.Value) + ",";
                 }
+                aResult = aResult.Trim(',');
+                aResult += "}";
             }
             else
             {
+                aResult += "[";
                 foreach (object obj in collection)
                 {
-                    aResult += WriteValue(obj) +",";
+                    aResult += WriteValue(obj) + ",";
                 }
-            }
                 aResult = aResult.Trim(',');
+                aResult += "]";
+            }
+                
             return aResult;
         }
 
@@ -210,10 +245,12 @@ namespace BHoM.Global
             else if (value.GetType().GetMethod("ToJSON") != null)
                 aResult += value.GetType().GetMethod("ToJSON").Invoke(value, null);
             else if (value is System.Collections.IEnumerable && !(value is string))
-                aResult += "{" + Utils.WriteCollection(value as System.Collections.IEnumerable) + "}";
+                aResult += Utils.WriteCollection(value as System.Collections.IEnumerable);
             else if (value is Boolean)
                 aResult += ((bool)value ? "true" : "false");
             else if (value is Guid)
+                aResult += "\"" + value + "\"";
+            else if (value is string)
                 aResult += "\"" + value + "\"";
             else
                 aResult += value.ToString();
