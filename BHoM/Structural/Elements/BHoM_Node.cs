@@ -79,27 +79,26 @@ namespace BHoM.Structural
         }
 
         /// <summary>
-        /// Constructes a node from CartesianCoordinates and an index number
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="z"></param>
-        /// <param name="number"></param>
-        public Node(double x, double y, double z) : this()
-        {
-            Point = new Point(x, y, z);
-        }
-
-        /// <summary>
-        /// Constructes a node from CartesianCoordinates and an index number
+        /// Constructes a node from CartesianCoordinates and a name
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <param name="name"></param>
-        public Node(double x, double y, double z, string name) : this()
+        public Node(double x, double y, double z, string name = "") : this()
         {
             Point = new Point(x, y, z);
+            Name = name;
+        }
+
+        /// <summary>
+        /// Constructes a node from a BHoM point and a name
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="name"></param>
+        public Node(Point point, string name = "") : this()
+        {
+            Point = new Point(point);
             Name = name;
         }
 
@@ -270,7 +269,7 @@ namespace BHoM.Structural
         /// WIP
         /// </summary>
         /// <returns></returns>
-        public bool SortConnectedBars()
+        /*public bool SortConnectedBars()
         {
             Valence = ConnectedBars.Count;
             if (Valence < 2) return false;
@@ -286,6 +285,32 @@ namespace BHoM.Structural
             for (int i = 1; i < Valence; i++)
             {
                 Vector v1 = nodeRing[i].Point - this.Point;
+                double angle = Vector.VectorAngle(v0, v1, Plane.Normal);
+                if (angle < 0) angle += 2.0 * Math.PI;
+                angleAccumulator.Add(angle);
+            }
+
+            SortBarsByAngle(ConnectedBars, angleAccumulator);
+            SetAngles(angleAccumulator);
+
+            return true;
+        }*/
+        public bool SortConnectedBars()
+        {
+            Valence = ConnectedBars.Count;
+            if (Valence < 2) return false;
+
+
+            List<Point> nodeRing = new List<Point>(Valence);
+            foreach (Bar b in ConnectedBars)
+                nodeRing.Add(b.GetOppositeEnd(this.Point));
+
+            List<double> angleAccumulator = new List<double>(Valence);
+            Vector v0 = nodeRing[0] - this.Point;
+            angleAccumulator.Add(0.0);
+            for (int i = 1; i < Valence; i++)
+            {
+                Vector v1 = nodeRing[i] - this.Point;
                 double angle = Vector.VectorAngle(v0, v1, Plane.Normal);
                 if (angle < 0) angle += 2.0 * Math.PI;
                 angleAccumulator.Add(angle);

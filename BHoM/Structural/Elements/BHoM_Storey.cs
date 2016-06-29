@@ -9,27 +9,19 @@ namespace BHoM.Structural
     /// <summary>
     /// Storey class to store information about building storeys for post processing of results
     /// </summary>
-    public class Storey : IStructuralObject
+    public class Storey : BHoM.Global.BHoMObject, IStructuralObject
     {
-        /////////////////
-        ////Properties///
-        /////////////////
-        
         /// <summary>Storey number</summary>
-        public int Number { get; private set; }
+        public int Number { get; set; }
 
         /// <summary>Storey level (in metres)</summary>
-        public double Level { get; private set; }
+        public double Level { get; set; }
 
         /// <summary>Storey name</summary>
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>Storey height</summary>
-        public double Height { get; private set; }
-
-        ///////////////////
-        ////Constructors///
-        ///////////////////
+        public double Height { get; set; }
 
         /// <summary>
         /// Constructs and empty storey object
@@ -37,57 +29,18 @@ namespace BHoM.Structural
         public Storey()
         {
         }
-       
+
         /// <summary>
         /// Constructs a storey object using number and name. If number and/or name are not known, use 0 and "" respectively.
         /// </summary>
         /// <param name="number"></param>
         /// <param name="name"></param>
         public Storey(int number, string name)
-            :this()
+            : this()
         {
             this.Number = number;
             this.Name = name;
         }
 
-        //////////////
-        ////Methods///
-        //////////////
-
-        /// <summary>
-        /// Sets the storey number
-        /// </summary>
-        /// <param name="number"></param>
-        public void SetNumber(int number)
-        {
-            this.Number = number;
-        }
-
-        /// <summary>
-        /// Sets the storey name
-        /// </summary>
-        /// <param name="name"></param>
-        public void SetName(string name)
-        {
-            this.Name = name;
-        }
-
-        /// <summary>
-        /// Sets the storey level
-        /// </summary>
-        /// <param name="level"></param>
-        public void SetLevel(double level)
-        {
-            this.Level = level;
-        }
-
-        /// <summary>
-        /// Sets the storey height
-        /// </summary>
-        /// <param name="height"></param>
-        public void SetHeight(double height)
-        {
-            this.Height = height;
-        }
-         }
+    }
 }

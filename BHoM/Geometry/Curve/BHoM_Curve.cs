@@ -126,7 +126,7 @@ namespace BHoM.Geometry
         }
 
 
-        public IEnumerable<Point> ControlPoints
+        public List<Point> ControlPoints
         {
             get
             {

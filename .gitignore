@@ -5,6 +5,7 @@
 *.exe
 *.o
 *.so
+*.dll
 
 # Packages #
 ############
@@ -38,15 +39,20 @@ Thumbs.db
 
 # build folders #
 ###############
-/bin/
-/obj/
-*/bin/
-*/obj
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Bb]uild/
 
 # Visual Studio User File #
 ###########################
 *.suo
-ComputationalEngineering.sln
-Build/BHoM.xml
-Build/BHoM.xml
-Build/BHoM.dll
+*.user
+.vs/

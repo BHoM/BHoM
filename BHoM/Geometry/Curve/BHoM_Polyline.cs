@@ -54,6 +54,28 @@ namespace BHoM.Geometry
             return lineSegments;
         }
 
+        public Point ClosestPoint(Point point)
+        {
+            List<Point> points = ControlPoints;
+
+            double minDist = 1e10;
+            Point closest = (points.Count() > 0) ? points[0] : new Point(Double.PositiveInfinity, Double.PositiveInfinity, Double.PositiveInfinity);
+            for (int i = 1; i < points.Count(); i++)
+            {
+                Vector dir = (points[i] - points[i-1]) / Length;
+                double t = Math.Min(Math.Max(dir * (point - points[i - 1]), 0), Length);
+                Point cp = StartPoint + t * dir;
+
+                double dist = cp.DistanceTo(point);
+                if (dist < minDist)
+                {
+                    closest = cp;
+                    minDist = dist;
+                }
+            }
+            return closest;
+        }
+
         public override string ToJSON()
         {
             string aResult = "{{";

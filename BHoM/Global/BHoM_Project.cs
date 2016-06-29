@@ -190,6 +190,14 @@ namespace BHoM.Global
             m_Objects.Remove(guid);
         }
 
+        /// <summary>
+        /// Removes all objects from the project
+        /// </summary>
+        public void Clear()
+        {
+            m_Objects.Clear();
+        }
+
         internal void AddTask(Task task)
         {
             m_TaskQueue.Enqueue(task);

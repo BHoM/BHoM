@@ -183,7 +183,8 @@ namespace BHoM.Geometry
             {
                 m_Curves[i].Flip();
             }
-            return base.Flip();
+            m_Curves.Reverse();
+            return this;
         }
     }
 }

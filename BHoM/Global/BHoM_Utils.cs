@@ -43,9 +43,9 @@ namespace BHoM.Global
             Dictionary<string, string> definition = new Dictionary<string, string>();
             for (int i = 0; i < inside.Length; i++)
             {
-                if (inside[i] == '{')
+                if (inside[i] == '{' || inside[i] == '[')
                     level++;
-                else if (inside[i] == '}')
+                else if (inside[i] == '}' || inside[i] == ']')
                     level--;
                 else if (level == 0 && inside[i] == ':')
                 {
@@ -211,6 +211,10 @@ namespace BHoM.Global
                 aResult += value.GetType().GetMethod("ToJSON").Invoke(value, null);
             else if (value is System.Collections.IEnumerable && !(value is string))
                 aResult += "{" + Utils.WriteCollection(value as System.Collections.IEnumerable) + "}";
+            else if (value is Boolean)
+                aResult += ((bool)value ? "true" : "false");
+            else if (value is Guid)
+                aResult += "\"" + value + "\"";
             else
                 aResult += value.ToString();
             return aResult;

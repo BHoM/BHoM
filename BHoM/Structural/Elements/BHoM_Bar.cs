@@ -16,8 +16,6 @@ namespace BHoM.Structural
         ////Properties///
         /////////////////
 
-        private Line m_Line;
-        private double m_Length;
         private Node m_StartNode;
         private Node m_EndNode;
 
@@ -41,19 +39,18 @@ namespace BHoM.Structural
         public BHoM.Materials.Material Material  {  get; set; }
 
         /// <summary>Releases</summary>
-        [DisplayName("Bar Releases")]
+        [DisplayName("Releases")]
         [Description("Bar Releases assigned to bar object")]       
         [DefaultValue(null)]
         public BHoM.Structural.BarRelease Release { get; set; }
 
         /// <summary>Spring</summary>
-        [DisplayName("Bar Spring")]
+        [DisplayName("Spring")]
         [Description("Elastic bar constraint")]
         [DefaultValue(null)]
         public BHoM.Structural.BarConstraint Spring { get; set; }
-
-        /// <summary>Start node</summary>
-        public Node StartNode 
+     
+        public Node StartNode           
         {
             get
             {
@@ -67,13 +64,10 @@ namespace BHoM.Structural
                 }
                 m_StartNode = value;
                 m_StartNode.ConnectedBars.Add(this);
-                m_Line = null;
-                m_Length = 0;
             }
         }
-
-        /// <summary>End node</summary>
-        public Node EndNode 
+     
+        public Node EndNode           
         {
             get
             {
@@ -87,17 +81,41 @@ namespace BHoM.Structural
                 }
                 m_EndNode = value;
                 m_EndNode.ConnectedBars.Add(this);
-                m_Line = null;
-                m_Length = 0;
             }
         }
+
+        public Point StartPoint
+        {
+            get
+            {
+                return StartNode.Point;
+            }
+            set
+            {
+                StartNode = new Node(value);
+            }
+        }
+
+        public Point EndPoint
+        {
+            get
+            {
+                return EndNode.Point;
+            }
+            set
+            {
+                EndNode = new Node(value);
+            }
+        }
+
 
         /// <summary>The line defining the bar centre or location line</summary>
         public BHoM.Geometry.Line Line 
         { 
             get
             {
-                return m_Line != null ? m_Line : m_Line = new Line(StartNode.Point, EndNode.Point);
+                //return m_Line != null ? m_Line : m_Line = new Line(StartNode.Point, EndNode.Point);
+                return new Line(StartPoint, EndPoint);
             }
         }
 
@@ -106,7 +124,8 @@ namespace BHoM.Structural
         {
             get
             {
-                return m_Length != 0 ? m_Length : m_Length = Line.Length;
+                //return m_Length != 0 ? m_Length : m_Length = Line.Length;
+                return StartPoint.DistanceTo(EndPoint);
             }
         }
 
@@ -116,8 +135,8 @@ namespace BHoM.Structural
         /// nodes. For vertical bars, angle is measured between the bar Y axis and global Y axis. A bar is 
         /// vertical if the distance between end points projected to a horizontal plane is less than 0.0001
         /// </summary>
-        [DisplayName("Orientation")]
-        [Description("Bar axis rotation")]
+        [DisplayName("OrientationAngle")]
+        [Description("Bar orientation angle")]
         [DefaultValue(0)]
         public double OrientationAngle
         {
@@ -129,7 +148,7 @@ namespace BHoM.Structural
 
         /// <summary>Storey of the building that the bar is assigned to</summary>
         /// 
-        [DisplayName("Story")]
+        [DisplayName("Storey")]
         [Description("Storey that the bar is assigned to")]
         [DefaultValue(null)]
         public BHoM.Structural.Storey Storey { get; private set; }
@@ -138,33 +157,47 @@ namespace BHoM.Structural
         ////CONSTRUCTORS////
         ////////////////////
 
-        internal Bar() { }
-
-        /// <summary>
-        /// Construct a bar from BHoM nodes and set number
-        /// </summary>
-        /// <param name="barNumber"></param>
-        /// <param name="startNode"></param>
-        /// <param name="endNode"></param>
-        public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode)
+        public Bar()
         {
-            this.StartNode = startNode;
-            this.EndNode = endNode;
+            StartPoint = new Point();
+            EndPoint = new Point();
         }
 
+        /// <summary>
+        /// Construct a bar from BHoM points and name
+        /// </summary>
+        /// <param name="startPoint"></param>
+        /// <param name="endPoint"></param>
+        /// <param name="barName"></param>
+        public Bar(Point startPoint, Point endPoint, string barName = "")
+        {
+            StartPoint = startPoint;
+            EndPoint = endPoint;
+            Name = barName;
+        }
 
         /// <summary>
-        /// Construct a bar from BHoM nodes and set number
+        /// Construct a bar from BHoM line and name
         /// </summary>
-        /// <param name="barNumber"></param>
+        /// <param name="line"></param>
+        /// <param name="barName"></param>
+        public Bar(Line line, string barName = "") : this(line.StartPoint, line.EndPoint, barName)
+        {
+        }
+
+        /// <summary>
+        /// Construct a bar from BHoM nodes and name
+        /// </summary>
         /// <param name="startNode"></param>
         /// <param name="endNode"></param>
-        public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, string barName)
+        /// <param name="barName"></param>
+        public Bar(BHoM.Structural.Node startNode, BHoM.Structural.Node endNode, string barName = "")
         {
             this.StartNode = startNode;
             this.EndNode = endNode;
             Name = barName;
         }
+
 
         ///////////////
         ////METHODS////
@@ -182,6 +215,14 @@ namespace BHoM.Structural
                 return StartNode;
             else
                 return EndNode;
+        }
+
+        public Point GetOppositeEnd(Point point)
+        {
+            if (StartPoint.DistanceTo(point) < EndPoint.DistanceTo(point))
+                return EndPoint;
+            else
+                return StartPoint;
         }
 
         /// <summary>
@@ -211,9 +252,13 @@ namespace BHoM.Structural
             this.DesignGroupName = designGroupName;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return "Bar: " + m_StartNode.Point + " -> " + m_EndNode.Point;
+            return "Bar: " + StartPoint + " -> " + EndPoint;
         }
     }
 }
