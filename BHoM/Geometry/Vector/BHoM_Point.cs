@@ -288,7 +288,7 @@ namespace BHoM.Geometry
             Point min = new Point(pts[0]);
 
             for (int i = 1; i < count; i++)
-                min = Max(min, pts[i]);
+                min = Min(min, pts[i]);
 
             return min;
         }
