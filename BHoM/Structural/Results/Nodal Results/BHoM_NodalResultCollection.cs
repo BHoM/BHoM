@@ -26,7 +26,7 @@ namespace BHoM.Structural.Results.Nodes
         public void Add(NodalResult nodalResult, double timeStep)
         {
             string key =
-                System.Convert.ToString(nodalResult.NodeNumber) + ":" +
+                System.Convert.ToString(nodalResult.Name) + ":" +
                 System.Convert.ToString(timeStep);
             if (!internalDict.ContainsKey(key)) internalDict.Add(key, nodalResult);
         }
