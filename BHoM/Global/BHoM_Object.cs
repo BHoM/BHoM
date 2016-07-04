@@ -90,7 +90,7 @@ namespace BHoM.Global
                 var value = prop.GetValue(this, null);
                 if (value == null) continue;
 
-                aResult += Utils.WriteProperty(prop.Name, value);
+                aResult += Utils.WriteProperty(prop.Name, value) + ',';
             }
             if (aResult.Last() == ',')
                 aResult = aResult.Substring(0, aResult.Length - 1);

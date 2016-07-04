@@ -132,7 +132,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"group\", \"groupType\": \""+ typeof(T).FullName + "\"," + BHoM.Global.Utils.WriteProperty("group", m_Geometry).Trim(',') + "}";
+            return "{\"Primitive\": \"group\", \"groupType\": \""+ typeof(T).FullName + "\"," + BHoM.Global.Utils.WriteProperty("group", m_Geometry) + "}";
         }
 
         public static new GeometryBase FromJSON(string json)

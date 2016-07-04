@@ -212,7 +212,7 @@ namespace BHoM.Global
                 aResult += "{";
                 foreach (DictionaryEntry obj in collection as IDictionary)
                 {
-                    aResult += WriteProperty(WriteValue(obj.Key).Trim('"'), obj.Value) + ",";
+                    aResult += WriteProperty(WriteValue(obj.Key).Trim('"'), obj.Value) + ',';
                 }
                 aResult = aResult.Trim(',');
                 aResult += "}";
@@ -233,7 +233,7 @@ namespace BHoM.Global
 
         internal static string WriteProperty(string name, object value)
         {
-            return string.Format("\"{0}\": {1},", name, WriteValue(value));        
+            return string.Format("\"{0}\": {1}", name, WriteValue(value));        
         }
 
         internal static string WriteValue(object value)
