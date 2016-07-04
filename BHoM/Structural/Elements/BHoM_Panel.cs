@@ -27,6 +27,7 @@ namespace BHoM.Structural
             set
             {
                 List<Curve> curve = Curve.Join(value);
+                curve[0].Explode();
                 m_Edges = new Group<Curve>();
                 for (int i = 0; i < curve.Count; i++)
                 {
