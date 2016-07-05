@@ -27,7 +27,6 @@ namespace BHoM.Structural
             set
             {
                 List<Curve> curve = Curve.Join(value);
-                curve[0].Explode();
                 m_Edges = new Group<Curve>();
                 for (int i = 0; i < curve.Count; i++)
                 {
@@ -51,13 +50,15 @@ namespace BHoM.Structural
             get
             {
                 Group<Curve> internalCurves = new Group<Curve>();
-                for (int i = 0; i < m_Edges.Count; i++)
+                for (int i = 1; i < m_Edges.Count; i++)
                 {
                     internalCurves.Add(m_Edges[i]);
                 }
                 return internalCurves;
             }
         }
+
+        public ThicknessProperty ThicknessProperty { get; set; }
 
         public Materials.Material Material { get; set; }
 
