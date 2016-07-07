@@ -15,6 +15,9 @@ namespace BHoM.Geometry
         {
             m_Curves = new List<Curve>() { c1, c2 };
             m_Dimensions = 3;
+
+            // TODO - have a better look at this. For now, jsut there to fix Eddy's stuff
+            m_ControlPoints = c1.ControlPointVector.Concat(c2.ControlPointVector).ToArray();
         }
 
         public override void CreateNurbForm()
@@ -95,7 +98,7 @@ namespace BHoM.Geometry
             return c;
         }
 
-        internal override double[] ControlPoint(int i)
+        /*internal override double[] ControlPoint(int i)   // AD - Commented to make it work with control points now defined in PolyCurve
         {
             int currentIndex = i;
 
@@ -108,9 +111,9 @@ namespace BHoM.Geometry
                 currentIndex = currentIndex -m_Curves[j].PointCount + 1;
             }
             return null;
-        }
+        }*/
 
-        public override int PointCount
+        /*public override int PointCount                // AD - Commented to make it work with control points now defined in PolyCurve
         {
             get
             {
@@ -121,7 +124,7 @@ namespace BHoM.Geometry
                 }
                 return count;
             }
-        }
+        }*/
 
         public override bool IsPlanar()
         {
@@ -186,5 +189,27 @@ namespace BHoM.Geometry
             m_Curves.Reverse();
             return this;
         }
+
+        public override Point ClosestPoint(Point point)
+        {
+            List<Point> points = ControlPoints;
+
+            double minDist = 1e10;
+            Point closest = StartPoint;
+
+            for (int i = 0; i < m_Curves.Count; i++)
+            {
+                Point cp = m_Curves[i].ClosestPoint(point);
+                double dist = cp.DistanceTo(point);
+                if (dist < minDist)
+                {
+                    closest = cp;
+                    minDist = dist;
+                }
+            }
+
+            return closest;
+        }
+
     }
 }

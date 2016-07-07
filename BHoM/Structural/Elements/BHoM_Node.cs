@@ -74,6 +74,7 @@ namespace BHoM.Structural
 
         internal Node()
         {
+            Point = new Point();
             m_ConnectedBars = new List<Bar>();
             m_ConnectedFaces = new List<Face>();
         }
@@ -117,6 +118,21 @@ namespace BHoM.Structural
         //////////////
         ////Methods///
         //////////////
+
+        /// <summary></summary>
+        public override BHoM.Geometry.GeometryBase GetGeometry()
+        {
+            return Point;
+        }
+
+        /// <summary></summary>
+        public override void SetGeometry(GeometryBase geometry)
+        {
+            if (geometry is Point)
+            {
+                Point = geometry as Point;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the CartesianCoordinates of the node position

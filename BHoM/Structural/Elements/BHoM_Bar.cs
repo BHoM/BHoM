@@ -217,12 +217,30 @@ namespace BHoM.Structural
                 return EndNode;
         }
 
+        /// <summary></summary>
         public Point GetOppositeEnd(Point point)
         {
             if (StartPoint.DistanceTo(point) < EndPoint.DistanceTo(point))
                 return EndPoint;
             else
                 return StartPoint;
+        }
+
+        /// <summary></summary>
+        public override BHoM.Geometry.GeometryBase GetGeometry()
+        {
+            return Line;
+        }
+
+        /// <summary></summary>
+        public override void SetGeometry(GeometryBase geometry)
+        {
+            if (geometry is Curve)
+            {
+                Curve curve = geometry as Curve;
+                StartPoint = curve.StartPoint;
+                EndPoint = curve.EndPoint;
+            }
         }
 
         /// <summary>

@@ -54,7 +54,7 @@ namespace BHoM.Geometry
             return lineSegments;
         }
 
-        public Point ClosestPoint(Point point)
+        public override Point ClosestPoint(Point point)
         {
             List<Point> points = ControlPoints;
 

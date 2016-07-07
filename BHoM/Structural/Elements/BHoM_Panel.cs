@@ -14,6 +14,11 @@ namespace BHoM.Structural
     /// </summary>
     public class Panel : BHoMObject
     {
+
+        /////////////////
+        ////Properties///
+        /////////////////
+
         private Group<Curve> m_Edges;
         /// <summary>
         /// A group of curves which define the perimeter of panel object
@@ -45,11 +50,11 @@ namespace BHoM.Structural
             }
         }
 
-        public Group<Curve> Internal_Contours
+        public List<Curve> Internal_Contours
         {
             get
             {
-                Group<Curve> internalCurves = new Group<Curve>();
+                List<Curve> internalCurves = new List<Curve>();
                 for (int i = 1; i < m_Edges.Count; i++)
                 {
                     internalCurves.Add(m_Edges[i]);
@@ -64,6 +69,11 @@ namespace BHoM.Structural
 
         public bool IsValid() { return Edges != null; }
 
+
+        ////////////////////
+        ////CONSTRUCTORS////
+        ////////////////////
+
         internal Panel() { }
 
         /// <summary>
@@ -74,6 +84,32 @@ namespace BHoM.Structural
         public Panel(Group<Curve> edges)
         {
             Edges = edges;
+        }
+
+        ///////////////
+        ////METHODS////
+        ///////////////
+
+        /// <summary></summary>
+        public override BHoM.Geometry.GeometryBase GetGeometry()
+        {
+            return Edges;
+        }
+
+        /// <summary></summary>
+        public override void SetGeometry(GeometryBase geometry)
+        {
+            if (geometry is Curve)
+            {
+                Curve curve = geometry as Curve;
+                Group<Curve> group = new Group<Curve>();
+                group.Add(curve);
+                Edges = group;
+            }
+            else if (geometry is Group<Curve>)
+            {
+                Edges = geometry as Group<Curve>;
+            }
         }
     }
 }
