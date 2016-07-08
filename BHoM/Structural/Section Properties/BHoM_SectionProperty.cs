@@ -5,6 +5,7 @@ using BHoM.Global;
 using BHoM.Materials;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BHoM.Structural.SectionProperties
 {
@@ -23,6 +24,7 @@ namespace BHoM.Structural.SectionProperties
         private double m_Zx;
         private double m_Zy;
 
+        [DefaultValue(null)]
         public double[] SectionData { get; set; }
      
         /// <summary>
@@ -69,9 +71,11 @@ namespace BHoM.Structural.SectionProperties
         /// <summary>
         /// Geometry of the cross section
         /// </summary>
+        [DefaultValue(null)]
         public Group<Curve> Edges { get; internal set; }
 
         /// <summary>Mass per metre based on section properties</summary>
+        [DefaultValue(null)]
         public double MassPerMetre { get; set; }
 
         /// <summary>
@@ -242,6 +246,7 @@ namespace BHoM.Structural.SectionProperties
         }
 
         /// <summary>Section type</summary>
+        [DefaultValue(null)]
         public ShapeType Shape { get; set; }
 
         /// <summary>
@@ -252,6 +257,7 @@ namespace BHoM.Structural.SectionProperties
         /// <summary>
         /// Orientation
         /// </summary>
+        [DefaultValue(null)]
         public double Orientation { get; set; }
 
         /// <summary>Cross sectional area</summary>
@@ -364,6 +370,7 @@ namespace BHoM.Structural.SectionProperties
         }
 
         /// <summary>Information regarding section property type for the user</summary>
+        [DefaultValue(null)]
         public string Description { get; set; }
                    
     }
