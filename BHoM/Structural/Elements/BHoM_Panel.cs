@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BHoM.Structural
 {
@@ -14,7 +15,6 @@ namespace BHoM.Structural
     public class Panel : BHoMObject
     {
         private Group<Curve> m_Edges;
-
         /// <summary>
         /// A group of curves which define the perimeter of panel object
         /// </summary>
@@ -26,19 +26,42 @@ namespace BHoM.Structural
             }
             set
             {
-                /*List<Curve> curve = Curve.Join(value);
-                if (curve.Count == 1 && curve[0].IsClosed())
+                List<Curve> curve = Curve.Join(value);
+                m_Edges = new Group<Curve>();
+                for (int i = 0; i < curve.Count; i++)
                 {
-                    m_Edges = new Group<Curve>(curve[0].Explode());
-                }*/
-                m_Edges = value;
+                    m_Edges.Add(curve[i]);
+                }
+
+                //m_Edges = value;
+            }
+        }
+
+        public Curve External_Contour
+        {
+            get
+            {
+                return m_Edges[0];
+            }
+        }
+
+        public Group<Curve> Internal_Contours
+        {
+            get
+            {
+                Group<Curve> internalCurves = new Group<Curve>();
+                for (int i = 1; i < m_Edges.Count; i++)
+                {
+                    internalCurves.Add(m_Edges[i]);
+                }
+                return internalCurves;
             }
         }
 
         public ThicknessProperty ThicknessProperty { get; set; }
 
         public Materials.Material Material { get; set; }
-        
+
         public bool IsValid() { return Edges != null; }
 
         internal Panel() { }
@@ -49,8 +72,8 @@ namespace BHoM.Structural
         /// <param name="edges"></param>
         /// <param name="number"></param>
         public Panel(Group<Curve> edges)
-        {            
-            Edges = edges;            
+        {
+            Edges = edges;
         }
     }
 }

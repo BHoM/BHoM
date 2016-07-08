@@ -188,7 +188,7 @@ namespace BHoM.Global
             {
                 foreach (DictionaryEntry obj in collection as IDictionary)
                 {
-                    aResult += WriteProperty(WriteValue(obj.Key), obj.Value);
+                    aResult += WriteProperty(WriteValue(obj.Key), obj.Value) + ',';
                 }
             }
             else
@@ -204,7 +204,7 @@ namespace BHoM.Global
 
         internal static string WriteProperty(string name, object value)
         {
-            return string.Format("\"{0}\": {1},", name, WriteValue(value));
+            return string.Format("\"{0}\": {1}", name, WriteValue(value));
         }
 
         internal static string WriteValue(object value)
