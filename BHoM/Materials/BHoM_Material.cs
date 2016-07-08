@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BHoM.Materials
 {
@@ -18,23 +19,30 @@ namespace BHoM.Materials
         public MaterialType Type { get; set; }
 
         /// <summary>Young's Modulus (MPa)</summary>
+        [DefaultValue(null)]
         public double YoungsModulus { get; set; }
 
         /// <summary>Poissons ratio</summary>
+        [DefaultValue(null)]
         public double PoissonsRatio { get; set; }
 
         /// <summary>Shear modulus (MPa)</summary>
+        [DefaultValue(null)]
         public double ShearModulus { get; set; }
 
         /// <summary>Dry density</summary>
+        [DefaultValue(null)]
         public double DryDensity { get;  set; }
 
         /// <summary>Coefficient of thermal expansion</summary>
+        [DefaultValue(null)]
         public double CoeffThermalExpansion { get; set; }
 
         /// <summary>Damping ratio</summary>
+        [DefaultValue(null)]
         public double DampingRatio { get; set; }
 
+        [DefaultValue(null)]
         public double Density { get; set; }
 
         /// <summary>Calculate material values at construct</summary>
