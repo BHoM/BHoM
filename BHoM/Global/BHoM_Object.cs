@@ -54,11 +54,27 @@ namespace BHoM.Global
                 return value;
             }
         }
+
         //////////////
         ////Methods///
         //////////////
 
+        /// <summary>Create a shallow copy of the object</summary>
+        public BHoMObject ShallowClone()
+        {
+            return (BHoMObject) this.MemberwiseClone();
+        }
 
+        /// <summary>Gets the geometry of the object (whatever that might be)</summary>
+        public virtual BHoM.Geometry.GeometryBase GetGeometry()
+        {
+            return null;
+        }
+
+        /// <summary>Sets the geometry of the object (whatever that might be)</summary>
+        public virtual void SetGeometry(BHoM.Geometry.GeometryBase geometry)
+        {
+        }
 
 
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>

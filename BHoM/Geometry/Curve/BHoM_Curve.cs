@@ -178,9 +178,14 @@ namespace BHoM.Geometry
 
         public virtual double Length
         {
-            get
+            get // TODO - better default than zero but need proper implementation in all children classes
             {
-                return 0;
+                double length = 0;
+                for (int i = 0; i < m_ControlPoints.Length / (m_Dimensions + 1) - (m_Dimensions + 1); i++)
+                {
+                    length += VectorUtils.Length(VectorUtils.Sub(m_ControlPoints, i, i + m_Dimensions + 1, m_Dimensions + 1));
+                }
+                return length;
             }
         }
 
@@ -403,6 +408,28 @@ namespace BHoM.Geometry
             c.m_Knots = Common.Utils.Copy<double>(m_Knots);
             c.m_Order = m_Order;
             return c;
+        }
+
+        public virtual Point ClosestPoint(Point point) // TODO - This should be virtual and implemented properly in each sub-class
+        {
+            List<Point> points = ControlPoints;
+
+            double minDist = 1e10;
+            Point closest = (points.Count() > 0) ? points[0] : new Point(Double.PositiveInfinity, Double.PositiveInfinity, Double.PositiveInfinity);
+            for (int i = 1; i < points.Count(); i++)
+            {
+                Vector dir = (points[i] - points[i - 1]) / Length;
+                double t = Math.Min(Math.Max(dir * (point - points[i - 1]), 0), Length);
+                Point cp = StartPoint + t * dir;
+
+                double dist = cp.DistanceTo(point);
+                if (dist < minDist)
+                {
+                    closest = cp;
+                    minDist = dist;
+                }
+            }
+            return closest;
         }
 
         public override string ToJSON()

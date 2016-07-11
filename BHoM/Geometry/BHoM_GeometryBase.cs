@@ -22,6 +22,12 @@ namespace BHoM.Geometry
         public abstract void Update();
         public abstract GeometryBase Duplicate();
 
+        /// <summary>Create a shallow copy of the object</summary>
+        public GeometryBase ShallowClone()
+        {
+            return (GeometryBase)this.MemberwiseClone();
+        }
+
         public abstract string ToJSON();
         
         /// <summary>
