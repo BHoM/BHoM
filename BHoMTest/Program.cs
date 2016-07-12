@@ -31,9 +31,34 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            TestJSON2();
+            TestProject();
 
             Console.Read();
+        }
+
+        static void TestProject()
+        {
+            Project project = Project.ActiveProject;
+
+            List<Point> points = new List<Point>();
+            points.Add(new Point(0, 0, 0));
+            points.Add(new Point(0, 1, 0));
+            points.Add(new Point(1, 1, 0));
+            points.Add(new Point(0, 0, 0));
+
+            Group<Curve> edges = new Group<Curve>();
+            for (int i = 1; i < points.Count; i++)
+                edges.Add(new Line(points[i - 1], points[i]));
+
+            Panel panel = new Panel(edges);
+            panel.ThicknessProperty = new ConstantThickness("test", 0.25);
+
+            project.AddObject(panel);
+
+            string json = project.ToJSON();
+            project.Clear();
+
+            Project project2 = Project.FromJSON(json);
         }
 
         static void TestJSON2()

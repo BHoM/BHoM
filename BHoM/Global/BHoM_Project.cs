@@ -77,10 +77,11 @@ namespace BHoM.Global
         public string ToJSON(string extra = "")
         {
             string aResult = "{";
-            aResult += string.Format("\"{0}\": {1}", "Primitive", "{\"Project\"}");
+            aResult += string.Format("\"{0}\": {1},", "Type", "\"" + GetType() + "\"");
+            aResult += string.Format("\"{0}\": {1},", "Primitive", "\"" + GetType().AssemblyQualifiedName.Replace(",", ";") + "\"");
 
             // Write all the properties
-            aResult += ",\"Properties\": {";
+            aResult += "\"Properties\": {";
             foreach (var prop in this.GetType().GetProperties())
             {
                 if (!prop.CanRead || !prop.CanWrite) continue;
@@ -98,7 +99,7 @@ namespace BHoM.Global
             }
 
             if (aResult.Last() == ',')
-                aResult = aResult.Substring(0, aResult.Length - 1);
+                aResult = aResult.Trim(',');
             aResult += "}";
 
             // Write all the parameters
@@ -109,7 +110,7 @@ namespace BHoM.Global
                 aResult += string.Format("\"{0}\": {1},", objIndex++, value.ToJSON());
             }
             if (aResult.Last() == ',')
-                aResult = aResult.Substring(0, aResult.Length - 1);
+                aResult = aResult.Trim(',');
             aResult += "}";
             // Write the extra information
             if (extra.Length > 0)
@@ -131,8 +132,8 @@ namespace BHoM.Global
             if (!definition.ContainsKey("Primitive") || !definition.ContainsKey("Properties")) return null;
 
             // Try to create an object that correponds the object type stored in "Primitive"
-            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
-            if (typeString != "Project") return null;
+            var typeString = definition["Type"].Replace("\"", "").Replace("{", "").Replace("}", "");
+            if (typeString != "BHoM.Global.Project") return null;
 
             // Get the definition of the properties
             Dictionary<string, string> properties = Utils.GetDefinitionFromJSON(definition["Properties"]);

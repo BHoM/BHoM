@@ -109,7 +109,7 @@ namespace BHoM.Global
                 aResult += Utils.WriteProperty(prop.Name, value) + ',';
             }
             if (aResult.Last() == ',')
-                aResult = aResult.Substring(0, aResult.Length - 1);
+                aResult = aResult.Trim(',');
             aResult += "}";
 
             // Write the extra information

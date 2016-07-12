@@ -182,22 +182,22 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            string points = "\"points\": {{ ";
+            string points = "\"points\": [[ ";
             for (int i = 0; i < m_ControlPoints.Length - 1; i++)
             {
                 if (i > 0 && (i + 1) % 4 == 0)
                 {
-                    points = points.Trim(',') + "},{";
+                    points = points.Trim(',') + "],[";
                 }
                 else
                 {
                     points += m_ControlPoints[i] + ",";
                 }
             }
-            points = points.Trim(',') + "}}";
-            string uknots = "\"uknots\": {" + Common.Utils.CollectionToString(m_Knots[0], ',') + "}";
-            string vknots = "\"vknots\": {" + Common.Utils.CollectionToString(m_Knots[1], ',') + "}";
-            string weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"weights\": {" + Common.Utils.CollectionToString(m_Weights, ',') + "}" : "";
+            points = points.Trim(',') + "]]";
+            string uknots = "\"uknots\": " + Common.Utils.CollectionToString(m_Knots[0]);
+            string vknots = "\"vknots\": " + Common.Utils.CollectionToString(m_Knots[1]);
+            string weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"weights\": " + Common.Utils.CollectionToString(m_Weights) : "";
             string degree = "\"degree\": " + (m_Order - 1);
             return "{\"Primitive\": \"curve\"," + points + "," + degree + "," + uknots + "," + vknots + (weights != "" ? "," : "") + weights + "}";
         }

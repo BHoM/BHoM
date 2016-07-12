@@ -78,19 +78,19 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            string aResult = "{{";
+            string aResult = "[[";
             for (int i = 0; i < m_ControlPoints.Length - 1; i++)
             {
                 if (i > 0 && (i + 1) % 4 == 0)
                 {
-                    aResult = aResult.Trim(',') + "},{";
+                    aResult = aResult.Trim(',') + "],[";
                 }
                 else
                 {
                     aResult += m_ControlPoints[i] + ",";
                 }
             }
-            aResult = aResult.Trim(',') + "}}";
+            aResult = aResult.Trim(',') + "]]";
             return "{\"Primitive\": \"polyline\"," + "\"points\": " + aResult + "}";
         }
 

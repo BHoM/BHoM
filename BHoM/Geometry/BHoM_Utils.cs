@@ -49,14 +49,14 @@ namespace BHoM.Common
             return result;
         }
 
-        public static string CollectionToString(IEnumerable data, char separator)
+        public static string CollectionToString(IEnumerable data)
         {
-            string result = "";
+            string result = "[";
             foreach (object value in data)
             {
-                result += value + separator.ToString();
+                result += value + ",";
             }
-            return result.Trim(separator);
+            return result.Trim(',') + "]";
         }
 
         public static bool InRange(double value, double upper, double lower, double tolerance)

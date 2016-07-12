@@ -39,11 +39,13 @@ namespace BHoM.Global
 
         public static Dictionary<string, string> GetDefinitionFromJSON(string json)
         {
-            int i0 = 0;
+            
             int level = 0;
             string key = "";
             string value = "";
-            string inside = json.Substring(json.IndexOf('{') + 1, json.LastIndexOf('}') - 1);
+            int i0 = json.IndexOf('{') + 1;
+            string inside = json.Substring(i0, json.LastIndexOf('}') - i0);
+            i0 = 0;
             int index = 0;
             Dictionary<string, string> definition = new Dictionary<string, string>();
             for (int i = 0; i < inside.Length; i++)
@@ -146,7 +148,9 @@ namespace BHoM.Global
             }
             else if (t.BaseType == typeof(System.Array))
             {
-                string[] items = data.Trim(' ', '[', ']', '{', '}').Split(',');
+                //string[] items = data.Trim(' ', '[', ']', '{', '}').Split(',');
+                int i0 = data.IndexOf('[') + 1;
+                string[] items = data.Substring(i0, data.LastIndexOf(']') - i0).Split(',');
                 Array array = Activator.CreateInstance(t, items.Length) as Array;
                 int index = 0;
                 foreach (var item in items)

@@ -65,7 +65,7 @@ namespace BHoM.Geometry
                     return new Polyline(points);
                 case "curve":
                     List<double[]> curvePoints = BHoM.Global.Utils.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
-                    double[] knots = (double[])BHoM.Global.Utils.ReadValue(typeof(double[]), definition["knots"]);
+                    double[] knots = definition.ContainsKey("knots") ? (double[])BHoM.Global.Utils.ReadValue(typeof(double[]), definition["knots"]): null;
                     double[] weights = definition.ContainsKey("weights") ? (double[])BHoM.Global.Utils.ReadValue(typeof(double[]), definition["weights"]) : null;
                     int degree = (int)BHoM.Global.Utils.ReadValue(typeof(int), definition["degree"]);
                     return new NurbCurve(curvePoints, degree, knots, weights);
