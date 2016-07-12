@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Global;
 
 namespace BHoM.Geometry
 {
@@ -460,7 +461,7 @@ namespace BHoM.Geometry
 
         public static new Curve FromJSON(string json)
         {
-            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
             var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
@@ -476,10 +477,10 @@ namespace BHoM.Geometry
                 case "circle":
                     return Circle.FromJSON(json);
                 default:
-                    List<double[]> curvePoints = BHoM.Global.Utils.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
-                    double[] knots = definition.ContainsKey("knots") ? (double[])BHoM.Global.Utils.ReadValue(typeof(double[]), definition["knots"]) : null;
-                    double[] weights = definition.ContainsKey("weights") ? (double[])BHoM.Global.Utils.ReadValue(typeof(double[]), definition["weights"]) : null;
-                    int degree = (int)BHoM.Global.Utils.ReadValue(typeof(int), definition["degree"]);
+                    List<double[]> curvePoints = BHoMJSON.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
+                    double[] knots = definition.ContainsKey("knots") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["knots"]) : null;
+                    double[] weights = definition.ContainsKey("weights") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["weights"]) : null;
+                    int degree = (int)BHoMJSON.ReadValue(typeof(int), definition["degree"]);
                     return new NurbCurve(curvePoints, degree, knots, weights);
             }      
         }

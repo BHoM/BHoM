@@ -9,37 +9,287 @@ namespace BHoM.Global
 {
     public static class BHoMJSON
     {
-        public static List<string> GetObjectsToJSON(List<BHoMObject> objects)
+
+        /**************************************/
+        /****  Self Contained Collection   ****/
+        /**************************************/
+
+        public static string WritePackage(List<BHoMObject> objects)
         {
-            List<string> jsonList = new List<string>();
+            // Write Collection type
+            Type type = typeof(List<BHoMObject>);
+            string aResult = "{";
+            aResult += string.Format("\"{0}\": {1}", "Type", "\"" + type + "\"");
+            aResult += string.Format(",\"{0}\": {1}", "Primitive", "\"" + type.AssemblyQualifiedName.Replace(",", ";") + "\"");
 
-            foreach (BHoMObject obj in objects)
+            // Write all the dependencies
+            Dictionary<Guid, BHoMObject> dependencies = new Dictionary<Guid, BHoMObject>();
+            foreach (BHoMObject bhomObject in objects)
             {
-                jsonList.Add(obj.ToJSON());
+                foreach (KeyValuePair<Guid, BHoMObject> kvp in bhomObject.GetDeepDependencies())
+                {
+                    if (!dependencies.ContainsKey(kvp.Key))
+                        dependencies[kvp.Key] = kvp.Value;
+                }
             }
-            // Add all objects that referenced by the original list
-            // Either as tasks created during objects ttraversal or as preprocessed object gathering
+            aResult += ",\"Dependencies\": [";
+            foreach (BHoMObject obj in dependencies.Values)
+                aResult += obj.ToJSON() + ",";
+            aResult = aResult.Trim(',');
+            aResult += "]";
 
-            return jsonList;
+            // Write all the contained objects
+            aResult += ",\"Objects\": [";
+            foreach (var value in objects)
+            {
+                aResult += value.ToJSON() + ",";
+            }
+            aResult = aResult.Trim(',');
+            aResult += "]}";
+
+            return aResult;
         }
 
+        /**************************************/
 
-        public static List<BHoMObject> GetObjectsFromJSON(List<string> jsonList)
+        public static List<BHoMObject> ReadPackage(string json)
         {
-            List<BHoMObject> objects = new List<BHoMObject>();
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
 
-            foreach (string json in jsonList)
+            // Try to create an object that correponds the object type stored in "Primitive"
+            var typeString = definition["Type"].Replace("\"", "").Replace("{", "").Replace("}", "");
+            if (typeString != typeof(List<BHoMObject>).ToString()) return null;
+
+            // Get all the dependencies
+            List<BHoMObject> depDefs = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Dependencies"]) as List<BHoMObject>;
+            foreach (BHoMObject o in depDefs)
             {
-                Project.ActiveProject.AddObject(BHoMObject.FromJSON(json));
+                Project.ActiveProject.AddObject(o);
             }
+
+            // Get all the contained objects
+            List<BHoMObject> objects = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Objects"]) as List<BHoMObject>;
+            foreach (BHoMObject o in objects)
+            {
+                Project.ActiveProject.AddObject(o);
+            }
+
             Project.ActiveProject.RunTasks();
 
             return objects;
         }
 
+
+        /**************************************/
+        /****  Various Collections         ****/
+        /**************************************/
+
+        public static object WriteCollection(IEnumerable collection)
+        {
+            string aResult = "";
+            if (typeof(IDictionary).IsAssignableFrom(collection.GetType()))
+            {
+                aResult += "{";
+                foreach (DictionaryEntry obj in collection as IDictionary)
+                {
+                    aResult += WriteProperty(WriteValue(obj.Key).Trim('"'), obj.Value) + ',';
+                }
+                aResult = aResult.Trim(',');
+                aResult += "}";
+            }
+            else
+            {
+                aResult += "[";
+                foreach (object obj in collection)
+                {
+                    aResult += WriteValue(obj) + ",";
+                }
+                aResult = aResult.Trim(',');
+                aResult += "]";
+            }
+
+            return aResult;
+        }
+
+        /**************************************/
+
+        public static IEnumerable ReadCollection(Type t, string data)
+        {
+            if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(List<>))
+            {
+                Type listType = t.GetGenericArguments()[0];
+                var newList = typeof(List<>);
+                var listOfType = newList.MakeGenericType(listType);
+                IList list = Activator.CreateInstance(listOfType) as IList;
+                // Dictionary<string, string> values = GetDefinitionFromJSON(data);
+                List<string> items = GetArrayFromJSON(data);
+
+                foreach (var item in items)
+                {
+                    list.Add(ReadValue(listType, item));
+                }
+                return list;
+            }
+            else if (t.BaseType == typeof(System.Array))
+            {
+                //string[] items = data.Trim(' ', '[', ']').Split(',');
+                int i0 = data.IndexOf('[') + 1;
+                string[] items = data.Substring(i0, data.LastIndexOf(']') - i0).Split(',');
+                Array array = Activator.CreateInstance(t, items.Length) as Array;
+                int index = 0;
+                foreach (var item in items)
+                {
+                    array.SetValue(ReadValue(array.GetValue(0).GetType(), item), index++);
+                }
+                return array;
+            }
+            else if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Dictionary<,>))
+            {
+                Dictionary<string, string> items = GetDefinitionFromJSON(data);
+                Type keyType = t.GetGenericArguments()[0];
+                Type valueType = t.GetGenericArguments()[1];
+                var newList = typeof(Dictionary<,>);
+                var listOfType = newList.MakeGenericType(keyType, valueType);
+                IDictionary list = Activator.CreateInstance(listOfType) as IDictionary;
+                foreach (var item in items)
+                {
+                    list.Add(ReadValue(keyType, item.Key), ReadValue(valueType, item.Value));
+                }
+                return list;
+            }
+            else
+            {
+
+            }
+            return null;
+        }
+
+        /**************************************/
+
+        public static List<String> GetArrayFromJSON(string json)
+        {
+            int level = 0;
+            int i0 = json.IndexOf('[') + 1;
+            string inside = json.Substring(i0, json.LastIndexOf(']') - i0);
+            i0 = 0;
+            int index = 0;
+            List<string> array = new List<string>();
+            for (int i = 0; i < inside.Length; i++)
+            {
+                if (inside[i] == '{' || inside[i] == '[')
+                    level++;
+                else if (inside[i] == '}' || inside[i] == ']')
+                    level--;
+                else if (level == 0 && inside[i] == ',')
+                {
+                    array.Add(inside.Substring(i0, i - i0).Trim());
+                    i0 = i + 1;
+                }
+                if (i == inside.Length - 1)
+                {
+                    array.Add(inside.Substring(i0, i + 1 - i0).Trim());
+                    i0 = i + 1;
+                }
+            }
+
+            return array;
+        }
+
+
+        /**************************************/
+        /****  Properties and Values       ****/
+        /**************************************/
+
+        public static string WriteProperty(string name, object value)
+        {
+            return string.Format("\"{0}\": {1}", name, WriteValue(value));
+        }
+
+        /**************************************/
+
+        public static string WriteValue(object value)
+        {
+            string aResult = "";
+
+            if (value is BHoMObject)
+                aResult += "\"" + (value as BHoMObject).BHoM_Guid + "\"";
+            else if (value.GetType().GetMethod("ToJSON") != null)
+                aResult += value.GetType().GetMethod("ToJSON").Invoke(value, null);
+            else if (value is System.Collections.IEnumerable && !(value is string))
+                aResult += WriteCollection(value as System.Collections.IEnumerable);
+            else if (value is Boolean)
+                aResult += ((bool)value ? "true" : "false");
+            else if (value is Guid)
+                aResult += "\"" + value + "\"";
+            else if (value is string)
+                aResult += "\"" + value + "\"";
+            else if (value is Enum)
+                aResult += (int)value;
+            else
+                aResult += value.ToString();
+            return aResult;
+        }
+
+        /**************************************/
+
+        public static void ReadProperty(object obj, string propertyName, string value)
+        {
+            System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(propertyName);
+            if (pInfo == null) return;
+
+            Type pType = pInfo.PropertyType;
+            object result = ReadValue(pType, value, obj);
+            if (result == null && obj is BHoMObject)
+            {
+                Project.ActiveProject.AddTask(new Task(obj as BHoMObject, propertyName, value));
+            }
+            else
+            {
+                pInfo.SetValue(obj, result);
+            }
+        }
+
+        /**************************************/
+
+        public static object ReadValue(Type type, string value, object obj = null)
+        {
+            System.Reflection.MethodInfo jsonMethod = null;
+            if (type == typeof(System.String) || type == typeof(System.Object))
+                return value;
+            else if (type.BaseType == typeof(BHoMObject))
+            {
+                BHoMObject b = Project.ActiveProject.GetObject(new Guid(value));
+                return b;
+            }
+            else if ((jsonMethod = type.GetMethod("FromJSON")) != null)
+            {
+                return jsonMethod.Invoke(null, new object[] { value });
+            }
+            else if (IsEnumerableType(type))
+            {
+                return ReadCollection(type, value);
+            }
+            else
+            {
+                if (type.BaseType != null && (jsonMethod = type.BaseType.GetMethod("FromJSON")) != null)
+                    return jsonMethod.Invoke(null, new object[] { value });
+                else
+                {
+                    System.Reflection.MethodInfo parseMethod = type.GetMethod("Parse", new Type[] { typeof(string) });
+                    if (parseMethod != null)
+                        return parseMethod.Invoke(null, new object[] { value });
+                    parseMethod = type.BaseType.GetMethod("Parse", new Type[] { typeof(Type), typeof(string) });
+                    if (parseMethod != null)
+                        return parseMethod.Invoke(null, new object[] { type, value });
+                }
+            }
+            return null;
+        }
+
+        /**************************************/
+
         public static Dictionary<string, string> GetDefinitionFromJSON(string json)
         {
-            
             int level = 0;
             string key = "";
             string value = "";
@@ -77,161 +327,19 @@ namespace BHoM.Global
         }
 
 
-        public static void ReadProperty(object obj, string propertyName, string value)
-        {
-            System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(propertyName);
-            if (pInfo == null) return;
-
-            Type pType = pInfo.PropertyType;
-            object result = ReadValue(pType, value, obj);
-            if (result == null && obj is BHoMObject)
-            {
-                Project.ActiveProject.AddTask(new Task(obj as BHoMObject, propertyName, value));
-            }
-            else
-            {
-                pInfo.SetValue(obj, result);
-            }
-        }
-
-        internal static object ReadValue(Type type, string value, object obj = null)
-        {
-            System.Reflection.MethodInfo jsonMethod = null;
-            if (type == typeof(System.String) || type == typeof(System.Object))
-                return value;
-            else if (type.BaseType == typeof(BHoMObject))
-            {
-                BHoMObject b = Project.ActiveProject.GetObject(new Guid(value));
-                return b;
-            }
-            else if ((jsonMethod = type.GetMethod("FromJSON")) != null)
-            {
-                return jsonMethod.Invoke(null, new object[] { value });
-            }
-            else if (IsEnumerableType(type))
-            {
-                return ReadCollection(type, value);
-            }
-            else
-            {
-                if (type.BaseType != null && (jsonMethod = type.BaseType.GetMethod("FromJSON")) != null)
-                    return jsonMethod.Invoke(null, new object[] { value });
-                else
-                {
-                    System.Reflection.MethodInfo parseMethod = type.GetMethod("Parse", new Type[] { typeof(string) });
-                    if (parseMethod != null)
-                        return parseMethod.Invoke(null, new object[] { value });
-                    parseMethod = type.BaseType.GetMethod("Parse", new Type[] { typeof(Type), typeof(string) });
-                    if (parseMethod != null)
-                        return parseMethod.Invoke(null, new object[] { type, value });
-                }
-            }
-            return null;
-        }
+        /**************************************/
+        /****  Utility Stuff               ****/
+        /**************************************/
 
 
-        internal static IEnumerable ReadCollection(Type t, string data)
-        {
-            if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(List<>))
-            {
-                Type listType = t.GetGenericArguments()[0];
-                var newList = typeof(List<>);
-                var listOfType = newList.MakeGenericType(listType);
-                IList list = Activator.CreateInstance(listOfType) as IList;
-                Dictionary<string, string> values = GetDefinitionFromJSON(data);
-
-                foreach (var item in values.Values)
-                {
-                    list.Add(ReadValue(listType, item));
-                }
-                return list;
-            }
-            else if (t.BaseType == typeof(System.Array))
-            {
-                //string[] items = data.Trim(' ', '[', ']', '{', '}').Split(',');
-                int i0 = data.IndexOf('[') + 1;
-                string[] items = data.Substring(i0, data.LastIndexOf(']') - i0).Split(',');
-                Array array = Activator.CreateInstance(t, items.Length) as Array;
-                int index = 0;
-                foreach (var item in items)
-                {
-                    array.SetValue(ReadValue(array.GetValue(0).GetType(), item), index++);
-                }
-                return array;
-            }
-            else if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Dictionary<,>))
-            {
-                Dictionary<string, string> items = GetDefinitionFromJSON(data);
-                Type keyType = t.GetGenericArguments()[0];
-                Type valueType = t.GetGenericArguments()[1];
-                var newList = typeof(Dictionary<,>);
-                var listOfType = newList.MakeGenericType(keyType, valueType);
-                IDictionary list = Activator.CreateInstance(listOfType) as IDictionary;
-                foreach (var item in items)
-                {
-                    list.Add(ReadValue(keyType, item.Key), ReadValue(valueType, item.Value));
-                }
-                return list;
-            }
-            else
-            {
-
-            }
-            return null;
-        }
-
-        internal static bool IsEnumerableType(Type type)
+        private static bool IsEnumerableType(Type type)
         {
             return (type.GetInterface("IEnumerable") != null);
         }
 
-        internal static object WriteCollection(IEnumerable collection)
-        {
-            string aResult = "";
-            if (typeof(IDictionary).IsAssignableFrom(collection.GetType()))
-            {
-                foreach (DictionaryEntry obj in collection as IDictionary)
-                {
-                    aResult += WriteProperty(WriteValue(obj.Key), obj.Value) + ',';
-                }
-            }
-            else
-            {
-                foreach (object obj in collection)
-                {
-                    aResult += WriteValue(obj) + ",";
-                }
-            }
-            aResult = aResult.Trim(',');
-            return aResult;
-        }
+        /**************************************/
 
-        internal static string WriteProperty(string name, object value)
-        {
-            return string.Format("\"{0}\": {1}", name, WriteValue(value));
-        }
-
-        internal static string WriteValue(object value)
-        {
-            string aResult = "";
-
-            if (value is BHoMObject)
-                aResult += "\"" + (value as BHoMObject).BHoM_Guid + "\"";
-            else if (value.GetType().GetMethod("ToJSON") != null)
-                aResult += value.GetType().GetMethod("ToJSON").Invoke(value, null);
-            else if (value is System.Collections.IEnumerable && !(value is string))
-                aResult += "{" + WriteCollection(value as System.Collections.IEnumerable) + "}";
-            else if (value is Boolean)
-                aResult += ((bool)value ? "true" : "false");
-            else if (value is Guid)
-                aResult += "\"" + value + "\"";
-            else
-                aResult += value.ToString();
-            return aResult;
-        }
-
-
-        internal static IEnumerable<T> GetObjectsFromGuid<T>(Project p, List<Guid> ids) where T : class
+        public static IEnumerable<T> GetObjectsFromGuid<T>(Project p, List<Guid> ids) where T : class
         {
             List<T> objects = new List<T>();
             for (int i = 0; i < ids.Count; i++)

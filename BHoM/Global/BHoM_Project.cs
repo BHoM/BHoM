@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
+using BHoM.Global;
+
 namespace BHoM.Global
 {
     public struct Task
@@ -102,16 +104,30 @@ namespace BHoM.Global
                 aResult = aResult.Trim(',');
             aResult += "}";
 
-            // Write all the parameters
-            aResult += ",\"Objects\": {";
-            int objIndex = 0;
+            // Write all the dependencies
+            Dictionary<Guid, BHoMObject> dependencies = new Dictionary<Guid, BHoMObject>();
+            foreach (BHoMObject bhomObject in Objects)
+            {
+                foreach (KeyValuePair<Guid, BHoMObject> kvp in bhomObject.GetDeepDependencies())
+                {
+                    if (!dependencies.ContainsKey(kvp.Key))
+                        dependencies[kvp.Key] = kvp.Value;
+                }
+            }
+            aResult += ",\"Dependencies\": [";
+            foreach (BHoMObject obj in dependencies.Values)
+                aResult += obj.ToJSON() + ",";
+            aResult = aResult.Trim(',');
+            aResult += "]";
+
+            // Write all the contained objects
+            aResult += ",\"Objects\": [";
             foreach (var value in Objects)
             {
-                aResult += string.Format("\"{0}\": {1},", objIndex++, value.ToJSON());
+                aResult += value.ToJSON() + ",";
             }
-            if (aResult.Last() == ',')
-                aResult = aResult.Trim(',');
-            aResult += "}";
+            aResult = aResult.Trim(',');
+            aResult += "]";
             // Write the extra information
             if (extra.Length > 0)
                 aResult += "," + extra;
@@ -128,7 +144,7 @@ namespace BHoM.Global
         /// <returns></returns>
         public static Project FromJSON(string json)
         {
-            Dictionary<string, string> definition = Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive") || !definition.ContainsKey("Properties")) return null;
 
             // Try to create an object that correponds the object type stored in "Primitive"
@@ -136,18 +152,26 @@ namespace BHoM.Global
             if (typeString != "BHoM.Global.Project") return null;
 
             // Get the definition of the properties
-            Dictionary<string, string> properties = Utils.GetDefinitionFromJSON(definition["Properties"]);
+            Dictionary<string, string> properties = BHoMJSON.GetDefinitionFromJSON(definition["Properties"]);
             foreach (KeyValuePair<string, string> kvp in properties)
             {
                 string prop = kvp.Key.Trim().Replace("\"", "");
                 string valueString = kvp.Value.Trim().Replace("\"", "");
-                Utils.ReadProperty(ActiveProject, prop, valueString);                
+                BHoMJSON.ReadProperty(ActiveProject, prop, valueString);                
             }
 
-            Dictionary<string, string> objects = Utils.GetDefinitionFromJSON(definition["Objects"]);
-            foreach (KeyValuePair<string, string> kvp in objects)
+            // Get all the dependencies
+            List<BHoMObject> depDefs = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Dependencies"]) as List<BHoMObject>;
+            foreach (BHoMObject o in depDefs)
             {
-                ActiveProject.AddObject(BHoMObject.FromJSON(kvp.Value));
+                ActiveProject.AddObject(o);
+            }
+
+            // Get all the contained objects
+            List<BHoMObject> objects = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Objects"]) as List<BHoMObject>;
+            foreach (BHoMObject o in objects)
+            {
+                ActiveProject.AddObject(o);
             }
 
             ActiveProject.RunTasks();
@@ -208,8 +232,8 @@ namespace BHoM.Global
         {
             while(m_TaskQueue.Count > 0)
             {
-                Task t = m_TaskQueue.Dequeue();               
-                Utils.ReadProperty(t.BhomObject, t.Property, t.Value);               
+                Task t = m_TaskQueue.Dequeue();
+                BHoMJSON.ReadProperty(t.BhomObject, t.Property, t.Value);               
             }
         }
     }

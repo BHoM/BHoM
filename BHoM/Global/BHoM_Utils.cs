@@ -32,7 +32,7 @@ namespace BHoM.Global
             return result;
         }
 
-        internal static Dictionary<string, string> GetDefinitionFromJSON(string json)
+        /*internal static Dictionary<string, string> GetDefinitionFromJSON(string json)
         {
             int level = 0;
             string key = "";
@@ -256,6 +256,8 @@ namespace BHoM.Global
                 aResult += "\"" + value + "\"";
             else if (value is string)
                 aResult += "\"" + value + "\"";
+            else if (value is Enum)
+                aResult += (int)value;
             else
                 aResult += value.ToString();
             return aResult;
@@ -272,7 +274,7 @@ namespace BHoM.Global
                 else ids.RemoveAt(i--);
             }
             return objects;
-        }
+        }*/
     }
 
     public static class Units

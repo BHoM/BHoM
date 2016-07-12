@@ -106,7 +106,7 @@ namespace BHoM.Global
                 var value = prop.GetValue(this, null);
                 if (value == null) continue;
 
-                aResult += Utils.WriteProperty(prop.Name, value) + ',';
+                aResult += BHoMJSON.WriteProperty(prop.Name, value) + ',';
             }
             if (aResult.Last() == ',')
                 aResult = aResult.Trim(',');
@@ -126,7 +126,7 @@ namespace BHoM.Global
         public static BHoMObject FromJSON(string json)
         {
             // Get the top level definition of the json content
-            Dictionary<string, string> definition = Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive") || !definition.ContainsKey("Properties")) return null;
 
             // Try to create an object that correponds the object type stored in "Primitive"
@@ -136,12 +136,12 @@ namespace BHoM.Global
             BHoMObject newObject = Activator.CreateInstance(type, true) as BHoMObject;
 
             // Get the definition of the properties
-            Dictionary<string, string> properties = Utils.GetDefinitionFromJSON(definition["Properties"]);
+            Dictionary<string, string> properties = BHoMJSON.GetDefinitionFromJSON(definition["Properties"]);
             foreach (KeyValuePair<string, string> kvp in properties)
             {
                 string prop = kvp.Key.Trim().Replace("\"", "");
                 string valueString = kvp.Value.Trim().Replace("\"", "");
-                Utils.ReadProperty(newObject, prop, valueString);
+                BHoMJSON.ReadProperty(newObject, prop, valueString);
             }
 
             return newObject;
@@ -153,6 +153,34 @@ namespace BHoM.Global
         public override string ToString()
         {
             return this.GetType().Name + (!string.IsNullOrEmpty(Name) ? ": " + Name : "");
+        }
+
+        /// <summary>
+        /// Get all dependencies related to that object
+        /// </summary>
+        public void GetDeepDependencies(ref Dictionary<Guid, BHoMObject> dependencies)
+        {
+            foreach (var prop in this.GetType().GetProperties())
+            {
+                if (!prop.CanRead || !prop.CanWrite) continue;
+                var value = prop.GetValue(this, null);
+                if (value == null || !(value is BHoMObject)) continue;
+
+                BHoMObject obj = value as BHoMObject;
+                Guid id = obj.BHoM_Guid;
+                if (!dependencies.ContainsKey(id))
+                {
+                    dependencies[id] = obj;
+                    obj.GetDeepDependencies(ref dependencies);
+                }
+            }
+        }
+
+        public Dictionary<Guid, BHoMObject> GetDeepDependencies()
+        {
+            Dictionary<Guid, BHoMObject> dependencies = new Dictionary<Guid, BHoMObject>();
+            GetDeepDependencies(ref dependencies);
+            return dependencies;
         }
     }
 }

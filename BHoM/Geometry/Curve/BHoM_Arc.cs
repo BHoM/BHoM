@@ -1,4 +1,5 @@
 ﻿using System;
+using BHoM.Global;
 using BHoM.Common;
 using System.Collections.Generic;
 
@@ -151,7 +152,7 @@ namespace BHoM.Geometry
                 }
                 else
                 {
-                    return new Point(Utils.SubArray<double>(m_ControlPoints, 4, 4));
+                    return new Point(BHoM.Common.Utils.SubArray<double>(m_ControlPoints, 4, 4));
                 }
             }
         }
@@ -185,7 +186,7 @@ namespace BHoM.Geometry
         {
             get
             {
-                return m_Radius != 0 ? m_Radius : m_Radius = VectorUtils.Length(VectorUtils.Sub(Centre, Utils.SubArray<double>(m_ControlPoints, 0, 4)));
+                return m_Radius != 0 ? m_Radius : m_Radius = VectorUtils.Length(VectorUtils.Sub(Centre, BHoM.Common.Utils.SubArray<double>(m_ControlPoints, 0, 4)));
             }
         }
 
@@ -195,12 +196,12 @@ namespace BHoM.Geometry
         }
         public static new Arc FromJSON(string json)
         {
-            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            Point start = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["start"]) as double[]);
-            Point middle = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["middle"]) as double[]);
-            Point end = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["end"]) as double[]);
+            Point start = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"]) as double[]);
+            Point middle = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["middle"]) as double[]);
+            Point end = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"]) as double[]);
             return new Arc(start, middle, end);
         }
     }

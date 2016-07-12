@@ -38,8 +38,9 @@ namespace BHoMTest
 
         static void TestProject()
         {
-            Project project = Project.ActiveProject;
+            List<BHoMObject> collection = new List<BHoMObject>();
 
+            // Add a panel
             List<Point> points = new List<Point>();
             points.Add(new Point(0, 0, 0));
             points.Add(new Point(0, 1, 0));
@@ -52,13 +53,18 @@ namespace BHoMTest
 
             Panel panel = new Panel(edges);
             panel.ThicknessProperty = new ConstantThickness("test", 0.25);
+            collection.Add(panel);
 
-            project.AddObject(panel);
+            // Add a bar
+            Node startNode = new Node(1, 2, 3, "N1");
+            Node endNode = new Node(4,5,6, "N2");
+            Bar bar = new Bar(startNode, endNode, "testBar");
+            collection.Add(bar);
 
-            string json = project.ToJSON();
-            project.Clear();
+            string json = BHoMJSON.WritePackage(collection);
+            Project.ActiveProject.Clear();
 
-            Project project2 = Project.FromJSON(json);
+            List<BHoMObject> objects = BHoMJSON.ReadPackage(json);
         }
 
         static void TestJSON2()

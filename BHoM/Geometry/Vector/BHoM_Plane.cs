@@ -1,6 +1,8 @@
 ﻿using System;
 using BHoM.Common;
 using System.Collections.Generic;
+using BHoM.Global;
+
 namespace BHoM.Geometry
 {
     /// <summary>
@@ -35,8 +37,8 @@ namespace BHoM.Geometry
             double[] v2 = VectorUtils.Sub(pnts, 6, 0, 3);
 
             m_Normal = VectorUtils.Normalise(VectorUtils.CrossProduct(v1, v2));
-            D = -VectorUtils.DotProduct(m_Normal, Utils.SubArray<double>(pnts, 0, 3));
-            Origin = new Point(Utils.SubArray<double>(pnts, 0, 4));
+            D = -VectorUtils.DotProduct(m_Normal, BHoM.Common.Utils.SubArray<double>(pnts, 0, 3));
+            Origin = new Point(BHoM.Common.Utils.SubArray<double>(pnts, 0, 4));
         }
 
         internal bool IsSameSide(double[] p1, double[] p2, double tolerance)
@@ -266,11 +268,11 @@ namespace BHoM.Geometry
 
         public static new Plane FromJSON(string json)
         {
-            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            Point origin = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["origin"]) as double[]);
-            Vector normal = new Vector(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["point"]) as double[]);
+            Point origin = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["origin"]) as double[]);
+            Vector normal = new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["point"]) as double[]);
             return new Plane(origin, normal);
         }
             
