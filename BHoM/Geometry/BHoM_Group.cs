@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Global;
 
 namespace BHoM.Geometry
 {
@@ -132,12 +133,12 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"group\", \"groupType\": \""+ typeof(T).FullName + "\"," + BHoM.Global.Utils.WriteProperty("group", m_Geometry) + "}";
+            return "{\"Primitive\": \"group\", \"groupType\": \""+ typeof(T).FullName + "\"," + BHoMJSON.WriteProperty("group", m_Geometry) + "}";
         }
 
         public static new GeometryBase FromJSON(string json)
         {
-            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
             var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
             Type groupDataType = Type.GetType(definition["groupType"].Trim('\"', '\"'));
@@ -149,7 +150,7 @@ namespace BHoM.Geometry
             System.Reflection.MethodInfo jsonMethod = groupofType.GetMethod("AddRange");
             if (jsonMethod != null)
             {
-                object result = jsonMethod.Invoke(group, new object[] { BHoM.Global.Utils.ReadValue(data, definition["group"]) });
+                object result = jsonMethod.Invoke(group, new object[] { BHoMJSON.ReadValue(data, definition["group"]) });
             }      
             return group as GeometryBase;
         }

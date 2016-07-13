@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Global;
 
 namespace BHoM.Structural
 {
@@ -54,7 +55,7 @@ namespace BHoM.Structural
 
         public static DOF FromJSON(string json)
         {
-            Dictionary<string, string> data = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> data = BHoMJSON.GetDefinitionFromJSON(json);
             DOF dof = new DOF();
             dof.Type = (DOFType)Enum.Parse(typeof(DOFType), data["Type"].Trim());
             dof.Value = double.Parse(data["Value"].Trim());

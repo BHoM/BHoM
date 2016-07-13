@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Global;
 
 namespace BHoM.Geometry
 {
@@ -97,12 +98,12 @@ namespace BHoM.Geometry
 
         public static new Line FromJSON(string json)
         {
-            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
             var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
 
-            Point startP = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["start"]) as double[]);
-            Point endP = new Point(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["end"]) as double[]);
+            Point startP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"]) as double[]);
+            Point endP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"]) as double[]);
             return new Line(startP, endP);
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Global;
 
 namespace BHoM.Geometry
 {
@@ -389,10 +390,10 @@ namespace BHoM.Geometry
 
         public static new Vector FromJSON(string json)
         {
-            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            return new Vector(BHoM.Global.Utils.ReadValue(typeof(double[]), definition["vector"]) as double[]);        
+            return new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["vector"]) as double[]);        
         }
     }
 }

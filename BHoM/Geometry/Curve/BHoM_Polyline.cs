@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Global;
 
 namespace BHoM.Geometry
 {
@@ -78,27 +79,27 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            string aResult = "{{";
+            string aResult = "[[";
             for (int i = 0; i < m_ControlPoints.Length - 1; i++)
             {
                 if (i > 0 && (i + 1) % 4 == 0)
                 {
-                    aResult = aResult.Trim(',') + "},{";
+                    aResult = aResult.Trim(',') + "],[";
                 }
                 else
                 {
                     aResult += m_ControlPoints[i] + ",";
                 }
             }
-            aResult = aResult.Trim(',') + "}}";
+            aResult = aResult.Trim(',') + "]]";
             return "{\"Primitive\": \"polyline\"," + "\"points\": " + aResult + "}";
         }
 
         public static new Polyline FromJSON(string json)
         {
-            Dictionary<string, string> definition = BHoM.Global.Utils.GetDefinitionFromJSON(json);
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
-            List<double[]> points = BHoM.Global.Utils.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
+            List<double[]> points = BHoMJSON.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
             return new Polyline(points);
         }
     }

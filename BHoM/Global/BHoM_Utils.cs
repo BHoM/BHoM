@@ -32,13 +32,14 @@ namespace BHoM.Global
             return result;
         }
 
-        internal static Dictionary<string, string> GetDefinitionFromJSON(string json)
+        /*internal static Dictionary<string, string> GetDefinitionFromJSON(string json)
         {
-            int i0 = 0;
             int level = 0;
             string key = "";
             string value = "";
-            string inside = json.Substring(json.IndexOf('{') + 1, json.LastIndexOf('}') - 1);
+            int i0 = json.IndexOf('{') + 1;
+            string inside = json.Substring(i0, json.LastIndexOf('}') - i0);
+            i0 = 0;
             int index = 0;
             Dictionary<string, string> definition = new Dictionary<string, string>();
             for (int i = 0; i < inside.Length; i++)
@@ -71,16 +72,17 @@ namespace BHoM.Global
 
         internal static List<String> GetArrayFromJSON(string json)
         {
-            int i0 = 0;
             int level = 0;
-            string inside = json.Substring(json.IndexOf('[') + 1, json.LastIndexOf(']') - 1);
+            int i0 = json.IndexOf('[') + 1;
+            string inside = json.Substring(i0, json.LastIndexOf(']') - i0);
+            i0 = 0;
             int index = 0;
             List<string> array = new List<string>();
             for (int i = 0; i < inside.Length; i++)
             {
-                if (inside[i] == '{')
+                if (inside[i] == '{' || inside[i] == '[')
                     level++;
-                else if (inside[i] == '}')
+                else if (inside[i] == '}' || inside[i] == ']')
                     level--;
                 else if (level == 0 && inside[i] == ',')
                 {
@@ -169,7 +171,9 @@ namespace BHoM.Global
             }
             else if (t.BaseType == typeof(System.Array))
             {
-                string[] items = data.Trim(' ', '[', ']').Split(',');
+                //string[] items = data.Trim(' ', '[', ']').Split(',');
+                int i0 = data.IndexOf('[') + 1;
+                string[] items = data.Substring(i0, data.LastIndexOf(']') - i0).Split(',');
                 Array array = Activator.CreateInstance(t, items.Length) as Array;
                 int index = 0;
                 foreach (var item in items)
@@ -252,6 +256,8 @@ namespace BHoM.Global
                 aResult += "\"" + value + "\"";
             else if (value is string)
                 aResult += "\"" + value + "\"";
+            else if (value is Enum)
+                aResult += (int)value;
             else
                 aResult += value.ToString();
             return aResult;
@@ -268,7 +274,7 @@ namespace BHoM.Global
                 else ids.RemoveAt(i--);
             }
             return objects;
-        }
+        }*/
     }
 
     public static class Units
