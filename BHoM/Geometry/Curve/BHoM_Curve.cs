@@ -459,7 +459,7 @@ namespace BHoM.Geometry
         }
 
 
-        public static new Curve FromJSON(string json)
+        public static new Curve FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
@@ -469,18 +469,18 @@ namespace BHoM.Geometry
             switch (typeString)
             {               
                 case "arc":
-                    return Arc.FromJSON(json);
+                    return Arc.FromJSON(json, project);
                 case "line":
-                    return Line.FromJSON(json);
+                    return Line.FromJSON(json, project);
                 case "polyline":
-                    return Polyline.FromJSON(json);
+                    return Polyline.FromJSON(json, project);
                 case "circle":
-                    return Circle.FromJSON(json);
+                    return Circle.FromJSON(json, project);
                 default:
-                    List<double[]> curvePoints = BHoMJSON.ReadValue(typeof(List<double[]>), definition["points"]) as List<double[]>;
-                    double[] knots = definition.ContainsKey("knots") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["knots"]) : null;
-                    double[] weights = definition.ContainsKey("weights") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["weights"]) : null;
-                    int degree = (int)BHoMJSON.ReadValue(typeof(int), definition["degree"]);
+                    List<double[]> curvePoints = BHoMJSON.ReadValue(typeof(List<double[]>), definition["points"], project) as List<double[]>;
+                    double[] knots = definition.ContainsKey("knots") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["knots"], project) : null;
+                    double[] weights = definition.ContainsKey("weights") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["weights"], project) : null;
+                    int degree = (int)BHoMJSON.ReadValue(typeof(int), definition["degree"], project);
                     return new NurbCurve(curvePoints, degree, knots, weights);
             }      
         }

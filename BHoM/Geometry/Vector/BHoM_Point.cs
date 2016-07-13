@@ -364,12 +364,12 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"point\", \"point\": " + ToString() + "}";
         }
 
-        public static new Point FromJSON(string json)
+        public static new Point FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            return new Point(BHoMJSON.ReadValue(typeof(double[]), definition["point"]) as double[]);
+            return new Point(BHoMJSON.ReadValue(typeof(double[]), definition["point"], project) as double[]);
         }
 
         public int CompareTo(Point other)

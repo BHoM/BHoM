@@ -388,12 +388,12 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"vector\", \"vector\": " + ToString() + "}";
         }
 
-        public static new Vector FromJSON(string json)
+        public static new Vector FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            return new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["vector"]) as double[]);        
+            return new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["vector"], project) as double[]);        
         }
     }
 }

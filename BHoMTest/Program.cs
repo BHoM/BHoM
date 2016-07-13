@@ -62,7 +62,6 @@ namespace BHoMTest
             collection.Add(bar);
 
             string json = BHoMJSON.WritePackage(collection);
-            Project.ActiveProject.Clear();
 
             List<BHoMObject> objects = BHoMJSON.ReadPackage(json);
         }
@@ -71,7 +70,7 @@ namespace BHoMTest
         {
 
             string json = "{\"Type\":\"BHoM.Structural.Panel\",\"Primitive\":\"BHoM.Structural.Panel; BHoM; Version=1.0.0.0; Culture=neutral; PublicKeyToken=null\",\"Properties\":{\"Edges\":{\"Primitive\":\"group\",\"groupType\":\"BHoM.Geometry.Curve\",\"group\":[{\"Primitive\":\"line\",\"start\":[18.5527278433439,0.647867078636319,45.315],\"end\":[20.9634789624637,-2.40652705182553,45.315]},{\"Primitive\":\"line\",\"start\":[20.9634789624637,-2.40652705182553,45.315],\"end\":[19.8252869247859,-3.30487140799036,45.315]},{\"Primitive\":\"line\",\"start\":[19.8252869247859,-3.30487140799036,45.315],\"end\":[21.4405330528925,-5.3513698017116,45.315]},{\"Primitive\":\"line\",\"start\":[21.4405330528925,-5.3513698017116,45.315],\"end\":[15.9309504513109,-9.69993513261395,45.315]},{\"Primitive\":\"line\",\"start\":[15.9309504513109,-9.69993513261395,45.315],\"end\":[20.4193086231399,-15.3866336668278,45.315]},{\"Primitive\":\"line\",\"start\":[20.4193086231399,-15.3866336668278,45.315],\"end\":[15.4786819336972,-19.286137402097,45.315]},{\"Primitive\":\"line\",\"start\":[15.4786819336972,-19.286137402097,45.315],\"end\":[21.6090839034293,-27.0532866715617,45.315]},{\"Primitive\":\"line\",\"start\":[21.6090839034293,-27.0532866715617,45.315],\"end\":[59.5345962173439,2.880299941271,45.315]},{\"Primitive\":\"line\",\"start\":[59.5345962173439,2.880299941271,45.315],\"end\":[48.9158845088935,16.3339070306786,45.315]},{\"Primitive\":\"line\",\"start\":[48.9158845088935,16.3339070306786,45.315],\"end\":[41.1255022473884,10.1851678853345,45.315]},{\"Primitive\":\"line\",\"start\":[41.1255022473884,10.1851678853345,45.315],\"end\":[42.0238466035529,9.04697584765641,45.315]},{\"Primitive\":\"line\",\"start\":[42.0238466035529,9.04697584765641,45.315],\"end\":[38.9695268966916,6.6362834690844,45.315]},{\"Primitive\":\"line\",\"start\":[38.9695268966916,6.6362834690844,45.315],\"end\":[38.0711825405269,7.77447550676216,45.315]},{\"Primitive\":\"line\",\"start\":[38.0711825405269,7.77447550676216,45.315],\"end\":[34.1219325940382,4.65743876509753,45.315]},{\"Primitive\":\"line\",\"start\":[34.1219325940382,4.65743876509753,45.315],\"end\":[31.8110184936057,7.58533602506226,45.315]},{\"Primitive\":\"line\",\"start\":[31.8110184936057,7.58533602506226,45.315],\"end\":[30.9194973068434,6.88168233568717,45.315]},{\"Primitive\":\"line\",\"start\":[30.9194973068434,6.88168233568717,45.315],\"end\":[27.9084980181773,10.696584040468,45.315]},{\"Primitive\":\"line\",\"start\":[27.9084980181773,10.696584040468,45.315],\"end\":[29.1330345821453,11.6630778084287,45.315]},{\"Primitive\":\"line\",\"start\":[29.1330345821453,11.6630778084287,45.315],\"end\":[24.5676327138692,17.4473809195925,45.315]},{\"Primitive\":\"line\",\"start\":[24.5676327138692,17.4473809195925,45.315],\"end\":[-41.5581049985984,17.4473809195925,45.315]},{\"Primitive\":\"line\",\"start\":[-41.5581049985984,17.4473809195925,45.315],\"end\":[-41.5581049985984,-17.5602601367444,45.315]},{\"Primitive\":\"line\",\"start\":[-41.5581049985984,-17.5602601367444,45.315],\"end\":[-24.4580312812881,-17.5602601367444,45.315]},{\"Primitive\":\"line\",\"start\":[-24.4580312812881,-17.5602601367444,45.315],\"end\":[-24.4580312812881,-0.212562545568443,45.315]},{\"Primitive\":\"line\",\"start\":[-24.4580312812881,-0.212562545568443,45.315],\"end\":[17.4625733379682,-0.212562545568443,45.315]},{\"Primitive\":\"line\",\"start\":[17.4625733379682,-0.212562545568443,45.315],\"end\":[18.5527278433439,0.647867078636319,45.315]}]},\"ThicknessProperty\":\"55f3838c-79ec-41ca-a934-d0b6e52cd834\",\"BHoM_Guid\":\"9dff7ffc-3f19-4956-b5f8-ced406a083a6\",\"CustomData\":{\"RevitId\":827391}}}";
-            var obj = BHoM.Global.BHoMObject.FromJSON(json);
+            var obj = BHoM.Global.BHoMObject.FromJSON(json, Project.ActiveProject);
         }
 
         static void TestBarNodes()
@@ -90,12 +89,14 @@ namespace BHoMTest
         {
             Node n1 = new Node(1, 1, 1);
             n1.CustomData.Add("Number", 1);
+
+            Project project = Project.ActiveProject;
             Project.ActiveProject.AddObject(new Node(1, 1, 1));
 
-            ObjectManager<int, Node> nodes = new ObjectManager<int, Node>("Number", FilterOption.UserData);
+            ObjectManager<int, Node> nodes = new ObjectManager<int, Node>(project, "Number", FilterOption.UserData);
             int num = nodes.GetUniqueNumber();
             nodes.Add(2, new Node(0, 0, 0));
-            ObjectManager<int, Bar> bars = new ObjectManager<int, Bar>("Number", FilterOption.UserData);
+            ObjectManager<int, Bar> bars = new ObjectManager<int, Bar>(project, "Number", FilterOption.UserData);
 
             Bar b = new Bar(nodes[0], nodes[2]);
             bars.Add(1, b);
@@ -114,7 +115,7 @@ namespace BHoMTest
         {
             using (StreamReader fs = new StreamReader(@"C:\Users\edalton\Documents\temp.js"))
             {
-                Project p = Project.FromJSON(fs.ReadToEnd());
+                Project p = Project.FromJSON(fs.ReadToEnd(), Project.ActiveProject);
                 fs.Close();
             }
         }

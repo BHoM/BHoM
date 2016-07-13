@@ -16,7 +16,10 @@ namespace BHoM.Global
         UserData
     }
 
-    public class ObjectFilter : ObjectFilter<BHoMObject> { }
+    public class ObjectFilter : ObjectFilter<BHoMObject>
+    {
+        public ObjectFilter(Project project) : base(project) { }
+    }
 
     /// <summary>
     /// 
@@ -33,9 +36,9 @@ namespace BHoM.Global
         /// 
         /// </summary>
         /// <param name="project"></param>
-        public ObjectFilter()
+        public ObjectFilter(Project project)
         {
-            m_Project = Project.ActiveProject;
+            m_Project = project;
             m_Data = FilterClass(m_Project.Objects);
         }
 

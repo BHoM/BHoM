@@ -123,7 +123,7 @@ namespace BHoM.Global
         /// <summary>
         /// Method which convert the object as a Json string
         /// </summary>
-        public static BHoMObject FromJSON(string json)
+        public static BHoMObject FromJSON(string json, Project project)
         {
             // Get the top level definition of the json content
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
@@ -141,7 +141,7 @@ namespace BHoM.Global
             {
                 string prop = kvp.Key.Trim().Replace("\"", "");
                 string valueString = kvp.Value.Trim().Replace("\"", "");
-                BHoMJSON.ReadProperty(newObject, prop, valueString);
+                BHoMJSON.ReadProperty(newObject, prop, valueString, project);
             }
 
             return newObject;

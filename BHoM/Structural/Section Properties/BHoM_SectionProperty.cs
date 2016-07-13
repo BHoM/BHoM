@@ -83,9 +83,9 @@ namespace BHoM.Structural.SectionProperties
         /// </summary>
         /// <param name="name">Name of section to search for</param>
         /// <returns></returns>
-        public static SectionProperty LoadFromDB(string name)
+        public static SectionProperty LoadFromDB(Project project, string name)
         {
-            object[] data = Project.ActiveProject.Structure.SectionDatabase.GetDataRow(new string[] { "Name", "Name1", "Name2" }, name);
+            object[] data = project.Structure.SectionDatabase.GetDataRow(new string[] { "Name", "Name1", "Name2" }, name);
             
             if (data != null)
             {

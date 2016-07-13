@@ -304,5 +304,12 @@ namespace BHoM.Global
             Kelvin,
             Fahrenheit
         }
+
+        public enum LoadUnit
+        {
+            kN_per_m2,
+            kN,
+            Pascals
+        }
     }
 }

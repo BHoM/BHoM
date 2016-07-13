@@ -17,7 +17,7 @@ namespace BHoM.Global
         /// <summary>
         /// Initialises a new object manager where the BHoM object name is used as the default key
         /// </summary>
-        public ObjectManager() : base("", FilterOption.Name) { }
+        public ObjectManager(Project project) : base(project, "", FilterOption.Name) { }
        
 
     }
@@ -30,6 +30,7 @@ namespace BHoM.Global
     /// <typeparam name="TValue">Type of BHoMObject</typeparam>
     public class ObjectManager<TKey, TValue> : IEnumerable<TValue> where TValue : BHoMObject
     {
+        Project m_Project;
         Dictionary<TKey, TValue> m_Data;
         FilterOption m_Option;
         string m_Name;
@@ -40,9 +41,10 @@ namespace BHoM.Global
         /// </summary>
         /// <param name="name">Name of the BHoM Property or userdata name</param>
         /// <param name="option">Fliter option defines the type of key to be used</param>
-        public ObjectManager(string name, FilterOption option)
+        public ObjectManager(Project project, string name, FilterOption option)
         {
-            m_Data = new ObjectFilter<TValue>().ToDictionary<TKey>(name, option);
+            m_Project = project;
+            m_Data = new ObjectFilter<TValue>(project).ToDictionary<TKey>(name, option);
             m_Option = option;
             m_Name = name;
         }
@@ -53,7 +55,7 @@ namespace BHoM.Global
             if (!m_Data.TryGetValue(key, out result))
             {
                 m_Data.Add(key, value);
-                Project.ActiveProject.AddObject(value);
+                m_Project.AddObject(value);
                 if (m_UniqueNumber > 0) m_UniqueNumber++;
                 result = value;
                 switch (m_Option)

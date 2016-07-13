@@ -194,14 +194,14 @@ namespace BHoM.Geometry
         {
             return "{ \"Primitive\": \"arc\", \"start\": " + StartPoint + ", \"middle\": " + MiddlePoint + ", \"end\": " + EndPoint + "}";
         }
-        public static new Arc FromJSON(string json)
+        public static new Arc FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            Point start = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"]) as double[]);
-            Point middle = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["middle"]) as double[]);
-            Point end = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"]) as double[]);
+            Point start = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"], project) as double[]);
+            Point middle = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["middle"], project) as double[]);
+            Point end = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"], project) as double[]);
             return new Arc(start, middle, end);
         }
     }

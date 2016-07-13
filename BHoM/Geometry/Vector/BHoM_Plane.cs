@@ -266,13 +266,13 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"plane\", \"normal\": " + Normal + ", \"origin\":" + Origin + "}";
         }
 
-        public static new Plane FromJSON(string json)
+        public static new Plane FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            Point origin = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["origin"]) as double[]);
-            Vector normal = new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["point"]) as double[]);
+            Point origin = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["origin"], project) as double[]);
+            Vector normal = new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["point"], project) as double[]);
             return new Plane(origin, normal);
         }
             
