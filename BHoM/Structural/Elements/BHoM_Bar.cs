@@ -49,7 +49,8 @@ namespace BHoM.Structural
         [Description("Elastic bar constraint")]
         [DefaultValue(null)]
         public BHoM.Structural.BarConstraint Spring { get; set; }
-     
+
+        [DefaultValue(null)]
         public Node StartNode           
         {
             get
@@ -66,7 +67,8 @@ namespace BHoM.Structural
                 m_StartNode.ConnectedBars.Add(this);
             }
         }
-     
+
+        [DefaultValue(null)]
         public Node EndNode           
         {
             get
@@ -84,6 +86,7 @@ namespace BHoM.Structural
             }
         }
 
+        [DefaultValue(null)]
         public Point StartPoint
         {
             get
@@ -92,10 +95,12 @@ namespace BHoM.Structural
             }
             set
             {
-                StartNode = new Node(value);
+                if(StartNode == null)
+                    StartNode = new Node(value);
             }
         }
 
+        [DefaultValue(null)]
         public Point EndPoint
         {
             get
@@ -104,7 +109,8 @@ namespace BHoM.Structural
             }
             set
             {
-                EndNode = new Node(value);
+                if(EndNode == null)
+                    EndNode = new Node(value);
             }
         }
 
