@@ -10,7 +10,7 @@ namespace BHoM.HumanBody
     /// <summary>
     /// BHoM Human skeleton class
     /// </summary>
-    public class Skeleton
+    public class Skeleton : BHoM.Global.BHoMObject
     {
         /// <summary>
         /// Constructs an empty skeleton object
