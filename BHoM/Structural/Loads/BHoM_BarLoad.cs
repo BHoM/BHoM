@@ -51,4 +51,13 @@ namespace BHoM.Structural.Loads
         internal BarVaryingDistributedLoad() { }
         //patch load for bars. Should include patch moments. 
     }
+
+    /// <summary>
+    /// Prestress load on a bar
+    /// </summary>
+    public class BarPrestressLoad : Load<Bar>
+    {
+        public double PrestressValue { get; set; }
+        //internal BarPrestressLoad() { }
+    }
 }
