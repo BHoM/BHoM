@@ -236,5 +236,32 @@ namespace BHoM.Global
                 BHoMJSON.ReadProperty(t.BhomObject, t.Property, t.Value);               
             }
         }
+
+        public void MergeWithin(double tolerance)
+        {
+            List<Node> nodes = new BHoM.Global.ObjectFilter<Node>().ToList();
+
+            nodes.Sort(delegate (Node n1, Node n2)
+            {
+                return n1.Point.DistanceTo(BHoM.Geometry.Point.Origin).CompareTo(n2.Point.DistanceTo(BHoM.Geometry.Point.Origin));
+            });
+
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                double distance = nodes[i].Point.DistanceTo(BHoM.Geometry.Point.Origin);
+                int j = i + 1;
+                while (j < nodes.Count && Math.Abs(nodes[j].Point.DistanceTo(BHoM.Geometry.Point.Origin) - distance) < tolerance)
+                {
+                    if (nodes[i].Point.DistanceTo(nodes[j].Point) < tolerance)
+                    {
+                        nodes[j] = nodes[j].Merge(nodes[i]);
+                        BHoM.Global.Project.ActiveProject.RemoveObject(nodes[i].BHoM_Guid);
+                        break;
+                    }
+                    j++;
+                }
+            }
+        }
+
     }
 }

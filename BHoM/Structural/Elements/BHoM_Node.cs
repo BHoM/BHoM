@@ -20,6 +20,8 @@ namespace BHoM.Structural
     {
         private List<Bar> m_ConnectedBars;
         private List<Face> m_ConnectedFaces;
+        private double m_Weight = 1;
+        private NodeConstraint m_Constraint;
 
         /////////////////
         ////Properties///
@@ -38,7 +40,18 @@ namespace BHoM.Structural
         [DisplayName("Constraint")]
         [Description("Constraint assigned to the point object")]
         [DefaultValue(null)]
-        public BHoM.Structural.NodeConstraint Constraint { get; set; }
+        public BHoM.Structural.NodeConstraint Constraint
+        {
+            get { return m_Constraint; }
+            set
+            {
+                if (value != null)
+                {
+                    this.IsConstrained = true;
+                    m_Constraint = value;
+                }
+            }
+        }
 
         /// <summary>Returns true is node is constrained</summary>
         public bool IsConstrained { get; private set; }
@@ -389,6 +402,32 @@ namespace BHoM.Structural
         {
             return "Node: " + Point.ToString();
         }
+
+        public Node Merge(Node n)
+        {
+            if (this.Constraint == null)
+            {
+                this.Constraint = n.Constraint;
+            }
+            List<Bar> bars = new List<Bar>();
+            bars.AddRange(n.ConnectedBars);
+            for (int i = 0; i < bars.Count; i++)
+            {
+                if (bars[i].StartNode == n)
+                {
+                    bars[i].StartNode = this;
+                }
+                else
+                {
+                    bars[i].EndNode = this;
+                }
+            }
+
+            this.Point = new Point(this.X + n.X * n.m_Weight, this.Y + n.Y * n.m_Weight, this.Z + n.Z * n.m_Weight) / (1 + n.m_Weight);
+            this.m_Weight = n.m_Weight + 1;
+            return this;
+        }
+
     }
 }
     

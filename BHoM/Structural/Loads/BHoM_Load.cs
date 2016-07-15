@@ -37,9 +37,9 @@ namespace BHoM.Structural.Loads
             }
             set
             {            
-                if (m_Loadcase != null) m_Loadcase.LoadRecords.Remove(this);                
+                //if (m_Loadcase != null) m_Loadcase.LoadRecords.Remove(this);                
                 m_Loadcase = value;
-                if (m_Loadcase != null) m_Loadcase.LoadRecords.Add(this);
+                //if (m_Loadcase != null) m_Loadcase.LoadRecords.Add(this);
             }
         }
 

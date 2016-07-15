@@ -8,6 +8,14 @@ using System.Threading.Tasks;
 namespace BHoM.Structural.Loads
 {
     /// <summary>
+    /// Gravity load
+    /// </summary>
+    public class BarGravityLoad : Load<Bar>
+    {
+       // internal BarGravityLoad() { }
+    }
+
+    /// <summary>
     /// Point load along a bar
     /// </summary>
     public class BarPointLoad : Load<Bar>

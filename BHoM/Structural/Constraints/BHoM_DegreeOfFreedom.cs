@@ -12,7 +12,7 @@ namespace BHoM.Structural
     /// <summary>
     /// Degrees of freedom class for use in constraint objects
     /// </summary>
-    public class DOF
+    public class DOF : BHoMObject
     {
         /////////////////
         ////Properties///
@@ -21,7 +21,7 @@ namespace BHoM.Structural
         /// <summary>Type of DOF (linear/non-linear etc)</summary>
         public DOFType Type { get; set; }
 
-        /// <summary>DOF value</summary>
+        /// <summary>DOF value, -1 for fixed, 0 for free</summary>
         public double Value { get; set; }
 
         /// <summary>DOF non-linear model</summary>
