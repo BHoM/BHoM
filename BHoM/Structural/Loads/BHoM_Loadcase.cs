@@ -63,7 +63,7 @@ namespace BHoM.Structural.Loads
             get; set;
         }
 
-        internal Loadcase() { }
+        public Loadcase() { m_Loads = new List<ILoad>(); }
 
         /// <summary>
         /// 
@@ -72,13 +72,13 @@ namespace BHoM.Structural.Loads
         /// <param name="name">LC name</param>
         /// <param name="nature">Loading nature</param>
         /// <param name="selfWeightMultiplier"></param>
-        public Loadcase(int number, string name, LoadNature nature, double selfWeightMultiplier = 0)
+        public Loadcase(int number, string name, LoadNature nature, double selfWeightMultiplier = 0) : this()
         {
             Number = number;
             Name = name;
             Nature = nature;
             SelfWeightMultiplier = selfWeightMultiplier;
-            m_Loads = new List<ILoad>();
         }
     }
+
 }
