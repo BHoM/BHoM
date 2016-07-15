@@ -241,7 +241,7 @@ namespace BHoM.Global
 
         public void MergeWithin(double tolerance)
         {
-            List<Node> nodes = new BHoM.Global.ObjectFilter<Node>().ToList();
+            List<Node> nodes = new BHoM.Global.ObjectFilter<Node>(new Project()).ToList();
 
             nodes.Sort(delegate (Node n1, Node n2)
             {
