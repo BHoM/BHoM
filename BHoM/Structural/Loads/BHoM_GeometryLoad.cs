@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Loads
 {
-    class GeometricalLoad : Load<BHoM.Geometry.GeometryBase>
+    public class GeometricalLoad : Load<BHoM.Geometry.GeometryBase>
     {
         /// <summary>Force - fx, fy, fz defined as a BHoM.Geometry.Vector</summary>
         public Geometry.Vector Force { get; set; }
@@ -16,9 +16,9 @@ namespace BHoM.Structural.Loads
 
         public Global.Units.LoadUnit Unit { get; set; }
 
-        public GeometricalLoad(Global.Units.LoadUnit unit, Geometry.Vector force, Geometry.Vector moment = null)
+        public GeometricalLoad(BHoM.Geometry.Curve contour, Geometry.Vector force, Geometry.Vector moment = null)
         {
-            Unit = unit;
+            Objects.Add(contour);
             Force = force;
             Moment = (moment != null) ? moment : new Geometry.Vector(0, 0, 0);
         }
