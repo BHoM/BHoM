@@ -115,7 +115,7 @@ namespace BHoMTest
         {
             using (StreamReader fs = new StreamReader(@"C:\Users\edalton\Documents\temp.js"))
             {
-                Project p = Project.FromJSON(fs.ReadToEnd(), Project.ActiveProject);
+                Project p = Project.FromJSON(fs.ReadToEnd());
                 fs.Close();
             }
         }

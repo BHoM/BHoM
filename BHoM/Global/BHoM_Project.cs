@@ -142,9 +142,9 @@ namespace BHoM.Global
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public static Project FromJSON(string json, Project project)
+        public static Project FromJSON(string json)
         {
-            Project newProject = new Project();
+            Project project = new Project();
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive") || !definition.ContainsKey("Properties")) return null;
@@ -159,26 +159,26 @@ namespace BHoM.Global
             {
                 string prop = kvp.Key.Trim().Replace("\"", "");
                 string valueString = kvp.Value.Trim().Replace("\"", "");
-                BHoMJSON.ReadProperty(newProject, prop, valueString, newProject);                
+                BHoMJSON.ReadProperty(project, prop, valueString, project);                
             }
 
             // Get all the dependencies
             List<BHoMObject> depDefs = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Dependencies"], project) as List<BHoMObject>;
             foreach (BHoMObject o in depDefs)
             {
-                newProject.AddObject(o);
+                project.AddObject(o);
             }
 
             // Get all the contained objects
             List<BHoMObject> objects = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Objects"], project) as List<BHoMObject>;
             foreach (BHoMObject o in objects)
             {
-                newProject.AddObject(o);
+                project.AddObject(o);
             }
 
-            newProject.RunTasks();
+            project.RunTasks();
 
-            return newProject;
+            return project;
         }
 
         /// <summary>
