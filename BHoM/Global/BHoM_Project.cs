@@ -144,6 +144,8 @@ namespace BHoM.Global
         /// <returns></returns>
         public static Project FromJSON(string json)
         {
+            Project project = new Project();
+
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive") || !definition.ContainsKey("Properties")) return null;
 
@@ -157,32 +159,32 @@ namespace BHoM.Global
             {
                 string prop = kvp.Key.Trim().Replace("\"", "");
                 string valueString = kvp.Value.Trim().Replace("\"", "");
-                BHoMJSON.ReadProperty(ActiveProject, prop, valueString);                
+                BHoMJSON.ReadProperty(project, prop, valueString, project);                
             }
 
             // Get all the dependencies
-            List<BHoMObject> depDefs = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Dependencies"]) as List<BHoMObject>;
+            List<BHoMObject> depDefs = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Dependencies"], project) as List<BHoMObject>;
             foreach (BHoMObject o in depDefs)
             {
-                ActiveProject.AddObject(o);
+                project.AddObject(o);
             }
 
             // Get all the contained objects
-            List<BHoMObject> objects = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Objects"]) as List<BHoMObject>;
+            List<BHoMObject> objects = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Objects"], project) as List<BHoMObject>;
             foreach (BHoMObject o in objects)
             {
-                ActiveProject.AddObject(o);
+                project.AddObject(o);
             }
 
-            ActiveProject.RunTasks();
+            project.RunTasks();
 
-            return ActiveProject;
+            return project;
         }
 
         /// <summary>
         /// Constructs an empty project
         /// </summary>
-        private Project()
+        public Project()
         {
             m_Objects = new Dictionary<Guid, Global.BHoMObject>();
             m_TaskQueue = new Queue<Task>();
@@ -233,13 +235,13 @@ namespace BHoM.Global
             while(m_TaskQueue.Count > 0)
             {
                 Task t = m_TaskQueue.Dequeue();
-                BHoMJSON.ReadProperty(t.BhomObject, t.Property, t.Value);               
+                BHoMJSON.ReadProperty(t.BhomObject, t.Property, t.Value, this);               
             }
         }
 
         public void MergeWithin(double tolerance)
         {
-            List<Node> nodes = new BHoM.Global.ObjectFilter<Node>().ToList();
+            List<Node> nodes = new BHoM.Global.ObjectFilter<Node>(new Project()).ToList();
 
             nodes.Sort(delegate (Node n1, Node n2)
             {

@@ -129,6 +129,7 @@
     <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_ResponseSpectrum.cs" />
     <Compile Include="Structural\Loads\BHoM_AreaLoads.cs" />
     <Compile Include="Structural\Loads\BHoM_BarLoad.cs" />
+    <Compile Include="Structural\Loads\BHoM_GeometryLoad.cs" />
     <Compile Include="Structural\Loads\BHoM_Load.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcase.cs" />
     <Compile Include="Structural\Loads\BHoM_Loadcombination.cs" />

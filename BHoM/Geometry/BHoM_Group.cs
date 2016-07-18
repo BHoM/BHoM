@@ -136,7 +136,7 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"group\", \"groupType\": \""+ typeof(T).FullName + "\"," + BHoMJSON.WriteProperty("group", m_Geometry) + "}";
         }
 
-        public static new GeometryBase FromJSON(string json)
+        public static new GeometryBase FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
@@ -150,7 +150,7 @@ namespace BHoM.Geometry
             System.Reflection.MethodInfo jsonMethod = groupofType.GetMethod("AddRange");
             if (jsonMethod != null)
             {
-                object result = jsonMethod.Invoke(group, new object[] { BHoMJSON.ReadValue(data, definition["group"]) });
+                object result = jsonMethod.Invoke(group, new object[] { BHoMJSON.ReadValue(data, definition["group"], project) });
             }      
             return group as GeometryBase;
         }

@@ -96,14 +96,14 @@ namespace BHoM.Geometry
             return "{ \"Primitive\": \"line\", \"start\": " + StartPoint + ", \"end\": " + EndPoint + "}";
         }
 
-        public static new Line FromJSON(string json)
+        public static new Line FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
             var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
 
-            Point startP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"]) as double[]);
-            Point endP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"]) as double[]);
+            Point startP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"], project) as double[]);
+            Point endP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"], project) as double[]);
             return new Line(startP, endP);
         }
     }

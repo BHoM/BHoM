@@ -54,6 +54,7 @@ namespace BHoM.Global
 
         public static List<BHoMObject> ReadPackage(string json)
         {
+            Project project = new Project();
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
 
             // Try to create an object that correponds the object type stored in "Primitive"
@@ -61,20 +62,20 @@ namespace BHoM.Global
             if (typeString != typeof(List<BHoMObject>).ToString()) return null;
 
             // Get all the dependencies
-            List<BHoMObject> depDefs = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Dependencies"]) as List<BHoMObject>;
+            List<BHoMObject> depDefs = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Dependencies"], project) as List<BHoMObject>;
             foreach (BHoMObject o in depDefs)
             {
-                Project.ActiveProject.AddObject(o);
+                project.AddObject(o);
             }
 
             // Get all the contained objects
-            List<BHoMObject> objects = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Objects"]) as List<BHoMObject>;
+            List<BHoMObject> objects = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Objects"], project) as List<BHoMObject>;
             foreach (BHoMObject o in objects)
             {
-                Project.ActiveProject.AddObject(o);
+                project.AddObject(o);
             }
 
-            Project.ActiveProject.RunTasks();
+            project.RunTasks();
 
             return objects;
         }
@@ -113,7 +114,7 @@ namespace BHoM.Global
 
         /**************************************/
 
-        public static IEnumerable ReadCollection(Type t, string data)
+        public static IEnumerable ReadCollection(Type t, string data, Project project)
         {
             if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(List<>))
             {
@@ -126,7 +127,7 @@ namespace BHoM.Global
 
                 foreach (var item in items)
                 {
-                    list.Add(ReadValue(listType, item));
+                    list.Add(ReadValue(listType, item, project));
                 }
                 return list;
             }
@@ -139,7 +140,7 @@ namespace BHoM.Global
                 int index = 0;
                 foreach (var item in items)
                 {
-                    array.SetValue(ReadValue(array.GetValue(0).GetType(), item), index++);
+                    array.SetValue(ReadValue(array.GetValue(0).GetType(), item, project), index++);
                 }
                 return array;
             }
@@ -153,7 +154,7 @@ namespace BHoM.Global
                 IDictionary list = Activator.CreateInstance(listOfType) as IDictionary;
                 foreach (var item in items)
                 {
-                    list.Add(ReadValue(keyType, item.Key), ReadValue(valueType, item.Value));
+                    list.Add(ReadValue(keyType, item.Key, project), ReadValue(valueType, item.Value, project));
                 }
                 return list;
             }
@@ -232,16 +233,16 @@ namespace BHoM.Global
 
         /**************************************/
 
-        public static void ReadProperty(object obj, string propertyName, string value)
+        public static void ReadProperty(object obj, string propertyName, string value, Project project)
         {
             System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(propertyName);
             if (pInfo == null) return;
 
             Type pType = pInfo.PropertyType;
-            object result = ReadValue(pType, value, obj);
+            object result = ReadValue(pType, value, project);
             if (result == null && obj is BHoMObject)
             {
-                Project.ActiveProject.AddTask(new Task(obj as BHoMObject, propertyName, value));
+                project.AddTask(new Task(obj as BHoMObject, propertyName, value));
             }
             else
             {
@@ -251,28 +252,28 @@ namespace BHoM.Global
 
         /**************************************/
 
-        public static object ReadValue(Type type, string value, object obj = null)
+        public static object ReadValue(Type type, string value, Project project)
         {
             System.Reflection.MethodInfo jsonMethod = null;
             if (type == typeof(System.String) || type == typeof(System.Object))
                 return value;
             else if (type.BaseType == typeof(BHoMObject))
             {
-                BHoMObject b = Project.ActiveProject.GetObject(new Guid(value));
+                BHoMObject b = project.GetObject(new Guid(value));
                 return b;
             }
             else if ((jsonMethod = type.GetMethod("FromJSON")) != null)
             {
-                return jsonMethod.Invoke(null, new object[] { value });
+                return jsonMethod.Invoke(null, new object[] { value, project });
             }
             else if (IsEnumerableType(type))
             {
-                return ReadCollection(type, value);
+                return ReadCollection(type, value, project);
             }
             else
             {
                 if (type.BaseType != null && (jsonMethod = type.BaseType.GetMethod("FromJSON")) != null)
-                    return jsonMethod.Invoke(null, new object[] { value });
+                    return jsonMethod.Invoke(null, new object[] { value, project });
                 else
                 {
                     System.Reflection.MethodInfo parseMethod = type.GetMethod("Parse", new Type[] { typeof(string) });
