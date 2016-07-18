@@ -95,8 +95,7 @@ namespace BHoM.Structural
             }
             set
             {
-                if(StartNode == null)
-                    StartNode = new Node(value);
+                StartNode = new Node(value);
             }
         }
 
@@ -109,8 +108,7 @@ namespace BHoM.Structural
             }
             set
             {
-                if(EndNode == null)
-                    EndNode = new Node(value);
+                EndNode = new Node(value);
             }
         }
 
