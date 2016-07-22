@@ -15,7 +15,7 @@ namespace BHoM.Structural
         public int Number { get; set; }
 
         /// <summary>Storey level (in metres)</summary>
-        public double Level { get; set; }
+        public double Elevation { get; set; }
 
         /// <summary>Storey name</summary>
         public string Name { get; set; }
@@ -23,6 +23,16 @@ namespace BHoM.Structural
         /// <summary>Storey height</summary>
         public double Height { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public Geometry.Plane Plane
+        {
+            get
+            {
+                return new Geometry.Plane(new Geometry.Point(0, 0, Elevation), Geometry.Vector.ZAxis());
+            }
+        }
         /// <summary>
         /// Constructs and empty storey object
         /// </summary>

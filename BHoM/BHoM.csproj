@@ -105,6 +105,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Structural\BHoM_IStructuralObject.cs" />
+    <Compile Include="Structural\Elements\BHoM_Grid.cs" />
     <Compile Include="Structural\Elements\BHoM_Opening.cs" />
     <Compile Include="Structural\Elements\BHoM_Panel.cs" />
     <Compile Include="Structural\BHoM_SuperBar.cs" />

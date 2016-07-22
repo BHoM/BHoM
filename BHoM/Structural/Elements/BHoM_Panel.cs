@@ -119,6 +119,16 @@ namespace BHoM.Structural
             SetEdges(edges);
         }
 
+        /// <summary>
+        /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
+        /// </summary>
+        /// <param name="edges"></param>
+        /// <param name="number"></param>
+        public Panel(List<Curve> edges)
+        {
+            SetEdges(new Group<Curve>(edges));
+        }
+
         ///////////////
         ////METHODS////
         ///////////////

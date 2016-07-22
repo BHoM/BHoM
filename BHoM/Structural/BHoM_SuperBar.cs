@@ -42,8 +42,8 @@ namespace BHoM.Structural
             this.StartPoint = new Geometry.Point(bar.StartPoint);
             this.EndPoint = new Geometry.Point(bar.EndPoint);
             this.LevelName = bar.Storey.Name;
-            this.StartOffset = bar.StartPoint.Z - bar.Storey.Level;
-            this.EndOffset = bar.EndPoint.Z - bar.Storey.Level;
+            this.StartOffset = bar.StartPoint.Z - bar.Storey.Elevation;
+            this.EndOffset = bar.EndPoint.Z - bar.Storey.Elevation;
         }
 
         /// <summary>
