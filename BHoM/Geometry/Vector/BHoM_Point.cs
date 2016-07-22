@@ -94,6 +94,20 @@ namespace BHoM.Geometry
             Coordinates = BHoM.Common.Utils.Copy<double>(dup);
         }
 
+        public static List<Point> RemoveDuplicates(List<Point> points, int decimals)
+        {
+            Dictionary<string, Point> values = new Dictionary<string, Point>();
+            Point tempPoint = null;
+            for (int i = 0; i < points.Count; i++)
+            {
+                string key = points[i].ToString(decimals);
+                if (!values.TryGetValue(key, out tempPoint))
+                {
+                    values.Add(key, points[i]);
+                }
+            }
+            return values.Values.ToList();
+        }
         /// <summary>
         /// Create a point from json
         /// </summary>
@@ -328,6 +342,11 @@ namespace BHoM.Geometry
         public override string ToString()
         {
             return "[" + X + ", " + Y + ", " + Z + "]";
+        }
+
+        public string ToString(int decimals)
+        {
+            return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
         }
 
         public override BoundingBox Bounds()

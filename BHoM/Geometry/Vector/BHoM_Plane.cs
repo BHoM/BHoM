@@ -31,14 +31,14 @@ namespace BHoM.Geometry
             Origin = p1.DuplicatePoint();
         }
 
-        internal Plane(double[] pnts)
+        internal Plane(double[] pnts, int length)
         {
-            double[] v1 = VectorUtils.Sub(pnts, 3, 0, 3);
-            double[] v2 = VectorUtils.Sub(pnts, 6, 0, 3);
+            double[] v1 = VectorUtils.Sub(pnts, length, 0, length);
+            double[] v2 = VectorUtils.Sub(pnts, 2 * length, 0, length);
 
             m_Normal = VectorUtils.Normalise(VectorUtils.CrossProduct(v1, v2));
-            D = -VectorUtils.DotProduct(m_Normal, BHoM.Common.Utils.SubArray<double>(pnts, 0, 3));
-            Origin = new Point(BHoM.Common.Utils.SubArray<double>(pnts, 0, 4));
+            D = -VectorUtils.DotProduct(m_Normal, Common.Utils.SubArray<double>(pnts, 0, length));
+            Origin = new Point(Common.Utils.SubArray<double>(pnts, 0, 4));
         }
 
         internal bool IsSameSide(double[] p1, double[] p2, double tolerance)
@@ -121,7 +121,7 @@ namespace BHoM.Geometry
             double[] vectors = new double[v.Length];
             for (int i = 0; i < v.Length; i++)
             {
-                vectors[i] = (m_Normal[i % 4] * -distances[i / 4] + D) * multiplier;
+                vectors[i] = m_Normal[i % 4] * -(distances[i / 4] + D) * multiplier;
             }
             return vectors;
         }
@@ -187,7 +187,7 @@ namespace BHoM.Geometry
 
                 currentVector = VectorUtils.Sub(nextPoint, currentPoint);
 
-                for (int i = counter; i < pnts.Length / length; i += length)
+                for (int i = counter; i < pnts.Length / length - 1; i++)
                 {
                     currentPoint = nextPoint;
                     nextPoint = Common.Utils.SubArray<double>(pnts, length * (i + 1), length);
@@ -196,7 +196,7 @@ namespace BHoM.Geometry
                         if (VectorUtils.Parallel(currentVector, VectorUtils.Sub(nextPoint, currentPoint), 0.0001) == 0)
                         {
                             Array.Copy(nextPoint, 0, planePts, 2 * length, length);
-                            Plane plane = new Plane(planePts);
+                            Plane plane = new Plane(planePts, length);
                             return plane.InPlane(pnts, length, 0.0001) ? plane : null;
                         }
                     }
@@ -204,6 +204,7 @@ namespace BHoM.Geometry
             }
             return null;
         }
+
 
         internal static bool PointsInSamePlane(double[] pnts, int length)
         {

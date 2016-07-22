@@ -36,6 +36,15 @@ namespace BHoM.Geometry
             return true;
         }
 
+        internal static bool Equal(double[] v1, int index1, double[] v2, int index2, int length, double epsilon)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                if (v1[i + index1] > v2[i + index2] + epsilon || v1[i + index1] < v2[i + index2] - epsilon) return false;
+            }
+            return true;
+        }
+
         internal static double[] Max(double[] v1, double[] v2)
         {
             if (v1.Length != v2.Length) return null;

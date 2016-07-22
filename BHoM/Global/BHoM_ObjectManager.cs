@@ -18,8 +18,8 @@ namespace BHoM.Global
         /// Initialises a new object manager where the BHoM object name is used as the default key
         /// </summary>
         public ObjectManager(Project project) : base(project, "", FilterOption.Name) { }
-       
 
+        public ObjectManager() : this(Project.ActiveProject) { }
     }
 
     /// <summary>
@@ -36,11 +36,14 @@ namespace BHoM.Global
         string m_Name;
         int m_UniqueNumber;
 
+        public ObjectManager(string name, FilterOption option) : this (Project.ActiveProject, name, option)  {  }
+
         /// <summary>
         /// Initialises a new object manager based on the input name and option
         /// </summary>
         /// <param name="name">Name of the BHoM Property or userdata name</param>
         /// <param name="option">Fliter option defines the type of key to be used</param>
+        /// 
         public ObjectManager(Project project, string name, FilterOption option)
         {
             m_Project = project;

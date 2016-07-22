@@ -19,34 +19,72 @@ namespace BHoM.Structural
         ////Properties///
         /////////////////
 
-        private Group<Curve> m_Edges;
+        private Group<Curve> m_ExteriorEdges;
+        private Group<Curve> m_InteriorEdges;
         /// <summary>
         /// A group of curves which define the perimeter of panel object
         /// </summary>
         public Group<Curve> Edges
         {
-            get
+            private get
             {
-                return m_Edges;
+                Group<Curve> edges = new Group<Curve>();
+                edges.AddRange(m_ExteriorEdges);
+                edges.AddRange(m_InteriorEdges);
+                return edges;
             }
             set
             {
-                List<Curve> curve = Curve.Join(value);
-                m_Edges = new Group<Curve>();
-                for (int i = 0; i < curve.Count; i++)
-                {
-                    m_Edges.Add(curve[i]);
-                }
-
-                //m_Edges = value;
+                SetEdges(value);
             }
         }
 
-        public Curve External_Contour
+        private static bool IsInside(Curve c, List<Curve> crvs)
+        {
+            for (int i = 0; i < crvs.Count; i++)
+            {
+                if (!crvs[i].Equals(c))
+                {
+                    if (crvs[i].ContainsCurve(c))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private void SetEdges(Group<Curve> curves)
+        {
+            m_InteriorEdges = new Group<Curve>();
+            m_ExteriorEdges = new Group<Curve>();
+            List<Curve> crvs = Curve.Join(curves);
+            crvs.Sort(delegate (Curve c1, Curve c2)
+            {
+                return c2.Length.CompareTo(c1.Length);
+            });
+       
+            for (int i = 0; i < crvs.Count; i++)
+            {
+                if (crvs[i].IsClosed())
+                {
+                    if (IsInside(crvs[i], crvs))
+                    {
+                        m_InteriorEdges.Add(crvs[i]);
+                    }
+                    else
+                    {
+                        m_ExteriorEdges.Add(crvs[i]);
+                    }
+                }
+            } 
+        }
+
+        public List<Curve> External_Contour
         {
             get
             {
-                return m_Edges[0];
+                return m_ExteriorEdges.ToList();
             }
         }
 
@@ -54,12 +92,7 @@ namespace BHoM.Structural
         {
             get
             {
-                List<Curve> internalCurves = new List<Curve>();
-                for (int i = 1; i < m_Edges.Count; i++)
-                {
-                    internalCurves.Add(m_Edges[i]);
-                }
-                return internalCurves;
+                return m_InteriorEdges.ToList();
             }
         }
 
@@ -67,7 +100,7 @@ namespace BHoM.Structural
 
         public Materials.Material Material { get; set; }
 
-        public bool IsValid() { return Edges != null; }
+        public bool IsValid() { return m_ExteriorEdges != null; }
 
 
         ////////////////////
@@ -83,7 +116,7 @@ namespace BHoM.Structural
         /// <param name="number"></param>
         public Panel(Group<Curve> edges)
         {
-            Edges = edges;
+            SetEdges(edges);
         }
 
         ///////////////
@@ -104,11 +137,11 @@ namespace BHoM.Structural
                 Curve curve = geometry as Curve;
                 Group<Curve> group = new Group<Curve>();
                 group.Add(curve);
-                Edges = group;
+                SetEdges(group);
             }
             else if (geometry is Group<Curve>)
             {
-                Edges = geometry as Group<Curve>;
+                SetEdges(geometry as Group<Curve>);
             }
         }
     }
