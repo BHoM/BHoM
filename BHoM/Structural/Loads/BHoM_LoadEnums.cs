@@ -28,18 +28,19 @@ namespace BHoM.Structural.Loads
     public enum LoadType
     {
         Selfweight = 0,
-        PointLoad,
+        PointForce,
         PointDisplacement,
         PointVelocity,
         PointAcceleration,
         PointMass,
         BarPointLoad,
         BarUniformLoad,
-        BarTemperature,
         BarVaryingLoad,
+        BarTemperature,
         AreaUniformLoad,
         AreaVaryingLoad,
         AreaTemperature,
-        Pressure
+        Pressure,
+        Geometrical
     }
 }

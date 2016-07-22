@@ -16,6 +16,13 @@ namespace BHoM.Structural.Loads
     {
         public BHoM.Geometry.Vector Pressure { get; private set; }
 
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.AreaUniformLoad;
+            }
+        }
 
         public AreaUniformalyDistributedLoad(double px, double py, double pz)
         {

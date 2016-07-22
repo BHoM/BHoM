@@ -452,13 +452,16 @@ namespace BHoM.Geometry
         {
             if (!IsNurbForm) CreateNurbForm();
             int controlPointIndex = 0;
-            double knotValue = 0;
+            double lowerKnot = 0;
+            double upperKnot = 0;
             int size = m_Dimensions + 1;
             for (int i = 0; i < m_Knots.Length; i++)
             {
                 if (m_Knots[i] > value)
                 {
-                    knotValue = m_Knots[i - 1];
+                    lowerKnot = m_Knots[i - 1];
+                    upperKnot = m_Knots[i];
+
                     controlPointIndex = i - Degree;
                     break;
                 }
@@ -467,23 +470,26 @@ namespace BHoM.Geometry
             double[] points = new double[Degree * (size)];
             double[] weightResults = new double[Degree];
 
-            for (int i = controlPointIndex; i < controlPointIndex + Degree; i++)
+            int i1 = 0;
+            int j1 = 0;
+            for (int i = 0; i < Degree; i++)
             {
-                double t = (value - m_Knots[i]) / (m_Knots[i + Degree] - m_Knots[i]);
-                weightResults[i - controlPointIndex] = m_Weights[i - controlPointIndex] * (1 - t) + t * m_Weights[i - controlPointIndex + 1];
-                for (int j = (i - controlPointIndex) * size; j < (i - controlPointIndex) * size + size; j++)
+                i1 = i + controlPointIndex;
+                double t = (value - m_Knots[i1]) / (m_Knots[i1 + Degree] - m_Knots[i1]);
+                weightResults[i] = m_Weights[i1 - 1] * (1 - t) + t * m_Weights[i1];
+                for (int j = 0; j < size; j++)
                 {
-                    points[j] = (m_Weights[j / size] * m_ControlPoints[j] * (1 - t) + t * m_Weights[j / size + 1] * m_ControlPoints[j + size]) / weightResults[i - controlPointIndex];
+                    j1 = j + i1 * size;
+                    points[j + i * size] = (m_Weights[i1 - 1] * m_ControlPoints[j1 - size] * (1 - t) + t * m_Weights[i1] * m_ControlPoints[j1]) / weightResults[i];
                 }
             }
 
-            double[] newControlPnts = Common.Utils.Merge<double>(LeftControlPoints(value), points);
-            newControlPnts = Common.Utils.Merge<double>(newControlPnts, RightControlPoints(value));
+            double[] newControlPnts = Common.Utils.Merge<double>(LeftControlPoints(lowerKnot), points, RightControlPoints(upperKnot));
 
             double[] newWeight = new double[m_Weights.Length + 1];
             Array.Copy(m_Weights, newWeight, controlPointIndex);
             Array.Copy(weightResults, 0, newWeight, controlPointIndex, Degree);
-            Array.Copy(m_Weights, controlPointIndex + 1, newWeight, controlPointIndex + Degree, m_Weights.Length - controlPointIndex - 1);
+            Array.Copy(m_Weights, controlPointIndex + 1, newWeight, controlPointIndex + Degree, newWeight.Length - Degree - controlPointIndex);
 
             double[] knots = new double[m_Knots.Length + 1];
 
@@ -495,10 +501,19 @@ namespace BHoM.Geometry
             m_Weights = newWeight;
             return controlPointIndex;
         }
-    
+
+
         public virtual List<Curve> Split(double t)
         {
+            if (!IsNurbForm) CreateNurbForm();
+
             int insertedIndex = InsertKnot(t);
+            int startIndex = insertedIndex;
+
+            while (insertedIndex + 1 < Degree || PointCount - (startIndex + Degree - 1) < Degree)
+            {
+                insertedIndex = InsertKnot(t);
+            }
 
             double[] midPoint = Common.Utils.Merge<double>(UnsafePointAt(t), new double[] { 1 });
             double[] lhsPnts = Common.Utils.Merge<double>(LeftControlPoints(t), midPoint);
@@ -515,19 +530,19 @@ namespace BHoM.Geometry
 
             double tRatio = (t - m_Knots[insertedIndex + Degree - 1]) / (m_Knots[insertedIndex + Degree + 1] - m_Knots[insertedIndex + Degree - 1]);
 
-            double midKnotValue = (1 - tRatio) * m_Weights[insertedIndex] + tRatio * m_Weights[insertedIndex + 1];
+            double midWeightValue = (1 - tRatio) * m_Weights[insertedIndex] + tRatio * m_Weights[insertedIndex + 1];
 
-            lhsWeights[rhsWeights.Length - 1] = midKnotValue;
-            rhsWeights[0] = midKnotValue;
+            lhsWeights[lhsWeights.Length - 1] = midWeightValue;
+            rhsWeights[0] = midWeightValue;
 
             Array.Copy(m_Knots, lhsKnots, insertedIndex + m_Order);
-            for (int i = insertedIndex + m_Order; i < lhsKnots.Length; i++)
+            for (int i = lhsKnots.Length - Degree; i < lhsKnots.Length; i++)
             {
                 lhsKnots[i] = t;
             }
 
-            Array.Copy(m_Knots, insertedIndex + m_Order, rhsKnots, m_Order, rhsKnots.Length - m_Order);
-            for (int i = rhsKnots.Length - m_Order; i < rhsKnots.Length; i++)
+            Array.Copy(m_Knots, insertedIndex + m_Order, rhsKnots, rhsKnots.Length - m_Order, m_Order);
+            for (int i = rhsKnots.Length - Degree - 1; i < rhsKnots.Length; i++)
             {
                 rhsKnots[i] -= t;
             }

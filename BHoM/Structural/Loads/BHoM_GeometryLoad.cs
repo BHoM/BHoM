@@ -16,6 +16,14 @@ namespace BHoM.Structural.Loads
 
         public Global.Units.LoadUnit Unit { get; set; }
 
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.Geometrical;
+            }
+        }
+
         public GeometricalLoad(BHoM.Geometry.Curve contour, Geometry.Vector force, Geometry.Vector moment = null)
         {
             Objects.Add(contour);
