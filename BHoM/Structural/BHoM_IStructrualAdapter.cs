@@ -20,7 +20,8 @@ namespace BHoM.Structural
         bool GetPanels(out List<Panel> panels, string option = "");
         bool GetOpenings(out List<Opening> opening, string option = "");
         bool GetLevels(out List<Storey> levels, string options = "");
-        
+        bool GetGrids(out List<Grid> grids, string options = "");
+
         bool GetLoads(out List<ILoad> loads, string option = "");
         bool GetLoadcases(out List<ICase> cases);
 
@@ -29,6 +30,8 @@ namespace BHoM.Structural
         bool SetPanels(List<Panel> panels, out List<string> ids, string option = "");
         bool SetOpenings(List<Opening> opening, out List<string> ids, string option = "");
         bool SetLevels(List<Storey> stores, out List<string> ids, string option = "");
+        bool SetGrids(List<Grid> grid, out List<string> ids, string option = "");
+
 
         bool SetLoads(List<ILoad> loads, string option = "");
         bool SetLoadcases(List<ICase> cases);

@@ -55,6 +55,29 @@ namespace BHoM.Geometry
             return lineSegments;
         }
 
+        internal override Curve Append(Curve c)
+        {
+            if (c is Line)
+            {
+                m_ControlPoints = BHoM.Common.Utils.Merge<double>(m_ControlPoints, c.EndPoint);
+                CreateNurbForm();
+                Update();
+                return this;
+            }
+            else if (c is Polyline)
+            {
+                double[] endPoints = Common.Utils.SubArray<double>(c.m_ControlPoints, m_Dimensions + 1, c.m_ControlPoints.Length - m_Dimensions - 1);
+                m_ControlPoints = BHoM.Common.Utils.Merge<double>(m_ControlPoints, endPoints);
+                CreateNurbForm();
+                Update();
+                return this;
+            }
+            else
+            {
+                return base.Append(c);
+            }
+        }
+
         public override Point ClosestPoint(Point point)
         {
             List<Point> points = ControlPoints;

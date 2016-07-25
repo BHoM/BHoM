@@ -170,6 +170,17 @@ namespace BHoM.Global
             return result;
         }
 
+        public void Remove(TKey key)
+        {
+            TValue result = null;
+            if (m_Data.TryGetValue(key, out result))
+            {
+                m_Data.Remove(key);
+                m_Project.RemoveObject(result.BHoM_Guid);
+            }
+        }
+
+
         /// <summary>
         /// 
         /// </summary>

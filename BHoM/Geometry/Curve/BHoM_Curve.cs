@@ -214,9 +214,12 @@ namespace BHoM.Geometry
                         double[] up = VectorUtils.Add(pointArray, p.Normal);
                         Plane cuttingPlane = new Plane(Common.Utils.Merge(pointArray, direction, up), m_Dimensions + 1);
                         Point point = new Point(pointArray);
-                        List<Point> intersects = Intersect.PlaneCurve(cuttingPlane, this, 0.001);
+                        List<Point> intersects = Intersect.PlaneCurve(cuttingPlane, this, 0.0001);
+
+                        if (intersects.Count == 1) return false;
+
                         intersects.Add(point);
-                        intersects = Point.RemoveDuplicates(intersects, 3);
+                        //intersects = Point.RemoveDuplicates(intersects, 3);
 
                         intersects.Sort(delegate (Point p1, Point p2)
                         {
@@ -229,6 +232,14 @@ namespace BHoM.Geometry
                         }
                     }
                 }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
             return true;
         }

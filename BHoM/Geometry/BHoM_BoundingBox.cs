@@ -62,13 +62,21 @@ namespace BHoM.Geometry
             return new BoundingBox(Min, Max);
         }
 
+        public void Merge(BoundingBox b)
+        {
+            Point max = Point.Max(Max, b.Max);
+            Point min = Point.Min(Min, b.Min);
+            Extents = (max - min) / 2;
+            Centre = (max + min) / 2;
+        }
+
         public static bool InRange(BoundingBox b1, BoundingBox b2, double tolerance = 0)
         {
             double[] v1 = b2.Centre - b1.Centre;
             double[] v2 = b1.Extents + b2.Extents;
             for (int i = 0; i < v1.Length; i++)
             {
-                if (v1[i] > v2[i] + tolerance) return false;
+                if (Math.Abs(v1[i]) > v2[i]) return false;
             }
             return true;
         }
@@ -78,10 +86,28 @@ namespace BHoM.Geometry
             return (Min.X <= box.Min.X && Min.Y <= box.Min.Y && Min.Z <= box.Min.Z && Max.X >= box.Max.X && Max.Y >= box.Max.Y && Max.Z >= box.Max.Z); 
         }
 
+        public bool Contains(Point p)
+        {
+            double[] max = Max;
+            double[] min = Min;
+            double[] pnt = p;
+            for (int i = 0; i < pnt.Length; i++)
+            {
+                if (pnt[i] > max[i]) return false;
+                if (pnt[i] < min[i]) return false;
+            }
+            return true;
+        }
+
         public BoundingBox Inflate(double amount)
         {
             Vector extents = Extents + new Vector(amount, amount, amount);
             return new BoundingBox(Centre - Extents, Centre + extents);
+        }
+
+        public override string ToString()
+        {
+            return "Centre: " + Centre.ToString(3) + ", Extents: " + Extents.ToString(3);
         }
     }
 }

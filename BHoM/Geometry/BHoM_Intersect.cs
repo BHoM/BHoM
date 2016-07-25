@@ -20,53 +20,40 @@ namespace BHoM.Geometry
         {
             List<Point> result = new List<Point>();
 
-            bool startPointInPlane = p.InPlane(c.StartPoint, tolerance);
-            bool endPointInPlane = p.InPlane(c.EndPoint, tolerance);
+            //bool startPointInPlane = p.InPlane(c.StartPoint, tolerance);
+            //bool endPointInPlane = p.InPlane(c.EndPoint, tolerance);
 
-            if (startPointInPlane && endPointInPlane && !VectorUtils.Equal(c.StartPoint, c.EndPoint, 0.001))
-            {
-                return result;
-                //if planar add line, else add sp & ep
-            }
-            else if (startPointInPlane)
-            {
-                result.Add(c.StartPoint);
-            }
-            else if (endPointInPlane)
-            {
-                result.Add(c.EndPoint);
-            }
+            //if (startPointInPlane && endPointInPlane && !VectorUtils.Equal(c.StartPoint, c.EndPoint, 0.001))
+            //{
+            //    return result;
+            //    //if planar add line, else add sp & ep
+            //}
+            //else if (startPointInPlane)
+            //{
+            //    result.Add(c.StartPoint);
+            //}
+            //else if (endPointInPlane)
+            //{
+            //    result.Add(c.EndPoint);
+            //}
 
-            List<int> sameSide = p.SameSide(c.ControlPointVector, tolerance);
+            int[] sameSide = p.GetSide(c.ControlPointVector, tolerance);
+       
+            int previousSide = sameSide[0];
+            int Length = c.IsClosed() ? sameSide.Length - 1 : sameSide.Length;
 
-            if (sameSide.Count < c.PointCount)
+            for (int i = 1; i < Length; i++)
             {
-                int i1 = 0;
-                int i2 = 0;
-
-                while (i1 < sameSide.Count - 1 && sameSide[i1 + 1] - sameSide[i1] == 1) i1++;
-                for (int i = i1; i < sameSide.Count; i++)
+                if (sameSide[i] != previousSide)
                 {
-                    if (sameSide[i] - i2 == 1)
-                    {
-                        i1 = i2;
-                        i2 = sameSide[i];
-                        while (i < sameSide.Count - 2 && sameSide[i + 1] - sameSide[i] == 1) i++;
-                        if (i < sameSide.Count - 2 && sameSide[i + 1] == c.PointCount) break;
-                    }
-                    else if (i == sameSide.Count - 1 || sameSide[i + 1] - sameSide[i] > 1)
-                    {
-                        i1 = sameSide[i];
-                        i2 = sameSide[i] + 1;
-                        while (i < sameSide.Count - 1 && i2 < sameSide[i + 1] - 1) i2++;
-                        //if (sameSide[i] == c.PointCount) break;
-                    }
-                    else continue;
-                    double maxT = c.Knots[i1 + c.Degree + 1];
-                    double minT = c.Knots[i1 + 1];
+                    previousSide = sameSide[i];
+
+                    double maxT = c.Knots[i + c.Degree];
+                    double minT = c.Knots[i];
                     result.Add(new Point(CurveParameterAtPlane(p, c, tolerance, minT, maxT, c.UnsafePointAt(minT), c.UnsafePointAt(maxT))));
                 }
             }
+            
 
             return result;
         }

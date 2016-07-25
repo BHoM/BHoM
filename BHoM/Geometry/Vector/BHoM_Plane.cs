@@ -53,27 +53,25 @@ namespace BHoM.Geometry
             return false;
         }
 
-        internal List<int> SameSide(double[] pnts, double tolerance)
+        internal int[] GetSide(double[] pnts, double tolerance)
         {
             double[] result = VectorUtils.DotProduct(pnts, m_Normal, m_Normal.Length);
-            List<int> sameSide = new List<int>();
+            int[] sameSide = new int[result.Length];
             int inPlaneCount = 0;
             bool isNegative = false;
             for (int i = 0; i < result.Length; i++)
             {
                 if (result[i] + D > tolerance)
                 {
-                    if (!isNegative) sameSide.Add(i);
+                    sameSide[i] = 1;
                 }
                 else if (result[i] + D < -tolerance)
                 {
-                    if (i - inPlaneCount == 0) isNegative = true;
-                    if (isNegative) sameSide.Add(i);
+                    sameSide[i] = -1;
                 }
                 else
                 {
-                    inPlaneCount++;
-                    sameSide.Add(i);
+                    sameSide[i] = 0;
                 }
             }
             return sameSide;
@@ -162,8 +160,13 @@ namespace BHoM.Geometry
         {
             double[] dotProducts = VectorUtils.DotProduct(pnts, m_Normal, length);
             double sum = VectorUtils.Sum(dotProducts);
-            
-            return sum + D < tolerance && sum + D > -tolerance;
+
+            for (int i = 0; i < dotProducts.Length; i++)
+            {
+                if (dotProducts[i] + D > tolerance || dotProducts[i] + D < -tolerance) return false;
+            }
+
+            return true;
         }
 
         internal static Plane PlaneFromPoints(double[] pnts, int length)

@@ -80,19 +80,27 @@ namespace BHoM.Structural
             } 
         }
 
-        public List<Curve> External_Contour
+        public Group<Curve> External_Contours
         {
             get
             {
-                return m_ExteriorEdges.ToList();
+                return m_ExteriorEdges;
+            }
+            set
+            {
+                m_ExteriorEdges = value;
             }
         }
 
-        public List<Curve> Internal_Contours
+        public Group<Curve> Internal_Contours
         {
             get
             {
-                return m_InteriorEdges.ToList();
+                return m_InteriorEdges;
+            }
+            set
+            {
+                m_InteriorEdges = value;
             }
         }
 

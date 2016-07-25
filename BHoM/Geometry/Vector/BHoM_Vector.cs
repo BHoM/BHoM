@@ -342,6 +342,11 @@ namespace BHoM.Geometry
             return "[" + X + ", " + Y + ", " + Z + "]";
         }
 
+        public string ToString(int decimals)
+        {
+            return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
+        }
+
         public override BoundingBox Bounds()
         {
             return null;
