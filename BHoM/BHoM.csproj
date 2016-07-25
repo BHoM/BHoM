@@ -84,6 +84,7 @@
     <Compile Include="Geometry\Surface\BHoM_Surface.cs" />
     <Compile Include="Geometry\Vector\BHoM_Plane.cs" />
     <Compile Include="Geometry\Vector\BHoM_Point.cs" />
+    <Compile Include="Generic\PointMatrix.cs" />
     <Compile Include="Geometry\Vector\BHoM_Vector.cs" />
     <Compile Include="Geometry\Vector\BHoM_VectorUtils.cs" />
     <Compile Include="Global\BHoM_JSON.cs" />
