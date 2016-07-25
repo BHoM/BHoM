@@ -45,7 +45,7 @@ namespace BHoM.Structural.Loads
             }
         }
 
-        internal BarUniformlyDistributedLoad() { }
+        public BarUniformlyDistributedLoad() { }
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ namespace BHoM.Structural.Loads
             }
         }
 
-        internal BarTemperatureLoad() { }
+        public BarTemperatureLoad() { }
         //Bar temp load object. Expansion in XYZ
     }
 
@@ -85,7 +85,7 @@ namespace BHoM.Structural.Loads
             }
         }
 
-        internal BarVaryingDistributedLoad() { }
+        public BarVaryingDistributedLoad() { }
         //patch load for bars. Should include patch moments. 
     }
 
