@@ -103,6 +103,11 @@ namespace BHoM.Geometry
             return v.Coordinates;
         }
 
+        public static Vector Zero
+        {
+            get { return new Vector(0, 0, 0); }
+        }
+
 
         public static Vector XAxis(double n = 1)
         {

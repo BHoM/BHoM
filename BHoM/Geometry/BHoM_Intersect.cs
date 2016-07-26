@@ -20,40 +20,33 @@ namespace BHoM.Geometry
         {
             List<Point> result = new List<Point>();
 
-            //bool startPointInPlane = p.InPlane(c.StartPoint, tolerance);
-            //bool endPointInPlane = p.InPlane(c.EndPoint, tolerance);
-
-            //if (startPointInPlane && endPointInPlane && !VectorUtils.Equal(c.StartPoint, c.EndPoint, 0.001))
-            //{
-            //    return result;
-            //    //if planar add line, else add sp & ep
-            //}
-            //else if (startPointInPlane)
-            //{
-            //    result.Add(c.StartPoint);
-            //}
-            //else if (endPointInPlane)
-            //{
-            //    result.Add(c.EndPoint);
-            //}
-
             int[] sameSide = p.GetSide(c.ControlPointVector, tolerance);
        
             int previousSide = sameSide[0];
-            int Length = c.IsClosed() ? sameSide.Length - 1 : sameSide.Length;
+            int Length = sameSide.Length;
 
-            for (int i = 1; i < Length; i++)
+            for (int i = 1; i < Length - 1; i++)
             {
-                if (sameSide[i] != previousSide)
+               if (sameSide[i] != previousSide)
                 {
+                    if (previousSide != 0)
+                    {
+                        double maxT = c.Knots[i + c.Degree];
+                        double minT = c.Knots[i];
+                        result.Add(new Point(CurveParameterAtPlane(p, c, tolerance, minT, maxT, c.UnsafePointAt(minT), c.UnsafePointAt(maxT))));
+                    }
+                    else
+                    {
+                        result.Add(c.PointAt(c.Knots[i - 1]));
+                    }
                     previousSide = sameSide[i];
-
-                    double maxT = c.Knots[i + c.Degree];
-                    double minT = c.Knots[i];
-                    result.Add(new Point(CurveParameterAtPlane(p, c, tolerance, minT, maxT, c.UnsafePointAt(minT), c.UnsafePointAt(maxT))));
-                }
-            }
+                }                                        
+            }       
             
+            if (sameSide[sameSide.Length - 1] == 0 && previousSide != sameSide[sameSide.Length - 1] && result.Count % 2 == 1)
+            {
+                result.Add(c.EndPoint);
+            }
 
             return result;
         }
