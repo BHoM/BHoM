@@ -102,7 +102,7 @@ namespace BHoM.Geometry
         public BoundingBox Inflate(double amount)
         {
             Vector extents = Extents + new Vector(amount, amount, amount);
-            return new BoundingBox(Centre - Extents, Centre + extents);
+            return new BoundingBox(Centre - extents, Centre + extents);
         }
 
         public override string ToString()

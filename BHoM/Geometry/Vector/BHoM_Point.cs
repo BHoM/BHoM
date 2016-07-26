@@ -351,7 +351,7 @@ namespace BHoM.Geometry
 
         public override BoundingBox Bounds()
         {
-            return null;
+            return new BoundingBox(this, this); 
         }
 
         public override void Transform(Transform t)
