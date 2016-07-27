@@ -40,6 +40,7 @@ namespace BHoM.Structural.Loads
         {
             Contour = contour;
             Force = force;
+            Loadcase = new Loadcase();
         }
     }
 

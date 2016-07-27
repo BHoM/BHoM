@@ -29,6 +29,7 @@ namespace BHoM.Global
         {
             CustomData = new Dictionary<string, object>();
             this.BHoM_Guid = System.Guid.NewGuid();
+            Name = "";
         }
 
         /// <summary>
