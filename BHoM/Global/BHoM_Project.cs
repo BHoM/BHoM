@@ -230,13 +230,18 @@ namespace BHoM.Global
             m_TaskQueue.Enqueue(task);
         }
 
-        internal void RunTasks()
+        public void RunTasks()
         {
             while(m_TaskQueue.Count > 0)
             {
                 Task t = m_TaskQueue.Dequeue();
                 BHoMJSON.ReadProperty(t.BhomObject, t.Property, t.Value, this);               
             }
+        }
+
+        public IEnumerable<string> GetTaskValues()
+        {
+            return m_TaskQueue.Select(x => x.Value);
         }
 
         public void MergeWithin(double tolerance)
