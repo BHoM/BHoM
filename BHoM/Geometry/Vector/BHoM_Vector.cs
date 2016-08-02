@@ -77,9 +77,7 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Vector(Vector dup)
         {
-            X = dup.X;
-            Y = dup.Y;
-            Z = dup.Z;
+            Coordinates = new double[] { dup.X, dup.Y, dup.Z, 0 };
         }
 
         /// <summary>
@@ -88,9 +86,7 @@ namespace BHoM.Geometry
         /// <param name="pt"></param>
         public Vector(Point pt)
         {
-            X = pt.X;
-            Y = pt.Y;
-            Z = pt.Z;
+            Coordinates = new double[] { pt.X, pt.Y, pt.Z, 0 };
         }
 
         internal Vector(double[] v)
@@ -101,6 +97,11 @@ namespace BHoM.Geometry
         public static implicit operator double[](Vector v)
         {
             return v.Coordinates;
+        }
+
+        public static Vector Zero
+        {
+            get { return new Vector(0, 0, 0); }
         }
 
 
@@ -340,6 +341,11 @@ namespace BHoM.Geometry
         public override string ToString()
         {
             return "[" + X + ", " + Y + ", " + Z + "]";
+        }
+
+        public string ToString(int decimals)
+        {
+            return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
         }
 
         public override BoundingBox Bounds()

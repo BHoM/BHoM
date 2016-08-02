@@ -9,11 +9,7 @@ namespace BHoM.Structural.Loads
 {
     /// <summary>
     /// Gravity load
-    /// </summary>
-    public class BarGravityLoad : Load<Bar>
-    {
-       // internal BarGravityLoad() { }
-    }
+    /// </summary>   
 
     /// <summary>
     /// Point load along a bar
@@ -24,16 +20,31 @@ namespace BHoM.Structural.Loads
         public Geometry.Vector ForceVector { get; set; }
         public Geometry.Vector MomentVector { get; set; }
 
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.BarPointLoad;
+            }
+        }
+
+
         public BarPointLoad() { }
         //Bar point load object - different to nodal or point load as it needs a 'position' variable
     }
 
-    /// <summary>
-    /// Uniform load on bar
-    /// </summary>
     public class BarUniformlyDistributedLoad : Load<Bar>
     {
         public Geometry.Vector ForceVector { get; set; }
+
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.BarUniformLoad;
+            }
+        }
+
         public BarUniformlyDistributedLoad() { }
     }
 
@@ -42,7 +53,16 @@ namespace BHoM.Structural.Loads
     /// </summary>
     public class BarTemperatureLoad : Load<Bar>
     {
-        public double TemperatureChange { get; set; }
+        public Geometry.Vector TemperatureChange { get; set; }
+
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.BarTemperature;
+            }
+        }
+
         public BarTemperatureLoad() { }
         //Bar temp load object. Expansion in XYZ
     }
@@ -56,6 +76,15 @@ namespace BHoM.Structural.Loads
         public Geometry.Vector ForceVectorA { get; set; }
         public double DistanceFromB { get; set; }
         public Geometry.Vector ForceVectorB { get; set; }
+
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.BarVaryingLoad;
+            }
+        }
+
         public BarVaryingDistributedLoad() { }
         //patch load for bars. Should include patch moments. 
     }
@@ -66,6 +95,13 @@ namespace BHoM.Structural.Loads
     public class BarPrestressLoad : Load<Bar>
     {
         public double PrestressValue { get; set; }
-        //public BarPrestressLoad() { }
+
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.Pressure;
+            }
+        }
     }
 }

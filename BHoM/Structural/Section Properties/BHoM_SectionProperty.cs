@@ -24,9 +24,13 @@ namespace BHoM.Structural.SectionProperties
         private double m_Zx;
         private double m_Zy;
 
-        [DefaultValue(null)]
+        private double m_Vx;
+        private double m_Vpx;
+        private double m_Vy;
+        private double m_Vpy;
+
         public double[] SectionData { get; set; }
-     
+
         /// <summary>
         /// 
         /// </summary>
@@ -78,9 +82,17 @@ namespace BHoM.Structural.SectionProperties
         [DefaultValue(null)]
         public double MassPerMetre { get; set; }
 
+
         /// <summary>Explicitly defined area</summary>
         [DefaultValue(null)]
         public double Area { get; set; }
+
+
+        public static SectionProperty LoadFromDB(string name)
+        {
+            return LoadFromDB(Project.ActiveProject, name);
+        }
+
 
         /// <summary>
         /// Searches for the input name in the selected database and returns the corresponding section
@@ -89,8 +101,9 @@ namespace BHoM.Structural.SectionProperties
         /// <returns></returns>
         public static SectionProperty LoadFromDB(Project project, string name)
         {
-            object[] data = project.Structure.SectionDatabase.GetDataRow(new string[] { "Name", "Name1", "Name2" }, name);
-            
+            if (name.EndsWith(".0")) name = name.Substring(0, name.Length - 2);
+            object[] data = project.Structure.SectionDatabase.GetDataRow(new string[] { "Name", "Name1", "Name2" }, new string[] { name });
+
             if (data != null)
             {
                 ShapeType shape = (ShapeType)data[(int)SectionTableColumn.Shape];
@@ -111,10 +124,10 @@ namespace BHoM.Structural.SectionProperties
                 double[] sectionData = new double[enumNames.Length - 3];
                 for (int i = 3; i < enumNames.Length; i++)
                 {
-                    sectionData[i] = (double)data[i];
+                    sectionData[i - 3] = (double)data[i];
                 }
-                Group<Curve> edges = CreateGeometry(shape, breadth, height, tw, tf1, r1, r2,b1, b2, tf2, b3);
-                SectionProperty property = new SectionProperty(edges, ShapeType.ISection, SectionType.Steel);
+                Group<Curve> edges = CreateGeometry(shape, breadth, height, tw, tf1, r1, r2, b1, b2, tf2, b3);
+                SectionProperty property = new SectionProperty(edges, shape, SectionType.Steel);
                 property.Name = name;
                 property.SectionData = sectionData;
                 return edges != null ? property : null;
@@ -122,11 +135,11 @@ namespace BHoM.Structural.SectionProperties
             return null;
         }
 
-        public static SectionProperty CreateTee(SectionType mType, double totalHeight, double totalwidth, double flangeThickness, double webThickness, double r1= 0, double r2=0)
+        public static SectionProperty CreateTee(SectionType mType, double totalHeight, double totalwidth, double flangeThickness, double webThickness, double r1 = 0, double r2 = 0)
         {
             return null;
         }
-        
+
         /// <summary>
         /// Create an I Shaped section property
         /// </summary>
@@ -142,7 +155,7 @@ namespace BHoM.Structural.SectionProperties
         /// <returns></returns>
         public static SectionProperty CreateISection(SectionType mType, double widthTopFlange, double widthBotFlange, double totalDepth, double flangeThicknessTop, double flangeThicknessBot, double webThickness, double webRadius, double toeRadius)
         {
-            return new SectionProperty(ShapeType.ISection, mType, totalDepth, Math.Max(widthTopFlange, widthBotFlange), flangeThicknessTop, webThickness, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);       
+            return new SectionProperty(ShapeType.ISection, mType, totalDepth, Math.Max(widthTopFlange, widthBotFlange), flangeThicknessTop, webThickness, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);
         }
 
         /// <summary>
@@ -186,18 +199,18 @@ namespace BHoM.Structural.SectionProperties
         private static double[] CreateSectionData(double height, double width, double tw, double tf1, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0, double spacing = 0)
         {
             double[] SectionData = new double[15];
-            SectionData[(int)SectionTableColumn.Mass] =  mass;
-            SectionData[(int)SectionTableColumn.Width] =  width;
-            SectionData[(int)SectionTableColumn.Height] =  height;
-            SectionData[(int)SectionTableColumn.TW] =  tw;
-            SectionData[(int)SectionTableColumn.TF1] =  tf1;
-            SectionData[(int)SectionTableColumn.TF2] =  tf2;
-            SectionData[(int)SectionTableColumn.r1] =  r1;
-            SectionData[(int)SectionTableColumn.r2] =  r2;
-            SectionData[(int)SectionTableColumn.B1] =  b1;
-            SectionData[(int)SectionTableColumn.B2] =  b2;
-            SectionData[(int)SectionTableColumn.B3] =  b3;
-            SectionData[(int)SectionTableColumn.Spacing] =  b3;
+            SectionData[(int)SectionTableColumn.Mass] = mass;
+            SectionData[(int)SectionTableColumn.Width] = width;
+            SectionData[(int)SectionTableColumn.Height] = height;
+            SectionData[(int)SectionTableColumn.TW] = tw;
+            SectionData[(int)SectionTableColumn.TF1] = tf1;
+            SectionData[(int)SectionTableColumn.TF2] = tf2;
+            SectionData[(int)SectionTableColumn.r1] = r1;
+            SectionData[(int)SectionTableColumn.r2] = r2;
+            SectionData[(int)SectionTableColumn.B1] = b1;
+            SectionData[(int)SectionTableColumn.B2] = b2;
+            SectionData[(int)SectionTableColumn.B3] = b3;
+            SectionData[(int)SectionTableColumn.Spacing] = b3;
             return SectionData;
         }
 
@@ -208,7 +221,7 @@ namespace BHoM.Structural.SectionProperties
             switch (shapeType)
             {
                 case ShapeType.ISection:
-                    edges = ShapeBuilder.CreateISecction(tf1, b1 == 0 ? breadth : b1, tf2 ==0 ? tf1 : tf2, b2 == 0 ? breadth : b2, tw, height - 2 * tf1, r1, r2);
+                    edges = ShapeBuilder.CreateISecction(tf1, b1 == 0 ? breadth : b1, tf2 == 0 ? tf1 : tf2, b2 == 0 ? breadth : b2, tw, height - 2 * tf1, r1, r2);
                     break;
                 case ShapeType.Tee:
                     edges = ShapeBuilder.CreateTee(tf1, b1 == 0 ? breadth : b1, tw, height - tf1, r1, r2);
@@ -235,6 +248,8 @@ namespace BHoM.Structural.SectionProperties
         private void CalculateSection()
         {
             SectionCalculator sC = new SectionCalculator(Edges);
+            double cx = sC.CentreX;
+            double cy = sC.CentreY;
             m_Area = sC.Area;
             m_Ix = sC.Ix;
             m_Iy = sC.Iy;
@@ -242,25 +257,30 @@ namespace BHoM.Structural.SectionProperties
             m_Sy = sC.Sy;
             m_Zx = sC.Zx;
             m_Zy = sC.Zy;
-
-            double cx = sC.CentreX;
-            double cy = sC.CentreY;
+            m_Vx = sC.Max(0) - cx;
+            m_Vpx = cx - sC.Min(0);
+            m_Vy = sC.Max(0) - cy;
+            m_Vpy = cy - sC.Min(0);
 
             Edges.Translate(new Vector(-cx, -cy, 0));
         }
 
         /// <summary>Section type</summary>
+        /// 
         [DefaultValue(null)]
         public ShapeType Shape { get; set; }
 
         /// <summary>
         /// Type of material
         /// </summary>
+        /// 
+        [DefaultValue(null)]
         public SectionType SectionMaterial { get; set; }
 
         /// <summary>
         /// Orientation
         /// </summary>
+        /// 
         [DefaultValue(null)]
         public double Orientation { get; set; }
 
@@ -325,10 +345,46 @@ namespace BHoM.Structural.SectionProperties
             }
         }
 
-    /// <summary>
-    /// Plastic Section modulus about the major axis
-    /// </summary>
-    public double Sx
+        public double Vy
+        {
+            get
+            {
+                if (m_Vy == 0) CalculateSection();
+                return m_Vy;
+            }
+        }
+
+        public double Vpy
+        {
+            get
+            {
+                if (m_Vpy == 0) CalculateSection();
+                return m_Vpy;
+            }
+        }
+
+        public double Vx
+        {
+            get
+            {
+                if (m_Vx == 0) CalculateSection();
+                return m_Vx;
+            }
+        }
+
+        public double Vpx
+        {
+            get
+            {
+                if (m_Vpx == 0) CalculateSection();
+                return m_Vpx;
+            }
+        }
+
+        /// <summary>
+        /// Plastic Section modulus about the major axis
+        /// </summary>
+        public double Sx
         {
             get
             {
@@ -374,8 +430,9 @@ namespace BHoM.Structural.SectionProperties
         }
 
         /// <summary>Information regarding section property type for the user</summary>
+        /// 
         [DefaultValue(null)]
         public string Description { get; set; }
-                   
+
     }
 }

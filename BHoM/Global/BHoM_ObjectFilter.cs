@@ -19,6 +19,8 @@ namespace BHoM.Global
     public class ObjectFilter : ObjectFilter<BHoMObject>
     {
         public ObjectFilter(Project project) : base(project) { }
+
+        public ObjectFilter() : this(Project.ActiveProject) { }
     }
 
     /// <summary>
@@ -41,6 +43,8 @@ namespace BHoM.Global
             m_Project = project;
             m_Data = FilterClass(m_Project.Objects);
         }
+
+        public ObjectFilter() : this(Project.ActiveProject) { }
 
         /// <summary>
         /// 

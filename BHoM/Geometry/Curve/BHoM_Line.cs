@@ -91,6 +91,26 @@ namespace BHoM.Geometry
             return StartPoint + t * dir;
         }
 
+        internal override Curve Append(Curve c)
+        {
+            if (c is Line)
+            {
+                Point p1 = this.StartPoint;
+                Point p2 = this.EndPoint;
+                Point p3 = c.EndPoint;
+               
+                return new Polyline(new List<Point>() { this.StartPoint, this.EndPoint, c.EndPoint });               
+            }
+            else if (c is Polyline)
+            {
+                c.m_ControlPoints = BHoM.Common.Utils.Merge<double>(this.StartPoint, c.m_ControlPoints);
+                c.CreateNurbForm();
+                c.Update();
+                return c;
+            }
+            else return base.Append(c);
+        }
+
         public override string ToJSON()
         {
             return "{ \"Primitive\": \"line\", \"start\": " + StartPoint + ", \"end\": " + EndPoint + "}";

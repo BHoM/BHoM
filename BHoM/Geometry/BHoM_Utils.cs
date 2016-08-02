@@ -49,6 +49,23 @@ namespace BHoM.Common
             return result;
         }
 
+        public static T[] Merge<T>(params T[][] data)
+        {
+            int totalLength = 0;
+            int accumLength = 0;
+            for (int i = 0; i < data.Length; i++)
+            {
+                totalLength += data[i].Length;
+            }
+            T[] result = new T[totalLength];
+            for (int i = 0; i < data.Length; i++)
+            {
+                Array.Copy(data[i], 0, result, accumLength, data[i].Length);
+                accumLength += data[i].Length;
+            }
+            return result;
+        }
+
         public static string CollectionToString(IEnumerable data)
         {
             string result = "[";

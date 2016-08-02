@@ -254,7 +254,7 @@ namespace BHoM.Structural
         /// </summary>
         public void SetCartesianCoordinatesystemAsDefault()
         {
-            this.Plane = new Plane(Point);
+            this.Plane = Plane.XY();
         }
 
         /// <summary>

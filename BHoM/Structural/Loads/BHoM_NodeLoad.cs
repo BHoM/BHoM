@@ -20,6 +20,13 @@ namespace BHoM.Structural.Loads
         /// <summary>Moment - mx, my, mz defined as a BHoM.Geometry.Vector</summary>
         public BHoM.Geometry.Vector Moment { get; private set; }
 
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.PointForce;
+            }
+        }
         /// <summary>
         /// Create an empty nodal load as a placeholder
         /// </summary>
@@ -84,6 +91,13 @@ namespace BHoM.Structural.Loads
         /// </summary>
         public PointDisplacement() { }
 
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.PointDisplacement;
+            }
+        }
         /// <summary>
         /// Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
         /// values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
@@ -122,6 +136,13 @@ namespace BHoM.Structural.Loads
         /// </summary>
         public PointVelocity() { }
 
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.PointVelocity;
+            }
+        }
         /// <summary>
         /// Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
         /// values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.
@@ -160,6 +181,13 @@ namespace BHoM.Structural.Loads
         /// </summary>
         public PointAcceleration() { }
 
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.PointAcceleration;
+            }
+        }
         /// <summary>
         /// Create a new nodal load containing forces and moments. This is the only constructor that sets the nodal force
         /// values. For all other nodal load types (displacement, velocity etc) use the relevant Set method.

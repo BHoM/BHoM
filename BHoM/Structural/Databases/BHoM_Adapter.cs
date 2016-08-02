@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
+
 namespace BHoM.Structural
 {
 
@@ -100,7 +101,7 @@ namespace BHoM.Structural
         {
             System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
             connection.Open();
-            m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("select COLUMN_NAME from information_schema.columns where TABLE_NAME = '"+m_TableName+"'", connection);
+            m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("select COLUMN_NAME from information_schema.columns where TABLE_NAME = '" + m_TableName + "'", connection);
             DataSet set = new DataSet();
 
             m_DataAdapter.Fill(set);
@@ -158,30 +159,38 @@ namespace BHoM.Structural
 
         public object[] GetDataRow(string columnName, string matches)
         {
-            return GetDataRow(new string[] { columnName }, matches);
+            return GetDataRow(new string[] { columnName }, new string[] { matches });
         }
 
-        public object[] GetDataRow(string[] columnNames, string matches)
+        public object[] GetDataRow(string[] columnNames, string[] matches, bool AND = false)
         {
             System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
-            connection.Open();
-            string matchString = "";
-            string match = Regex.Replace(matches, "(^[A-Z]+)([0-9]+)", "$1%$2");
-            match = Regex.Replace(match, "\\s+", "%");
-            for (int i = 0; i< columnNames.Length;i++)
+            try
             {
-                matchString += columnNames[i] + " like '" + match + "' Or ";
+                connection.Open();
+                string matchString = "";
+                for (int i = 0; i < columnNames.Length; i++)
+                {
+                    string match = Regex.Replace(matches[i % matches.Length], "(^[A-Z]+)([0-9]+)", "$1%$2");
+                    match = Regex.Replace(match, "\\s+", "%");
+                    matchString += columnNames[i] + " like '" + match + (AND ? "' AND " : "' Or ");
+                }
+
+                matchString = matchString.Substring(0, matchString.Length - (AND ? 4 : 3));
+
+                m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("SELECT * FROM " + m_TableName + " Where " + matchString, connection);
+                DataSet set = new DataSet();
+
+                m_DataAdapter.Fill(set);
+                connection.Close();
+
+                return set.Tables.Count > 0 && set.Tables[0].Rows.Count > 0 ? set.Tables[0].Rows[0].ItemArray : null;
             }
+            catch (Exception ex)
+            {
 
-            matchString = matchString.Substring(0, matchString.Length - 3);
-
-            m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("SELECT * FROM " + m_TableName + " Where " + matchString, connection);
-            DataSet set = new DataSet();
-
-            m_DataAdapter.Fill(set);
-            connection.Close();
-
-            return set.Tables.Count > 0 && set.Tables[0].Rows.Count > 0 ? set.Tables[0].Rows[0].ItemArray : null;
+            }
+            return null;
         }
 
         private string ConnectionString()
@@ -194,8 +203,8 @@ namespace BHoM.Structural
                     return Properties.Settings.Default.MaterialConnectionString;
                 default:
                     return "";
-            }         
-        }       
+            }
+        }
 
         /// <summary>
         /// Set the default table name
@@ -220,7 +229,7 @@ namespace BHoM.Structural
         {
             System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
             connection.Open();
-          
+
             m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("select table_name from INFORMATION_SCHEMA.TABLES", connection);
             DataSet set = new DataSet();
 

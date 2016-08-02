@@ -63,7 +63,13 @@ namespace BHoM.Structural.Loads
             get; set;
         }
 
-        public Loadcase() { m_Loads = new List<ILoad>(); }
+        public Loadcase()
+        {
+            m_Loads = new List<ILoad>();
+            Nature = LoadNature.Other;
+            SelfWeightMultiplier = 1.0;
+            Number = 0;
+        }
 
         /// <summary>
         /// 

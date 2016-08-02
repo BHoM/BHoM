@@ -11,70 +11,15 @@ namespace BHoM.Geometry
         private List<Curve> m_Curves;
 
         internal PolyCurve() { }
-        internal PolyCurve(Curve c1, Curve c2)
+        internal PolyCurve(List<Curve> curves)
         {
-            m_Curves = new List<Curve>() { c1, c2 };
+            m_Curves = curves;
             m_Dimensions = 3;
-
-            // TODO - have a better look at this. For now, jsut there to fix Eddy's stuff
-            m_ControlPoints = c1.ControlPointVector.Concat(c2.ControlPointVector).ToArray();
         }
 
         public override void CreateNurbForm()
         {
-            m_Knots = new double[m_Curves.Count];
-
-            double accum = 0;
-            for (int i = 1; i < m_Curves.Count; i++)
-            {
-                accum += m_Curves[i].Domain[1];
-                m_Knots[i] = accum;
-            }
             IsNurbForm = true;
-        }
-
-        public override Point StartPoint
-        {
-            get
-            {
-                return m_Curves.Count > 0 ? m_Curves[0].StartPoint : null;
-            }
-        }
-
-        public override Point EndPoint
-        {
-            get
-            {
-                return m_Curves.Count > 0 ? m_Curves[m_Curves.Count - 1].EndPoint : null;
-            }
-        }
-
-        public override Point PointAt(double t)
-        {
-            int i = 0;
-            while (t > m_Knots[i] && i < m_Knots.Length) i++;
-
-            return m_Curves[i].PointAt(t - m_Knots[i]);
-        }
-
-        public override Vector TangentAt(double t)
-        {
-            int i = 0;
-            while (t > m_Knots[i] && i < m_Knots.Length) i++;
-
-            return m_Curves[i].TangentAt(t - m_Knots[i]);
-        }
-
-        public override BoundingBox Bounds()
-        {
-            Point max = m_Curves[0].Max;
-            Point min = m_Curves[0].Min;
-            for (int i = 1; i < m_Curves.Count; i++)
-            {
-                max = Point.Max(max, m_Curves[i].Max);
-                min = Point.Min(min, m_Curves[i].Min);
-            }
-            return new BoundingBox(min, max);
         }
 
         public override List<Curve> Explode()
@@ -98,47 +43,18 @@ namespace BHoM.Geometry
             return c;
         }
 
-        /*internal override double[] ControlPoint(int i)   // AD - Commented to make it work with control points now defined in PolyCurve
-        {
-            int currentIndex = i;
-
-            for (int j = 0; j < m_Curves.Count; j++)
-            {
-                if (currentIndex < m_Curves[j].PointCount)
-                {
-                    return m_Curves[j].ControlPoint(currentIndex);
-                }
-                currentIndex = currentIndex -m_Curves[j].PointCount + 1;
-            }
-            return null;
-        }*/
-
-        /*public override int PointCount                // AD - Commented to make it work with control points now defined in PolyCurve
+        public override double Length
         {
             get
             {
-                int count = 0;
+                double length = 0;
                 for (int i = 0; i < m_Curves.Count; i++)
                 {
-                    count += m_Curves[i].PointCount - 1;
+                    length += m_Curves[i].Length;
                 }
-                return count;
+                return length;
             }
-        }*/
-
-        public override bool IsPlanar()
-        {
-            double[] controlPoint = new double[PointCount * ( m_Dimensions)];
-            for (int i = 0; i < controlPoint.Length; i += m_Dimensions)
-            {
-                double[] p = ControlPoint(i / m_Dimensions);
-                controlPoint[i] = p[0];
-                controlPoint[i + 1] = p[1];
-                controlPoint[i + 2] = p[2];
-            }
-            return Plane.PointsInSamePlane(controlPoint, m_Dimensions);
         }
-
 
         public override void Transform(Transform t)
         {
@@ -146,6 +62,7 @@ namespace BHoM.Geometry
             {
                 m_Curves[i].Transform(t);
             }
+            base.Transform(t);
         }
 
         public override void Translate(Vector v)
@@ -154,6 +71,7 @@ namespace BHoM.Geometry
             {
                 m_Curves[i].Translate(v);
             }
+            base.Translate(v);
         }
 
         public override void Mirror(Plane p)
@@ -162,6 +80,7 @@ namespace BHoM.Geometry
             {
                 m_Curves[i].Mirror(p);
             }
+            base.Mirror(p);
         }
 
         public override void Project(Plane p)
@@ -170,6 +89,7 @@ namespace BHoM.Geometry
             {
                 m_Curves[i].Project(p);
             }
+            base.Project(p);
         }
 
         public override void Update()
@@ -178,6 +98,7 @@ namespace BHoM.Geometry
             {
                 m_Curves[i].Update();
             }
+            base.Update();
         }
 
         public override Curve Flip()
@@ -187,7 +108,7 @@ namespace BHoM.Geometry
                 m_Curves[i].Flip();
             }
             m_Curves.Reverse();
-            return this;
+            return base.Flip();
         }
 
         public override Point ClosestPoint(Point point)
@@ -210,6 +131,5 @@ namespace BHoM.Geometry
 
             return closest;
         }
-
     }
 }
