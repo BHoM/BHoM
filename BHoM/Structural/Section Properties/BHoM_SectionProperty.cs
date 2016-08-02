@@ -78,6 +78,10 @@ namespace BHoM.Structural.SectionProperties
         [DefaultValue(null)]
         public double MassPerMetre { get; set; }
 
+        /// <summary>Explicitly defined area</summary>
+        [DefaultValue(null)]
+        public double Area { get; set; }
+
         /// <summary>
         /// Searches for the input name in the selected database and returns the corresponding section
         /// </summary>
