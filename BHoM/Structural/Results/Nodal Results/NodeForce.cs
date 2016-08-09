@@ -1,12 +1,13 @@
-﻿using System;
+﻿using BHoM.Base.Results;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results.Nodal_Results
+namespace BHoM.Structural.Results
 {
-    public class NodeReaction : BHoM.Global.Result
+    public class NodeReaction : Result
     {
         public override string[] ColumnHeaders
         {

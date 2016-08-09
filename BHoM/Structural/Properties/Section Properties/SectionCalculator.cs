@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.SectionProperties
+namespace BHoM.Structural.Properties
 {
     public class SectionCalculator
     {
@@ -28,20 +28,6 @@ namespace BHoM.Structural.SectionProperties
         private double m_Sx = 0;
         private double m_Sy = 0;
 
-        //private void CreateRadialSlices()
-        //{
-        //    Circle c = new Circle(new XY(2, 3), 12);
-        //    foreach (EdgeArray edgeArr in edges)
-        //    {
-        //        foreach (Edge2D edge in edgeArr.Edges)
-        //        {
-        //            foreach (Edge2D arc in c.edges[0].Edges)
-        //            {
-        //                XY[] inte = arc.Intercept(edge);
-        //            }
-        //        }
-        //    }
-        //}
 
         public SectionCalculator(Group<Curve> edges)
         {
