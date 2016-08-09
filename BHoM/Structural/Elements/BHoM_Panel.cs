@@ -19,11 +19,99 @@ namespace BHoM.Structural
         ////Properties///
         /////////////////
 
+        private Node m_N1;
+        private Node m_N2;
+        private Node m_N3;
+        private Node m_N4;
+
+        private Node[] m_vertices = new Node[4];
+
+
+        [DefaultValue(null)]
+        public Node N1
+        {
+            get
+            {
+                return m_N1;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    m_N1 = value;
+                    m_vertices[0] = value;
+                }
+            }
+        }
+
+        [DefaultValue(null)]
+        public Node N2
+        {
+            get
+            {
+                return m_N2;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    m_N2 = value;
+                    m_vertices[1] = value;
+                }
+            }
+        }
+
+        [DefaultValue(null)]
+        public Node N3
+        {
+            get
+            {
+                return m_N3;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    m_N3 = value;
+                    m_vertices[2] = value;
+                }
+            }
+        }
+
+        [DefaultValue(null)]
+        public Node N4
+        {
+            get
+            {
+                return m_N4;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    m_N4 = value;
+                    m_vertices[3] = value;
+                }
+            }
+        }
+
+        public List<Node> Vertices
+        {
+            get
+            {
+                return m_vertices.ToList().Where(x => x != null).ToList(); ;
+            }
+        }
+
+
+
         private Group<Curve> m_ExteriorEdges;
         private Group<Curve> m_InteriorEdges;
+
         /// <summary>
         /// A group of curves which define the perimeter of panel object
         /// </summary>
+        [DefaultValue(null)]
         public Group<Curve> Edges
         {
             private get
@@ -104,11 +192,15 @@ namespace BHoM.Structural
             }
         }
 
+        [DefaultValue(null)]
         public ThicknessProperty ThicknessProperty { get; set; }
 
+        [DefaultValue(null)]
         public Materials.Material Material { get; set; }
 
+
         public bool IsValid() { return m_ExteriorEdges != null; }
+
 
 
         ////////////////////
@@ -118,10 +210,10 @@ namespace BHoM.Structural
         internal Panel() { }
 
         /// <summary>
-        /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
+        /// Creates a panel object from a group of curve objects.Note: Curves must be able to join together to form a single closed curve or panel will be invalid
         /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="number"></param>
+        /// <param name = "edges" ></ param >
+        /// < param name="number"></param>
         public Panel(Group<Curve> edges)
         {
             SetEdges(edges);
@@ -137,9 +229,9 @@ namespace BHoM.Structural
             SetEdges(new Group<Curve>(edges));
         }
 
-        ///////////////
-        ////METHODS////
-        ///////////////
+        /////////////
+        //METHODS////
+        /////////////
 
         /// <summary></summary>
         public override BHoM.Geometry.GeometryBase GetGeometry()
