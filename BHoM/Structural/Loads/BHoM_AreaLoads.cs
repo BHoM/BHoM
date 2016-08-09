@@ -17,7 +17,7 @@ namespace BHoM.Structural.Loads
         public BHoM.Geometry.Vector Pressure { get; private set; }
 
 
-        public double PressureValue { get; set; }
+        public double Pressure { get; set; }
 
         public AreaUniformalyDistributedLoad() { }
 
