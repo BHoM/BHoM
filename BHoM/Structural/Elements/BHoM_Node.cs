@@ -16,7 +16,7 @@ namespace BHoM.Structural
     /// Node objects
     /// </summary>
     [Serializable]
-    public class Node : BHoM.Global.BHoMObject, IStructuralObject
+    public class Node : BHoM.Global.BHoMObject
     {
         private List<Bar> m_ConnectedBars;
         private List<Face> m_ConnectedFaces;

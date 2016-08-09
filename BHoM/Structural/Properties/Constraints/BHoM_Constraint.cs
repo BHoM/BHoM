@@ -9,7 +9,7 @@ namespace BHoM.Structural
     /// Constraint object - base class for all release, restraint, support classes. 
     /// </summary>
     [Serializable]
-    public class NodeConstraint : Global.BHoMObject, IStructuralObject
+    public class NodeConstraint : Global.BHoMObject
     {
         /////////////////
         ////Properties///

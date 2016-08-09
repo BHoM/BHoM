@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Results.Nodal_Results
 {
-    public class NodeReaction : Result
+    public class NodeReaction : BHoM.Global.Result
     {
         public override string[] ColumnHeaders
         {

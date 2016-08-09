@@ -11,7 +11,7 @@ namespace BHoM.Structural
     /// <summary>
     /// An interface class which should be inherited by an external application in order to import and export BHoMObjects
     /// </summary>
-    public interface IStructuralAdapter
+    public interface IElementAdapter
     {
         string Filename { get; }
 

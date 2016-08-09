@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural
 {
-    public class Opening : BHoMObject, IStructuralObject
+    public class Opening : BHoMObject
     {
         private Group<Curve> m_Edges;
 

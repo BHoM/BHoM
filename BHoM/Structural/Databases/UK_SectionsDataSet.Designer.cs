@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace BHoM {
+namespace BHoM.Structural.Databases {
     
     
     /// <summary>
@@ -1508,7 +1508,7 @@ namespace BHoM {
         }
     }
 }
-namespace BHoM.UK_SectionsDataSetTableAdapters {
+namespace BHoM.Structural.Databases.UK_SectionsDataSetTableAdapters {
     
     
     /// <summary>

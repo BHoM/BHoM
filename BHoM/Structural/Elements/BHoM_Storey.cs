@@ -9,7 +9,7 @@ namespace BHoM.Structural
     /// <summary>
     /// Storey class to store information about building storeys for post processing of results
     /// </summary>
-    public class Storey : BHoM.Global.BHoMObject, IStructuralObject
+    public class Storey : BHoM.Global.BHoMObject
     {
         /// <summary>Storey number</summary>
         public int Number { get; set; }

@@ -11,7 +11,7 @@ using System.Data;
 using System.ComponentModel;
 using BHoM.Structural.Loads;
 
-namespace BHoM.Structural.Results
+namespace BHoM.Global
 {
     public abstract class Envelope
     {

@@ -47,9 +47,6 @@ namespace BHoM.Global
             }
         }
 
-        /// <summary>Structure property - gets or sets the structure of the object as a BHoM.Structural.Structure</summary>
-        public Structure Structure { get; private set; }
-
         /// <summary>Structure name</summary>
         public string Name { get; set; }
 
@@ -188,7 +185,6 @@ namespace BHoM.Global
         {
             m_Objects = new Dictionary<Guid, Global.BHoMObject>();
             m_TaskQueue = new Queue<Task>();
-            Structure = new Structure(this, m_Objects);
         }
 
         /// <summary>Returns a BHoM by unique identifier</summary>

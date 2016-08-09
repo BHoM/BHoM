@@ -10,7 +10,7 @@ namespace BHoM.Structural
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Bar : BHoM.Global.BHoMObject, IStructuralObject
+    public class Bar : BHoM.Global.BHoMObject
     {
         /////////////////
         ////Properties///

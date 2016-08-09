@@ -88,7 +88,7 @@
     <Compile Include="Geometry\Vector\BHoM_Vector.cs" />
     <Compile Include="Geometry\Vector\BHoM_VectorUtils.cs" />
     <Compile Include="Global\BHoM_JSON.cs" />
-    <Compile Include="Structural\BHoM_IStructrualAdapter.cs" />
+    <Compile Include="Structural\Interfaces\IElementAdapter.cs" />
     <Compile Include="Global\BHoM_Object.cs" />
     <Compile Include="Global\BHoM_ObjectFilter.cs" />
     <Compile Include="Global\BHoM_ObjectManager.cs" />
@@ -104,27 +104,25 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Structural\BHoM_IStructuralObject.cs" />
     <Compile Include="Structural\Elements\BHoM_Grid.cs" />
     <Compile Include="Structural\Elements\BHoM_Opening.cs" />
     <Compile Include="Structural\Elements\BHoM_Panel.cs" />
-    <Compile Include="Structural\BHoM_SuperBar.cs" />
+    <Compile Include="Structural\Elements\BHoM_SuperBar.cs" />
     <Compile Include="HumanBody\BHoM_BodyParts.cs" />
     <Compile Include="HumanBody\BHoM_Skeleton.cs" />
     <Compile Include="Materials\BHoM_Material.cs" />
     <Compile Include="Materials\BHoM_MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Structural\Constraints\BHoM_DegreeOfFreedom.cs" />
-    <Compile Include="Structural\Constraints\BHoM_Constraint.cs" />
+    <Compile Include="Structural\Properties\Constraints\BHoM_DegreeOfFreedom.cs" />
+    <Compile Include="Structural\Properties\Constraints\BHoM_Constraint.cs" />
     <Compile Include="Structural\Elements\BHoM_Storey.cs" />
     <Compile Include="Structural\Elements\BHoM_Bar.cs" />
     <Compile Include="Structural\Elements\BHoM_Face.cs" />
     <Compile Include="Structural\Elements\BHoM_Node.cs" />
-    <Compile Include="Structural\Constraints\BHoM_BarRelease.cs" />
-    <Compile Include="Structural\BHoM_Offset.cs" />
-    <Compile Include="Structural\BHoM_Structure.cs" />
-    <Compile Include="Structural\BHoM_StructureEnums.cs" />
-    <Compile Include="Structural\Constraints\BHoM_Springs.cs" />
+    <Compile Include="Structural\Properties\Constraints\BHoM_BarRelease.cs" />
+    <Compile Include="Structural\Properties\BHoM_Offset.cs" />
+    <Compile Include="Structural\Elements\Enums.cs" />
+    <Compile Include="Structural\Properties\Constraints\BHoM_Springs.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCBeam.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCColumn.cs" />
     <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_EquivalentStatic.cs" />
@@ -140,24 +138,24 @@
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceEnvelope.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForceCollection.cs" />
     <Compile Include="Structural\Results\Bar Forces\BHoM_BarForce.cs" />
-    <Compile Include="Structural\Results\BHoM_IResultAdapter.cs" />
-    <Compile Include="Structural\Results\BHoM_ResultServer.cs" />
+    <Compile Include="Structural\Interfaces\IResultAdapter.cs" />
+    <Compile Include="Global\Results\BHoM_ResultServer.cs" />
     <Compile Include="Structural\Results\Building Results\BHoM_StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\BHoM_GlobalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\BHoM_NodalResultCollection.cs" />
     <Compile Include="Structural\Results\Nodal Results\BHoM_NodalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeForce.cs" />
-    <Compile Include="Structural\Section Properties\BHoM_Calculator.cs" />
-    <Compile Include="Structural\Databases\BHoM_Adapter.cs" />
-    <Compile Include="Structural\Section Properties\BHoM_ShapeType.cs" />
-    <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCColumnRectangular.cs" />
-    <Compile Include="Structural\Section Properties\Reinforced Concrete\BHoM_RCBeamRectangular.cs" />
-    <Compile Include="Structural\Section Properties\BHoM_SectionProperty.cs" />
-    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelUCSection.cs" />
-    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelBoxSection.cs" />
-    <Compile Include="Structural\Section Properties\Steel\BHoM_SteelISection.cs" />
-    <Compile Include="Structural\Thickness Properties\BHoM_ThicknessProperty.cs" />
-    <Compile Include="UK_SectionsDataSet.Designer.cs">
+    <Compile Include="Structural\Properties\Section Properties\SectionCalculator.cs" />
+    <Compile Include="Global\SQLAccessor.cs" />
+    <Compile Include="Structural\Properties\Section Properties\BHoM_ShapeBuilder.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Reinforced Concrete\BHoM_RCColumnRectangular.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Reinforced Concrete\BHoM_RCBeamRectangular.cs" />
+    <Compile Include="Structural\Properties\Section Properties\BHoM_SectionProperty.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Steel\BHoM_SteelUCSection.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Steel\BHoM_SteelBoxSection.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Steel\BHoM_SteelISection.cs" />
+    <Compile Include="Structural\Properties\BHoM_ThicknessProperty.cs" />
+    <Compile Include="Structural\Databases\UK_SectionsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UK_SectionsDataSet.xsd</DependentUpon>
@@ -185,15 +183,15 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="UK_SectionsDataSet.xsc">
+    <None Include="Structural\Databases\UK_SectionsDataSet.xsc">
       <DependentUpon>UK_SectionsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="UK_SectionsDataSet.xsd">
+    <None Include="Structural\Databases\UK_SectionsDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>UK_SectionsDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="UK_SectionsDataSet.xss">
+    <None Include="Structural\Databases\UK_SectionsDataSet.xss">
       <DependentUpon>UK_SectionsDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
