@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BHoM.Base.Results;
+using BHoM.Structural.Results;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

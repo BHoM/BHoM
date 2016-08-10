@@ -160,6 +160,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UK_SectionsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Structural\Results\StructuralResultServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />
