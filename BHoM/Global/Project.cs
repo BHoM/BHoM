@@ -1,5 +1,4 @@
-﻿using BHoM.Structural;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
 using BHoM.Base;
+using BHoM.Structural;
 using BHoM.Structural.Elements;
 
 namespace BHoM.Global
@@ -268,6 +268,5 @@ namespace BHoM.Global
                 }
             }
         }
-
     }
 }

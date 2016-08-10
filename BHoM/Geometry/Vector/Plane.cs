@@ -9,7 +9,6 @@ namespace BHoM.Geometry
     /// <summary>
     /// BHoM Plane object
     /// </summary>
-    [Serializable]
     public class Plane : GeometryBase
     {
         //Plane: ax + by + cz + d = 0
@@ -19,10 +18,10 @@ namespace BHoM.Geometry
         public Point Origin { get; private set; }
 
         public Plane(Point origin, Vector normal)
-        {          
+        {
             m_Normal = VectorUtils.Normalise(normal);
             Origin = origin.DuplicatePoint();
-            D = -VectorUtils.DotProduct(normal, origin);           
+            D = -VectorUtils.DotProduct(normal, origin);
         }
 
         public Plane(Point p1, Point p2, Point p3)
@@ -49,17 +48,35 @@ namespace BHoM.Geometry
 
             if (dotProduct1 + D >= -tolerance && dotProduct2 + D >= -tolerance)
                 return true;
-            else if(dotProduct1 + D < tolerance && dotProduct2 + D < tolerance)
+            else if (dotProduct1 + D < tolerance && dotProduct2 + D < tolerance)
                 return true;
             return false;
+        }
+
+        internal bool IsSameSide(double[] pnts, double tolerance)
+        {
+            int[] side = GetSide(pnts, tolerance);
+
+            int nonZeroIndex = 0;
+            while (nonZeroIndex < side.Length && side[nonZeroIndex] == 0) nonZeroIndex++;
+
+            int previousSide = side[nonZeroIndex];
+
+            for (int i = nonZeroIndex; i < side.Length; i++)
+            {
+                if (side[i] != 0 && side[i] != previousSide)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         internal int[] GetSide(double[] pnts, double tolerance)
         {
             double[] result = VectorUtils.DotProduct(pnts, m_Normal, m_Normal.Length);
             int[] sameSide = new int[result.Length];
-            int inPlaneCount = 0;
-            bool isNegative = false;
+
             for (int i = 0; i < result.Length; i++)
             {
                 if (result[i] + D > tolerance)
@@ -253,7 +270,7 @@ namespace BHoM.Geometry
 
         public override void Update()
         {
-           
+
         }
 
         public override GeometryBase Duplicate()
@@ -268,7 +285,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"plane\", \"normal\": " + Normal + ", \"origin\":" + Origin + "}";
+            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"normal\": " + Normal + ", \"origin\":" + Origin + "}";
         }
 
         public static new Plane FromJSON(string json, Project project)
@@ -280,6 +297,6 @@ namespace BHoM.Geometry
             Vector normal = new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["point"], project) as double[]);
             return new Plane(origin, normal);
         }
-            
+
     }
 }

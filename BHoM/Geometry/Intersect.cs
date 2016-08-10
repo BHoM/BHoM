@@ -8,7 +8,6 @@ namespace BHoM.Geometry
 {
     public static class Intersect
     {
-
         /// <summary>
         /// Gets the plane curve intersection geometry within the provided tolerance
         /// </summary>
@@ -18,34 +17,44 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static List<Point> PlaneCurve(Plane p, Curve c, double tolerance)
         {
-            List<Point> result = new List<Point>();
+            List<double> curveParameters;
+            return PlaneCurve(p, c, tolerance, out curveParameters);
+        }
 
+        public static List<Point> PlaneCurve(Plane p, Curve c, double tolerance, out List<double> curveParameters)
+        {
+            List<Point> result = new List<Point>();
+            int rounding = (int)Math.Log(1.0 / tolerance, 10);
+            curveParameters = new List<double>();
             int[] sameSide = p.GetSide(c.ControlPointVector, tolerance);
-       
+
             int previousSide = sameSide[0];
             int Length = sameSide.Length;
 
             for (int i = 1; i < Length - 1; i++)
             {
-               if (sameSide[i] != previousSide)
+                if (sameSide[i] != previousSide)
                 {
                     if (previousSide != 0)
                     {
                         double maxT = c.Knots[i + c.Degree];
                         double minT = c.Knots[i];
-                        result.Add(new Point(CurveParameterAtPlane(p, c, tolerance, minT, maxT, c.UnsafePointAt(minT), c.UnsafePointAt(maxT))));
+                        result.Add(new Point(CurveParameterAtPlane(p, c, tolerance, ref minT, ref maxT, c.UnsafePointAt(minT), c.UnsafePointAt(maxT))));
+                        curveParameters.Add(Math.Round((minT + maxT) / 2, rounding));
                     }
                     else
                     {
                         result.Add(c.PointAt(c.Knots[i - 1]));
+                        curveParameters.Add(c.Knots[i - 1]);
                     }
                     previousSide = sameSide[i];
-                }                                        
-            }       
-            
+                }
+            }
+
             if (sameSide[sameSide.Length - 1] == 0 && previousSide != sameSide[sameSide.Length - 1] && result.Count % 2 == 1)
             {
                 result.Add(c.EndPoint);
+                curveParameters.Add(sameSide[sameSide.Length - 1]);
             }
 
             return result;
@@ -187,7 +196,7 @@ namespace BHoM.Geometry
         //    }
         //}
 
-        private static double[] CurveParameterAtPlane(Plane p, Curve c, double tolerance, double minT, double maxT, double[] p1, double[] p2)
+        private static double[] CurveParameterAtPlane(Plane p, Curve c, double tolerance, ref double minT, ref double maxT, double[] p1, double[] p2)
         {
             double mid = (minT + maxT) / 2;
             if (minT == maxT)
@@ -200,11 +209,13 @@ namespace BHoM.Geometry
 
             if (p.IsSameSide(p1, p3, tolerance))
             {
-                return CurveParameterAtPlane(p, c, tolerance, mid, maxT, p3, p2);
+                minT = mid;
+                return CurveParameterAtPlane(p, c, tolerance, ref minT, ref maxT, p3, p2);
             }
             else
             {
-                return CurveParameterAtPlane(p, c, tolerance, minT, mid, p1, p3);
+                maxT = mid;
+                return CurveParameterAtPlane(p, c, tolerance, ref minT, ref maxT, p1, p3);
             }
         }
     }

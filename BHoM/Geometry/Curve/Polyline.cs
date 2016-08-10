@@ -116,14 +116,14 @@ namespace BHoM.Geometry
                 }
             }
             aResult = aResult.Trim(',') + "]]";
-            return "{\"Primitive\": \"polyline\"," + "\"points\": " + aResult + "}";
+            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + "\"Points\": " + aResult + "}";
         }
 
         public static new Polyline FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
-            List<double[]> points = BHoMJSON.ReadValue(typeof(List<double[]>), definition["points"], project) as List<double[]>;
+            List<double[]> points = BHoMJSON.ReadValue(typeof(List<double[]>), definition["Points"], project) as List<double[]>;
             return new Polyline(points);
         }
     }

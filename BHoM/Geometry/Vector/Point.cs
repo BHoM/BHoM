@@ -12,7 +12,6 @@ namespace BHoM.Geometry
     /// <summary>
     /// BHoM Point object
     /// </summary>
-    [Serializable]
     public class Point : GeometryBase, IComparable<Point>
     {
         private double[] Coordinates;
@@ -129,7 +128,7 @@ namespace BHoM.Geometry
         //}
 
 
-        public static implicit operator double[](Point v)
+        public static implicit operator double[] (Point v)
         {
             return v.Coordinates;
         }
@@ -352,7 +351,7 @@ namespace BHoM.Geometry
 
         public override BoundingBox Bounds()
         {
-            return new BoundingBox(this, this); 
+            return new BoundingBox(this, this);
         }
 
         public override void Transform(Transform t)
@@ -381,7 +380,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"point\", \"point\": " + ToString() + "}";
+            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Point\": " + ToString() + "}";
         }
 
         public static new Point FromJSON(string json, Project project)
@@ -389,7 +388,7 @@ namespace BHoM.Geometry
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            return new Point(BHoMJSON.ReadValue(typeof(double[]), definition["point"], project) as double[]);
+            return new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Point"], project) as double[]);
         }
 
         public int CompareTo(Point other)

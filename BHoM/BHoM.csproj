@@ -66,6 +66,7 @@
     <Compile Include="Generic\GraphNode.cs" />
     <Compile Include="Generic\PriorityQueue.cs" />
     <Compile Include="Geometry\BoundingBox.cs" />
+    <Compile Include="Geometry\Curve\NurbCurve.cs" />
     <Compile Include="Geometry\Group.cs" />
     <Compile Include="Geometry\GeometryBase.cs" />
     <Compile Include="Geometry\Intersect.cs" />
@@ -162,7 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />
-    <Folder Include="Project\" />
     <Folder Include="Structural\DesignCodes\Eurocode\Wind\" />
   </ItemGroup>
   <ItemGroup>

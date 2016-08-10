@@ -127,7 +127,6 @@ namespace BHoM.Geometry
             }
         }
 
-
         public List<Point> ControlPoints
         {
             get
@@ -140,7 +139,6 @@ namespace BHoM.Geometry
                 return cPnts;
             }
         }
-
 
         public double[] Knots
         {
@@ -393,7 +391,7 @@ namespace BHoM.Geometry
         {
             int index = 0;
             while (t > m_Knots[index]) { index++; }
-            index -= (Degree - 1);
+            index--;
 
             if (index < PointCount)
             {
@@ -501,7 +499,7 @@ namespace BHoM.Geometry
             double[] newWeight = new double[m_Weights.Length + 1];
             Array.Copy(m_Weights, newWeight, controlPointIndex);
             Array.Copy(weightResults, 0, newWeight, controlPointIndex, Degree);
-            Array.Copy(m_Weights, controlPointIndex + 1, newWeight, controlPointIndex + Degree, newWeight.Length - Degree - controlPointIndex);
+            Array.Copy(m_Weights, controlPointIndex + Degree - 1, newWeight, controlPointIndex + Degree, m_Weights.Length - Degree - controlPointIndex + 1);
 
             double[] knots = new double[m_Knots.Length + 1];
 
@@ -514,22 +512,104 @@ namespace BHoM.Geometry
             return controlPointIndex;
         }
 
+        public virtual List<Curve> Split(List<Plane> planes, bool keepClosed = false, double tolerance = 0.0001)
+        {
+            List<Curve> unSplit = new List<Curve>() { this };
+            List<Curve> split = null;
+
+            for (int i = 0; i < planes.Count; i++)
+            {
+                split = new List<Curve>();
+                for (int j = 0; j < unSplit.Count; j++)
+                {
+                    split.AddRange(unSplit[j].Split(planes[i], keepClosed, tolerance));
+                }
+                unSplit = split;
+            }
+            return split;
+        }
+
+        public virtual List<Curve> Split(Plane p, bool keepClosed = false, double tolerance = 0.0001)
+        {
+            List<Curve> unsplit = new List<Curve>() { this };
+            if (p.IsSameSide(this.ControlPointVector, tolerance)) return unsplit;
+
+            List<double> curveParams = new List<double>();
+            Intersect.PlaneCurve(p, this, tolerance, out curveParams);
+
+            List<Curve> split = Split(curveParams);
+
+            if (keepClosed && this.IsClosed())
+            {
+                List<Curve> lhs = new List<Curve>();
+                List<Curve> rhs = new List<Curve>();
+
+                for (int i = 0; i < split.Count; i++)
+                {
+                    int[] side = p.GetSide(split[i].ControlPointVector, 0.001);
+                    int counter = 0;
+                    while (counter < side.Length && side[counter] == 0) counter++;
+                    if (counter < side.Length)
+                    {
+                        if (side[counter] == -1) lhs.Add(split[i]);
+                        else rhs.Add(split[i]);
+                    }
+                }
+
+                split = Curve.Join(lhs);
+                split.AddRange(Curve.Join(rhs));
+                for (int i = 0; i < split.Count; i++)
+                {
+                    split[i].Append(new Line(split[i].EndPoint, split[i].StartPoint));
+                }
+            }
+
+            return split;
+        }
+
+        public virtual List<Curve> Split(List<double> t)
+        {
+            List<Curve> split = new List<Curve>();
+            Curve unsplit = this;
+            double tPrev = 0;
+            for (int i = 0; i < t.Count; i++)
+            {
+                if (t[i] - tPrev < unsplit.Domain[1])
+                {
+                    List<Curve> temp = unsplit.Split(t[i] - tPrev);
+                    split.Add(temp[0]);
+                    unsplit = temp[1];
+                }
+                else
+                {
+                    break;
+                }
+                tPrev = t[i];
+            }
+
+            split.Add(unsplit);
+
+            return split;
+        }
 
         public virtual List<Curve> Split(double t)
         {
             if (!IsNurbForm) CreateNurbForm();
+            if (t > Domain[1]) return new List<Curve>() { this };
 
-            int insertedIndex = InsertKnot(t);
+            Curve newCurve = this.DuplicateCurve();
+
+            int insertedIndex = newCurve.InsertKnot(t);
             int startIndex = insertedIndex;
 
             while (insertedIndex + 1 < Degree || PointCount - (startIndex + Degree - 1) < Degree)
             {
-                insertedIndex = InsertKnot(t);
+                insertedIndex = newCurve.InsertKnot(t);
             }
 
-            double[] midPoint = Common.Utils.Merge<double>(UnsafePointAt(t), new double[] { 1 });
-            double[] lhsPnts = Common.Utils.Merge<double>(LeftControlPoints(t), midPoint);
-            double[] rhsPnts = Common.Utils.Merge<double>(midPoint, RightControlPoints(t));
+            double[] midPoint = Degree > 1 ? Common.Utils.Merge<double>(newCurve.UnsafePointAt(t), new double[] { 1 }) : new double[0];
+            double[] lhsPnts = Common.Utils.Merge<double>(newCurve.LeftControlPoints(t), midPoint);
+            double[] rhsPnts = Common.Utils.Merge<double>(midPoint, newCurve.RightControlPoints(t));
 
             double[] lhsWeights = new double[lhsPnts.Length / (m_Dimensions + 1)];
             double[] rhsWeights = new double[rhsPnts.Length / (m_Dimensions + 1)];
@@ -537,24 +617,24 @@ namespace BHoM.Geometry
             double[] lhsKnots = new double[lhsWeights.Length + m_Order];
             double[] rhsKnots = new double[rhsWeights.Length + m_Order];
 
-            Array.Copy(m_Weights, lhsWeights, lhsWeights.Length - 1);
-            Array.Copy(m_Weights, insertedIndex + 1, rhsWeights, 1, rhsWeights.Length - 1);
+            Array.Copy(newCurve.m_Weights, lhsWeights, lhsWeights.Length - 1);
+            Array.Copy(newCurve.m_Weights, insertedIndex + 1, rhsWeights, 1, rhsWeights.Length - 1);
 
-            double tRatio = (t - m_Knots[insertedIndex + Degree - 1]) / (m_Knots[insertedIndex + Degree + 1] - m_Knots[insertedIndex + Degree - 1]);
+            double tRatio = (t - m_Knots[insertedIndex + Degree - 1]) / (newCurve.m_Knots[insertedIndex + Degree + 1] - newCurve.m_Knots[insertedIndex + Degree - 1]);
 
-            double midWeightValue = (1 - tRatio) * m_Weights[insertedIndex] + tRatio * m_Weights[insertedIndex + 1];
+            double midWeightValue = (1 - tRatio) * newCurve.m_Weights[insertedIndex] + tRatio * newCurve.m_Weights[insertedIndex + 1];
 
             lhsWeights[lhsWeights.Length - 1] = midWeightValue;
             rhsWeights[0] = midWeightValue;
 
-            Array.Copy(m_Knots, lhsKnots, insertedIndex + m_Order);
-            for (int i = lhsKnots.Length - Degree; i < lhsKnots.Length; i++)
+            Array.Copy(newCurve.m_Knots, lhsKnots, insertedIndex + m_Order);
+            for (int i = lhsKnots.Length - m_Order; i < lhsKnots.Length; i++)
             {
                 lhsKnots[i] = t;
             }
 
-            Array.Copy(m_Knots, insertedIndex + m_Order, rhsKnots, rhsKnots.Length - m_Order, m_Order);
-            for (int i = rhsKnots.Length - Degree - 1; i < rhsKnots.Length; i++)
+            Array.Copy(newCurve.m_Knots, insertedIndex + Degree, rhsKnots, Degree, rhsKnots.Length - Degree);
+            for (int i = Degree; i < rhsKnots.Length; i++)
             {
                 rhsKnots[i] -= t;
             }
@@ -730,6 +810,7 @@ namespace BHoM.Geometry
             c.m_Weights = Common.Utils.Copy<double>(m_Weights);
             c.m_Knots = Common.Utils.Copy<double>(m_Knots);
             c.m_Order = m_Order;
+            c.IsNurbForm = IsNurbForm;
             return c;
         }
 
@@ -757,7 +838,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            string points = "\"points\": [[ ";
+            string points = "\"Points\": [[ ";
             for (int i = 0; i < m_ControlPoints.Length - 1; i++)
             {
                 if (i > 0 && (i + 1) % 4 == 0)
@@ -771,69 +852,21 @@ namespace BHoM.Geometry
             }
             points = points.Trim(',') + "]]";
             string knots = "";
+            if (!IsNurbForm) CreateNurbForm();
             if (m_Knots != null)
-                knots = "\"knots\": " + Common.Utils.CollectionToString(m_Knots);
+                knots = "\"Knots\": " + Common.Utils.CollectionToString(m_Knots);
             string weights = "";
             if (m_Weights != null)
-                weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"weights\": " + Common.Utils.CollectionToString(m_Weights) : "";
-            string degree = "\"degree\": " + (m_Order - 1);
-            return "{\"Primitive\": \"curve\"," + points + "," + degree + (knots != "" ? "," : "") + knots + (weights != "" ? "," : "") + weights + "}";
+                weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"Weights\": " + Common.Utils.CollectionToString(m_Weights) : "";
+            string degree = "\"Degree\": " + (m_Order - 1);
+            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + points + "," + degree + (knots != "" ? "," : "") + knots + (weights != "" ? "," : "") + weights + "}";
         }
 
 
         public static new Curve FromJSON(string json, Project project)
         {
-            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
-
-            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
-
-            switch (typeString)
-            {               
-                case "arc":
-                    return Arc.FromJSON(json, project);
-                case "line":
-                    return Line.FromJSON(json, project);
-                case "polyline":
-                    return Polyline.FromJSON(json, project);
-                case "circle":
-                    return Circle.FromJSON(json, project);
-                default:
-                    List<double[]> curvePoints = BHoMJSON.ReadValue(typeof(List<double[]>), definition["points"], project) as List<double[]>;
-                    double[] knots = definition.ContainsKey("knots") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["knots"], project) : null;
-                    double[] weights = definition.ContainsKey("weights") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["weights"], project) : null;
-                    int degree = (int)BHoMJSON.ReadValue(typeof(int), definition["degree"], project);
-                    return new NurbCurve(curvePoints, degree, knots, weights);
-            }      
+            return GeometryBase.FromJSON(json, project) as Curve;
         }
     }
 
-    public class NurbCurve : Curve
-    {
-        internal NurbCurve(List<double[]> points, int degree, double[] knots, double[] weights) : base(points)
-        {
-            m_Dimensions = 3;
-            m_Order = degree + 1;
-            m_Knots = knots;
-            m_Weights = weights != null ? weights : VectorUtils.Splat(1, points.Count);
-        }
-
-        internal NurbCurve(List<Point> points, int degree, double[] knots, double[] weights) : base(points)
-        {
-            m_Dimensions = 3;
-            m_Order = degree + 1;
-            m_Knots = knots;
-            m_Weights = weights != null ? weights : VectorUtils.Splat(1, points.Count);
-        }
-
-        public override void CreateNurbForm()
-        {
-            IsNurbForm = true;
-        }
-
-        public static NurbCurve Create(List<Point> points, int degree, double[] knots, double[] weights)           
-        {
-            return new NurbCurve(points, degree, knots, weights);
-        }
-    }
 }

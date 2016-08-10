@@ -11,7 +11,6 @@ namespace BHoM.Geometry
     /// <summary>
     /// BHoM Vector object
     /// </summary>
-    [Serializable]
     public class Vector : GeometryBase
     {
         private double[] Coordinates;
@@ -22,7 +21,7 @@ namespace BHoM.Geometry
             get
             {
                 return Coordinates[0];
-            } 
+            }
             set
             {
                 Coordinates[0] = value;
@@ -78,7 +77,9 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Vector(Vector dup)
         {
-            Coordinates = new double[] { dup.X, dup.Y, dup.Z, 0 };
+            X = dup.X;
+            Y = dup.Y;
+            Z = dup.Z;
         }
 
         /// <summary>
@@ -87,7 +88,9 @@ namespace BHoM.Geometry
         /// <param name="pt"></param>
         public Vector(Point pt)
         {
-            Coordinates = new double[] { pt.X, pt.Y, pt.Z, 0 };
+            X = pt.X;
+            Y = pt.Y;
+            Z = pt.Z;
         }
 
         internal Vector(double[] v)
@@ -95,7 +98,7 @@ namespace BHoM.Geometry
             Coordinates = v;
         }
 
-        public static implicit operator double[](Vector v)
+        public static implicit operator double[] (Vector v)
         {
             return v.Coordinates;
         }
@@ -139,7 +142,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator -(Vector a, Vector b)
         {
-            return new Vector(VectorUtils.Sub(a,b));
+            return new Vector(VectorUtils.Sub(a, b));
         }
 
         /// <summary>
@@ -194,7 +197,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector CrossProduct(Vector a, Vector b)
         {
-            return new Vector(VectorUtils.CrossProduct(a,b));
+            return new Vector(VectorUtils.CrossProduct(a, b));
         }
 
         /// <summary>
@@ -262,8 +265,6 @@ namespace BHoM.Geometry
         {
             return new Vector(this);
         }
-
-    
 
         /// <summary>
         /// Rotates vector using Rodrigues' rotation formula
@@ -392,7 +393,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"vector\", \"vector\": " + ToString() + "}";
+            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Vector\": " + ToString() + "}";
         }
 
         public static new Vector FromJSON(string json, Project project)
@@ -400,7 +401,7 @@ namespace BHoM.Geometry
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            return new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["vector"], project) as double[]);        
+            return new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["Vector"], project) as double[]);
         }
     }
 }

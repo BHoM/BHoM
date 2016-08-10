@@ -15,7 +15,7 @@ namespace BHoM.Geometry
     public class Line : Curve
     {
 
-        internal Line() { }     
+        internal Line() { }
 
         /// <summary>
         /// Construct line by start point and end point
@@ -25,7 +25,7 @@ namespace BHoM.Geometry
         public Line(Point startpoint, Point endpoint)
         {
             m_Dimensions = 3;
-            m_ControlPoints = Common.Utils.Merge<double>(startpoint, endpoint);     
+            m_ControlPoints = Common.Utils.Merge<double>(startpoint, endpoint);
         }
 
         internal Line(double[] startpoint, double[] endpoint)
@@ -33,7 +33,7 @@ namespace BHoM.Geometry
             m_Dimensions = 3;
             m_ControlPoints = new double[8];
             Array.Copy(startpoint, m_ControlPoints, startpoint.Length);
-            Array.Copy(endpoint,0, m_ControlPoints, 4, endpoint.Length);
+            Array.Copy(endpoint, 0, m_ControlPoints, 4, endpoint.Length);
             m_ControlPoints[3] = 1;
             m_ControlPoints[7] = 1;
         }
@@ -83,7 +83,7 @@ namespace BHoM.Geometry
             Vector dir = (EndPoint - StartPoint) / Length;
             double t = dir * (pt - StartPoint);
             return StartPoint + t * dir;
-	    }
+        }
 
         public Point ClosestPoint(Point pt)
         {
@@ -99,8 +99,8 @@ namespace BHoM.Geometry
                 Point p1 = this.StartPoint;
                 Point p2 = this.EndPoint;
                 Point p3 = c.EndPoint;
-               
-                return new Polyline(new List<Point>() { this.StartPoint, this.EndPoint, c.EndPoint });               
+
+                return new Polyline(new List<Point>() { this.StartPoint, this.EndPoint, c.EndPoint });
             }
             else if (c is Polyline)
             {
@@ -114,17 +114,16 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{ \"Primitive\": \"line\", \"start\": " + StartPoint + ", \"end\": " + EndPoint + "}";
+            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Start\": " + StartPoint + ", \"End\": " + EndPoint + "}";
         }
 
         public static new Line FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
-            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
 
-            Point startP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"], project) as double[]);
-            Point endP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"], project) as double[]);
+            Point startP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Start"], project) as double[]);
+            Point endP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["End"], project) as double[]);
             return new Line(startP, endP);
         }
     }

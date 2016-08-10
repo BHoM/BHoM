@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BHoM.Global;
+using BHoM.Base;
 
 namespace BHoM.Geometry
 {
@@ -133,7 +134,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"group\", \"groupType\": \""+ typeof(T).FullName + "\"," + Base.BHoMJSON.WriteProperty("group", m_Geometry) + "}";
+            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"GroupType\": \"" + typeof(T).FullName + "\"," + BHoMJSON.WriteProperty("Data", m_Geometry) + "}";
         }
 
         public static new GeometryBase FromJSON(string json, Project project)
@@ -141,7 +142,7 @@ namespace BHoM.Geometry
             Dictionary<string, string> definition = Base.BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
             var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
-            Type groupDataType = Type.GetType(definition["groupType"].Trim('\"', '\"'));
+            Type groupDataType = Type.GetType(definition["GroupType"].Trim('\"', '\"'));
             var groupType = typeof(Group<>);
             var dataType = typeof(List<>);
             var data = dataType.MakeGenericType(groupDataType);
@@ -150,7 +151,7 @@ namespace BHoM.Geometry
             System.Reflection.MethodInfo jsonMethod = groupofType.GetMethod("AddRange");
             if (jsonMethod != null)
             {
-                object result = jsonMethod.Invoke(group, new object[] { Base.BHoMJSON.ReadValue(data, definition["group"], project) });
+                object result = jsonMethod.Invoke(group, new object[] { Base.BHoMJSON.ReadValue(data, definition["Data"], project) });
             }      
             return group as GeometryBase;
         }

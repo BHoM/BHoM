@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BHoM.Base;
+using BHoM.Global;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +37,7 @@ namespace BHoM.Geometry
             double root2on2 = Math.Sqrt(2) / 2;
 
             m_Knots = new double[] { 0, 0, 0, Math.PI / 2, Math.PI / 2, Math.PI, Math.PI, 3 * Math.PI / 2, 3 * Math.PI / 2, 2 * Math.PI, 2 * Math.PI, 2 * Math.PI };
-            m_Weights = new double[] { 1, root2on2, 1, root2on2, 1, root2on2, 1, root2on2, 1};
+            m_Weights = new double[] { 1, root2on2, 1, root2on2, 1, root2on2, 1, root2on2, 1 };
 
             m_ControlPoints = new double[]
             {
@@ -49,7 +51,7 @@ namespace BHoM.Geometry
                 m_Radius,-m_Radius, 0, 1,
                 m_Radius, 0, 0, 1
             };
-            
+
             if (m_Plane.Normal.Z < 1)
             {
                 Vector axis = new Vector(VectorUtils.CrossProduct(m_Plane.Normal, new double[] { 0, 0, 1, 0 }));
@@ -59,7 +61,7 @@ namespace BHoM.Geometry
                 m_ControlPoints = VectorUtils.MultiplyMany(t, m_ControlPoints);
             }
 
-            IsNurbForm= true;
+            IsNurbForm = true;
         }
 
         public override int PointCount
@@ -85,6 +87,20 @@ namespace BHoM.Geometry
             {
                 return m_Radius;
             }
+        }
+
+        public override string ToJSON()
+        {
+            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Plane\": " + m_Plane.ToJSON() + ", \"Radius\": " + m_Radius + "}";
+        }
+        public static new Circle FromJSON(string json, Project project)
+        {
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+
+            Plane plane = BHoMJSON.ReadValue(typeof(Plane), definition["Plane"], project) as Plane;
+            double radius = double.Parse(definition["Radius"]);
+            return new Circle(radius, plane);
         }
     }
 }

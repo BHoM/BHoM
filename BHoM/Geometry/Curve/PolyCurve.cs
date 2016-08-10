@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BHoM.Base;
+using BHoM.Global;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +10,13 @@ namespace BHoM.Geometry
 {
     public class PolyCurve : Curve
     {
-        private List<Curve> m_Curves;
+        private Group<Curve> m_Curves;
 
         internal PolyCurve() { }
         internal PolyCurve(List<Curve> curves)
         {
-            m_Curves = curves;
+            m_Curves = new Group<Curve>();
+            m_Curves.AddRange(curves);
             m_Dimensions = 3;
         }
 
@@ -35,7 +38,7 @@ namespace BHoM.Geometry
         public override Curve DuplicateCurve()
         {
             PolyCurve c = base.DuplicateCurve() as PolyCurve;
-            c.m_Curves = new List<Curve>();
+            c.m_Curves = new Group<Curve>();
             for (int i = 0; i < m_Curves.Count; i++)
             {
                 c.m_Curves.Add(m_Curves[i].DuplicateCurve());
@@ -58,37 +61,27 @@ namespace BHoM.Geometry
 
         public override void Transform(Transform t)
         {
-            for (int i = 0; i < m_Curves.Count; i++)
-            {
-                m_Curves[i].Transform(t);
-            }
+            m_Curves.Transform(t);
             base.Transform(t);
         }
 
         public override void Translate(Vector v)
         {
-            for (int i = 0; i < m_Curves.Count; i++)
-            {
-                m_Curves[i].Translate(v);
-            }
+            m_Curves.Translate(v);
+
             base.Translate(v);
         }
 
         public override void Mirror(Plane p)
         {
-            for (int i = 0; i < m_Curves.Count; i++)
-            {
-                m_Curves[i].Mirror(p);
-            }
+            m_Curves.Mirror(p);
             base.Mirror(p);
         }
 
         public override void Project(Plane p)
         {
-            for (int i = 0; i < m_Curves.Count; i++)
-            {
-                m_Curves[i].Project(p);
-            }
+            m_Curves.Project(p);
+
             base.Project(p);
         }
 
@@ -130,6 +123,21 @@ namespace BHoM.Geometry
             }
 
             return closest;
+        }
+
+        public override string ToJSON()
+        {
+            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + BHoMJSON.WriteProperty("Curves", m_Curves) + "}";
+        }
+
+        public static new PolyCurve FromJSON(string json, Project project)
+        {
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+
+            Group<Curve> curves = Group<Curve>.FromJSON(definition["Curves"], project) as Group<Curve>;
+
+            return Curve.Join(curves)[0] as PolyCurve;
         }
     }
 }

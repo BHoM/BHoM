@@ -9,7 +9,6 @@ namespace BHoM.Geometry
     /// <summary>
     /// Arc object
     /// </summary>
-    [Serializable]
     public class Arc : Curve
     {
         double[] m_Centre;
@@ -116,7 +115,7 @@ namespace BHoM.Geometry
 
             double w2 = Radius / VectorUtils.Length(VectorUtils.Sub(cP2, Centre));
 
-            double arcAngle = VectorUtils.Angle(V1,V2);
+            double arcAngle = VectorUtils.Angle(V1, V2);
 
             m_Weights = new double[] { 1, w2, 1 };
             m_Knots = new double[] { 0, 0, 0, arcAngle, arcAngle, arcAngle };
@@ -193,17 +192,17 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{ \"Primitive\": \"arc\", \"start\": " + StartPoint + ", \"middle\": " + MiddlePoint + ", \"end\": " + EndPoint + "}";
+            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Start\": " + StartPoint + ", \"Middle\": " + MiddlePoint + ", \"End\": " + EndPoint + "}";
         }
         public static new Arc FromJSON(string json, Project project)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
-            Point start = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"], project) as double[]);
-            Point middle = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["middle"], project) as double[]);
-            Point end = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"], project) as double[]);
-            return new Arc(start, middle, end);
+            Point start = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Start"], project) as double[]);
+            Point middle = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Middle"], project) as double[]);
+            Point end = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["End"], project) as double[]);
+            return new Arc(start, end, middle);
         }
     }
 }

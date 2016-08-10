@@ -25,20 +25,20 @@ namespace BHoM.Structural.Elements
         /// <summary>
         /// A group of curves which define the perimeter of panel object
         /// </summary>
-        public Group<Curve> Edges
-        {
-            private get
-            {
-                Group<Curve> edges = new Group<Curve>();
-                edges.AddRange(m_ExteriorEdges);
-                edges.AddRange(m_InteriorEdges);
-                return edges;
-            }
-            set
-            {
-                SetEdges(value);
-            }
-        }
+        //public Group<Curve> Edges
+        //{
+        //    private get
+        //    {
+        //        Group<Curve> edges = new Group<Curve>();
+        //        edges.AddRange(m_ExteriorEdges);
+        //        edges.AddRange(m_InteriorEdges);
+        //        return edges;
+        //    }
+        //    set
+        //    {
+        //        SetEdges(value);
+        //    }
+        //}
 
         private static bool IsInside(Curve c, List<Curve> crvs)
         {
@@ -64,7 +64,7 @@ namespace BHoM.Structural.Elements
             {
                 return c2.Length.CompareTo(c1.Length);
             });
-       
+
             for (int i = 0; i < crvs.Count; i++)
             {
                 if (crvs[i].IsClosed())
@@ -78,7 +78,7 @@ namespace BHoM.Structural.Elements
                         m_ExteriorEdges.Add(crvs[i]);
                     }
                 }
-            } 
+            }
         }
 
         public Group<Curve> External_Contours
@@ -145,7 +145,10 @@ namespace BHoM.Structural.Elements
         /// <summary></summary>
         public override BHoM.Geometry.GeometryBase GetGeometry()
         {
-            return Edges;
+            Group<Curve> edges = new Group<Curve>();
+            edges.AddRange(m_ExteriorEdges);
+            edges.AddRange(m_InteriorEdges);
+            return edges;
         }
 
         /// <summary></summary>
