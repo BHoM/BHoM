@@ -77,26 +77,34 @@ namespace BHoM.Base.Results
             }
         }
 
-        public ResultServer(string fileName)
+        public ResultServer(string fileName) : this()
         {
-            string extension = Path.GetExtension(fileName);
-            if (string.IsNullOrEmpty(extension))
+            if (!string.IsNullOrEmpty(fileName))
             {
-                fileName = fileName + ".mdf";
-            }
-            else
-            {
-                fileName = fileName.Replace(extension, ".mdf");
-            }
+                string extension = Path.GetExtension(fileName);
+                if (string.IsNullOrEmpty(extension))
+                {
+                    fileName = fileName + ".mdf";
+                }
+                else
+                {
+                    fileName = fileName.Replace(extension, ".mdf");
+                }
 
-            if (!File.Exists(fileName))
-            {
-                CreateSqlDatabase(fileName);
-            }
+                if (!File.Exists(fileName))
+                {
+                    CreateSqlDatabase(fileName);
+                }
 
-            m_ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + fileName + "; Integrated Security = True; Connect Timeout = 30";
+                m_ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + fileName + "; Integrated Security = True; Connect Timeout = 30";
+                InitialiseTable();
+            }
+        }
+
+        public ResultServer()
+        {        
             m_Results = new Dictionary<string, ResultSet<T>>();
-            InitialiseTable();
+            m_ColumnNames = new T().ColumnHeaders.ToList();
         }
 
         public static void CreateSqlDatabase(string filename)
@@ -130,102 +138,132 @@ namespace BHoM.Base.Results
 
         public void ClearData()
         {
-            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString))
+            if (!string.IsNullOrEmpty(m_TableName))
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand("TRUNCATE TABLE " + m_TableName, connection);
-                cmd.ExecuteNonQuery();
-                connection.Close();
-            }
-        }
-
-        public void StoreData(List<T> values)
-        {        
-            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString))
-            {
-                connection.Open();
-                SqlTransaction transaction = connection.BeginTransaction();
-                using (var bulkCopy = new SqlBulkCopy(connection, SqlBulkCopyOptions.Default, transaction))
+                using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString))
                 {
-                    bulkCopy.DestinationTableName = m_TableName;
-                    bulkCopy.BatchSize = 10000;
-                    try
-                    {
-                        bulkCopy.WriteToServer(CreateDataSet(values));
-                        transaction.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        transaction.Rollback();
-                    }
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("TRUNCATE TABLE " + m_TableName, connection);
+                    cmd.ExecuteNonQuery();
                     connection.Close();
                 }
             }
+            m_Results.Clear();
         }
 
-        public void LoadData()
+        public void StoreData(List<T> values)
         {
-            string lookupString = "";
-
-            if (NameSelection != null && NameSelection.Count > 0)
+            if (!string.IsNullOrEmpty(m_TableName))
             {
-                lookupString = " WHERE NAME IN (";
-                for (int i = 0; i < NameSelection.Count; i++)
+                using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString))
                 {
-                    lookupString += "'" + NameSelection[i] + "',";
+                    connection.Open();
+                    SqlTransaction transaction = connection.BeginTransaction();
+                    using (var bulkCopy = new SqlBulkCopy(connection, SqlBulkCopyOptions.Default, transaction))
+                    {
+                        bulkCopy.DestinationTableName = m_TableName;
+                        bulkCopy.BatchSize = 10000;
+                        try
+                        {
+                            bulkCopy.WriteToServer(CreateDataSet(values));
+                            transaction.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                        }
+                        connection.Close();
+                    }
                 }
-                lookupString = lookupString.Trim(',') + ")";
             }
-
-            if (LoadcaseSelection != null && LoadcaseSelection.Count > 0)
+            else
             {
-                lookupString += (lookupString != "" ? " AND " : " WHERE ") + "LOADCASE IN (";
-                for (int i = 0; i < LoadcaseSelection.Count; i++)
-                {
-                    lookupString += "'" + LoadcaseSelection[i] + "',";
-                }
-                lookupString = lookupString.Trim(',') + ")";
-            }
-
-            if (TimeStepSelection != null && TimeStepSelection.Count > 0)
-            {
-                lookupString += (lookupString != "" ? " AND " : " WHERE ") + "LOADCASE IN (";
-                for (int i = 0; i < TimeStepSelection.Count; i++)
-                {
-                    lookupString += "'" + TimeStepSelection[i] + "',";
-                }
-                lookupString = lookupString.Trim(',') + ")";
-            }
-
-
-            if (m_Results.Count == 0)
-            {
-                System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
-                connection.Open();
-
-                string query = "SELECT * FROM " + m_TableName + lookupString + ";";
-
-                SqlDataAdapter dataAdapter = new System.Data.SqlClient.SqlDataAdapter(query, connection);
-                DataSet set = new DataSet();
-
-                dataAdapter.Fill(set);
-                connection.Close();
-
-                DataRowCollection rows = set.Tables[0].Rows;
-
                 int orderCol = m_ColumnNames.IndexOf(m_ResultOrder.ToString());
                 ResultSet<T> rSet = null;// new ResultSet<T>();
-                for (int i = 0; i < rows.Count; i++)
+                for (int i = 0; i < values.Count; i++)
                 {
-                    string key = rows[i][orderCol].ToString();
+                    string key = values[i].Data[orderCol].ToString();
                     if (!m_Results.TryGetValue(key, out rSet))
                     {
                         rSet = new ResultSet<T>();
                         m_Results.Add(key, rSet);
                     }
-                    rSet.AddData(rows[i].ItemArray);
-                }                
-            }         
+                    rSet.AddData(values[i].Data);
+                }
+            }
+        }
+
+        public Dictionary<string, ResultSet<T>> LoadData()
+        {
+            if (!string.IsNullOrEmpty(m_TableName))
+            {
+                string lookupString = "";
+
+                if (NameSelection != null && NameSelection.Count > 0)
+                {
+                    lookupString = " WHERE NAME IN (";
+                    for (int i = 0; i < NameSelection.Count; i++)
+                    {
+                        lookupString += "'" + NameSelection[i] + "',";
+                    }
+                    lookupString = lookupString.Trim(',') + ")";
+                }
+
+                if (LoadcaseSelection != null && LoadcaseSelection.Count > 0)
+                {
+                    lookupString += (lookupString != "" ? " AND " : " WHERE ") + "LOADCASE IN (";
+                    for (int i = 0; i < LoadcaseSelection.Count; i++)
+                    {
+                        lookupString += "'" + LoadcaseSelection[i] + "',";
+                    }
+                    lookupString = lookupString.Trim(',') + ")";
+                }
+
+                if (TimeStepSelection != null && TimeStepSelection.Count > 0)
+                {
+                    lookupString += (lookupString != "" ? " AND " : " WHERE ") + "LOADCASE IN (";
+                    for (int i = 0; i < TimeStepSelection.Count; i++)
+                    {
+                        lookupString += "'" + TimeStepSelection[i] + "',";
+                    }
+                    lookupString = lookupString.Trim(',') + ")";
+                }
+
+
+                if (m_Results.Count == 0)
+                {
+                    System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
+                    connection.Open();
+
+                    string query = "SELECT * FROM " + m_TableName + lookupString + ";";
+
+                    SqlDataAdapter dataAdapter = new System.Data.SqlClient.SqlDataAdapter(query, connection);
+                    DataSet set = new DataSet();
+
+                    dataAdapter.Fill(set);
+                    connection.Close();
+
+                    DataRowCollection rows = set.Tables[0].Rows;
+
+                    int orderCol = m_ColumnNames.IndexOf(m_ResultOrder.ToString());
+                    ResultSet<T> rSet = null;// new ResultSet<T>();
+                    for (int i = 0; i < rows.Count; i++)
+                    {
+                        string key = rows[i][orderCol].ToString();
+                        if (!m_Results.TryGetValue(key, out rSet))
+                        {
+                            rSet = new ResultSet<T>();
+                            m_Results.Add(key, rSet);
+                        }
+                        rSet.AddData(rows[i].ItemArray);
+                    }
+                }
+            }
+            else
+            {
+
+            }
+            return m_Results;
         }
 
         private DataTable CreateDataSet(List<T> values)
@@ -254,20 +292,12 @@ namespace BHoM.Base.Results
                 PropertyDescriptor prop = properties[column];
                 table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
             }
-
-            //for (int i = 0; i < m_ColumnNames.Count; i++)
-            //{
-            //    table.Columns.Add();
-            //}
-
+         
             for (int i = 0; i < values.Count; i++)
             {
                 DataRow row = table.NewRow();
                 row.ItemArray = values[i].Data;
-                //for (int j = 0; j < m_ColumnNames.Count; j++)
-                //{
-                //    row[m_ColumnNames[j]] = values[i].Data[j] ?? DBNull.Value;
-                //}
+               
                 table.Rows.Add(row);
             }
             return table;
@@ -319,7 +349,6 @@ namespace BHoM.Base.Results
 
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
             string tableColumns = typeof(T).Name + "(";
-            m_ColumnNames = new T().ColumnHeaders.ToList();
 
             foreach (string column in m_ColumnNames)
             {

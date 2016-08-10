@@ -114,12 +114,11 @@ namespace BHoM.Structural.Properties
                 double s = (double)data[(int)SteelSectionData.Spacing];
                 double r1 = (double)data[(int)SteelSectionData.r1];
                 double r2 = (double)data[(int)SteelSectionData.r2];
-
-                string[] enumNames = Enum.GetNames(typeof(SteelSectionData));
-                double[] sectionData = new double[enumNames.Length - 3];
-                for (int i = 3; i < enumNames.Length; i++)
+                
+                double[] sectionData = new double[(int)SteelSectionData.Spacing + 1];
+                for (int i = (int)SteelSectionData.Mass; i < (int)SteelSectionData.Spacing + 1; i++)
                 {
-                    sectionData[i - 3] = (double)data[i];
+                    sectionData[i] = (double)data[i];
                 }
                 Group<Curve> edges = CreateGeometry(shape, breadth, height, tw, tf1, r1, r2, b1, b2, tf2, b3);
                 SectionProperty property = new SectionProperty(edges, shape, SectionType.Steel);
@@ -260,22 +259,19 @@ namespace BHoM.Structural.Properties
             Edges.Translate(new Vector(-cx, -cy, 0));
         }
 
-        /// <summary>Section type</summary>
-        /// 
+        /// <summary>Section type</summary> /// 
         [DefaultValue(null)]
         public ShapeType Shape { get; set; }
 
         /// <summary>
         /// Type of material
         /// </summary>
-        /// 
         [DefaultValue(null)]
         public SectionType SectionMaterial { get; set; }
 
         /// <summary>
         /// Orientation
         /// </summary>
-        /// 
         [DefaultValue(null)]
         public double Orientation { get; set; }
 

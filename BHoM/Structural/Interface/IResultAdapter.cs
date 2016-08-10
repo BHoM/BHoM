@@ -8,10 +8,10 @@ namespace BHoM.Structural.Interface
 {
     public interface IResultAdapter
     {
-        bool GetBarForces(List<int> bars, List<int> cases, int divisions);
+        bool GetBarForces(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, ResultSet<BarForce>> results);
         bool GetBarStresses();
 
-        bool GetNodeReactions();
+        bool GetNodeReactions(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<NodeReaction>> results);
         bool GetNodeDisplacements();
         bool GetNodeVelocities();
         bool GetNodeAccelerations();
@@ -19,6 +19,7 @@ namespace BHoM.Structural.Interface
         bool GetModalResults();
 
         bool GetPanelForces();
-        bool GetPanelStress();       
+        bool GetPanelStress();
     }
 }
+

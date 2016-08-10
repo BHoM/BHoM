@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace BHoM.Materials
 {
+    public enum MaterialColumnData
+    {
+        Name = 3,
+        Weight = 5,
+        Mass,
+        YoungsModulus,
+        PoissonRatio,
+        CoefThermalExpansion
+    }
+
     /// <summary>Steel grade</summary>
     public enum SteelGrade
     {

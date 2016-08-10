@@ -24,7 +24,7 @@ namespace BHoM.Structural.Results
 
         public NodeReaction(object[] data) { Data = data; }
 
-        public NodeReaction(int number, int loadcase, int timeStep, float fx, float fy, float fz, float mx, float my, float mz) : this()
+        public NodeReaction(int number, int loadcase, int timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
         {
             Name = number;
             TimeStep = timeStep;
@@ -38,11 +38,11 @@ namespace BHoM.Structural.Results
             MZ = mz;
         }
 
-        public float FX
+        public double FX
         {
             get
             {
-                return (float)Data[4];
+                return (double)Data[4];
             }
             set
             {
@@ -50,11 +50,11 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public float FY
+        public double FY
         {
             get
             {
-                return (float)Data[5];
+                return (double)Data[5];
             }
             set
             {
@@ -62,11 +62,11 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public float FZ
+        public double FZ
         {
             get
             {
-                return (float)Data[6];
+                return (double)Data[6];
             }
             set
             {
@@ -74,11 +74,11 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public float MX
+        public double MX
         {
             get
             {
-                return (float)Data[7];
+                return (double)Data[7];
             }
             set
             {
@@ -86,11 +86,11 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public float MY
+        public double MY
         {
             get
             {
-                return (float)Data[8];
+                return (double)Data[8];
             }
             set
             {
@@ -98,11 +98,11 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public float MZ
+        public double MZ
         {
             get
             {
-                return (float)Data[9];
+                return (double)Data[9];
             }
             set
             {

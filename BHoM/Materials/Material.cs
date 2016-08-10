@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using BHoM.Structural.Properties;
+using BHoM.Global;
 
 namespace BHoM.Materials
 {
@@ -61,6 +63,43 @@ namespace BHoM.Materials
             return null;
         }
 
+        public static Material Default(SectionType type)
+        {
+            switch (type)
+            {
+                case SectionType.Aluminium:
+                    return Default(MaterialType.Aluminium);
+                case SectionType.ConcreteBeam:
+                case SectionType.ConcreteColumn:
+                    return Default(MaterialType.Concrete);
+                case SectionType.Steel:
+                    return Default(MaterialType.Steel);
+                case SectionType.Timber:
+                    return Default(MaterialType.Timber);
+                case SectionType.Glass:
+                    return Default(MaterialType.Glass);
+                default:
+                    return null;
+            }
+        }
+
+        public static Material Default(MaterialType type)
+        {
+            object[] data = new SQLAccessor(Database.Material, Project.ActiveProject.Config.MaterialDatabase).GetDataRow(new string[] { "Type", "IsDefault" }, new string[] { type.ToString(), "true" }, true);
+
+            if (data != null)
+            {
+                double e = (double)data[(int)MaterialColumnData.YoungsModulus];
+                double v = (double)data[(int)MaterialColumnData.PoissonRatio];
+                double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
+                double density = (double)data[(int)MaterialColumnData.Weight];
+                double g = e / (2 * (1 - v));
+                string name = data[(int)MaterialColumnData.Name].ToString().Trim();
+                return new Material(name, type, e, v, tC, g, density);
+            }
+            return null;
+        }
+
         public Material(string name, MaterialType type, double E, double v, double tC, double G, double denisty)
         {
             Name = name;
@@ -71,75 +110,5 @@ namespace BHoM.Materials
             ShearModulus = G;
             Density = denisty;
         }
-
-        // <summary>
-        // Creates a material class with material model
-        // </summary>
-        // <param name="material"></param>
-        //public Material(DefaultMaterials material)
-        //{
-        //    MaterialModel = "MAT_ELAS_ISO"; 
-
-        //    switch (material)
-        //    {    
-        //        case DefaultMaterials.Steel:
-        //            Index = -(int)material;
-        //            Name = material.ToString();
-        //            E = 2.05e11;
-        //            Nu = 0.3;
-        //            G = E / (2 * (1 + Nu));
-        //            Density = 7850;
-        //            TempCoeff = 1.2e-5;
-        //            DampingRatio = 0;
-        //            Fy = (int)355e6;
-        //            Fu = (int)490e6;
-        //            break;
-        //        case DefaultMaterials.ConcreteShortTerm:
-        //            Index = -(int)material;
-        //            Name = material.ToString();
-        //            E = 28000e6;
-        //            Nu = 0.2;
-        //            G = E / (2 * (1 + Nu));
-        //            Density = 2400;
-        //            TempCoeff = 1e-5;
-        //            DampingRatio = 0;
-        //            break;
-        //        case DefaultMaterials.ConcreteLongTerm:
-        //            Index = -(int)material;
-        //            Name = material.ToString();
-        //            E = 14000e6;
-        //            Nu = 0.2;
-        //            G = E / (2 * (1 + Nu));
-        //            Density = 2400;
-        //            TempCoeff = 1e-5;
-        //            DampingRatio = 0;
-        //            break;
-        //        case DefaultMaterials.Aluminium:
-        //            Index = -(int)material;
-        //            Name = material.ToString();
-        //            E = 70000e6;
-        //            Nu = 0.34;
-        //            G = E / (2 * (1 + Nu));
-        //            Density = 2710;
-        //            TempCoeff = 2.3e-5;
-        //            DampingRatio = 0;
-        //            break;
-        //        case DefaultMaterials.Glass:
-        //            Index = -(int)material;
-        //            Name = material.ToString();
-        //            E = 70300e6;
-        //            Nu = 0.22;
-        //            G = E / (2 * (1 + Nu));
-        //            Density = 2470;
-        //            TempCoeff = 8e-6;
-        //            DampingRatio = 0;
-        //            break;
-        //        default:
-        //            break;
-        //    }
-
-
-        //}
-
     }
 }
