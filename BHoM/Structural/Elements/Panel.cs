@@ -22,6 +22,8 @@ namespace BHoM.Structural.Elements
 
         private Group<Curve> m_ExteriorEdges;
         private Group<Curve> m_InteriorEdges;
+
+        private List<Face> m_Faces;
         /// <summary>
         /// A group of curves which define the perimeter of panel object
         /// </summary>
@@ -39,6 +41,8 @@ namespace BHoM.Structural.Elements
         //        SetEdges(value);
         //    }
         //}
+
+        public List<Face> GetMeshFaces { get { return m_Faces; } }
 
         private static bool IsInside(Curve c, List<Curve> crvs)
         {
@@ -116,7 +120,10 @@ namespace BHoM.Structural.Elements
         ////CONSTRUCTORS////
         ////////////////////
 
-        internal Panel() { }
+        internal Panel()
+        {
+            m_Faces = new List<Face>();
+        }
 
         /// <summary>
         /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
@@ -165,6 +172,35 @@ namespace BHoM.Structural.Elements
             {
                 SetEdges(geometry as Group<Curve>);
             }
+        }
+
+
+        /// <summary>
+        /// assumes ordered 3 or 4 sided panel
+        /// </summary>
+        /// <returns></returns>
+        public bool MeshAsSingleFace()
+        {
+            List<Node> nodes = new List<Node>();
+            Face face;
+            foreach (Curve edge in m_ExteriorEdges)
+                nodes.Add(new Node(edge.StartPoint));
+
+            switch (nodes.Count)
+            {
+                case 3:
+                    face = new Face(nodes[0], nodes[1], nodes[2]);
+                    break;
+                case 4:
+                    face = new Face(nodes[0], nodes[1], nodes[2], nodes[3]);
+                    break;
+                default:
+                    return false;
+            }
+
+            m_Faces.Add(face);
+
+            return true;
         }
     }
 }
