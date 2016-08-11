@@ -337,7 +337,7 @@ namespace BHoM.Geometry
 
         public bool IsParallel(Vector v, double tolerance = 0.0001)
         {
-            return (VectorUtils.Parallel(Coordinates, v.Coordinates, tolerance) == 0);
+            return (VectorUtils.Parallel(Coordinates, v.Coordinates, tolerance) != 0);
         }
 
         public override string ToString()
