@@ -130,7 +130,10 @@ namespace BHoM.Geometry
             return result;
         }
 
-
+        public static Point LineLine(Line line1, Line line2)
+        {
+            return new Point(VectorUtils.Intersect(line1.StartPoint, line1.Direction, line2.StartPoint, line2.Direction));
+        }
 
         private static double UpdateNearestEnd(Curve c, double[] pointComparison, ref double minT, ref double maxT, ref double[] pMin, ref double[] pMax)
         {
