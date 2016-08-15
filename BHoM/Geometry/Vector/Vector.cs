@@ -77,9 +77,7 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Vector(Vector dup)
         {
-            X = dup.X;
-            Y = dup.Y;
-            Z = dup.Z;
+            Coordinates = BHoM.Common.Utils.Copy<double>(dup);
         }
 
         /// <summary>
@@ -88,9 +86,7 @@ namespace BHoM.Geometry
         /// <param name="pt"></param>
         public Vector(Point pt)
         {
-            X = pt.X;
-            Y = pt.Y;
-            Z = pt.Z;
+            Coordinates = BHoM.Common.Utils.Copy<double>(pt);
         }
 
         internal Vector(double[] v)
