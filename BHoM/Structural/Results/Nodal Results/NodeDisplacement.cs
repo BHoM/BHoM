@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Results
 {
-    public class NodeReaction : Result
+   public class NodeDisplacement : Result
     {
         public override string[] ColumnHeaders
         {
             get
             {
-                return new string[] { "Id", "Name", "Loadcase", "TimeStep", "FX", "FY", "FZ", "MX", "MY", "MZ" };
+                return new string[] { "Id", "Name", "Loadcase", "TimeStep", "UX", "UY", "UZ", "RX", "RY", "RZ" };
             }
         }
 
@@ -21,32 +21,32 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return ResultType.NodeReaction;
+                return ResultType.NodeDisplacement;
             }
         }
 
-        public NodeReaction()
+        public NodeDisplacement()
         {
             Data = new object[10];
         }
 
-        public NodeReaction(object[] data) { Data = data; }
+        public NodeDisplacement(object[] data) { Data = data; }
 
-        public NodeReaction(int number, int loadcase, int timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
+        public NodeDisplacement(int number, int loadcase, int timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
         {
             Name = number;
             TimeStep = timeStep;
             Loadcase = loadcase;
             Id = Name + ":" + loadcase + ":" + TimeStep;
-            FX = fx;
-            FY = fy;
-            FZ = fz;
-            MX = mx;
-            MY = my;
-            MZ = mz;
+            UX = fx;
+            UY = fy;
+            UZ = fz;
+            RX = mx;
+            RY = my;
+            RZ = mz;
         }
 
-        public double FX
+        public double UX
         {
             get
             {
@@ -58,7 +58,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double FY
+        public double UY
         {
             get
             {
@@ -70,7 +70,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double FZ
+        public double UZ
         {
             get
             {
@@ -82,7 +82,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double MX
+        public double RX
         {
             get
             {
@@ -94,7 +94,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double MY
+        public double RY
         {
             get
             {
@@ -106,7 +106,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double MZ
+        public double RZ
         {
             get
             {

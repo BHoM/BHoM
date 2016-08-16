@@ -63,6 +63,7 @@ namespace BHoM.Base
                 m_Project.AddObject(value);
                 if (m_UniqueNumber > 0) m_UniqueNumber++;
                 result = value;
+
                 switch (m_Option)
                 {
                     case FilterOption.Guid:
@@ -72,7 +73,7 @@ namespace BHoM.Base
                         break;
                     case FilterOption.Property:
                         value.GetType().GetProperty(m_Name).SetValue(value, key);
-                        break; ;
+                        break;
                     case FilterOption.UserData:
                         object objValue = null;
                         if (value.CustomData.TryGetValue(m_Name, out objValue))
@@ -87,6 +88,7 @@ namespace BHoM.Base
                         break;
                 }
             }
+            
             return result;
         }
 

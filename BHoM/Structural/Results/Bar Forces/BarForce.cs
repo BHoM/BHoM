@@ -45,6 +45,14 @@ namespace BHoM.Structural.Results
             }
         }
 
+        public override ResultType ResultType
+        {
+            get
+            {
+                return ResultType.BarForce;
+            }
+        }
+
         public int ForcePosition
         {
             get

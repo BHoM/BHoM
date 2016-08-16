@@ -1,4 +1,5 @@
-﻿using BHoM.Base.Results;
+﻿using System;
+using BHoM.Base.Results;
 using BHoM.Geometry;
 
 namespace BHoM.Structural.Results
@@ -138,7 +139,13 @@ namespace BHoM.Structural.Results
             }
         }
 
-
+        public override ResultType ResultType
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }
     

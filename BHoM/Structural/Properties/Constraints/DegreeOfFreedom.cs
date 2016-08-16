@@ -13,7 +13,7 @@ namespace BHoM.Structural.Properties
     /// <summary>
     /// Degrees of freedom class for use in constraint objects
     /// </summary>
-    public class DOF : BHoMObject
+    public class DOF //: BHoMObject
     {
         /////////////////
         ////Properties///

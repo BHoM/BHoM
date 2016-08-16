@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Base.Results
 {
-    public abstract class Result
+    public abstract class Result : IComparable
     {
         internal object[] Data { get; set; }
 
@@ -61,6 +61,16 @@ namespace BHoM.Base.Results
         public Result() { }
 
         public abstract string[] ColumnHeaders { get; }
+
+        public abstract ResultType ResultType { get; }
+
+        public int CompareTo(object obj)
+        {
+            Result r2 = obj as Result;
+            int v1 = this.Name * 100000 + this.Loadcase * 100 + this.TimeStep;
+            int v2 = r2.Name * 100000 + r2.Loadcase * 100 + r2.TimeStep;
+            return v1.CompareTo(v2);
+        }
     }
 
 }

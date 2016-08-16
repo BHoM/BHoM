@@ -17,24 +17,27 @@ namespace BHoM.Structural.Results
             m_Filename = fileName;
         }
 
-        private void SetParameters<T>(ResultServer<T> server, List<string> ids, List<string> cases, ResultOrder orderBy) where T : Result, new()
+        public bool GetNodeDisplacements(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<NodeDisplacement>> results)
         {
-            server.NameSelection = ids;
-            server.LoadcaseSelection = cases;
-            server.OrderBy = orderBy;
+            return (results = GetResult<NodeDisplacement>(nodes, cases, orderBy)) != null; ;
+        }
+
+        private Dictionary<string, ResultSet<T>> GetResult<T>(List<string> ids, List<string> cases, ResultOrder orderBy) where T : Result, new()
+        {
+            ResultServer<T> server = new ResultServer<T>(m_Filename);
+            if (!string.IsNullOrEmpty(m_Filename))
+            {
+                server.NameSelection = ids;
+                server.LoadcaseSelection = cases;
+                server.OrderBy = orderBy;
+                return server.LoadData();
+            }
+            return null;
         }
 
         public bool GetBarForces(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, ResultSet<BarForce>> results)
         {
-            if (!string.IsNullOrEmpty(m_Filename))
-            {
-                ResultServer<BarForce> barServer = new ResultServer<BarForce>(m_Filename);
-                SetParameters(barServer, bars, cases, orderBy);
-                results = barServer.LoadData();
-                return true;               
-            }
-            results = null;
-            return false;
+            return (results = GetResult<BarForce>(bars, cases, orderBy)) != null;
         }
 
         public bool GetBarStresses()
@@ -46,41 +49,33 @@ namespace BHoM.Structural.Results
         {
             throw new NotImplementedException();
         }
-
-        public bool GetNodeAccelerations()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool GetNodeDisplacements()
-        {
-            throw new NotImplementedException();
-        }
-
+      
         public bool GetNodeReactions(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<NodeReaction>> results)
         {
-            if (!string.IsNullOrEmpty(m_Filename))
-            {
-                ResultServer<NodeReaction> server = new ResultServer<NodeReaction>(m_Filename);
-                SetParameters(server, nodes, cases, orderBy);
-                results = server.LoadData();
-                return true;
-            }
-            results = null;
-            return false;
+            return (results = GetResult<NodeReaction>(nodes, cases, orderBy)) != null;
         }
 
-        public bool GetNodeVelocities()
+        public bool GetNodeVelocities(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<NodeVelocity>> results)
         {
-            throw new NotImplementedException();
+            return (results = GetResult<NodeVelocity>(nodes, cases, orderBy)) != null;
         }
 
-        public bool GetPanelForces()
+        public bool GetNodeAccelerations(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<NodeAcceleration>> results)
         {
-            throw new NotImplementedException();
+            return (results = GetResult<NodeAcceleration>(nodes, cases, orderBy)) != null;
         }
 
-        public bool GetPanelStress()
+        public bool GetPanelForces(List<string> panels, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<PanelForce>> results)
+        {
+            return (results = GetResult<PanelForce>(panels, cases, orderBy)) != null;
+        }
+
+        public bool GetPanelStress(List<string> panels, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<PanelStress>> results)
+        {
+            return (results = GetResult<PanelStress>(panels, cases, orderBy)) != null;
+        }
+
+        public bool StoreResults(string filename, List<ResultType> resultTypes, List<string> loadcases, bool append = false)
         {
             throw new NotImplementedException();
         }

@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Results\Enums.cs" />
     <Compile Include="Base\Results\Envelope.cs" />
     <Compile Include="Base\Results\Result.cs" />
     <Compile Include="Base\Results\ResultSet.cs" />
@@ -149,6 +150,8 @@
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\GlobalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodalResult.cs" />
+    <Compile Include="Structural\Results\Nodal Results\NodeAcceleration.cs" />
+    <Compile Include="Structural\Results\Nodal Results\NodeDisplacement.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeForce.cs" />
     <Compile Include="Structural\Properties\Section Properties\SectionCalculator.cs" />
     <Compile Include="Base\SQLAccessor.cs" />
@@ -160,6 +163,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UK_SectionsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Structural\Results\Nodal Results\NodeVelocity.cs" />
+    <Compile Include="Structural\Results\Panel Results\PanelForce.cs" />
+    <Compile Include="Structural\Results\Panel Results\PanelStress.cs" />
     <Compile Include="Structural\Results\StructuralResultServer.cs" />
   </ItemGroup>
   <ItemGroup>

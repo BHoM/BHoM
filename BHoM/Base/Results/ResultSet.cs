@@ -92,14 +92,10 @@ namespace BHoM.Base.Results
         {
             List<T> listResults = new List<T>();
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
-            foreach (object[] row in m_Results.Values)
+            foreach (object[] row in ToListData())
             {
                 T result = new T();
                 result.Data = row;
-                //for(int i = 0; i < properties.Count; i++)
-                //{
-                //    properties[i].SetValue(result, row[i]);
-                //}
                 listResults.Add(result);
             }
             return listResults;
@@ -107,8 +103,16 @@ namespace BHoM.Base.Results
 
         public List<object[]> ToListData()
         {
+            //List<object[]> data = m_Results.Values.ToList();
+            //data.Sort(delegate (object[] o1, object[] o2)
+            //{
+            //    int v1 = (int)o1[1] * 1000000000 + (int)o1[2] * 100000 + (int)o1[3];
+            //    int v2 = (int)o2[1] * 1000000000 + (int)o2[2] * 100000 + (int)o2[3];
+            //    return v1.CompareTo(v2);
+            //});
+
             return m_Results.Values.ToList();
-        }
+        }        
 
         public Dictionary<string, T> ToDictionary()
         {

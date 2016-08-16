@@ -9,6 +9,13 @@ using BHoM.Structural.Elements;
 
 namespace BHoM.Structural.Interface
 {
+    public enum ObjectSelection
+    {
+        All,
+        Selected,
+        FromInput
+    }
+
     /// <summary>
     /// An interface class which should be inherited by an external application in order to import and export BHoMObjects
     /// </summary>
@@ -16,25 +23,27 @@ namespace BHoM.Structural.Interface
     {
         string Filename { get; }
 
-        bool GetNodes(out List<Node> nodes, string option = "");
-        bool GetBars(out List<Bar> bars, string option = "");
-        bool GetPanels(out List<Panel> panels, string option = "");
-        bool GetOpenings(out List<Opening> opening, string option = "");
-        bool GetLevels(out List<Storey> levels, string options = "");
-        bool GetGrids(out List<Grid> grids, string options = "");
+        ObjectSelection Selection { get; set; }
 
-        bool GetLoads(out List<ILoad> loads, string option = "");
-        bool GetLoadcases(out List<ICase> cases);
+        List<string> GetNodes(out List<Node> nodes, List<string> ids = null);
+        List<string> GetBars(out List<Bar> bars, List<string> ids = null);
+        List<string> GetPanels(out List<Panel> panels, List<string> ids = null);
+        List<string> GetOpenings(out List<Opening> opening, List<string> ids = null);
+        List<string> GetLevels(out List<Storey> levels, List<string> ids = null);
+        List<string> GetGrids(out List<Grid> grids, List<string> ids = null);
 
-        bool SetNodes(List<Node> nodes, out List<string> ids, string option = "");
-        bool SetBars(List<Bar> bars, out List<string> ids, string option = "");
-        bool SetPanels(List<Panel> panels, out List<string> ids, string option = "");
-        bool SetOpenings(List<Opening> opening, out List<string> ids, string option = "");
-        bool SetLevels(List<Storey> stores, out List<string> ids, string option = "");
-        bool SetGrids(List<Grid> grid, out List<string> ids, string option = "");
+        List<string> GetLoadcases(out List<ICase> cases);
+        bool GetLoads(out List<ILoad> loads, List<string> ids = null);
+
+        bool SetNodes(List<Node> nodes, out List<string> ids);
+        bool SetBars(List<Bar> bars, out List<string> ids);
+        bool SetPanels(List<Panel> panels, out List<string> ids);
+        bool SetOpenings(List<Opening> opening, out List<string> ids);
+        bool SetLevels(List<Storey> stores, out List<string> ids);
+        bool SetGrids(List<Grid> grid, out List<string> ids);
 
 
-        bool SetLoads(List<ILoad> loads, string option = "");
+        bool SetLoads(List<ILoad> loads);
         bool SetLoadcases(List<ICase> cases);
     }
 }

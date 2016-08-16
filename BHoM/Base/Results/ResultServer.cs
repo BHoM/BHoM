@@ -29,6 +29,7 @@ namespace BHoM.Base.Results
         string m_ConnectionString;
         List<string> m_ColumnNames;
         private ResultOrder m_ResultOrder;
+
         /// <summary>
         /// Sets the Names of the results to load, if left blank all bar names will be loaded
         /// </summary>
@@ -43,6 +44,11 @@ namespace BHoM.Base.Results
         /// Sets the names of the time steps to load, if left blank all bar names will be loaded
         /// </summary>
         public List<string> TimeStepSelection { get; set; }
+
+        /// <summary>
+        /// Check if the result server can store results to file
+        /// </summary>
+        public bool CanStore {  get { return !string.IsNullOrEmpty(m_TableName); } }
 
         public ResultOrder OrderBy
         {
@@ -100,6 +106,10 @@ namespace BHoM.Base.Results
                 InitialiseTable();
             }
         }
+        public ResultServer(string fileName, bool append) : this(fileName)
+        {
+            if (!append) ClearData();
+        }
 
         public ResultServer()
         {        
@@ -134,6 +144,7 @@ namespace BHoM.Base.Results
             connection.Open();
             m_TableName = typeof(T).Name;
             CreateTable(connection);
+            connection.Close();
         }
 
         public void ClearData()
@@ -178,6 +189,7 @@ namespace BHoM.Base.Results
             }
             else
             {
+                values.Sort();
                 int orderCol = m_ColumnNames.IndexOf(m_ResultOrder.ToString());
                 ResultSet<T> rSet = null;// new ResultSet<T>();
                 for (int i = 0; i < values.Count; i++)
@@ -235,9 +247,9 @@ namespace BHoM.Base.Results
                     System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
                     connection.Open();
 
-                    string query = "SELECT * FROM " + m_TableName + lookupString + ";";
-
-                    SqlDataAdapter dataAdapter = new System.Data.SqlClient.SqlDataAdapter(query, connection);
+                    string query = "SELECT * FROM " + m_TableName + lookupString;// + ";";
+                    string sort = " ORDER BY NAME ASC, LOADCASE ASC, TIMESTEP ASC;";
+                    SqlDataAdapter dataAdapter = new System.Data.SqlClient.SqlDataAdapter(query + sort, connection);
                     DataSet set = new DataSet();
 
                     dataAdapter.Fill(set);
@@ -259,10 +271,7 @@ namespace BHoM.Base.Results
                     }
                 }
             }
-            else
-            {
 
-            }
             return m_Results;
         }
 
@@ -331,22 +340,7 @@ namespace BHoM.Base.Results
         }
 
         private bool CreateTable(SqlConnection con)
-        {
-            //string tableColumns = typeof(T).Name + "(";
-            //m_ColumnNames = new T().ColumnHeaders.ToList();
-
-            //foreach (var prop in typeof(T).GetProperties())
-            //{
-            //    m_ColumnNames.Add(prop.Name);
-            //    tableColumns += prop.Name + " " + GetDBType(prop.PropertyType, prop.Name) + ",";
-            //}
-            //if (!TableExists(con))
-            //{
-            //    //tableColumns = tableColumns.Trim(',') +");";
-            //    tableColumns += "PRIMARY KEY CLUSTERED ([Id] ASC));";
-            //    using (SqlCommand command = new SqlCommand("CREATE TABLE " + tableColumns, con)) command.ExecuteNonQuery();
-            //}
-
+        {          
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
             string tableColumns = typeof(T).Name + "(";
 

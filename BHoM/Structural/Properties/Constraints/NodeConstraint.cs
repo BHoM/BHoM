@@ -12,28 +12,114 @@ namespace BHoM.Structural.Properties
     [Serializable]
     public class NodeConstraint : BHoMObject
     {
+        private double[] m_Values;
         /////////////////
         ////Properties///
         /////////////////
-     
-        public DOF UX { get; set; }
-       
-        public DOF UY { get; set; }
+        
+        [Description("KX Direction elastic value")]
+        [DefaultValue(0.0)]
+        public double KX
+        {
+            get
+            {
+                return m_Values[0];
+            }
+            set
+            {
+                m_Values[0] = value;
+            }
+        }
+        
+        [Description("KY Direction elastic value")]
+        [DefaultValue(0.0)]
+        public double KY
+        {
+            get
+            {
+                return m_Values[1];
+            }
+            set
+            {
+                m_Values[2] = value;
+            }
+        }
+        
+        [Description("KZ Direction elastic value")]
+        [DefaultValue(0.0)]
+        public double KZ
+        {
+            get
+            {
+                return m_Values[2];
+            }
+            set
+            {
+                m_Values[2] = value;
+            }
+        }
+        
+        [Description("HX Direction elastic value")]
+        [DefaultValue(0.0)]
+        public double HX
+        {
+            get
+            {
+                return m_Values[3];
+            }
+            set
+            {
+                m_Values[3] = value;
+            }
+        }
+        
+        [Description("HY Direction elastic value")]
+        [DefaultValue(0.0)]
+        public double HY
+        {
+            get
+            {
+                return m_Values[4];
+            }
+            set
+            {
+                m_Values[4] = value;
+            }
+        }
+        
+        [Description("HZ Direction elastic value")]
+        [DefaultValue(0.0)]
+        public double HZ
+        {
+            get
+            {
+                return m_Values[5];
+            }
+            set
+            {
+                m_Values[5] = value;
+            }
+        }
 
-        public DOF UZ { get; set; }
+        public DOFType UX { get; set; }
 
-        public DOF RX { get; set; }
+        public DOFType UY { get; set; }
 
-        public DOF RY { get; set; }
+        public DOFType UZ { get; set; }
 
-        public DOF RZ { get; set; }
+        public DOFType RX { get; set; }
+
+        public DOFType RY { get; set; }
+
+        public DOFType RZ { get; set; }
+
 
         /// <summary>Constraint type</summary>
-        public ConstraintType Type 
-        {
-            get;
-            set;
-        }    
+        //public ConstraintType Type 
+        //{
+        //    get;
+        //    set;
+        //}    
 
         ///////////////////
         ////Constructors///
@@ -44,12 +130,7 @@ namespace BHoM.Structural.Properties
         /// </summary>
         public NodeConstraint()
         {
-            UX = new DOF();
-            UY = new DOF();
-            UZ = new DOF();
-            RX = new DOF();
-            RY = new DOF();
-            RZ = new DOF();
+            m_Values = new double[6];
         }
 
         /// <summary>
@@ -71,27 +152,55 @@ namespace BHoM.Structural.Properties
         /// <summary>Construct a constraint from true/false. True blocks a DOF. 
         /// Only fixed or free constraint types can be constructed using this.</summary>       
 
-        public NodeConstraint(string name, bool[] fixity, double[] values)
+        public NodeConstraint(string name, bool[] fixity, double[] values) : this(name)
         {
-            UX = new DOF((fixity[0]) ? DOFType.Fixed : DOFType.Free, values[0]);
-            UY = new DOF((fixity[1]) ? DOFType.Fixed : DOFType.Free, values[1]);
-            UZ = new DOF((fixity[2]) ? DOFType.Fixed : DOFType.Free, values[2]);
-            RX = new DOF((fixity[3]) ? DOFType.Fixed : DOFType.Free, values[3]);
-            RY = new DOF((fixity[4]) ? DOFType.Fixed : DOFType.Free, values[4]);
-            RZ = new DOF((fixity[5]) ? DOFType.Fixed : DOFType.Free, values[5]);
+            UX = (fixity[0]) ? DOFType.Fixed : DOFType.Free;
+            UY = (fixity[1]) ? DOFType.Fixed : DOFType.Free;
+            UZ = (fixity[2]) ? DOFType.Fixed : DOFType.Free;
+            RX = (fixity[3]) ? DOFType.Fixed : DOFType.Free;
+            RY = (fixity[4]) ? DOFType.Fixed : DOFType.Free;
+            RZ = (fixity[5]) ? DOFType.Fixed : DOFType.Free;
+            m_Values = values;
         }
 
-        public NodeConstraint(string name, double[] values)
+        public NodeConstraint(string name, double[] values) : this(name)
         {
-            UX = new DOF((values[0] == -1) ? DOFType.Fixed : (values[0] == 0) ? DOFType.Free : DOFType.Spring, values[0]);
-            UY = new DOF((values[1] == -1) ? DOFType.Fixed : (values[1] == 0) ? DOFType.Free : DOFType.Spring, values[1]);
-            UZ = new DOF((values[2] == -1) ? DOFType.Fixed : (values[2] == 0) ? DOFType.Free : DOFType.Spring, values[2]);
-            RX = new DOF((values[3] == -1) ? DOFType.Fixed : (values[3] == 0) ? DOFType.Free : DOFType.Spring, values[3]);
-            RY = new DOF((values[4] == -1) ? DOFType.Fixed : (values[4] == 0) ? DOFType.Free : DOFType.Spring, values[4]);
-            RZ = new DOF((values[5] == -1) ? DOFType.Fixed : (values[5] == 0) ? DOFType.Free : DOFType.Spring, values[5]);
-        }     
-    }
+            UX = (values[0] == -1) ? DOFType.Fixed : (values[0] == 0) ? DOFType.Free : DOFType.Spring;
+            UY = (values[1] == -1) ? DOFType.Fixed : (values[1] == 0) ? DOFType.Free : DOFType.Spring;
+            UZ = (values[2] == -1) ? DOFType.Fixed : (values[2] == 0) ? DOFType.Free : DOFType.Spring;
+            RX = (values[3] == -1) ? DOFType.Fixed : (values[3] == 0) ? DOFType.Free : DOFType.Spring;
+            RY = (values[4] == -1) ? DOFType.Fixed : (values[4] == 0) ? DOFType.Free : DOFType.Spring;
+            RZ = (values[5] == -1) ? DOFType.Fixed : (values[5] == 0) ? DOFType.Free : DOFType.Spring;
+            m_Values = values;
+        }
 
-   
-    
+        private string DOFKey(DOFType type)
+        {
+            switch (type)
+            {
+                case DOFType.Free:
+                    return "f";
+                case DOFType.Fixed:
+                case DOFType.FixedNegative:
+                case DOFType.FixedPositive:
+                    return "x";
+                case DOFType.Spring:
+                case DOFType.SpringNegative:
+                case DOFType.SpringPositive:
+                case DOFType.SpringRelative:
+                case DOFType.SpringRelativeNegative:
+                case DOFType.SpringRelativePositive:
+                    return "e";
+                        case DOFType.NonLinear:
+                    return "n";
+                default:
+                    return "f";
+            }
+        }
+
+        public override string ToString()
+        {
+            return string.IsNullOrEmpty(Name) ? DOFKey(UX) + DOFKey(UY) + DOFKey(UZ) + DOFKey(RX) + DOFKey(RY) + DOFKey(RZ) : Name;
+        }
+    }
 }
