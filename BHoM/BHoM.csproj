@@ -62,6 +62,7 @@
     <Compile Include="Base\Results\Envelope.cs" />
     <Compile Include="Base\Results\Result.cs" />
     <Compile Include="Base\Results\ResultSet.cs" />
+    <Compile Include="Base\Tolerance.cs" />
     <Compile Include="Generic\Graph.cs" />
     <Compile Include="Generic\GraphLink.cs" />
     <Compile Include="Generic\GraphNode.cs" />
