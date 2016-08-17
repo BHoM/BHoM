@@ -92,6 +92,26 @@ namespace BHoM.Geometry
             return StartPoint + t * dir;
         }
 
+        public double DistanceTo(Line other)
+        {
+            Point intersection = Intersect.LineLine(this, other);
+            if (intersection != null && (intersection.DistanceTo(ClosestPoint(intersection)) < BHoM.Base.Tolerance.MIN_DIST) && (intersection.DistanceTo(other.ClosestPoint(intersection)) < BHoM.Base.Tolerance.MIN_DIST))
+            {
+                return 0;
+            }
+            else
+            {
+                List<double> distances = new List<double>();
+                distances.Add(StartPoint.DistanceTo(other.ClosestPoint(StartPoint)));
+                distances.Add(EndPoint.DistanceTo(other.ClosestPoint(EndPoint)));
+                distances.Add(other.StartPoint.DistanceTo(ClosestPoint(other.StartPoint)));
+                distances.Add(other.EndPoint.DistanceTo(ClosestPoint(other.EndPoint)));
+
+                return distances.Min();
+            }
+            
+        }
+
         internal override Curve Append(Curve c)
         {
             if (c is Line)
