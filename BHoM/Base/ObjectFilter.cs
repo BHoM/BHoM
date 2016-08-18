@@ -28,7 +28,7 @@ namespace BHoM.Base
     /// <summary>
     /// 
     /// </summary>
-    public class ObjectFilter<T> : IEnumerable<T>, IEnumerable where T : BHoMObject
+    public class ObjectFilter<T> : IEnumerable<T>, IEnumerable where T : IBase
     {
         private Project m_Project;
         private List<T> m_Data;
@@ -67,9 +67,9 @@ namespace BHoM.Base
             List<T> result = new List<T>();
             foreach (BHoMObject obj in list)
             {
-                if (obj.GetType() == typeof(T))
+                if (typeof(T).IsAssignableFrom(obj.GetType()))
                 {
-                    result.Add(obj as T);
+                    result.Add((T)(object)obj);
                 }
             }
             return result;
@@ -83,11 +83,11 @@ namespace BHoM.Base
         public ObjectFilter<T> Implements(Type t)
         {
             List<T> result = new List<T>();
-            foreach (BHoMObject obj in m_Data)
+            foreach (IBase obj in m_Data)
             {
                 if (t.IsAssignableFrom(obj.GetType()))
                 {
-                    result.Add(obj as T);
+                    result.Add((T)(object)obj);
                 }
             }
             return new ObjectFilter<T>(m_Project, result);

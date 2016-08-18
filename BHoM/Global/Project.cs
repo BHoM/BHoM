@@ -188,6 +188,7 @@ namespace BHoM.Global
         {
             m_Objects = new Dictionary<Guid, BHoMObject>();
             m_TaskQueue = new Queue<Task>();
+            Config = new Config();
         }
 
         /// <summary>Returns a BHoM by unique identifier</summary>

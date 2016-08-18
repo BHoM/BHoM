@@ -33,7 +33,16 @@ namespace BHoMTest
         static void Main(string[] args)
         {
             TestProject();
+            Project.ActiveProject.AddObject(new Loadcase());
+            Project.ActiveProject.AddObject(new Loadcase());
+            Project.ActiveProject.AddObject(new Loadcase());
+            Project.ActiveProject.AddObject(new LoadCombination());
 
+            ObjectManager<BHoMObject> manager = new ObjectManager<BHoMObject>();
+            SectionProperty.LoadFromDB("Test");
+            string test = "Test {0}";
+            string res =  string.Format(test, "hello");
+            res += res;
             Console.Read();
         }
 

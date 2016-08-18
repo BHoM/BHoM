@@ -8,11 +8,18 @@ using BHoM.Global;
 
 namespace BHoM.Base
 {
+    public interface IBase
+    {
+        System.Guid BHoM_Guid { get; }
+        string Name { get; set; }
+        Dictionary<string, object> CustomData { get; set; }
+    }
+
     /// <summary>
     /// BHoM object abstract class, all methods and attributes applicable to all structural objects with
     /// BHoM implemented
     /// </summary>
-    public abstract class BHoMObject
+    public abstract class BHoMObject : IBase
     {
         /// <summary>BHoM unique ID</summary>
         public System.Guid BHoM_Guid { get; protected set; }

@@ -9,14 +9,21 @@ namespace BHoM.Structural.Properties
 {
     public class BarConstraint : BHoMObject
     {
-        public DOF Horizontal { get; set; }
+        public DOFType UX { get; set; }
 
-        public DOF Vertical { get; set; }
+        public DOFType UY { get; set; }
 
-        public DOF Axial { get; set; }
+        public DOFType UZ { get; set; }
 
-        public DOF Rotational { get; set; }
+        public DOFType RX { get; set; }
 
+        public double KX { get; set; }
+
+        public double KY { get; set; }
+
+        public double KZ { get; set; }
+
+        public double HX { get; set; }
         ///////////////////
         ////Constructors///
         ///////////////////
@@ -25,11 +32,7 @@ namespace BHoM.Structural.Properties
         /// Construct an empty constraint object
         /// </summary>
         internal BarConstraint()
-        {
-            Horizontal = new DOF();
-            Vertical = new DOF();
-            Axial = new DOF();
-            Rotational = new DOF();
+        { 
         }
 
         /// <summary>

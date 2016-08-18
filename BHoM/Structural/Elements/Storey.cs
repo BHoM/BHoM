@@ -11,9 +11,6 @@ namespace BHoM.Structural.Elements
     /// </summary>
     public class Storey : BHoMObject
     {
-        /// <summary>Storey number</summary>
-        public int Number { get; set; }
-
         /// <summary>Storey level (in metres)</summary>
         public double Elevation { get; set; }
 
@@ -45,11 +42,12 @@ namespace BHoM.Structural.Elements
         /// </summary>
         /// <param name="number"></param>
         /// <param name="name"></param>
-        public Storey(int number, string name)
+        public Storey(string name, double elevation, double height)
             : this()
         {
-            this.Number = number;
-            this.Name = name;
+            Name = name;
+            Elevation = elevation;
+            Height = height;
         }
 
     }

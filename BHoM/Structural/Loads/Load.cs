@@ -11,7 +11,7 @@ namespace BHoM.Structural.Loads
     /// <summary>
     /// Interface implemented by all loading related classes
     /// </summary>
-    public interface ILoad
+    public interface ILoad : IBase
     {
         LoadType LoadType { get; }
         /// <summary>Loadcase as BHoM object</summary>

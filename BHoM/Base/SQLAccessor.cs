@@ -101,9 +101,10 @@ namespace BHoM.Base
 
         public object[] GetDataRow(string[] columnNames, string[] matches, bool AND = false)
         {
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
             try
             {
+                System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
+
                 connection.Open();
                 string matchString = "";
                 for (int i = 0; i < columnNames.Length; i++)
@@ -132,10 +133,11 @@ namespace BHoM.Base
 
         private string ConnectionString()
         {
+            string appData = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             switch (m_Database)
             {
                 case Database.SteelSection:
-                    return Properties.Settings.Default.SteelSectionConnectionsString;
+                    return string.Format(Properties.Settings.Default.SteelSectionConnectionsString, appData);
                 case Database.Material:
                     return Properties.Settings.Default.MaterialConnectionString;
                 default:

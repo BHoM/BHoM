@@ -10,10 +10,10 @@ namespace BHoM.Structural.Loads
     /// <summary>
     /// Loadcase class 
     /// </summary>
-    public interface ICase 
+    public interface ICase : IBase
     {
         /// <summary>Loadcase number</summary>
-        int Number { get; set; }
+        //int Number { get; set; }
 
         /// <summary>
         /// Case Type
@@ -58,17 +58,16 @@ namespace BHoM.Structural.Loads
             }
         }
 
-        public int Number
-        {
-            get; set;
-        }
+        //public int Number
+        //{
+        //    get; set;
+        //}
 
         public Loadcase()
         {
             m_Loads = new List<ILoad>();
             Nature = LoadNature.Other;
             SelfWeightMultiplier = 1.0;
-            Number = 0;
         }
 
         /// <summary>
@@ -78,9 +77,8 @@ namespace BHoM.Structural.Loads
         /// <param name="name">LC name</param>
         /// <param name="nature">Loading nature</param>
         /// <param name="selfWeightMultiplier"></param>
-        public Loadcase(int number, string name, LoadNature nature, double selfWeightMultiplier = 0) : this()
+        public Loadcase(string name, LoadNature nature, double selfWeightMultiplier = 0) : this()
         {
-            Number = number;
             Name = name;
             Nature = nature;
             SelfWeightMultiplier = selfWeightMultiplier;

@@ -13,11 +13,18 @@ namespace BHoM.Structural.Properties
         ////Properties///
         /////////////////
 
-        public DOF UX { get; set; }
+        public DOFType UX { get; set; }
 
-        public DOF UY { get; set; }
+        public DOFType UY { get; set; }
 
-        public DOF Normal { get; set; }
+        public DOFType Normal { get; set; }
+
+        public double KX { get; set; }
+
+        public double KY { get; set; }
+
+        public double KNorm { get; set; }
+
 
         ///////////////////
         ////Constructors///
@@ -27,10 +34,7 @@ namespace BHoM.Structural.Properties
         /// Construct an empty constraint object
         /// </summary>
         internal SurfaceConstraint()
-        {
-            UX = new DOF();
-            UY = new DOF();
-            Normal = new DOF();
+        {           
         }
 
         /// <summary>

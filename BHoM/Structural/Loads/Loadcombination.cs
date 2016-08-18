@@ -24,9 +24,16 @@ namespace BHoM.Structural.Loads
             }
         }
 
-        public int Number
+        public List<ICase> Loadcases { get; set; }
+        public List<double> LoadFactors { get; set; }
+
+        public LoadCombination() { }
+
+        public LoadCombination(string name, List<ICase> loadcases, List<double> loadfactors)
         {
-            get; set;
+            Loadcases = loadcases;
+            Name = name;
+            LoadFactors = loadfactors;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BHoM.Base;
 using BHoM.Global;
+using BHoM.Structural.Loads;
 
 namespace BHoM.Base
 {
@@ -14,18 +15,22 @@ namespace BHoM.Base
     /// Used to add objects to the project where a unique identifier other than a Guid is required. Just inputting the BHoMObject type will default the key to the object name.
     /// </summary>
     /// <typeparam name="TValue">Type of BHoMObject</typeparam>
-    public class ObjectManager<TValue> : ObjectManager<string, TValue> where TValue : BHoMObject
+    public class ObjectManager<TValue> : ObjectManager<string, TValue> where TValue : IBase
     {
         /// <summary>
         /// Initialises a new object manager where the BHoM object name is used as the default key
         /// </summary>
-        public ObjectManager(Project project) : base(project, "", FilterOption.Name) { }
+        public ObjectManager(Project project) : base(project, "", FilterOption.Name)
+        {
+           
+        }
 
         /// <summary>
         /// 
         /// </summary>
-        public ObjectManager() : this(Project.ActiveProject) { }
+        public ObjectManager() : this (Project.ActiveProject) { }         
     }
+
 
     /// <summary>
     /// Object manager Class.
@@ -33,7 +38,7 @@ namespace BHoM.Base
     /// </summary>
     /// <typeparam name="TKey">Type of unique identifier</typeparam>
     /// <typeparam name="TValue">Type of BHoMObject</typeparam>
-    public class ObjectManager<TKey, TValue> : IEnumerable<TValue> where TValue : BHoMObject
+    public class ObjectManager<TKey, TValue> : IEnumerable<TValue> where TValue : IBase
     {
         Project m_Project;
         Dictionary<TKey, TValue> m_Data;
@@ -56,12 +61,17 @@ namespace BHoM.Base
         /// <param name="option">Fliter option defines the type of key to be used</param>
         public ObjectManager(Project project, string name, FilterOption option)
         {
-            m_Project = project;
-            m_Data = new ObjectFilter<TValue>(project).ToDictionary<TKey>(name, option);
+            Initialise(project, name, option);
+        }
+        
+        protected void Initialise(Project project, string name, FilterOption option)
+        {
+            m_Project = project;      
+            m_Data = new ObjectFilter<TValue>(project).ToDictionary<TKey>(name, option);            
             m_Option = option;
             m_Name = name;
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -75,7 +85,7 @@ namespace BHoM.Base
             if (!m_Data.TryGetValue(key, out result))
             {
                 m_Data.Add(key, value);
-                m_Project.AddObject(value);
+                m_Project.AddObject(value as BHoMObject);
                 if (m_UniqueNumber > 0) m_UniqueNumber++;
                 result = value;
 
@@ -171,7 +181,7 @@ namespace BHoM.Base
         /// <returns>if key exists it will return the object, null otherwise</returns>
         public TValue TryLookup(TKey key)
         {
-            TValue result = null;
+            TValue result = default(TValue);
             m_Data.TryGetValue(key, out result);
             return result;
         }
@@ -182,7 +192,7 @@ namespace BHoM.Base
         /// <param name="key"></param>
         public void Remove(TKey key)
         {
-            TValue result = null;
+            TValue result = default(TValue);
             if (m_Data.TryGetValue(key, out result))
             {
                 m_Data.Remove(key);
