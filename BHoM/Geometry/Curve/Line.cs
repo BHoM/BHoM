@@ -112,6 +112,12 @@ namespace BHoM.Geometry
             
         }
 
+        public Line ProjectToGround()
+        {
+            return new Line(new Point(m_ControlPoints[0], m_ControlPoints[1], 0), 
+                new Point(m_ControlPoints[m_ControlPoints.Length - m_Dimensions - 1], m_ControlPoints[m_ControlPoints.Length - m_Dimensions], 0));
+        }
+
         internal override Curve Append(Curve c)
         {
             if (c is Line)
