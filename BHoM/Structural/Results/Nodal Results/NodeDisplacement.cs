@@ -7,7 +7,18 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Results
 {
-   public class NodeDisplacement : Result
+    public class NodeDisplacement : NodeDisplacement<int, int, int>
+    {
+        public NodeDisplacement() : base() { }
+        public NodeDisplacement(int number, int loadcase, int timeStep, double fx, double fy, double fz, double mx, double my, double mz)
+            : base(number, loadcase, timeStep, fx, fy, fz, mx, my, mz)
+        { }
+    }
+
+   public class NodeDisplacement<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+        where TName : IComparable
+        where TLoadcase : IComparable
+        where TTimeStep : IComparable
     {
         public override string[] ColumnHeaders
         {
@@ -32,7 +43,7 @@ namespace BHoM.Structural.Results
 
         public NodeDisplacement(object[] data) { Data = data; }
 
-        public NodeDisplacement(int number, int loadcase, int timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
+        public NodeDisplacement(TName number, TLoadcase loadcase, TTimeStep timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
         {
             Name = number;
             TimeStep = timeStep;

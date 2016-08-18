@@ -21,6 +21,9 @@ namespace BHoM.Base
         /// </summary>
         public ObjectManager(Project project) : base(project, "", FilterOption.Name) { }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ObjectManager() : this(Project.ActiveProject) { }
     }
 
@@ -38,14 +41,19 @@ namespace BHoM.Base
         string m_Name;
         int m_UniqueNumber;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="option"></param>
         public ObjectManager(string name, FilterOption option) : this (Project.ActiveProject, name, option)  {  }
 
         /// <summary>
         /// Initialises a new object manager based on the input name and option
         /// </summary>
+        /// <param name="project"></param>
         /// <param name="name">Name of the BHoM Property or userdata name</param>
         /// <param name="option">Fliter option defines the type of key to be used</param>
-        /// 
         public ObjectManager(Project project, string name, FilterOption option)
         {
             m_Project = project;
@@ -54,9 +62,16 @@ namespace BHoM.Base
             m_Name = name;
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public TValue Add(TKey key, TValue value)
         {
             TValue result = default(TValue);
+
             if (!m_Data.TryGetValue(key, out result))
             {
                 m_Data.Add(key, value);
@@ -92,24 +107,6 @@ namespace BHoM.Base
             return result;
         }
 
-        /// <summary>
-        /// Adds an object to the collection checking if the defined key is unique
-        /// </summary>
-        /// <param name="obj">BHoM object to add to the collection</param>
-        /// <returns>True is object was added, false otherwise</returns>
-        //public bool Add(TValue obj)
-        //{
-        //    TValue value;
-        //    TKey key = ObjectFilter.GetKey<TKey>(obj, m_Name, m_Option);
-        //    if (!m_Data.TryGetValue(key, out value))
-        //    {
-        //        m_Data.Add(key, obj);
-        //        Project.ActiveProject.AddObject(obj);
-        //        if (m_UniqueNumber > 0) m_UniqueNumber++;
-        //        return true;
-        //    }
-        //    return false;
-        //}
         /// <summary>
         /// 
         /// </summary>
@@ -152,6 +149,11 @@ namespace BHoM.Base
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keys"></param>
+        /// <returns></returns>
         public List<TValue> GetRange(IEnumerable<TKey> keys)
         {
             List<TValue> values = new List<TValue>();
@@ -174,6 +176,10 @@ namespace BHoM.Base
             return result;
         }
 
+        /// <summary>
+        /// Remove and object from the manager with the matching key
+        /// </summary>
+        /// <param name="key"></param>
         public void Remove(TKey key)
         {
             TValue result = null;

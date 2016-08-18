@@ -13,16 +13,27 @@ namespace BHoM.Structural.Results
     /// and orientation information
     /// </summary>
     /// 
-    public class BarForce : Result
+    public class BarForce : BarForce<int, int, int>
+    {
+        public BarForce() : base() { }
+        public BarForce(int number, int loadcase, int position, int timeStep, double fx, double fy, double fz, double mx, double my, double mz)
+        : base(number, loadcase, position, timeStep, fx, fy, fz, mx, my, mz)
+        { }
+    }
+
+    public class BarForce<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+         where TName : IComparable
+         where TLoadcase : IComparable
+         where TTimeStep : IComparable
     {
         public BarForce()
         {
-            Data = new object[11];
+            Data = new object[11];           
         }
 
         public BarForce(object[] data) { Data = data; }
 
-        public BarForce(int number, int loadcase, int position, int timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
+        public BarForce(TName number, TLoadcase loadcase, int position, TTimeStep timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
         {
             Name = number;
             ForcePosition = position;

@@ -167,6 +167,7 @@
     <Compile Include="Structural\Results\Nodal Results\NodeVelocity.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelForce.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelStress.cs" />
+    <Compile Include="Structural\Results\Result.cs" />
     <Compile Include="Structural\Results\StructuralResultServer.cs" />
   </ItemGroup>
   <ItemGroup>

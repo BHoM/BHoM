@@ -21,13 +21,14 @@ namespace BHoM.Base.Results
         None
     }
 
-    public class ResultServer<T> where T : Result, new()
+    public class ResultServer<T> where T : IResult, new()
     {
-        Dictionary<string,ResultSet<T>> m_Results;
+        Dictionary<string, IResultSet> m_Results;
         
         string m_TableName;
         string m_ConnectionString;
         List<string> m_ColumnNames;
+        Dictionary<string, int> m_LoadcaseKey;
         private ResultOrder m_ResultOrder;
 
         /// <summary>
@@ -61,13 +62,13 @@ namespace BHoM.Base.Results
                 if (value != m_ResultOrder)
                 {
                     m_ResultOrder = value;
-                    Dictionary<string, ResultSet<T>> results = new Dictionary<string, ResultSet<T>>();
+                    Dictionary<string, IResultSet> results = new Dictionary<string, IResultSet>();
 
                     int orderCol = m_ColumnNames.IndexOf(m_ResultOrder.ToString());
-                    ResultSet<T> rSet = null;// new ResultSet<T>();
+                    IResultSet rSet = null;
                     foreach (ResultSet<T> set in m_Results.Values)
                     {
-                        foreach (object[] row in set.RawData)
+                        foreach (object[] row in set.ToListData())
                         {
                             string key = row[orderCol].ToString();
                             if (!results.TryGetValue(key, out rSet))
@@ -113,7 +114,7 @@ namespace BHoM.Base.Results
 
         public ResultServer()
         {        
-            m_Results = new Dictionary<string, ResultSet<T>>();
+            m_Results = new Dictionary<string, IResultSet>();
             m_ColumnNames = new T().ColumnHeaders.ToList();
         }
 
@@ -142,7 +143,7 @@ namespace BHoM.Base.Results
         {
             System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
-            m_TableName = typeof(T).Name;
+            m_TableName = typeof(T).Name.Split('`')[0];
             CreateTable(connection);
             connection.Close();
         }
@@ -191,7 +192,7 @@ namespace BHoM.Base.Results
             {
                 values.Sort();
                 int orderCol = m_ColumnNames.IndexOf(m_ResultOrder.ToString());
-                ResultSet<T> rSet = null;// new ResultSet<T>();
+                IResultSet rSet = null;// new ResultSet<T>();
                 for (int i = 0; i < values.Count; i++)
                 {
                     string key = values[i].Data[orderCol].ToString();
@@ -204,8 +205,8 @@ namespace BHoM.Base.Results
                 }
             }
         }
-
-        public Dictionary<string, ResultSet<T>> LoadData()
+        
+        public Dictionary<string, IResultSet> LoadData()
         {
             if (!string.IsNullOrEmpty(m_TableName))
             {
@@ -258,7 +259,7 @@ namespace BHoM.Base.Results
                     DataRowCollection rows = set.Tables[0].Rows;
 
                     int orderCol = m_ColumnNames.IndexOf(m_ResultOrder.ToString());
-                    ResultSet<T> rSet = null;// new ResultSet<T>();
+                    IResultSet rSet = null;// new ResultSet<T>();
                     for (int i = 0; i < rows.Count; i++)
                     {
                         string key = rows[i][orderCol].ToString();
@@ -274,6 +275,19 @@ namespace BHoM.Base.Results
 
             return m_Results;
         }
+
+        //public int GetLoadcaseKey(string loadcaseName)
+        //{
+        //    int key = 0;
+        //    if (int.TryParse(loadcaseName, out key))
+        //    {
+        //        return key;
+        //    }
+        //    if (string.IsNullOrEmpty(m_TableName))
+        //    {
+
+        //    }
+        //}
 
         private DataTable CreateDataSet(List<T> values)
         {
@@ -342,7 +356,7 @@ namespace BHoM.Base.Results
         private bool CreateTable(SqlConnection con)
         {          
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
-            string tableColumns = typeof(T).Name + "(";
+            string tableColumns = m_TableName + "(";
 
             foreach (string column in m_ColumnNames)
             {
@@ -357,7 +371,7 @@ namespace BHoM.Base.Results
             }
             return true;
         }
- 
+
         private string GetDBType(Type type, string name)
         {
             if (type == typeof(double))
@@ -370,7 +384,7 @@ namespace BHoM.Base.Results
             }
             else if (type == typeof(string))
             {
-                return "varchar(16)";
+                return "varchar(50)";
             }
             else if (type == typeof(int))
             {
@@ -405,9 +419,9 @@ namespace BHoM.Base.Results
         {
             get
             {
-                ResultSet<T> result = null;
+                IResultSet result = null;
                 m_Results.TryGetValue(name, out result);
-                return result;
+                return result as ResultSet<T>;
             }
         }
 

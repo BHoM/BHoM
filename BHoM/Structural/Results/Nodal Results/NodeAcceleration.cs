@@ -7,7 +7,18 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Results
 {
-    public class NodeAcceleration : Result
+    public class NodeAcceleration : NodeAcceleration<int, int, int>
+    {
+        public NodeAcceleration() : base() { }
+        public NodeAcceleration(int number, int loadcase, int timeStep, double fx, double fy, double fz, double mx, double my, double mz)
+            //: base(number, loadcase, timeStep, fx, fy, fz, mx, my, mz)
+        { }
+    }
+
+    public class NodeAcceleration<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+         where TName : IComparable
+         where TLoadcase : IComparable
+         where TTimeStep : IComparable
     {
         public override string[] ColumnHeaders
         {

@@ -77,31 +77,4 @@ namespace BHoM.Base.Results
             return this;
         }
     }
-
-    public class AbsoluteEnvelope : Envelope
-    {
-        public AbsoluteEnvelope(List<string> valueNames) : base(valueNames)
-        {
-            for (int i = 0; i < Values.Length; i++)
-            {
-                Values[i] = double.MinValue;
-            }
-        }
-        public override Envelope Merge(Envelope e2)
-        {
-            if (Values.Length == e2.Values.Length)
-            {
-                for (int i = 0; i < Values.Length; i++)
-                {
-                    if (Math.Abs(Values[i]) < Math.Abs(e2.Values[i]))
-                    {
-                        Values[i] = Math.Abs(e2.Values[i]);
-                        Cases[i] = e2.Cases[i];
-                        Keys[i] = e2.Keys[i];
-                    }
-                }
-            }
-            return this;
-        }
-    }
 }

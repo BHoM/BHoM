@@ -7,14 +7,30 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Results
 {
-    public class PanelStress : Result
+    public class PanelStress : PanelStress<int, int, int>
+    {
+        public PanelStress() : base() { }
+        public PanelStress(int number, int node, int loadcase, int timeStep, double sxTop, double syTop, double sxyTop, double sxBot, double syBot, double sxyBot, double tx, double ty)
+            : base(number, node, loadcase, timeStep, sxTop, syTop, sxyTop, sxBot, syBot, sxyBot, tx, ty)
+        { }
+    }
+
+    public class PanelStress<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+         where TName : IComparable
+         where TLoadcase : IComparable
+         where TTimeStep : IComparable
     {
         public override string[] ColumnHeaders
         {
             get
             {
-                return new string[] { "Id", "Name", "Loadcase", "TimeStep", "Node", "SXX", "SYY", "SXY", "TX", "TY"};
+                return GetColumnHeaders();
             }
+        }
+
+        public static string[] GetColumnHeaders()
+        {            
+            return new string[] { "Id", "Name", "Loadcase", "TimeStep", "Node", "SXX_Top", "SYY_Top", "SXY_Top", "SXX_Bot", "SYY_Bot", "SXY_Bot", "TX", "TY"};           
         }
 
         public override ResultType ResultType
@@ -27,30 +43,33 @@ namespace BHoM.Structural.Results
 
         public PanelStress()
         {
-            Data = new object[10];
+            Data = new object[13];
         }
 
         public PanelStress(object[] data) { Data = data; }
 
-        public PanelStress(int number, int node, int loadcase, int timeStep, double sx, double sy, double sxy, double tx, double ty) : this()
+        public PanelStress(TName number, TName node, TLoadcase loadcase, TTimeStep timeStep, double sxTop, double syTop, double sxyTop, double sxBot, double syBot, double sxyBot, double tx, double ty) : this()
         {
             Name = number;
             TimeStep = timeStep;
             Loadcase = loadcase;
             Node = node;
             Id = Name + ":" + Node + ":" + loadcase + ":" + TimeStep;
-            SXX = sx;
-            SYY = sy;
-            SXY = sxy;
+            SXX_Top = sxTop;
+            SYY_Top = syTop;
+            SXY_Top = sxyTop;
+            SXX_Bot = sxBot;
+            SYY_Bot = syBot;
+            SXY_Bot = sxyBot;
             TX = tx;
             TY = ty;
         }
 
-        public int Node
+        public TName Node
         {
             get
             {
-                return (int)Data[4];
+                return (TName)Data[4];
             }
             set
             {
@@ -58,7 +77,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double SXX
+        public double SXX_Top
         {
             get
             {
@@ -70,7 +89,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double SYY
+        public double SYY_Top
         {
             get
             {
@@ -82,7 +101,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double SXY
+        public double SXY_Top
         {
             get
             {
@@ -94,7 +113,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double TX
+        public double SXX_Bot
         {
             get
             {
@@ -106,7 +125,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double TY
+        public double SYY_Bot
         {
             get
             {
@@ -115,6 +134,42 @@ namespace BHoM.Structural.Results
             set
             {
                 Data[9] = value;
+            }
+        }
+
+        public double SXY_Bot
+        {
+            get
+            {
+                return (double)Data[10];
+            }
+            set
+            {
+                Data[10] = value;
+            }
+        }
+
+        public double TX
+        {
+            get
+            {
+                return (double)Data[11];
+            }
+            set
+            {
+                Data[11] = value;
+            }
+        }
+
+        public double TY
+        {
+            get
+            {
+                return (double)Data[12];
+            }
+            set
+            {
+                Data[12] = value;
             }
         }      
     }

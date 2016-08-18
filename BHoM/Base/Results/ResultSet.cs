@@ -7,11 +7,21 @@ using System.Threading.Tasks;
 
 namespace BHoM.Base.Results
 {
-    public class ResultSet<T> where T : Result, new()
+    public interface IResultSet
     {
-        private Dictionary<string, object[]> m_Results;
+        void AddData(IEnumerable<object[]> rows);
+        void AddData(object[] rows);
+        List<object[]> ToListData();
 
-        //private List<string> m_ColumnNames;
+        Envelope MaxEnvelope();
+        Envelope MinEnvelope();
+        Envelope AbsoluteEnvelope();
+    }
+
+
+    public class ResultSet<T> : IResultSet where T : IResult, new()
+    {
+        private List<object[]> m_Results;       
         private List<string> m_ValueNames;
         private List<int> m_NumberIndices;
         int CaseIndex;
@@ -60,34 +70,29 @@ namespace BHoM.Base.Results
                 }
                 index++;
             }
-            m_Results = new Dictionary<string, object[]>();
+            m_Results = new List<object[]>();
         }
 
         public ResultSet(List<object[]> rows) : this()
         {
-            for (int i = 0; i < rows.Count; i++)
-            {
-                m_Results.Add(rows[i][KeyIndex].ToString(), rows[i]);
-            }
+            m_Results = rows;
         }
 
-        internal void AddData(IEnumerable<object[]> rows)
+        public void AddData(IEnumerable<object[]> rows)
         {
             foreach (object[] dataRow in rows)
             {
-                m_Results.Add(dataRow[KeyIndex].ToString(), dataRow);
+                m_Results.Add(dataRow);
             }
         }
 
-        internal void AddData(object[] row)
+        public void AddData(object[] row)
         {
-            m_Results.Add(row[KeyIndex].ToString(), row);
+            m_Results.Add(row);
         }
 
         public int Count { get { return m_Results.Count; } }
-
-        internal IEnumerable<object[]> RawData { get { return m_Results.Values; } }
-
+       
         public List<T> ToList()
         {
             List<T> listResults = new List<T>();
@@ -103,22 +108,14 @@ namespace BHoM.Base.Results
 
         public List<object[]> ToListData()
         {
-            //List<object[]> data = m_Results.Values.ToList();
-            //data.Sort(delegate (object[] o1, object[] o2)
-            //{
-            //    int v1 = (int)o1[1] * 1000000000 + (int)o1[2] * 100000 + (int)o1[3];
-            //    int v2 = (int)o2[1] * 1000000000 + (int)o2[2] * 100000 + (int)o2[3];
-            //    return v1.CompareTo(v2);
-            //});
-
-            return m_Results.Values.ToList();
+            return m_Results.ToList();
         }        
 
         public Dictionary<string, T> ToDictionary()
         {
             Dictionary<string, T> dictionaryResults = new Dictionary<string, T>();
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
-            foreach (object[] row in m_Results.Values)
+            foreach (object[] row in m_Results)
             {
                 T result = new T(); //T result = Activator.CreateInstance(typeof(T), true) as T;
 
@@ -137,16 +134,17 @@ namespace BHoM.Base.Results
         public Envelope MaxEnvelope()
         {
             Envelope envelope = new MaxEnvelope(m_ValueNames);
-            foreach (object[] row in m_Results.Values)
+            for (int i = 0; i < m_Results.Count; i++)
             {
-                for (int i = 0; i < m_NumberIndices.Count; i++)
+                object[] row = m_Results[i];
+                for (int j = 0; j < m_NumberIndices.Count; j++)
                 {
-                    float currentValue = (float)row[m_NumberIndices[i]];
-                    if (currentValue > envelope.Values[i])
+                    double currentValue = (double)row[m_NumberIndices[j]];
+                    if (currentValue > envelope.Values[j])
                     {
-                        envelope.Values[i] = currentValue;
-                        envelope.Keys[i] = row[KeyIndex].ToString();
-                        envelope.Cases[i] = row[CaseIndex].ToString();
+                        envelope.Values[j] = currentValue;
+                        envelope.Keys[j] = row[KeyIndex].ToString();
+                        envelope.Cases[j] = row[CaseIndex].ToString();
                     }
                 }
             }
@@ -155,22 +153,43 @@ namespace BHoM.Base.Results
 
         public Envelope MinEnvelope()
         {
-            Envelope envelope = new MinEnvelope(m_ValueNames);
-            foreach (object[] row in m_Results.Values)
+            Envelope envelope = new MaxEnvelope(m_ValueNames);
+            for (int i = 0; i < m_Results.Count; i++)
             {
-                for (int i = 0; i < m_NumberIndices.Count; i++)
+                object[] row = m_Results[i];
+                for (int j = 0; j < m_NumberIndices.Count; j++)
                 {
-                    double currentValue = (double)row[m_NumberIndices[i]];
-                    if (currentValue < envelope.Values[i])
+                    double currentValue = (double)row[m_NumberIndices[j]];
+                    if (currentValue < envelope.Values[j])
                     {
-                        envelope.Values[i] = currentValue;
-                        envelope.Keys[i] = row[KeyIndex].ToString();
-                        envelope.Cases[i] = row[CaseIndex].ToString();
+                        envelope.Values[j] = currentValue;
+                        envelope.Keys[j] = row[KeyIndex].ToString();
+                        envelope.Cases[j] = row[CaseIndex].ToString();
                     }
                 }
             }
             return envelope;
         }
 
+
+        public Envelope AbsoluteEnvelope()
+        {
+            Envelope envelope = new MaxEnvelope(m_ValueNames);
+            for (int i = 0; i < m_Results.Count; i++)
+            {
+                object[] row = m_Results[i];
+                for (int j = 0; j < m_NumberIndices.Count; j++)
+                {
+                    double currentValue = (double)row[m_NumberIndices[j]];
+                    if (currentValue > Math.Abs(envelope.Values[j]))
+                    {
+                        envelope.Values[j] = currentValue;
+                        envelope.Keys[j] = row[KeyIndex].ToString();
+                        envelope.Cases[j] = row[CaseIndex].ToString();
+                    }
+                }
+            }
+            return envelope;
+        }
     }
 }

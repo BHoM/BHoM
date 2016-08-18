@@ -9,144 +9,144 @@ namespace BHoM.Structural.Results
     /// and orientation information
     /// </summary>
     /// 
-    public class NodalResult : Result
-    {
-        public NodalResult()
-        {
-            Data = new object[11];
-        }
+    //public class NodalResult : Result
+    //{
+    //    public NodalResult()
+    //    {
+    //        Data = new object[11];
+    //    }
 
-        public NodalResult(object[] data) { Data = data; }
+    //    public NodalResult(object[] data) { Data = data; }
 
-        public NodalResult(int number, int loadcase, int timeStep, Vector translation, Vector rotation, Vector acceleration, Vector angularAcceleration, Vector velocity, Vector angularVelocity, Vector force, Vector moment) : this()
-        {
-            Name = number;
-            TimeStep = timeStep;
-            Loadcase = loadcase;
-            Id = Name + ":" + loadcase + ":" + TimeStep;
-            Translation = translation;
-            Rotation = rotation;
-            Acceleration = acceleration;
-            AngularAcceleration = angularAcceleration;
-            Velocity = velocity;
-            AngularVelocity = angularVelocity;
-            Force = force;
-            Moment = moment;
+    //    public NodalResult(int number, int loadcase, int timeStep, Vector translation, Vector rotation, Vector acceleration, Vector angularAcceleration, Vector velocity, Vector angularVelocity, Vector force, Vector moment) : this()
+    //    {
+    //        Name = number;
+    //        TimeStep = timeStep;
+    //        Loadcase = loadcase;
+    //        Id = Name + ":" + loadcase + ":" + TimeStep;
+    //        Translation = translation;
+    //        Rotation = rotation;
+    //        Acceleration = acceleration;
+    //        AngularAcceleration = angularAcceleration;
+    //        Velocity = velocity;
+    //        AngularVelocity = angularVelocity;
+    //        Force = force;
+    //        Moment = moment;
 
-        }
+    //    }
 
-        public override string[] ColumnHeaders
-        {
-            get
-            {
-                return new string[] { "Id", "Name", "Loadcase", "TimeStep", "Translation", "Rotation", "Acceleration", "AngularAcceleration", "Velocity", "AngularVelocity", "Force", "Moment" };
-            }
-        }
+    //    public override string[] ColumnHeaders
+    //    {
+    //        get
+    //        {
+    //            return new string[] { "Id", "Name", "Loadcase", "TimeStep", "Translation", "Rotation", "Acceleration", "AngularAcceleration", "Velocity", "AngularVelocity", "Force", "Moment" };
+    //        }
+    //    }
 
-        public Vector Translation
-        {
-            get
-            {
-                return (Vector)Data[4];
-            }
-            set
-            {
-                Data[4] = value;
-            }
-        }
+    //    public Vector Translation
+    //    {
+    //        get
+    //        {
+    //            return (Vector)Data[4];
+    //        }
+    //        set
+    //        {
+    //            Data[4] = value;
+    //        }
+    //    }
 
-        public Vector Rotation
-        {
-            get
-            {
-                return (Vector)Data[5];
-            }
-            set
-            {
-                Data[5] = value;
-            }
-        }
+    //    public Vector Rotation
+    //    {
+    //        get
+    //        {
+    //            return (Vector)Data[5];
+    //        }
+    //        set
+    //        {
+    //            Data[5] = value;
+    //        }
+    //    }
 
-        public Vector Acceleration
-        {
-            get
-            {
-                return (Vector)Data[6];
-            }
-            set
-            {
-                Data[6] = value;
-            }
-        }
+    //    public Vector Acceleration
+    //    {
+    //        get
+    //        {
+    //            return (Vector)Data[6];
+    //        }
+    //        set
+    //        {
+    //            Data[6] = value;
+    //        }
+    //    }
 
-        public Vector AngularAcceleration
-        {
-            get
-            {
-                return (Vector)Data[7];
-            }
-            set
-            {
-                Data[7] = value;
-            }
-        }
+    //    public Vector AngularAcceleration
+    //    {
+    //        get
+    //        {
+    //            return (Vector)Data[7];
+    //        }
+    //        set
+    //        {
+    //            Data[7] = value;
+    //        }
+    //    }
 
-        public Vector Velocity
-        {
-            get
-            {
-                return (Vector)Data[8];
-            }
-            set
-            {
-                Data[8] = value;
-            }
-        }
+    //    public Vector Velocity
+    //    {
+    //        get
+    //        {
+    //            return (Vector)Data[8];
+    //        }
+    //        set
+    //        {
+    //            Data[8] = value;
+    //        }
+    //    }
 
-        public Vector AngularVelocity
-        {
-            get
-            {
-                return (Vector)Data[9];
-            }
-            set
-            {
-                Data[9] = value;
-            }
-        }
+    //    public Vector AngularVelocity
+    //    {
+    //        get
+    //        {
+    //            return (Vector)Data[9];
+    //        }
+    //        set
+    //        {
+    //            Data[9] = value;
+    //        }
+    //    }
 
-        public Vector Force
-        {
-            get
-            {
-                return (Vector)Data[10];
-            }
-            set
-            {
-                Data[10] = value;
-            }
-        }
+    //    public Vector Force
+    //    {
+    //        get
+    //        {
+    //            return (Vector)Data[10];
+    //        }
+    //        set
+    //        {
+    //            Data[10] = value;
+    //        }
+    //    }
 
-        public Vector Moment
-        {
-            get
-            {
-                return (Vector)Data[11];
-            }
-            set
-            {
-                Data[11] = value;
-            }
-        }
+    //    public Vector Moment
+    //    {
+    //        get
+    //        {
+    //            return (Vector)Data[11];
+    //        }
+    //        set
+    //        {
+    //            Data[11] = value;
+    //        }
+    //    }
 
-        public override ResultType ResultType
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-    }
+    //    public override ResultType ResultType
+    //    {
+    //        get
+    //        {
+    //            throw new NotImplementedException();
+    //        }
+    //    }
+    //}
 }
     
 

@@ -43,5 +43,22 @@ namespace BHoM.Structural.Properties
             this.EndConstraint = endConstraint;
             this.Name = name;
         }
+
+        public new string Name
+        {
+            get
+            {
+                return base.Name == "" ? ToString() : base.Name;
+            }
+            set
+            {
+                base.Name = value;
+            }
+        }
+
+        public override string ToString()
+        {
+            return string.IsNullOrEmpty(base.Name) ? StartConstraint.Name + "-" + EndConstraint.Name : base.Name;
+        }
     }  
 }

@@ -12,18 +12,18 @@ namespace BHoM.Structural.Interface
     {
         bool StoreResults(string filename, List<ResultType> resultTypes, List<string> loadcases, bool append = false);
 
-        bool GetBarForces(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, ResultSet<BarForce>> results);
+        bool GetBarForces(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
         bool GetBarStresses();
 
-        bool GetNodeReactions(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<NodeReaction>> results);
-        bool GetNodeDisplacements(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<NodeDisplacement>> results);
-        bool GetNodeVelocities(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<NodeVelocity>> results);
-        bool GetNodeAccelerations(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<NodeAcceleration>> results);
+        bool GetNodeReactions(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
+        bool GetNodeDisplacements(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
+        bool GetNodeVelocities(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
+        bool GetNodeAccelerations(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
 
         bool GetModalResults();
 
-        bool GetPanelForces(List<string> panels, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<PanelForce>> results);
-        bool GetPanelStress(List<string> panels, List<string> cases, ResultOrder orderBy, out Dictionary<string, ResultSet<PanelStress>> results);
+        bool GetPanelForces(List<string> panels, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
+        bool GetPanelStress(List<string> panels, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
     }
 }
 

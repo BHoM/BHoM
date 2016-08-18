@@ -7,14 +7,30 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Results
 {
-    public class PanelForce : Result
+    public class PanelForce : PanelForce<int, int, int>
+    {
+        public PanelForce() : base() { }
+        public PanelForce(int number, int node, int loadcase, int timeStep, double fx, double fy, double fz, double mx, double my, double mz, double vx, double vy)
+            : base(number, node, loadcase, timeStep, fx, fy, fz, mx, my, mz, vx, vy)
+        { }
+    }
+
+    public class PanelForce<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+         where TName : IComparable
+         where TLoadcase : IComparable
+         where TTimeStep : IComparable
     {
         public override string[] ColumnHeaders
         {
             get
             {
-                return new string[] { "Id", "Name", "Loadcase", "TimeStep", "Node", "NXX", "NYY", "NXY", "MXX", "MYY", "MXY" };
+                return GetColumnHeaders();
             }
+        }
+
+        public static string[] GetColumnHeaders()
+        {
+            return new string[] { "Id", "Name", "Loadcase", "TimeStep", "Node", "NXX", "NYY", "NXY", "MXX", "MYY", "MXY", "VX", "VY" };
         }
 
         public override ResultType ResultType
@@ -27,12 +43,12 @@ namespace BHoM.Structural.Results
 
         public PanelForce()
         {
-            Data = new object[11];
+            Data = new object[13];
         }
 
         public PanelForce(object[] data) { Data = data; }
 
-        public PanelForce(int number, int node, int loadcase, int timeStep, double nx, double ny, double nxy, double mx, double my, double mxy) : this()
+        public PanelForce(TName number, TName node, TLoadcase loadcase, TTimeStep timeStep, double nx, double ny, double nxy, double mx, double my, double mxy, double vx, double vy) : this()
         {
             Name = number;
             TimeStep = timeStep;
@@ -45,13 +61,15 @@ namespace BHoM.Structural.Results
             MXX = mx;
             MYY = my;
             MXY = mxy;
+            VX = vx;
+            VY = vy;
         }
 
-        public int Node
+        public TName Node
         {
             get
             {
-                return (int)Data[4];
+                return (TName)Data[4];
             }
             set
             {
@@ -128,6 +146,29 @@ namespace BHoM.Structural.Results
             set
             {
                 Data[10] = value;
+            }
+        }
+
+        public double VX
+        {
+            get
+            {
+                return (double)Data[11];
+            }
+            set
+            {
+                Data[11] = value;
+            }
+        }
+        public double VY
+        {
+            get
+            {
+                return (double)Data[12];
+            }
+            set
+            {
+                Data[12] = value;
             }
         }
     }
