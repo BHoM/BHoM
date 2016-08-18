@@ -13,10 +13,7 @@ namespace BHoM.Structural.Elements
     {
         /// <summary>Storey level (in metres)</summary>
         public double Elevation { get; set; }
-
-        /// <summary>Storey name</summary>
-        public string Name { get; set; }
-
+        
         /// <summary>Storey height</summary>
         public double Height { get; set; }
 

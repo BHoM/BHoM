@@ -11,8 +11,6 @@ namespace BHoM.Structural.Elements
     public class Opening : BHoMObject
     {
         private Group<Curve> m_Edges;
-        public bool HasHost { get; set; }
-
         /// <summary>
         /// A group of curves which define the perimeter of panel object
         /// </summary>

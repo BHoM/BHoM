@@ -77,7 +77,7 @@ namespace BHoM.Structural.Properties
         /// Geometry of the cross section
         /// </summary>
         [DefaultValue(null)]
-        public Group<Curve> Edges { get; internal set; }
+        public Group<Curve> Edges { get; set; }
 
         /// <summary>Mass per metre based on section properties</summary>
         [DefaultValue(null)]
