@@ -16,8 +16,8 @@ namespace BHoM.Structural.Results
     public class BarForce : BarForce<int, int, int>
     {
         public BarForce() : base() { }
-        public BarForce(int number, int loadcase, int position, int timeStep, double fx, double fy, double fz, double mx, double my, double mz)
-        : base(number, loadcase, position, timeStep, fx, fy, fz, mx, my, mz)
+        public BarForce(int number, int loadcase, int position, int divisions, int timeStep, double fx, double fy, double fz, double mx, double my, double mz)
+        : base(number, loadcase, position, divisions, timeStep, fx, fy, fz, mx, my, mz)
         { }
     }
 
@@ -28,18 +28,19 @@ namespace BHoM.Structural.Results
     {
         public BarForce()
         {
-            Data = new object[11];           
+            Data = new object[12];           
         }
 
         public BarForce(object[] data) { Data = data; }
 
-        public BarForce(TName number, TLoadcase loadcase, int position, TTimeStep timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
+        public BarForce(TName number, TLoadcase loadcase, int position, int divisions, TTimeStep timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
         {
             Name = number;
             ForcePosition = position;
             TimeStep = timeStep;
             Loadcase = loadcase;
             Id = Name + ":" + loadcase + ":" + ForcePosition + ":" + TimeStep;
+            Divisions = divisions;
             FX = fx;
             FY = fy;
             FZ = fz;
@@ -52,7 +53,7 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return new string[] { "Id", "Name", "Loadcase", "TimeStep", "ForcePosition", "FX", "FY", "FZ", "MX", "MY", "MZ" };
+                return new string[] { "Id", "Name", "Loadcase", "TimeStep", "ForcePosition", "Divisions", "FX", "FY", "FZ", "MX", "MY", "MZ" };
             }
         }
 
@@ -76,19 +77,19 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double FX
+        public int Divisions
         {
             get
             {
-                return (double)Data[5];
+                return (int)Data[5];
             }
             set
             {
-                Data[5] = value;
+                Data[6] = value;
             }
         }
 
-        public double FY
+        public double FX
         {
             get
             {
@@ -100,7 +101,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double FZ
+        public double FY
         {
             get
             {
@@ -112,7 +113,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double MX
+        public double FZ
         {
             get
             {
@@ -124,7 +125,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double MY
+        public double MX
         {
             get
             {
@@ -136,7 +137,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double MZ
+        public double MY
         {
             get
             {
@@ -145,6 +146,18 @@ namespace BHoM.Structural.Results
             set
             {
                 Data[10] = value;
+            }
+        }
+
+        public double MZ
+        {
+            get
+            {
+                return (double)Data[11];
+            }
+            set
+            {
+                Data[11] = value;
             }
         }
     }

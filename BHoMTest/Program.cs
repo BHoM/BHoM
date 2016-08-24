@@ -154,7 +154,7 @@ namespace BHoMTest
                     {
                         for (int segment = 0; segment < 3; segment++)
                         {
-                            resultsList.Add(new BarForce((i + 1), j, segment, timeStep, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20));
+                            resultsList.Add(new BarForce((i + 1), j, segment, 3, timeStep, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20));
                             counter++;
                             tolalCount++;
                             if (counter == 1000000)
