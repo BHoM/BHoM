@@ -85,7 +85,7 @@ namespace BHoM.Structural.Results
             }
             set
             {
-                Data[6] = value;
+                Data[5] = value;
             }
         }
 
