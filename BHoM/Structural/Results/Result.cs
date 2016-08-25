@@ -75,16 +75,20 @@ namespace BHoM.Structural.Results
         public int CompareTo(object obj)
         {
             var r2 = obj as Result<TName, TLoadcase, TTimeStep>;
-            int n = this.Name.CompareTo(r2.Name);
-            if (n == 0)
+            if (r2 != null)
             {
-                int l = this.Loadcase.CompareTo(r2.Loadcase);
-                return l == 0 ? this.TimeStep.CompareTo(r2.Loadcase) : l;
+                int n = this.Name.CompareTo(r2.Name);
+                if (n == 0)
+                {
+                    int l = this.Loadcase.CompareTo(r2.Loadcase);
+                    return l == 0 ? this.TimeStep.CompareTo(r2.TimeStep) : l;
+                }
+                else
+                {
+                    return n;
+                }
             }
-            else
-            {
-                return n;
-            }
+            return 1;
         }
     }
 }

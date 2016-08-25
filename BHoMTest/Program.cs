@@ -32,6 +32,8 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
+            TestFastSQL();
+
             TestProject();
             Project.ActiveProject.AddObject(new Loadcase());
             Project.ActiveProject.AddObject(new Loadcase());
@@ -134,9 +136,9 @@ namespace BHoMTest
         {
             Console.WriteLine("Program Test Running...");
             string[] loadCase = new string[] { "DL", "LL", "SDL", "DL+LL", "LC1", "LC2", "LC3", "LC4", "LC5", "LC6", "LC1", "LC2", "LC3", "LC4", "LC5" };
-            ResultServer<BarForce> results = new ResultServer<BarForce>(Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Test1.mdf"));
+            ResultServer<BarForce<int, string, int>> results = new ResultServer<BarForce<int, string, int>>();// Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Test1.mdf"));
 
-            List<BarForce> resultsList = new List<BarForce>();
+            List<BarForce<int, string, int>> resultsList = new List<BarForce<int, string, int>>();
             Random r = new Random();
             List<string> barNums = new List<string>();
             List<string> cases = new List<string>();
@@ -146,7 +148,7 @@ namespace BHoMTest
             Stopwatch sw = new Stopwatch();
             sw.Start();
 
-            for (int j = 0; j < 50/*loadCase.Length*/; j++)
+            for (int j = 0; j < 5/*loadCase.Length*/; j++)
             {
                 for (int timeStep = 1; timeStep < 5; timeStep++)
                 {
@@ -154,7 +156,7 @@ namespace BHoMTest
                     {
                         for (int segment = 0; segment < 3; segment++)
                         {
-                            resultsList.Add(new BarForce((i + 1), j, segment, 3, timeStep, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20));
+                            resultsList.Add(new BarForce<int, string, int>((i + 1), j.ToString(), segment, 3, timeStep, (double)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20, (float)r.NextDouble() * 20));
                             counter++;
                             tolalCount++;
                             if (counter == 1000000)
@@ -202,7 +204,7 @@ namespace BHoMTest
             Console.WriteLine("Time taken to Envelope all results = {0}", sw.Elapsed);
 
             sw.Restart();
-            List<BarForce> barForce1 = results.ToList();
+            List<BarForce<int, string, int>> barForce1 = results.ToList();
 
 
             Console.WriteLine("Time taken to type convert all data to List = {0}", sw.Elapsed);
