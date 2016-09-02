@@ -58,7 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Instance\IPointInstance.cs" />
     <Compile Include="Base\Results\Enums.cs" />
     <Compile Include="Base\Results\Envelope.cs" />
     <Compile Include="Base\Results\Result.cs" />
@@ -99,8 +98,6 @@
     <Compile Include="Global\Config\MEPConfig.cs" />
     <Compile Include="Global\Config\StructureConfig.cs" />
     <Compile Include="Structural\Databases\Enums.cs" />
-    <Compile Include="Base\Instance\ISurfaceInstance.cs" />
-    <Compile Include="Base\Instance\ICurveInstance.cs" />
     <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Base\Object.cs" />
     <Compile Include="Base\ObjectFilter.cs" />
@@ -132,8 +129,6 @@
     <Compile Include="Structural\Elements\Node.cs" />
     <Compile Include="Structural\Properties\Constraints\BarRelease.cs" />
     <Compile Include="Structural\Properties\Constraints\SurfaceConstraint.cs" />
-    <Compile Include="Structural\Properties\Detailing\ColumnReinforcement.cs" />
-    <Compile Include="Structural\Properties\Detailing\IDetail.cs" />
     <Compile Include="Structural\Properties\Enums.cs" />
     <Compile Include="Structural\Properties\Offset.cs" />
     <Compile Include="Structural\Elements\Enums.cs" />
