@@ -110,8 +110,9 @@ namespace BHoM.Global
             {
                 foreach (KeyValuePair<Guid, BHoMObject> kvp in bhomObject.GetDeepDependencies())
                 {
-                    if (!dependencies.ContainsKey(kvp.Key))
-                        dependencies[kvp.Key] = kvp.Value;
+                    BHoMObject value = null;
+                    if (!dependencies.TryGetValue(kvp.Key, out value) && this.GetObject(kvp.Key) == null)
+                        dependencies.Add(kvp.Key, kvp.Value);
                 }
             }
             aResult += ",\"Dependencies\": [";

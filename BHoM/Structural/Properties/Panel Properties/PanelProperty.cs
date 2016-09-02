@@ -18,7 +18,7 @@ namespace BHoM.Structural.Properties
         Variable,
         Ribbed,
         Waffle,
-        Drop
+        Drop,
     }
 
     public enum PanelModifier

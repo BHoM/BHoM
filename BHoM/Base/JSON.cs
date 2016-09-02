@@ -60,20 +60,20 @@ namespace BHoM.Base
 
             // Try to create an object that correponds the object type stored in "Primitive"
             var typeString = definition["Type"].Replace("\"", "").Replace("{", "").Replace("}", "");
-            if (typeString != typeof(List<BHoMObject>).ToString()) return null;
+            if (typeString != typeof(List<BHoMObject>).ToString() && typeString != typeof(Project).ToString()) return null;
 
             // Get all the dependencies
             List<BHoMObject> depDefs = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Dependencies"], project) as List<BHoMObject>;
             foreach (BHoMObject o in depDefs)
-            {
-                project.AddObject(o);
+            {           
+               project.AddObject(o);                
             }
 
             // Get all the contained objects
             List<BHoMObject> objects = BHoMJSON.ReadCollection(typeof(List<BHoMObject>), definition["Objects"], project) as List<BHoMObject>;
             foreach (BHoMObject o in objects)
-            {
-                project.AddObject(o);
+            {              
+                project.AddObject(o);            
             }
 
             project.RunTasks();
@@ -128,7 +128,14 @@ namespace BHoM.Base
 
                 foreach (var item in items)
                 {
-                    list.Add(ReadValue(listType, item, project));
+                    try
+                    {
+                        list.Add(ReadValue(listType, item, project));
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                 }
                 return list;
             }

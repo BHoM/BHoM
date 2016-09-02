@@ -11,7 +11,7 @@ namespace BHoM.Geometry
 {
     public class Group : Group<GeometryBase> { }
 
-    public class Group<T> : GeometryBase, IEnumerable<T> where T : GeometryBase 
+    public class Group<T> : GeometryBase, IEnumerable<T>, IEnumerable where T : GeometryBase 
     {
         private List<T> m_Geometry;
         private BoundingBox m_Bounds;

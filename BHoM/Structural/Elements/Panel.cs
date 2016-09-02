@@ -97,6 +97,7 @@ namespace BHoM.Structural.Elements
             }
         }
 
+        [DefaultValue(null)]
         public Group<Curve> Internal_Contours
         {
             get
@@ -109,9 +110,14 @@ namespace BHoM.Structural.Elements
             }
         }
 
+        [DefaultValue(null)]
         public PanelProperty PanelProperty { get; set; }
 
+        [DefaultValue(null)]
         public Materials.Material Material { get; set; }
+
+        [DefaultValue(null)]
+        public SurfaceConstraint PlanarSpring { get; set; }
 
         public bool IsValid() { return m_ExteriorEdges != null; }
 

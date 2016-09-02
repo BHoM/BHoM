@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Instance\IPointInstance.cs" />
     <Compile Include="Base\Results\Enums.cs" />
     <Compile Include="Base\Results\Envelope.cs" />
     <Compile Include="Base\Results\Result.cs" />
@@ -98,6 +99,8 @@
     <Compile Include="Global\Config\MEPConfig.cs" />
     <Compile Include="Global\Config\StructureConfig.cs" />
     <Compile Include="Structural\Databases\Enums.cs" />
+    <Compile Include="Base\Instance\ISurfaceInstance.cs" />
+    <Compile Include="Base\Instance\ICurveInstance.cs" />
     <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Base\Object.cs" />
     <Compile Include="Base\ObjectFilter.cs" />
@@ -129,6 +132,8 @@
     <Compile Include="Structural\Elements\Node.cs" />
     <Compile Include="Structural\Properties\Constraints\BarRelease.cs" />
     <Compile Include="Structural\Properties\Constraints\SurfaceConstraint.cs" />
+    <Compile Include="Structural\Properties\Detailing\ColumnReinforcement.cs" />
+    <Compile Include="Structural\Properties\Detailing\IDetail.cs" />
     <Compile Include="Structural\Properties\Enums.cs" />
     <Compile Include="Structural\Properties\Offset.cs" />
     <Compile Include="Structural\Elements\Enums.cs" />
@@ -144,6 +149,7 @@
     <Compile Include="Structural\Loads\Loadcombination.cs" />
     <Compile Include="Structural\Loads\LoadEnums.cs" />
     <Compile Include="Structural\Loads\NodeLoad.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\FoundationProperty.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarForceEnvelope.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
     <Compile Include="Structural\Interface\IResultAdapter.cs" />
@@ -158,7 +164,7 @@
     <Compile Include="Base\SQLAccessor.cs" />
     <Compile Include="Structural\Properties\Section Properties\ShapeBuilder.cs" />
     <Compile Include="Structural\Properties\Section Properties\SectionProperty.cs" />
-    <Compile Include="Structural\Properties\PanelProperty.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\PanelProperty.cs" />
     <Compile Include="Structural\Databases\UK_SectionsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
