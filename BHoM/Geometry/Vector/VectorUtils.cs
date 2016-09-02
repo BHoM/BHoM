@@ -496,7 +496,7 @@ namespace BHoM.Geometry
             double dotProduct = DotProduct(v1, v2);
             double length = Length(v1) * Length(v2);
 
-            return dotProduct< length ? Math.Acos(dotProduct / length) : 0;
+            return (Math.Abs(dotProduct) < length) ? Math.Acos(dotProduct / length) : 0;
         }
 
         internal static double[] Normalise(double[] m_Coordinates)
