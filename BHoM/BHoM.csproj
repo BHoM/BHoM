@@ -144,7 +144,6 @@
     <Compile Include="Structural\Loads\Loadcombination.cs" />
     <Compile Include="Structural\Loads\LoadEnums.cs" />
     <Compile Include="Structural\Loads\NodeLoad.cs" />
-    <Compile Include="Structural\Properties\Panel Properties\FoundationProperty.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarForceEnvelope.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
     <Compile Include="Structural\Interface\IResultAdapter.cs" />
