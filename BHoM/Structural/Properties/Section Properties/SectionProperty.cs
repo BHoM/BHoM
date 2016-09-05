@@ -52,12 +52,12 @@ namespace BHoM.Structural.Properties
         /// <param name="r1">Radius 1</param>
         /// <param name="r2">Radius 2</param>
         /// <param name="mass">Mass per metre</param>
-        public SectionProperty(ShapeType sType, SectionType mType, double height, double width, double t1, double t2, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double t3 = 0, double b3 = 0)
+        public SectionProperty(ShapeType sType, /*SectionType mType,*/ double height, double width, double t1, double t2, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double t3 = 0, double b3 = 0)
         {
             SectionData = CreateSectionData(height, width, t1, t2, r1, r2, mass, b1, b2, t3, b3);
             Edges = CreateGeometry(sType, height, width, t1, t2, r1, r2, b1, b2, t3, b3);
             Shape = sType;
-            SectionMaterial = mType;
+            //SectionMaterial = mType;
         }
 
         /// <summary>
@@ -66,11 +66,11 @@ namespace BHoM.Structural.Properties
         /// <param name="edges"></param>
         /// <param name="sType"></param>
         /// <param name="mType"></param>
-        public SectionProperty(Group<Curve> edges, ShapeType sType, SectionType mType)
+        public SectionProperty(Group<Curve> edges, ShapeType sType)//, SectionType mType)
         {
             Edges = edges;
             Shape = sType;
-            SectionMaterial = mType;
+            //SectionMaterial = mType;
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace BHoM.Structural.Properties
                     sectionData[i] = (double)data[i];
                 }
                 Group<Curve> edges = CreateGeometry(shape, breadth, height, tw, tf1, r1, r2, b1, b2, tf2, b3);
-                SectionProperty property = new SectionProperty(edges, shape, SectionType.Steel);
+                SectionProperty property = new SectionProperty(edges, shape);//, SectionType.Undefined);
                 property.Name = name;
                 property.SectionData = sectionData;
                 return edges != null ? property : null;
@@ -129,7 +129,7 @@ namespace BHoM.Structural.Properties
             return null;
         }
 
-        public static SectionProperty CreateTee(SectionType mType, double totalHeight, double totalwidth, double flangeThickness, double webThickness, double r1 = 0, double r2 = 0)
+        public static SectionProperty CreateTee(double totalHeight, double totalwidth, double flangeThickness, double webThickness, double r1 = 0, double r2 = 0)
         {
             return null;
         }
@@ -147,9 +147,9 @@ namespace BHoM.Structural.Properties
         /// <param name="webRadius"></param>
         /// <param name="toeRadius"></param>
         /// <returns></returns>
-        public static SectionProperty CreateISection(SectionType mType, double widthTopFlange, double widthBotFlange, double totalDepth, double flangeThicknessTop, double flangeThicknessBot, double webThickness, double webRadius, double toeRadius)
+        public static SectionProperty CreateISection(/*(SectionType mType,*/ double widthTopFlange, double widthBotFlange, double totalDepth, double flangeThicknessTop, double flangeThicknessBot, double webThickness, double webRadius, double toeRadius)
         {
-            return new SectionProperty(ShapeType.ISection, mType, totalDepth, Math.Max(widthTopFlange, widthBotFlange), flangeThicknessTop, webThickness, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);
+            return new SectionProperty(ShapeType.ISection, /*mType,*/ totalDepth, Math.Max(widthTopFlange, widthBotFlange), flangeThicknessTop, webThickness, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);
         }
 
         /// <summary>
@@ -160,9 +160,22 @@ namespace BHoM.Structural.Properties
         /// <param name="width"></param>
         /// <param name="outerRadius"></param>
         /// <returns></returns>
-        public static SectionProperty CreateRectangularSection(SectionType mType, double height, double width, double outerRadius = 0)
+        public static SectionProperty CreateRectangularSection(/*SectionType mType,*/ double height, double width, double outerRadius = 0)
         {
-            return new SectionProperty(ShapeType.Rectangle, mType, height, width, 0, 0, outerRadius, 0);
+            return new SectionProperty(ShapeType.Rectangle, /*mType,*/ height, width, 0, 0, outerRadius, 0);
+        }
+
+        /// <summary>
+        /// Create a rectangular shaped section
+        /// </summary>
+        /// <param name="mType"></param>
+        /// <param name="height"></param>
+        /// <param name="width"></param>
+        /// <param name="outerRadius"></param>
+        /// <returns></returns>
+        public static SectionProperty CreateBoxSection(double height, double width, double tf, double tw, double outerRadius = 0, double innerRadius = 0)
+        {
+            return new SectionProperty(ShapeType.Box, height, width, tf, tw, outerRadius, innerRadius);
         }
 
         /// <summary>
@@ -174,9 +187,9 @@ namespace BHoM.Structural.Properties
         /// <param name="flangeThickness"></param>
         /// <param name="webThickness"></param>
         /// <returns></returns>
-        public static SectionProperty CreateAngleSection(SectionType mType, double height, double width, double flangeThickness, double webThickness, double webRadius, double toeRadius)
+        public static SectionProperty CreateAngleSection(double height, double width, double flangeThickness, double webThickness, double webRadius, double toeRadius)
         {
-            return new SectionProperty(ShapeType.Angle, mType, height, width, flangeThickness, webThickness, webRadius, toeRadius);
+            return new SectionProperty(ShapeType.Angle, height, width, flangeThickness, webThickness, webRadius, toeRadius);
         }
 
         /// <summary>
@@ -185,10 +198,22 @@ namespace BHoM.Structural.Properties
         /// <param name="mType"></param>
         /// <param name="diameter"></param>
         /// <returns></returns>
-        public static SectionProperty CreateCircularSection(SectionType mType, double diameter)
+        public static SectionProperty CreateCircularSection(double diameter)
         {
-            return new SectionProperty(ShapeType.Circle, mType, diameter, diameter, 0, 0, 0, 0);
+            return new SectionProperty(ShapeType.Circle, diameter, diameter, 0, 0, 0, 0);
         }
+
+        /// <summary>
+        /// create a circular section
+        /// </summary>
+        /// <param name="mType"></param>
+        /// <param name="diameter"></param>
+        /// <returns></returns>
+        public static SectionProperty CreateTubeSection(double diameter, double thickness)
+        {
+            return new SectionProperty(ShapeType.Tube, diameter, diameter, thickness, 0, 0, 0);
+        }
+
 
         private static double[] CreateSectionData(double height, double width, double tw, double tf1, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0, double spacing = 0)
         {
@@ -263,11 +288,11 @@ namespace BHoM.Structural.Properties
         [DefaultValue(null)]
         public ShapeType Shape { get; set; }
 
-        /// <summary>
-        /// Type of material
-        /// </summary>
-        [DefaultValue(null)]
-        public SectionType SectionMaterial { get; set; }
+        ///// <summary>
+        ///// Type of material
+        ///// </summary>
+        //[DefaultValue(null)]
+        //public SectionType SectionMaterial { get; set; }
 
         /// <summary>
         /// Orientation

@@ -63,25 +63,25 @@ namespace BHoM.Materials
             return null;
         }
 
-        public static Material Default(SectionType type)
-        {
-            switch (type)
-            {
-                case SectionType.Aluminium:
-                    return Default(MaterialType.Aluminium);
-                case SectionType.ConcreteBeam:
-                case SectionType.ConcreteColumn:
-                    return Default(MaterialType.Concrete);
-                case SectionType.Steel:
-                    return Default(MaterialType.Steel);
-                case SectionType.Timber:
-                    return Default(MaterialType.Timber);
-                case SectionType.Glass:
-                    return Default(MaterialType.Glass);
-                default:
-                    return null;
-            }
-        }
+        //public static Material Default(SectionType type)
+        //{
+        //    return Default(MaterialType.Concrete);
+        //    switch (type)
+        //    {
+        //        case SectionType.Aluminium:
+        //            return Default(MaterialType.Aluminium);
+        //        case SectionType.ConcreteBeam:
+        //        case SectionType.ConcreteColumn:
+        //        case SectionType.Steel:
+        //            return Default(MaterialType.Steel);
+        //        case SectionType.Timber:
+        //            return Default(MaterialType.Timber);
+        //        case SectionType.Glass:
+        //            return Default(MaterialType.Glass);
+        //        default:
+        //            return null;
+        //    }
+        //}
 
         public static Material Default(MaterialType type)
         {

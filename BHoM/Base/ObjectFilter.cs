@@ -23,6 +23,24 @@ namespace BHoM.Base
         public ObjectFilter(Project project) : base(project) { }
 
         public ObjectFilter() : this(Project.ActiveProject) { }
+
+        public ObjectFilter(List<BHoMObject> objects)
+        {
+            m_Data = objects;
+        }
+
+        public ObjectFilter<BHoMObject> OfClass(Type t)
+        {
+            List<BHoMObject> result = new List<BHoMObject>();
+            foreach (object obj in m_Data)
+            {
+                if (t.IsAssignableFrom(obj.GetType()))
+                {
+                    result.Add(obj as BHoMObject);
+                }
+            }
+            return new ObjectFilter(result);
+        }
     }
 
     /// <summary>
@@ -31,7 +49,7 @@ namespace BHoM.Base
     public class ObjectFilter<T> : IEnumerable<T>, IEnumerable where T : IBase
     {
         private Project m_Project;
-        private List<T> m_Data;
+        protected List<T> m_Data;
         private int m_UniqueNumber;
         private FilterOption m_Option;
         private string m_Name;
@@ -45,6 +63,9 @@ namespace BHoM.Base
             m_Project = project;
             m_Data = FilterClass(m_Project.Objects);
         }
+
+        
+
 
         public ObjectFilter() : this(Project.ActiveProject) { }
 
@@ -74,11 +95,6 @@ namespace BHoM.Base
             }
             return result;
         }
-
-        //public ObjectFilter<T> OfClass(Type t)
-        //{
-        //    return new ObjectFilter<T>(m_Project, result);
-        //}
 
         public ObjectFilter<T> Implements(Type t)
         {

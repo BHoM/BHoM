@@ -4,14 +4,18 @@ namespace BHoM.Structural.Elements
     /// <summary>Usage of the bar for downstream implementations</summary>
     public enum BarStructuralUsage
     {
+        /// <summary>Undefined</summary>
+        Undefined = 0,
         /// <summary>Beam</summary>
-        Beam = 0,
+        Beam,
         /// <summary>Column</summary>
         Column,
         /// <summary>Brace</summary>
         Brace,
         /// <summary>Cable</summary>
-        Cable
+        Cable,
+        /// <summary>Pile</summary>
+        Pile
     }
 
     /// <summary>Manufacture type for steel</summary>

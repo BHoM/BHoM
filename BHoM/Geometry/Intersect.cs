@@ -31,7 +31,7 @@ namespace BHoM.Geometry
             int previousSide = sameSide[0];
             int Length = sameSide.Length;
 
-            for (int i = 1; i < Length - 1; i++)
+            for (int i = 1; i < Length; i++)
             {
                 if (sameSide[i] != previousSide)
                 {

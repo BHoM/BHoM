@@ -14,11 +14,11 @@ namespace BHoM.Structural.Properties
     }
     public enum PanelType
     {
-        Constant,
-        Variable,
-        Ribbed,
-        Waffle,
-        Drop,
+        Undefined,
+        Slab,
+        Wall,
+        PileCap,
+        DropPanel,
     }
 
     public enum PanelModifier
@@ -76,8 +76,12 @@ namespace BHoM.Structural.Properties
     public class ConstantThickness : PanelProperty
     {
         internal ConstantThickness() { }
-        public ConstantThickness(string name) : base(name) { Type = PanelType.Constant; }
-        public ConstantThickness(string name, double thickness) : this(name) { Thickness = thickness; }
+        public ConstantThickness(string name) : base(name) { Type = PanelType.Undefined; }
+        public ConstantThickness(string name, double thickness, PanelType type) : this(name)
+        {
+            Thickness = thickness;
+            Type = type;
+        }
     }
 
 
@@ -92,10 +96,11 @@ namespace BHoM.Structural.Properties
 
         internal Waffle() { }
 
-        public Waffle(string name) : base (name) { Type = PanelType.Waffle; }
+        public Waffle(string name) : base (name) { Type = PanelType.Slab; }
 
-        public Waffle(string name, double slabPanel, double depthX, double depthY, double stemWidthX, double stemWidthY, double spacingX, double spacingY) : this(name)
+        public Waffle(string name, double slabDepth, double depthX, double depthY, double stemWidthX, double stemWidthY, double spacingX, double spacingY) : this(name)
         {
+            Thickness = slabDepth;
             TotalDepthX = depthX;
             TotalDepthY = depthY;
             StemWidthX = stemWidthX;
@@ -113,11 +118,12 @@ namespace BHoM.Structural.Properties
         public double Spacing { get; set; }
 
         internal Ribbed() { }
-        public Ribbed(string name) : base(name) { Type = PanelType.Ribbed; }
+        public Ribbed(string name) : base(name) { Type = PanelType.Slab; }
 
-        public Ribbed(string name, double slabPanel, double depth, double stemWidth, double spacing, PanelDirection direction) : this(name)
+        public Ribbed(string name, double slabDepth, double totalDepth, double stemWidth, double spacing, PanelDirection direction) : this(name)
         {
-            TotalDepth = depth;
+            Thickness = slabDepth;
+            TotalDepth = totalDepth;
             StemWidth = stemWidth;
             Spacing = spacing;
             Direction = direction;

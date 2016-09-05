@@ -51,6 +51,8 @@ namespace BHoM.Structural.Elements
         [DefaultValue(null)]
         public BHoM.Structural.Properties.BarConstraint Spring { get; set; }
         
+        public BarStructuralUsage StructuralUsage { get; set; }
+
         public Node StartNode           
         {
             get
@@ -141,13 +143,13 @@ namespace BHoM.Structural.Elements
         }
 
         /// <summary>
-        /// Bar orientation angle. For non-vertical bars, angle is measured in the bar YZ plane
+        /// Bar orientation angle in radians. For non-vertical bars, angle is measured in the bar YZ plane
         /// betwen the Y axis and the Y vector projected one a vertical plane defined by the start and end
         /// nodes. For vertical bars, angle is measured between the bar Y axis and global Y axis. A bar is 
         /// vertical if the distance between end points projected to a horizontal plane is less than 0.0001
         /// </summary>
         [DisplayName("OrientationAngle")]
-        [Description("Bar orientation angle")]
+        [Description("Bar orientation angle (Radians)")]
         [DefaultValue(0)]
         public double OrientationAngle
         {

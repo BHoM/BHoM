@@ -21,17 +21,6 @@ namespace BHoM.Structural.Properties
         DoubleChannel = 25
     }
 
-    public enum SectionType
-    {
-        Aluminium,
-        Steel,
-        ConcreteColumn,
-        ConcreteBeam,
-        Timber,
-        Glass
-    }
-
-
     public static class ShapeBuilder
     {
         /// <summary>
