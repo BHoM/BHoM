@@ -139,7 +139,7 @@ namespace BHoM.Base
                 case Database.SteelSection:
                     return string.Format(Properties.Settings.Default.SteelSectionConnectionsString, appData);
                 case Database.Material:
-                    return Properties.Settings.Default.MaterialConnectionString;
+                    return string.Format(Properties.Settings.Default.MaterialConnectionString, appData);
                 default:
                     return "";
             }
