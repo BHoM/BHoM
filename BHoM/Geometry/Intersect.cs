@@ -29,7 +29,7 @@ namespace BHoM.Geometry
             int[] sameSide = p.GetSide(c.ControlPointVector, tolerance);
 
             int previousSide = sameSide[0];
-            int Length = sameSide.Length;
+            int Length = c.IsClosed() && sameSide[sameSide.Length - 1] == 0 ? sameSide.Length - 1 : sameSide.Length;
 
             for (int i = 1; i < Length; i++)
             {
