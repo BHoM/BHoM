@@ -41,7 +41,7 @@ namespace BHoM.Structural.Properties
             }
             set
             {
-                m_Values[2] = value;
+                m_Values[1] = value;
             }
         }
         

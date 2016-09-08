@@ -44,14 +44,15 @@ namespace BHoM.Geometry
 
             double radius = VectorUtils.Length(v1);
 
-            double[] localXAxis = plane.Normal.Z == 1 ? new double[] { 1, 0, 0, 0 } : VectorUtils.CrossProduct(plane.Normal, new double[] { 0, 0, 1, 0 });
+            double[] localXAxis = Math.Abs(plane.Normal.Z) == 1 ? new double[] { plane.Normal.Z, 0, 0, 0 } : VectorUtils.CrossProduct(plane.Normal, new double[] { 0, 0, 1, 0 });
             double[] localYAxis = VectorUtils.CrossProduct(plane.Normal, localXAxis);
 
             double[] crossProduct = VectorUtils.Normalise(VectorUtils.CrossProduct(v1, v2));
-            double multiplier = VectorUtils.DotProduct(crossProduct, plane.Normal);
+            double multiplier1 = VectorUtils.DotProduct(v1, localYAxis) > 0 ? 1 : -1;
+            double multiplier2 = VectorUtils.DotProduct(crossProduct, plane.Normal) > 0 ? 1 : -1;
 
-            double startAngle = VectorUtils.Angle(localXAxis, v1) * multiplier;
-            double arcAngle = VectorUtils.Angle(v1, v2) * multiplier;
+            double startAngle = VectorUtils.Angle(localXAxis, v1) * multiplier1;
+            double arcAngle = VectorUtils.Angle(v1, v2) * multiplier2;
 
             //double end = (endAngle - startAngle);
 

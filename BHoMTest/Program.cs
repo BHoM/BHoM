@@ -32,20 +32,28 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            TestFastSQL();
+            //TestFastSQL();
 
-            TestProject();
-            Project.ActiveProject.AddObject(new Loadcase());
-            Project.ActiveProject.AddObject(new Loadcase());
-            Project.ActiveProject.AddObject(new Loadcase());
-            Project.ActiveProject.AddObject(new LoadCombination());
+            //TestProject();
+            //Project.ActiveProject.AddObject(new Loadcase());
+            //Project.ActiveProject.AddObject(new Loadcase());
+            //Project.ActiveProject.AddObject(new Loadcase());
+            //Project.ActiveProject.AddObject(new LoadCombination());
 
-            ObjectManager<BHoMObject> manager = new ObjectManager<BHoMObject>();
-            SectionProperty.LoadFromDB("Test");
-            string test = "Test {0}";
-            string res =  string.Format(test, "hello");
-            res += res;
-            Console.Read();
+            //ObjectManager<BHoMObject> manager = new ObjectManager<BHoMObject>();
+            //SectionProperty.LoadFromDB("Test");
+            //string test = "Test {0}";
+            //string res =  string.Format(test, "hello");
+            //res += res;
+            //Console.Read();
+            Point p = new Point(25, 25, 0);
+            double r1 = 12.7;
+            Arc a = new Arc(p, p = p + new Vector(r1, r1, 0), new Plane(p - Vector.YAxis(r1), Vector.ZAxis()));
+            p = a.StartPoint;
+          // SectionProperty p1 = SectionProperty.LoadFromDB("UC254x254x89");
+            SectionProperty p1 = SectionProperty.LoadFromDB("SHS20x20x2");
+            double f= p1.Asx;
+            double r = p1.Asy;
         }
 
         static void TestProject()

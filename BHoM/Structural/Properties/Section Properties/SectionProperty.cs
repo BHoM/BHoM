@@ -18,6 +18,8 @@ namespace BHoM.Structural.Properties
     public class SectionProperty : BHoMObject
     {
         private double m_Area;
+        private double m_Asx;
+        private double m_Asy;
         private double m_Ix;
         private double m_Iy;
         private double m_Sx;
@@ -120,7 +122,7 @@ namespace BHoM.Structural.Properties
                 {
                     sectionData[i] = (double)data[i];
                 }
-                Group<Curve> edges = CreateGeometry(shape, breadth, height, tw, tf1, r1, r2, b1, b2, tf2, b3);
+                Group<Curve> edges = CreateGeometry(shape, height, breadth, tw, tf1, r1, r2, b1, b2, tf2, b3);
                 SectionProperty property = new SectionProperty(edges, shape);//, SectionType.Undefined);
                 property.Name = name;
                 property.SectionData = sectionData;
@@ -264,12 +266,14 @@ namespace BHoM.Structural.Properties
             return edges;
         }
 
-        private void CalculateSection()
+        public void CalculateSection()
         {
             SectionCalculator sC = new SectionCalculator(Edges);
             double cx = sC.CentreX;
             double cy = sC.CentreY;
             m_Area = sC.Area;
+            m_Asx = sC.Asx;
+            m_Asy = sC.Asy;
             m_Ix = sC.Ix;
             m_Iy = sC.Iy;
             m_Sx = sC.Sx;
@@ -307,6 +311,24 @@ namespace BHoM.Structural.Properties
             {
                 if (m_Area == 0) CalculateSection();
                 return m_Area;
+            }
+        }
+
+        public double Asx
+        {
+            get
+            {
+                if (m_Asx == 0) CalculateSection();
+                return m_Asx;
+            }
+        }
+
+        public double Asy
+        {
+            get
+            {
+                if (m_Asy == 0) CalculateSection();
+                return m_Asy;
             }
         }
 

@@ -21,6 +21,8 @@ namespace BHoM.Structural.Properties
         private double m_Cy = double.PositiveInfinity;
 
         private double m_Area = 0;
+        private double m_Asx = 0;
+        private double m_Asy = 0;
         private double m_Ix = 0;
         private double m_Iy = 0;
         private double m_Zx = 0;
@@ -129,7 +131,7 @@ namespace BHoM.Structural.Properties
                     length = length + isolatedCoords[j + 1]- isolatedCoords[j];
                 }
 
-                slices.Add(new Slice(-sliceSegments[i] + sliceSegments[i + 1], length, currentValue, null));
+                slices.Add(new Slice(-sliceSegments[i] + sliceSegments[i + 1], length, currentValue, isolatedCoords.ToArray()));
                 length = 0;
                 y.Clear();
             }
@@ -202,7 +204,7 @@ namespace BHoM.Structural.Properties
             {
                 if (m_Area > 0) return m_Area;
 
-                foreach (Slice slice in VerticalSlices)
+                foreach (Slice slice in HorizontalSlices)
                 {
                     m_Area += slice.Width * slice.Length;
                 }
@@ -457,6 +459,47 @@ namespace BHoM.Structural.Properties
                 }
                 m_Cx = AreaTimesX / Area;
                 return m_Cx;
+            }
+        }
+
+        public double Asx
+        {
+            get
+            {               
+                if (m_Asx != 0) return m_Asx;
+                double sy = 0;
+                double b = 0;
+                double sum = 0;
+
+                foreach (Slice slice in VerticalSlices)
+                {
+                    sy += slice.Length * slice.Width * (CentreX - slice.Centre);
+                    b = slice.Length;
+                    sum += Math.Pow(sy, 2) / (b) * slice.Width;
+                    
+                }
+                m_Asx = Math.Pow(Iy, 2) / sum;
+                return m_Asx;
+            }
+        }
+
+        public double Asy
+        {
+            get
+            {
+                if (m_Asy != 0) return m_Asy;
+                double sx = 0;
+                double b = 0;
+                double sum = 0;
+                foreach (Slice slice in HorizontalSlices)
+                {
+                    sx += slice.Length * slice.Width * (CentreY - slice.Centre);
+                    b = slice.Length;
+                    sum += Math.Pow(sx, 2) / b * slice.Width;
+
+                }
+                m_Asy = Math.Pow(Ix, 2) / sum;
+                return m_Asy;
             }
         }
 
