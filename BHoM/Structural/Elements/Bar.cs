@@ -53,6 +53,11 @@ namespace BHoM.Structural.Elements
         
         public BarStructuralUsage StructuralUsage { get; set; }
 
+        /// <summary>
+        /// Sets wich type of elements that should be used in analysis software
+        /// </summary>
+        public BarFEAType FEAType { get; set; }
+
         public Node StartNode           
         {
             get

@@ -75,4 +75,20 @@ namespace BHoM.Structural.Elements
         g,
     }
 
+    /// <summary>
+    /// Sets the type of FE element model to use for bars in analysis software
+    /// </summary>
+    public enum BarFEAType
+    {
+        /// <summary>Fixed conection. 2 x 6 DOF:s</summary> 
+        Beam = 0,
+        /// <summary>Pin ended conection. 2 x 3 DOF:s</summary>
+        Bar,
+        /// <summary>Pin ended conection, tension only. 2 x 3 DOF:s</summary>
+        Tie,
+        /// <summary>Pin ended conection, compression only. 2 x 3 DOF:s</summary>
+        Strut,
+        //Cable
+    }
+
 }
