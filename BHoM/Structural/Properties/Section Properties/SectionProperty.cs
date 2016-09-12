@@ -85,6 +85,11 @@ namespace BHoM.Structural.Properties
         [DefaultValue(null)]
         public double MassPerMetre { get; set; }
 
+        /// <summary>Material of the section property</summary>
+        [DisplayName("Material")]
+        [Description("Bar Material assigned to the bar object")]
+        [DefaultValue(null)]
+        public BHoM.Materials.Material Material { get; set; }
 
         public static SectionProperty LoadFromDB(string name)
         {

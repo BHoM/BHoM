@@ -34,10 +34,16 @@ namespace BHoM.Structural.Elements
         public BHoM.Structural.Properties.SectionProperty SectionProperty { get; set; }
 
         /// <summary>Material inherited from section property</summary>
-        [DisplayName("Material")]
-        [Description("Bar Material assigned to the bar object")]
-        [DefaultValue(null)]
-        public BHoM.Materials.Material Material  {  get; set; }
+        //[DisplayName("Material")]
+        //[Description("Bar Material assigned to the bar object")]
+        //[DefaultValue(null)]
+        public BHoM.Materials.Material Material
+        {
+            get
+            {
+                return SectionProperty.Material;
+            }
+        }
 
         /// <summary>Releases</summary>
         [DisplayName("Releases")]
