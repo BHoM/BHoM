@@ -151,7 +151,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateISection(/*(SectionType mType,*/ double widthTopFlange, double widthBotFlange, double totalDepth, double flangeThicknessTop, double flangeThicknessBot, double webThickness, double webRadius, double toeRadius)
         {
-            return new SectionProperty(ShapeType.ISection, /*mType,*/ totalDepth, Math.Max(widthTopFlange, widthBotFlange), flangeThicknessTop, webThickness, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);
+            return new SectionProperty(ShapeType.ISection, /*mType,*/ totalDepth, Math.Max(widthTopFlange, widthBotFlange), webThickness, flangeThicknessTop, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);
         }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateBoxSection(double height, double width, double tf, double tw, double outerRadius = 0, double innerRadius = 0)
         {
-            return new SectionProperty(ShapeType.Box, height, width, tf, tw, outerRadius, innerRadius);
+            return new SectionProperty(ShapeType.Box, height, width, tw, tf, outerRadius, innerRadius);
         }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateAngleSection(double height, double width, double flangeThickness, double webThickness, double webRadius, double toeRadius)
         {
-            return new SectionProperty(ShapeType.Angle, height, width, flangeThickness, webThickness, webRadius, toeRadius);
+            return new SectionProperty(ShapeType.Angle, height, width, webThickness, flangeThickness, webRadius, toeRadius);
         }
 
         /// <summary>
