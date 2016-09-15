@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Geometry;
 
-namespace BHoM.Geometry
+namespace BHoM.Generic
 {
-    public class PointMatrix
+    public class PointMatrix : PointMatrix<object>
+    {
+        public PointMatrix(double cellSize) : base(cellSize) { }
+    }
+
+    public class PointMatrix<T>
     {
         /***************************************/
         /****  Constructors                 ****/
@@ -23,7 +29,7 @@ namespace BHoM.Geometry
         /****  Public Methods               ****/
         /***************************************/
 
-        public void AddPoint(Point point, object data = null)
+        public void AddPoint(Point point, T data = default(T))
         {
             CompositeKey key = GetKey(point);
             if (!m_Matrix.ContainsKey(key))
@@ -49,6 +55,15 @@ namespace BHoM.Geometry
 
             // Return final result
             return result;
+        }
+
+        /***************************************/
+
+        public CompositeValue GetClosestPoint(Point refPt, double maxDist)
+        {
+            List<CompositeValue> closePts = GetClosePoints(refPt, maxDist);
+
+            return closePts.OrderBy(x => x.Point.DistanceTo(refPt)).FirstOrDefault();
         }
 
         /***************************************/
@@ -160,9 +175,9 @@ namespace BHoM.Geometry
         public struct CompositeValue
         {
             public Point Point;
-            public object Data;
+            public T Data;
 
-            public CompositeValue(Point point, object data = null)
+            public CompositeValue(Point point, T data = default(T))
             {
                 Point = point;
                 Data = data;

@@ -34,10 +34,16 @@ namespace BHoM.Structural.Elements
         public BHoM.Structural.Properties.SectionProperty SectionProperty { get; set; }
 
         /// <summary>Material inherited from section property</summary>
-        [DisplayName("Material")]
-        [Description("Bar Material assigned to the bar object")]
-        [DefaultValue(null)]
-        public BHoM.Materials.Material Material  {  get; set; }
+        //[DisplayName("Material")]
+        //[Description("Bar Material assigned to the bar object")]
+        //[DefaultValue(null)]
+        public BHoM.Materials.Material Material
+        {
+            get
+            {
+                return SectionProperty.Material;
+            }
+        }
 
         /// <summary>Releases</summary>
         [DisplayName("Releases")]
@@ -52,6 +58,11 @@ namespace BHoM.Structural.Elements
         public BHoM.Structural.Properties.BarConstraint Spring { get; set; }
         
         public BarStructuralUsage StructuralUsage { get; set; }
+
+        /// <summary>
+        /// Sets wich type of elements that should be used in analysis software
+        /// </summary>
+        public BarFEAType FEAType { get; set; }
 
         public Node StartNode           
         {
