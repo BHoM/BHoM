@@ -863,7 +863,7 @@ namespace BHoM.Geometry
         }
 
 
-        public static new Curve FromJSON(string json, Project project)
+        public static new Curve FromJSON(string json, Project project = null)
         {
             return GeometryBase.FromJSON(json, project) as Curve;
         }

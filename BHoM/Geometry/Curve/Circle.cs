@@ -93,8 +93,11 @@ namespace BHoM.Geometry
         {
             return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Plane\": " + m_Plane.ToJSON() + ", \"Radius\": " + m_Radius + "}";
         }
-        public static new Circle FromJSON(string json, Project project)
+        public static new Circle FromJSON(string json, Project project = null)
         {
+            if (project == null)
+                project = Global.Project.ActiveProject;
+
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 

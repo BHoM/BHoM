@@ -130,8 +130,11 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"" + this.GetType().Name + "\"," + BHoMJSON.WriteProperty("Curves", m_Curves) + "}";
         }
 
-        public static new PolyCurve FromJSON(string json, Project project)
+        public static new PolyCurve FromJSON(string json, Project project = null)
         {
+            if (project == null)
+                project = Global.Project.ActiveProject;
+
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
