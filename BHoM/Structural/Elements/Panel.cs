@@ -20,8 +20,8 @@ namespace BHoM.Structural.Elements
         ////Properties///
         /////////////////
 
-        private Group<Curve> m_ExteriorEdges;
-        private Group<Curve> m_InteriorEdges;
+        private BHoM.Geometry.Group<Curve> m_ExteriorEdges;
+        private BHoM.Geometry.Group<Curve> m_InteriorEdges;
 
         private List<Face> m_Faces;
         /// <summary>
@@ -59,10 +59,10 @@ namespace BHoM.Structural.Elements
             return false;
         }
 
-        private void SetEdges(Group<Curve> curves)
+        private void SetEdges(BHoM.Geometry.Group<Curve> curves)
         {
-            m_InteriorEdges = new Group<Curve>();
-            m_ExteriorEdges = new Group<Curve>();
+            m_InteriorEdges = new BHoM.Geometry.Group<Curve>();
+            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
             List<Curve> crvs = Curve.Join(curves);
             crvs.Sort(delegate (Curve c1, Curve c2)
             {
@@ -85,7 +85,7 @@ namespace BHoM.Structural.Elements
             }
         }
 
-        public Group<Curve> External_Contours
+        public BHoM.Geometry.Group<Curve> External_Contours
         {
             get
             {
@@ -98,7 +98,7 @@ namespace BHoM.Structural.Elements
         }
 
         [DefaultValue(null)]
-        public Group<Curve> Internal_Contours
+        public BHoM.Geometry.Group<Curve> Internal_Contours
         {
             get
             {
@@ -136,7 +136,7 @@ namespace BHoM.Structural.Elements
         /// </summary>
         /// <param name="edges"></param>
         /// <param name="number"></param>
-        public Panel(Group<Curve> edges)
+        public Panel(BHoM.Geometry.Group<Curve> edges)
         {
             SetEdges(edges);
         }
@@ -148,7 +148,7 @@ namespace BHoM.Structural.Elements
         /// <param name="number"></param>
         public Panel(List<Curve> edges)
         {
-            SetEdges(new Group<Curve>(edges));
+            SetEdges(new BHoM.Geometry.Group<Curve>(edges));
         }
 
         ///////////////
@@ -158,7 +158,7 @@ namespace BHoM.Structural.Elements
         /// <summary></summary>
         public override BHoM.Geometry.GeometryBase GetGeometry()
         {
-            Group<Curve> edges = new Group<Curve>();
+            BHoM.Geometry.Group<Curve> edges = new BHoM.Geometry.Group<Curve>();
             edges.AddRange(m_ExteriorEdges);
             edges.AddRange(m_InteriorEdges);
             return edges;
@@ -170,13 +170,13 @@ namespace BHoM.Structural.Elements
             if (geometry is Curve)
             {
                 Curve curve = geometry as Curve;
-                Group<Curve> group = new Group<Curve>();
+                BHoM.Geometry.Group<Curve> group = new BHoM.Geometry.Group<Curve>();
                 group.Add(curve);
                 SetEdges(group);
             }
-            else if (geometry is Group<Curve>)
+            else if (geometry is BHoM.Geometry.Group<Curve>)
             {
-                SetEdges(geometry as Group<Curve>);
+                SetEdges(geometry as BHoM.Geometry.Group<Curve>);
             }
         }
 

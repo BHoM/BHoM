@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Group.cs" />
     <Compile Include="Base\Results\Enums.cs" />
     <Compile Include="Base\Results\Envelope.cs" />
     <Compile Include="Base\Results\Result.cs" />

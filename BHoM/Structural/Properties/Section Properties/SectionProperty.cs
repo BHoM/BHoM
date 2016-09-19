@@ -68,7 +68,7 @@ namespace BHoM.Structural.Properties
         /// <param name="edges"></param>
         /// <param name="sType"></param>
         /// <param name="mType"></param>
-        public SectionProperty(Group<Curve> edges, ShapeType sType)//, SectionType mType)
+        public SectionProperty(BHoM.Geometry.Group<Curve> edges, ShapeType sType)//, SectionType mType)
         {
             Edges = edges;
             Shape = sType;
@@ -79,7 +79,7 @@ namespace BHoM.Structural.Properties
         /// Geometry of the cross section
         /// </summary>
         [DefaultValue(null)]
-        public Group<Curve> Edges { get; set; }
+        public BHoM.Geometry.Group<Curve> Edges { get; set; }
 
         /// <summary>Mass per metre based on section properties</summary>
         [DefaultValue(null)]
@@ -127,7 +127,7 @@ namespace BHoM.Structural.Properties
                 {
                     sectionData[i] = (double)data[i];
                 }
-                Group<Curve> edges = CreateGeometry(shape, height, breadth, tw, tf1, r1, r2, b1, b2, tf2, b3);
+                BHoM.Geometry.Group<Curve> edges = CreateGeometry(shape, height, breadth, tw, tf1, r1, r2, b1, b2, tf2, b3);
                 SectionProperty property = new SectionProperty(edges, shape);//, SectionType.Undefined);
                 property.Name = name;
                 property.SectionData = sectionData;
@@ -240,9 +240,9 @@ namespace BHoM.Structural.Properties
             return SectionData;
         }
 
-        private static Group<Curve> CreateGeometry(ShapeType shapeType, double height, double breadth, double tw, double tf1, double r1, double r2, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0)
+        private static BHoM.Geometry.Group<Curve> CreateGeometry(ShapeType shapeType, double height, double breadth, double tw, double tf1, double r1, double r2, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0)
         {
-            Group<Curve> edges = null;
+            BHoM.Geometry.Group<Curve> edges = null;
 
             switch (shapeType)
             {

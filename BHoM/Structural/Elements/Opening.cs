@@ -10,11 +10,11 @@ namespace BHoM.Structural.Elements
 {
     public class Opening : BHoMObject
     {
-        private Group<Curve> m_Edges;
+        private BHoM.Geometry.Group<Curve> m_Edges;
         /// <summary>
         /// A group of curves which define the perimeter of panel object
         /// </summary>
-        public Group<Curve> Edges
+        public BHoM.Geometry.Group<Curve> Edges
         {
             get
             {
@@ -25,7 +25,7 @@ namespace BHoM.Structural.Elements
                 List<Curve> curve = Curve.Join(value);
                 if (curve.Count == 1 && curve[0].IsClosed())
                 {
-                    m_Edges = new Group<Curve>(curve[0].Explode());
+                    m_Edges = new BHoM.Geometry.Group<Curve>(curve[0].Explode());
                 }
             }
         }
@@ -35,14 +35,14 @@ namespace BHoM.Structural.Elements
         /// </summary>
         /// <param name="edges"></param>
         /// <param name="number"></param>
-        public Opening(Group<Curve> edges)
+        public Opening(BHoM.Geometry.Group<Curve> edges)
         {
             Edges = edges;
         }
 
         public Opening(Curve edges)
         {
-            Group<Curve> group = new Group<Curve>();
+            BHoM.Geometry.Group<Curve> group = new BHoM.Geometry.Group<Curve>();
             group.Add(edges);
             Edges = group;
         }

@@ -67,7 +67,7 @@ namespace BHoMTest
             points.Add(new Point(1, 1, 0));
             points.Add(new Point(0, 0, 0));
 
-            Group<Curve> edges = new Group<Curve>();
+            BHoM.Geometry.Group<Curve> edges = new BHoM.Geometry.Group<Curve>();
             for (int i = 1; i < points.Count; i++)
                 edges.Add(new Line(points[i - 1], points[i]));
 

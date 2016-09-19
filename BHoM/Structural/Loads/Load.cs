@@ -25,7 +25,7 @@ namespace BHoM.Structural.Loads
     public abstract class Load<T> : BHoMObject, ILoad /*where T : BHoMObject*/
     {
         private Loadcase m_Loadcase;
-        private List<T> m_Objects;
+        private BHoM.Base.Group<T> m_Objects;
 
         internal Load() { m_Objects = new List<T>(); }
 
@@ -47,10 +47,11 @@ namespace BHoM.Structural.Loads
         public abstract LoadType LoadType { get; }
 
         /// <summary>A list of structural elements that the nodal load is applicable to</summary>
-        public List<T> Objects
+        public BHoM.Base.Group<T> Objects
         {
             get { return m_Objects; }
             set { m_Objects = value; }
-        }     
+        } 
+
     }
 }

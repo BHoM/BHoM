@@ -81,13 +81,13 @@ namespace BHoM.Structural.Elements
     public enum BarFEAType
     {
         /// <summary>Fixed conection. 2 x 6 DOF:s</summary> 
-        Beam = 0,
+        Flexural = 0,
         /// <summary>Pin ended conection. 2 x 3 DOF:s</summary>
-        Bar,
+        Axial,
         /// <summary>Pin ended conection, tension only. 2 x 3 DOF:s</summary>
-        Tie,
+        CompressionOnly,
         /// <summary>Pin ended conection, compression only. 2 x 3 DOF:s</summary>
-        Strut,
+        TensionOnly,
         //Cable
     }
 

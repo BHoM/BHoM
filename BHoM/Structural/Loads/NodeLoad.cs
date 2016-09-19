@@ -124,10 +124,10 @@ namespace BHoM.Structural.Loads
     public class PointVelocity : Load<Node>
     {
         /// <summary>TranslationalVelocity - vx, vy, vz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector TranslationalVelocity { get; private set; }
+        public BHoM.Geometry.Vector TranslationalVelocity { get; set; }
 
         /// <summary>RotationalVelocity - vrx, vry, vrz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector RotationalVelocity { get; private set; }
+        public BHoM.Geometry.Vector RotationalVelocity { get; set; }
 
         /// <summary>Stores a load record number specific to Robot</summary>
         public int RobotLoadRecordNumber { get; private set; }
@@ -169,10 +169,10 @@ namespace BHoM.Structural.Loads
     public class PointAcceleration : Load<Node>
     {
         /// <summary>TranslationalAcceleration - ax, ay, az defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector TranslationalAcceleration { get; private set; }
+        public BHoM.Geometry.Vector TranslationalAcceleration { get; set; }
 
         /// <summary>RotationalAcceleration - arx, ary, arz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector RotationalAcceleration { get; private set; }
+        public BHoM.Geometry.Vector RotationalAcceleration { get; set; }
 
         /// <summary>Stores a load record number specific to Robot</summary>
         public int RobotLoadRecordNumber { get; private set; }

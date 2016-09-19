@@ -37,6 +37,7 @@ namespace BHoM.Structural.Loads
     public class BarUniformlyDistributedLoad : Load<Bar>
     {
         public Geometry.Vector ForceVector { get; set; }
+        public Geometry.Vector MomentVector { get; set; }
 
         public override LoadType LoadType
         {
@@ -75,8 +76,10 @@ namespace BHoM.Structural.Loads
     {
         public double DistanceFromA { get; set; }
         public Geometry.Vector ForceVectorA { get; set; }
+        public Geometry.Vector MomentVectorA { get; set; }
         public double DistanceFromB { get; set; }
         public Geometry.Vector ForceVectorB { get; set; }
+        public Geometry.Vector MomentVectorB { get; set; }
 
         public override LoadType LoadType
         {
