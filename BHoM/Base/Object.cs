@@ -133,8 +133,11 @@ namespace BHoM.Base
         /// <summary>
         /// Method which convert the object as a Json string
         /// </summary>
-        public static BHoMObject FromJSON(string json, Project project)
+        public static BHoMObject FromJSON(string json, Project project = null)
         {
+            if (project == null)
+                project = Project.ActiveProject;
+
             // Get the top level definition of the json content
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive") || !definition.ContainsKey("Properties")) return null;

@@ -288,8 +288,11 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Normal\": " + Normal + ", \"Origin\":" + Origin + "}";
         }
 
-        public static new Plane FromJSON(string json, Project project)
+        public static new Plane FromJSON(string json, Project project = null)
         {
+            if (project == null)
+                project = Global.Project.ActiveProject;
+
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 

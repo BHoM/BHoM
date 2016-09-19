@@ -137,8 +137,11 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"" + this.GetType().Name + "\", \"GroupType\": \"" + typeof(T).FullName + "\"," + BHoMJSON.WriteProperty("Data", m_Geometry) + "}";
         }
 
-        public static new GeometryBase FromJSON(string json, Project project)
+        public static new GeometryBase FromJSON(string json, Project project = null)
         {
+            if (project == null)
+                project = Global.Project.ActiveProject;
+
             Dictionary<string, string> definition = Base.BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
             var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");

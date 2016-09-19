@@ -119,8 +119,11 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"" + this.GetType().Name + "\"," + "\"Points\": " + aResult + "}";
         }
 
-        public static new Polyline FromJSON(string json, Project project)
+        public static new Polyline FromJSON(string json, Project project = null)
         {
+            if (project == null)
+                project = Global.Project.ActiveProject;
+
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
             List<double[]> points = BHoMJSON.ReadValue(typeof(List<double[]>), definition["Points"], project) as List<double[]>;

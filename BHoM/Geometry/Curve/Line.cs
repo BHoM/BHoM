@@ -143,8 +143,11 @@ namespace BHoM.Geometry
             return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Start\": " + StartPoint + ", \"End\": " + EndPoint + "}";
         }
 
-        public static new Line FromJSON(string json, Project project)
+        public static new Line FromJSON(string json, Project project = null)
         {
+            if (project == null)
+                project = Global.Project.ActiveProject;
+
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive")) return null;
 
