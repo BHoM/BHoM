@@ -145,7 +145,8 @@ namespace BHoM.Base
             // Try to create an object that correponds the object type stored in "Primitive"
             var typeString = definition["Primitive"].Replace("\"", "").Replace(";", ",");
             Type type = Type.GetType(typeString);
-            if (type == null) return null;
+            if (type == null)
+                type = BHoMJSON.TypeDictionary[typeString];
             BHoMObject newObject = Activator.CreateInstance(type, true) as BHoMObject;
 
             // Get the definition of the properties
@@ -158,7 +159,23 @@ namespace BHoM.Base
             }
 
             return newObject;
-        }      
+        }
+
+
+        /// <summary>
+        /// Create an object based on its type name
+        /// </summary>
+        /// <returns></returns>
+        public static BHoMObject FromTypeName(string typeString)
+        {
+            Type type = Type.GetType(typeString);
+            if (type == null)
+                type = BHoMJSON.TypeDictionary[typeString];
+            return Activator.CreateInstance(type, true) as BHoMObject;
+        }
+
+
+
         /// <summary>
         /// BHoM Object will return its name as default 
         /// </summary>
