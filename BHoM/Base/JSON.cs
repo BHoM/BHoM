@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using BHoM.Base;
 using BHoM.Global;
+using System.Reflection;
 
 namespace BHoM.Base
 {
@@ -15,7 +16,7 @@ namespace BHoM.Base
         /****  Self Contained Collection   ****/
         /**************************************/
 
-        public static string WritePackage(List<BHoMObject> objects)
+        public static string WritePackage(List<BHoMObject> objects, string password = "")
         {
             // Write Collection type
             Type type = typeof(List<BHoMObject>);
@@ -48,13 +49,20 @@ namespace BHoM.Base
             aResult = aResult.Trim(',');
             aResult += "]}";
 
-            return aResult;
+            if (password.Length > 0)
+                return Cipher.Encrypt(Compress.Zip(aResult), password);
+            else
+                return aResult;
         }
 
         /**************************************/
 
-        public static List<BHoMObject> ReadPackage(string json)
+        public static List<BHoMObject> ReadPackage(string package, string password = "")
         {
+            string json = package;
+            if (password.Length > 0)
+                json = Compress.Unzip(Cipher.Decrypt(package, password));
+
             Project project = new Project();
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
 
@@ -260,8 +268,11 @@ namespace BHoM.Base
 
         /**************************************/
 
-        public static object ReadValue(Type type, string value, Project project)
+        public static object ReadValue(Type type, string value, Project project = null)
         {
+            if (project == null)
+                project = Project.ActiveProject;
+
             System.Reflection.MethodInfo jsonMethod = null;
             if (type == typeof(System.String) || type == typeof(System.Object))
                 return value;
@@ -359,5 +370,38 @@ namespace BHoM.Base
             }
             return objects;
         }
+
+        /**************************************/
+        /****  Type dictionary             ****/
+        /**************************************/
+
+        public static Dictionary<string, Type> TypeDictionary
+        {
+            get
+            {
+                if (m_TypeDictionary == null)
+                {
+                    m_TypeDictionary = new Dictionary<string, Type>();
+
+                    foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
+                    {
+                        string name = asm.GetName().Name;
+                        if (name == "BHoM" || name.EndsWith("_oM"))
+                        {
+                            foreach (Type type in asm.GetTypes())
+                            {
+                                m_TypeDictionary[type.Name] = type;
+                                m_TypeDictionary[type.FullName] = type;
+                            }
+                        }
+                    }
+                }
+                return m_TypeDictionary;
+            }
+        }
+
+        /**************************************/
+
+        private static Dictionary<string, Type> m_TypeDictionary;
     }
 }
