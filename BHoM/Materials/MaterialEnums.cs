@@ -45,7 +45,8 @@ namespace BHoM.Materials
         Timber,
         Rebar,
         Tendon,
-        Glass
+        Glass,
+        Cable
     }
 
     /// <summary>

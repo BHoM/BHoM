@@ -50,10 +50,13 @@ namespace BHoMTest
             double r1 = 12.7;
             Arc a = new Arc(p, p = p + new Vector(r1, r1, 0), new Plane(p - Vector.YAxis(r1), Vector.ZAxis()));
             p = a.StartPoint;
-          // SectionProperty p1 = SectionProperty.LoadFromDB("UC254x254x89");
-            SectionProperty p1 = SectionProperty.LoadFromDB("SHS20x20x2");
-            double f= p1.Asx;
-            double r = p1.Asy;
+            // SectionProperty p1 = SectionProperty.LoadFromDB("UC254x254x89");
+            SectionProperty p1 = SectionProperty.LoadFromSteelSectionDB("SHS20x20x2");
+            SectionProperty prop = SectionProperty.LoadFromCableSectionDB(0.021);
+            //double f= p1.Asx;
+            //double r = p1.Asy;
+            ExplicitSectionProperty s = new ExplicitSectionProperty();
+            
         }
 
         static void TestProject()

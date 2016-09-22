@@ -18,7 +18,10 @@ namespace BHoM.Structural.Properties
 
         DoubleAngle = 22,
         CutISection = 23,
-        DoubleChannel = 25
+        DoubleChannel = 25,
+
+        //Maybe should move elsewhere
+        Cable = 30,
     }
 
     public static class ShapeBuilder

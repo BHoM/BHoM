@@ -99,6 +99,7 @@
     <Compile Include="Global\Config\MEPConfig.cs" />
     <Compile Include="Global\Config\StructureConfig.cs" />
     <Compile Include="Structural\Databases\Enums.cs" />
+    <Compile Include="Structural\Elements\RigidLink.cs" />
     <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Base\Object.cs" />
     <Compile Include="Base\ObjectFilter.cs" />
@@ -145,6 +146,9 @@
     <Compile Include="Structural\Loads\Loadcombination.cs" />
     <Compile Include="Structural\Loads\LoadEnums.cs" />
     <Compile Include="Structural\Loads\NodeLoad.cs" />
+    <Compile Include="Structural\Properties\Section Properties\CableSection.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ExplicitSectionProperty.cs" />
+    <Compile Include="Structural\Properties\Section Properties\SteelSection.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarForceEnvelope.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
     <Compile Include="Structural\Interface\IResultAdapter.cs" />
@@ -206,6 +210,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Structural\Databases\Cables.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Structural\Databases\Cables_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Cables.mdf</DependentUpon>
+    </Content>
     <Content Include="Structural\Databases\Materials.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

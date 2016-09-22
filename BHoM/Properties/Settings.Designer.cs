@@ -44,5 +44,16 @@ namespace BHoM.Properties {
                 return ((string)(this["MaterialConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={0}\\BHoM\\Structural\\Databases" +
+            "\\Cables.mdf;Integrated Security=True;Connect Timeout=30")]
+        public string CableSectionConnectionStrin {
+            get {
+                return ((string)(this["CableSectionConnectionStrin"]));
+            }
+        }
     }
 }

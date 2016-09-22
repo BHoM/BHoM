@@ -69,4 +69,52 @@ namespace BHoM.Structural.Databases
         /// </summary>
         Spacing
     }
+
+    public enum CableSectionData
+    {
+        /// <summary>
+        /// Id
+        /// </summary>
+        Id = 0,
+        /// <summary>
+        /// Diameter[m]
+        /// </summary>
+        D,
+        /// <summary>
+        /// Breaking Load [N]
+        /// </summary>
+        BL,
+        /// <summary>
+        /// Limit tension [N]
+        /// </summary>
+        LimTen,
+        /// <summary>
+        /// Area [m2]
+        /// </summary>
+        A,
+        /// <summary>
+        /// Weight per meter [kg/m]
+        /// </summary>
+        Weight,
+        /// <summary>
+        /// Axial stiffness [N]
+        /// </summary>
+        Stiffness,
+        /// <summary>
+        /// Construction
+        /// </summary>
+        Construction,
+        /// <summary>
+        /// Selfweight open spelter fork end termination [kg]
+        /// </summary>
+        WeightEndOpen,
+        /// <summary>
+        /// Selfweight adjustable spelter fork end termination [kg]
+        /// </summary>
+        WeightEndAdjustable,
+        /// <summary>
+        /// Name of the cable
+        /// </summary>
+        Name,
+    }
 }

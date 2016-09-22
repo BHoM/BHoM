@@ -15,22 +15,26 @@ namespace BHoM.Structural.Properties
     /// parent class are those that would populate a multi category section database only
     /// </summary>
 
-    public class SectionProperty : BHoMObject
+    public abstract class SectionProperty : BHoMObject
     {
-        private double m_Area;
-        private double m_Asx;
-        private double m_Asy;
-        private double m_Ix;
-        private double m_Iy;
-        private double m_Sx;
-        private double m_Sy;
-        private double m_Zx;
-        private double m_Zy;
+        protected double m_Area;
+        protected double m_Asx;
+        protected double m_Asy;
+        protected double m_Ix;
+        protected double m_Iy;
+        protected double m_J;
+        protected double m_Sx;
+        protected double m_Sy;
+        protected double m_Zx;
+        protected double m_Zy;
 
-        private double m_Vx;
-        private double m_Vpx;
-        private double m_Vy;
-        private double m_Vpy;
+        protected double m_Vx;
+        protected double m_Vpx;
+        protected double m_Vy;
+        protected double m_Vpy;
+
+        protected string m_profileDescription;
+
 
         public double[] SectionData { get; set; }
 
@@ -42,38 +46,7 @@ namespace BHoM.Structural.Properties
             SectionData = new double[15];
         }
 
-        /// <summary>
-        /// Create a section property from standard input values
-        /// </summary>
-        /// <param name="sType">Shape type</param>
-        /// <param name="mType">Material type</param>
-        /// <param name="height">Total Height</param>
-        /// <param name="width">Total width</param>
-        /// <param name="t1">Flange Thickness</param>
-        /// <param name="t2">Web Thickness</param>
-        /// <param name="r1">Radius 1</param>
-        /// <param name="r2">Radius 2</param>
-        /// <param name="mass">Mass per metre</param>
-        public SectionProperty(ShapeType sType, /*SectionType mType,*/ double height, double width, double t1, double t2, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double t3 = 0, double b3 = 0)
-        {
-            SectionData = CreateSectionData(height, width, t1, t2, r1, r2, mass, b1, b2, t3, b3);
-            Edges = CreateGeometry(sType, height, width, t1, t2, r1, r2, b1, b2, t3, b3);
-            Shape = sType;
-            //SectionMaterial = mType;
-        }
-
-        /// <summary>
-        /// Create a section property from a list of edges, shape type and material
-        /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="sType"></param>
-        /// <param name="mType"></param>
-        public SectionProperty(BHoM.Geometry.Group<Curve> edges, ShapeType sType)//, SectionType mType)
-        {
-            Edges = edges;
-            Shape = sType;
-            //SectionMaterial = mType;
-        }
+        
 
         /// <summary>
         /// Geometry of the cross section
@@ -88,12 +61,17 @@ namespace BHoM.Structural.Properties
         /// <summary>Material of the section property</summary>
         [DisplayName("Material")]
         [Description("Bar Material assigned to the bar object")]
-        [DefaultValue(null)]
         public BHoM.Materials.Material Material { get; set; }
 
-        public static SectionProperty LoadFromDB(string name)
+
+
+        /************************************************/
+        /********* Steel sections from data base ********/
+        /************************************************/
+
+        public static SectionProperty LoadFromSteelSectionDB(string name)
         {
-            return LoadFromDB(Project.ActiveProject, name);
+            return LoadFromSteelSectionDB(Project.ActiveProject, name);
         }
 
         /// <summary>
@@ -101,7 +79,7 @@ namespace BHoM.Structural.Properties
         /// </summary>
         /// <param name="name">Name of section to search for</param>
         /// <returns></returns>
-        public static SectionProperty LoadFromDB(Project project, string name)
+        public static SectionProperty LoadFromSteelSectionDB(Project project, string name)
         {
             if (name.EndsWith(".0")) name = name.Substring(0, name.Length - 2);
             object[] data = new SQLAccessor(Database.SteelSection, project.Config.SectionDatabase).GetDataRow(new string[] { "Name", "Name1", "Name2" }, new string[] { name });
@@ -128,13 +106,71 @@ namespace BHoM.Structural.Properties
                     sectionData[i] = (double)data[i];
                 }
                 BHoM.Geometry.Group<Curve> edges = CreateGeometry(shape, height, breadth, tw, tf1, r1, r2, b1, b2, tf2, b3);
-                SectionProperty property = new SectionProperty(edges, shape);//, SectionType.Undefined);
+                SectionProperty property = new SteelSection(edges, shape);//, SectionType.Undefined);
                 property.Name = name;
+                property.m_profileDescription = name;
                 property.SectionData = sectionData;
                 return edges != null ? property : null;
             }
             return null;
         }
+
+        /************************************************/
+        /********* Cable sections from data base ********/
+        /************************************************/
+
+        public static SectionProperty LoadFromCableSectionDB(string name, int numberOfCables = 1)
+        {
+            return LoadFromCableSectionDB(Project.ActiveProject, name);
+        }
+
+        public static SectionProperty LoadFromCableSectionDB(Project project, string name, int numberOfCables = 1)
+        {
+            object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Name", name);
+
+            if (data != null)
+            {
+                return CreateCableSectionFromDB(data, numberOfCables);
+            }
+
+            return null;
+        }
+
+        public static SectionProperty LoadFromCableSectionDB(double diameter, int numberOfCables = 1)
+        {
+            return LoadFromCableSectionDB(Project.ActiveProject, diameter);
+        }
+
+        public static SectionProperty LoadFromCableSectionDB(Project project, double diameter, int numberOfCables = 1)
+        {
+            object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Diameter", diameter.ToString());
+
+            if (data != null)
+            {
+                return CreateCableSectionFromDB(data, numberOfCables);
+            }
+
+            return null;
+        }
+
+        private static SectionProperty CreateCableSectionFromDB(object[] data, int numberOfCables)
+        {
+            double d = (double)data[(int)CableSectionData.D];
+            double A = (double)data[(int)CableSectionData.A];
+            string name = (string)data[(int)CableSectionData.Name];
+            CableSection sec = new CableSection(d, A, numberOfCables);
+            sec.Name = name+"x"+numberOfCables.ToString();
+
+            if (sec.Material != null)
+                sec.Name += "-" + sec.Material.Name;
+
+            return sec;
+        }
+
+        /*****************************************************/
+        /*********** Static steel section constructors *******/
+        /*****************************************************/
+
 
         public static SectionProperty CreateTee(double totalHeight, double totalwidth, double flangeThickness, double webThickness, double r1 = 0, double r2 = 0)
         {
@@ -156,7 +192,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateISection(/*(SectionType mType,*/ double widthTopFlange, double widthBotFlange, double totalDepth, double flangeThicknessTop, double flangeThicknessBot, double webThickness, double webRadius, double toeRadius)
         {
-            return new SectionProperty(ShapeType.ISection, /*mType,*/ totalDepth, Math.Max(widthTopFlange, widthBotFlange), webThickness, flangeThicknessTop, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);
+            return new SteelSection(ShapeType.ISection, /*mType,*/ totalDepth, Math.Max(widthTopFlange, widthBotFlange), webThickness, flangeThicknessTop, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);
         }
 
         /// <summary>
@@ -169,7 +205,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateRectangularSection(/*SectionType mType,*/ double height, double width, double outerRadius = 0)
         {
-            return new SectionProperty(ShapeType.Rectangle, /*mType,*/ height, width, 0, 0, outerRadius, 0);
+            return new SteelSection(ShapeType.Rectangle, /*mType,*/ height, width, 0, 0, outerRadius, 0);
         }
 
         /// <summary>
@@ -182,7 +218,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateBoxSection(double height, double width, double tf, double tw, double outerRadius = 0, double innerRadius = 0)
         {
-            return new SectionProperty(ShapeType.Box, height, width, tw, tf, outerRadius, innerRadius);
+            return new SteelSection(ShapeType.Box, height, width, tw, tf, outerRadius, innerRadius);
         }
 
         /// <summary>
@@ -196,7 +232,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateAngleSection(double height, double width, double flangeThickness, double webThickness, double webRadius, double toeRadius)
         {
-            return new SectionProperty(ShapeType.Angle, height, width, webThickness, flangeThickness, webRadius, toeRadius);
+            return new SteelSection(ShapeType.Angle, height, width, webThickness, flangeThickness, webRadius, toeRadius);
         }
 
         /// <summary>
@@ -207,7 +243,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateCircularSection(double diameter)
         {
-            return new SectionProperty(ShapeType.Circle, diameter, diameter, 0, 0, 0, 0);
+            return new SteelSection(ShapeType.Circle, diameter, diameter, 0, 0, 0, 0);
         }
 
         /// <summary>
@@ -218,29 +254,11 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateTubeSection(double diameter, double thickness)
         {
-            return new SectionProperty(ShapeType.Tube, diameter, diameter, thickness, 0, 0, 0);
+            return new SteelSection(ShapeType.Tube, diameter, diameter, thickness, 0, 0, 0);
         }
 
 
-        private static double[] CreateSectionData(double height, double width, double tw, double tf1, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0, double spacing = 0)
-        {
-            double[] SectionData = new double[15];
-            SectionData[(int)SteelSectionData.Mass] = mass;
-            SectionData[(int)SteelSectionData.Width] = width;
-            SectionData[(int)SteelSectionData.Height] = height;
-            SectionData[(int)SteelSectionData.TW] = tw;
-            SectionData[(int)SteelSectionData.TF1] = tf1;
-            SectionData[(int)SteelSectionData.TF2] = tf2;
-            SectionData[(int)SteelSectionData.r1] = r1;
-            SectionData[(int)SteelSectionData.r2] = r2;
-            SectionData[(int)SteelSectionData.B1] = b1;
-            SectionData[(int)SteelSectionData.B2] = b2;
-            SectionData[(int)SteelSectionData.B3] = b3;
-            SectionData[(int)SteelSectionData.Spacing] = b3;
-            return SectionData;
-        }
-
-        private static BHoM.Geometry.Group<Curve> CreateGeometry(ShapeType shapeType, double height, double breadth, double tw, double tf1, double r1, double r2, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0)
+        protected static BHoM.Geometry.Group<Curve> CreateGeometry(ShapeType shapeType, double height, double breadth, double tw, double tf1, double r1, double r2, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0)
         {
             BHoM.Geometry.Group<Curve> edges = null;
 
@@ -271,7 +289,39 @@ namespace BHoM.Structural.Properties
             return edges;
         }
 
-        public void CalculateSection()
+        protected static string GenerateStandardName(ShapeType shapeType, double height, double breadth, double tw, double tf1, double r1, double r2, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0)
+        {
+            string name = null;
+            switch (shapeType)
+            {
+                case ShapeType.ISection:
+                    name = "UB "+ (height * 1000).ToString() + "x" + (breadth * 1000).ToString() + "x" + (tw * 1000).ToString();
+                    break;
+                case ShapeType.Tee:
+                    name = "TUB " + (breadth * 1000).ToString() + "x" + (height * 1000).ToString()+ "x" + (tw * 1000).ToString();
+                    break;
+                case ShapeType.Box:
+                    name = "RHS " + (height * 1000).ToString() + "x" + (breadth * 1000).ToString() + "x" + (tw * 1000).ToString();
+                    break;
+                case ShapeType.Angle:
+                    name = "L " + (height * 1000).ToString() + "x" + (breadth * 1000).ToString() + "x" + (tw * 1000).ToString();
+                    if(tw != tf1)
+                        name += "x"+ (tf1 * 1000).ToString();
+                    break;
+                case ShapeType.Circle:
+                    name = "C " + (breadth * 1000).ToString();
+                    break;
+                case ShapeType.Rectangle:
+                    name = "R " + (height*1000).ToString() + "x" + (breadth*1000).ToString();
+                    break;
+                case ShapeType.Tube:
+                    name = "CHS " + "x" + (breadth * 1000).ToString() + "x" + (tw * 1000).ToString();
+                    break;
+            }
+            return name;
+        }
+
+        public virtual void CalculateSection()
         {
             SectionCalculator sC = new SectionCalculator(Edges);
             double cx = sC.CentreX;
@@ -295,7 +345,7 @@ namespace BHoM.Structural.Properties
 
         /// <summary>Section type</summary> /// 
         [DefaultValue(null)]
-        public ShapeType Shape { get; set; }
+        public virtual ShapeType Shape { get; set; }
 
         ///// <summary>
         ///// Type of material
@@ -307,10 +357,10 @@ namespace BHoM.Structural.Properties
         /// Orientation
         /// </summary>
         [DefaultValue(null)]
-        public double Orientation { get; set; }
+        public virtual double Orientation { get; set; }
 
         /// <summary>Cross sectional area</summary>
-        public double GrossArea
+        public virtual double GrossArea
         {
             get
             {
@@ -319,7 +369,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Asx
+        public virtual double Asx
         {
             get
             {
@@ -328,7 +378,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Asy
+        public virtual double Asy
         {
             get
             {
@@ -340,7 +390,7 @@ namespace BHoM.Structural.Properties
         /// <summary>
         /// Total height of section
         /// </summary>
-        public double TotalDepth
+        public virtual double TotalDepth
         {
             get
             {
@@ -351,7 +401,7 @@ namespace BHoM.Structural.Properties
         /// <summary>
         /// Total width of section
         /// </summary>
-        public double TotalWidth
+        public virtual double TotalWidth
         {
             get
             {
@@ -360,7 +410,7 @@ namespace BHoM.Structural.Properties
         }
 
         /// <summary>Second moment of inertia about the major axis</summary>
-        public double Ix
+        public virtual double Ix
         {
             get
             {
@@ -370,7 +420,7 @@ namespace BHoM.Structural.Properties
         }
 
         /// <summary>Second moment of inertia about the minor axis</summary>
-        public double Iy
+        public virtual double Iy
         {
             get
             {
@@ -380,7 +430,7 @@ namespace BHoM.Structural.Properties
         }
 
         /// <summary>Torsion Constant</summary>
-        public double J
+        public virtual double J
         {
             get
             {
@@ -388,7 +438,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Vy
+        public virtual double Vy
         {
             get
             {
@@ -397,7 +447,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Vpy
+        public virtual double Vpy
         {
             get
             {
@@ -406,7 +456,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Vx
+        public virtual double Vx
         {
             get
             {
@@ -415,7 +465,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Vpx
+        public virtual double Vpx
         {
             get
             {
@@ -427,7 +477,7 @@ namespace BHoM.Structural.Properties
         /// <summary>
         /// Plastic Section modulus about the major axis
         /// </summary>
-        public double Sx
+        public virtual double Sx
         {
             get
             {
@@ -439,7 +489,7 @@ namespace BHoM.Structural.Properties
         /// <summary>
         /// Plastic Section modulus about the minor axis
         /// </summary>
-        public double Sy
+        public virtual double Sy
         {
             get
             {
@@ -451,7 +501,7 @@ namespace BHoM.Structural.Properties
         /// <summary>
         /// Elastic Section modulus about the major axis
         /// </summary>
-        public double Zx
+        public virtual double Zx
         {
             get
             {
@@ -463,7 +513,7 @@ namespace BHoM.Structural.Properties
         /// <summary>
         /// Plastic Section modulus about the minor axis
         /// </summary>
-        public double Zy
+        public virtual double Zy
         {
             get
             {
@@ -472,10 +522,16 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        /// <summary>Information regarding section property type for the user</summary>
-        /// 
-        [DefaultValue(null)]
-        public string Description { get; set; }
+
+        public override string ToString()
+        {
+
+            string name = !string.IsNullOrWhiteSpace(Name) ? Name + " " : "";
+            string profile = !string.IsNullOrWhiteSpace(m_profileDescription) ? m_profileDescription: "";
+            string mat = (this.Material != null && !string.IsNullOrWhiteSpace(this.Material.Name)) ? "-" + this.Material.Name : "";
+
+            return name + profile + mat;
+        }
 
     }
 }

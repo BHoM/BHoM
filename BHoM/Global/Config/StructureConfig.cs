@@ -11,6 +11,7 @@ namespace BHoM.Global
     {
         private string m_SectionDB = "UK_Sections";
         private string m_MaterialDB = "Europe";
+        private string m_PfeiferFullLockedDB = "PfeiferFullLocked";
 
         public string SectionDatabase
         {
@@ -33,6 +34,18 @@ namespace BHoM.Global
             set
             {
                 m_MaterialDB = value;
+            }
+        }
+
+        public string CableDataBase
+        {
+            get
+            {
+                return m_PfeiferFullLockedDB;
+            }
+            set
+            {
+                m_PfeiferFullLockedDB = value;
             }
         }
     }

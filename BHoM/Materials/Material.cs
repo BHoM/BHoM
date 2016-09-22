@@ -47,6 +47,20 @@ namespace BHoM.Materials
         [DefaultValue(null)]
         public double Density { get; set; }
 
+        /// <summary>
+        /// Returns the weight of the material in [kN/m^3] 
+        /// Calulated as Density * g / 1000, where g = 9.80665
+        /// </summary>
+        public double Weight
+        {
+            get
+            {
+                return Density * 9.80665 / 1000;
+            }
+        }
+
+        
+
         /// <summary>Calculate material values at construct</summary>
         //void CalculateValues();
 
@@ -92,7 +106,7 @@ namespace BHoM.Materials
                 double e = (double)data[(int)MaterialColumnData.YoungsModulus];
                 double v = (double)data[(int)MaterialColumnData.PoissonRatio];
                 double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
-                double density = (double)data[(int)MaterialColumnData.Weight];
+                double density = (double)data[(int)MaterialColumnData.Mass];
                 double g = e / (2 * (1 - v));
                 string name = data[(int)MaterialColumnData.Name].ToString().Trim();
                 return new Material(name, type, e, v, tC, g, density);

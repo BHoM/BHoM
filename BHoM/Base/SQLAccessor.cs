@@ -19,7 +19,7 @@ namespace BHoM.Base
     {
         Material,
         SteelSection,
-
+        Cables,
     }
 
     public class SQLAccessor
@@ -140,6 +140,8 @@ namespace BHoM.Base
                     return string.Format(Properties.Settings.Default.SteelSectionConnectionsString, appData);
                 case Database.Material:
                     return string.Format(Properties.Settings.Default.MaterialConnectionString, appData);
+                case Database.Cables:
+                    return string.Format(Properties.Settings.Default.CableSectionConnectionStrin, appData);
                 default:
                     return "";
             }
