@@ -371,37 +371,6 @@ namespace BHoM.Base
             return objects;
         }
 
-        /**************************************/
-        /****  Type dictionary             ****/
-        /**************************************/
-
-        public static Dictionary<string, Type> TypeDictionary
-        {
-            get
-            {
-                if (m_TypeDictionary == null)
-                {
-                    m_TypeDictionary = new Dictionary<string, Type>();
-
-                    foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
-                    {
-                        string name = asm.GetName().Name;
-                        if (name == "BHoM" || name.EndsWith("_oM"))
-                        {
-                            foreach (Type type in asm.GetTypes())
-                            {
-                                m_TypeDictionary[type.Name] = type;
-                                m_TypeDictionary[type.FullName] = type;
-                            }
-                        }
-                    }
-                }
-                return m_TypeDictionary;
-            }
-        }
-
-        /**************************************/
-
-        private static Dictionary<string, Type> m_TypeDictionary;
+        
     }
 }

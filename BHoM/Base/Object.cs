@@ -5,6 +5,7 @@ using System.Linq;
 using System.ComponentModel;
 using BHoM.Base;
 using BHoM.Global;
+using System.Reflection;
 
 namespace BHoM.Base
 {
@@ -72,7 +73,9 @@ namespace BHoM.Base
         /// <summary>Create a shallow copy of the object</summary>
         public BHoMObject ShallowClone()
         {
-            return (BHoMObject) this.MemberwiseClone();
+            BHoMObject obj = (BHoMObject)this.MemberwiseClone();
+            obj.BHoM_Guid = System.Guid.NewGuid();
+            return obj;
         }
 
         /// <summary>Gets the geometry of the object (whatever that might be)</summary>
@@ -146,7 +149,7 @@ namespace BHoM.Base
             var typeString = definition["Primitive"].Replace("\"", "").Replace(";", ",");
             Type type = Type.GetType(typeString);
             if (type == null)
-                type = BHoMJSON.TypeDictionary[typeString];
+                type = TypeDictionary[typeString];
             BHoMObject newObject = Activator.CreateInstance(type, true) as BHoMObject;
 
             // Get the definition of the properties
@@ -170,7 +173,7 @@ namespace BHoM.Base
         {
             Type type = Type.GetType(typeString);
             if (type == null)
-                type = BHoMJSON.TypeDictionary[typeString];
+                type = TypeDictionary[typeString];
             return Activator.CreateInstance(type, true) as BHoMObject;
         }
 
@@ -212,5 +215,66 @@ namespace BHoM.Base
             GetDeepDependencies(ref dependencies);
             return dependencies;
         }
+
+        /*****************************************************/
+
+        /// <summary>
+        /// Get all dependencies related to that object
+        /// </summary>
+        public void GetShallowDependencies(ref Dictionary<Guid, BHoMObject> dependencies)
+        {
+            foreach (var prop in this.GetType().GetProperties())
+            {
+                if (!prop.CanRead || !prop.CanWrite) continue;
+                var value = prop.GetValue(this, null);
+                if (value == null || !(value is BHoMObject)) continue;
+
+                BHoMObject obj = value as BHoMObject;
+                Guid id = obj.BHoM_Guid;
+                if (!dependencies.ContainsKey(id))
+                {
+                    dependencies[id] = obj;
+                }
+            }
+        }
+
+        public Dictionary<Guid, BHoMObject> GetShallowDependencies()
+        {
+            Dictionary<Guid, BHoMObject> dependencies = new Dictionary<Guid, BHoMObject>();
+            GetShallowDependencies(ref dependencies);
+            return dependencies;
+        }
+        /**************************************/
+        /****  Type dictionary             ****/
+        /**************************************/
+
+        public static Dictionary<string, Type> TypeDictionary
+        {
+            get
+            {
+                if (m_TypeDictionary == null)
+                {
+                    m_TypeDictionary = new Dictionary<string, Type>();
+
+                    foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
+                    {
+                        string name = asm.GetName().Name;
+                        if (name == "BHoM" || name.EndsWith("_oM"))
+                        {
+                            foreach (Type type in asm.GetTypes())
+                            {
+                                m_TypeDictionary[type.Name] = type;
+                                m_TypeDictionary[type.FullName] = type;
+                            }
+                        }
+                    }
+                }
+                return m_TypeDictionary;
+            }
+        }
+
+        /**************************************/
+
+        private static Dictionary<string, Type> m_TypeDictionary;
     }
 }

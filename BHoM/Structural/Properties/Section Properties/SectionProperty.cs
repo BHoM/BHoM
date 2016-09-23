@@ -119,12 +119,12 @@ namespace BHoM.Structural.Properties
         /********* Cable sections from data base ********/
         /************************************************/
 
-        public static SectionProperty LoadFromCableSectionDB(string name, int numberOfCables = 1)
+        public static SectionProperty LoadFromCableSectionDBName(string name, int numberOfCables = 1)
         {
-            return LoadFromCableSectionDB(Project.ActiveProject, name);
+            return LoadFromCableSectionDBName(Project.ActiveProject, name, numberOfCables);
         }
 
-        public static SectionProperty LoadFromCableSectionDB(Project project, string name, int numberOfCables = 1)
+        public static SectionProperty LoadFromCableSectionDBName(Project project, string name, int numberOfCables = 1)
         {
             object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Name", name);
 
@@ -136,12 +136,12 @@ namespace BHoM.Structural.Properties
             return null;
         }
 
-        public static SectionProperty LoadFromCableSectionDB(double diameter, int numberOfCables = 1)
+        public static SectionProperty LoadFromCableSectionDBDiameter(double diameter, int numberOfCables = 1)
         {
-            return LoadFromCableSectionDB(Project.ActiveProject, diameter);
+            return LoadFromCableSectionDBDiameter(Project.ActiveProject, diameter, numberOfCables);
         }
 
-        public static SectionProperty LoadFromCableSectionDB(Project project, double diameter, int numberOfCables = 1)
+        public static SectionProperty LoadFromCableSectionDBDiameter(Project project, double diameter, int numberOfCables = 1)
         {
             object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Diameter", diameter.ToString());
 
@@ -159,10 +159,7 @@ namespace BHoM.Structural.Properties
             double A = (double)data[(int)CableSectionData.A];
             string name = (string)data[(int)CableSectionData.Name];
             CableSection sec = new CableSection(d, A, numberOfCables);
-            sec.Name = name+"x"+numberOfCables.ToString();
-
-            if (sec.Material != null)
-                sec.Name += "-" + sec.Material.Name;
+            sec.m_profileDescription = name+"x"+numberOfCables.ToString();
 
             return sec;
         }

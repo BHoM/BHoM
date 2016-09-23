@@ -32,30 +32,9 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            //TestFastSQL();
+            TestReflection();
 
-            //TestProject();
-            //Project.ActiveProject.AddObject(new Loadcase());
-            //Project.ActiveProject.AddObject(new Loadcase());
-            //Project.ActiveProject.AddObject(new Loadcase());
-            //Project.ActiveProject.AddObject(new LoadCombination());
-
-            //ObjectManager<BHoMObject> manager = new ObjectManager<BHoMObject>();
-            //SectionProperty.LoadFromDB("Test");
-            //string test = "Test {0}";
-            //string res =  string.Format(test, "hello");
-            //res += res;
-            //Console.Read();
-            Point p = new Point(25, 25, 0);
-            double r1 = 12.7;
-            Arc a = new Arc(p, p = p + new Vector(r1, r1, 0), new Plane(p - Vector.YAxis(r1), Vector.ZAxis()));
-            p = a.StartPoint;
-            // SectionProperty p1 = SectionProperty.LoadFromDB("UC254x254x89");
-            SectionProperty p1 = SectionProperty.LoadFromSteelSectionDB("SHS20x20x2");
-            SectionProperty prop = SectionProperty.LoadFromCableSectionDB(0.021);
-            //double f= p1.Asx;
-            //double r = p1.Asy;
-            ExplicitSectionProperty s = new ExplicitSectionProperty();
+            Console.Read();
             
         }
 
@@ -339,5 +318,22 @@ namespace BHoMTest
 
             ////BHoMObject bO= BHoMObject.FromJSON(json);
         }
+
+        public static void TestReflection()
+        {
+            TestClass c = new TestClass();
+            System.Reflection.FieldInfo[] fInfo = c.GetType().GetFields();
+            
+        }
+
+    }
+
+    public class TestClass : BHoMObject
+    {
+        private int i;
+        public string s;
+
+        public int Int { get; set; }
+
     }
 }

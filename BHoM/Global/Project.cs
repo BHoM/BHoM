@@ -214,7 +214,19 @@ namespace BHoM.Global
         /// <param name="value"></param>
         public void AddObject(BHoM.Base.BHoMObject value)
         {
+            if (m_Objects.ContainsKey(value.BHoM_Guid))
+                return;
+
             m_Objects.Add(value.BHoM_Guid, value);
+
+            Dictionary<Guid, BHoMObject> dependencies = value.GetShallowDependencies();
+
+            foreach (KeyValuePair<Guid, BHoMObject> obj in dependencies)
+            {
+                AddObject(obj.Value);
+            }
+
+
         }
 
         /// <summary>
