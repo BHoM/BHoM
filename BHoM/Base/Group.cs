@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,14 @@ using System.Threading.Tasks;
 
 namespace BHoM.Base
 {
-    public class Group<T> : BHoMObject
+    public interface IGroup : IBase
     {
+        IEnumerable<BHoMObject> Objects { get; }
+        Type ObjectType { get; }
+    }
 
+    public class Group<T>: BHoMObject, IEnumerable<T>, IGroup where T : IBase
+    {
         public Group()
         {
             Data = new List<T>();
@@ -19,7 +25,39 @@ namespace BHoM.Base
             Data = list;
         }
 
+        public Group(string name, List<T> list)
+        {
+            Name = name;
+            Data = list;
+        }
+
         public List<T> Data { get; set; }
+
+        public IEnumerable<BHoMObject> Objects
+        {
+            get
+            {
+                return Data.Cast<BHoMObject>();
+            }
+        }
+
+        public Type ObjectType
+        {
+            get
+            {
+                return typeof(T);
+            }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return Data.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
         public static implicit operator List<T>(Group<T> group)
         {

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BHoM.Structural.Elements;
+using BHoM.Base;
 
 namespace BHoM.Structural.Interface
 {
@@ -32,7 +33,7 @@ namespace BHoM.Structural.Interface
         List<string> GetLevels(out List<Storey> levels, List<string> ids = null);
         List<string> GetGrids(out List<Grid> grids, List<string> ids = null);
         List<string> GetRigidLinks(out List<RigidLink> links, List<string> ids = null);
-        List<string> GetGroups(out List<Base.Group<object>> groups, List<string> ids = null);
+        List<string> GetGroups(out List<IGroup> groups, List<string> ids = null);
 
         List<string> GetLoadcases(out List<ICase> cases);
         bool GetLoads(out List<ILoad> loads, List<string> ids = null);
@@ -44,7 +45,7 @@ namespace BHoM.Structural.Interface
         bool SetLevels(List<Storey> stores, out List<string> ids);
         bool SetGrids(List<Grid> grid, out List<string> ids);
         bool SetRigidLinks(List<RigidLink> rigidLinks, out List<string> ids);
-        bool SetGroups(List<Base.Group<object>> groups, out List<string> ids);
+        bool SetGroups(List<IGroup> groups, out List<string> ids);
 
 
         bool SetLoads(List<ILoad> loads);
