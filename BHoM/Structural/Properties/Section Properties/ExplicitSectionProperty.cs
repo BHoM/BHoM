@@ -12,6 +12,10 @@ namespace BHoM.Structural.Properties
         { }
 
 
+        protected override string GenerateStandardName()
+        {
+            return "Explicit";
+        }
 
         //Overrides the calculate section property method to not update varables when getters are called
         public override void CalculateSection()

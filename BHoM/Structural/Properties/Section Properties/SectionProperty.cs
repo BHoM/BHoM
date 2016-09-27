@@ -33,8 +33,6 @@ namespace BHoM.Structural.Properties
         protected double m_Vy;
         protected double m_Vpy;
 
-        protected string m_profileDescription;
-
 
         public double[] SectionData { get; set; }
 
@@ -108,7 +106,6 @@ namespace BHoM.Structural.Properties
                 BHoM.Geometry.Group<Curve> edges = CreateGeometry(shape, height, breadth, tw, tf1, r1, r2, b1, b2, tf2, b3);
                 SectionProperty property = new SteelSection(edges, shape);//, SectionType.Undefined);
                 property.Name = name;
-                property.m_profileDescription = name;
                 property.SectionData = sectionData;
                 return edges != null ? property : null;
             }
@@ -159,7 +156,6 @@ namespace BHoM.Structural.Properties
             double A = (double)data[(int)CableSectionData.A];
             string name = (string)data[(int)CableSectionData.Name];
             CableSection sec = new CableSection(d, A, numberOfCables);
-            sec.m_profileDescription = name+"x"+numberOfCables.ToString();
 
             return sec;
         }
@@ -286,33 +282,36 @@ namespace BHoM.Structural.Properties
             return edges;
         }
 
-        protected static string GenerateStandardName(ShapeType shapeType, double height, double breadth, double tw, double tf1, double r1, double r2, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0)
+        protected virtual string GenerateStandardName()
         {
             string name = null;
-            switch (shapeType)
+            switch (Shape)
             {
                 case ShapeType.ISection:
-                    name = "UB "+ (height * 1000).ToString() + "x" + (breadth * 1000).ToString() + "x" + (tw * 1000).ToString();
+                    name = "UB " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
                     break;
                 case ShapeType.Tee:
-                    name = "TUB " + (breadth * 1000).ToString() + "x" + (height * 1000).ToString()+ "x" + (tw * 1000).ToString();
+                    name = "TUB " + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
                     break;
                 case ShapeType.Box:
-                    name = "RHS " + (height * 1000).ToString() + "x" + (breadth * 1000).ToString() + "x" + (tw * 1000).ToString();
+                    name = "RHS " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
                     break;
                 case ShapeType.Angle:
-                    name = "L " + (height * 1000).ToString() + "x" + (breadth * 1000).ToString() + "x" + (tw * 1000).ToString();
-                    if(tw != tf1)
-                        name += "x"+ (tf1 * 1000).ToString();
+                    name = "L " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
+                    if (SectionData[(int)SteelSectionData.TW] != SectionData[(int)SteelSectionData.TF1])
+                        name += "x" + (SectionData[(int)SteelSectionData.TF1] * 1000).ToString();
                     break;
                 case ShapeType.Circle:
-                    name = "C " + (breadth * 1000).ToString();
+                    name = "C " + (SectionData[(int)SteelSectionData.Width] * 1000).ToString();
                     break;
                 case ShapeType.Rectangle:
-                    name = "R " + (height*1000).ToString() + "x" + (breadth*1000).ToString();
+                    name = "R " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString();
                     break;
                 case ShapeType.Tube:
-                    name = "CHS " + "x" + (breadth * 1000).ToString() + "x" + (tw * 1000).ToString();
+                    name = "CHS " + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
+                    break;
+                default:
+                    name = Shape.ToString();
                     break;
             }
             return name;
@@ -522,12 +521,10 @@ namespace BHoM.Structural.Properties
 
         public override string ToString()
         {
-
             string name = !string.IsNullOrWhiteSpace(Name) ? Name + " " : "";
-            string profile = !string.IsNullOrWhiteSpace(m_profileDescription) ? m_profileDescription: "";
             string mat = (this.Material != null && !string.IsNullOrWhiteSpace(this.Material.Name)) ? "-" + this.Material.Name : "";
+            return name + GenerateStandardName() + mat;
 
-            return name + profile + mat;
         }
 
     }

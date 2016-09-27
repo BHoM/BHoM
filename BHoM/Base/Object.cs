@@ -78,6 +78,8 @@ namespace BHoM.Base
             return obj;
         }
 
+
+
         /// <summary>Gets the geometry of the object (whatever that might be)</summary>
         public virtual BHoM.Geometry.GeometryBase GetGeometry()
         {

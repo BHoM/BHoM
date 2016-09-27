@@ -32,7 +32,7 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            TestReflection();
+            TestSql();
 
             Console.Read();
             
@@ -324,6 +324,12 @@ namespace BHoMTest
             TestClass c = new TestClass();
             System.Reflection.FieldInfo[] fInfo = c.GetType().GetFields();
             
+        }
+
+        public static void TestSql()
+        {
+            SQLAccessor accessor = new SQLAccessor(Database.SteelSection, "UK_Sections");
+            List<object> col = accessor.GetDataColumn("Name");
         }
 
     }

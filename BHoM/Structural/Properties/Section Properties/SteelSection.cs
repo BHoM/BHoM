@@ -34,7 +34,6 @@ namespace BHoM.Structural.Properties
             SectionData = CreateSectionData(height, width, t1, t2, r1, r2, mass, b1, b2, t3, b3);
             Edges = CreateGeometry(sType, height, width, t1, t2, r1, r2, b1, b2, t3, b3);
             Shape = sType;
-            m_profileDescription = GenerateStandardName(sType, height, width, t1, t2, r1, r2, b1, b2, t3, b3);
             //SectionMaterial = mType;
         }
 

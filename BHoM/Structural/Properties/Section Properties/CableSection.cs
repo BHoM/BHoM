@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Structural.Databases;
 
 
 namespace BHoM.Structural.Properties
@@ -21,6 +22,7 @@ namespace BHoM.Structural.Properties
             m_Area = areaOfOneCable;
             Material = mat;
             CreateEdgeCurves(diameter, numberOfCables);
+            SectionData[(int)CableSectionData.D] = diameter;
         }
 
         public override double GrossArea
@@ -65,6 +67,11 @@ namespace BHoM.Structural.Properties
             {
                 base.Shape = value;
             }
+        }
+
+        protected override string GenerateStandardName()
+        {
+            return "Cable "+"Dia"+SectionData[(int)CableSectionData.D]+ "x" + m_numberOfCables;
         }
 
         /*************************************************************/
