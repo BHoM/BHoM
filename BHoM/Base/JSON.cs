@@ -276,7 +276,7 @@ namespace BHoM.Base
             System.Reflection.MethodInfo jsonMethod = null;
             if (type == typeof(System.String) || type == typeof(System.Object))
                 return value;
-            else if (type.BaseType == typeof(BHoMObject))
+            else if (type.BaseType == typeof(BHoMObject)) // This is never hit. Proper check should be IsInstanceOf(BHoMObject) & == typeof(BHoMObject)
             {
                 BHoMObject b = project.GetObject(new Guid(value));
                 return b;
@@ -298,9 +298,18 @@ namespace BHoM.Base
                     System.Reflection.MethodInfo parseMethod = type.GetMethod("Parse", new Type[] { typeof(string) });
                     if (parseMethod != null)
                         return parseMethod.Invoke(null, new object[] { value });
-                    parseMethod = type.BaseType.GetMethod("Parse", new Type[] { typeof(Type), typeof(string) });
-                    if (parseMethod != null)
-                        return parseMethod.Invoke(null, new object[] { type, value });
+                    else if (type.BaseType != null)
+                    {
+                        parseMethod = type.BaseType.GetMethod("Parse", new Type[] { typeof(Type), typeof(string) });
+                        if (parseMethod != null)
+                            return parseMethod.Invoke(null, new object[] { type, value });
+                    }
+                    else
+                    {
+                        Guid guid;
+                        if (Guid.TryParse(value, out guid))
+                            return project.GetObject(guid);
+                    }
                 }
             }
             return null;

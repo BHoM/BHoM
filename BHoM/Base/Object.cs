@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using System.Linq;
@@ -74,7 +75,6 @@ namespace BHoM.Base
         public BHoMObject ShallowClone()
         {
             BHoMObject obj = (BHoMObject)this.MemberwiseClone();
-            obj.BHoM_Guid = System.Guid.NewGuid();
             return obj;
         }
 
@@ -199,15 +199,31 @@ namespace BHoM.Base
             {
                 if (!prop.CanRead || !prop.CanWrite) continue;
                 var value = prop.GetValue(this, null);
-                if (value == null || !(value is BHoMObject)) continue;
+                if (value == null) continue;
 
-                BHoMObject obj = value as BHoMObject;
-                Guid id = obj.BHoM_Guid;
-                if (!dependencies.ContainsKey(id))
+                if (value is BHoMObject)
+                    CheckAndAddDependency(ref dependencies, value as BHoMObject);
+                else if (value is IEnumerable)
                 {
-                    dependencies[id] = obj;
-                    obj.GetDeepDependencies(ref dependencies);
+                    foreach (object val in value as IEnumerable)
+                    {
+                        if (val is BHoMObject)
+                            CheckAndAddDependency(ref dependencies, val as BHoMObject);
+                        else
+                            break;
+                    }
                 }
+                
+            }
+        }
+
+        private void CheckAndAddDependency(ref Dictionary<Guid, BHoMObject> dependencies, BHoMObject obj)
+        {
+            Guid id = obj.BHoM_Guid;
+            if (!dependencies.ContainsKey(id))
+            {
+                dependencies[id] = obj;
+                obj.GetDeepDependencies(ref dependencies);
             }
         }
 

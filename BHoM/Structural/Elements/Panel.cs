@@ -114,7 +114,16 @@ namespace BHoM.Structural.Elements
         public PanelProperty PanelProperty { get; set; }
 
         [DefaultValue(null)]
-        public Materials.Material Material { get; set; }
+        public Materials.Material Material
+        {
+            get
+            {
+                if (PanelProperty != null)
+                    return PanelProperty.Material;
+
+                return null;
+            }
+        }
 
         [DefaultValue(null)]
         public SurfaceConstraint PlanarSpring { get; set; }

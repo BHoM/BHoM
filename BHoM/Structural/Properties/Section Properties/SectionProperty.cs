@@ -250,6 +250,55 @@ namespace BHoM.Structural.Properties
             return new SteelSection(ShapeType.Tube, diameter, diameter, thickness, 0, 0, 0);
         }
 
+        public static SectionProperty CreateSectionPropertyFromString(string str)
+        {
+            string[] arr = System.Text.RegularExpressions.Regex.Split(str, @"\s+");
+
+            //Assuming [mm]
+            double scalefactor = 0.001;
+
+            if (arr[0] == "RHS")
+            {
+                double h, w, tw, tf;
+                string[] props = arr[1].Split('x');
+
+                if (props.Length < 3)
+                    return null;
+
+                if (!(double.TryParse(props[0], out h) && double.TryParse(props[1], out w) && double.TryParse(props[2], out tw)))
+                    return null;
+
+                if (props.Length == 3)
+                    tf = tw;
+                else
+                {
+                    if (!double.TryParse(props[3], out tf))
+                        return null;
+                }
+
+                return CreateBoxSection(h * scalefactor, w * scalefactor, tf * scalefactor, tw * scalefactor);
+
+            }
+            else if (arr[0] == "CHS")
+            {
+                double d, t;
+                string[] props = arr[1].Split('x');
+
+                if (props.Length < 2)
+                    return null;
+
+                if (!(double.TryParse(props[0], out d) && double.TryParse(props[1], out t)))
+                    return null;
+
+
+                return CreateTubeSection(d * scalefactor, t * scalefactor);
+            }
+
+
+            return null;
+        }
+
+
 
         protected static BHoM.Geometry.Group<Curve> CreateGeometry(ShapeType shapeType, double height, double breadth, double tw, double tf1, double r1, double r2, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0)
         {

@@ -14,7 +14,7 @@ namespace BHoM.Structural.Loads
     [Serializable]
     public class AreaUniformalyDistributedLoad : Load<Panel>
     {
-        public BHoM.Geometry.Vector Pressure { get; private set; }
+        public BHoM.Geometry.Vector Pressure { get; set; }
 
         public override LoadType LoadType
         {
@@ -23,6 +23,9 @@ namespace BHoM.Structural.Loads
                 return LoadType.AreaUniformLoad;
             }
         }
+
+        public AreaUniformalyDistributedLoad()
+        { }
 
         public AreaUniformalyDistributedLoad(double px, double py, double pz)
         {

@@ -73,7 +73,17 @@ namespace BHoM.Materials
 
         public static Material LoadFromDB(string name)
         {
-            //object[] data = Project.ActiveProject.Structure.MaterialDatabase.GetDataRow(new string[] { "Name" }, name);
+            object[] data = new SQLAccessor(Database.Material, Project.ActiveProject.Config.MaterialDatabase).GetDataRow("Name", name);
+            if (data != null)
+            {
+                MaterialType type = (MaterialType)Enum.Parse(typeof(MaterialType), data[(int)MaterialColumnData.Type].ToString(), true);
+                double e = (double)data[(int)MaterialColumnData.YoungsModulus];
+                double v = (double)data[(int)MaterialColumnData.PoissonRatio];
+                double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
+                double density = (double)data[(int)MaterialColumnData.Mass];
+                double g = e / (2 * (1 - v));
+                return new Material(name, type, e, v, tC, g, density);
+            }
             return null;
         }
 

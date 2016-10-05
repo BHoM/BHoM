@@ -101,6 +101,8 @@
     <Compile Include="Global\Config\MEPConfig.cs" />
     <Compile Include="Global\Config\StructureConfig.cs" />
     <Compile Include="Structural\Databases\Enums.cs" />
+    <Compile Include="Structural\Elements\FEFace.cs" />
+    <Compile Include="Structural\Elements\FEMesh.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
     <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Base\Object.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structural\Loads\GravityLoad.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
     <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
