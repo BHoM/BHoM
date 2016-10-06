@@ -173,5 +173,15 @@ namespace BHoM.Structural
         {
             throw new NotImplementedException();
         }
+
+        public List<string> GetFEMeshes(out List<FEMesh> meshes, List<string> ids = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SetFEMeshes(List<FEMesh> meshes, out List<string> ids)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
