@@ -53,6 +53,7 @@ namespace BHoM.Structural.Properties
         public double[] Modifiers { get; set; }
         public PanelType Type { get; set; }
         public double Thickness { get; set; }
+        public Materials.Material Material { get; set; }
         internal PanelProperty()
         {
             Modifiers = new double[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };

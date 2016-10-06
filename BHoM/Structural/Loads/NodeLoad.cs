@@ -16,10 +16,10 @@ namespace BHoM.Structural.Loads
     public class PointForce : Load<Node>
     {
         /// <summary>Force - fx, fy, fz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector Force { get; private set; }
+        public BHoM.Geometry.Vector Force { get;  set; }
 
         /// <summary>Moment - mx, my, mz defined as a BHoM.Geometry.Vector</summary>
-        public BHoM.Geometry.Vector Moment { get; private set; }
+        public BHoM.Geometry.Vector Moment { get;  set; }
 
         public override LoadType LoadType
         {

@@ -8,12 +8,13 @@ namespace BHoM.Materials
 {
     public enum MaterialColumnData
     {
+        Type = 2,
         Name = 3,
         Weight = 5,
         Mass,
         YoungsModulus,
         PoissonRatio,
-        CoefThermalExpansion
+        CoefThermalExpansion,
     }
 
     /// <summary>Steel grade</summary>

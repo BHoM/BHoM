@@ -68,5 +68,10 @@ namespace BHoM.Base
         {
             return new Group<T>(list);
         }
+
+        public override string ToString()
+        {
+            return Name + " Group of " + ObjectType + ". Containing " +Data.Count+ " items"; 
+        }
     }
 }

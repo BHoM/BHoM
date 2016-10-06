@@ -186,5 +186,26 @@ namespace BHoM.Base
             return names;
         }
 
+        public List<object> GetDataColumn(string name)
+        {
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
+            connection.Open();
+
+            m_DataAdapter = new SqlDataAdapter("SELECT " +name+ " FROM " + m_TableName, connection);
+            DataSet set = new DataSet();
+
+            m_DataAdapter.Fill(set);
+            connection.Close();
+
+            List<object> col = new List<object>();
+
+            foreach (DataRow row in set.Tables[0].Rows)
+            {
+                col.Add(row[name]);
+            }
+
+            return col;
+        }
+
     }
 }

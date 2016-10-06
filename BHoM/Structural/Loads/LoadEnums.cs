@@ -22,6 +22,8 @@ namespace BHoM.Structural.Loads
         Seismic,
         Temperature,
         Snow,
+        Accidental,
+        Prestress,
         Other
     }
 
