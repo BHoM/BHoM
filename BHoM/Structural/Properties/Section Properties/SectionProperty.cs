@@ -27,6 +27,8 @@ namespace BHoM.Structural.Properties
         protected double m_Sy;
         protected double m_Zx;
         protected double m_Zy;
+        protected double m_Rgx;
+        protected double m_Rgy;
 
         protected double m_Vx;
         protected double m_Vpx;
@@ -254,6 +256,23 @@ namespace BHoM.Structural.Properties
             return new SteelSection(ShapeType.Tube, diameter, diameter, thickness, 0, 0, 0);
         }
 
+        public static SectionProperty CreateSection(BHoM.Geometry.Group<Curve> edges, ShapeType type, MaterialType matType)
+        {
+            SectionProperty property = null;
+            switch (matType)
+            {
+                case BHoM.Materials.MaterialType.Steel:
+                    return new SteelSection(edges, type);
+                case BHoM.Materials.MaterialType.Concrete:
+                    return new ConcreteSection(edges, type);
+                default:
+                    property = new SteelSection(edges, type);
+                    property.Material = Material.Default(matType);
+                    return property;
+
+            }
+        }
+
 
         protected static BHoM.Geometry.Group<Curve> CreateGeometry(ShapeType shapeType, double height, double breadth, double tw, double tf1, double r1, double r2, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0)
         {
@@ -336,7 +355,8 @@ namespace BHoM.Structural.Properties
             m_Vpx = cx - sC.Min(0);
             m_Vy = sC.Max(0) - cy;
             m_Vpy = cy - sC.Min(0);
-
+            m_Rgx = sC.rx;
+            m_Rgy = sC.ry;
             Edges.Translate(new Vector(-cx, -cy, 0));
         }
 
@@ -385,6 +405,28 @@ namespace BHoM.Structural.Properties
         }
 
         /// <summary>
+        /// Radius of Gyration about the major axis
+        /// </summary>
+        public virtual double Rgx
+        {
+            get
+            {
+                if (m_Rgx == 0) CalculateSection();
+                return m_Rgx;
+            }
+        }
+        /// <summary>
+        /// Radius of Gyration about the minor axis
+        /// </summary>
+        public virtual double Rgy
+        {
+            get
+            {
+                if (m_Rgy == 0) CalculateSection();
+                return m_Rgy;
+            }
+        }
+        /// <summary>
         /// Total height of section
         /// </summary>
         public virtual double TotalDepth
@@ -431,9 +473,61 @@ namespace BHoM.Structural.Properties
         {
             get
             {
-                return 0;
+                double b1 = SectionData[(int)SteelSectionData.B1];
+                double b2 = SectionData[(int)SteelSectionData.B2];
+                double tf1 = SectionData[(int)SteelSectionData.TF1];
+                double tf2 = SectionData[(int)SteelSectionData.TF2];
+                double tw = SectionData[(int)SteelSectionData.TW];
+                switch (Shape)
+                {
+                    case ShapeType.ISection:
+                    case ShapeType.Channel:
+                    case ShapeType.Zed:
+                        return b1 * Math.Pow(tf1, 3) + b2 * Math.Pow(tf2, 3) + TotalDepth * Math.Pow(tw, 3);
+                    case ShapeType.Tee:
+                    case ShapeType.Angle:
+                        return TotalWidth * Math.Pow(tf1, 3) + TotalDepth * Math.Pow(tw, 3);
+                    case ShapeType.Circle:
+                        return Math.PI * Math.Pow(TotalDepth, 4) / 2;
+                    case ShapeType.Box:
+                        return 2 * tf1 * tw * Math.Pow(TotalWidth - tw, 2) * Math.Pow(TotalDepth - tf1, 2) /
+                            (TotalWidth * tw + TotalDepth * tf1 - Math.Pow(tw, 2) - Math.Pow(tf1, 2));
+                    case ShapeType.Tube:
+                        return Math.PI * (Math.Pow(TotalDepth, 4) - Math.Pow(TotalDepth - tf1, 4)) / 2;
+                    default:
+                        return 0;
+                }
             }
         }
+
+        public virtual double Iw
+        {
+            get
+            {
+                double b1 = SectionData[(int)SteelSectionData.B1];
+                double b2 = SectionData[(int)SteelSectionData.B2];
+                double tf1 = SectionData[(int)SteelSectionData.TF1];
+                double tf2 = SectionData[(int)SteelSectionData.TF2];
+                double tw = SectionData[(int)SteelSectionData.TW];
+                switch (Shape)
+                {
+                    case ShapeType.ISection:
+                        if (tf1 == tf2 && b1 == b2)                  
+                        {
+                            return tf1 * Math.Pow(TotalDepth,2) * Math.Pow(TotalWidth, 3) / 24;
+                        }
+                        else
+                        {
+                            return tf1 * Math.Pow(TotalDepth, 2) / 12 * (Math.Pow(b1, 3) * Math.Pow(b2, 3) / (Math.Pow(b1, 3) + Math.Pow(b2, 3)));
+                        }
+                    case ShapeType.Channel:
+                        return tf1 * Math.Pow(TotalDepth, 2) / 12 * (3 * b1 * tf1 + 2 * TotalDepth * tw / (6 * b1 * tf1 + TotalDepth * tw));
+                    default:
+                        return 0;
+                }
+            }
+        }
+
 
         public virtual double Vy
         {

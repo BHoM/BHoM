@@ -59,7 +59,17 @@ namespace BHoM.Materials
             }
         }
 
-        
+        public double CompressiveYieldStrength
+        {
+            get;
+            set;
+        }
+
+        public double TensileYieldStrength
+        {
+            get;
+            set;
+        }
 
         /// <summary>Calculate material values at construct</summary>
         //void CalculateValues();
@@ -123,6 +133,6 @@ namespace BHoM.Materials
             CoeffThermalExpansion = tC;
             ShearModulus = G;
             Density = denisty;
-        }
+        }       
     }
 }

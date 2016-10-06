@@ -102,6 +102,7 @@
     <Compile Include="Global\Config\StructureConfig.cs" />
     <Compile Include="Structural\Databases\Enums.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
+    <Compile Include="Structural\Application.cs" />
     <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Base\Object.cs" />
     <Compile Include="Base\ObjectFilter.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Structural\Loads\LoadEnums.cs" />
     <Compile Include="Structural\Loads\NodeLoad.cs" />
     <Compile Include="Structural\Properties\Section Properties\CableSection.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ConcreteSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\ExplicitSectionProperty.cs" />
     <Compile Include="Structural\Properties\Section Properties\SteelSection.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarForceEnvelope.cs" />

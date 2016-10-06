@@ -152,7 +152,7 @@ namespace BHoM.Global
 
             // Try to create an object that correponds the object type stored in "Primitive"
             var typeString = definition["Type"].Replace("\"", "").Replace("{", "").Replace("}", "");
-            if (typeString != "BHoM.Base.Project") return null;
+            if (typeString != "BHoM.Global.Project") return null;
 
             // Get the definition of the properties
             Dictionary<string, string> properties = BHoMJSON.GetDefinitionFromJSON(definition["Properties"]);
@@ -225,8 +225,18 @@ namespace BHoM.Global
             {
                 AddObject(obj.Value);
             }
+        }
 
-
+        /// <summary>
+        /// Adds a BHoM Object to the project
+        /// </summary>
+        /// <param name="values"></param>
+        public void AddObjects(IEnumerable<BHoM.Base.BHoMObject> values)
+        {
+           foreach (BHoMObject b in values)
+            {
+                AddObject(b);
+            }
         }
 
         /// <summary>

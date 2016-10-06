@@ -112,8 +112,8 @@ namespace BHoM.Base
 
                         break;
                 }
-            }
-            
+            }     
+          
             return result;
         }
 
@@ -198,6 +198,15 @@ namespace BHoM.Base
                 m_Data.Remove(key);
                 m_Project.RemoveObject(result.BHoM_Guid);
             }
+        }
+
+        public List<TKey> Keys
+        {
+            get
+            {
+                return m_Data.Keys.ToList();
+            }
+
         }
 
 

@@ -68,5 +68,57 @@ namespace BHoM.Structural.Properties
             SectionData[(int)SteelSectionData.Spacing] = b3;
             return SectionData;
         }
+
+        public double GetGrade()
+        {
+            if (Material.Name[0] == 'S')
+            {
+                return double.Parse(Material.Name.Substring(1));
+            }
+            else
+            {
+                return 0;
+            }
+        }   
+
+        public bool HotFormed
+        { get; set; }
+
+
+        public double Tw
+        {
+            get
+            {
+                return SectionData[(int)SteelSectionData.TW];
+            }
+        }
+
+        public double Tf1
+        {
+            get
+            {
+                return SectionData[(int)SteelSectionData.TF1];
+            }
+        }
+
+        public double Tf2
+        {
+            get
+            {
+                return SectionData[(int)SteelSectionData.TF2];
+            }
+        }
+
+        public double r1
+        {
+            get
+            {
+                return SectionData[(int)SteelSectionData.r1];
+            }
+        }
+
+        
+
+
     }
 }
