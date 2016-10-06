@@ -166,7 +166,7 @@ namespace BHoM.Geometry
             return result;
         }
 
-        internal static double[] Sub(double[] v1, double[] v2)
+        public static double[] Sub(double[] v1, double[] v2)
         {
             if (v1.Length == v2.Length)
             {
@@ -227,7 +227,7 @@ namespace BHoM.Geometry
             return result;
         }
 
-        internal static double[] Multiply(double[] v1, double s)
+        public static double[] Multiply(double[] v1, double s)
         {
             double[] result = new double[v1.Length];
 
@@ -375,7 +375,7 @@ namespace BHoM.Geometry
             };
         }
 
-        internal static double LengthSq(double[] v)
+        public static double LengthSq(double[] v)
         {
             double result = 0;
 
@@ -386,7 +386,7 @@ namespace BHoM.Geometry
             return result;
         }
 
-        internal static double Length(double[] v)
+        public static double Length(double[] v)
         {
             return Math.Sqrt(LengthSq(v));
         }
@@ -499,7 +499,7 @@ namespace BHoM.Geometry
             return (Math.Abs(dotProduct) < length) ? Math.Acos(dotProduct / length) : (Math.Abs(dotProduct) < length + 0.0001) ? Math.PI : 0;
         }
 
-        internal static double[] Normalise(double[] m_Coordinates)
+        public static double[] Normalise(double[] m_Coordinates)
         {
             double length = VectorUtils.Length(m_Coordinates);
             if (length == 1) return m_Coordinates;
