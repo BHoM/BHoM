@@ -72,9 +72,11 @@ namespace BHoM.Base
         //////////////
 
         /// <summary>Create a shallow copy of the object</summary>
-        public BHoMObject ShallowClone()
+        public BHoMObject ShallowClone(bool newGuid = false)
         {
             BHoMObject obj = (BHoMObject)this.MemberwiseClone();
+            if(newGuid)
+                obj.BHoM_Guid = Guid.NewGuid();
             return obj;
         }
 

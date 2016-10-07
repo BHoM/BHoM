@@ -13,6 +13,9 @@ namespace BHoM.Structural.Properties
 
         private int m_numberOfCables;
 
+        public CableSection()
+        { }
+
         public CableSection(double diameter, double areaOfOneCable, int numberOfCables = 1) : this(diameter, areaOfOneCable, BHoM.Materials.Material.Default(Materials.MaterialType.Cable), numberOfCables)
         {   }
 
@@ -23,12 +26,16 @@ namespace BHoM.Structural.Properties
             Material = mat;
             CreateEdgeCurves(diameter, numberOfCables);
             SectionData[(int)CableSectionData.D] = diameter;
+            SectionData[(int)CableSectionData.A] = areaOfOneCable;
         }
 
         public override double GrossArea
         {
             get
             {
+                if (m_Area == 0)
+                    m_Area = SectionData[(int)CableSectionData.A];
+
                 return m_Area * m_numberOfCables;
             }
         }
@@ -57,15 +64,12 @@ namespace BHoM.Structural.Properties
         {
             get
             {
-                if(base.Shape == null)
-                    return ShapeType.Cable;
-
-                return base.Shape;
+                return ShapeType.Cable;
             }
 
             set
             {
-                base.Shape = value;
+                base.Shape = ShapeType.Cable;
             }
         }
 
