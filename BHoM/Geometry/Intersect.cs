@@ -8,6 +8,25 @@ namespace BHoM.Geometry
 {
     public static class Intersect
     {
+
+        public static Point PlaneLine(Plane p, Line l, bool finiteLineSegment = true)
+        {
+            Vector v = l.EndPoint - l.StartPoint;
+            v.Unitize();
+            //Check if parallell
+
+            if (Math.Abs(Vector.DotProduct(v, p.Normal)) < 0.00000001) { return null; }
+
+            double s = (Vector.DotProduct(p.Normal, (p.Origin - l.StartPoint))) / (Vector.DotProduct(p.Normal, (v)));
+
+            if (finiteLineSegment && (s < 0 || s > 1))
+                return null;
+
+            return l.StartPoint + s * v;
+
+        }
+
+
         /// <summary>
         /// Gets the plane curve intersection geometry within the provided tolerance
         /// </summary>
