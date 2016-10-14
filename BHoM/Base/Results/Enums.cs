@@ -17,6 +17,7 @@ namespace BHoM.Base.Results
         BarStress,
         PanelForce,
         PanelStress,
-        Modal
+        Modal,
+        Utilisation
     }
 }

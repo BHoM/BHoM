@@ -28,7 +28,7 @@ namespace BHoM.Base.Results
         int KeyIndex;
         int TimeStepIndex;
 
-        internal ResultSet()
+        public ResultSet()
         {
             #region Old Method
             //m_ColumnNames = new List<string>();
