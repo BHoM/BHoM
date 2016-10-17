@@ -9,13 +9,13 @@ namespace BHoM.Geometry
     public static class Intersect
     {
 
-        public static Point PlaneLine(Plane p, Line l, bool finiteLineSegment = true)
+        public static Point PlaneLine(Plane p, Line l, bool finiteLineSegment = true, double tolerance = 0.0001)
         {
             Vector v = l.EndPoint - l.StartPoint;
             v.Unitize();
-            //Check if parallell
 
-            if (Math.Abs(Vector.DotProduct(v, p.Normal)) < 0.00000001) { return null; }
+            //Check if parallell
+            if (Math.Abs(Vector.DotProduct(v, p.Normal)) < tolerance) { return null; }
 
             double s = (Vector.DotProduct(p.Normal, (p.Origin - l.StartPoint))) / (Vector.DotProduct(p.Normal, (v)));
 
