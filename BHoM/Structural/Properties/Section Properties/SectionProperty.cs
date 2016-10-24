@@ -249,7 +249,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateTubeSection(double diameter, double thickness)
         {
-            return new SteelSection(ShapeType.Tube, diameter, diameter, thickness, 0, 0, 0);
+            return new SteelSection(ShapeType.Tube, diameter, diameter, thickness, thickness, 0, 0);
         }
 
         public static SectionProperty CreateSection(BHoM.Geometry.Group<Curve> edges, ShapeType type, MaterialType matType)
@@ -539,7 +539,7 @@ namespace BHoM.Structural.Properties
                         return 2 * tf1 * tw * Math.Pow(TotalWidth - tw, 2) * Math.Pow(TotalDepth - tf1, 2) /
                             (TotalWidth * tw + TotalDepth * tf1 - Math.Pow(tw, 2) - Math.Pow(tf1, 2));
                     case ShapeType.Tube:
-                        return Math.PI * (Math.Pow(TotalDepth, 4) - Math.Pow(TotalDepth - tf1, 4)) / 2;
+                        return Math.PI * (Math.Pow(TotalDepth, 4) - Math.Pow(TotalDepth - tw, 4)) / 2;
                     default:
                         return 0;
                 }

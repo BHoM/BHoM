@@ -19,7 +19,7 @@ namespace BHoM.Structural.Elements
 
         private Node m_StartNode;
         private Node m_EndNode;
-
+        private double m_EffectiveLength;
         /// <summary>
         /// Design type name for design purposes (e.g. Simple Column). Can be used to help 
         /// downstream selections/filters but shouldn't be confused with Groups, which are 
@@ -79,7 +79,10 @@ namespace BHoM.Structural.Elements
                 if (value != null)
                 {
                     m_StartNode = value;
-                    m_StartNode.ConnectedBars.Add(this);
+                    if (!m_StartNode.ConnectedBars.Contains(this))
+                    {
+                        m_StartNode.ConnectedBars.Add(this);
+                    }
                 }
             }
         }
@@ -99,7 +102,10 @@ namespace BHoM.Structural.Elements
                 if (value != null)
                 {
                     m_EndNode = value;
-                    m_EndNode.ConnectedBars.Add(this);
+                    if (!m_EndNode.ConnectedBars.Contains(this))
+                    {
+                        m_EndNode.ConnectedBars.Add(this);
+                    }
                 }
             }
         }
@@ -152,6 +158,19 @@ namespace BHoM.Structural.Elements
                 return StartPoint.DistanceTo(EndPoint);
             }
         }
+
+        public double EffectiveLength
+        {
+            get
+            {
+                return m_EffectiveLength == 0 ? GetUnsupportedLength() : m_EffectiveLength;
+            }
+            set
+            {
+                m_EffectiveLength = value;
+            }
+        }
+
 
         /// <summary>
         /// Bar orientation angle in radians. For non-vertical bars, angle is measured in the bar YZ plane
@@ -292,6 +311,29 @@ namespace BHoM.Structural.Elements
         public void SetDesignGroupName(string designGroupName)
         {
             this.DesignGroupName = designGroupName;
+        }
+
+        public double GetUnsupportedLength()
+        {
+            double length = this.Length;
+            Node startNode = StartNode;
+            Node endNode = EndNode;
+            Bar other = this;
+            while(startNode.ConnectedBars.Count == 2)
+            {
+                other = startNode.ConnectedBars[0].Equals(other) ? startNode.ConnectedBars[1] : startNode.ConnectedBars[0];
+                length += other.Length;
+                startNode = other.GetOppositeNode(startNode);
+            }
+            other = this;
+
+            while (endNode.ConnectedBars.Count == 2)
+            {
+                other = endNode.ConnectedBars[0].Equals(other) ? endNode.ConnectedBars[1] : endNode.ConnectedBars[0];
+                length += other.Length;
+                endNode = other.GetOppositeNode(endNode);
+            }
+            return length;
         }
 
         /// <summary>

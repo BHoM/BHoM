@@ -31,7 +31,7 @@ namespace BHoM.Base
         public string Name { get; set; }
 
         /// <summary>Object parameters</summary>
-        [DisplayName("User Data")]
+        [DisplayName("CustomData")]
         [Description("Additonal object information")]
         [DefaultValue(null)]
         public Dictionary<string, object> CustomData { get; set; }

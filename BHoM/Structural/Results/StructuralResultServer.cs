@@ -12,6 +12,11 @@ namespace BHoM.Structural.Results
     {
         string m_Filename;
 
+        public ResultServer<T> GetResultServer<T>() where T : IResult, new()
+        {
+            return new ResultServer<T>(m_Filename);
+        }
+
         public StructuralResultServer(string fileName)
         {
             m_Filename = fileName;

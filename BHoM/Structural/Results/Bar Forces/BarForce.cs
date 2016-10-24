@@ -13,10 +13,10 @@ namespace BHoM.Structural.Results
     /// and orientation information
     /// </summary>
     /// 
-    public class BarForce : BarForce<int, int, int>
+    public class BarForce : BarForce<string, string, string>
     {
         public BarForce() : base() { }
-        public BarForce(int number, int loadcase, int position, int divisions, int timeStep, double fx, double fy, double fz, double mx, double my, double mz)
+        public BarForce(string number, string loadcase, int position, int divisions, string timeStep, double fx, double fy, double fz, double mx, double my, double mz)
         : base(number, loadcase, position, divisions, timeStep, fx, fy, fz, mx, my, mz)
         { }
     }
@@ -159,6 +159,29 @@ namespace BHoM.Structural.Results
             {
                 Data[11] = value;
             }
+        }
+
+        public int CompareTo(object obj)
+        {
+            var r2 = obj as BarForce<TName, TLoadcase, TTimeStep>;
+            if (r2 != null)
+            {
+                int n = this.Name.CompareTo(r2.Name);
+                if (n == 0)
+                {
+                    int l = this.Loadcase.CompareTo(r2.Loadcase);
+                    if (l == 0)
+                    {
+                        int f = this.ForcePosition.CompareTo(r2.ForcePosition);
+                        return f == 0 ? this.TimeStep.CompareTo(r2.TimeStep) : f;
+                    }
+                }
+                else
+                {
+                    return n;
+                }
+            }
+            return 1;
         }
     }
 

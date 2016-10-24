@@ -80,7 +80,7 @@ namespace BHoM.Structural.Properties
             }
         }   
 
-        public bool HotFormed
+        public bool ColdFormed
         { get; set; }
 
 
