@@ -159,6 +159,15 @@ namespace BHoM.Structural.Properties
             string name = (string)data[(int)CableSectionData.Name];
             CableSection sec = new CableSection(d, A, numberOfCables);
 
+            sec.SectionData[(int)CableSectionData.A] = (double)data[(int)CableSectionData.A];
+            sec.SectionData[(int)CableSectionData.BL] = (double)data[(int)CableSectionData.BL];
+            sec.SectionData[(int)CableSectionData.D] = (double)data[(int)CableSectionData.D];
+            sec.SectionData[(int)CableSectionData.LimTen] = (double)data[(int)CableSectionData.LimTen];
+            sec.SectionData[(int)CableSectionData.Stiffness] = (double)data[(int)CableSectionData.Stiffness];
+            sec.SectionData[(int)CableSectionData.Weight] = (double)data[(int)CableSectionData.Weight];
+            sec.SectionData[(int)CableSectionData.WeightEndAdjustable] = (double)data[(int)CableSectionData.WeightEndAdjustable];
+            sec.SectionData[(int)CableSectionData.WeightEndOpen] = (double)data[(int)CableSectionData.WeightEndOpen];
+
             return sec;
         }
 

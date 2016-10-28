@@ -32,11 +32,25 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            TestSql();
+            TestCableConnectionDB();
 
             Console.Read();
             
         }
+
+        public static void TestCableConnectionDB()
+        {
+            string table = Project.ActiveProject.Config.StyliteForkSocketDataBase;
+
+            SQLAccessor accessor = new SQLAccessor(Database.Cables, table);
+
+            object[] objs = accessor.GetDataRow("CableDia", "0.09");
+
+            List<string> names =  accessor.Names();
+
+            List<object> col = accessor.GetDataColumn("Name");
+        }
+
 
         static void TestProject()
         {
@@ -331,6 +345,7 @@ namespace BHoMTest
             SQLAccessor accessor = new SQLAccessor(Database.SteelSection, "UK_Sections");
             List<object> col = accessor.GetDataColumn("Name");
         }
+
 
     }
 

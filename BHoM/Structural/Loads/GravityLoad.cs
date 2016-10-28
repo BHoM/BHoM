@@ -12,7 +12,7 @@ namespace BHoM.Structural.Loads
     public class GravityLoad : Load<BHB.BHoMObject>
     {
 
-        public BHG.Vector GravityDriection { get; set; } = new BHG.Vector(0, 0, -1);
+        public BHG.Vector GravityDirection { get; set; } = new BHG.Vector(0, 0, -1);
 
         public GravityLoad()
         {
