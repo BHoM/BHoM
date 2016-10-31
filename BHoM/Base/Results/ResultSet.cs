@@ -149,6 +149,31 @@ namespace BHoM.Base.Results
 
         public bool IsEmpty { get { return m_Results.Count == 0; } }
 
+        public T CriticalResult()
+        {
+            double max = double.MinValue;
+            int resultIndex = 0;
+            object[] row = null;
+            for (int i = 0; i < m_Results.Count; i++)
+            {
+                row = m_Results[i];
+                for (int j = 0; j < m_NumberIndices.Count; j++)
+                {
+                    double currentValue = (double)row[m_NumberIndices[j]];
+                    if (currentValue > max)
+                    {
+                        max = currentValue;
+                        resultIndex = i;
+                    }
+                }
+            }
+
+            T result = new T();
+            result.Data = m_Results[resultIndex];
+
+            return result;
+        }
+
         public Envelope MaxEnvelope()
         {
             Envelope envelope = new MaxEnvelope(m_ValueNames);

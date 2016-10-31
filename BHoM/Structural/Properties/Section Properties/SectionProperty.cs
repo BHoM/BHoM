@@ -529,7 +529,7 @@ namespace BHoM.Structural.Properties
                     case ShapeType.ISection:
                     case ShapeType.Channel:
                     case ShapeType.Zed:
-                        return b1 * Math.Pow(tf1, 3) + b2 * Math.Pow(tf2, 3) + TotalDepth * Math.Pow(tw, 3);
+                        return (b1 * Math.Pow(tf1, 3) + b2 * Math.Pow(tf2, 3) + (TotalDepth - tf1) * Math.Pow(tw, 3)) / 3;
                     case ShapeType.Tee:
                     case ShapeType.Angle:
                         return TotalWidth * Math.Pow(tf1, 3) + TotalDepth * Math.Pow(tw, 3);
@@ -560,11 +560,11 @@ namespace BHoM.Structural.Properties
                     case ShapeType.ISection:
                         if (tf1 == tf2 && b1 == b2)                  
                         {
-                            return tf1 * Math.Pow(TotalDepth,2) * Math.Pow(TotalWidth, 3) / 24;
+                            return tf1 * Math.Pow(TotalDepth - tf1, 2) * Math.Pow(TotalWidth, 3) / 24;
                         }
                         else
                         {
-                            return tf1 * Math.Pow(TotalDepth, 2) / 12 * (Math.Pow(b1, 3) * Math.Pow(b2, 3) / (Math.Pow(b1, 3) + Math.Pow(b2, 3)));
+                            return tf1 * Math.Pow(TotalDepth - (tf1 + tf2) / 2, 2) / 12 * (Math.Pow(b1, 3) * Math.Pow(b2, 3) / (Math.Pow(b1, 3) + Math.Pow(b2, 3)));
                         }
                     case ShapeType.Channel:
                         return tf1 * Math.Pow(TotalDepth, 2) / 12 * (3 * b1 * tf1 + 2 * TotalDepth * tw / (6 * b1 * tf1 + TotalDepth * tw));

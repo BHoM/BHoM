@@ -9,6 +9,14 @@ using BHoM.Structural.Databases;
 
 namespace BHoM.Structural.Properties
 {
+    public enum Fabrication
+    {
+        Welded,
+        HotRolled,
+        HotFormed, 
+        ColdFormed
+    }
+
     public class SteelSection : SectionProperty
     {
 
@@ -80,7 +88,7 @@ namespace BHoM.Structural.Properties
             }
         }   
 
-        public bool ColdFormed
+        public Fabrication Fabrication
         { get; set; }
 
 
@@ -115,9 +123,5 @@ namespace BHoM.Structural.Properties
                 return SectionData[(int)SteelSectionData.r1];
             }
         }
-
-        
-
-
     }
 }
