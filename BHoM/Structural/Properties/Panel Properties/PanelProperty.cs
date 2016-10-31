@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Properties
 {
+
     public enum PanelDirection
     {
         X = 0,
