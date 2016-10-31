@@ -152,6 +152,7 @@
     <Compile Include="Structural\Loads\Loadcombination.cs" />
     <Compile Include="Structural\Loads\LoadEnums.cs" />
     <Compile Include="Structural\Loads\NodeLoad.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\LoadingPanel.cs" />
     <Compile Include="Structural\Properties\Section Properties\CableSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\ConcreteSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\ExplicitSectionProperty.cs" />

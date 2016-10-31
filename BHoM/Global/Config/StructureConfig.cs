@@ -12,7 +12,10 @@ namespace BHoM.Global
         private string m_SectionDB = "UK_Sections";
         private string m_MaterialDB = "Europe";
         private string m_PfeiferFullLockedDB = "PfeiferFullLocked";
-
+        private string m_StyliteForkSocketDB = "BridonSTF";
+        private string m_StyliteAdjustableForkSocketDB = "BridonSTAF";
+        private string m_StyliteRingConnectorDB = "BridonSTRC";
+        
         public string SectionDatabase
         {
             get
@@ -46,6 +49,42 @@ namespace BHoM.Global
             set
             {
                 m_PfeiferFullLockedDB = value;
+            }
+        }
+
+        public string StyliteForkSocketDataBase
+        {
+            get
+            {
+                return m_StyliteForkSocketDB;
+            }
+            set
+            {
+                m_StyliteForkSocketDB = value;
+            }
+        }
+
+        public string StyliteAdjustableForkSocketDataBase
+        {
+            get
+            {
+                return m_StyliteAdjustableForkSocketDB;
+            }
+            set
+            {
+                m_StyliteAdjustableForkSocketDB = value;
+            }
+        }
+
+        public string StyliteRingConnectorDataBase
+        {
+            get
+            {
+                return m_StyliteRingConnectorDB;
+            }
+            set
+            {
+                m_StyliteRingConnectorDB = value;
             }
         }
     }

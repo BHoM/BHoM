@@ -117,4 +117,164 @@ namespace BHoM.Structural.Databases
         /// </summary>
         Name,
     }
+
+    public enum CableSTFConnectorData
+    {
+        /// <summary>
+        /// Id
+        /// </summary>
+        Id = 0,
+        /// <summary>
+        /// Diameter[m]
+        /// </summary>
+        CableDiameter,
+        /// <summary>
+        /// Name
+        /// </summary>
+        Name,
+        /// <summary>
+        /// Dimmension1[m]
+        /// </summary>
+        L1,
+        /// <summary>
+        /// Dimmension2[m]
+        /// </summary>
+        L2,
+        /// <summary>
+        /// Dimmension3[m]
+        /// </summary>
+        L3,
+        /// <summary>
+        /// Dimmension4[m]
+        /// </summary>
+        L4,
+        /// <summary>
+        /// Dimmension5[m]
+        /// </summary>
+        L5,
+        /// <summary>
+        /// Dimmension6 Maximum[m]
+        /// </summary>
+        L6Max,
+        /// <summary>
+        /// Dimmension6 Minimum[m]
+        /// </summary>
+        L6Min,
+        /// <summary>
+        /// Pin Diameter[m]
+        /// </summary>
+        PinDia,
+        /// <summary>
+        /// Weight of the socket[kg]
+        /// </summary>
+        SocketWeight,
+        /// <summary>
+        /// Weight of the pin + caps[kg]
+        /// </summary>
+        PinOCapsWeight,
+    }
+
+    public enum CableSTAFConnectorData
+    {
+        /// <summary>
+        /// Id
+        /// </summary>
+        Id = 0,
+        /// <summary>
+        /// Diameter[m]
+        /// </summary>
+        CableDiameter,
+        /// <summary>
+        /// Name
+        /// </summary>
+        Name,
+        /// <summary>
+        /// Dimmension1 Max[m]
+        /// </summary>
+        L1Max,
+        /// <summary>
+        /// Dimmension1 Min[m]
+        /// </summary>
+        L1Min,
+        /// <summary>
+        /// +- Adjustment[m]
+        /// </summary>
+        Adj,
+        /// <summary>
+        /// Dimmension3[m]
+        /// </summary>
+        L3,
+        /// <summary>
+        /// Dimmension4[m]
+        /// </summary>
+        L4,
+        /// <summary>
+        /// Dimmension5[m]
+        /// </summary>
+        L5,
+        /// <summary>
+        /// Dimmension6 Maximum[m]
+        /// </summary>
+        L6Max,
+        /// <summary>
+        /// Dimmension6 Minimum[m]
+        /// </summary>
+        L6Min,
+        /// <summary>
+        /// Pin Diameter[m]
+        /// </summary>
+        PinDia,
+        /// <summary>
+        /// Socket Diameter[m]
+        /// </summary>
+        SocketDia,
+        /// <summary>
+        /// Thread size
+        /// </summary>
+        ThreadSize,
+        /// <summary>
+        /// Weight [kg]
+        /// </summary>
+        Weight
+    }
+
+    public enum CableSTRCConnectorData
+    {
+        /// <summary>
+        /// Id
+        /// </summary>
+        Id = 0,
+        /// <summary>
+        /// Diameter[m]
+        /// </summary>
+        CableDiameter,
+        /// <summary>
+        /// Name
+        /// </summary>
+        Name,
+        /// <summary>
+        /// Dimmension2 Max[m]
+        /// </summary>
+        L2Max,
+        /// <summary>
+        /// Dimmension2 Min[m]
+        /// </summary>
+        L2Min,
+        /// <summary>
+        /// +- Adjustment[m]
+        /// </summary>
+        Adj,
+        /// <summary>
+        /// Dimmension3[m]
+        /// </summary>
+        SocketDia,
+        /// <summary>
+        /// Thread size
+        /// </summary>
+        ThreadSize,
+        /// <summary>
+        /// Weight [kg]
+        /// </summary>
+        Weight
+    }
 }
