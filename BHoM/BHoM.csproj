@@ -105,6 +105,7 @@
     <Compile Include="Structural\Elements\FEMesh.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
     <Compile Include="Structural\Application.cs" />
+    <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
     <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Base\Object.cs" />
     <Compile Include="Base\ObjectFilter.cs" />

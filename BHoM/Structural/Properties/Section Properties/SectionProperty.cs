@@ -351,7 +351,7 @@ namespace BHoM.Structural.Properties
                     edges = ShapeBuilder.CreateRectangle(breadth, height, r1);
                     break;
                 case ShapeType.Tube:
-                    edges = ShapeBuilder.CreateTube(breadth, tw);
+                    edges = ShapeBuilder.CreateTube(breadth / 2, tw);
                     break;
             }
             return edges;
@@ -383,7 +383,7 @@ namespace BHoM.Structural.Properties
                     name = "R " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString();
                     break;
                 case ShapeType.Tube:
-                    name = "CHS " + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
+                    name = "CHS " + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
                     break;
                 default:
                     name = Shape.ToString();
