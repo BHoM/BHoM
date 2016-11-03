@@ -43,7 +43,10 @@ namespace BHoM.Materials
         /// <summary>Damping ratio</summary>
         [DefaultValue(null)]
         public double DampingRatio { get; set; }
-
+        
+        /// <summary>
+        /// Material Density of the material in [kg/m^3] 
+        /// </summary>
         [DefaultValue(null)]
         public double Density { get; set; }
 

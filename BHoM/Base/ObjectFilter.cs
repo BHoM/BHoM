@@ -64,8 +64,14 @@ namespace BHoM.Base
             m_Data = FilterClass(m_Project.Objects);
         }
 
-        
-
+        // <summary>
+        /// 
+        /// </summary>
+        /// <param name="project"></param>
+        public ObjectFilter(IEnumerable<T> data)
+        {
+            m_Data = data.ToList();
+        }
 
         public ObjectFilter() : this(Project.ActiveProject) { }
 

@@ -420,8 +420,27 @@ namespace BHoM.Base.Results
             get
             {
                 IResultSet result = null;
-                m_Results.TryGetValue(name, out result);
-                return result as ResultSet<T>;
+                if (m_Results.TryGetValue(name, out result))
+                {
+                    return result as ResultSet<T>;
+                }
+                else
+                {
+                    switch (OrderBy)
+                    {
+                        case ResultOrder.Name:
+                            NameSelection = new List<string>() { name };
+                            break;
+                        case ResultOrder.Loadcase:
+                            LoadcaseSelection = new List<string>() { name };
+                            break;
+                        case ResultOrder.TimeStep:
+                            TimeStepSelection = new List<string>() { name };
+                            break;
+                    }
+                    return LoadData().Values.First() as ResultSet<T>;
+
+                }
             }
         }
 

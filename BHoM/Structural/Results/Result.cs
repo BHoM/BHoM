@@ -62,6 +62,11 @@ namespace BHoM.Structural.Results
             }
         }
 
+        public override string ToString()
+        {
+            return this.GetType().Name + " " + Id;
+        }
+
         public Result() { }      
 
         public abstract ResultType ResultType { get; }

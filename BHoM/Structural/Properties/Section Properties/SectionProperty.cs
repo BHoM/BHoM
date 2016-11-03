@@ -258,7 +258,7 @@ namespace BHoM.Structural.Properties
         /// <returns></returns>
         public static SectionProperty CreateTubeSection(double diameter, double thickness)
         {
-            return new SteelSection(ShapeType.Tube, diameter, diameter, thickness, 0, 0, 0);
+            return new SteelSection(ShapeType.Tube, diameter, diameter, thickness, thickness, 0, 0);
         }
 
         public static SectionProperty CreateSection(BHoM.Geometry.Group<Curve> edges, ShapeType type, MaterialType matType)
@@ -538,7 +538,7 @@ namespace BHoM.Structural.Properties
                     case ShapeType.ISection:
                     case ShapeType.Channel:
                     case ShapeType.Zed:
-                        return b1 * Math.Pow(tf1, 3) + b2 * Math.Pow(tf2, 3) + TotalDepth * Math.Pow(tw, 3);
+                        return (b1 * Math.Pow(tf1, 3) + b2 * Math.Pow(tf2, 3) + (TotalDepth - tf1) * Math.Pow(tw, 3)) / 3;
                     case ShapeType.Tee:
                     case ShapeType.Angle:
                         return TotalWidth * Math.Pow(tf1, 3) + TotalDepth * Math.Pow(tw, 3);
@@ -548,7 +548,7 @@ namespace BHoM.Structural.Properties
                         return 2 * tf1 * tw * Math.Pow(TotalWidth - tw, 2) * Math.Pow(TotalDepth - tf1, 2) /
                             (TotalWidth * tw + TotalDepth * tf1 - Math.Pow(tw, 2) - Math.Pow(tf1, 2));
                     case ShapeType.Tube:
-                        return Math.PI * (Math.Pow(TotalDepth, 4) - Math.Pow(TotalDepth - tf1, 4)) / 2;
+                        return Math.PI * (Math.Pow(TotalDepth, 4) - Math.Pow(TotalDepth - tw, 4)) / 2;
                     default:
                         return 0;
                 }
@@ -569,11 +569,11 @@ namespace BHoM.Structural.Properties
                     case ShapeType.ISection:
                         if (tf1 == tf2 && b1 == b2)                  
                         {
-                            return tf1 * Math.Pow(TotalDepth,2) * Math.Pow(TotalWidth, 3) / 24;
+                            return tf1 * Math.Pow(TotalDepth - tf1, 2) * Math.Pow(TotalWidth, 3) / 24;
                         }
                         else
                         {
-                            return tf1 * Math.Pow(TotalDepth, 2) / 12 * (Math.Pow(b1, 3) * Math.Pow(b2, 3) / (Math.Pow(b1, 3) + Math.Pow(b2, 3)));
+                            return tf1 * Math.Pow(TotalDepth - (tf1 + tf2) / 2, 2) / 12 * (Math.Pow(b1, 3) * Math.Pow(b2, 3) / (Math.Pow(b1, 3) + Math.Pow(b2, 3)));
                         }
                     case ShapeType.Channel:
                         return tf1 * Math.Pow(TotalDepth, 2) / 12 * (3 * b1 * tf1 + 2 * TotalDepth * tw / (6 * b1 * tf1 + TotalDepth * tw));

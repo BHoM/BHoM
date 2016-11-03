@@ -12,7 +12,7 @@ namespace BHoM.Base.Results
         void AddData(IEnumerable<object[]> rows);
         void AddData(object[] rows);
         List<object[]> ToListData();
-
+        List<T> AsList<T>() where T : IResult, new();
         Envelope MaxEnvelope();
         Envelope MinEnvelope();
         Envelope AbsoluteEnvelope();
@@ -25,7 +25,7 @@ namespace BHoM.Base.Results
         private List<string> m_ValueNames;
         private List<int> m_NumberIndices;
         int CaseIndex;
-        int KeyIndex;
+        int NameIndex;
         int TimeStepIndex;
 
         public ResultSet()
@@ -56,7 +56,7 @@ namespace BHoM.Base.Results
             int index = 0;
 
             CaseIndex = columns.IndexOf("Loadcase");
-            KeyIndex = columns.IndexOf("Id");
+            NameIndex = columns.IndexOf("Name");
             TimeStepIndex = columns.IndexOf("TimeStep");
 
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
@@ -86,9 +86,27 @@ namespace BHoM.Base.Results
             }
         }
 
+        public void AddData(IEnumerable<T> rows)
+        {
+            foreach (T dataRow in rows)
+            {
+                m_Results.Add(dataRow.Data);
+            }
+        }
+
         public void AddData(object[] row)
         {
             m_Results.Add(row);
+        }
+
+        public void AddData(T row)
+        {
+            m_Results.Add(row.Data);
+        }
+
+        public void Clear()
+        {
+            m_Results.Clear();
         }
 
         public int Count { get { return m_Results.Count; } }
@@ -131,6 +149,31 @@ namespace BHoM.Base.Results
 
         public bool IsEmpty { get { return m_Results.Count == 0; } }
 
+        public T CriticalResult()
+        {
+            double max = double.MinValue;
+            int resultIndex = 0;
+            object[] row = null;
+            for (int i = 0; i < m_Results.Count; i++)
+            {
+                row = m_Results[i];
+                for (int j = 0; j < m_NumberIndices.Count; j++)
+                {
+                    double currentValue = (double)row[m_NumberIndices[j]];
+                    if (currentValue > max)
+                    {
+                        max = currentValue;
+                        resultIndex = i;
+                    }
+                }
+            }
+
+            T result = new T();
+            result.Data = m_Results[resultIndex];
+
+            return result;
+        }
+
         public Envelope MaxEnvelope()
         {
             Envelope envelope = new MaxEnvelope(m_ValueNames);
@@ -143,7 +186,7 @@ namespace BHoM.Base.Results
                     if (currentValue > envelope.Values[j])
                     {
                         envelope.Values[j] = currentValue;
-                        envelope.Keys[j] = row[KeyIndex].ToString();
+                        envelope.Keys[j] = row[NameIndex].ToString();
                         envelope.Cases[j] = row[CaseIndex].ToString();
                     }
                 }
@@ -163,7 +206,7 @@ namespace BHoM.Base.Results
                     if (currentValue < envelope.Values[j])
                     {
                         envelope.Values[j] = currentValue;
-                        envelope.Keys[j] = row[KeyIndex].ToString();
+                        envelope.Keys[j] = row[NameIndex].ToString();
                         envelope.Cases[j] = row[CaseIndex].ToString();
                     }
                 }
@@ -184,12 +227,25 @@ namespace BHoM.Base.Results
                     if (currentValue > Math.Abs(envelope.Values[j]))
                     {
                         envelope.Values[j] = currentValue;
-                        envelope.Keys[j] = row[KeyIndex].ToString();
+                        envelope.Keys[j] = row[NameIndex].ToString();
                         envelope.Cases[j] = row[CaseIndex].ToString();
                     }
                 }
             }
             return envelope;
+        }
+
+        public List<T1> AsList<T1>()  where T1 : IResult, new()
+        {
+            List<T1> listResults = new List<T1>();
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T1));
+            foreach (object[] row in ToListData())
+            {
+                T1 result = new T1();
+                result.Data = row;
+                listResults.Add(result);
+            }
+            return listResults;
         }
     }
 }
