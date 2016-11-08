@@ -17,7 +17,7 @@ namespace BHoM.Structural.Properties
         Polygon = 9,
 
         DoubleAngle = 22,
-        CutISection = 23,
+        DoubleISection = 23,
         DoubleChannel = 25,
 
         //Maybe should move elsewhere

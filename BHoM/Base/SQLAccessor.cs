@@ -111,7 +111,7 @@ namespace BHoM.Base
                 {
                     string match = Regex.Replace(matches[i % matches.Length], "(^[A-Z]+)([0-9]+)", "$1%$2");
                     match = Regex.Replace(match, "\\s+", "%");
-                    matchString += columnNames[i] + " like '" + match + (AND ? "' AND " : "' Or ");
+                    matchString += columnNames[i] + " like '" + match + "%" + (AND ? "' AND " : "' Or ");
                 }
 
                 matchString = matchString.Substring(0, matchString.Length - (AND ? 4 : 3));
@@ -186,12 +186,12 @@ namespace BHoM.Base
             return names;
         }
 
-        public List<object> GetDataColumn(string name)
+        public List<object> GetDataColumn(string name, string arg = "")
         {
             System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
             connection.Open();
 
-            m_DataAdapter = new SqlDataAdapter("SELECT " +name+ " FROM " + m_TableName, connection);
+            m_DataAdapter = new SqlDataAdapter("SELECT " +name+ " FROM " + m_TableName + " " + arg, connection);
             DataSet set = new DataSet();
 
             m_DataAdapter.Fill(set);

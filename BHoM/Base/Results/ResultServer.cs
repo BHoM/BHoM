@@ -250,9 +250,13 @@ namespace BHoM.Base.Results
 
                     string query = "SELECT * FROM " + m_TableName + lookupString;// + ";";
                     string sort = " ORDER BY NAME ASC, LOADCASE ASC, TIMESTEP ASC;";
-                    SqlDataAdapter dataAdapter = new System.Data.SqlClient.SqlDataAdapter(query + sort, connection);
-                    DataSet set = new DataSet();
 
+                    SqlCommand command = new SqlCommand(query + sort, connection);
+                    command.CommandTimeout = 0;
+
+                    SqlDataAdapter dataAdapter = new System.Data.SqlClient.SqlDataAdapter(command);
+          
+                    DataSet set = new DataSet();
                     dataAdapter.Fill(set);
                     connection.Close();
 
@@ -338,16 +342,23 @@ namespace BHoM.Base.Results
 
         private bool TableExists(SqlConnection con)
         {
-            string sqlStatement = @"SELECT COUNT(*) FROM " + m_TableName;
+            string sqlStatement = @"IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME='" + m_TableName +"') SELECT 1 ELSE SELECT 0";
             try
             {
                 using (SqlCommand cmd = new SqlCommand(sqlStatement, con))
                 {
-                    cmd.ExecuteScalar();
-                    return true;
+                    int x = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (x == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
@@ -384,6 +395,14 @@ namespace BHoM.Base.Results
             }
             else if (type == typeof(string))
             {
+                if (name == "Name" || name == "TimeStep")
+                {
+                    return "varchar(10)";
+                }
+                else if (name == "Loadcase")
+                {
+                    return "varchar(30)";
+                }               
                 return "varchar(50)";
             }
             else if (type == typeof(int))

@@ -67,7 +67,11 @@ namespace BHoM.Structural.Databases
         /// <summary>
         /// Spacing between double section members
         /// </summary>
-        Spacing
+        Spacing,
+        /// <summary>
+        /// Angle Degrees
+        /// </summary>
+        Angle
     }
 
     public enum CableSectionData

@@ -8,13 +8,20 @@ namespace BHoM.Materials
 {
     public enum MaterialColumnData
     {
-        Type = 2,
+        Type = 1,
+        Grade = 2,
         Name = 3,
         Weight = 5,
         Mass,
         YoungsModulus,
         PoissonRatio,
         CoefThermalExpansion,
+        MinimumYieldStress,
+        MinimumTensileStress,
+        EffectiveYieldStress,
+        EffectiveTensileStress,
+        CompressiveStrength,
+        StainAtUltimate
     }
 
     /// <summary>Steel grade</summary>

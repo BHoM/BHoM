@@ -80,9 +80,32 @@ namespace BHoM.Structural.Results
             return (results = GetResult<PanelStress>(panels, cases, orderBy)) != null;
         }
 
+        public bool TransferResults<T>(string fFrom, string fTo, List<string> loadcases)  where T : IResult, new()
+        {
+            ResultServer<T> barServerFrom = new ResultServer<T>(fFrom);
+            ResultServer<T> barServerTo = new ResultServer<T>(fTo);
+            barServerFrom.LoadcaseSelection = loadcases;
+            barServerFrom.LoadData();
+            barServerTo.StoreData(barServerFrom.ToList());
+            return true;
+        }
+
         public bool StoreResults(string filename, List<ResultType> resultTypes, List<string> loadcases, bool append = false)
         {
-            throw new NotImplementedException();
+            foreach (ResultType type in resultTypes)
+            {
+                switch (type)
+                {
+                    case ResultType.BarForce:
+                        return TransferResults<BarForce>(m_Filename, filename, loadcases);
+                    case ResultType.NodeReaction:
+                        return TransferResults<NodeReaction>(m_Filename, filename, loadcases);
+                    case ResultType.PanelStress:
+                        return TransferResults<PanelStress>(m_Filename, filename, loadcases);
+                }
+
+            }
+            return false;
         }
     }
 }

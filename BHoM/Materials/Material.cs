@@ -90,12 +90,26 @@ namespace BHoM.Materials
             if (data != null)
             {
                 MaterialType type = (MaterialType)Enum.Parse(typeof(MaterialType), data[(int)MaterialColumnData.Type].ToString(), true);
+
                 double e = (double)data[(int)MaterialColumnData.YoungsModulus];
                 double v = (double)data[(int)MaterialColumnData.PoissonRatio];
                 double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
                 double density = (double)data[(int)MaterialColumnData.Mass];
                 double g = e / (2 * (1 - v));
-                return new Material(name, type, e, v, tC, g, density);
+
+                Material m = new Material(name, type, e, v, tC, g, density);
+
+                switch (type)
+                {
+                    case MaterialType.Concrete:
+                        m.CompressiveYieldStrength = (double)data[(int)MaterialColumnData.CompressiveStrength];
+                        break;
+                    case MaterialType.Steel:
+                        m.TensileYieldStrength = (double)data[(int)MaterialColumnData.MinimumYieldStress];
+                        m.CompressiveYieldStrength = m.TensileYieldStrength;
+                        break;
+                }
+                return m;
             }
             return null;
         }
