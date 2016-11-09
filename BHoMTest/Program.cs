@@ -352,7 +352,7 @@ namespace BHoMTest
 
 
 
-        public ConvertData(string fileName)
+        public void ConvertData(string fileName)
         {
             XmlDocument doc = new XmlDocument();
 
