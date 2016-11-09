@@ -14,6 +14,7 @@ using BHoM.Structural.Loads;
 using BHoM.Structural.Results;
 using BHoM.Structural.Elements;
 using BHoM.Base.Results;
+using System.Xml;
 
 namespace BHoMTest
 {
@@ -347,6 +348,41 @@ namespace BHoMTest
             TestClass c = new TestClass();
             System.Reflection.FieldInfo[] fInfo = c.GetType().GetFields();
             
+        }
+
+
+
+        public ConvertData(string fileName)
+        {
+            XmlDocument doc = new XmlDocument();
+
+            doc.Load(fileName);
+
+            foreach (XmlNode node in doc.FirstChild.ChildNodes)
+            {
+                switch (node.Name)
+                {
+                    case "STEEL_ANGLE":
+
+                        break;
+                    case "STEEL_BOX":
+                        break;
+                    case "STEEL_CHANNEL":
+                        break;
+                    case "STEEL_DOUBLE_ANGLE":
+                        break;
+                    case "STEEL_I_SECTION":
+                        break;
+                        case "STEEL_PIPE":
+                        break;
+                    case "STEEL_TEE":
+                        break;
+
+                }
+
+            }
+
+
         }
 
 

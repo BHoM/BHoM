@@ -35,7 +35,6 @@ namespace BHoM.Structural.Properties
         protected double m_Vy;
         protected double m_Vpy;
 
-
         public double[] SectionData { get; set; }
 
         /// <summary>
@@ -45,8 +44,6 @@ namespace BHoM.Structural.Properties
         {
             SectionData = new double[15];
         }
-
-        
 
         /// <summary>
         /// Geometry of the cross section
@@ -62,8 +59,6 @@ namespace BHoM.Structural.Properties
         [DisplayName("Material")]
         [Description("Bar Material assigned to the bar object")]
         public BHoM.Materials.Material Material { get; set; }
-
-
 
         /************************************************/
         /********* Steel sections from data base ********/
@@ -86,30 +81,37 @@ namespace BHoM.Structural.Properties
 
             if (data != null)
             {
-                ShapeType shape = (ShapeType)data[(int)SteelSectionData.Shape];
-                double mass = (double)data[(int)SteelSectionData.Mass];
-                double breadth = (double)data[(int)SteelSectionData.Width];
-                double height = (double)data[(int)SteelSectionData.Height];
-                double tw = (double)data[(int)SteelSectionData.TW];
-                double tf1 = (double)data[(int)SteelSectionData.TF1];
-                double tf2 = (double)data[(int)SteelSectionData.TF2];
-                double b1 = (double)data[(int)SteelSectionData.B1];
-                double b2 = (double)data[(int)SteelSectionData.B2];
-                double b3 = (double)data[(int)SteelSectionData.B3];
-                double s = (double)data[(int)SteelSectionData.Spacing];
-                double r1 = (double)data[(int)SteelSectionData.r1];
-                double r2 = (double)data[(int)SteelSectionData.r2];
-                
-                double[] sectionData = new double[(int)SteelSectionData.Spacing + 1];
-                for (int i = (int)SteelSectionData.Mass; i < (int)SteelSectionData.Spacing + 1; i++)
+                try
                 {
-                    sectionData[i] = (double)data[i];
+                    ShapeType shape = (ShapeType)data[(int)SteelSectionData.Shape];
+                    double mass = (double)data[(int)SteelSectionData.Mass];
+                    double breadth = (double)data[(int)SteelSectionData.Width];
+                    double height = (double)data[(int)SteelSectionData.Height];
+                    double tw = (double)data[(int)SteelSectionData.TW];
+                    double tf1 = (double)data[(int)SteelSectionData.TF1];
+                    double tf2 = (double)data[(int)SteelSectionData.TF2];
+                    double b1 = (double)data[(int)SteelSectionData.B1];
+                    double b2 = (double)data[(int)SteelSectionData.B2];
+                    double b3 = (double)data[(int)SteelSectionData.B3];
+                    double s = (double)data[(int)SteelSectionData.Spacing];
+                    double r1 = (double)data[(int)SteelSectionData.r1];
+                    double r2 = (double)data[(int)SteelSectionData.r2];
+
+                    double[] sectionData = new double[(int)SteelSectionData.Spacing + 1];
+                    for (int i = (int)SteelSectionData.Mass; i < (int)SteelSectionData.Spacing + 1; i++)
+                    {
+                        sectionData[i] = (double)data[i];
+                    }
+                    BHoM.Geometry.Group<Curve> edges = CreateGeometry(shape, height, breadth, tw, tf1, r1, r2, b1, b2, tf2, b3);
+                    SectionProperty property = new SteelSection(edges, shape);//, SectionType.Undefined);
+                    property.Name = name;
+                    property.SectionData = sectionData;
+                    return edges != null ? property : null;
                 }
-                BHoM.Geometry.Group<Curve> edges = CreateGeometry(shape, height, breadth, tw, tf1, r1, r2, b1, b2, tf2, b3);
-                SectionProperty property = new SteelSection(edges, shape);//, SectionType.Undefined);
-                property.Name = name;
-                property.SectionData = sectionData;
-                return edges != null ? property : null;
+                catch
+                {
+                    return null;
+                }
             }
             return null;
         }
@@ -174,7 +176,6 @@ namespace BHoM.Structural.Properties
         /*****************************************************/
         /*********** Static steel section constructors *******/
         /*****************************************************/
-
 
         public static SectionProperty CreateTee(double totalHeight, double totalwidth, double flangeThickness, double webThickness, double r1 = 0, double r2 = 0)
         {
@@ -274,7 +275,6 @@ namespace BHoM.Structural.Properties
                     property = new SteelSection(edges, type);
                     property.Material = Material.Default(matType);
                     return property;
-
             }
         }
 
@@ -356,7 +356,7 @@ namespace BHoM.Structural.Properties
             }
             return edges;
         }
-
+       
         protected virtual string GenerateStandardName()
         {
             string name = null;
@@ -668,6 +668,10 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        public override GeometryBase GetGeometry()
+        {
+            return Edges;
+        }
 
         public override string ToString()
         {
@@ -676,6 +680,5 @@ namespace BHoM.Structural.Properties
             return name + GenerateStandardName() + mat;
 
         }
-
     }
 }
