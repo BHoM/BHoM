@@ -129,6 +129,7 @@
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structural\Loads\GravityLoad.cs" />
+    <Compile Include="Structural\ModelTracker\BarTracker.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
     <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />

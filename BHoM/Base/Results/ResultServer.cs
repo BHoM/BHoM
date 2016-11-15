@@ -413,6 +413,10 @@ namespace BHoM.Base.Results
             {
                 return "char(38)";
             }
+            else if (type == typeof(DateTime))
+            {
+                return "date";
+            }
             else return "";
         }
 
