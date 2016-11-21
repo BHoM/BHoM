@@ -95,19 +95,19 @@ namespace BHoM.Geometry
             return sameSide;
         }
 
-        public static Plane XY()
+        public static Plane XY(double z = 0)
         {
-            return new Plane(Point.Origin, Vector.ZAxis());
+            return new Plane(new Point(0,0,z), Vector.ZAxis());
         }
 
-        public static Plane YZ()
+        public static Plane YZ(double x = 0)
         {
-            return new Plane(Point.Origin, Vector.XAxis());
+            return new Plane(new Point(x, 0, 0), Vector.XAxis());
         }
 
-        public static Plane XZ()
+        public static Plane XZ(double y = 0)
         {
-            return new Plane(Point.Origin, Vector.YAxis());
+            return new Plane(new Point(0, y, 0), Vector.YAxis());
         }
 
         /// <summary>

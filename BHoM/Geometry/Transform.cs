@@ -70,9 +70,19 @@ namespace BHoM.Geometry
              });
         }
 
-        public static Transform Scale(Point about, Vector scale)
+        public static Transform Scale(Point about, Vector scaleVector)
         {
-            return null;
+            Transform move1 = Translation(Point.Origin - about);
+            Transform move2 = Translation(about - Point.Origin);
+            Transform scale = new Transform(new double[][]
+            {
+                new double[] {  scaleVector.X,  0,  0,  0   },
+                new double[] {  0, scaleVector.Y,  0,  0   },
+                new double[] {  0,  0, scaleVector.Z,  0   },
+                new double[] {  0,  0,  0,  1   }
+            });
+
+            return move2 * scale * move1;
         }
 
 

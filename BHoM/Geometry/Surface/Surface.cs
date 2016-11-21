@@ -34,10 +34,10 @@ namespace BHoM.Geometry
             edges.Add(new Line(p2, p3));
             edges.Add(new Line(p3, p4));
             edges.Add(new Line(p4, p1));
-            m_Edges = new Group<Curve>(Curve.Join(edges));
+            m_NakedEdges = new Group<Curve>(Curve.Join(edges));
             m_Dimensions = 3;
 
-            Curve c = m_Edges[0];
+            Curve c = m_NakedEdges[0];
 
             m_Columns = 2;
             m_ControlPoints = new double[4 * (m_Dimensions + 1)];
@@ -126,7 +126,7 @@ namespace BHoM.Geometry
             }
             s.m_Order = m_Order;
 
-            s.m_Edges = m_Edges.DuplicateGroup();
+            s.m_NakedEdges = m_NakedEdges.DuplicateGroup();
             return s;
         }
 
@@ -150,7 +150,7 @@ namespace BHoM.Geometry
             if (boundary.IsPlanar() && boundary.IsClosed())
             {
                 Surface surface = new Surface();
-                surface.m_Edges = new Group<Curve>(new List<Curve>() { boundary });
+                surface.m_NakedEdges = new Group<Curve>(new List<Curve>() { boundary });
 
                 Curve xY = boundary.DuplicateCurve();
                 Plane plane = null;
@@ -182,7 +182,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            string points = "\"points\": [[ ";
+            string points = "\"Points\": [[ ";
             for (int i = 0; i < m_ControlPoints.Length - 1; i++)
             {
                 if (i > 0 && (i + 1) % 4 == 0)
@@ -197,9 +197,10 @@ namespace BHoM.Geometry
             points = points.Trim(',') + "]]";
             string uknots = "\"uknots\": " + Common.Utils.CollectionToString(m_Knots[0]);
             string vknots = "\"vknots\": " + Common.Utils.CollectionToString(m_Knots[1]);
-            string weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"weights\": " + Common.Utils.CollectionToString(m_Weights) : "";
-            string degree = "\"degree\": " + (m_Order - 1);
-            return "{\"Primitive\": \"curve\"," + points + "," + degree + "," + uknots + "," + vknots + (weights != "" ? "," : "") + weights + "}";
+            string weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"Weights\": " + Common.Utils.CollectionToString(m_Weights) : "";
+            string degree = "\"Degree\": " + (m_Order - 1);
+            string trimmingCurves = "\"TrimmingCurves\": " + m_TrimCurves.ToJSON();
+            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + degree + "," + uknots + "," + vknots + (weights != "" ? "," : "") + weights + "," + trimmingCurves + "}";
         }
     
         #endregion

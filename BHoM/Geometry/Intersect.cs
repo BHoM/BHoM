@@ -79,6 +79,10 @@ namespace BHoM.Geometry
             return result;
         }
 
+        //public static bool CurveCurve(Curve c1, Curve c2, double tolerance, out List<Curve> overLap, out List<Point> intersect)
+        //{
+
+        //}
 
         public static List<Point> CurveCurve(Curve c1, Curve c2, double tolerance)
         {

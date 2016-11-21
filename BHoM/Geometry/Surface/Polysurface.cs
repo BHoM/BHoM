@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BHoM.Base;
+using BHoM.Global;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +17,14 @@ namespace BHoM.Geometry
 
         }
 
+        internal PolySurface(Group<Surface> surfaces)
+        {
+            m_Surfaces = surfaces;
+        }
+
         public override GeometryBase Duplicate()
         {
             PolySurface surface = new PolySurface();
-            surface.m_Edges = m_Edges.DuplicateGroup();
             surface.m_Surfaces = m_Surfaces.DuplicateGroup();
             surface.m_TrimCurves = m_TrimCurves.DuplicateGroup();
             return surface;
@@ -36,10 +42,6 @@ namespace BHoM.Geometry
             m_Surfaces.Project(p);
         }
 
-        public override string ToJSON()
-        {
-            throw new NotImplementedException();
-        }
 
         public override void Transform(Transform t)
         {
@@ -56,6 +58,20 @@ namespace BHoM.Geometry
         public override void Update()
         {
             base.Update();
+        }
+        public override string ToJSON()
+        {
+            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + BHoMJSON.WriteProperty("Surfaces", m_Surfaces) + "}";
+        }
+
+        public static new PolySurface FromJSON(string json, Project project = null)
+        {
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+
+            Group<Surface> surfaces = Group<Surface>.FromJSON(definition["Surfaces"], project) as Group<Surface>;
+
+            return new PolySurface(surfaces);
         }
     }
 }

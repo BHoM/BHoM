@@ -56,25 +56,7 @@ namespace BHoM.Structural.Properties
             Edges = edges;
             Shape = sType;
             //SectionMaterial = mType;
-        }
-
-        private static double[] CreateSectionData(double height, double width, double tw, double tf1, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0, double spacing = 0)
-        {
-            double[] SectionData = new double[15];
-            SectionData[(int)SteelSectionData.Mass] = mass;
-            SectionData[(int)SteelSectionData.Width] = width;
-            SectionData[(int)SteelSectionData.Height] = height;
-            SectionData[(int)SteelSectionData.TW] = tw;
-            SectionData[(int)SteelSectionData.TF1] = tf1;
-            SectionData[(int)SteelSectionData.TF2] = tf2;
-            SectionData[(int)SteelSectionData.r1] = r1;
-            SectionData[(int)SteelSectionData.r2] = r2;
-            SectionData[(int)SteelSectionData.B1] = b1;
-            SectionData[(int)SteelSectionData.B2] = b2;
-            SectionData[(int)SteelSectionData.B3] = b3;
-            SectionData[(int)SteelSectionData.Spacing] = b3;
-            return SectionData;
-        }
+        }     
 
         public double GetGrade()
         {

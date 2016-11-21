@@ -15,26 +15,8 @@ namespace BHoM.Structural.Properties
     /// parent class are those that would populate a multi category section database only
     /// </summary>
 
-    public abstract class SectionProperty : BHoMObject
+    public abstract partial class SectionProperty : BHoMObject
     {
-        protected double m_Area;
-        protected double m_Asx;
-        protected double m_Asy;
-        protected double m_Ix;
-        protected double m_Iy;
-        protected double m_J;
-        protected double m_Sx;
-        protected double m_Sy;
-        protected double m_Zx;
-        protected double m_Zy;
-        protected double m_Rgx;
-        protected double m_Rgy;
-
-        protected double m_Vx;
-        protected double m_Vpx;
-        protected double m_Vy;
-        protected double m_Vpy;
-
         public double[] SectionData { get; set; }
 
         /// <summary>
@@ -49,7 +31,18 @@ namespace BHoM.Structural.Properties
         /// Geometry of the cross section
         /// </summary>
         [DefaultValue(null)]
-        public BHoM.Geometry.Group<Curve> Edges { get; set; }
+        public BHoM.Geometry.Group<Curve> Edges
+        {
+            get
+            {
+                return m_OrigionalEdges;
+            }
+            set
+            {
+                m_OrigionalEdges = value;
+                Update();
+            }
+        }
 
         /// <summary>Mass per metre based on section properties</summary>
         [DefaultValue(null)]
@@ -173,13 +166,35 @@ namespace BHoM.Structural.Properties
             return sec;
         }
 
+        protected static double[] CreateSectionData(double height, double width, double tw, double tf1, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0, double spacing = 0)
+        {
+            double[] SectionData = new double[15];
+            SectionData[(int)SteelSectionData.Mass] = mass;
+            SectionData[(int)SteelSectionData.Width] = width;
+            SectionData[(int)SteelSectionData.Height] = height;
+            SectionData[(int)SteelSectionData.TW] = tw;
+            SectionData[(int)SteelSectionData.TF1] = tf1;
+            SectionData[(int)SteelSectionData.TF2] = tf2;
+            SectionData[(int)SteelSectionData.r1] = r1;
+            SectionData[(int)SteelSectionData.r2] = r2;
+            SectionData[(int)SteelSectionData.B1] = b1;
+            SectionData[(int)SteelSectionData.B2] = b2;
+            SectionData[(int)SteelSectionData.B3] = b3;
+            SectionData[(int)SteelSectionData.Spacing] = b3;
+            return SectionData;
+        }
+
         /*****************************************************/
-        /*********** Static steel section constructors *******/
+        /*********** Static section constructors *******/
         /*****************************************************/
 
-        public static SectionProperty CreateTee(double totalHeight, double totalwidth, double flangeThickness, double webThickness, double r1 = 0, double r2 = 0)
+        public static SectionProperty CreateTeeSection(MaterialType matType, double totalDepth, double totalwidth, double flangeThickness, double webThickness, double r1 = 0, double r2 = 0)
         {
-            return null;
+            SectionProperty section = CreateSection(matType);
+            section.SectionData = CreateSectionData(totalDepth, totalwidth, webThickness, flangeThickness, r1, r2);
+            section.Edges = CreateGeometry(ShapeType.Tee, totalDepth, totalwidth, webThickness, flangeThickness, r1, r2);
+            section.Shape = ShapeType.Tee;
+            return section;
         }
 
         /// <summary>
@@ -195,9 +210,13 @@ namespace BHoM.Structural.Properties
         /// <param name="webRadius"></param>
         /// <param name="toeRadius"></param>
         /// <returns></returns>
-        public static SectionProperty CreateISection(/*(SectionType mType,*/ double widthTopFlange, double widthBotFlange, double totalDepth, double flangeThicknessTop, double flangeThicknessBot, double webThickness, double webRadius, double toeRadius)
+        public static SectionProperty CreateISection(MaterialType matType, double widthTopFlange, double widthBotFlange, double totalDepth, double flangeThicknessTop, double flangeThicknessBot, double webThickness, double webRadius, double toeRadius)
         {
-            return new SteelSection(ShapeType.ISection, /*mType,*/ totalDepth, Math.Max(widthTopFlange, widthBotFlange), webThickness, flangeThicknessTop, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);
+            SectionProperty section = CreateSection(matType);
+            section.SectionData = CreateSectionData(totalDepth, Math.Max(widthTopFlange, widthBotFlange), webThickness, flangeThicknessTop, webRadius, toeRadius, 0, widthTopFlange, widthBotFlange, flangeThicknessBot);
+            section.Edges = CreateGeometry(ShapeType.ISection, totalDepth, Math.Max(widthTopFlange, widthBotFlange), webThickness, flangeThicknessTop, webRadius, toeRadius, widthTopFlange, widthBotFlange, flangeThicknessBot);
+            section.Shape = ShapeType.ISection;
+            return section;
         }
 
         /// <summary>
@@ -208,9 +227,13 @@ namespace BHoM.Structural.Properties
         /// <param name="width"></param>
         /// <param name="outerRadius"></param>
         /// <returns></returns>
-        public static SectionProperty CreateRectangularSection(/*SectionType mType,*/ double height, double width, double outerRadius = 0)
+        public static SectionProperty CreateRectangularSection(MaterialType matType, double height, double width, double outerRadius = 0)
         {
-            return new SteelSection(ShapeType.Rectangle, /*mType,*/ height, width, 0, 0, outerRadius, 0);
+            SectionProperty section = CreateSection(matType);
+            section.SectionData = CreateSectionData(height, width, 0, 0, outerRadius, 0);
+            section.Edges = CreateGeometry(ShapeType.Rectangle, height, width, 0, 0, outerRadius, 0);
+            section.Shape = ShapeType.Rectangle;
+            return section;
         }
 
         /// <summary>
@@ -221,9 +244,13 @@ namespace BHoM.Structural.Properties
         /// <param name="width"></param>
         /// <param name="outerRadius"></param>
         /// <returns></returns>
-        public static SectionProperty CreateBoxSection(double height, double width, double tf, double tw, double outerRadius = 0, double innerRadius = 0)
+        public static SectionProperty CreateBoxSection(MaterialType matType, double height, double width, double tf, double tw, double outerRadius = 0, double innerRadius = 0)
         {
-            return new SteelSection(ShapeType.Box, height, width, tw, tf, outerRadius, innerRadius);
+            SectionProperty section = CreateSection(matType);
+            section.SectionData = CreateSectionData(height, width, tw, tf, outerRadius, innerRadius);
+            section.Edges = CreateGeometry(ShapeType.Box, height, width, tw, tf, outerRadius, innerRadius);
+            section.Shape = ShapeType.Box;
+            return section;// new SteelSection(ShapeType.Box, height, width, tw, tf, outerRadius, innerRadius);
         }
 
         /// <summary>
@@ -235,9 +262,13 @@ namespace BHoM.Structural.Properties
         /// <param name="flangeThickness"></param>
         /// <param name="webThickness"></param>
         /// <returns></returns>
-        public static SectionProperty CreateAngleSection(double height, double width, double flangeThickness, double webThickness, double webRadius, double toeRadius)
+        public static SectionProperty CreateAngleSection(MaterialType matType, double height, double width, double flangeThickness, double webThickness, double webRadius, double toeRadius)
         {
-            return new SteelSection(ShapeType.Angle, height, width, webThickness, flangeThickness, webRadius, toeRadius);
+            SectionProperty section = CreateSection(matType);
+            section.SectionData = CreateSectionData(height, width, webThickness, flangeThickness, webRadius, toeRadius);
+            section.Edges = CreateGeometry(ShapeType.Angle, height, width, webThickness, flangeThickness, webRadius, toeRadius);
+            section.Shape = ShapeType.Angle;
+            return section;
         }
 
         /// <summary>
@@ -246,9 +277,13 @@ namespace BHoM.Structural.Properties
         /// <param name="mType"></param>
         /// <param name="diameter"></param>
         /// <returns></returns>
-        public static SectionProperty CreateCircularSection(double diameter)
+        public static SectionProperty CreateCircularSection(MaterialType matType, double diameter)
         {
-            return new SteelSection(ShapeType.Circle, diameter, diameter, 0, 0, 0, 0);
+            SectionProperty section = CreateSection(matType);
+            section.SectionData = CreateSectionData(diameter, diameter, 0, 0, 0, 0);
+            section.Edges = CreateGeometry(ShapeType.Circle, diameter, diameter, 0, 0, 0, 0);
+            section.Shape = ShapeType.Circle;
+            return section;// new SteelSection(ShapeType.Box, height, width, tw, tf, outerRadius, innerRadius);
         }
 
         /// <summary>
@@ -257,9 +292,13 @@ namespace BHoM.Structural.Properties
         /// <param name="mType"></param>
         /// <param name="diameter"></param>
         /// <returns></returns>
-        public static SectionProperty CreateTubeSection(double diameter, double thickness)
+        public static SectionProperty CreateTubeSection(MaterialType matType, double diameter, double thickness)
         {
-            return new SteelSection(ShapeType.Tube, diameter, diameter, thickness, thickness, 0, 0);
+            SectionProperty section = CreateSection(matType);
+            section.SectionData = CreateSectionData(diameter, diameter, thickness, thickness, 0, 0);
+            section.Edges = CreateGeometry(ShapeType.Tube, diameter, diameter, thickness, thickness, 0, 0);
+            section.Shape = ShapeType.Tube;
+            return section;
         }
 
         public static SectionProperty CreateSection(BHoM.Geometry.Group<Curve> edges, ShapeType type, MaterialType matType)
@@ -273,6 +312,22 @@ namespace BHoM.Structural.Properties
                     return new ConcreteSection(edges, type);
                 default:
                     property = new SteelSection(edges, type);
+                    property.Material = Material.Default(matType);
+                    return property;
+            }
+        }
+
+        public static SectionProperty CreateSection(MaterialType matType)
+        {
+            SectionProperty property = null;
+            switch (matType)
+            {
+                case BHoM.Materials.MaterialType.Steel:
+                    return new SteelSection();
+                case BHoM.Materials.MaterialType.Concrete:
+                    return new ConcreteSection();
+                default:
+                    property = new SteelSection();
                     property.Material = Material.Default(matType);
                     return property;
             }
@@ -304,7 +359,7 @@ namespace BHoM.Structural.Properties
                         return null;
                 }
 
-                return CreateBoxSection(h * scalefactor, w * scalefactor, tf * scalefactor, tw * scalefactor);
+                return CreateBoxSection(MaterialType.Steel, h * scalefactor, w * scalefactor, tf * scalefactor, tw * scalefactor);
 
             }
             else if (arr[0] == "CHS")
@@ -319,7 +374,7 @@ namespace BHoM.Structural.Properties
                     return null;
 
 
-                return CreateTubeSection(d * scalefactor, t * scalefactor);
+                return CreateTubeSection(MaterialType.Steel, d * scalefactor, t * scalefactor);
             }
 
 
@@ -339,7 +394,7 @@ namespace BHoM.Structural.Properties
                     edges = ShapeBuilder.CreateTee(tf1, b1 == 0 ? breadth : b1, tw, height - tf1, r1, r2);
                     break;
                 case ShapeType.Box:
-                    edges = ShapeBuilder.CreateBox(breadth, height, tw, r1, r2);
+                    edges = ShapeBuilder.CreateBox(breadth, height, tw, tf1, r1, r2);
                     break;
                 case ShapeType.Angle:
                     edges = ShapeBuilder.CreateAngle(breadth, height, tf1, tw, r1, r2);
@@ -356,7 +411,7 @@ namespace BHoM.Structural.Properties
             }
             return edges;
         }
-       
+
         protected virtual string GenerateStandardName()
         {
             string name = null;
@@ -392,136 +447,28 @@ namespace BHoM.Structural.Properties
             return name;
         }
 
-        public virtual void CalculateSection()
-        {
-            SectionCalculator sC = new SectionCalculator(Edges);
-            double cx = sC.CentreX;
-            double cy = sC.CentreY;
-            m_Area = sC.Area;
-            m_Asx = sC.Asx;
-            m_Asy = sC.Asy;
-            m_Ix = sC.Ix;
-            m_Iy = sC.Iy;
-            m_Sx = sC.Sx;
-            m_Sy = sC.Sy;
-            m_Zx = sC.Zx;
-            m_Zy = sC.Zy;
-            m_Vx = sC.Max(0) - cx;
-            m_Vpx = cx - sC.Min(0);
-            m_Vy = sC.Max(0) - cy;
-            m_Vpy = cy - sC.Min(0);
-            m_Rgx = sC.rx;
-            m_Rgy = sC.ry;
-            Edges.Translate(new Vector(-cx, -cy, 0));
-        }
-
         /// <summary>Section type</summary> /// 
         [DefaultValue(null)]
         public virtual ShapeType Shape { get; set; }
-
-        ///// <summary>
-        ///// Type of material
-        ///// </summary>
-        //[DefaultValue(null)]
-        //public SectionType SectionMaterial { get; set; }
 
         /// <summary>
         /// Orientation
         /// </summary>
         [DefaultValue(null)]
-        public virtual double Orientation { get; set; }
+        public virtual double Orientation
+        {
+            get
+            {
+                return m_Orientation;
+            }
+            set
+            {
+                m_Orientation = value;
+                Update();
+            }
+        }
 
         /// <summary>Cross sectional area</summary>
-        public virtual double GrossArea
-        {
-            get
-            {
-                if (m_Area == 0) CalculateSection();
-                return m_Area;
-            }
-        }
-
-        public virtual double Asx
-        {
-            get
-            {
-                if (m_Asx == 0) CalculateSection();
-                return m_Asx;
-            }
-        }
-
-        public virtual double Asy
-        {
-            get
-            {
-                if (m_Asy == 0) CalculateSection();
-                return m_Asy;
-            }
-        }
-
-        /// <summary>
-        /// Radius of Gyration about the major axis
-        /// </summary>
-        public virtual double Rgx
-        {
-            get
-            {
-                if (m_Rgx == 0) CalculateSection();
-                return m_Rgx;
-            }
-        }
-        /// <summary>
-        /// Radius of Gyration about the minor axis
-        /// </summary>
-        public virtual double Rgy
-        {
-            get
-            {
-                if (m_Rgy == 0) CalculateSection();
-                return m_Rgy;
-            }
-        }
-        /// <summary>
-        /// Total height of section
-        /// </summary>
-        public virtual double TotalDepth
-        {
-            get
-            {
-                return Edges.Bounds().Extents.Y * 2;
-            }
-        }
-
-        /// <summary>
-        /// Total width of section
-        /// </summary>
-        public virtual double TotalWidth
-        {
-            get
-            {
-                return Edges.Bounds().Extents.X * 2;
-            }
-        }
-
-        /// <summary>Second moment of inertia about the major axis</summary>
-        public virtual double Ix
-        {
-            get
-            {
-                if (m_Ix == 0) CalculateSection();
-                return m_Ix;
-            }
-        }
-
-        /// <summary>Second moment of inertia about the minor axis</summary>
-        public virtual double Iy
-        {
-            get
-            {
-                if (m_Iy == 0) CalculateSection();
-                return m_Iy;
-            }
-        }
 
         /// <summary>Torsion Constant</summary>
         public virtual double J
@@ -567,7 +514,7 @@ namespace BHoM.Structural.Properties
                 switch (Shape)
                 {
                     case ShapeType.ISection:
-                        if (tf1 == tf2 && b1 == b2)                  
+                        if (tf1 == tf2 && b1 == b2)
                         {
                             return tf1 * Math.Pow(TotalDepth - tf1, 2) * Math.Pow(TotalWidth, 3) / 24;
                         }
@@ -584,94 +531,18 @@ namespace BHoM.Structural.Properties
         }
 
 
-        public virtual double Vy
-        {
-            get
-            {
-                if (m_Vy == 0) CalculateSection();
-                return m_Vy;
-            }
-        }
-
-        public virtual double Vpy
-        {
-            get
-            {
-                if (m_Vpy == 0) CalculateSection();
-                return m_Vpy;
-            }
-        }
-
-        public virtual double Vx
-        {
-            get
-            {
-                if (m_Vx == 0) CalculateSection();
-                return m_Vx;
-            }
-        }
-
-        public virtual double Vpx
-        {
-            get
-            {
-                if (m_Vpx == 0) CalculateSection();
-                return m_Vpx;
-            }
-        }
-
-        /// <summary>
-        /// Plastic Section modulus about the major axis
-        /// </summary>
-        public virtual double Sx
-        {
-            get
-            {
-                if (m_Sx == 0) CalculateSection();
-                return m_Sx;
-            }
-        }
-
-        /// <summary>
-        /// Plastic Section modulus about the minor axis
-        /// </summary>
-        public virtual double Sy
-        {
-            get
-            {
-                if (m_Sy == 0) CalculateSection();
-                return m_Sy;
-            }
-        }
-
-        /// <summary>
-        /// Elastic Section modulus about the major axis
-        /// </summary>
-        public virtual double Zx
-        {
-            get
-            {
-                if (m_Zx == 0) CalculateSection();
-                return m_Zx;
-            }
-        }
-
-        /// <summary>
-        /// Plastic Section modulus about the minor axis
-        /// </summary>
-        public virtual double Zy
-        {
-            get
-            {
-                if (m_Zy == 0) CalculateSection();
-                return m_Zy;
-            }
-        }
-
         public override GeometryBase GetGeometry()
         {
-            return Edges;
+            if (double.IsInfinity(m_Cx))
+            {
+                m_Edges = m_OrigionalEdges.DuplicateGroup();
+                m_Edges.Translate(new Vector(-CentreX, -CentreY, 0));
+                m_Edges.Transform(Transform.Rotation(Point.Origin, Vector.ZAxis(), Orientation));
+            }
+            return m_Edges;
         }
+
+
 
         public override string ToString()
         {

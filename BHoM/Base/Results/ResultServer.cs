@@ -15,7 +15,7 @@ namespace BHoM.Base.Results
 {
     public enum ResultOrder
     {
-        Name,
+        Name = 0,
         Loadcase,
         TimeStep,
         None
