@@ -12,7 +12,7 @@ namespace BHoM.Structural.Loads
     /// Uniformly distributed area load
     /// </summary>
     [Serializable]
-    public class AreaUniformalyDistributedLoad : Load<Panel>
+    public class AreaUniformalyDistributedLoad : Load<IAreaElement>
     {
         public BHoM.Geometry.Vector Pressure { get; set; }
 
