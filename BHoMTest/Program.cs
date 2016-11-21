@@ -33,10 +33,19 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            TestCableConnectionDB();
+            TestSql();
 
             Console.Read();
             
+        }
+
+        public static void TestSql()
+        {
+            SQLAccessor accessor = new SQLAccessor(Database.Material, "Europe");
+            List<object> col = accessor.GetDataColumn("Type");
+            List<object> col2 = accessor.GetDataColumn("IsDefault");
+
+            BHoM.Materials.Material mat = BHoM.Materials.Material.Default(BHoM.Materials.MaterialType.Cable);
         }
 
         public static void TestCableConnectionDB()
@@ -341,13 +350,9 @@ namespace BHoMTest
             
         }
 
-        public static void TestSql()
-        {
-            SQLAccessor accessor = new SQLAccessor(Database.SteelSection, "UK_Sections");
-            List<object> col = accessor.GetDataColumn("Name");
-        }
 
-        public ConvertData(string fileName)
+
+        public void ConvertData(string fileName)
         {
             XmlDocument doc = new XmlDocument();
 

@@ -106,6 +106,7 @@
     <Compile Include="Structural\Databases\Enums.cs" />
     <Compile Include="Structural\Elements\FEFace.cs" />
     <Compile Include="Structural\Elements\FEMesh.cs" />
+    <Compile Include="Structural\Elements\IAreaElement.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
     <Compile Include="Structural\Application.cs" />
     <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structural\Loads\GravityLoad.cs" />
+    <Compile Include="Structural\ModelTracker\BarTracker.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
     <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
     <Compile Include="Structural\Interface\IResultAdapter.cs" />
     <Compile Include="Base\Results\ResultServer.cs" />
+    <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\GlobalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodalResult.cs" />
@@ -177,11 +180,6 @@
     <Compile Include="Structural\Properties\Section Properties\ShapeBuilder.cs" />
     <Compile Include="Structural\Properties\Section Properties\SectionProperty.cs" />
     <Compile Include="Structural\Properties\Panel Properties\PanelProperty.cs" />
-    <Compile Include="Structural\Databases\UK_SectionsDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UK_SectionsDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Structural\Results\Nodal Results\NodeVelocity.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelForce.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelStress.cs" />
@@ -209,17 +207,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Structural\Databases\UK_SectionsDataSet.xsc">
-      <DependentUpon>UK_SectionsDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Structural\Databases\UK_SectionsDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>UK_SectionsDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Structural\Databases\UK_SectionsDataSet.xss">
-      <DependentUpon>UK_SectionsDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

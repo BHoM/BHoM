@@ -13,7 +13,7 @@ namespace BHoM.Structural.Elements
     /// <summary>
     /// Panel Class
     /// </summary>
-    public class Panel : BHoMObject
+    public class Panel : BHoMObject, IAreaElement
     {
 
         /////////////////
@@ -127,6 +127,14 @@ namespace BHoM.Structural.Elements
 
         [DefaultValue(null)]
         public SurfaceConstraint PlanarSpring { get; set; }
+
+        public AreaElementType ElementType
+        {
+            get
+            {
+                return AreaElementType.Panel;
+            }
+        }
 
         public bool IsValid() { return m_ExteriorEdges != null; }
 

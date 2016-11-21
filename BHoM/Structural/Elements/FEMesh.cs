@@ -8,7 +8,7 @@ using BHoM.Structural.Properties;
 
 namespace BHoM.Structural.Elements
 {
-    public class FEMesh : BHB.BHoMObject
+    public class FEMesh : BHB.BHoMObject, IAreaElement
     {
         public FEMesh()
         {
@@ -22,5 +22,12 @@ namespace BHoM.Structural.Elements
 
         public List<FEFace> Faces { get; set; }
 
+        public AreaElementType ElementType
+        {
+            get
+            {
+                return AreaElementType.Mesh;
+            }
+        }
     }
 }

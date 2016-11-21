@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BHoM.Structural.Loads
 {
@@ -37,6 +38,14 @@ namespace BHoM.Structural.Loads
             }
         }
 
+        [DefaultValue(LoadAxis.Global)]
+        public LoadAxis Axis
+        {
+            get; set;
+        }
+        [DefaultValue(false)]
+        public bool Projected { get; set; }
+
         public GeometricalAreaLoad(BHoM.Geometry.Curve contour, Geometry.Vector force)
         {
             Contour = contour;
@@ -55,6 +64,14 @@ namespace BHoM.Structural.Loads
 
         public Geometry.Vector MomentA { get; set; }
         public Geometry.Vector MomentB { get; set; }
+
+        [DefaultValue(LoadAxis.Global)]
+        public LoadAxis Axis
+        {
+            get; set;
+        }
+        [DefaultValue(false)]
+        public bool Projected { get; set; }
 
         public LoadType LoadType
         {

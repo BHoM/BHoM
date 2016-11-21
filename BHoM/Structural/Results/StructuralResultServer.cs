@@ -107,5 +107,10 @@ namespace BHoM.Structural.Results
             }
             return false;
         }
+
+        public bool GetBarUtilisation(List<string> bars, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results)
+        {
+            return (results = GetResult<SteelUtilisation>(bars, cases, orderBy)) != null;
+        }
     }
 }

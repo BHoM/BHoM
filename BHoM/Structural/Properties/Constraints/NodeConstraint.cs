@@ -247,7 +247,8 @@ namespace BHoM.Structural.Properties
 
         public override string ToString()
         {
-            return string.IsNullOrEmpty(base.Name) ? RestraintKey() + ValueKey() : base.Name;
+            //return string.IsNullOrEmpty(base.Name) ? RestraintKey() + ValueKey() : base.Name;
+            return string.IsNullOrEmpty(base.Name) ? RestraintKey() + ValueKey() : base.Name + " " + RestraintKey() + " " + ValueKey();
         }
     }
 }
