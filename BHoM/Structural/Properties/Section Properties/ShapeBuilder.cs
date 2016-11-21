@@ -161,10 +161,10 @@ namespace BHoM.Structural.Properties
         /// <param name="innerRadius">inner radius</param>
         /// <param name="outerRadius">outer radius</param>
         /// <returns></returns>
-        public static Group<Curve> CreateBox(double width, double height, double thickness, double innerRadius, double outerRadius)
+        public static Group<Curve> CreateBox(double width, double height, double tw, double tf, double innerRadius, double outerRadius)
         {
             Group<Curve> box = CreateRectangle(width, height, outerRadius);
-            box.AddRange(CreateRectangle(width - 2 * thickness, height - 2 * thickness, innerRadius));
+            box.AddRange(CreateRectangle(width - 2 * tw, height - 2 * tf, innerRadius));
 
             return box;
         }

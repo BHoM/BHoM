@@ -12,7 +12,7 @@ namespace BHoM.Base
 {
     public enum FilterOption
     {
-        Name,
+        Name = 0,
         Guid,
         Property,
         UserData

@@ -9,11 +9,10 @@ using System.Reflection;
 
 namespace BHoM.Geometry
 {
-      public abstract class GeometryBase
+    public abstract class GeometryBase
     {
         public Guid Id { get; set; }
         
-
         internal GeometryBase() { Id = new Guid(); }
 
         public abstract BoundingBox Bounds();
@@ -49,50 +48,7 @@ namespace BHoM.Geometry
             Type type = Type.GetType("BHoM.Geometry." + typeString);
 
             MethodInfo methodInfo = type.GetMethod("FromJSON", System.Reflection.BindingFlags.Static | BindingFlags.Public);
-            return methodInfo.Invoke(null, new object[] { json, project }) as GeometryBase;
-
-            //switch (typeString)
-            //{
-            //    case "point":
-            //        return new Point(BHoMJSON.ReadValue(typeof(double[]), definition["point"], project) as double[]);
-            //    case "vector":
-            //        return new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["vector"], project) as double[]);
-            //    case "plane":
-            //        Point origin = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["origin"], project) as double[]);
-            //        Vector normal = new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["point"], project) as double[]);
-            //        return new Plane(origin, normal);
-            //    case "arc":
-            //        Point start = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"], project) as double[]);
-            //        Point middle = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["middle"], project) as double[]);
-            //        Point end = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"], project) as double[]);
-            //        return new Arc(start, middle, end);
-            //    case "line":
-            //        Point startP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["start"], project) as double[]);
-            //        Point endP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["end"], project) as double[]);
-            //        return new Line(startP, endP);
-            //    case "polyline":
-            //        List<double[]> points = BHoMJSON.ReadValue(typeof(List<double[]>), definition["points"], project) as List<double[]>;
-            //        return new Polyline(points);
-            //    case "curve":
-            //        List<double[]> curvePoints = BHoMJSON.ReadValue(typeof(List<double[]>), definition["points"], project) as List<double[]>;
-            //        double[] knots = definition.ContainsKey("knots") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["knots"], project) : null;
-            //        double[] weights = definition.ContainsKey("weights") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["weights"], project) : null;
-            //        int degree = (int)BHoMJSON.ReadValue(typeof(int), definition["degree"], project);
-            //        return new NurbCurve(curvePoints, degree, knots, weights);
-            //    case "group":
-            //        Type groupDataType = Type.GetType(definition["groupType"].Trim('\"', '\"'));
-            //        var groupType = typeof(Group<>);
-            //        var dataType = typeof(List<>);
-            //        var data = dataType.MakeGenericType(groupDataType);
-            //        var groupofType = groupType.MakeGenericType(groupDataType);
-            //        var group = Activator.CreateInstance(groupofType);
-            //        System.Reflection.MethodInfo jsonMethod = groupofType.GetMethod("AddRange");
-            //        if (jsonMethod != null)
-            //            return jsonMethod.Invoke(group, new object[] { BHoMJSON.ReadValue(data, definition["group"], project) }) as GeometryBase;
-            //        return group as GeometryBase;
-
-            //}
-            return null;
+            return methodInfo.Invoke(null, new object[] { json, project }) as GeometryBase;           
         }
     }
 }

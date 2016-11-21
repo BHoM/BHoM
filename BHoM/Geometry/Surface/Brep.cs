@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BHoM.Global;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,23 +9,54 @@ namespace BHoM.Geometry
 {
     public abstract class Brep : GeometryBase
     {
-        protected Group<Curve> m_Edges;
+        protected Group<Curve> m_NakedEdges;
+        protected Group<Curve> m_InternalEdges;
         protected Group<Curve> m_TrimCurves;
-
         internal Brep()
         {
-            m_Edges = new Group<Curve>();
-            m_TrimCurves = new Group<Curve>();
+            //m_NakedEdges = new Group<Curve>();
+            //m_InternalEdges = new Group<Curve>();
         }
 
         public override BoundingBox Bounds()
         {
-            return m_Edges.Bounds();
+            return m_NakedEdges.Bounds();
         }
 
         public override GeometryBase Duplicate()
         {
-            throw new NotImplementedException();
+            return DuplicateBrep();
+        }
+
+        public virtual Group<Curve> NakedEdges
+        {
+            get
+            {
+                Group<Curve> result = new Group<Curve>();
+                result.AddRange(m_NakedEdges);
+                if (m_TrimCurves != null)
+                {
+                    result.AddRange(m_TrimCurves);
+                }
+                return result;
+            }
+        }
+
+        public virtual Group<Curve> InternalEdges
+        {
+            get
+            {
+                return m_InternalEdges;
+            }
+        }
+
+
+        public virtual Brep DuplicateBrep()
+        {
+            Brep b = (Brep)Activator.CreateInstance(this.GetType(), true);
+            b.m_NakedEdges = m_NakedEdges.DuplicateGroup();
+            b.m_InternalEdges = m_InternalEdges.DuplicateGroup();
+            return b;
         }
 
         public static List<Brep> Join(List<Brep> breps)
@@ -40,14 +72,14 @@ namespace BHoM.Geometry
 
         public override void Mirror(Plane p)
         {
-            m_Edges.Mirror(p);
-            m_TrimCurves.Mirror(p);
+            m_NakedEdges.Mirror(p);
+            m_InternalEdges.Mirror(p);
         }
 
         public override void Project(Plane p)
         {
-            m_Edges.Project(p);
-            m_TrimCurves.Mirror(p);
+            m_NakedEdges.Project(p);
+            m_InternalEdges.Mirror(p);
         }
 
         public override string ToJSON()
@@ -57,20 +89,24 @@ namespace BHoM.Geometry
 
         public override void Transform(Transform t)
         {
-            m_Edges.Transform(t);
-            m_TrimCurves.Transform(t);
+            m_NakedEdges.Transform(t);
+            m_InternalEdges.Transform(t);
         }
 
         public override void Translate(Vector v)
         {
-            m_Edges.Translate(v);
-            m_TrimCurves.Translate(v);
+            m_NakedEdges.Translate(v);
+            m_InternalEdges.Translate(v);
         }
 
         public override void Update()
         {
-            m_Edges.Update();
-            m_TrimCurves.Update();
+            m_NakedEdges.Update();
+            m_InternalEdges.Update();
+        }
+        public static new Brep FromJSON(string json, Project project = null)
+        {
+            return GeometryBase.FromJSON(json, project) as Brep;
         }
     }
 }

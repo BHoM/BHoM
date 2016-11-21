@@ -18,8 +18,6 @@ namespace BHoM.Structural.Properties
         }
 
         //Overrides the calculate section property method to not update varables when getters are called
-        public override void CalculateSection()
-        { }
 
 
         public new double GrossArea
@@ -57,32 +55,32 @@ namespace BHoM.Structural.Properties
         ///<summary>Torsion Constant</summary>
         public new double J
         {
-            get { return m_J; }
-            set { m_J = value; }
+            get;
+            set;
         }
 
         public new double  Vy
         {
-            set { m_Vy = value; }
-            get { return base.Vy; }
+            set;
+            get;
         }
 
         public new double Vpy
         {
-            set { m_Vpy = value; }
-            get { return base.Vpy; }
+            set;
+            get;
         }
 
         public new double Vx
         {
-            set { m_Vx = value; }
-            get { return base.Vx; }
+            set;
+            get;
         }
 
         public new double Vpx
         {
-            set { m_Vpx = value; }
-            get { return base.Vpx; }
+            set;
+            get;
         }
 
         /// <summary>

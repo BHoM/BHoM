@@ -74,6 +74,12 @@ namespace BHoM.Materials
             set;
         }
 
+        public double StainAtYield
+        {
+            get;
+            set;
+        }
+
         /// <summary>Calculate material values at construct</summary>
         //void CalculateValues();
 
@@ -107,6 +113,10 @@ namespace BHoM.Materials
                     case MaterialType.Steel:
                         m.TensileYieldStrength = (double)data[(int)MaterialColumnData.MinimumYieldStress];
                         m.CompressiveYieldStrength = m.TensileYieldStrength;
+                        break;
+                    case MaterialType.Rebar:
+                        m.TensileYieldStrength = (double)data[(int)MaterialColumnData.EffectiveTensileStress];
+                        m.CompressiveYieldStrength = (double)data[(int)MaterialColumnData.EffectiveYieldStress];
                         break;
                 }
                 return m;

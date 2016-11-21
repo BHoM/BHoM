@@ -11,7 +11,17 @@ namespace BHoM.Geometry
 {
     public class Group : Group<GeometryBase> { }
 
-    public class Group<T> : GeometryBase, IEnumerable<T>, IEnumerable where T : GeometryBase 
+    public interface IGroup
+    {
+        IEnumerable<GeometryBase> Objects { get; }
+        Type ObjectType { get; }
+
+        Group<T> Cast<T>() where T : GeometryBase;
+
+    }
+
+
+    public class Group<T> : GeometryBase, IEnumerable<T>, IEnumerable, IGroup where T : GeometryBase 
     {
         private List<T> m_Geometry;
         private BoundingBox m_Bounds;
@@ -56,6 +66,22 @@ namespace BHoM.Geometry
             get
             {
                 return m_Geometry.Count;
+            }
+        }
+
+        public IEnumerable<GeometryBase> Objects
+        {
+            get
+            {
+                return m_Geometry.Cast<GeometryBase>();
+            }
+        }
+
+        public Type ObjectType
+        {
+            get
+            {
+                return typeof(T);
             }
         }
 
@@ -167,6 +193,11 @@ namespace BHoM.Geometry
         IEnumerator IEnumerable.GetEnumerator()
         {
             return m_Geometry.GetEnumerator();
+        }
+        
+        public Group<T1> Cast<T1>() where T1 : GeometryBase
+        {
+            return new Group<T1>(m_Geometry.Cast<T1>().ToList());
         }
     }
 }

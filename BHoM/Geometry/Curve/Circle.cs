@@ -60,6 +60,11 @@ namespace BHoM.Geometry
                 t = Geometry.Transform.Translation(m_Plane.Origin - Point.Origin) * t;
                 m_ControlPoints = VectorUtils.MultiplyMany(t, m_ControlPoints);
             }
+            else
+            {
+                Geometry.Transform t = Geometry.Transform.Translation(m_Plane.Origin - Point.Origin);
+                m_ControlPoints = VectorUtils.MultiplyMany(t, m_ControlPoints);
+            }
 
             IsNurbForm = true;
         }

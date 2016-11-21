@@ -11,6 +11,9 @@ namespace BHoM.Base
     {
         IEnumerable<BHoMObject> Objects { get; }
         Type ObjectType { get; }
+
+        Group<T> Cast<T>() where T : IBase;
+
     }
 
     public class Group<T>: BHoMObject, IEnumerable<T>, IGroup where T : IBase
@@ -32,6 +35,7 @@ namespace BHoM.Base
         }
 
         public List<T> Data { get; set; }
+
 
         public IEnumerable<BHoMObject> Objects
         {
@@ -72,6 +76,11 @@ namespace BHoM.Base
         public override string ToString()
         {
             return Name + " Group of " + ObjectType + ". Containing " +Data.Count+ " items"; 
+        }
+
+        public Group<T1> Cast<T1>() where T1 : IBase
+        {
+            return new Group<T1>(Data.Cast<T1>().ToList());            
         }
     }
 }

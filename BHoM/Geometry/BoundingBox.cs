@@ -86,6 +86,27 @@ namespace BHoM.Geometry
             return (Min.X <= box.Min.X && Min.Y <= box.Min.Y && Min.Z <= box.Min.Z && Max.X >= box.Max.X && Max.Y >= box.Max.Y && Max.Z >= box.Max.Z); 
         }
 
+        public BoundingBox Add(GeometryBase obj)
+        {
+            BoundingBox other = obj.Bounds();
+            Point max = Point.Max(other.Max, Max);
+            Point min = Point.Min(other.Min, Min);
+            return new BoundingBox(min, max);
+        }
+
+        public BoundingBox Add(List<GeometryBase> obj)
+        {
+            Point max = Max;
+            Point min = Min;
+            for (int i = 0; i < obj.Count; i++)
+            {
+                BoundingBox other = obj[i].Bounds();
+                max = Point.Max(other.Max, Max);
+                min = Point.Min(other.Min, Min);
+            }
+            return new BoundingBox(min, max);
+        }
+
         public bool Contains(Point p)
         {
             double[] max = Max;

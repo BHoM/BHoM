@@ -76,6 +76,9 @@
     <Compile Include="Geometry\GeometryBase.cs" />
     <Compile Include="Geometry\Intersect.cs" />
     <Compile Include="Geometry\Quarternion.cs" />
+    <Compile Include="Geometry\Surface\Extrusion.cs" />
+    <Compile Include="Geometry\Surface\Loft.cs" />
+    <Compile Include="Geometry\Surface\Pipe.cs" />
     <Compile Include="Geometry\Transform.cs" />
     <Compile Include="Geometry\Utils.cs" />
     <Compile Include="Geometry\Curve\Arc.cs" />
@@ -89,7 +92,7 @@
     <Compile Include="Geometry\Mesh\Mesh.cs" />
     <Compile Include="Geometry\Mesh\VertexArray.cs" />
     <Compile Include="Geometry\Surface\Brep.cs" />
-    <Compile Include="Geometry\Surface\Polysurface.cs" />
+    <Compile Include="Geometry\Surface\PolySurface.cs" />
     <Compile Include="Geometry\Surface\Surface.cs" />
     <Compile Include="Geometry\Vector\Plane.cs" />
     <Compile Include="Geometry\Vector\Point.cs" />
@@ -155,6 +158,7 @@
     <Compile Include="Structural\Loads\NodeLoad.cs" />
     <Compile Include="Structural\Properties\Panel Properties\LoadingPanel.cs" />
     <Compile Include="Structural\Properties\Section Properties\CableSection.cs" />
+    <Compile Include="Structural\Properties\Section Properties\CompositeSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\ConcreteSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\ExplicitSectionProperty.cs" />
     <Compile Include="Structural\Properties\Section Properties\SteelSection.cs" />

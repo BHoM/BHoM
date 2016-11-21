@@ -1,4 +1,5 @@
 ﻿using BHoM.Geometry;
+using BHoM.Structural.Databases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,44 +8,66 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Properties
 {
-    public class SectionCalculator
+    public partial class SectionProperty
     {
         private List<Slice> m_VerticalSlices;
         private List<Slice> m_HorizontalSlices;
 
+        protected Group<Curve> m_OrigionalEdges;
         protected Group<Curve> m_Edges;
 
         private double m_XIncrement = double.PositiveInfinity;
         private double m_YIncrement = double.PositiveInfinity;
 
-        private double m_Cx = double.PositiveInfinity;
-        private double m_Cy = double.PositiveInfinity;
+        protected double m_Cx = double.PositiveInfinity;
+        protected double m_Cy = double.PositiveInfinity;
 
-        private double m_Area = 0;
-        private double m_Asx = 0;
-        private double m_Asy = 0;
-        private double m_Ix = 0;
-        private double m_Iy = 0;
-        private double m_Zx = 0;
-        private double m_Zy = 0;
-        private double m_Sx = 0;
-        private double m_Sy = 0;
+        protected double m_Area = 0;
+        protected double m_Asx = 0;
+        protected double m_Asy = 0;
+        protected double m_Ix = 0;
+        protected double m_Iy = 0;
+        protected double m_Zx = 0;
+        protected double m_Zy = 0;
+        protected double m_Sx = 0;
+        protected double m_Sy = 0;
+        protected double m_Orientation = 0;
 
-
-        public SectionCalculator(Group<Curve> edges)
+        protected void Update()
         {
-            m_Edges = edges;
+            m_HorizontalSlices = null;
+            m_VerticalSlices = null;
+
+            m_XIncrement = double.PositiveInfinity;
+            m_YIncrement = double.PositiveInfinity;
+
+            m_Cx = double.PositiveInfinity;
+            m_Cy = double.PositiveInfinity;
+
+            m_Area = 0;
+            m_Asx = 0;
+            m_Asy = 0;
+            m_Ix = 0;
+            m_Iy = 0;
+            m_Zx = 0;
+            m_Zy = 0;
+            m_Sx = 0;
+            m_Sy = 0;
+
+            m_Edges = m_OrigionalEdges.DuplicateGroup();
+            if (Orientation > 0)
+            {
+                m_Edges.Transform(Transform.Rotation(Point.Origin, Vector.ZAxis(), Orientation));
+            }
         }
 
         private List<Slice> CreateSlices(Plane p)
         {
             List<Slice> slices = new List<Slice>();
-
-            List<Point> y = new List<Point>();
+            
             List<double> cutAt = new List<double>();
             List<double> sliceSegments = new List<double>();
-
-            double length = 0;
+            
             for (int i = 0; i < m_Edges.Count; i++)
             {
                 for (int j = 0; j < m_Edges[i].PointCount; j++)
@@ -84,58 +107,101 @@ namespace BHoM.Structural.Properties
                 }
 
                 currentValue = (sliceSegments[i] + sliceSegments[i + 1]) / 2;
-                if (i == 52)
-                {
 
-                }
-                //y.AddRange(m_Edges.ValueAt(currentValue, direction, (direction + 1) % 2));
-                for (int edgeIndex = 0; edgeIndex < m_Edges.Count; edgeIndex++)
-                {
-                    if (edgeIndex == 3)
-                    {
+                //for (int edgeIndex = 0; edgeIndex < m_Edges.Count; edgeIndex++)
+                //{
+                //    if (edgeIndex == 3)
+                //    {
 
-                    }
-                    y.AddRange(Intersect.PlaneCurve(new Plane(new Point(p.Normal * currentValue), p.Normal), m_Edges[edgeIndex], 0.00001));
-                }
+                //    }
+                //    y.AddRange(Intersect.PlaneCurve(new Plane(new Point(p.Normal * currentValue), p.Normal), m_Edges[edgeIndex], 0.00001));
+                //}
 
-                List<double> isolatedCoords = new List<double>();
-                
-                for (int point = 0; point < y.Count; point++)
-                {
-                    if (p.Normal.X > 0)
-                    {
-                        isolatedCoords.Add(y[point].Y);
-                    }
-                    else
-                    {
-                        isolatedCoords.Add(y[point].X);
-                    }
-                }
+                //List<double> isolatedCoords = new List<double>();
+
+                //for (int point = 0; point < y.Count; point++)
+                //{
+                //    if (p.Normal.X > 0)
+                //    {
+                //        isolatedCoords.Add(y[point].Y);
+                //    }
+                //    else
+                //    {
+                //        isolatedCoords.Add(y[point].X);
+                //    }
+                //}
 
 
-                isolatedCoords.Sort();
+                //isolatedCoords.Sort();
 
-                if (isolatedCoords.Count % 2 != 0)
-                {
-                    for (int k = 0; k < isolatedCoords.Count - 1; k++)
-                    {
-                        if (isolatedCoords[k] == isolatedCoords[k + 1])
-                        {
-                            isolatedCoords.RemoveAt(k + 1);
-                        }
-                    }
-                }
+                //if (isolatedCoords.Count % 2 != 0)
+                //{
+                //    for (int k = 0; k < isolatedCoords.Count - 1; k++)
+                //    {
+                //        if (isolatedCoords[k] == isolatedCoords[k + 1])
+                //        {
+                //            isolatedCoords.RemoveAt(k + 1);
+                //        }
+                //    }
+                //}
 
-                for (int j = 0; j < isolatedCoords.Count - 1; j += 2)
-                {
-                    length = length + isolatedCoords[j + 1]- isolatedCoords[j];
-                }
+                //for (int j = 0; j < isolatedCoords.Count - 1; j += 2)
+                //{
+                //    length = length + isolatedCoords[j + 1] - isolatedCoords[j];
+                //}
 
-                slices.Add(new Slice(-sliceSegments[i] + sliceSegments[i + 1], length, currentValue, isolatedCoords.ToArray()));
-                length = 0;
-                y.Clear();
+                slices.Add(GetSliceAt(currentValue, -sliceSegments[i] + sliceSegments[i + 1], p));
+                //new Slice(-sliceSegments[i] + sliceSegments[i + 1], length, currentValue, isolatedCoords.ToArray()));
             }
             return slices;
+        }
+
+        private Slice GetSliceAt(double location, double width, Plane p)
+        {
+            List<Point> y = new List<Point>();
+            double length = 0;
+            for (int edgeIndex = 0; edgeIndex < m_Edges.Count; edgeIndex++)
+            {
+                if (edgeIndex == 3)
+                {
+
+                }
+                y.AddRange(Intersect.PlaneCurve(new Plane(new Point(p.Normal * location), p.Normal), m_Edges[edgeIndex], 0.00001));
+            }
+
+            List<double> isolatedCoords = new List<double>();
+
+            for (int point = 0; point < y.Count; point++)
+            {
+                if (p.Normal.X > 0)
+                {
+                    isolatedCoords.Add(y[point].Y);
+                }
+                else
+                {
+                    isolatedCoords.Add(y[point].X);
+                }
+            }
+
+
+            isolatedCoords.Sort();
+
+            if (isolatedCoords.Count % 2 != 0)
+            {
+                for (int k = 0; k < isolatedCoords.Count - 1; k++)
+                {
+                    if (isolatedCoords[k] == isolatedCoords[k + 1])
+                    {
+                        isolatedCoords.RemoveAt(k + 1);
+                    }
+                }
+            }
+
+            for (int j = 0; j < isolatedCoords.Count - 1; j += 2)
+            {
+                length = length + isolatedCoords[j + 1] - isolatedCoords[j];
+            }
+            return new Slice(width, length, location, isolatedCoords.ToArray());
         }
 
         private double Increment(int direction)
@@ -198,7 +264,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Area
+        public virtual double GrossArea
         {
             get
             {
@@ -213,15 +279,17 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double AreaAtDepth(double depth)
+        public virtual double AreaAtDepth(double depth)
         {
             Slice slice;
             double area = 0;
 
             if (depth > TotalDepth)
             {
-                return Area;
+                return GrossArea;
             }
+
+            depth = Max(1) - depth;
 
             for (int i = 0; i < HorizontalSlices.Count; i++)
             {
@@ -237,7 +305,7 @@ namespace BHoM.Structural.Properties
             return area;
         }
 
-        public double CentroidAtDepth(double depth)
+        public virtual double CentroidAtDepth(double depth)
         {
             Slice slice;
             double centroidArea = 0;
@@ -247,6 +315,8 @@ namespace BHoM.Structural.Properties
             {
                 return CentreY;
             }
+
+            depth = Max(1) - depth;
 
             for (int i = 0; i < HorizontalSlices.Count; i++)
             {
@@ -268,14 +338,17 @@ namespace BHoM.Structural.Properties
             return centroidArea / area;
         }
 
-        public double AreaAtWidth(double width)
+        public virtual double AreaAtWidth(double width)
         {
             Slice slice;
             double area = 0;
             if (width > TotalWidth)
             {
-                return Area;
+                return GrossArea;
             }
+
+            width = Max(0) - width;
+
             for (int i = VerticalSlices.Count - 1; i > 0; i--)
             {
                 slice = m_VerticalSlices[i];
@@ -292,16 +365,18 @@ namespace BHoM.Structural.Properties
             return area;
         }
 
-        public double CentroidAtWidth(double width)
+        public virtual double CentroidAtWidth(double width)
         {
             Slice slice;
             double centroidArea = 0;
             double area = 0;
 
-            if (width > TotalDepth)
+            if (width > TotalWidth)
             {
-                return CentreY;
+                return CentreX;
             }
+
+            width = Max(0) - width;
 
             for (int i = VerticalSlices.Count - 1; i > 0; i--)
             {
@@ -322,6 +397,33 @@ namespace BHoM.Structural.Properties
             return centroidArea / area;
         }
 
+        public virtual double WidthAt(double y)
+        {
+            Slice slice = GetSliceAt(y, 1, Plane.XZ());// new Plane(Point.Origin, Vector.YAxis()));
+            return slice.Length;
+        }
+
+
+        public virtual double WidthAt(double y, ref double[] range)
+        {
+            Slice slice = GetSliceAt(y, 1, Plane.XZ());
+            range = slice.Placement;
+            return slice.Length;
+        }
+
+        public virtual double DepthAt(double x)
+        {
+            Slice slice = GetSliceAt(x, 1, Plane.YZ());// new Plane(Point.Origin, Vector.XAxis()));
+            return slice.Length;
+        }
+
+        public virtual double DepthAt(double x, ref double[] range)
+        {
+            Slice slice = GetSliceAt(x, 1, Plane.YZ());
+            range = slice.Placement;
+            return slice.Length;
+        }
+
         public double Max(int direction)
         {
             return ((double[])m_Edges.Bounds().Max)[direction];
@@ -332,23 +434,23 @@ namespace BHoM.Structural.Properties
             return ((double[])m_Edges.Bounds().Min)[direction];
         }
 
-        public double rx
+        public double Rgx
         {
             get
             {
-                return Math.Sqrt(Ix / Area);
+                return Math.Sqrt(Ix / GrossArea);
             }
         }
 
-        public double ry
+        public double Rgy
         {
             get
             {
-                return Math.Sqrt(Iy / Area);
+                return Math.Sqrt(Iy / GrossArea);
             }
         }
 
-        public double Ix
+        public virtual double Ix
         {
             get
             {
@@ -363,7 +465,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Iy
+        public virtual double Iy
         {
             get
             {
@@ -378,7 +480,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Zx
+        public virtual double Zx
         {
             get
             {
@@ -390,7 +492,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Zy
+        public virtual double Zy
         {
             get
             {
@@ -402,7 +504,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Sx
+        public virtual double Sx
         {
             get
             {
@@ -417,7 +519,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double Sy
+        public virtual double Sy
         {
             get
             {
@@ -432,7 +534,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public double CentreY
+        public virtual double CentreY
         {
             get
             {
@@ -442,12 +544,12 @@ namespace BHoM.Structural.Properties
                 {
                     AreaTimesY += slice.Length * slice.Width * slice.Centre;
                 }
-                m_Cy = AreaTimesY / Area;
+                m_Cy = AreaTimesY / GrossArea;
                 return m_Cy;
             }
         }
 
-        public double CentreX
+        public virtual double CentreX
         {
             get
             {
@@ -457,15 +559,49 @@ namespace BHoM.Structural.Properties
                 {
                     AreaTimesX += slice.Length * slice.Width * slice.Centre;
                 }
-                m_Cx = AreaTimesX / Area;
+                m_Cx = AreaTimesX / GrossArea;
                 return m_Cx;
             }
         }
 
-        public double Asx
+
+        public virtual double Vy
         {
             get
-            {               
+            {
+                return Max(1) - CentreY;
+            }
+        }
+
+        public virtual double Vpy
+        {
+            get
+            {
+                return CentreY - Min(1);
+            }
+        }
+
+        public virtual double Vx
+        {
+            get
+            {
+                return Max(0) - CentreX;
+            }
+        }
+
+        public virtual double Vpx
+        {
+            get
+            {
+                return CentreX - Min(0);
+            }
+        }
+
+
+        public virtual double Asx
+        {
+            get
+            {
                 if (m_Asx != 0) return m_Asx;
                 double sy = 0;
                 double b = 0;
@@ -476,14 +612,14 @@ namespace BHoM.Structural.Properties
                     sy += slice.Length * slice.Width * (CentreX - slice.Centre);
                     b = slice.Length;
                     sum += Math.Pow(sy, 2) / (b) * slice.Width;
-                    
+
                 }
                 m_Asx = Math.Pow(Iy, 2) / sum;
                 return m_Asx;
             }
         }
 
-        public double Asy
+        public virtual double Asy
         {
             get
             {
@@ -508,6 +644,15 @@ namespace BHoM.Structural.Properties
             return Integrate(direction, value1, value2, double.MaxValue, length);
         }
 
+        /// <summary>
+        /// Linear integration
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <param name="value1"></param>
+        /// <param name="value2"></param>
+        /// <param name="max"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
         public double Integrate(int direction, double value1, double value2, double max, double length)
         {
             double result = 0;
@@ -535,6 +680,56 @@ namespace BHoM.Structural.Properties
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <param name="curve">f(x) -> integrated in the x direction</param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <param name="centroid"></param>
+        /// <returns></returns>
+        public double Integrate(int direction, Curve curve, double from, double to, ref double centroid)
+        {
+            double result = 0;
+            double max = Math.Max(from, to);
+            double min = Math.Min(from, to);
+
+            List<Slice> slices;
+            double sumAreaLength = 0;
+            if (direction == 0)
+            {
+                slices = VerticalSlices;
+            }
+            else
+            {
+                slices = HorizontalSlices;
+            }
+            for (int i = 0; i < slices.Count; i++)
+            {
+                Slice slice = slices[i];
+                if (slice.Centre > min && slice.Centre < max)
+                {
+                    double currentLength = slice.Centre;
+                    List<Point> points = Intersect.PlaneCurve(Plane.YZ(currentLength), curve, 0.001);
+                    double currentValue = 0;
+                    if (points.Count == 2)
+                    {
+                        currentValue = Math.Abs(points[0].Y - points[1].Y);
+                    }
+                    else if (points.Count == 1)
+                    {
+                        currentValue = points[0].Y;
+                    }
+                    result += currentValue * slice.Length * slice.Width;
+                    sumAreaLength += currentValue * slice.Length * slice.Width * currentLength;
+                }
+            }
+            centroid = sumAreaLength / result;
+            return result;
+        }
+
+
         public double TotalDepth
         {
             get
@@ -551,7 +746,6 @@ namespace BHoM.Structural.Properties
             }
         }
     }
-
     public class Slice
     {
         public double Width;
