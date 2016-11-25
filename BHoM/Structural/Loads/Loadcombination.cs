@@ -27,6 +27,8 @@ namespace BHoM.Structural.Loads
         public List<ICase> Loadcases { get; set; }
         public List<double> LoadFactors { get; set; }
 
+        public int Number { get; set; }
+
         public LoadCombination() { }
 
         public LoadCombination(string name, List<ICase> loadcases, List<double> loadfactors)

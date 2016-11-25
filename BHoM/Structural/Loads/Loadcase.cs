@@ -13,7 +13,7 @@ namespace BHoM.Structural.Loads
     public interface ICase : IBase
     {
         /// <summary>Loadcase number</summary>
-        //int Number { get; set; }
+        int Number { get; set; }
 
         /// <summary>
         /// Case Type

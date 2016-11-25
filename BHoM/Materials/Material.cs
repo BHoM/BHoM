@@ -101,7 +101,7 @@ namespace BHoM.Materials
                 double v = (double)data[(int)MaterialColumnData.PoissonRatio];
                 double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
                 double density = (double)data[(int)MaterialColumnData.Mass];
-                double g = e / (2 * (1 - v));
+                double g = e / (2 * (1 + v));
 
                 Material m = new Material(name, type, e, v, tC, g, density);
 
@@ -154,7 +154,7 @@ namespace BHoM.Materials
                 double v = (double)data[(int)MaterialColumnData.PoissonRatio];
                 double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
                 double density = (double)data[(int)MaterialColumnData.Mass];
-                double g = e / (2 * (1 - v));
+                double g = e / (2 * (1 + v));
                 string name = data[(int)MaterialColumnData.Name].ToString().Trim();
                 return new Material(name, type, e, v, tC, g, density);
             }
