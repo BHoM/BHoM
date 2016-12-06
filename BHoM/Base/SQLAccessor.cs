@@ -20,23 +20,69 @@ namespace BHoM.Base
         Material,
         SteelSection,
         Cables,
+        Custom
     }
 
     public class SQLAccessor
     {
         Database m_Database;
+        string m_ConnectionString;
         string m_TableName;
         SqlDataAdapter m_DataAdapter;
 
         public SQLAccessor(Database db, string tableName)
         {
+            m_ConnectionString = ConnectionString();
             m_TableName = tableName;
             m_Database = db;
         }
 
+        public SQLAccessor(string serverName, string databaseName, string tableName)
+        {
+            m_ConnectionString = "Data Source=" + serverName + "; AttachDbFilename = " + databaseName + "; Integrated Security = True; Connect Timeout = 30"; // TODO - Need to handle more than file connection
+            m_TableName = tableName;
+            m_Database = Database.Custom;
+        }
+
+        public SQLAccessor(string connectionString, string tableName)
+        {
+            m_ConnectionString = connectionString;
+            m_TableName = tableName;
+            m_Database = Database.Custom;
+        }
+
+        public List<List<string>> Query(string query)
+        {
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
+            connection.Open();
+            m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter(query, connection);
+            DataSet set = new DataSet();
+
+            m_DataAdapter.Fill(set);
+            connection.Close();
+
+            List<string> properties = new List<string>();
+            foreach (DataColumn d in set.Tables[0].Columns)
+                properties.Add(d.ColumnName);
+
+            List<List<string>> result = new List<List<string>>();
+            result.Add(properties);
+
+            foreach (DataRow d in set.Tables[0].Rows)
+            {
+                List<string> item = new List<string>();
+                foreach (string prop in properties)
+                    item.Add(d[prop].ToString());
+                result.Add(item);
+            }
+
+            return result;
+        }
+
+
         public List<string> ColumnNames()
         {
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
             m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("select COLUMN_NAME from information_schema.columns where TABLE_NAME = '" + m_TableName + "'", connection);
             DataSet set = new DataSet();
@@ -54,7 +100,7 @@ namespace BHoM.Base
 
         public DataColumn SelectUniqueData(string columnName)
         {
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
             m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("SELECT DISTINCT " + columnName + " FROM " + m_TableName + " Order By Type ASC", connection);
             DataSet set = new DataSet();
@@ -66,7 +112,7 @@ namespace BHoM.Base
 
         public List<string> Names()
         {
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
             m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("SELECT Name FROM " + m_TableName, connection);
             DataSet set = new DataSet();
@@ -84,7 +130,7 @@ namespace BHoM.Base
 
         public DataSet GetDataSet(string columnName, string matches)
         {
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
             m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("SELECT * FROM " + m_TableName + " Where " + columnName + " = '" + matches + "'", connection);
             DataSet set = new DataSet();
@@ -103,7 +149,7 @@ namespace BHoM.Base
         {
             try
             {
-                System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
+                System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
 
                 connection.Open();
                 string matchString = "";
@@ -143,7 +189,7 @@ namespace BHoM.Base
                 case Database.Cables:
                     return string.Format(Properties.Settings.Default.CableSectionConnectionStrin, appData);
                 default:
-                    return "";
+                    return m_ConnectionString;
             }
         }
 
@@ -168,7 +214,7 @@ namespace BHoM.Base
         /// <returns></returns>
         public List<string> GetTableNames()
         {
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
 
             m_DataAdapter = new System.Data.SqlClient.SqlDataAdapter("select table_name from INFORMATION_SCHEMA.TABLES", connection);
@@ -188,7 +234,7 @@ namespace BHoM.Base
 
         public List<object> GetDataColumn(string name, string arg = "")
         {
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString());
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
 
             m_DataAdapter = new SqlDataAdapter("SELECT " +name+ " FROM " + m_TableName + " " + arg, connection);
