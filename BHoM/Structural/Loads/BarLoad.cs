@@ -107,5 +107,6 @@ namespace BHoM.Structural.Loads
                 return LoadType.Pressure;
             }
         }
+
     }
 }
