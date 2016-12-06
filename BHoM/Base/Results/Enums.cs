@@ -18,6 +18,7 @@ namespace BHoM.Base.Results
         PanelForce,
         PanelStress,
         Modal,
-        Utilisation
+        Utilisation,
+        SlabReinforcement
     }
 }

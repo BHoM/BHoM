@@ -52,5 +52,7 @@ namespace BHoM.Structural.Interface
 
         bool SetLoads(List<ILoad> loads);
         bool SetLoadcases(List<ICase> cases);
+
+        bool Run();
     }
 }

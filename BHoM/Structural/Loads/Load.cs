@@ -37,7 +37,7 @@ namespace BHoM.Structural.Loads
         private Loadcase m_Loadcase;
         private BHoM.Base.Group<T> m_Objects;
 
-        internal Load() { m_Objects = new BHoM.Base.Group<T>(); }
+        internal Load() { m_Objects = new Base.Group<T>(); }
 
         [DefaultValue(LoadAxis.Global)]
         public LoadAxis Axis

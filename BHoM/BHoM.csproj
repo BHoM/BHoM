@@ -58,6 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acoustic\AcousticParameters.cs" />
+    <Compile Include="Acoustic\AcousticRASTIParameters.cs" />
+    <Compile Include="Acoustic\Speaker.cs" />
+    <Compile Include="Acoustic\STIResult.cs" />
+    <Compile Include="Acoustic\Zone.cs" />
     <Compile Include="Base\Cipher.cs" />
     <Compile Include="Base\Compress.cs" />
     <Compile Include="Base\Group.cs" />
@@ -183,6 +188,7 @@
     <Compile Include="Structural\Results\Nodal Results\NodeVelocity.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelForce.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelStress.cs" />
+    <Compile Include="Structural\Results\Reinforcement Results\SlabReinforcement.cs" />
     <Compile Include="Structural\Results\Result.cs" />
     <Compile Include="Structural\Results\StructuralResultServer.cs" />
   </ItemGroup>

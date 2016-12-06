@@ -112,5 +112,10 @@ namespace BHoM.Structural.Results
         {
             return (results = GetResult<SteelUtilisation>(bars, cases, orderBy)) != null;
         }
+
+        public bool GetSlabReinforcement(List<string> panels, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results)
+        {
+            return (results = GetResult<SlabReinforcement>(panels, cases, orderBy)) != null;
+        }
     }
 }
