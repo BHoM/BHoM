@@ -18,6 +18,11 @@ namespace BHoM.Structural.Loads
         {
         }
 
+        public GravityLoad(Loadcase loadcase, double Gx, double gy, double gz)
+        {
+            GravityDirection = new Geometry.Vector(Gx, gy, gz);
+        }
+
         public override LoadType LoadType
         {
             get
