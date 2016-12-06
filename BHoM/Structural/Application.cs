@@ -183,5 +183,9 @@ namespace BHoM.Structural
         {
             throw new NotImplementedException();
         }
+        public bool Run()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
