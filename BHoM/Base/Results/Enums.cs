@@ -19,6 +19,7 @@ namespace BHoM.Base.Results
         PanelStress,
         Modal,
         Utilisation,
-        SlabReinforcement
+        SlabReinforcement,
+        NodeCoordinates
     }
 }

@@ -102,6 +102,14 @@ namespace BHoM.Structural.Results
                         return TransferResults<NodeReaction>(m_Filename, filename, loadcases);
                     case ResultType.PanelStress:
                         return TransferResults<PanelStress>(m_Filename, filename, loadcases);
+                    case ResultType.NodeCoordinates:
+                        return TransferResults<NodeCoordinates>(m_Filename, filename, loadcases);
+                    case ResultType.NodeDisplacement:
+                        return TransferResults<NodeDisplacement>(m_Filename, filename, loadcases);
+                    case ResultType.SlabReinforcement:
+                        return TransferResults<SlabReinforcement>(m_Filename, filename, loadcases);
+                    case ResultType.Utilisation:
+                        return TransferResults<SteelUtilisation>(m_Filename, filename, loadcases);
                 }
 
             }
