@@ -117,5 +117,10 @@ namespace BHoM.Structural.Results
         {
             return (results = GetResult<SlabReinforcement>(panels, cases, orderBy)) != null;
         }
+
+        public bool GetNodeCoordinates(List<string> nodes, out Dictionary<string, IResultSet> results)
+        {
+            return (results = GetResult<NodeCoordinates>(nodes, null, ResultOrder.None)) != null;
+        }
     }
 }

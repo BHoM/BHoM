@@ -31,9 +31,28 @@ namespace BHoM.Geometry
             get { return m_Indices.Length > 3 ? m_Indices[3] : -1; }
         }
 
-        internal Face(int[] indices)
+        public int[] Indices { get { return m_Indices; } }
+
+
+        public Face(int[] indices)
         {
             m_Indices = indices;
+        }
+
+        public Face(int a, int b, int c, int d)
+        {
+            m_Indices = new int[] { a, b, c, d };
+        }
+
+        public Face(int a, int b, int c)
+        {
+            m_Indices = new int[] { a, b, c};
+        }
+
+
+        public Face Duplicate()
+        {
+            return new Face(Common.Utils.Copy<int>(m_Indices));
         }
 
         public bool IsQuad

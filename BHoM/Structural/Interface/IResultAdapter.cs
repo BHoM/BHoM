@@ -10,6 +10,7 @@ namespace BHoM.Structural.Interface
 {
     public interface IResultAdapter
     {
+        //Analytical Results
         bool StoreResults(string filename, List<ResultType> resultTypes, List<string> loadcases, bool append = false);
 
         bool GetBarForces(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
@@ -27,7 +28,12 @@ namespace BHoM.Structural.Interface
 
         bool GetBarUtilisation(List<string> bars, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
 
+        //Design Results
         bool GetSlabReinforcement(List<string> panels, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
+
+        //Geometry
+        bool GetNodeCoordinates(List<string> nodes, out Dictionary<string, IResultSet> results);
+
     }
 }
 

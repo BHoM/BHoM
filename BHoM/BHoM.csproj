@@ -71,6 +71,7 @@
     <Compile Include="Base\Results\Result.cs" />
     <Compile Include="Base\Results\ResultSet.cs" />
     <Compile Include="Base\Tolerance.cs" />
+    <Compile Include="Structural\FileIO.cs" />
     <Compile Include="Generic\Graph.cs" />
     <Compile Include="Generic\GraphLink.cs" />
     <Compile Include="Generic\GraphNode.cs" />
@@ -93,9 +94,7 @@
     <Compile Include="Geometry\Curve\PolyCurve.cs" />
     <Compile Include="Geometry\Curve\Polyline.cs" />
     <Compile Include="Geometry\Mesh\Face.cs" />
-    <Compile Include="Geometry\Mesh\FaceArray.cs" />
     <Compile Include="Geometry\Mesh\Mesh.cs" />
-    <Compile Include="Geometry\Mesh\VertexArray.cs" />
     <Compile Include="Geometry\Surface\Brep.cs" />
     <Compile Include="Geometry\Surface\PolySurface.cs" />
     <Compile Include="Geometry\Surface\Surface.cs" />
@@ -175,6 +174,7 @@
     <Compile Include="Base\Results\ResultServer.cs" />
     <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
+    <Compile Include="Structural\Results\Geometry\NodeCoordinates.cs" />
     <Compile Include="Structural\Results\Global Results\GlobalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeAcceleration.cs" />

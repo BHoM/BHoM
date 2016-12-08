@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BHoM.Base;
+using BHoM.Global;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,11 +12,13 @@ namespace BHoM.Geometry
     [Serializable]
     public class Mesh : GeometryBase
     {
-        private VertexArray m_Vertices;
-        private FaceArray m_Faces;
+        private Group<Point> m_Vertices;
+        private List<Face> m_Faces;
         
+
+      
         /// <summary>Vertices as a list of points</summary>
-        public VertexArray Vertices
+        public Group<Point> Vertices
         {
             get
             {
@@ -23,7 +27,7 @@ namespace BHoM.Geometry
         }
 
         /// <summary>Faces as a list of integer arrays</summary>
-        public FaceArray Faces
+        public List<Face> Faces
         {
             get
             {
@@ -41,14 +45,14 @@ namespace BHoM.Geometry
 
         public override BoundingBox Bounds()
         {
-            throw new NotImplementedException();
+            return m_Vertices.Bounds();
         }
 
         public Vector FaceNormal(int face)
         {
-            double[] p1 = m_Vertices.GetVertex(m_Faces[face].A);
-            double[] p2 = m_Vertices.GetVertex(m_Faces[face].B);
-            double[] p3 = m_Vertices.GetVertex(m_Faces[face].C);
+            Point p1 = m_Vertices[(m_Faces[face].A)];
+            Point p2 = m_Vertices[(m_Faces[face].B)];
+            Point p3 = m_Vertices[(m_Faces[face].C)];
             return new Vector( VectorUtils.CrossProduct(VectorUtils.Sub(p2, p1), VectorUtils.Sub(p3, p1)));        
         }
 
@@ -57,10 +61,16 @@ namespace BHoM.Geometry
         /// </summary>
         public Mesh()
         {
-            m_Vertices = new VertexArray();
-            m_Faces = new FaceArray();
+            m_Vertices = new Group<Point>();
+            m_Faces = new List<Face>();
         }
 
+
+        public Mesh(Group<Point> vertices, List<Face> faces)
+        {
+            m_Vertices = vertices;
+            m_Faces = faces;
+        }
         /// <summary>
         /// Add a mesh vertice
         /// </summary>
@@ -76,55 +86,84 @@ namespace BHoM.Geometry
         /// <param name="vertices"></param>
         public void AddVertices(List<Point> vertices)
         {
-            m_Vertices.Add(vertices);
+            m_Vertices.AddRange(vertices);
         }
 
         public override void Transform(Transform t)
         {
-            throw new NotImplementedException();
+            m_Vertices.Transform(t);
         }
 
         public override void Translate(Vector v)
         {
-            throw new NotImplementedException();
+            m_Vertices.Translate(v);
         }
 
         public override void Mirror(Plane p)
         {
-            throw new NotImplementedException();
+            m_Vertices.Mirror(p);
         }
 
         public override void Project(Plane p)
         {
-            throw new NotImplementedException();
+            m_Vertices.Project(p);
         }
 
         public override void Update()
         {
-            throw new NotImplementedException();
+            m_Vertices.Update();
         }
 
         public override GeometryBase Duplicate()
         {
-            throw new NotImplementedException();
+            return DuplicateMesh();
         }
 
         public Mesh DuplicateMesh()
         {
             Mesh m = new Mesh();
-            m.m_Faces = m_Faces.Copy();
-            m.m_Vertices = m_Vertices.Copy();
+            List<Face> f = new List<Face>();
+            for (int i = 0; i < m.m_Faces.Count; i++)
+            {
+                f.Add(m_Faces[i].Duplicate());
+            }
+            m.m_Faces = f;
+            m.m_Vertices = m_Vertices.DuplicateGroup();
             return m;
         }
 
         public override string ToJSON()
         {
-            throw new NotImplementedException();
+            string aResult = "[";
+            for (int i = 0; i < m_Faces.Count; i++)
+            {
+                aResult += "[";
+                for (int j = 0; j < m_Faces[i].Indices.Length;  j++)
+                {
+                    aResult += m_Faces[i].Indices[j] + ",";
+                }
+                aResult = aResult.Trim(',') + "]";
+            }
+            aResult = "]";
+
+            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + BHoMJSON.WriteProperty("Vertices", m_Vertices) + ",\"Faces\": " + aResult + "}";
         }
 
-        public GeometryBase FromJSON()
+        public static new Mesh FromJSON(string json, Project project = null)
         {
-            throw new NotImplementedException();
+            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
+            if (!definition.ContainsKey("Primitive")) return null;
+
+            Group<Point> verticies = Group<Point>.FromJSON(definition["Vertices"], project) as Group<Point>;
+            List<int[]> faceArray = BHoMJSON.ReadValue(typeof(List<int[]>), definition["Faces"]) as List<int[]>;
+
+            List<Face> faces = new List<Face>();
+            for (int i =0; i < faceArray.Count;i++)
+            {
+                faces.Add(new Geometry.Face(faceArray[i]));
+            }
+
+            return new Mesh(verticies, faces);
         }
     }
 }

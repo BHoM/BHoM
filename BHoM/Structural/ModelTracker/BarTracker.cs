@@ -29,6 +29,12 @@ namespace BHoM.Structural.ModelTracker
             return tracker;
         }
 
+        public int CompareTo(object obj)
+        {
+            BarTracker r2 = obj as BarTracker;
+            return Name.CompareTo(r2.Name);
+        }
+
         public BarTracker()
         {
             Data = new object[6];
