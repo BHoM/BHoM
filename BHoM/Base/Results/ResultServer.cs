@@ -108,7 +108,7 @@ namespace BHoM.Base.Results
                     CreateSqlDatabase(fileName);
                 }
 
-                m_ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + fileName + "; Integrated Security = True; Connect Timeout = 30";
+                m_ConnectionString = "Data Source = (LocalDB)\\ProjectsV13; AttachDbFilename = " + fileName + "; Integrated Security = True; Connect Timeout = 30";
                 InitialiseTable();
             }
         }
@@ -128,7 +128,7 @@ namespace BHoM.Base.Results
             string databaseName = "ResultServer";// System.IO.Path.GetFileNameWithoutExtension(filename);
             filename = filename.Replace("'", "''");
             using (var connection = new System.Data.SqlClient.SqlConnection(
-                "Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = master; Integrated Security = True; Connect Timeout = 30")) 
+                "Data Source = (LocalDB)\\ProjectsV13; Initial Catalog = master; Integrated Security = True; Connect Timeout = 30")) 
             {
                 connection.Open();
                 using (var command = connection.CreateCommand())
