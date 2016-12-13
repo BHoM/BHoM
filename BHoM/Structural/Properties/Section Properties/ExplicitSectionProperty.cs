@@ -23,33 +23,33 @@ namespace BHoM.Structural.Properties
         public new double GrossArea
         {
             set { m_Area = value; }
-            get { return base.GrossArea; }
+            get { return m_Area; }
         }
 
 
         public new double Asx
         {
             set { m_Asx = value; }
-            get { return base.Asx; }
+            get { return m_Asx; }
         }
 
         public new double Asy
         {
             set { m_Asy = value; }
-            get { return base.Asy; }
+            get { return m_Asy; }
         }
 
         public new double Ix
         {
             set { m_Ix = value; }
-            get { return base.Ix; }
+            get { return m_Ix; }
         }
 
         /// <summary>Second moment of inertia about the minor axis</summary>
         public new double Iy
         {
             set { m_Iy = value; }
-            get { return base.Iy; }
+            get { return m_Iy; }
         }
 
         ///<summary>Torsion Constant</summary>
@@ -89,7 +89,7 @@ namespace BHoM.Structural.Properties
         public new double Sx
         {
             set { m_Sx = value; }
-            get { return base.Sx; }
+            get { return m_Sx; }
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace BHoM.Structural.Properties
         public new double Sy
         {
             set { m_Sy = value; }
-            get { return base.Sy; }
+            get { return m_Sy; }
         }
 
         /// <summary>
@@ -107,16 +107,16 @@ namespace BHoM.Structural.Properties
         public new double Zx
         {
             set { m_Zx = value; }
-            get { return base.Zx; }
+            get { return m_Zx; }
         }
 
         /// <summary>
-        /// Plastic Section modulus about the minor axis
+        /// Elastic Section modulus about the minor axis
         /// </summary>
         public new double Zy
         {
             set { m_Zy = value; }
-            get { return base.Zy; }
+            get { return m_Zy; }
         }
 
 
