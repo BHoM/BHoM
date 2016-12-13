@@ -101,7 +101,7 @@ namespace BHoM.Structural
             return new ObjectFilter<ICase>(cases).ToDictionary<string>(Key, Identifier).Keys.ToList();
         }
 
-        public bool GetLoads(out List<ILoad> loads, List<string> ids = null)
+        public bool GetLoads(out List<ILoad> loads, List<Loadcase> ids = null)
         {
             loads = new ObjectFilter<ILoad>(m_Project).ToList();
             return true;
@@ -225,5 +225,6 @@ namespace BHoM.Structural
         {
             throw new NotImplementedException();
         }
+
     }
 }

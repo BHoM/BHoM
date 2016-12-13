@@ -88,7 +88,7 @@ namespace BHoM.Structural
             return manager.Keys;
         }
 
-        public bool GetLoads(out List<ILoad> loads, List<string> ids = null)
+        public bool GetLoads(out List<ILoad> loads, List<Loadcase> ids = null)
         {
             loads = new ObjectFilter<ILoad>(m_Project).ToList();
             return true;

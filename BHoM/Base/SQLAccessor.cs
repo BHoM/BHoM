@@ -32,9 +32,9 @@ namespace BHoM.Base
 
         public SQLAccessor(Database db, string tableName)
         {
-            m_ConnectionString = ConnectionString();
             m_TableName = tableName;
             m_Database = db;
+            m_ConnectionString = ConnectionString();
         }
 
         public SQLAccessor(string serverName, string databaseName, string tableName)

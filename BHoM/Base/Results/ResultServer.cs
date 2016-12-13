@@ -281,7 +281,7 @@ namespace BHoM.Base.Results
                         sort += "NAME ASC";
                         if (headers.Contains("Loadcase"))
                         {
-                            sort += ", Loadcase ASC, TIMESTEP ASC";
+                            sort += ", Loadcase ASC";
                         }
                         if (headers.Contains("TimeStep"))
                         {
