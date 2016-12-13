@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Base.Results
 {
-    public interface IResult
+    public interface IResult : IComparable
     {
         string Id { get; set; }
         object[] Data { get; set; }

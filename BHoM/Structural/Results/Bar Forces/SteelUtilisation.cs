@@ -25,6 +25,7 @@ namespace BHoM.Structural.Results
          where TLoadcase : IComparable
          where TTimeStep : IComparable
     {
+
         public string EffectiveLength
         {
             get
@@ -36,6 +37,7 @@ namespace BHoM.Structural.Results
                 Data[4] = value;
             }
         }
+
         public int Class
         {
             get

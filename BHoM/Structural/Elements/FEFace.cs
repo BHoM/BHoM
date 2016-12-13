@@ -24,5 +24,6 @@ namespace BHoM.Structural.Elements
         {
             get { return NodeIndices.Count == 3; }
         }
+
     }
 }

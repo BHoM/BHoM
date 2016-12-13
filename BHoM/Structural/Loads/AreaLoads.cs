@@ -27,7 +27,7 @@ namespace BHoM.Structural.Loads
         public AreaUniformalyDistributedLoad()
         { }
 
-        public AreaUniformalyDistributedLoad(double px, double py, double pz)
+        public AreaUniformalyDistributedLoad(Loadcase loadcase, double px, double py, double pz)
         {
             Pressure = new Geometry.Vector(px, py, pz);
         }

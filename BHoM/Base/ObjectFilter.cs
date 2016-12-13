@@ -144,7 +144,14 @@ namespace BHoM.Base
                 case FilterOption.Name:
                     return (TKey)(object)obj.Name;
                 case FilterOption.Guid:
-                    return (TKey)(object)obj.BHoM_Guid;
+                    if (typeof(TKey) == typeof(string))
+                    {
+                        return (TKey)(object)obj.BHoM_Guid.ToString();
+                    }
+                    else
+                    {
+                        return (TKey)(object)obj.BHoM_Guid;
+                    }
                 case FilterOption.Property:
                     System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(name);
                     if (pInfo != null)

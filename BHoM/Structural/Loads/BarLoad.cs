@@ -48,6 +48,13 @@ namespace BHoM.Structural.Loads
         }
 
         public BarUniformlyDistributedLoad() { }
+
+        public BarUniformlyDistributedLoad(Loadcase loadcase, double fx, double fy, double fz)
+        {
+            Loadcase = loadcase;
+            ForceVector = new Geometry.Vector(fx, fy, fz);
+            MomentVector = Geometry.Vector.Zero;
+        }
     }
 
     /// <summary>
@@ -67,6 +74,11 @@ namespace BHoM.Structural.Loads
 
         public BarTemperatureLoad() { }
         //Bar temp load object. Expansion in XYZ
+        public BarTemperatureLoad(Loadcase loadcase, double tx, double ty, double tz)
+        {
+            Loadcase = loadcase;
+            TemperatureChange = new Geometry.Vector(tx, ty, tz);
+        }
     }
 
     /// <summary>

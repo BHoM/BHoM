@@ -51,7 +51,7 @@ namespace BHoM.Geometry
             return m_Geometry;
         }
 
-        internal List<T> GeometryData { set { m_Geometry = value; } }
+        internal List<T> GeometryData { get { return m_Geometry; } set { m_Geometry = value; } }
 
         public T this[int i]
         {
