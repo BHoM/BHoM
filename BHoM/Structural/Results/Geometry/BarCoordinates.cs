@@ -11,19 +11,19 @@ namespace BHoM.Structural.Results
     {
         public BarCoordinates()
         {
-            Data = new object[7];
+            Data = new object[9];
         }
 
-        public BarCoordinates(string id, double x1, double y1, double z1, double x2, double y2, double z2)
+        public BarCoordinates(string id, double x1, double y1, double z1, double x2, double y2, double z2, string section, double ori)
         {
-            Data = new object[] { id, x1, y1, z1, x2, y2, z2 };
+            Data = new object[] { id, x1, y1, z1, x2, y2, z2, section, ori };
         }
 
         public string[] ColumnHeaders
         {
             get
             {
-                return new string[] { "Id", "X1", "Y1", "Z1", "X2", "Y2", "Z2" };
+                return new string[] { "Id", "X1", "Y1", "Z1", "X2", "Y2", "Z2", "SectionProp", "Orientation" };
             }
         }
 
@@ -122,6 +122,32 @@ namespace BHoM.Structural.Results
             set
             {
                 Data[3] = value;
+            }
+        }
+
+        public string SectionProp
+        {
+            get
+            {
+                return (string)Data[7];
+            }
+
+            set
+            {
+                Data[0] = value;
+            }
+        }
+
+        public double Orientation
+        {
+            get
+            {
+                return (double)Data[8];
+            }
+
+            set
+            {
+                Data[8] = value;
             }
         }
 
