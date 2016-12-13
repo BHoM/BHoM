@@ -20,6 +20,7 @@ namespace BHoM.Base.Results
         Modal,
         Utilisation,
         SlabReinforcement,
-        NodeCoordinates
+        NodeCoordinates,
+        BarCoordinates
     }
 }

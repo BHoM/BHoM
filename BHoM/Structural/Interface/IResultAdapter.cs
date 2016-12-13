@@ -33,7 +33,7 @@ namespace BHoM.Structural.Interface
 
         //Geometry
         bool GetNodeCoordinates(List<string> nodes, out Dictionary<string, IResultSet> results);
-
+        bool GetBarCoordinates(List<string> bars, out Dictionary<string, IResultSet> results);
     }
 }
 
