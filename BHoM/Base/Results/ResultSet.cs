@@ -149,7 +149,18 @@ namespace BHoM.Base.Results
 
         public bool IsEmpty { get { return m_Results.Count == 0; } }
 
-        public T CriticalResult()
+        public T this[int idx]
+        {
+            get
+            {
+                T result = new T();
+                result.Data = m_Results[idx];
+                return result;
+            }
+        }
+
+
+        public int CriticalResultIndex()
         {
             double max = double.MinValue;
             int resultIndex = 0;
@@ -167,11 +178,7 @@ namespace BHoM.Base.Results
                     }
                 }
             }
-
-            T result = new T();
-            result.Data = m_Results[resultIndex];
-
-            return result;
+            return resultIndex;
         }
 
         public Envelope MaxEnvelope()
