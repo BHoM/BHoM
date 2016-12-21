@@ -203,7 +203,7 @@ namespace BHoM.Base.Results
 
         public Envelope MinEnvelope()
         {
-            Envelope envelope = new MaxEnvelope(m_ValueNames);
+            Envelope envelope = new MinEnvelope(m_ValueNames);
             for (int i = 0; i < m_Results.Count; i++)
             {
                 object[] row = m_Results[i];
@@ -230,8 +230,8 @@ namespace BHoM.Base.Results
                 object[] row = m_Results[i];
                 for (int j = 0; j < m_NumberIndices.Count; j++)
                 {
-                    double currentValue = (double)row[m_NumberIndices[j]];
-                    if (currentValue > Math.Abs(envelope.Values[j]))
+                    double currentValue = Math.Abs((double)row[m_NumberIndices[j]]);
+                    if (currentValue > envelope.Values[j])
                     {
                         envelope.Values[j] = currentValue;
                         envelope.Keys[j] = row[NameIndex].ToString();
