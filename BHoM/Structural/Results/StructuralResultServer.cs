@@ -102,6 +102,16 @@ namespace BHoM.Structural.Results
                         return TransferResults<NodeReaction>(m_Filename, filename, loadcases);
                     case ResultType.PanelStress:
                         return TransferResults<PanelStress>(m_Filename, filename, loadcases);
+                    case ResultType.NodeCoordinates:
+                        return TransferResults<NodeCoordinates>(m_Filename, filename, loadcases);
+                    case ResultType.BarCoordinates:
+                        return TransferResults<BarCoordinates>(m_Filename, filename, loadcases);
+                    case ResultType.NodeDisplacement:
+                        return TransferResults<NodeDisplacement>(m_Filename, filename, loadcases);
+                    case ResultType.SlabReinforcement:
+                        return TransferResults<SlabReinforcement>(m_Filename, filename, loadcases);
+                    case ResultType.Utilisation:
+                        return TransferResults<SteelUtilisation>(m_Filename, filename, loadcases);
                 }
 
             }
@@ -116,6 +126,16 @@ namespace BHoM.Structural.Results
         public bool GetSlabReinforcement(List<string> panels, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results)
         {
             return (results = GetResult<SlabReinforcement>(panels, cases, orderBy)) != null;
+        }
+
+        public bool GetNodeCoordinates(List<string> nodes, out Dictionary<string, IResultSet> results)
+        {
+            return (results = GetResult<NodeCoordinates>(nodes, null, ResultOrder.None)) != null;
+        }
+
+        public bool GetBarCoordinates(List<string> bars, out Dictionary<string, IResultSet> results)
+        {
+            return (results = GetResult<BarCoordinates>(bars, null, ResultOrder.None)) != null;
         }
     }
 }

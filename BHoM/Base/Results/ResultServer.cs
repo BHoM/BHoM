@@ -15,7 +15,7 @@ namespace BHoM.Base.Results
 {
     public enum ResultOrder
     {
-        Name = 0,
+        Name,
         Loadcase,
         TimeStep,
         None
@@ -30,6 +30,11 @@ namespace BHoM.Base.Results
         List<string> m_ColumnNames;
         Dictionary<string, int> m_LoadcaseKey;
         private ResultOrder m_ResultOrder;
+
+        /// <summary>
+        /// Sets the Ids of the results to load, if left blank all bar names will be loaded
+        /// </summary>
+        public List<string> IdSelection { get; set; }
 
         /// <summary>
         /// Sets the Names of the results to load, if left blank all bar names will be loaded
@@ -103,7 +108,7 @@ namespace BHoM.Base.Results
                     CreateSqlDatabase(fileName);
                 }
 
-                m_ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + fileName + "; Integrated Security = True; Connect Timeout = 30";
+                m_ConnectionString = "Data Source = (LocalDB)\\ProjectsV13; AttachDbFilename = " + fileName + "; Integrated Security = True; Connect Timeout = 30";
                 InitialiseTable();
             }
         }
@@ -123,7 +128,7 @@ namespace BHoM.Base.Results
             string databaseName = "ResultServer";// System.IO.Path.GetFileNameWithoutExtension(filename);
             filename = filename.Replace("'", "''");
             using (var connection = new System.Data.SqlClient.SqlConnection(
-                "Data Source = (LocalDB)\\MSSQLLocalDB; Initial Catalog = master; Integrated Security = True; Connect Timeout = 30")) 
+                "Data Source = (LocalDB)\\ProjectsV13; Initial Catalog = master; Integrated Security = True; Connect Timeout = 30")) 
             {
                 connection.Open();
                 using (var command = connection.CreateCommand())
@@ -191,17 +196,27 @@ namespace BHoM.Base.Results
             else
             {
                 values.Sort();
-                int orderCol = m_ColumnNames.IndexOf(m_ResultOrder.ToString());
                 IResultSet rSet = null;// new ResultSet<T>();
-                for (int i = 0; i < values.Count; i++)
+                if (m_ResultOrder == ResultOrder.None)
                 {
-                    string key = values[i].Data[orderCol].ToString();
-                    if (!m_Results.TryGetValue(key, out rSet))
+                    rSet = new ResultSet<T>();
+                    (rSet as ResultSet<T>).AddData(values);
+                    m_Results.Add("All", rSet);
+                }
+                else
+                {
+                    int orderCol = m_ColumnNames.IndexOf(m_ResultOrder.ToString());
+                    
+                    for (int i = 0; i < values.Count; i++)
                     {
-                        rSet = new ResultSet<T>();
-                        m_Results.Add(key, rSet);
+                        string key = values[i].Data[orderCol].ToString();
+                        if (!m_Results.TryGetValue(key, out rSet))
+                        {
+                            rSet = new ResultSet<T>();
+                            m_Results.Add(key, rSet);
+                        }
+                        rSet.AddData(values[i].Data);
                     }
-                    rSet.AddData(values[i].Data);
                 }
             }
         }
@@ -212,9 +227,19 @@ namespace BHoM.Base.Results
             {
                 string lookupString = "";
 
+                if (IdSelection != null && IdSelection.Count > 0)
+                {
+                    lookupString = " WHERE Id IN (";
+                    for (int i = 0; i < IdSelection.Count; i++)
+                    {
+                        lookupString += "'" + IdSelection[i] + "',";
+                    }
+                    lookupString = lookupString.Trim(',') + ")";
+                }
+
                 if (NameSelection != null && NameSelection.Count > 0)
                 {
-                    lookupString = " WHERE NAME IN (";
+                    lookupString = (lookupString != "" ? " AND " : " WHERE ") + "NAME IN (";
                     for (int i = 0; i < NameSelection.Count; i++)
                     {
                         lookupString += "'" + NameSelection[i] + "',";
@@ -234,7 +259,7 @@ namespace BHoM.Base.Results
 
                 if (TimeStepSelection != null && TimeStepSelection.Count > 0)
                 {
-                    lookupString += (lookupString != "" ? " AND " : " WHERE ") + "LOADCASE IN (";
+                    lookupString += (lookupString != "" ? " AND " : " WHERE ") + "TimeStep IN (";
                     for (int i = 0; i < TimeStepSelection.Count; i++)
                     {
                         lookupString += "'" + TimeStepSelection[i] + "',";
@@ -249,7 +274,25 @@ namespace BHoM.Base.Results
                     connection.Open();
 
                     string query = "SELECT * FROM " + m_TableName + lookupString;// + ";";
-                    string sort = " ORDER BY NAME ASC, LOADCASE ASC, TIMESTEP ASC;";
+                    string sort = " ORDER BY ";// NAME ASC, LOADCASE ASC, TIMESTEP ASC;";
+                    string[] headers = new T().ColumnHeaders;
+                    if (headers.Contains("Name"))
+                    {
+                        sort += "NAME ASC";
+                        if (headers.Contains("Loadcase"))
+                        {
+                            sort += ", Loadcase ASC";
+                        }
+                        if (headers.Contains("TimeStep"))
+                        {
+                            sort += ", TIMESTEP ASC";
+                        }
+                    }
+                    else
+                    {
+                        sort += "Id ASC";
+                    }
+                    sort += ";";
 
                     SqlCommand command = new SqlCommand(query + sort, connection);
                     command.CommandTimeout = 0;

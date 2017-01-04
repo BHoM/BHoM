@@ -13,7 +13,7 @@ namespace BHoM.Base
         Type ObjectType { get; }
 
         Group<T> Cast<T>() where T : IBase;
-
+        int Count { get; }
     }
 
     public class Group<T>: BHoMObject, IEnumerable<T>, IGroup where T : IBase
@@ -50,6 +50,23 @@ namespace BHoM.Base
             get
             {
                 return typeof(T);
+            }
+        }
+
+        public T this[int i]
+        {
+            get
+            {
+                return Data[i];
+            }
+        }
+
+
+        public int Count
+        {
+            get
+            {
+                return Data.Count;
             }
         }
 

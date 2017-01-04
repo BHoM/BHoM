@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Structural.Results
 {
-    public abstract class Result<TName, TLoadcase, TTimeStep> : IResult, IComparable
+    public abstract class Result<TName, TLoadcase, TTimeStep> : IResult
         where TName : IComparable
         where TLoadcase : IComparable
         where TTimeStep : IComparable

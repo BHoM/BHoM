@@ -56,7 +56,14 @@ namespace BHoM.Structural.Elements
         [Description("Elastic bar constraint")]
         [DefaultValue(null)]
         public BHoM.Structural.Properties.BarConstraint Spring { get; set; }
-        
+
+        /// <summary>Spring</summary>
+        [DisplayName("Offset")]
+        [Description("Bar Offsets")]
+        [DefaultValue(null)]
+        public BHoM.Structural.Properties.Offset Offset { get; set; }
+
+
         public BarStructuralUsage StructuralUsage { get; set; }
 
         /// <summary>

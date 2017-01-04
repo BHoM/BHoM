@@ -9,8 +9,8 @@ namespace BHoM.Structural.Loads
     public enum CaseType
     {
         Simple = 0,
-        Combination,
         Mobile,
+        Combination,
         Envelope
     }
 

@@ -88,7 +88,7 @@ namespace BHoM.Structural
             return manager.Keys;
         }
 
-        public bool GetLoads(out List<ILoad> loads, List<string> ids = null)
+        public bool GetLoads(out List<ILoad> loads, List<Loadcase> ids = null)
         {
             loads = new ObjectFilter<ILoad>(m_Project).ToList();
             return true;
@@ -181,8 +181,12 @@ namespace BHoM.Structural
 
         public bool SetFEMeshes(List<FEMesh> meshes, out List<string> ids)
         {
-            throw new NotImplementedException();
+            m_Project.AddObjects(meshes.Cast<BHoMObject>());
+            ids = meshes.Select(e => e.BHoM_Guid.ToString()).ToList();
+            
+            return true;
         }
+
         public bool Run()
         {
             throw new NotImplementedException();

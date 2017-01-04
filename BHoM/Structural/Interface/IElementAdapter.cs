@@ -35,9 +35,8 @@ namespace BHoM.Structural.Interface
         List<string> GetGrids(out List<Grid> grids, List<string> ids = null);
         List<string> GetRigidLinks(out List<RigidLink> links, List<string> ids = null);
         List<string> GetGroups(out List<IGroup> groups, List<string> ids = null);
-
         List<string> GetLoadcases(out List<ICase> cases);
-        bool GetLoads(out List<ILoad> loads, List<string> ids = null);
+        bool GetLoads(out List<ILoad> loads, List<Loadcase> ids = null);
 
         bool SetNodes(List<Node> nodes, out List<string> ids);
         bool SetBars(List<Bar> bars, out List<string> ids);
@@ -48,7 +47,6 @@ namespace BHoM.Structural.Interface
         bool SetGrids(List<Grid> grid, out List<string> ids);
         bool SetRigidLinks(List<RigidLink> rigidLinks, out List<string> ids);
         bool SetGroups(List<IGroup> groups, out List<string> ids);
-
 
         bool SetLoads(List<ILoad> loads);
         bool SetLoadcases(List<ICase> cases);
