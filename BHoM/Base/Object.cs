@@ -225,8 +225,8 @@ namespace BHoM.Base
             Guid id = obj.BHoM_Guid;
             if (!dependencies.ContainsKey(id))
             {
-                dependencies[id] = obj;
                 obj.GetDeepDependencies(ref dependencies);
+                dependencies[id] = obj;
             }
         }
 
