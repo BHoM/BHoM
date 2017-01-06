@@ -89,10 +89,13 @@ namespace BHoM.Geometry
         {
             if (m_Bounds == null)
             {
-                m_Bounds = m_Geometry[0].Bounds();
-                for (int i = 1; i < m_Geometry.Count; i++)
+                if (m_Geometry.Count != 0)
                 {
-                    m_Bounds = BoundingBox.Merge(m_Bounds, m_Geometry[i].Bounds());
+                    m_Bounds = m_Geometry[0].Bounds();
+                    for (int i = 1; i < m_Geometry.Count; i++)
+                    {
+                        m_Bounds = BoundingBox.Merge(m_Bounds, m_Geometry[i].Bounds());
+                    }
                 }
             }
             return m_Bounds;           
