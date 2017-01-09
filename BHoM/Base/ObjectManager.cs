@@ -72,6 +72,37 @@ namespace BHoM.Base
             m_Name = name;
         }
 
+        public void AddRange(IEnumerable<TValue> items)
+        {
+            TKey key = default(TKey);
+            foreach (TValue item in items)
+            {
+                switch (m_Option)
+                {
+                    case FilterOption.Guid:
+                        key = (TKey)(object)item.BHoM_Guid;
+                        break;
+                    case FilterOption.Name:
+                        key = (TKey)(object)item.Name;
+                        break;
+                    case FilterOption.Property:
+                        key = (TKey)(object)item.GetType().GetProperty(m_Name).GetValue(item);
+                        break;
+                    case FilterOption.UserData:
+                        object data = null;
+                        if (item.CustomData.TryGetValue(m_Name, out data))
+                        {
+                            key = (TKey)data;
+                        }
+                        break;
+                }
+                if (key != null)
+                {
+                    Add(key, item);
+                }
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>

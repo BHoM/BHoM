@@ -33,11 +33,40 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            TestSql();
+            TestWriteJson();
 
             Console.Read();
             
         }
+
+
+        public static void TestWriteJson()
+        {
+
+            /**********************************/
+
+            Bar bar = new Bar(new Point(0, 0, 0), new Point(1, 2, 3));
+            bar.SectionProperty = new SteelSection(ShapeType.Circle, 200, 200, 1, 1, 1, 1);
+            bar.SectionProperty.Material = new BHoM.Materials.Material("TestMaterial");
+
+            string json = JSONWriter.Write(bar);
+            Console.WriteLine(json);
+
+            var item1 = JsonReader.ReadObject(json);
+
+            /**********************************/
+
+            Dictionary<string, int> dic = new Dictionary<string, int>();
+            dic["A"] = 1;
+            dic["B"] = 2;
+
+            string json2 = JSONWriter.Write(dic);
+            Console.WriteLine(json2);
+
+            var item2 = JsonReader.ReadObject(json2);
+        }
+
+
 
         public static void TestSql()
         {

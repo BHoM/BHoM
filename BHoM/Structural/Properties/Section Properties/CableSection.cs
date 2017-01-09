@@ -77,7 +77,7 @@ namespace BHoM.Structural.Properties
 
         protected override string GenerateStandardName()
         {
-            return "Cable "+"Dia"+SectionData[(int)CableSectionData.D]+ "x" + m_numberOfCables;
+            return m_numberOfCables + "-CABLE LCØ"+SectionData[(int)CableSectionData.D] * 1000;
         }
 
         public double BreakingLoad

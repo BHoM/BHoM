@@ -66,11 +66,17 @@
     <Compile Include="Base\Cipher.cs" />
     <Compile Include="Base\Compress.cs" />
     <Compile Include="Base\Group.cs" />
+    <Compile Include="Base\JsonReader.cs" />
+    <Compile Include="Base\JsonWriter.cs" />
     <Compile Include="Base\Results\Enums.cs" />
     <Compile Include="Base\Results\Envelope.cs" />
     <Compile Include="Base\Results\Result.cs" />
     <Compile Include="Base\Results\ResultSet.cs" />
     <Compile Include="Base\Tolerance.cs" />
+    <Compile Include="Base\TypeDictionary.cs" />
+    <Compile Include="Databases\IDatabaseAdapter.cs" />
+    <Compile Include="Databases\IDatabaseQuery.cs" />
+    <Compile Include="Databases\MapReduceQuery.cs" />
     <Compile Include="Structural\FileIO.cs" />
     <Compile Include="Generic\Graph.cs" />
     <Compile Include="Generic\GraphLink.cs" />

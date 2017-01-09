@@ -446,6 +446,8 @@ namespace BHoM.Structural.Properties
                     break;
                 case ShapeType.Box:
                     name = "RHS " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
+                    if (SectionData[(int)SteelSectionData.TW] != SectionData[(int)SteelSectionData.TF1])
+                        name += "x" + (SectionData[(int)SteelSectionData.TF1] * 1000).ToString();
                     break;
                 case ShapeType.Angle:
                     name = "L " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
