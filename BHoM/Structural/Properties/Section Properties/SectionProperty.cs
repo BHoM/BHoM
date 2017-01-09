@@ -376,6 +376,27 @@ namespace BHoM.Structural.Properties
 
                 return CreateTubeSection(MaterialType.Steel, d * scalefactor, t * scalefactor);
             }
+            else if (arr[0] == "C")
+            {
+                double d;
+                if (!double.TryParse(arr[1], out d))
+                    return null;
+
+                return CreateCircularSection(MaterialType.Steel, d * scalefactor);
+            }
+            else if (arr[0] == "R")
+            {
+                double w, h;
+                string[] props = arr[1].Split('x');
+
+                if (props.Length < 2)
+                    return null;
+
+                if (!(double.TryParse(props[0], out h) && double.TryParse(props[1], out w)))
+                    return null;
+
+                return CreateRectangularSection(MaterialType.Steel, h * scalefactor, w * scalefactor);
+            }
 
 
             return null;
