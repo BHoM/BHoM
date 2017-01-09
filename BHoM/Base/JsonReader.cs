@@ -137,7 +137,7 @@ namespace BHoM.Base
             {
                 string keyString = kvp.Key.Trim(toTrim);
                 string valueString = kvp.Value.Trim(toTrim);
-                if (keyString.StartsWith("__")) continue;
+                if (keyString.StartsWith("_")) continue;
 
                 collection.Add(ReadValue(keyType, keyString), ReadValue(valueType, valueString));
             }
