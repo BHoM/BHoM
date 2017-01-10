@@ -103,7 +103,7 @@ namespace BHoM.Base
         /****  Private Methods             ****/
         /**************************************/
 
-        public static string WriteObject(object obj, IList<string> tags = null)
+        private static string WriteObject(object obj, IList<string> tags = null)
         {
             // Write the type & tags
             string result = "{\"__Type__\":\"" + obj.GetType() + "\"";
@@ -112,7 +112,7 @@ namespace BHoM.Base
             // Write all the properties
             foreach (var prop in obj.GetType().GetProperties())
             {
-                if (!prop.CanRead || !prop.CanWrite) continue;
+                if (!prop.CanRead || !prop.CanWrite || prop.GetMethod.GetParameters().Count() > 0) continue;  //TODO: Need to sort out when property is of Type Item[]
                 var value = prop.GetValue(obj, null);
                 if (value != null)
                     result += "," + string.Format("\"{0}\": {1}", Write(prop.Name).Trim('"'), Write(value)); 
@@ -124,7 +124,7 @@ namespace BHoM.Base
 
         /**************************************/
 
-        public static string WriteTags(IList<string> tags)
+        private static string WriteTags(IList<string> tags)
         {
             string result = "\"__Tags__\":[";
             if (tags != null)

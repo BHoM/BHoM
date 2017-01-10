@@ -50,14 +50,22 @@ namespace BHoM.Base
         {
             char[] toTrim = { ' ', '\"' };
 
+            if (json.StartsWith("["))
+                return ReadArray(json);
+
             if (!json.StartsWith("{"))
                 return json;
 
             // Get definition and type name
             Dictionary<string, string> def = GetDefinitionFromJSON(json);
             string typeName = "";
-            if (!def.TryGetValue("__Type__", out typeName)) return null;
-            typeName = typeName.Trim(toTrim);
+            if (def.TryGetValue("__Type__", out typeName)) 
+                typeName = typeName.Trim(toTrim);
+            else
+            {
+                typeName = "System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]";
+                def["__Type__"] = typeName;
+            }
 
             // Process separately if this is a dictionary
             if (typeName.StartsWith("System.Collections.Generic.Dictionary"))
@@ -114,12 +122,21 @@ namespace BHoM.Base
             List<String> jsonList = GetArrayFromJSON(json);
 
             Type itemType = type.GetElementType();
+            if (itemType == null) itemType = typeof(object);
             IList collection = Activator.CreateInstance(type, jsonList.Count) as IList;
 
             for (int i = 0; i < jsonList.Count; i++)
                 collection[i] = (ReadValue(itemType, jsonList[i]));
 
             return collection;
+        }
+
+        /**************************************/
+
+        private static IList ReadArray(string json)
+        {
+            List<String> jsonList = GetArrayFromJSON(json);
+            return jsonList.Select(x => ReadObject(x)).ToList();
         }
 
         /**************************************/

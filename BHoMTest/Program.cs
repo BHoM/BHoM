@@ -56,14 +56,19 @@ namespace BHoMTest
 
             /**********************************/
 
-            Dictionary<string, int> dic = new Dictionary<string, int>();
+            Dictionary<string, object> dic = new Dictionary<string, object>();
             dic["A"] = 1;
-            dic["B"] = 2;
+            dic["B"] = new int[] { 2, 3, 4 };
 
             string json2 = JSONWriter.Write(dic);
             Console.WriteLine(json2);
 
             var item2 = JsonReader.ReadObject(json2);
+
+            /**********************************/
+
+            string json3 = "{\"A\":[1,2,3], \"B\":2}";
+            var item3 = JsonReader.ReadObject(json3);
         }
 
 

@@ -18,14 +18,12 @@ namespace BHoM.Databases
 
         string CollectionName { get; }
 
-        bool PushObjects(IEnumerable<BHoMObject> objects, List<string> tags = null);    //TODO: Need to be on all objects, not just BHoM objects
+        bool Push(IEnumerable<object> objects, string key, List<string> tags = null);        
 
-        bool PushJson(IEnumerable<string> objects, List<string> tags = null);           //TODO: we want a single push method, ideally returning json (what about dependencies?)
+        List<object> Pull(string filterString = "", bool keepAsString = false);
 
-        IEnumerable<BHoMObject> QueryObjects(List<string> queryStrings);                //TODO: same as Push
+        List<object> Query(List<string> queryStrings = null, bool keepAsString = false);      
 
-        IEnumerable<string> QueryJson(List<string> queryStrings);                       //TODO: same as Push
-
-        bool DeleteItems(string filterString = "");                                     //TODO: clarify taxonomy. If only one method each, could be Query, Push, Delete
+        bool Delete(string filterString = "");       
     }
 }

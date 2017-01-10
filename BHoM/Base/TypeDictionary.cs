@@ -11,7 +11,7 @@ namespace BHoM.Base
     {
         public static Type GetType(string name)
         {
-            if (m_TypeDictionary == null)
+            if (m_TypeDictionary == null || m_TypeDictionary.Count == 0)
                 CreateDictionary();
 
             Type type = null;
@@ -26,17 +26,26 @@ namespace BHoM.Base
 
             foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
             {
-                // Save shorter names for BHoM objects only
-                string name = asm.GetName().Name;
-                if (name == "BHoM" || name.EndsWith("_oM"))
+                try
                 {
-                    foreach (Type type in asm.GetTypes())
-                        m_TypeDictionary[type.Name] = type;
-                }
+                    Type[] types = asm.GetTypes();
 
-                // Save full names for all dlls
-                foreach (Type type in asm.GetTypes())
-                    m_TypeDictionary[type.FullName] = type;
+                    // Save shorter names for BHoM objects only
+                    string name = asm.GetName().Name;
+                    if (name == "BHoM" || name.EndsWith("_oM"))
+                    {
+                        foreach (Type type in types)
+                            m_TypeDictionary[type.Name] = type;
+                    }
+
+                    // Save full names for all dlls
+                    foreach (Type type in types)
+                        m_TypeDictionary[type.FullName] = type;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Cannot load types of assembly " + asm.GetName().Name);
+                }
             }
         }
 
