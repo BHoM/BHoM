@@ -31,6 +31,14 @@ namespace BHoM.Structural.Elements
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public Opening()
+        {
+            Edges = new Geometry.Group<Curve>();
+        }
+
+        /// <summary>
         /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
         /// </summary>
         /// <param name="edges"></param>

@@ -85,7 +85,7 @@ namespace BHoM.Structural.Elements
         ////Constructors///
         ///////////////////
 
-        internal Node()
+        public Node()
         {
             Point = new Point();
             m_ConnectedBars = new List<Bar>();

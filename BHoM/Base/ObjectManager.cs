@@ -143,8 +143,7 @@ namespace BHoM.Base
 
                         break;
                 }
-            }     
-          
+            }    
             return result;
         }
 

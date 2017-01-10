@@ -558,14 +558,11 @@ namespace BHoM.Structural.Properties
         {
             if (double.IsInfinity(m_Cx))
             {
-                m_Edges = m_OrigionalEdges.DuplicateGroup();
+                Update();
                 m_Edges.Translate(new Vector(-CentreX, -CentreY, 0));
-                m_Edges.Transform(Transform.Rotation(Point.Origin, Vector.ZAxis(), Orientation));
             }
             return m_Edges;
         }
-
-
 
         public override string ToString()
         {
