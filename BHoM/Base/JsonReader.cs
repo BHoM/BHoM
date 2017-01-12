@@ -50,6 +50,9 @@ namespace BHoM.Base
         {
             char[] toTrim = { ' ', '\"' };
 
+            if (json == "null")
+                return null;
+
             if (json.StartsWith("["))
                 return ReadArray(json);
 
@@ -122,11 +125,25 @@ namespace BHoM.Base
             List<String> jsonList = GetArrayFromJSON(json);
 
             Type itemType = type.GetElementType();
-            if (itemType == null) itemType = typeof(object);
+            if (itemType == null)
+            {
+                Type[] argTypes = type.GetGenericArguments();
+                if (argTypes.Length > 0 && argTypes[0] != null)
+                    itemType = argTypes[0];
+                else
+                    itemType = typeof(object);
+
+            }
             IList collection = Activator.CreateInstance(type, jsonList.Count) as IList;
 
             for (int i = 0; i < jsonList.Count; i++)
-                collection[i] = (ReadValue(itemType, jsonList[i]));
+            {
+                if (i >= collection.Count)
+                    collection.Add(ReadValue(itemType, jsonList[i]));
+                else
+                    collection[i] = (ReadValue(itemType, jsonList[i]));
+            }
+                
 
             return collection;
         }

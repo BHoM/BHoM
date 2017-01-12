@@ -11,7 +11,9 @@ namespace BHoM.Base
     {
         public static string Write(object value, IList<string> tags = null)
         {
-            if (value is Boolean)
+            if (value == null)
+                return "null";
+            else if (value is Boolean)
                 return Write((bool)value);
             else if (value is Char)
                 return Write((char)value);
@@ -105,6 +107,10 @@ namespace BHoM.Base
 
         private static string WriteObject(object obj, IList<string> tags = null)
         {
+            // Handle null objects
+            if (obj == null)
+                return "null";
+
             // Write the type & tags
             string result = "{\"__Type__\":\"" + obj.GetType() + "\"";
             if (tags != null) result += "," + WriteTags(tags);
