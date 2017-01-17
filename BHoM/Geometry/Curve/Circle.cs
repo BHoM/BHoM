@@ -96,7 +96,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Plane\": " + m_Plane.ToJSON() + ", \"Radius\": " + m_Radius + "}";
+            return "{\"__Type__\":\"" + this.GetType() + "\", \"Plane\": " + m_Plane.ToJSON() + ", \"Radius\": " + m_Radius + "}";
         }
         public static new Circle FromJSON(string json, Project project = null)
         {
@@ -104,7 +104,6 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Plane plane = BHoMJSON.ReadValue(typeof(Plane), definition["Plane"], project) as Plane;
             double radius = double.Parse(definition["Radius"]);

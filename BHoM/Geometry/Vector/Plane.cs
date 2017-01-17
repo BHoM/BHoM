@@ -285,7 +285,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Normal\": " + Normal + ", \"Origin\":" + Origin + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"Normal\": " + Normal + ", \"Origin\":" + Origin + "}";
         }
 
         public static new Plane FromJSON(string json, Project project = null)
@@ -294,7 +294,6 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Point origin = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Origin"], project) as double[]);
             Vector normal = new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["Normal"], project) as double[]);

@@ -140,7 +140,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Start\": " + StartPoint + ", \"End\": " + EndPoint + "}";
+            return "{\"__Type__\":\"" + this.GetType() + "\", \"Start\": " + StartPoint + ", \"End\": " + EndPoint + "}";
         }
 
         public static new Line FromJSON(string json, Project project = null)
@@ -149,7 +149,6 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Point startP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Start"], project) as double[]);
             Point endP = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["End"], project) as double[]);

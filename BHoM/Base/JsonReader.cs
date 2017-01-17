@@ -74,12 +74,17 @@ namespace BHoM.Base
             if (typeName.StartsWith("System.Collections.Generic.Dictionary"))
                 return ReadDictionary(def);
 
-            // Create the object
-            Type type = TypeDictionary.GetType(typeName);
+            // Get the type
+            Type type = Type.GetType(typeName);
+            if (type == null) type = TypeDictionary.GetType(typeName);
             if (type == null) return null;
-            object newObject = Activator.CreateInstance(type, true);
 
-            // Set the properties
+            // Process the BHoM geometry differently for now   TODO: get a proper cleanup of the old json
+            if (type.IsSubclassOf(typeof(Geometry.GeometryBase)))
+                return type.GetMethod("FromJSON").Invoke(null, new object[] { json, null });
+
+            // Create the object and set the properties
+            object newObject = Activator.CreateInstance(type, true);
             foreach (KeyValuePair<string, string> kvp in def)
             {
                 string propString = kvp.Key.Trim(toTrim);

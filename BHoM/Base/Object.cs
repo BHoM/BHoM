@@ -190,7 +190,7 @@ namespace BHoM.Base
         /// <returns></returns>
         public override string ToString()
         {
-            return this.GetType().Name + (!string.IsNullOrEmpty(Name) ? ": " + Name : "");
+            return this.GetType().FullName + (!string.IsNullOrEmpty(Name) ? ": " + Name : "");
         }
 
         /// <summary>

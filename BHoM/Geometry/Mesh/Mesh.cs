@@ -240,13 +240,12 @@ namespace BHoM.Geometry
             }
             aResult = "]";
 
-            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + BHoMJSON.WriteProperty("Vertices", m_Vertices) + ",\"Faces\": " + aResult + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\"," + BHoMJSON.WriteProperty("Vertices", m_Vertices) + ",\"Faces\": " + aResult + "}";
         }
 
         public static new Mesh FromJSON(string json, Project project = null)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Group<Point> verticies = Group<Point>.FromJSON(definition["Vertices"], project) as Group<Point>;
             List<int[]> faceArray = BHoMJSON.ReadValue(typeof(List<int[]>), definition["Faces"]) as List<int[]>;

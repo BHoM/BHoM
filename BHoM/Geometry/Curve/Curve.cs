@@ -859,7 +859,7 @@ namespace BHoM.Geometry
             if (m_Weights != null)
                 weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"Weights\": " + Common.Utils.CollectionToString(m_Weights) : "";
             string degree = "\"Degree\": " + (m_Order - 1);
-            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + points + "," + degree + (knots != "" ? "," : "") + knots + (weights != "" ? "," : "") + weights + "}";
+            return "{\"__Type__\":\"" + this.GetType() + "\"," + points + "," + degree + (knots != "" ? "," : "") + knots + (weights != "" ? "," : "") + weights + "}";
         }
 
 

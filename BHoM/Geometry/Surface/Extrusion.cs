@@ -124,7 +124,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + 
+            return "{\"__Type__\": \"" + this.GetType().FullName + 
                 "\", \"Curve\": " + Curve.ToJSON() + 
                 ", \"Vector\": " + Direction.ToJSON() + 
                 ", \"Capped\": " + Capped + "}";
@@ -136,7 +136,6 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Curve curve = BHoMJSON.ReadValue(typeof(Curve), definition["Curve"], project) as Curve;
             Vector direction = (Vector)BHoMJSON.ReadValue(typeof(Vector), definition["Vector"], project);

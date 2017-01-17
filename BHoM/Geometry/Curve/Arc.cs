@@ -193,7 +193,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Start\": " + StartPoint + ", \"Middle\": " + MiddlePoint + ", \"End\": " + EndPoint + "}";
+            return "{\"__Type__\":\"" + this.GetType() + "\", \"Start\": " + StartPoint + ", \"Middle\": " + MiddlePoint + ", \"End\": " + EndPoint + "}";
         }
         public static new Arc FromJSON(string json, Project project = null)
         {
@@ -201,7 +201,6 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Point start = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Start"], project) as double[]);
             Point middle = new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Middle"], project) as double[]);

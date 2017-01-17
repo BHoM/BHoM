@@ -389,7 +389,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Vector\": " + ToString() + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"Vector\": " + ToString() + "}";
         }
 
         public static new Vector FromJSON(string json, Project project = null)
@@ -398,7 +398,6 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             return new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["Vector"], project) as double[]);
         }

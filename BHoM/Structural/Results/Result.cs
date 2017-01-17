@@ -64,7 +64,7 @@ namespace BHoM.Structural.Results
 
         public override string ToString()
         {
-            return this.GetType().Name + " " + Id;
+            return this.GetType().FullName + " " + Id;
         }
 
         public Result() { }      

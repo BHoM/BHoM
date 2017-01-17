@@ -42,10 +42,16 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
-            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
+            string typeString = null;
+            if (!definition.TryGetValue("__Type__", out typeString))
+                definition.TryGetValue("Primitive", out typeString);
+            if (typeString == null)
+                return null;
+            typeString = typeString.Replace("\"", "").Replace("{", "").Replace("}", "");
             
-            Type type = Type.GetType("BHoM.Geometry." + typeString);
+            Type type = Type.GetType(typeString);
+            if (type == null)
+                type = Type.GetType("BHoM.Geometry." + typeString);
 
             MethodInfo methodInfo = type.GetMethod("FromJSON", System.Reflection.BindingFlags.Static | BindingFlags.Public);
             return methodInfo.Invoke(null, new object[] { json, project }) as GeometryBase;           

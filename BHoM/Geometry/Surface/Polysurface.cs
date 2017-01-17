@@ -61,13 +61,12 @@ namespace BHoM.Geometry
         }
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + BHoMJSON.WriteProperty("Surfaces", m_Surfaces) + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\"," + BHoMJSON.WriteProperty("Surfaces", m_Surfaces) + "}";
         }
 
         public static new PolySurface FromJSON(string json, Project project = null)
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Group<Surface> surfaces = Group<Surface>.FromJSON(definition["Surfaces"], project) as Group<Surface>;
 

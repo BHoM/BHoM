@@ -110,7 +110,7 @@ namespace BHoM.Geometry
         }
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Centreline\": " + Centreline.ToJSON() + ", \"Radius\": " + Radius + ", \"Capped\": " + Capped + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"Centreline\": " + Centreline.ToJSON() + ", \"Radius\": " + Radius + ", \"Capped\": " + Capped + "}";
         }
 
         public static new Pipe FromJSON(string json, Project project = null)
@@ -119,7 +119,6 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Curve centreline = BHoMJSON.ReadValue(typeof(Curve), definition["Centreline"], project) as Curve;
             double radius = (double)BHoMJSON.ReadValue(typeof(double), definition["Radius"], project);

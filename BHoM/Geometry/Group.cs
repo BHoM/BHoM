@@ -163,7 +163,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"GroupType\": \"" + typeof(T).FullName + "\"," + BHoMJSON.WriteProperty("Data", m_Geometry) + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"GroupType\": \"" + typeof(T).FullName + "\"," + BHoMJSON.WriteProperty("Data", m_Geometry) + "}";
         }
 
         public static new GeometryBase FromJSON(string json, Project project = null)
@@ -172,8 +172,14 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = Base.BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
-            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
+
+            string typeString = null;
+            if (!definition.TryGetValue("__Type__", out typeString))
+                definition.TryGetValue("Primitive", out typeString);
+            if (typeString == null)
+                return null;
+            typeString = typeString.Replace("\"", "").Replace("{", "").Replace("}", "");
+
             Type groupDataType = Type.GetType(definition["GroupType"].Trim('\"', '\"'));
             var groupType = typeof(Group<>);
             var dataType = typeof(List<>);

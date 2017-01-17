@@ -42,6 +42,12 @@ namespace BHoMTest
 
         public static void TestWriteJson()
         {
+            Line line = new Line(new Point(1, 2, 3), new Point(3, 4, 5));
+            string json = JSONWriter.Write(line);
+            Console.WriteLine(json);
+
+            var item = JsonReader.ReadObject(json);
+
 
             /**********************************/
 
@@ -49,10 +55,10 @@ namespace BHoMTest
             bar.SectionProperty = new SteelSection(ShapeType.Circle, 200, 200, 1, 1, 1, 1);
             bar.SectionProperty.Material = new BHoM.Materials.Material("TestMaterial");
 
-            string json = JSONWriter.Write(bar);
-            Console.WriteLine(json);
+            string json1 = JSONWriter.Write(bar);
+            Console.WriteLine(json1);
 
-            var item1 = JsonReader.ReadObject(json);
+            var item1 = JsonReader.ReadObject(json1);
 
             /**********************************/
 
