@@ -17,7 +17,7 @@ namespace BHoM.Structural.Properties
 
     public abstract partial class SectionProperty : BHoMObject
     {
-        public double[] SectionData { get; set; }
+        public double[] SectionData { get; protected set; }
 
         /// <summary>
         /// 
@@ -46,7 +46,7 @@ namespace BHoM.Structural.Properties
 
         /// <summary>Mass per metre based on section properties</summary>
         [DefaultValue(null)]
-        public double MassPerMetre { get; set; }
+        public double MassPerMetre { get; }
 
         /// <summary>Material of the section property</summary>
         [DisplayName("Material")]
@@ -82,9 +82,9 @@ namespace BHoM.Structural.Properties
                     double height = (double)data[(int)SteelSectionData.Height];
                     double tw = (double)data[(int)SteelSectionData.TW];
                     double tf1 = (double)data[(int)SteelSectionData.TF1];
-                    double tf2 = (double)data[(int)SteelSectionData.TF2];
-                    double b1 = (double)data[(int)SteelSectionData.B1];
-                    double b2 = (double)data[(int)SteelSectionData.B2];
+                    double tf2 = (double)data[(int)SteelSectionData.TF2] == 0 ? (double)data[(int)SteelSectionData.TF1] : (double)data[(int)SteelSectionData.TF2];
+                    double b1 = (double)data[(int)SteelSectionData.B1] == 0 ? (double)data[(int)SteelSectionData.Width] : (double)data[(int)SteelSectionData.B1];
+                    double b2 = (double)data[(int)SteelSectionData.B2] == 0 ? (double)data[(int)SteelSectionData.Width] : (double)data[(int)SteelSectionData.B2];
                     double b3 = (double)data[(int)SteelSectionData.B3];
                     double s = (double)data[(int)SteelSectionData.Spacing];
                     double r1 = (double)data[(int)SteelSectionData.r1];
@@ -99,6 +99,7 @@ namespace BHoM.Structural.Properties
                     SectionProperty property = new SteelSection(edges, shape);//, SectionType.Undefined);
                     property.Name = name;
                     property.SectionData = sectionData;
+                    property.Material = Material.Default(MaterialType.Steel);
                     return edges != null ? property : null;
                 }
                 catch
@@ -187,6 +188,15 @@ namespace BHoM.Structural.Properties
         /*****************************************************/
         /*********** Static section constructors *******/
         /*****************************************************/
+
+        public static SectionProperty CreateCustomSection(MaterialType matType, BHoM.Geometry.Group<Curve> edges)
+        {
+            SectionProperty section = CreateSection(matType);
+            //section.SectionData = CreateSectionData(totalDepth, totalwidth, webThickness, flangeThickness, r1, r2);
+            section.Edges = edges;
+            section.Shape = ShapeType.Polygon;
+            return section;
+        }
 
         public static SectionProperty CreateTeeSection(MaterialType matType, double totalDepth, double totalwidth, double flangeThickness, double webThickness, double r1 = 0, double r2 = 0)
         {

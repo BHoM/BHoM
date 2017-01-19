@@ -95,31 +95,7 @@ namespace BHoM.Materials
             object[] data = new SQLAccessor(Database.Material, Project.ActiveProject.Config.MaterialDatabase).GetDataRow("Name", name);
             if (data != null)
             {
-                MaterialType type = (MaterialType)Enum.Parse(typeof(MaterialType), data[(int)MaterialColumnData.Type].ToString(), true);
-
-                double e = (double)data[(int)MaterialColumnData.YoungsModulus];
-                double v = (double)data[(int)MaterialColumnData.PoissonRatio];
-                double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
-                double density = (double)data[(int)MaterialColumnData.Mass];
-                double g = e / (2 * (1 + v));
-
-                Material m = new Material(name, type, e, v, tC, g, density);
-
-                switch (type)
-                {
-                    case MaterialType.Concrete:
-                        m.CompressiveYieldStrength = (double)data[(int)MaterialColumnData.CompressiveStrength];
-                        break;
-                    case MaterialType.Steel:
-                        m.TensileYieldStrength = (double)data[(int)MaterialColumnData.MinimumYieldStress];
-                        m.CompressiveYieldStrength = m.TensileYieldStrength;
-                        break;
-                    case MaterialType.Rebar:
-                        m.TensileYieldStrength = (double)data[(int)MaterialColumnData.EffectiveTensileStress];
-                        m.CompressiveYieldStrength = (double)data[(int)MaterialColumnData.EffectiveYieldStress];
-                        break;
-                }
-                return m;
+                return FromDataArray(data);
             }
             return null;
         }
@@ -150,15 +126,38 @@ namespace BHoM.Materials
 
             if (data != null)
             {
-                double e = (double)data[(int)MaterialColumnData.YoungsModulus];
-                double v = (double)data[(int)MaterialColumnData.PoissonRatio];
-                double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
-                double density = (double)data[(int)MaterialColumnData.Mass];
-                double g = e / (2 * (1 + v));
-                string name = data[(int)MaterialColumnData.Name].ToString().Trim();
-                return new Material(name, type, e, v, tC, g, density);
+                return FromDataArray(data);
             }
             return null;
+        }
+
+        private static Material FromDataArray(object[] data)
+        {
+            MaterialType type = (MaterialType)Enum.Parse(typeof(MaterialType), data[(int)MaterialColumnData.Type].ToString(), true);
+            string name = data[(int)MaterialColumnData.Name].ToString().Trim();
+            double e = (double)data[(int)MaterialColumnData.YoungsModulus];
+            double v = (double)data[(int)MaterialColumnData.PoissonRatio];
+            double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
+            double density = (double)data[(int)MaterialColumnData.Mass];
+            double g = e / (2 * (1 + v));
+
+            Material m = new Material(name, type, e, v, tC, g, density);
+
+            switch (type)
+            {
+                case MaterialType.Concrete:
+                    m.CompressiveYieldStrength = (double)data[(int)MaterialColumnData.CompressiveStrength];
+                    break;
+                case MaterialType.Steel:
+                    m.TensileYieldStrength = (double)data[(int)MaterialColumnData.MinimumYieldStress];
+                    m.CompressiveYieldStrength = m.TensileYieldStrength;
+                    break;
+                case MaterialType.Rebar:
+                    m.TensileYieldStrength = (double)data[(int)MaterialColumnData.EffectiveTensileStress];
+                    m.CompressiveYieldStrength = (double)data[(int)MaterialColumnData.EffectiveYieldStress];
+                    break;
+            }
+            return m;
         }
 
         public Material(string name, MaterialType type, double E, double v, double tC, double G, double denisty)
