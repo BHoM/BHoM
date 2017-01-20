@@ -57,7 +57,7 @@ namespace BHoM.Base
                 return ReadArray(json);
 
             if (!json.StartsWith("{"))
-                return json;
+                return json.Trim(toTrim);
 
             // Get definition and type name
             Dictionary<string, string> def = GetDefinitionFromJSON(json);

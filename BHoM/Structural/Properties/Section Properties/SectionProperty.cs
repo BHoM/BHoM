@@ -17,7 +17,7 @@ namespace BHoM.Structural.Properties
 
     public abstract partial class SectionProperty : BHoMObject
     {
-        public double[] SectionData { get; protected set; }
+        public double[] SectionData { get; set; }
 
         /// <summary>
         /// 
@@ -46,7 +46,7 @@ namespace BHoM.Structural.Properties
 
         /// <summary>Mass per metre based on section properties</summary>
         [DefaultValue(null)]
-        public double MassPerMetre { get; }
+        public double MassPerMetre { get; set; }
 
         /// <summary>Material of the section property</summary>
         [DisplayName("Material")]
