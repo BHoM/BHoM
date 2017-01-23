@@ -42,12 +42,15 @@ namespace BHoMTest
 
         public static void TestWriteJson()
         {
+
+
+            /**********************************/
+
             Line line = new Line(new Point(1, 2, 3), new Point(3, 4, 5));
             string json = JSONWriter.Write(line);
             Console.WriteLine(json);
 
             var item = JsonReader.ReadObject(json);
-
 
             /**********************************/
 
@@ -65,6 +68,8 @@ namespace BHoMTest
             Dictionary<string, object> dic = new Dictionary<string, object>();
             dic["A"] = 1;
             dic["B"] = new int[] { 2, 3, 4 };
+            dic["C"] = new List<string> { "X", "Y", "Z" };
+            dic["D"] = @"\\srv\Project\stuff.file";
 
             string json2 = JSONWriter.Write(dic);
             Console.WriteLine(json2);

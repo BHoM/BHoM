@@ -46,6 +46,13 @@ namespace BHoM.Base
 
         /**************************************/
 
+        public static string ReadString(string json)
+        {
+            return json.Replace("\\\\", "\\").Trim(new char[] { ' ', '\"' });
+        }
+
+        /**************************************/
+
         public static object ReadObject(string json)
         {
             char[] toTrim = { ' ', '\"' };
@@ -57,7 +64,7 @@ namespace BHoM.Base
                 return ReadArray(json);
 
             if (!json.StartsWith("{"))
-                return json;
+                return ReadString(json);
 
             // Get definition and type name
             Dictionary<string, string> def = GetDefinitionFromJSON(json);
@@ -112,7 +119,7 @@ namespace BHoM.Base
             MethodInfo parseMethod = type.GetMethod("Parse", new Type[] { typeof(string) });
 
             if (type == typeof(string))
-                return json;
+                return ReadString(json);
             else if (type.IsValueType && parseMethod != null)
                 return parseMethod.Invoke(null, new object[] { json });
             else if (type.IsEnum)

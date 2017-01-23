@@ -72,7 +72,7 @@ namespace BHoM.Base
 
         public static string Write(string value)
         {
-            return "\"" + value + "\"";
+            return "\"" + value.Replace("\\", "\\\\") + "\"";
         }
 
         /**************************************/
