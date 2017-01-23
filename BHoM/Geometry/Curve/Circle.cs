@@ -94,6 +94,14 @@ namespace BHoM.Geometry
             }
         }
 
+        public Plane Plane
+        {
+            get
+            {
+                return m_Plane;
+            }
+        }
+
         public override string ToJSON()
         {
             return "{\"__Type__\":\"" + this.GetType() + "\", \"Plane\": " + m_Plane.ToJSON() + ", \"Radius\": " + m_Radius + "}";
