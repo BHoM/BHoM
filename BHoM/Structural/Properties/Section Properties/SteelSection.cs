@@ -22,7 +22,7 @@ namespace BHoM.Structural.Properties
 
         public SteelSection()
         {
-            Material = null; // BHoM.Materials.Material.Default(MaterialType.Steel);
+            Material = BHoM.Materials.Material.Default(MaterialType.Steel);
         }
 
         /// <summary>
