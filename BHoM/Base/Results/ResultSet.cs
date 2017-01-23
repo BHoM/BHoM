@@ -170,7 +170,7 @@ namespace BHoM.Base.Results
                 row = m_Results[i];
                 for (int j = 0; j < m_NumberIndices.Count; j++)
                 {
-                    double currentValue = (double)row[m_NumberIndices[j]];
+                    double currentValue = row[m_NumberIndices[j]] != null ? (double)row[m_NumberIndices[j]] : 0;
                     if (currentValue > max)
                     {
                         max = currentValue;

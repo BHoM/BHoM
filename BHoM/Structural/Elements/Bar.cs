@@ -178,6 +178,16 @@ namespace BHoM.Structural.Elements
             }
         }
 
+        public double EffectiveLengthMinor
+        {
+            get; set;
+        }
+
+        public double EffectiveLengthMajor
+        {
+            get; set;
+        }
+
 
         /// <summary>
         /// Bar orientation angle in radians. For non-vertical bars, angle is measured in the bar YZ plane

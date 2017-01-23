@@ -4,40 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BHoM.Geometry;
-namespace BHoM.Structural.Properties.Section_Properties
+namespace BHoM.Structural.Properties
 {
     public class CompositeSection : SectionProperty
     {
-        public List<SectionProperty> Sections { get; set; }
+        public SteelSection SteelSection
+        {
+            get; set;
+        }
 
+        public ConcreteSection ConcreteSection
+        {
+            get; set;
+        }
+
+        public double SteelEmbedmentDepth { get; set; }
+        public double StudDiameter { get; set; }
+        public double StudHeight { get; set; }
+        public double StudSpacing { get; set; }
+        public int StudsPerGroup { get; set; }
         public CompositeSection()
         {
 
         }
-
-        public SteelSection GetSteelSection()
-        {
-            foreach (SectionProperty property in Sections)
-            {
-                if (property is SteelSection)
-                {
-                    return property as SteelSection;
-                }
-            }
-            return null;
-        }
-
-        public ConcreteSection GetConcreteSection()
-        {
-            foreach (SectionProperty property in Sections)
-            {
-                if (property is ConcreteSection)
-                {
-                    return property as ConcreteSection;
-                }
-            }
-            return null;
-        }
-
     }
 }
