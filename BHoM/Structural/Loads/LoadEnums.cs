@@ -17,6 +17,7 @@ namespace BHoM.Structural.Loads
     public enum LoadNature
     {
         Dead = 0,
+        SuperDead,
         Live,
         Wind,
         Seismic,

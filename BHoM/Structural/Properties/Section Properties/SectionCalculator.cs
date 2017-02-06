@@ -688,6 +688,47 @@ namespace BHoM.Structural.Properties
         /// 
         /// </summary>
         /// <param name="direction"></param>
+        /// <param name="curve">f(x) -> n (where n is a constant value) integrated in the x direction</param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <param name="centroid"></param>
+        /// <returns></returns>
+        public double Integrate(int direction, double curve, double from, double to, ref double centroid)
+        {
+            double result = 0;
+            double max = Math.Max(from, to);
+            double min = Math.Min(from, to);
+
+            List<Slice> slices;
+            double sumAreaLength = 0;
+            if (direction == 0)
+            {
+                slices = VerticalSlices;
+            }
+            else
+            {
+                slices = HorizontalSlices;
+            }
+            for (int i = 0; i < slices.Count; i++)
+            {
+                Slice slice = slices[i];
+                if (slice.Centre > min && slice.Centre < max)
+                {
+                    double currentLength = slice.Centre;
+                    double currentValue = curve;
+                    
+                    result += currentValue * slice.Length * slice.Width;
+                    sumAreaLength += currentValue * slice.Length * slice.Width * currentLength;
+                }
+            }
+            centroid = sumAreaLength / result;
+            return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="direction"></param>
         /// <param name="curve">f(x) -> integrated in the x direction</param>
         /// <param name="from"></param>
         /// <param name="to"></param>
