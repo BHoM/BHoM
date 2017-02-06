@@ -27,29 +27,29 @@ namespace BHoM.Structural.Properties
         }
 
 
-        public new double Asx
-        {
-            set { m_Asx = value; }
-            get { return m_Asx; }
-        }
-
         public new double Asy
         {
             set { m_Asy = value; }
             get { return m_Asy; }
         }
 
-        public new double Ix
+        public new double Asz
         {
-            set { m_Ix = value; }
-            get { return m_Ix; }
+            set { m_Asz = value; }
+            get { return m_Asz; }
         }
 
-        /// <summary>Second moment of inertia about the minor axis</summary>
         public new double Iy
         {
             set { m_Iy = value; }
             get { return m_Iy; }
+        }
+
+        /// <summary>Second moment of inertia about the minor axis</summary>
+        public new double Iz
+        {
+            set { m_Iz = value; }
+            get { return m_Iz; }
         }
 
         ///<summary>Torsion Constant</summary>
@@ -71,13 +71,13 @@ namespace BHoM.Structural.Properties
             get;
         }
 
-        public new double Vx
+        public new double Vz
         {
             set;
             get;
         }
 
-        public new double Vpx
+        public new double Vpz
         {
             set;
             get;
@@ -86,15 +86,6 @@ namespace BHoM.Structural.Properties
         /// <summary>
         /// Plastic Section modulus about the major axis
         /// </summary>
-        public new double Sx
-        {
-            set { m_Sx = value; }
-            get { return m_Sx; }
-        }
-
-        /// <summary>
-        /// Plastic Section modulus about the minor axis
-        /// </summary>
         public new double Sy
         {
             set { m_Sy = value; }
@@ -102,21 +93,30 @@ namespace BHoM.Structural.Properties
         }
 
         /// <summary>
-        /// Elastic Section modulus about the major axis
+        /// Plastic Section modulus about the minor axis
         /// </summary>
-        public new double Zx
+        public new double Sz
         {
-            set { m_Zx = value; }
-            get { return m_Zx; }
+            set { m_Sz = value; }
+            get { return m_Sz; }
         }
 
         /// <summary>
-        /// Elastic Section modulus about the minor axis
+        /// Elastic Section modulus about the major axis
         /// </summary>
         public new double Zy
         {
             set { m_Zy = value; }
             get { return m_Zy; }
+        }
+
+        /// <summary>
+        /// Elastic Section modulus about the minor axis
+        /// </summary>
+        public new double Zz
+        {
+            set { m_Zz = value; }
+            get { return m_Zz; }
         }
 
 

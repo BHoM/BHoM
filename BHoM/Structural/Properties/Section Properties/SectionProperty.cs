@@ -658,10 +658,10 @@ namespace BHoM.Structural.Properties
 
         public override GeometryBase GetGeometry()
         {
-            if (double.IsInfinity(m_Cx))
+            if (double.IsInfinity(m_Cy))
             {
                 Update();
-                m_Edges.Translate(new Vector(-CentreX, -CentreY, 0));
+                m_Edges.Translate(new Vector(-CentreY, -CentreZ, 0));
             }
             return m_Edges;
         }

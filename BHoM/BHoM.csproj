@@ -77,6 +77,8 @@
     <Compile Include="Databases\IDatabaseAdapter.cs" />
     <Compile Include="Databases\IDatabaseQuery.cs" />
     <Compile Include="Databases\MapReduceQuery.cs" />
+    <Compile Include="Structural\Elements\Design\DesignElement.cs" />
+    <Compile Include="Structural\Elements\Design\Span.cs" />
     <Compile Include="Structural\FileIO.cs" />
     <Compile Include="Generic\Graph.cs" />
     <Compile Include="Generic\GraphLink.cs" />
@@ -147,6 +149,7 @@
     <Compile Include="Structural\ModelTracker\BarTracker.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
+    <Compile Include="Structural\Properties\Constraints\NodeDesignConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
     <Compile Include="Structural\Elements\Storey.cs" />
     <Compile Include="Structural\Elements\Bar.cs" />
