@@ -24,7 +24,7 @@ namespace BHoM.Structural.Properties
         {
             set;
             get;
-        }
+        }      
 
 
         public new double Asy
