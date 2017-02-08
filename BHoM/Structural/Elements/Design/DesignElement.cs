@@ -81,11 +81,19 @@ namespace BHoM.Structural.Elements
                 SortBars();
         }
 
-        public List<SectionProperty> SectionProperty
+        public List<SectionProperty> SectionProperties
         {
             get
             {
                 return AnalyticBars.Select(x => x.SectionProperty).ToList();
+            }
+        }
+
+        public SectionProperty SectionProperty
+        {
+            get
+            {
+                return AnalyticBars.First().SectionProperty;
             }
         }
 
@@ -223,8 +231,20 @@ namespace BHoM.Structural.Elements
             m_LateralTorsionalSpans.Add(Span.CreateDefaultSpan(this));
         }
 
-        public void GenerateSpans(IEnumerable<double> suportPositions, SpanDirection direction, bool positionAsLength = false)
+        public void SetEffectiveLength(double length, SpanDirection direction = SpanDirection.All)
         {
+            Span span = Span.CreateDefaultSpan(this);
+            span.EffectiveLength = length;
+            List<Span> spans = new List<Span>();
+            spans.Add(span);
+            SetSpans(spans, direction);
+        }
+
+        public List<Span> GenerateSpans(List<double> suportPositions, SpanDirection direction, bool positionAsLength = false)
+        {
+
+            //Assumes that suport positions are placed on analytic bar nodes
+
             List<Span> spans = new List<Span>();
 
             int highestAddedBarIndex = 0;
@@ -232,8 +252,19 @@ namespace BHoM.Structural.Elements
             double fullLength = this.Length;
             double addedLength = 0;
 
+            suportPositions = suportPositions.OrderBy(x => x).ToList();
+
+            double last = positionAsLength ? suportPositions.Last() : suportPositions.Last() * fullLength;
+
+            bool unsuportedEnd;
+            if (unsuportedEnd = last < fullLength)
+                suportPositions.Add(positionAsLength ? fullLength : 1);
+
             foreach (double pos in suportPositions)
             {
+                if (pos == 0)
+                    continue;
+
                 Span span = new Span();
                 double length = positionAsLength ? pos : pos * fullLength;
 
@@ -245,7 +276,7 @@ namespace BHoM.Structural.Elements
 
                     if (barLength + addedLength <= length)
                     {
-                        span.BarIndecies.Add(i);
+                        span.BarIndices.Add(i);
                         addedLength += barLength;
                         effLength += barLength;
                         highestAddedBarIndex++;
@@ -259,6 +290,20 @@ namespace BHoM.Structural.Elements
                 spans.Add(span);
             }
 
+            //if unsuported at start, double the effective length
+            if (suportPositions.First() > 0)
+                spans[0].EffectiveLength *= 2;
+
+            //if unsupported at end, double the effective length
+            if (unsuportedEnd)
+                spans[spans.Count - 1].EffectiveLength *= 2;
+
+            SetSpans(spans, direction);
+            return spans;
+        }
+
+        public void SetSpans(List<Span> spans, SpanDirection direction)
+        {
             switch (direction)
             {
                 case SpanDirection.MajorAxis:
@@ -276,7 +321,6 @@ namespace BHoM.Structural.Elements
                     m_LateralTorsionalSpans = spans;
                     break;
             }
-
         }
 
 

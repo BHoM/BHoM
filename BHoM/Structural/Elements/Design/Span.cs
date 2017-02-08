@@ -15,21 +15,21 @@ namespace BHoM.Structural.Elements
     }
 
 
-    public class Span
+    public class Span : BHoM.Base.BHoMObject
     {
 
         public Span()
         {
-            BarIndecies = new List<int>();
+            BarIndices = new List<int>();
         }
-        public List<int> BarIndecies { get; set; }
+        public List<int> BarIndices { get; set; }
         public double EffectiveLength { get; set; }
 
         public static Span CreateDefaultSpan(DesignElement elem)
         {
             Span span = new Span();
             for (int i = 0; i < elem.AnalyticBars.Count; i++)
-                span.BarIndecies.Add(i);
+                span.BarIndices.Add(i);
 
             span.EffectiveLength = elem.Length;
 
