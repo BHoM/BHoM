@@ -721,7 +721,7 @@ namespace BHoM.Structural.Properties
                     sumAreaLength += currentValue * slice.Length * slice.Width * currentLength;
                 }
             }
-            centroid = sumAreaLength / result;
+            centroid = result != 0 ? sumAreaLength / result : 0;
             return result;
         }
 
@@ -770,7 +770,7 @@ namespace BHoM.Structural.Properties
                     sumAreaLength += currentValue * slice.Length * slice.Width * currentLength;
                 }
             }
-            centroid = sumAreaLength / result;
+            centroid = result != 0 ? sumAreaLength / result : 0;
             return result;
         }
 

@@ -22,34 +22,34 @@ namespace BHoM.Structural.Properties
 
         public new double GrossArea
         {
-            set { m_Area = value; }
-            get { return m_Area; }
+            set;
+            get;
         }
 
 
         public new double Asy
         {
-            set { m_Asy = value; }
-            get { return m_Asy; }
+            set;
+            get;
         }
 
         public new double Asz
         {
-            set { m_Asz = value; }
-            get { return m_Asz; }
+            set;
+            get;
         }
 
         public new double Iy
         {
-            set { m_Iy = value; }
-            get { return m_Iy; }
+            set;
+            get;
         }
 
         /// <summary>Second moment of inertia about the minor axis</summary>
         public new double Iz
         {
-            set { m_Iz = value; }
-            get { return m_Iz; }
+            set;
+            get;
         }
 
         ///<summary>Torsion Constant</summary>
@@ -59,7 +59,7 @@ namespace BHoM.Structural.Properties
             set;
         }
 
-        public new double  Vy
+        public double  Vy
         {
             set;
             get;
@@ -88,8 +88,8 @@ namespace BHoM.Structural.Properties
         /// </summary>
         public new double Sy
         {
-            set { m_Sy = value; }
-            get { return m_Sy; }
+            set;
+            get;
         }
 
         /// <summary>
@@ -97,8 +97,8 @@ namespace BHoM.Structural.Properties
         /// </summary>
         public new double Sz
         {
-            set { m_Sz = value; }
-            get { return m_Sz; }
+            set;
+            get;
         }
 
         /// <summary>
@@ -106,8 +106,8 @@ namespace BHoM.Structural.Properties
         /// </summary>
         public new double Zy
         {
-            set { m_Zy = value; }
-            get { return m_Zy; }
+            set;
+            get;
         }
 
         /// <summary>
@@ -115,10 +115,14 @@ namespace BHoM.Structural.Properties
         /// </summary>
         public new double Zz
         {
-            set { m_Zz = value; }
-            get { return m_Zz; }
+            set;
+            get;
         }
 
-
+        public override double[] SectionData
+        {
+            get;
+            set;
+        }
     }
 }
