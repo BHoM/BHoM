@@ -182,6 +182,7 @@
     <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
     <Compile Include="Structural\Interface\IResultAdapter.cs" />
     <Compile Include="Base\Results\ResultServer.cs" />
+    <Compile Include="Structural\Results\Bar Forces\BarStress.cs" />
     <Compile Include="Structural\Results\Bar Forces\CompositeUtilisation.cs" />
     <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
