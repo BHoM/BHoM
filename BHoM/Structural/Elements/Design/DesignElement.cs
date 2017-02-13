@@ -171,7 +171,7 @@ namespace BHoM.Structural.Elements
                 {
                     List<Span> spans = new List<Span>();
                     spans.Add(Span.CreateDefaultSpan(this));
-                    return spans;
+                    m_majorAxisSpans = spans;
                 }
                 return m_majorAxisSpans;
             }
@@ -182,7 +182,7 @@ namespace BHoM.Structural.Elements
         {
             set
             {
-                m_majorAxisSpans = value;
+                m_minorAxisSpans = value;
             }
             get
             {
@@ -190,7 +190,7 @@ namespace BHoM.Structural.Elements
                 {
                     List<Span> spans = new List<Span>();
                     spans.Add(Span.CreateDefaultSpan(this));
-                    return spans;
+                    m_minorAxisSpans = spans;
                 }
                 return m_minorAxisSpans;
             }
@@ -200,7 +200,7 @@ namespace BHoM.Structural.Elements
         {
             set
             {
-                m_majorAxisSpans = value;
+                m_LateralTorsionalSpans = value;
             }
             get
             {
@@ -208,7 +208,7 @@ namespace BHoM.Structural.Elements
                 {
                     List<Span> spans = new List<Span>();
                     spans.Add(Span.CreateDefaultSpan(this));
-                    return spans;
+                    m_LateralTorsionalSpans = spans;
                 }
                 return m_LateralTorsionalSpans;
             }
@@ -238,6 +238,46 @@ namespace BHoM.Structural.Elements
             List<Span> spans = new List<Span>();
             spans.Add(span);
             SetSpans(spans, direction);
+        }
+
+        public List<Tuple<Span, Span, Span>> GetSpanCombinations()
+        {
+            int majSpanIndex, minSpanIndex, latSpanIndex, majSpanCount, minSpanCount, latSpanCount;
+            majSpanIndex = 0;
+            minSpanIndex = 0;
+            latSpanIndex = 0;
+
+            majSpanCount = MajorAxisSpan.Count;
+            minSpanCount = MinorAxisSpan.Count;
+            latSpanCount = LateralTorsionalSpan.Count;
+
+            List<Tuple<Span, Span, Span>> spanGroups = new List<Tuple<Span, Span, Span>>();
+
+            int barIndex = 0;
+
+
+            while (barIndex < AnalyticBars.Count)
+            {
+
+                if (!MajorAxisSpan[majSpanIndex].BarIndices.Contains(barIndex))
+                    majSpanIndex++;              
+
+                if (!MinorAxisSpan[minSpanIndex].BarIndices.Contains(barIndex))
+                    minSpanIndex++;
+
+                if (!LateralTorsionalSpan[latSpanIndex].BarIndices.Contains(barIndex))
+                    latSpanIndex++;
+                
+
+                Tuple<Span, Span, Span> spanGroup = new Tuple<Span, Span, Span>(MajorAxisSpan[majSpanIndex], MinorAxisSpan[minSpanIndex], LateralTorsionalSpan[latSpanIndex]);
+                barIndex = Math.Min(MajorAxisSpan[majSpanIndex].BarIndices.Max(), Math.Min(MinorAxisSpan[minSpanIndex].BarIndices.Max(), LateralTorsionalSpan[latSpanIndex].BarIndices.Max())) + 1;
+                spanGroups.Add(spanGroup);
+
+            }
+
+
+            return spanGroups;
+
         }
 
         public List<Span> GenerateSpans(List<double> suportPositions, SpanDirection direction, bool positionAsLength = false)
@@ -313,6 +353,10 @@ namespace BHoM.Structural.Elements
                     m_minorAxisSpans = spans;
                     break;
                 case SpanDirection.LateralTorsional:
+                    m_LateralTorsionalSpans = spans;
+                    break;
+                case SpanDirection.MinorAndLateralTorsional:
+                    m_minorAxisSpans = spans;
                     m_LateralTorsionalSpans = spans;
                     break;
                 case SpanDirection.All:

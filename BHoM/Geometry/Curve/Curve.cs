@@ -67,7 +67,7 @@ namespace BHoM.Geometry
             }
         }
 
-        internal virtual Point Max
+        public virtual Point Max
         {
             get
             {
@@ -79,7 +79,7 @@ namespace BHoM.Geometry
             }
         }
 
-        internal virtual Point Min
+        public virtual Point Min
         {
             get
             {
@@ -105,7 +105,7 @@ namespace BHoM.Geometry
             }
         }
 
-        internal double[] ControlPointVector
+        public double[] ControlPointVector
         {
             get
             {

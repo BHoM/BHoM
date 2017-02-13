@@ -11,6 +11,7 @@ namespace BHoM.Structural.Elements
         MajorAxis,
         MinorAxis,
         LateralTorsional,
+        MinorAndLateralTorsional,
         All
     }
 

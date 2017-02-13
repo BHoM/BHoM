@@ -43,21 +43,32 @@ namespace BHoMTest
 
         private static void TestDesignElementCreation()
         {
-            Point p1, p2, p3, p4, p5, p7, p8;
+            Point p1, p2, p3, p4, p5, p6, p7;
             p1 = new Point(0, 0, 0);
             p2 = new Point(0, 1, 0);
             p3 = new Point(0, 2, 0);
             p4 = new Point(0, 3, 0);
             p5 = new Point(0, 4, 0);
+            p6 = new Point(0, 5, 0);
+            p7 = new Point(0, 6, 0);
 
-            p7 = new Point(1, 1, 1);
-            p8 = new Point(2, 2, 2);
 
             Bar b1 = new Bar(p1, p2);
             Bar b2 = new Bar(p3, p2);
             Bar b3 = new Bar(p3, p4);
             Bar b4 = new Bar(p5, p4);
+            Bar b5 = new Bar(p5, p6);
+            Bar b6 = new Bar(p6, p7);
 
+            DesignElement elem = new DesignElement(new Bar[] { b1, b2, b3, b4, b5, b6 });
+
+            List<double> majSupPos = (new double[] { 0, 3, 5 }).ToList();
+            List<double> minSupPos = (new double[] { 0, 2, 4, 6 }).ToList();
+
+            elem.GenerateSpans(majSupPos, SpanDirection.MajorAxis, true);
+            elem.GenerateSpans(minSupPos, SpanDirection.MinorAndLateralTorsional, true);
+
+            elem.GetSpanCombinations();
             //Beam beam = new Beam();
             //beam.AddBars(new Bar[] { b3, b1, b4, b2});
         }
