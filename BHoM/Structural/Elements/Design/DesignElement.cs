@@ -59,7 +59,6 @@ namespace BHoM.Structural.Elements
                 m_bars = value;
                 SortBars();
             }
-
         }
 
         public void AddBar(Bar bar, bool sort = true)
