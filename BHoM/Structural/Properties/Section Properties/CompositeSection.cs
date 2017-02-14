@@ -47,7 +47,7 @@ namespace BHoM.Structural.Properties
                 Group<Curve> steelSection = m_SteelSection.Edges.DuplicateGroup();
 
                 double topSteel = steelSection.Bounds().Max.Y;
-                double botConcrete = m_ConcreteSection.TotalDepth / 2;
+                double botConcrete = concreteRectangle.Bounds().Min.Y;
                 double steelOffset = topSteel - botConcrete - SteelEmbedmentDepth;
 
                 steelSection.Translate(Vector.YAxis(-steelOffset));

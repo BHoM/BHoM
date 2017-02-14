@@ -187,11 +187,11 @@ namespace BHoM.Structural.Properties
             SectionData[(int)SteelSectionData.Height] = height;
             SectionData[(int)SteelSectionData.TW] = tw;
             SectionData[(int)SteelSectionData.TF1] = tf1;
-            SectionData[(int)SteelSectionData.TF2] = tf2;
+            SectionData[(int)SteelSectionData.TF2] = tf2 == 0 ? tf1 : tf2;
             SectionData[(int)SteelSectionData.r1] = r1;
             SectionData[(int)SteelSectionData.r2] = r2;
-            SectionData[(int)SteelSectionData.B1] = b1;
-            SectionData[(int)SteelSectionData.B2] = b2;
+            SectionData[(int)SteelSectionData.B1] = b1 == 0 ? width : b1;
+            SectionData[(int)SteelSectionData.B2] = b2 == 0 ? b1 : b2;
             SectionData[(int)SteelSectionData.B3] = b3;
             SectionData[(int)SteelSectionData.Spacing] = b3;
             return SectionData;

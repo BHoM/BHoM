@@ -55,11 +55,11 @@ namespace BHoM.Structural.Properties
                 {
                     if (axis == 0)
                     {
-                        result.Add(p.Y);
+                        result.Add(p.X);
                     }
                     else
                     {
-                        result.Add(p.X);
+                        result.Add(p.Y);
                     }
                 }
             }
