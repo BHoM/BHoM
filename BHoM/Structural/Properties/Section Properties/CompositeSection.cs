@@ -44,13 +44,14 @@ namespace BHoM.Structural.Properties
                 double n = m_ConcreteSection.Material.YoungsModulus / m_SteelSection.Material.YoungsModulus;
                 Group<Curve> concreteRectangle = m_ConcreteSection.Edges.DuplicateGroup();
                 concreteRectangle.Transform(Transform.Scale(Point.Origin, new Vector(n, 1, 1)));
-                Group<Curve> steelSection = m_SteelSection.Edges.DuplicateGroup();
+                Group<Curve> steelSection = m_SteelSection.Edges;
 
                 double topSteel = steelSection.Bounds().Max.Y;
                 double botConcrete = concreteRectangle.Bounds().Min.Y;
                 double steelOffset = topSteel - botConcrete - SteelEmbedmentDepth;
 
                 steelSection.Translate(Vector.YAxis(-steelOffset));
+                m_SteelSection.Edges = steelSection;
 
                 if (SteelEmbedmentDepth > 0)
                 {
