@@ -438,6 +438,9 @@ namespace BHoM.Structural.Properties
             return ((double[])m_Edges.Bounds().Min)[direction];
         }
 
+        /// <summary>
+        /// Radius of Gyration about the Y-Axis
+        /// </summary>
         public double Rgy
         {
             get
@@ -446,6 +449,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Radius of Gyration about the Z-Axis
+        /// </summary>
         public double Rgz
         {
             get
@@ -454,6 +460,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Moment of Inertia about the Y-Axis
+        /// </summary>
         public virtual double Iy
         {
             get
@@ -469,6 +478,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Moment of Inertia about the Z-Axis
+        /// </summary>
         public virtual double Iz
         {
             get
@@ -484,6 +496,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Elastic Modulus of the section about the Y-Axis
+        /// </summary>
         public virtual double Zy
         {
             get
@@ -496,6 +511,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Elastic Modulus of the section about the Z-Axis
+        /// </summary>
         public virtual double Zz
         {
             get
@@ -508,6 +526,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Plastic Modulus of the section about the Y-Axis
+        /// </summary>
         public virtual double Sy
         {
             get
@@ -523,6 +544,10 @@ namespace BHoM.Structural.Properties
             }
         }
 
+
+        /// <summary>
+        /// Plastic Modulus of the section about the Z-Axis
+        /// </summary>
         public virtual double Sz
         {
             get
@@ -538,6 +563,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Geometric centre of the section in the Z direction
+        /// </summary>
         public virtual double CentreZ
         {
             get
@@ -553,6 +581,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Geometric centre of the section in the Y direction
+        /// </summary>
         public virtual double CentreY
         {
             get
@@ -568,7 +599,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
-
+        /// <summary>
+        /// Z Distance from the centroid of the section to top edge of the section
+        /// </summary>
         public virtual double Vz
         {
             get
@@ -577,6 +610,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Z Distance from the centroid of the section to bottom edge of the section
+        /// </summary>
         public virtual double Vpz
         {
             get
@@ -584,7 +620,10 @@ namespace BHoM.Structural.Properties
                 return CentreZ - Min(1);
             }
         }
-        
+
+        /// <summary>
+        /// Y Distance from the centroid of the section to right edge of the section
+        /// </summary>
         public virtual double Vy
         {
             get
@@ -593,6 +632,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Y Distance from the centroid of the section to Left edge of the section
+        /// </summary>
         public virtual double Vpy
         {
             get
@@ -601,7 +643,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
-
+        /// <summary>
+        /// Shear Area in the Y direction
+        /// </summary>
         public virtual double Asy
         {
             get
@@ -623,6 +667,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Shear Area in the Z direction
+        /// </summary>
         public virtual double Asz
         {
             get
@@ -774,7 +821,9 @@ namespace BHoM.Structural.Properties
             return result;
         }
 
-
+        /// <summary>
+        /// Total Depth of the section
+        /// </summary>
         public double TotalDepth
         {
             get
@@ -783,6 +832,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Total Width of the section
+        /// </summary>
         public double TotalWidth
         {
             get

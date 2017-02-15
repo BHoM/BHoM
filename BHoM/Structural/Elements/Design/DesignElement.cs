@@ -366,6 +366,63 @@ namespace BHoM.Structural.Elements
             }
         }
 
+        public double GetBarPosition(Span span, int barIdx)
+        {
+            double x = 0;
+            for (int i = 0; i < span.BarIndices.Count; i++)
+            {
+                if (span.BarIndices[i] == barIdx) break;
+                x += m_bars[span.BarIndices[i]].Length;
+            }
+            return x;
+        }
+
+        public double GetBarPosition(int barIdx, SpanDirection direction, out double spanLength)
+        {
+            spanLength = 0;
+            foreach (Span span in GetSpans(direction))
+            {
+                if (span.BarIndices.Contains(barIdx))
+                {
+                    for (int i = 0; i < span.BarIndices.Count; i++)
+                    {
+                        spanLength += m_bars[span.BarIndices[i]].Length;
+                    }
+                    return GetBarPosition(span, barIdx);
+                }
+            }
+            return 0;
+        }
+
+        public List<Span> GetSpans(SpanDirection direction)
+        {
+            switch (direction)
+            {
+                case SpanDirection.MajorAxis:
+                    return m_majorAxisSpans;
+                case SpanDirection.MinorAxis:
+                    return m_minorAxisSpans;
+                case SpanDirection.LateralTorsional:
+                    return m_LateralTorsionalSpans;
+                default:
+                    return m_majorAxisSpans;
+            }           
+        }
+
+        public Span GetSpan(int barIdx, SpanDirection direction)
+        {
+            switch (direction)
+            {
+                case SpanDirection.MajorAxis:
+                    return m_majorAxisSpans.Where(x => x.BarIndices.Contains(barIdx)).First();
+                case SpanDirection.MinorAxis:
+                    return m_minorAxisSpans.Where(x => x.BarIndices.Contains(barIdx)).First();
+                case SpanDirection.LateralTorsional:
+                    return m_LateralTorsionalSpans.Where(x => x.BarIndices.Contains(barIdx)).First();
+                default:
+                    return m_majorAxisSpans.Where(x => x.BarIndices.Contains(barIdx)).First();
+            }
+        }
 
         public override GeometryBase GetGeometry()
         {

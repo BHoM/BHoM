@@ -61,24 +61,9 @@ namespace BHoM.Structural.Results
 
 
         /// <summary>
-        ///  EC: EN1993-1-1: 6.6
+        ///  EC: EN1994-1-1: 6.7
         /// </summary>
-        public double ShearConnectionRatio
-        {
-            get
-            {
-                return (double)Data[11];
-            }
-            set
-            {
-                Data[11] = value;
-            }
-        }
-
-        /// <summary>
-        /// EC: EN1994-1-1: 6.3 and 6.3
-        /// </summary>
-        public double BendingRatio
+        public double TensionCompressionRatio
         {
             get
             {
@@ -90,10 +75,11 @@ namespace BHoM.Structural.Results
             }
         }
 
+
         /// <summary>
-        ///  EC: EN1994-1-1: 6.3.4
+        /// EC: EN1994-1-1: 6.3 and 6.3
         /// </summary>
-        public double BendingShearRatio
+        public double MinorBendingRatio
         {
             get
             {
@@ -106,9 +92,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.4
+        /// EC: EN1994-1-1: 6.3 and 6.3
         /// </summary>
-        public double LateralTorisionBucklingRatio
+        public double MajorBendingRatio
         {
             get
             {
@@ -120,11 +106,10 @@ namespace BHoM.Structural.Results
             }
         }
 
-
         /// <summary>
-        ///  EC: EN1994-1-1: 6.5
+        ///  EC: EN1994-1-1: 6.7
         /// </summary>
-        public double LateralForceRatio
+        public double MinorBendingAxialRatio
         {
             get
             {
@@ -136,11 +121,25 @@ namespace BHoM.Structural.Results
             }
         }
 
-
         /// <summary>
         ///  EC: EN1994-1-1: 6.7
         /// </summary>
-        public double CompressionRatio
+        public double MajorBendingAxialRatio
+        {
+            get
+            {
+                return (double)Data[11];
+            }
+            set
+            {
+                Data[11] = value;
+            }
+        }
+
+        /// <summary>
+        ///  EC: EN1994-1-1: 6.7.3
+        /// </summary>
+        public double BiaxialBendingAxialRatio
         {
             get
             {
@@ -152,11 +151,40 @@ namespace BHoM.Structural.Results
             }
         }
 
+        /// <summary>
+        ///  EC: EN1994-1-1: 6.5
+        /// </summary>
+        public double MinorShearRatio
+        {
+            get
+            {
+                return (double)Data[13];
+            }
+            set
+            {
+                Data[13] = value;
+            }
+        }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.7
+        ///  EC: EN1994-1-1: 6.3.4
         /// </summary>
-        public double MajorBendingAxialRatio
+        public double MajorShearRatio
+        {
+            get
+            {
+                return (double)Data[14];
+            }
+            set
+            {
+                Data[14] = value;
+            }
+        }
+
+        /// <summary>
+        ///  EC: EN1994-1-1: 6.5
+        /// </summary>
+        public double MinorBendingShearRatio
         {
             get
             {
@@ -169,9 +197,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.7
+        ///  EC: EN1994-1-1: 6.3.4
         /// </summary>
-        public double MinorBendingAxialRatio
+        public double MajorBendingShearRatio
         {
             get
             {
@@ -184,9 +212,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.7.3
+        ///  EC: EN1994-1-1: 6.4
         /// </summary>
-        public double BiaxialBendingAxialRatio
+        public double CompressionBucklingRatio
         {
             get
             {
@@ -197,12 +225,12 @@ namespace BHoM.Structural.Results
                 Data[17] = value;
             }
         }
-
+  
         /// <summary>
         /// Buckling resistance.
         /// EC: EN1993-1-1: 6.3.1
         /// </summary>
-        public double MajorUniformCompressionRatio
+        public double BendingBucklingRatio
         {
             get
             {
@@ -218,7 +246,7 @@ namespace BHoM.Structural.Results
         /// Buckling resistance.
         /// EC:  EN1993-1-1: 6.3.1
         /// </summary>
-        public double MinorUniformCompressionRatio
+        public double BendingCompressionBucklingRatio
         {
             get
             {
@@ -228,56 +256,7 @@ namespace BHoM.Structural.Results
             {
                 Data[19] = value;
             }
-        }
-
-        /// <summary>
-        /// Buckling resistance. Lateral torsional buckling
-        /// EC:  EN1993-1-1: 6.3.2
-        /// </summary>
-        public double UniformBendingRatio
-        {
-            get
-            {
-                return (double)Data[20];
-            }
-            set
-            {
-                Data[20] = value;
-            }
-        }
-
-        /// <summary>
-        /// Buckling resistance.
-        /// EC:  EN1993-1-1: 6.3.3
-        /// </summary>
-        public double MajorUniformBendingCompressionRatio
-        {
-            get
-            {
-                return (double)Data[21];
-            }
-            set
-            {
-                Data[21] = value;
-            }
-        }
-
-        /// <summary>
-        /// Buckling resistance.
-        /// EC:  EN1993-1-1: 6.3.3
-        /// </summary>
-        public double MinorUniformBendingCompressionRatio
-        {
-            get
-            {
-                return (double)Data[22];
-            }
-            set
-            {
-                Data[22] = value;
-            }
-        }
-
+        }        
 
         public CompositeUtilisation()
         {
@@ -305,32 +284,21 @@ namespace BHoM.Structural.Results
             get
             {
                 return new string[] {
-                    "Id",
-                    "Name",
-                    "Loadcase",
-                    "TimeStep",
-                    "EffectiveLength",
-                    "ForcePosition",
-                    "Class",
                     "TensionCompressionRatio",
-                    "MajorShearRatio",
-                    "MinorShearRatio",
-                    "TorsionRatio",
-                    "MajorTorsionShearRatio",
-                    "MinorTorsionShearRatio",
-                    "MajorBendingRatio",
                     "MinorBendingRatio",
-                    "MajorBendingAxialRatio",
+                    "MajorBendingRatio",
                     "MinorBendingAxialRatio",
+                    "MajorBendingAxialRatio",
                     "BiaxialBendingAxialRatio",
-                    "MajorUniformCompressionRatio",
-                    "MinorUniformCompressionRatio",
-                    "UniformBendingRatio",
-                    "MajorUniformBendingCompressionRatio",
-                    "MinorUniformBendingCompressionRatio",
+                    "MinorShearRatio",
+                    "MajorShearRatio",
+                    "MinorBendingShearRatio",
+                    "MajorBendingShearRatio",
+                    "CompressionBucklingRatio",
+                    "BendingBucklingRatio",
+                    "BendingCompressionBucklingRatio",
                 };
             }
         }
     }
-
 }

@@ -67,6 +67,11 @@ namespace BHoM.Structural.Results
             return this.GetType().FullName + " " + Id;
         }
 
+        public virtual IResult Duplicate()
+        {
+            return (IResult)this.MemberwiseClone();
+        }
+
         public Result() { }      
 
         public abstract ResultType ResultType { get; }
