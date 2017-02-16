@@ -16,21 +16,21 @@ namespace BHoM.Structural.Properties
         protected Group<Curve> m_OrigionalEdges;
         protected Group<Curve> m_Edges;
 
-        private double m_XIncrement = double.PositiveInfinity;
         private double m_YIncrement = double.PositiveInfinity;
+        private double m_ZIncrement = double.PositiveInfinity;
 
-        protected double m_Cx = double.PositiveInfinity;
         protected double m_Cy = double.PositiveInfinity;
+        protected double m_Cz = double.PositiveInfinity;
 
         protected double m_Area = 0;
-        protected double m_Asx = 0;
         protected double m_Asy = 0;
-        protected double m_Ix = 0;
+        protected double m_Asz = 0;
         protected double m_Iy = 0;
-        protected double m_Zx = 0;
+        protected double m_Iz = 0;
         protected double m_Zy = 0;
-        protected double m_Sx = 0;
+        protected double m_Zz = 0;
         protected double m_Sy = 0;
+        protected double m_Sz = 0;
         protected double m_Orientation = 0;
 
         protected void Update()
@@ -38,21 +38,21 @@ namespace BHoM.Structural.Properties
             m_HorizontalSlices = null;
             m_VerticalSlices = null;
 
-            m_XIncrement = double.PositiveInfinity;
             m_YIncrement = double.PositiveInfinity;
+            m_ZIncrement = double.PositiveInfinity;
 
-            m_Cx = double.PositiveInfinity;
             m_Cy = double.PositiveInfinity;
+            m_Cz = double.PositiveInfinity;
 
             m_Area = 0;
-            m_Asx = 0;
             m_Asy = 0;
-            m_Ix = 0;
+            m_Asz = 0;
             m_Iy = 0;
-            m_Zx = 0;
+            m_Iz = 0;
             m_Zy = 0;
-            m_Sx = 0;
+            m_Zz = 0;
             m_Sy = 0;
+            m_Sz = 0;
 
             if (m_OrigionalEdges != null)
             {
@@ -212,33 +212,33 @@ namespace BHoM.Structural.Properties
         {
             if (direction == 0)
             {
-                if (!double.IsInfinity(m_XIncrement)) return m_XIncrement;
-                if (TotalWidth > 1000)
-                    m_XIncrement = 10;
-                else if (TotalWidth > 100)
-                    m_XIncrement = 1;
-                else if (TotalWidth > 10)
-                    m_XIncrement = 0.1;
-                else if (TotalWidth > 1)
-                    m_XIncrement = 0.01;
-                else
-                    m_XIncrement = 0.001;
-                return m_XIncrement;
-            }
-            else
-            {
                 if (!double.IsInfinity(m_YIncrement)) return m_YIncrement;
-                if (TotalDepth > 1000)
+                if (TotalWidth > 1000)
                     m_YIncrement = 10;
-                else if (TotalDepth > 100)
+                else if (TotalWidth > 100)
                     m_YIncrement = 1;
-                else if (TotalDepth > 10)
+                else if (TotalWidth > 10)
                     m_YIncrement = 0.1;
-                else if (TotalDepth > 1)
+                else if (TotalWidth > 1)
                     m_YIncrement = 0.01;
                 else
                     m_YIncrement = 0.001;
                 return m_YIncrement;
+            }
+            else
+            {
+                if (!double.IsInfinity(m_ZIncrement)) return m_ZIncrement;
+                if (TotalDepth > 1000)
+                    m_ZIncrement = 10;
+                else if (TotalDepth > 100)
+                    m_ZIncrement = 1;
+                else if (TotalDepth > 10)
+                    m_ZIncrement = 0.1;
+                else if (TotalDepth > 1)
+                    m_ZIncrement = 0.01;
+                else
+                    m_ZIncrement = 0.001;
+                return m_ZIncrement;
             }
         }
 
@@ -317,7 +317,7 @@ namespace BHoM.Structural.Properties
 
             if (depth > TotalDepth)
             {
-                return CentreY;
+                return CentreZ;
             }
 
             depth = Max(1) - depth;
@@ -377,7 +377,7 @@ namespace BHoM.Structural.Properties
 
             if (width > TotalWidth)
             {
-                return CentreX;
+                return CentreY;
             }
 
             width = Max(0) - width;
@@ -438,14 +438,9 @@ namespace BHoM.Structural.Properties
             return ((double[])m_Edges.Bounds().Min)[direction];
         }
 
-        public double Rgx
-        {
-            get
-            {
-                return Math.Sqrt(Ix / GrossArea);
-            }
-        }
-
+        /// <summary>
+        /// Radius of Gyration about the Y-Axis
+        /// </summary>
         public double Rgy
         {
             get
@@ -454,48 +449,56 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public virtual double Ix
+        /// <summary>
+        /// Radius of Gyration about the Z-Axis
+        /// </summary>
+        public double Rgz
         {
             get
             {
-                if (m_Ix > 0) return m_Ix;
-                double temp;
-                foreach (Slice slice in HorizontalSlices)
-                {
-                    temp = slice.Length * Math.Pow(slice.Width, 3) / 12;
-                    m_Ix += temp + slice.Length * slice.Width * Math.Pow((slice.Centre - CentreY), 2);
-                }
-                return m_Ix;
+                return Math.Sqrt(Iz / GrossArea);
             }
         }
 
+        /// <summary>
+        /// Moment of Inertia about the Y-Axis
+        /// </summary>
         public virtual double Iy
         {
             get
             {
                 if (m_Iy > 0) return m_Iy;
                 double temp;
-                foreach (Slice slice in VerticalSlices)
+                foreach (Slice slice in HorizontalSlices)
                 {
                     temp = slice.Length * Math.Pow(slice.Width, 3) / 12;
-                    m_Iy += temp + slice.Length * slice.Width * Math.Pow((slice.Centre - CentreX), 2);
+                    m_Iy += temp + slice.Length * slice.Width * Math.Pow((slice.Centre - CentreZ), 2);
                 }
                 return m_Iy;
             }
         }
 
-        public virtual double Zx
+        /// <summary>
+        /// Moment of Inertia about the Z-Axis
+        /// </summary>
+        public virtual double Iz
         {
             get
             {
-                if (m_Zx != 0)
-                    return m_Zx;
-                else
-                    m_Zx = Ix / (CentreY - Min(1));
-                return m_Zx;
+                if (m_Iz > 0) return m_Iz;
+                double temp;
+                foreach (Slice slice in VerticalSlices)
+                {
+                    temp = slice.Length * Math.Pow(slice.Width, 3) / 12;
+                    m_Iz += temp + slice.Length * slice.Width * Math.Pow((slice.Centre - CentreY), 2);
+                }
+                return m_Iz;
             }
         }
 
+        /// <summary>
+        /// Elastic Modulus of the section about the Y-Axis
+        /// </summary>
         public virtual double Zy
         {
             get
@@ -503,26 +506,29 @@ namespace BHoM.Structural.Properties
                 if (m_Zy != 0)
                     return m_Zy;
                 else
-                    m_Zy = Iy / (CentreX - Min(0));
+                    m_Zy = Iy / (CentreZ - Min(1));
                 return m_Zy;
             }
         }
 
-        public virtual double Sx
+        /// <summary>
+        /// Elastic Modulus of the section about the Z-Axis
+        /// </summary>
+        public virtual double Zz
         {
             get
             {
-                if (m_Sx != 0)
-                    return m_Sx;
+                if (m_Zz != 0)
+                    return m_Zz;
                 else
-                    foreach (Slice slice in HorizontalSlices)
-                    {
-                        m_Sx += slice.Length * slice.Width * (Math.Abs(CentreY - slice.Centre));
-                    }
-                return m_Sx;
+                    m_Zz = Iz / (CentreY - Min(0));
+                return m_Zz;
             }
         }
 
+        /// <summary>
+        /// Plastic Modulus of the section about the Y-Axis
+        /// </summary>
         public virtual double Sy
         {
             get
@@ -530,116 +536,157 @@ namespace BHoM.Structural.Properties
                 if (m_Sy != 0)
                     return m_Sy;
                 else
-                    foreach (Slice slice in VerticalSlices)
+                    foreach (Slice slice in HorizontalSlices)
                     {
-                        m_Sy += slice.Length * slice.Width * (Math.Abs(CentreX - slice.Centre));
+                        m_Sy += slice.Length * slice.Width * (Math.Abs(CentreZ - slice.Centre));
                     }
                 return m_Sy;
             }
         }
 
-        public virtual double CentreY
+
+        /// <summary>
+        /// Plastic Modulus of the section about the Z-Axis
+        /// </summary>
+        public virtual double Sz
         {
             get
             {
-                if (!double.IsInfinity(m_Cy)) return m_Cy;
+                if (m_Sz != 0)
+                    return m_Sz;
+                else
+                    foreach (Slice slice in VerticalSlices)
+                    {
+                        m_Sz += slice.Length * slice.Width * (Math.Abs(CentreY - slice.Centre));
+                    }
+                return m_Sz;
+            }
+        }
+
+        /// <summary>
+        /// Geometric centre of the section in the Z direction
+        /// </summary>
+        public virtual double CentreZ
+        {
+            get
+            {
+                if (!double.IsInfinity(m_Cz)) return m_Cz;
                 double AreaTimesY = 0;
                 foreach (Slice slice in HorizontalSlices)
                 {
                     AreaTimesY += slice.Length * slice.Width * slice.Centre;
                 }
-                m_Cy = AreaTimesY / GrossArea;
-                return m_Cy;
+                m_Cz = AreaTimesY / GrossArea;
+                return m_Cz;
             }
         }
 
-        public virtual double CentreX
+        /// <summary>
+        /// Geometric centre of the section in the Y direction
+        /// </summary>
+        public virtual double CentreY
         {
             get
             {
-                if (!double.IsInfinity(m_Cx)) return m_Cx;
+                if (!double.IsInfinity(m_Cy)) return m_Cy;
                 double AreaTimesX = 0;
                 foreach (Slice slice in VerticalSlices)
                 {
                     AreaTimesX += slice.Length * slice.Width * slice.Centre;
                 }
-                m_Cx = AreaTimesX / GrossArea;
-                return m_Cx;
+                m_Cy = AreaTimesX / GrossArea;
+                return m_Cy;
             }
         }
 
+        /// <summary>
+        /// Z Distance from the centroid of the section to top edge of the section
+        /// </summary>
+        public virtual double Vz
+        {
+            get
+            {
+                return Max(1) - CentreZ;
+            }
+        }
 
+        /// <summary>
+        /// Z Distance from the centroid of the section to bottom edge of the section
+        /// </summary>
+        public virtual double Vpz
+        {
+            get
+            {
+                return CentreZ - Min(1);
+            }
+        }
+
+        /// <summary>
+        /// Y Distance from the centroid of the section to right edge of the section
+        /// </summary>
         public virtual double Vy
         {
             get
             {
-                return Max(1) - CentreY;
+                return Max(0) - CentreY;
             }
         }
 
+        /// <summary>
+        /// Y Distance from the centroid of the section to Left edge of the section
+        /// </summary>
         public virtual double Vpy
         {
             get
             {
-                return CentreY - Min(1);
+                return CentreY - Min(0);
             }
         }
 
-        public virtual double Vx
+        /// <summary>
+        /// Shear Area in the Y direction
+        /// </summary>
+        public virtual double Asy
         {
             get
             {
-                return Max(0) - CentreX;
-            }
-        }
-
-        public virtual double Vpx
-        {
-            get
-            {
-                return CentreX - Min(0);
-            }
-        }
-
-
-        public virtual double Asx
-        {
-            get
-            {
-                if (m_Asx != 0) return m_Asx;
+                if (m_Asy != 0) return m_Asy;
                 double sy = 0;
                 double b = 0;
                 double sum = 0;
 
                 foreach (Slice slice in VerticalSlices)
                 {
-                    sy += slice.Length * slice.Width * (CentreX - slice.Centre);
+                    sy += slice.Length * slice.Width * (CentreY - slice.Centre);
                     b = slice.Length;
                     sum += Math.Pow(sy, 2) / (b) * slice.Width;
 
                 }
-                m_Asx = Math.Pow(Iy, 2) / sum;
-                return m_Asx;
+                m_Asy = Math.Pow(Iz, 2) / sum;
+                return m_Asy;
             }
         }
 
-        public virtual double Asy
+        /// <summary>
+        /// Shear Area in the Z direction
+        /// </summary>
+        public virtual double Asz
         {
             get
             {
-                if (m_Asy != 0) return m_Asy;
+                if (m_Asz != 0) return m_Asz;
                 double sx = 0;
                 double b = 0;
                 double sum = 0;
                 foreach (Slice slice in HorizontalSlices)
                 {
-                    sx += slice.Length * slice.Width * (CentreY - slice.Centre);
+                    sx += slice.Length * slice.Width * (CentreZ - slice.Centre);
                     b = slice.Length;
                     sum += Math.Pow(sx, 2) / b * slice.Width;
 
                 }
-                m_Asy = Math.Pow(Ix, 2) / sum;
-                return m_Asy;
+                m_Asz = Math.Pow(Iy, 2) / sum;
+                return m_Asz;
             }
         }
 
@@ -688,6 +735,47 @@ namespace BHoM.Structural.Properties
         /// 
         /// </summary>
         /// <param name="direction"></param>
+        /// <param name="curve">f(x) -> n (where n is a constant value) integrated in the x direction</param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <param name="centroid"></param>
+        /// <returns></returns>
+        public double Integrate(int direction, double curve, double from, double to, ref double centroid)
+        {
+            double result = 0;
+            double max = Math.Max(from, to);
+            double min = Math.Min(from, to);
+
+            List<Slice> slices;
+            double sumAreaLength = 0;
+            if (direction == 0)
+            {
+                slices = VerticalSlices;
+            }
+            else
+            {
+                slices = HorizontalSlices;
+            }
+            for (int i = 0; i < slices.Count; i++)
+            {
+                Slice slice = slices[i];
+                if (slice.Centre > min && slice.Centre < max)
+                {
+                    double currentLength = slice.Centre;
+                    double currentValue = curve;
+                    
+                    result += currentValue * slice.Length * slice.Width;
+                    sumAreaLength += currentValue * slice.Length * slice.Width * currentLength;
+                }
+            }
+            centroid = result != 0 ? sumAreaLength / result : 0;
+            return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="direction"></param>
         /// <param name="curve">f(x) -> integrated in the x direction</param>
         /// <param name="from"></param>
         /// <param name="to"></param>
@@ -729,11 +817,13 @@ namespace BHoM.Structural.Properties
                     sumAreaLength += currentValue * slice.Length * slice.Width * currentLength;
                 }
             }
-            centroid = sumAreaLength / result;
+            centroid = result != 0 ? sumAreaLength / result : 0;
             return result;
         }
 
-
+        /// <summary>
+        /// Total Depth of the section
+        /// </summary>
         public double TotalDepth
         {
             get
@@ -742,6 +832,9 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        /// <summary>
+        /// Total Width of the section
+        /// </summary>
         public double TotalWidth
         {
             get

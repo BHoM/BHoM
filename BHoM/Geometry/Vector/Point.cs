@@ -328,6 +328,11 @@ namespace BHoM.Geometry
             return (this - p).Length;
         }
 
+        public double SquareDistanceTo(Point p)
+        {
+            return VectorUtils.LengthSq((this - p));
+        }
+
         /// <summary>
         /// Constructs a point at 0,0,0
         /// </summary>

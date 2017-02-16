@@ -80,6 +80,8 @@
     <Compile Include="Environmental\Elements\Wall.cs" />
     <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Space.cs" />
+    <Compile Include="Structural\Elements\Design\DesignElement.cs" />
+    <Compile Include="Structural\Elements\Design\Span.cs" />
     <Compile Include="Structural\FileIO.cs" />
     <Compile Include="Generic\Graph.cs" />
     <Compile Include="Generic\GraphLink.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="Structural\ModelTracker\BarTracker.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
+    <Compile Include="Structural\Properties\Constraints\NodeDesignConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
     <Compile Include="Structural\Elements\Storey.cs" />
     <Compile Include="Structural\Elements\Bar.cs" />
@@ -182,6 +185,8 @@
     <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
     <Compile Include="Structural\Interface\IResultAdapter.cs" />
     <Compile Include="Base\Results\ResultServer.cs" />
+    <Compile Include="Structural\Results\Bar Forces\BarStress.cs" />
+    <Compile Include="Structural\Results\Bar Forces\CompositeUtilisation.cs" />
     <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
     <Compile Include="Structural\Results\Geometry\BarCoordinates.cs" />
@@ -248,6 +253,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>SteelSections.mdf</DependentUpon>
     </Content>
+    <None Include="Structural\Properties\Section Properties\Bar.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

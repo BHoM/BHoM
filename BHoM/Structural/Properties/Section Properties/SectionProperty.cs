@@ -18,7 +18,7 @@ namespace BHoM.Structural.Properties
     public abstract partial class SectionProperty : BHoMObject
     {
         private double[] m_SectionData;
-        public double[] SectionData
+        public virtual double[] SectionData
         {
             get
             {
@@ -94,23 +94,19 @@ namespace BHoM.Structural.Properties
                     double height = (double)data[(int)SteelSectionData.Height];
                     double tw = (double)data[(int)SteelSectionData.TW];
                     double tf1 = (double)data[(int)SteelSectionData.TF1];
-                    double tf2 = (double)data[(int)SteelSectionData.TF2] == 0 ? (double)data[(int)SteelSectionData.TF1] : (double)data[(int)SteelSectionData.TF2];
-                    double b1 = (double)data[(int)SteelSectionData.B1] == 0 ? (double)data[(int)SteelSectionData.Width] : (double)data[(int)SteelSectionData.B1];
-                    double b2 = (double)data[(int)SteelSectionData.B2] == 0 ? (double)data[(int)SteelSectionData.Width] : (double)data[(int)SteelSectionData.B2];
+                    double tf2 = (double)data[(int)SteelSectionData.TF2];
+                    double b1 = (double)data[(int)SteelSectionData.B1];
+                    double b2 = (double)data[(int)SteelSectionData.B2];
                     double b3 = (double)data[(int)SteelSectionData.B3];
                     double s = (double)data[(int)SteelSectionData.Spacing];
                     double r1 = (double)data[(int)SteelSectionData.r1];
                     double r2 = (double)data[(int)SteelSectionData.r2];
+                    
 
-                    double[] sectionData = new double[(int)SteelSectionData.Spacing + 1];
-                    for (int i = (int)SteelSectionData.Mass; i < (int)SteelSectionData.Spacing + 1; i++)
-                    {
-                        sectionData[i] = (double)data[i];
-                    }
                     BHoM.Geometry.Group<Curve> edges = CreateGeometry(shape, height, breadth, tw, tf1, r1, r2, b1, b2, tf2, b3);
-                    SectionProperty property = new SteelSection(edges, shape);//, SectionType.Undefined);
+                    SectionProperty property = new SteelSection(edges, shape);
                     property.Name = name;
-                    property.SectionData = sectionData;
+                    property.SectionData = CreateSectionData(height, breadth, tw, tf1, r1, r2, mass, b1, b2, tf2, b3, s);
                     property.Material = Material.Default(MaterialType.Steel);
                     return edges != null ? property : null;
                 }
@@ -187,11 +183,11 @@ namespace BHoM.Structural.Properties
             SectionData[(int)SteelSectionData.Height] = height;
             SectionData[(int)SteelSectionData.TW] = tw;
             SectionData[(int)SteelSectionData.TF1] = tf1;
-            SectionData[(int)SteelSectionData.TF2] = tf2;
+            SectionData[(int)SteelSectionData.TF2] = tf2 == 0 ? tf1 : tf2;
             SectionData[(int)SteelSectionData.r1] = r1;
             SectionData[(int)SteelSectionData.r2] = r2;
-            SectionData[(int)SteelSectionData.B1] = b1;
-            SectionData[(int)SteelSectionData.B2] = b2;
+            SectionData[(int)SteelSectionData.B1] = b1 == 0 ? width : b1;
+            SectionData[(int)SteelSectionData.B2] = b2 == 0 ? b1 : b2;
             SectionData[(int)SteelSectionData.B3] = b3;
             SectionData[(int)SteelSectionData.Spacing] = b3;
             return SectionData;
@@ -203,82 +199,86 @@ namespace BHoM.Structural.Properties
 
         private double[] GetSectionData()
         {
-            double area = GrossArea;
-            double width = TotalWidth;
-            double depth = TotalDepth;
-            List<Slice> hSlices = HorizontalSlices;
-            List<Slice> vSlices = VerticalSlices;
-            double b1 = hSlices[0].Length;
-            double b2 = hSlices[hSlices.Count - 1].Length;
-            double d1 = vSlices[0].Length;
-            double d2 = vSlices[vSlices.Count - 1].Length;
-            double tw = hSlices[hSlices.Count / 2].Length;
-            double tf1 = 0;
-            double tf2 = 0;
+            if (Edges != null)
+            {
+                double area = GrossArea;
+                double width = TotalWidth;
+                double depth = TotalDepth;
+                List<Slice> hSlices = HorizontalSlices;
+                List<Slice> vSlices = VerticalSlices;
+                double b1 = hSlices[0].Length;
+                double b2 = hSlices[hSlices.Count - 1].Length;
+                double d1 = vSlices[0].Length;
+                double d2 = vSlices[vSlices.Count - 1].Length;
+                double tw = hSlices[hSlices.Count / 2].Length;
+                double tf1 = 0;
+                double tf2 = 0;
 
-            if (area > width * depth * 0.95)
-            {
-                //Rectangle
-                Shape = ShapeType.Rectangle;
-            }
-            else if (Utils.NearEqual(area, width * depth * Math.PI / 4, 0.001))
-            {
-                Shape = ShapeType.Circle;
-            }
-            else if (Utils.NearEqual(vSlices[(int)vSlices.Count / 2].Length, depth, 0.001))
-            {
-                //ISection, TSection, ZSection
-                Slice verticalThird = vSlices[vSlices.Count / 3];
-                Slice verticalTwoThird = vSlices[vSlices.Count * 2 / 3];
-                for (int i = vSlices.Count / 3; i < vSlices.Count * 2; i++)
+                if (area > width * depth * 0.95)
                 {
-                    if (vSlices[i].Placement.Length == 4)
+                    //Rectangle
+                    Shape = ShapeType.Rectangle;
+                }
+                else if (Utils.NearEqual(area, width * depth * Math.PI / 4, 0.001))
+                {
+                    Shape = ShapeType.Circle;
+                }
+                else if (Utils.NearEqual(vSlices[(int)vSlices.Count / 2].Length, depth, 0.001))
+                {
+                    //ISection, TSection, ZSection
+                    Slice verticalThird = vSlices[vSlices.Count / 3];
+                    Slice verticalTwoThird = vSlices[vSlices.Count * 2 / 3];
+                    for (int i = vSlices.Count / 3; i < vSlices.Count * 2; i++)
                     {
-                        tf2 = vSlices[i].Placement[1] - vSlices[i].Placement[0];
-                        tf1 = vSlices[i].Placement[3] - vSlices[i].Placement[2];
-                        Shape = ShapeType.ISection;
-                        break;
+                        if (vSlices[i].Placement.Length == 4)
+                        {
+                            tf2 = vSlices[i].Placement[1] - vSlices[i].Placement[0];
+                            tf1 = vSlices[i].Placement[3] - vSlices[i].Placement[2];
+                            Shape = ShapeType.ISection;
+                            break;
+                        }
+                    }
+                    if (Shape != ShapeType.ISection)
+                    {
+                        if (b1 > tw && b2 > tw) //not a tee
+                        {
+                            tf1 = verticalThird.Placement[0] > verticalTwoThird.Placement[0] ? verticalTwoThird.Length : verticalThird.Length;
+                            tf2 = verticalThird.Placement[0] > verticalTwoThird.Placement[0] ? verticalThird.Length : verticalTwoThird.Length;
+                            Shape = ShapeType.Zed;
+                        }
+                        else
+                        {
+                            tf1 = verticalThird.Length;
+                            Shape = ShapeType.Tee;
+                        }
                     }
                 }
-                if (Shape != ShapeType.ISection)
+                else if (b1 > width * 0.8 && b2 > width * 0.8 && d1 > depth * 0.8 && d2 > depth * 0.8)
                 {
-                    if (b1 > tw && b2 > tw) //not a tee
-                    {
-                        tf1 = verticalThird.Placement[0] > verticalTwoThird.Placement[0] ? verticalTwoThird.Length : verticalThird.Length;
-                        tf2 = verticalThird.Placement[0] > verticalTwoThird.Placement[0] ? verticalThird.Length : verticalTwoThird.Length;
-                        Shape = ShapeType.Zed;
-                    }
-                    else
-                    {
-                        tf1 = verticalThird.Length;
-                        Shape = ShapeType.Tee;
-                    }
+                    tw = hSlices[hSlices.Count / 2].Placement[1] - hSlices[hSlices.Count / 2].Placement[0];
+                    tf1 = vSlices[vSlices.Count / 3].Length;
+                    Shape = ShapeType.Box;
                 }
+                else if ((Utils.NearEqual(b1, width, 0.001) || Utils.NearEqual(b2, width, 0.001)) &&
+                    (Utils.NearEqual(d1, width, 0.001) || Utils.NearEqual(d2, width, 0.001)))
+                {
+                    Shape = ShapeType.Angle;
+                    tf1 = tf1 = vSlices[vSlices.Count / 2].Length;
+                }
+                else if (Utils.NearEqual(tw, vSlices[vSlices.Count / 2].Length, 0.001))
+                {
+                    Shape = ShapeType.Tube;
+                    tf1 = tw / 2;
+                    tw = tf1;
+                }
+                else
+                {
+                    Shape = ShapeType.Polygon;
+                }
+                double mass = GrossArea * Material.Density / 9.8;
+                return CreateSectionData(depth, width, tw, tf1, 0, 0, mass, b1, b2, tf2);
             }
-            else if (b1 > width * 0.8 && b2 > width * 0.8 && d1 > depth * 0.8 && d2 > depth * 0.8)
-            {
-                tw = hSlices[hSlices.Count / 2].Placement[1] - hSlices[hSlices.Count / 2].Placement[0];
-                tf1 = vSlices[vSlices.Count / 3].Length;
-                Shape = ShapeType.Box;
-            }
-            else if ((Utils.NearEqual(b1, width, 0.001) || Utils.NearEqual(b2, width,0.001)) && 
-                (Utils.NearEqual(d1, width, 0.001) || Utils.NearEqual(d2, width, 0.001)))
-            {
-                Shape = ShapeType.Angle;
-                tf1 = tf1 = vSlices[vSlices.Count / 2].Length;
-            }
-            else if (Utils.NearEqual(tw, vSlices[vSlices.Count / 2].Length, 0.001))
-            {
-                Shape = ShapeType.Tube;
-                tf1 = tw / 2;
-                tw = tf1;
-            }
-            else
-            {
-                Shape = ShapeType.Polygon;
-            }
-            double mass = GrossArea * Material.Density / 9.8;
-            return CreateSectionData(depth, width, tw, tf1, 0, 0, mass, b1, b2, tf2);
+            return null;
         }
 
         public static SectionProperty CreateCustomSection(MaterialType matType, BHoM.Geometry.Group<Curve> edges)
@@ -658,10 +658,10 @@ namespace BHoM.Structural.Properties
 
         public override GeometryBase GetGeometry()
         {
-            if (double.IsInfinity(m_Cx))
+            if (double.IsInfinity(m_Cy))
             {
                 Update();
-                m_Edges.Translate(new Vector(-CentreX, -CentreY, 0));
+                m_Edges.Translate(new Vector(-CentreY, -CentreZ, 0));
             }
             return m_Edges;
         }

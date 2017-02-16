@@ -22,34 +22,34 @@ namespace BHoM.Structural.Properties
 
         public new double GrossArea
         {
-            set { m_Area = value; }
-            get { return m_Area; }
-        }
+            set;
+            get;
+        }      
 
-
-        public new double Asx
-        {
-            set { m_Asx = value; }
-            get { return m_Asx; }
-        }
 
         public new double Asy
         {
-            set { m_Asy = value; }
-            get { return m_Asy; }
+            set;
+            get;
         }
 
-        public new double Ix
+        public new double Asz
         {
-            set { m_Ix = value; }
-            get { return m_Ix; }
+            set;
+            get;
+        }
+
+        public new double Iy
+        {
+            set;
+            get;
         }
 
         /// <summary>Second moment of inertia about the minor axis</summary>
-        public new double Iy
+        public new double Iz
         {
-            set { m_Iy = value; }
-            get { return m_Iy; }
+            set;
+            get;
         }
 
         ///<summary>Torsion Constant</summary>
@@ -59,7 +59,7 @@ namespace BHoM.Structural.Properties
             set;
         }
 
-        public new double  Vy
+        public double  Vy
         {
             set;
             get;
@@ -71,13 +71,13 @@ namespace BHoM.Structural.Properties
             get;
         }
 
-        public new double Vx
+        public new double Vz
         {
             set;
             get;
         }
 
-        public new double Vpx
+        public new double Vpz
         {
             set;
             get;
@@ -86,39 +86,43 @@ namespace BHoM.Structural.Properties
         /// <summary>
         /// Plastic Section modulus about the major axis
         /// </summary>
-        public new double Sx
+        public new double Sy
         {
-            set { m_Sx = value; }
-            get { return m_Sx; }
+            set;
+            get;
         }
 
         /// <summary>
         /// Plastic Section modulus about the minor axis
         /// </summary>
-        public new double Sy
+        public new double Sz
         {
-            set { m_Sy = value; }
-            get { return m_Sy; }
+            set;
+            get;
         }
 
         /// <summary>
         /// Elastic Section modulus about the major axis
         /// </summary>
-        public new double Zx
+        public new double Zy
         {
-            set { m_Zx = value; }
-            get { return m_Zx; }
+            set;
+            get;
         }
 
         /// <summary>
         /// Elastic Section modulus about the minor axis
         /// </summary>
-        public new double Zy
+        public new double Zz
         {
-            set { m_Zy = value; }
-            get { return m_Zy; }
+            set;
+            get;
         }
 
-
+        public override double[] SectionData
+        {
+            get;
+            set;
+        }
     }
 }

@@ -361,5 +361,16 @@ namespace BHoM.Structural.Elements
         {
             return "Bar: " + StartPoint + " -> " + EndPoint;
         }
+
+        /// <summary>
+        /// Switches start and end node
+        /// </summary>
+        public void FlipNodes()
+        {
+            Node temp = StartNode;
+            StartNode = EndNode;
+            EndNode = temp;
+        }
+
     }
 }

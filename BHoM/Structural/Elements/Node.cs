@@ -53,6 +53,7 @@ namespace BHoM.Structural.Elements
             }
         }
 
+
         /// <summary>Returns true is node is constrained</summary>
         public bool IsConstrained { get; private set; }
 
@@ -207,16 +208,35 @@ namespace BHoM.Structural.Elements
         /// <returns></returns>
         public double DistanceTo(Node node)
         {
-            double dist = 0;
+            //double dist = 0;
+            //double[] target = this.CartesianCoordinates;
+            //double[] search = node.CartesianCoordinates;
+
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    dist += (Math.Pow((target[i] - search[i]), 2));
+            //}
+            //dist = Math.Sqrt(dist);
+            //return dist;
+            return Math.Sqrt(SquareDistanceTo(node));
+        }
+
+        /// <summary>
+        /// Calculates the square distance from the input node to this
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public double SquareDistanceTo(Node node)
+        {
+            double sqDist = 0;
             double[] target = this.CartesianCoordinates;
             double[] search = node.CartesianCoordinates;
 
             for (int i = 0; i < 3; i++)
             {
-                dist += (Math.Pow((target[i] - search[i]), 2));
+                sqDist += (Math.Pow((target[i] - search[i]), 2));
             }
-            dist = Math.Sqrt(dist);
-            return dist;
+            return sqDist;
         }
 
         /// <summary>
@@ -437,6 +457,7 @@ namespace BHoM.Structural.Elements
             {
                 this.Constraint = n.Constraint;
             }
+
             List<Bar> bars = new List<Bar>();
             bars.AddRange(n.ConnectedBars);
             for (int i = 0; i < bars.Count; i++)

@@ -162,14 +162,6 @@ namespace BHoM.Structural.Properties
         /***** Property overrides Setting properties to 0 ************/
         /*************************************************************/
 
-        public override double Asx
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
         public override double Asy
         {
             get
@@ -178,7 +170,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public override double Ix
+        public override double Asz
         {
             get
             {
@@ -194,6 +186,14 @@ namespace BHoM.Structural.Properties
             }
         }
 
+        public override double Iz
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
         public override double J
         {
             get
@@ -202,13 +202,6 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public override double Sx
-        {
-            get
-            {
-                return 0;
-            }
-        }
         public override double Sy
         {
             get
@@ -216,7 +209,7 @@ namespace BHoM.Structural.Properties
                 return 0;
             }
         }
-        public override double Vpx
+        public override double Sz
         {
             get
             {
@@ -230,8 +223,7 @@ namespace BHoM.Structural.Properties
                 return 0;
             }
         }
-
-        public override double Vx
+        public override double Vpz
         {
             get
             {
@@ -247,7 +239,7 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        public override double Zx
+        public override double Vz
         {
             get
             {
@@ -256,6 +248,14 @@ namespace BHoM.Structural.Properties
         }
 
         public override double Zy
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public override double Zz
         {
             get
             {

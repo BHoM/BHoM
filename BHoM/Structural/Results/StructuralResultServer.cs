@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Databases;
 
 namespace BHoM.Structural.Results
 {
@@ -45,7 +46,7 @@ namespace BHoM.Structural.Results
             return (results = GetResult<BarForce>(bars, cases, orderBy)) != null;
         }
 
-        public bool GetBarStresses()
+        public bool GetBarStresses(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, IResultSet> results)
         {
             throw new NotImplementedException();
         }
@@ -137,5 +138,12 @@ namespace BHoM.Structural.Results
         {
             return (results = GetResult<BarCoordinates>(bars, null, ResultOrder.None)) != null;
         }
+
+        public bool PushToDataBase(IDatabaseAdapter dbAdapter, List<ResultType> resultTypes, List<string> loadcases, string key, bool append = false)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }
