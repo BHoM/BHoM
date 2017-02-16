@@ -17,6 +17,15 @@ namespace BHoM.Structural.Properties
         ColdFormed
     }
 
+    public enum PlateRestraint
+    {
+        NoRestraint,
+        TopFlangeRestraint,
+        BottomFlangeRestraint,
+        WebRestraint,
+        FullRestraint
+    }
+
     public class SteelSection : SectionProperty
     {
 
@@ -66,6 +75,12 @@ namespace BHoM.Structural.Properties
         public Fabrication Fabrication
         {
             get; set;
+        }
+
+        public PlateRestraint PlateRestraint
+        {
+            get;
+            set;
         }
 
         public double B1

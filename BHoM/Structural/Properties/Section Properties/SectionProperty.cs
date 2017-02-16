@@ -18,6 +18,8 @@ namespace BHoM.Structural.Properties
     public abstract partial class SectionProperty : BHoMObject
     {
         private double[] m_SectionData;
+
+        [Browsable(false)]
         public virtual double[] SectionData
         {
             get
@@ -42,6 +44,8 @@ namespace BHoM.Structural.Properties
         /// <summary>
         /// Geometry of the cross section
         /// </summary>
+
+        [Browsable(false)]
         [DefaultValue(null)]
         public BHoM.Geometry.Group<Curve> Edges
         {

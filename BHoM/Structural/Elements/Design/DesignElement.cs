@@ -64,7 +64,6 @@ namespace BHoM.Structural.Elements
         public void AddBar(Bar bar, bool sort = true)
         {
             m_bars.Add(bar);
-
             if(sort)
                 SortBars();
         }
@@ -193,8 +192,8 @@ namespace BHoM.Structural.Elements
                 }
                 return m_minorAxisSpans;
             }
-
         }
+
         public List<Span> LateralTorsionalSpan
         {
             set
@@ -211,7 +210,6 @@ namespace BHoM.Structural.Elements
                 }
                 return m_LateralTorsionalSpans;
             }
-
         }
 
         /******************************************/
@@ -274,9 +272,7 @@ namespace BHoM.Structural.Elements
 
             }
 
-
             return spanGroups;
-
         }
 
         public List<Span> GenerateSpans(List<double> suportPositions, SpanDirection direction, bool positionAsLength = false)
@@ -426,9 +422,9 @@ namespace BHoM.Structural.Elements
 
         public override GeometryBase GetGeometry()
         {
-            List<Curve> crvs = new List<Curve>();
+            BHoM.Geometry.Group<Curve> crvs = new BHoM.Geometry.Group<Curve>();
             m_bars.ForEach(x => crvs.Add(x.Line));
-            return new PolyCurve(crvs);           
+            return crvs;        
         }
 
         /// <summary>
@@ -442,6 +438,7 @@ namespace BHoM.Structural.Elements
                 return;
 
             List<Bar> temp = new List<Bar>();
+            List<bool> tempFlip = new List<bool>();
 
             temp.Add(m_bars[0]);
             m_bars.RemoveAt(0);
@@ -510,8 +507,83 @@ namespace BHoM.Structural.Elements
                 }
             }
 
-
             m_bars = temp;
+        }
+
+        /// <summary>
+        /// Joins a list of connected bars with the same cross-section and outputs the result as design elements
+        /// </summary>
+        /// <param name="bars"></param>
+        /// <returns></returns>
+        public static List<DesignElement> CreateFromConnectedBars(List<Bar> bars)
+        {
+            List<DesignElement> results = new List<DesignElement>();
+            Dictionary<Guid, int> nodeCount = new Dictionary<Guid, int>();
+            int count = 0;
+            for (int i = 0; i < bars.Count; i++)
+            {
+                results.Add(new DesignElement(bars[i]));
+                if (nodeCount.TryGetValue(bars[i].StartNode.BHoM_Guid, out count))
+                {
+                    nodeCount[bars[i].StartNode.BHoM_Guid] = count + 1;
+                }
+                else
+                {
+                    nodeCount.Add(bars[i].StartNode.BHoM_Guid, 1);
+                }
+                if (nodeCount.TryGetValue(bars[i].EndNode.BHoM_Guid, out count))
+                {
+                    nodeCount[bars[i].EndNode.BHoM_Guid] = count + 1;
+                }
+                else
+                {
+                    nodeCount.Add(bars[i].EndNode.BHoM_Guid, 1);
+                }
+            }
+
+            int counter = 0;
+            while (counter < results.Count)
+            {
+                double[] ps1 = results[counter].StartPoint;
+                double[] pe1 = results[counter].EndPoint;
+                for (int j = counter + 1; j < results.Count; j++)
+                {
+                    if (results[counter].SectionProperty.Name == results[j].SectionProperty.Name)
+                    {
+                        double[] ps2 = results[j].StartPoint;
+                        double[] pe2 = results[j].EndPoint;
+                        if (VectorUtils.Equal(pe1, ps2, 0.001) && nodeCount[results[counter].EndNode.BHoM_Guid] == 2)
+                        {
+                            results[j].AddBars(results[counter].AnalyticBars);
+                            results.RemoveAt(counter--);
+                            break;
+                        }
+                        else if (VectorUtils.Equal(pe1, pe2, 0.001) && nodeCount[results[counter].EndNode.BHoM_Guid] == 2)
+                        {
+                            results[j].AddBars(results[counter].AnalyticBars);
+                            results.RemoveAt(counter--);
+                            break;
+                        }
+                        else if (VectorUtils.Equal(ps1, ps2, 0.001) && nodeCount[results[counter].StartNode.BHoM_Guid] == 2)
+                        {
+                            results[j].AddBars(results[counter].AnalyticBars);
+                            results.RemoveAt(counter--);
+                            break;
+                        }
+                        else if (VectorUtils.Equal(ps1, pe2, 0.001) && nodeCount[results[counter].StartNode.BHoM_Guid] == 2)
+                        {
+                            results[j].AddBars(results[counter].AnalyticBars);
+                            results.RemoveAt(counter--);
+                            break;
+                        }
+                    }
+                    
+                }
+                counter++;
+            }
+
+            for (int i = 0; i < results.Count; i++) results[i].GenerateDefaultSpans();
+            return results;
         }
     }
 }

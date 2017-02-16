@@ -13,6 +13,7 @@ namespace BHoM.Geometry
         private Group<Curve> m_Curves;
 
         internal PolyCurve() { }
+
         internal PolyCurve(List<Curve> curves)
         {
             m_Curves = new Group<Curve>();

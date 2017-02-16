@@ -23,7 +23,7 @@ namespace BHoM.Structural.Results
          where TTimeStep : IComparable
     {
 
-        public string EffectiveLength
+        public string MinorEffectiveLength
         {
             get
             {
@@ -34,20 +34,20 @@ namespace BHoM.Structural.Results
                 Data[4] = value;
             }
         }
-
-
-        public int ForcePosition
+        public string MajorEffectiveLength
         {
             get
             {
-                return (int)Data[5];
+                return (string)Data[5];
             }
             set
             {
                 Data[5] = value;
             }
         }
-        public int SteelClass
+
+
+        public int ForcePosition
         {
             get
             {
@@ -56,6 +56,17 @@ namespace BHoM.Structural.Results
             set
             {
                 Data[6] = value;
+            }
+        }
+        public int SteelClass
+        {
+            get
+            {
+                return (int)Data[7];
+            }
+            set
+            {
+                Data[7] = value;
             }
         }
 
@@ -67,22 +78,6 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[7];
-            }
-            set
-            {
-                Data[7] = value;
-            }
-        }
-
-
-        /// <summary>
-        /// EC: EN1994-1-1: 6.3 and 6.3
-        /// </summary>
-        public double MinorBendingRatio
-        {
-            get
-            {
                 return (double)Data[8];
             }
             set
@@ -91,10 +86,11 @@ namespace BHoM.Structural.Results
             }
         }
 
+
         /// <summary>
         /// EC: EN1994-1-1: 6.3 and 6.3
         /// </summary>
-        public double MajorBendingRatio
+        public double MinorBendingRatio
         {
             get
             {
@@ -107,9 +103,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.7
+        /// EC: EN1994-1-1: 6.3 and 6.3
         /// </summary>
-        public double MinorBendingAxialRatio
+        public double MajorBendingRatio
         {
             get
             {
@@ -124,7 +120,7 @@ namespace BHoM.Structural.Results
         /// <summary>
         ///  EC: EN1994-1-1: 6.7
         /// </summary>
-        public double MajorBendingAxialRatio
+        public double MinorBendingAxialRatio
         {
             get
             {
@@ -137,9 +133,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.7.3
+        ///  EC: EN1994-1-1: 6.7
         /// </summary>
-        public double BiaxialBendingAxialRatio
+        public double MajorBendingAxialRatio
         {
             get
             {
@@ -152,9 +148,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.5
+        ///  EC: EN1994-1-1: 6.7.3
         /// </summary>
-        public double MinorShearRatio
+        public double BiaxialBendingAxialRatio
         {
             get
             {
@@ -167,9 +163,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.3.4
+        ///  EC: EN1994-1-1: 6.5
         /// </summary>
-        public double MajorShearRatio
+        public double MinorShearRatio
         {
             get
             {
@@ -182,9 +178,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.5
+        ///  EC: EN1994-1-1: 6.3.4
         /// </summary>
-        public double MinorBendingShearRatio
+        public double MajorShearRatio
         {
             get
             {
@@ -197,9 +193,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.3.4
+        ///  EC: EN1994-1-1: 6.5
         /// </summary>
-        public double MajorBendingShearRatio
+        public double MinorBendingShearRatio
         {
             get
             {
@@ -212,9 +208,9 @@ namespace BHoM.Structural.Results
         }
 
         /// <summary>
-        ///  EC: EN1994-1-1: 6.4
+        ///  EC: EN1994-1-1: 6.3.4
         /// </summary>
-        public double CompressionBucklingRatio
+        public double MajorBendingShearRatio
         {
             get
             {
@@ -223,6 +219,21 @@ namespace BHoM.Structural.Results
             set
             {
                 Data[17] = value;
+            }
+        }
+
+        /// <summary>
+        ///  EC: EN1994-1-1: 6.4
+        /// </summary>
+        public double CompressionBucklingRatio
+        {
+            get
+            {
+                return (double)Data[18];
+            }
+            set
+            {
+                Data[18] = value;
             }
         }
   
@@ -234,11 +245,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[18];
+                return (double)Data[19];
             }
             set
             {
-                Data[18] = value;
+                Data[19] = value;
             }
         }
 
@@ -250,17 +261,17 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[19];
+                return (double)Data[20];
             }
             set
             {
-                Data[19] = value;
+                Data[20] = value;
             }
         }        
 
         public CompositeUtilisation()
         {
-            Data = new object[23];
+            Data = new object[21];
         }
 
         public CompositeUtilisation(TName number, TLoadcase loadcase, TTimeStep timeStep) : this()
@@ -284,6 +295,14 @@ namespace BHoM.Structural.Results
             get
             {
                 return new string[] {
+                    "Id",
+                    "Name",
+                    "Loadcase",
+                    "TimeStep",
+                    "MinorEffectiveLength",
+                    "MajorEffectiveLength",
+                    "ForcePosition",
+                    "SteelClass",
                     "TensionCompressionRatio",
                     "MinorBendingRatio",
                     "MajorBendingRatio",
