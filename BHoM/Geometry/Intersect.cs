@@ -56,8 +56,14 @@ namespace BHoM.Geometry
                 {
                     if (previousSide != 0)
                     {
-                        double maxT = i < Length - 1 && sameSide[i] == 0 && sameSide[i + 1] != 0 ? c.Knots[i++ + c.Degree + 1] : c.Knots[i + c.Degree];
+                        double maxT = c.Knots[i + c.Degree];
                         double minT = c.Knots[i];
+                        if (i < Length - 1 && sameSide[i] == 0 && sameSide[i + 1] != 0)
+                        {
+                            maxT = c.Knots[i + c.Degree + 1];
+                            minT = c.Knots[i + c.Degree];
+                            i++;
+                        }
                         result.Add(new Point(CurveParameterAtPlane(p, c, tolerance, ref minT, ref maxT, c.UnsafePointAt(minT), c.UnsafePointAt(maxT))));
                         curveParameters.Add(Math.Round((minT + maxT) / 2, rounding));
                     }
