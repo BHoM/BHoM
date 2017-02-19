@@ -164,7 +164,7 @@ namespace BHoM.Geometry
 
         public static implicit operator double[] (Point v)
         {
-            return v.Coordinates.Length == 4 ? v.Coordinates : v.Coordinates.SubArray(v.Offset, 4);
+            return v.Coordinates.Length == 4 ? v.Coordinates : BHoM.Base.Utils.SubArray<double>(v.Coordinates, v.Offset, 4);
         }
 
         /// <summary>

@@ -33,7 +33,6 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
             BrepJoin();
             
         }
@@ -63,9 +62,8 @@ namespace BHoMTest
 
             Brep.Join(new List<Brep>() { s1, s2 });
 
-        }
-
-=======
+        
+        
             //TestWriteJson();
             TestDesignElementCreation();
             Console.Read();
@@ -150,9 +148,7 @@ namespace BHoMTest
             var item3 = JsonReader.ReadObject(json3);
         }
 
-
-
->>>>>>> origin/develop
+        
         public static void TestSql()
         {
             SQLAccessor accessor = new SQLAccessor(Database.Material, "Europe");
