@@ -14,6 +14,11 @@ namespace BHoM.Geometry
         internal const int Z = 2;
         internal const int W = 3;
 
+        internal static bool NearEqual(double d1, double d2, double epsilon = 10e-9)
+        {
+            return d1 < epsilon + d2 && d1 > d2 - epsilon;
+        }
+
         internal static bool Equal(double[] v1, double[] v2)
         {
             if (v1.Length != v2.Length) return false;
@@ -427,8 +432,10 @@ namespace BHoM.Geometry
             int a1 = 0;
             int a2 = 1;
 
-            if (v1[a1] == 0 && v2[a1] == 0) a1++;
-            if (v1[a2] == 0 && v2[a2] == 0) a2++;
+            if (NearEqual(v1[a1], 0) && NearEqual(v2[a1], 0)) { a1++; a2++; }
+            if (NearEqual(v1[a2],0) && NearEqual(v2[a2],0)) a2++;
+
+            if (a2 > 2) return null;
 
             double[] rhs = VectorUtils.Sub(s2, s1);
             int tries = 0;
@@ -478,6 +485,16 @@ namespace BHoM.Geometry
                 }
             }
             return null;
+        }
+
+        internal static double PointLineDistance(double[] pl1, double[] pl2, double[] p)
+        {
+            double[] vector = Sub(pl2, pl1);
+            double[] pointLineNormal = VectorUtils.CrossProduct(vector, Sub(p, pl1));
+            double[] p3 = Add(pl1, pointLineNormal);
+            double[] normal = VectorUtils.CrossProduct(vector, Sub(p3, pl1));
+            double D = -VectorUtils.DotProduct(normal, pl1);
+            return (VectorUtils.DotProduct(normal, p) + D) / VectorUtils.Length(normal);
         }
 
         internal static double DotProduct(double[] row, double[] vector, int index, int length)

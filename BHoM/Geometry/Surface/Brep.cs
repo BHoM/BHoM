@@ -12,15 +12,17 @@ namespace BHoM.Geometry
         protected Group<Curve> m_NakedEdges;
         protected Group<Curve> m_InternalEdges;
         protected Group<Curve> m_TrimCurves;
+
         internal Brep()
         {
-            //m_NakedEdges = new Group<Curve>();
-            //m_InternalEdges = new Group<Curve>();
+            m_NakedEdges = new Group<Curve>();
+            m_InternalEdges = new Group<Curve>();
+            m_TrimCurves = new Group<Curve>();
         }
 
         public override BoundingBox Bounds()
         {
-            return m_NakedEdges.Bounds();
+            return NakedEdges.Bounds();
         }
 
         public override GeometryBase Duplicate()
@@ -50,6 +52,10 @@ namespace BHoM.Geometry
             }
         }
 
+        public void AddTrimCurves(List<Curve> curves, Point keep)
+        {
+
+        }
 
         public virtual Brep DuplicateBrep()
         {
@@ -59,16 +65,100 @@ namespace BHoM.Geometry
             return b;
         }
 
+        public static bool TryJoin(Brep b1, Brep b2, out Brep result)
+        {
+            List<Curve> c1 = Curve.Join(b1.NakedEdges);
+            List<Curve> c2 = Curve.Join(b2.NakedEdges);
+
+            List<Curve> nakedEdges = new List<Curve>();
+            List<Curve> overlappedEdges = new List<Curve>();
+            List<Point> pts = new List<Point>();
+
+            List<Curve> updatedN = new List<Curve>();
+            List<Curve> updatedI = new List<Curve>();
+
+            for (int i = 0; i < c1.Count;i++)
+            {
+                for (int j = 0; j < c2.Count; j++)
+                {
+                    if (Intersect.CurveCurve(c1[i], c2[j], 0.001, out pts, out overlappedEdges, out nakedEdges))
+                    {
+                        updatedN.AddRange(nakedEdges);
+                        updatedN.AddRange(overlappedEdges);
+                    }
+                }
+            }
+            if (updatedN.Count > 0)
+            {
+                Group<Brep> polySurface = new Group<Brep>();
+
+                if (b1 is PolySurface)
+                {
+                    polySurface.AddRange((b1 as PolySurface).Surfaces);
+                }
+                else
+                {
+                    polySurface.Add(b1);
+                }
+
+                if (b2 is PolySurface)
+                {
+                    polySurface.AddRange((b2 as PolySurface).Surfaces);
+                }
+                else
+                {
+                    polySurface.Add(b2);
+                }
+                result = new PolySurface(polySurface);
+                result.m_NakedEdges.AddRange(updatedN);
+                result.m_InternalEdges.AddRange(updatedI);
+                return true;
+            }
+            else
+            {
+                result = null;
+                return false;
+            }
+        }
+
         public static List<Brep> Join(List<Brep> breps)
         {
+            Brep joined = null;
             List<Brep> result = new List<Brep>();
             for (int i = 0; i < breps.Count; i++)
             {
                 result.Add(breps[i]);
             }
             //Join by overlapping naked edges
+
+            int counter = 0;
+
+            while (counter < result.Count)
+            {
+                List<Curve> b1Curves = Curve.Join(result[counter].NakedEdges);
+                for (int j = counter + 1; j < result.Count; j++)
+                {
+                    
+                    if (TryJoin(result[counter], result[j], out joined))
+                    {
+                        result[j] = joined;
+                        result.RemoveAt(counter--);
+                        break;
+                    }
+                }
+            }
+
             return result;
         }
+
+        public bool IsSolid
+        {
+            get
+            {
+                return m_InternalEdges.Count > 0 && NakedEdges.Count == 0;
+            }
+        }
+
 
         public override void Mirror(Plane p)
         {

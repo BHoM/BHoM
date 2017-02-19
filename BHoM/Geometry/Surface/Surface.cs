@@ -150,7 +150,7 @@ namespace BHoM.Geometry
             if (boundary.IsPlanar() && boundary.IsClosed())
             {
                 Surface surface = new Surface();
-                surface.m_NakedEdges = new Group<Curve>(new List<Curve>() { boundary });
+                //surface.m_NakedEdges = new Group<Curve>(new List<Curve>() { boundary });
 
                 Curve xY = boundary.DuplicateCurve();
                 Plane plane = null;
@@ -175,6 +175,7 @@ namespace BHoM.Geometry
 
                 surface.Transform(t2.Inverse());
                 surface.m_TrimCurves.Add(boundary);
+                surface.m_NakedEdges = new Group<Curve>();
                 return surface;
             }
             return null;

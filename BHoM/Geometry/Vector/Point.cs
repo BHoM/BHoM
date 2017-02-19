@@ -15,17 +15,18 @@ namespace BHoM.Geometry
     public class Point : GeometryBase, IComparable<Point>
     {
         private double[] Coordinates;
+        private int Offset = 0;
 
         /// <summary>X coordinate</summary>
         public double X
         {
             get
             {
-                return Coordinates[0];
+                return Coordinates[Offset];
             }
             set
             {
-                Coordinates[0] = value;
+                Coordinates[Offset] = value;
             }
         }
         /// <summary>Y coordinate</summary>
@@ -33,11 +34,11 @@ namespace BHoM.Geometry
         {
             get
             {
-                return Coordinates[1];
+                return Coordinates[Offset + 1];
             }
             set
             {
-                Coordinates[1] = value;
+                Coordinates[Offset + 1] = value;
             }
         }
         /// <summary>Z coordinate</summary>
@@ -45,11 +46,11 @@ namespace BHoM.Geometry
         {
             get
             {
-                return Coordinates[2];
+                return Coordinates[Offset + 2];
             }
             set
             {
-                Coordinates[2] = value;
+                Coordinates[Offset + 2] = value;
             }
         }
 
@@ -78,11 +79,17 @@ namespace BHoM.Geometry
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="z"></param>
-        internal Point(double[] v)
+        public Point(double[] v)
         {
             Coordinates = new double[4];
             Array.Copy(v, Coordinates, v.Length);
             Coordinates[3] = 1;
+        }
+
+        internal Point(double[] v, int startIndex)
+        {
+            Coordinates = v;
+            Offset = startIndex;
         }
 
         /// <summary>
@@ -94,6 +101,12 @@ namespace BHoM.Geometry
             Coordinates = BHoM.Common.Utils.Copy<double>(dup);
         }
 
+        /// <summary>
+        /// Removes duplicate points which have the same value when rounded to the number of input decimals
+        /// </summary>
+        /// <param name="points"></param>
+        /// <param name="decimals"></param>
+        /// <returns></returns>
         public static List<Point> RemoveDuplicates(List<Point> points, int decimals)
         {
             Dictionary<string, Point> values = new Dictionary<string, Point>();
@@ -108,6 +121,27 @@ namespace BHoM.Geometry
             }
             return values.Values.ToList();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        public double this[int i]
+        {
+            get
+            {
+                return i >= 0 && i <= 4 && i + Offset < Coordinates.Length ? Coordinates[i + Offset] : double.NaN;
+            }
+            set
+            {
+                if (i >= 0 && i <= 4 && i + Offset < Coordinates.Length)
+                {
+                    Coordinates[i + Offset] = value;
+                }
+            }
+        }
+
         /// <summary>
         /// Create a point from json
         /// </summary>
@@ -130,7 +164,7 @@ namespace BHoM.Geometry
 
         public static implicit operator double[] (Point v)
         {
-            return v.Coordinates;
+            return v.Coordinates.Length == 4 ? v.Coordinates : v.Coordinates.SubArray(v.Offset, 4);
         }
 
         /// <summary>
@@ -158,7 +192,6 @@ namespace BHoM.Geometry
         {
             return new Point(this);
         }
-
 
         /// <summary>
         /// Duplicates a point
@@ -308,11 +341,23 @@ namespace BHoM.Geometry
             return min;
         }
 
+        /// <summary>
+        /// Max Values
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns>Max of X,Y,Z values</returns>
         public static Point Max(Point p1, Point p2)
         {
             return new Point(VectorUtils.Max(p1, p2));
         }
 
+        /// <summary>
+        /// Min Values
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns>Min of X,Y,Z Values</returns>
         public static Point Min(Point p1, Point p2)
         {
             return new Point(VectorUtils.Min(p1, p2));
@@ -394,11 +439,19 @@ namespace BHoM.Geometry
             return new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Point"], project) as double[]);
         }
 
+        /// <summary>
+        /// Compares two points in order of priority of X,Y,Z
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public int CompareTo(Point other)
         {
-            double value1 = X * 1E6 + Y * 1E3 + Z;
-            double value2 = other.X * 1E6 + other.Y * 1E3 + other.Z;
-            return value1.CompareTo(value2);
+            int counter = 0;
+            while (counter < 4 && this[counter] == other[counter])
+            {
+                counter++;
+            }
+            return this[counter].CompareTo(other[counter]);
         }
     }
 }
