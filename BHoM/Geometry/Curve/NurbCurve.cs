@@ -47,8 +47,12 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
-            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
+            string typeString = null;
+            if (!definition.TryGetValue("__Type__", out typeString))
+                definition.TryGetValue("Primitive", out typeString);
+            if (typeString == null)
+                return null;
+            typeString = typeString.Replace("\"", "").Replace("{", "").Replace("}", "");
 
             Type type = Type.GetType(typeString);
 

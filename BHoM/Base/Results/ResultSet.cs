@@ -149,7 +149,18 @@ namespace BHoM.Base.Results
 
         public bool IsEmpty { get { return m_Results.Count == 0; } }
 
-        public T CriticalResult()
+        public T this[int idx]
+        {
+            get
+            {
+                T result = new T();
+                result.Data = m_Results[idx];
+                return result;
+            }
+        }
+
+
+        public int CriticalResultIndex()
         {
             double max = double.MinValue;
             int resultIndex = 0;
@@ -159,7 +170,7 @@ namespace BHoM.Base.Results
                 row = m_Results[i];
                 for (int j = 0; j < m_NumberIndices.Count; j++)
                 {
-                    double currentValue = (double)row[m_NumberIndices[j]];
+                    double currentValue = row[m_NumberIndices[j]] != null ? (double)row[m_NumberIndices[j]] : 0;
                     if (currentValue > max)
                     {
                         max = currentValue;
@@ -167,11 +178,7 @@ namespace BHoM.Base.Results
                     }
                 }
             }
-
-            T result = new T();
-            result.Data = m_Results[resultIndex];
-
-            return result;
+            return resultIndex;
         }
 
         public Envelope MaxEnvelope()
@@ -196,7 +203,7 @@ namespace BHoM.Base.Results
 
         public Envelope MinEnvelope()
         {
-            Envelope envelope = new MaxEnvelope(m_ValueNames);
+            Envelope envelope = new MinEnvelope(m_ValueNames);
             for (int i = 0; i < m_Results.Count; i++)
             {
                 object[] row = m_Results[i];
@@ -223,8 +230,8 @@ namespace BHoM.Base.Results
                 object[] row = m_Results[i];
                 for (int j = 0; j < m_NumberIndices.Count; j++)
                 {
-                    double currentValue = (double)row[m_NumberIndices[j]];
-                    if (currentValue > Math.Abs(envelope.Values[j]))
+                    double currentValue = Math.Abs((double)row[m_NumberIndices[j]]);
+                    if (currentValue > envelope.Values[j])
                     {
                         envelope.Values[j] = currentValue;
                         envelope.Keys[j] = row[NameIndex].ToString();

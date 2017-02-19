@@ -17,12 +17,21 @@ namespace BHoM.Structural.Properties
         ColdFormed
     }
 
+    public enum PlateRestraint
+    {
+        NoRestraint,
+        TopFlangeRestraint,
+        BottomFlangeRestraint,
+        WebRestraint,
+        FullRestraint
+    }
+
     public class SteelSection : SectionProperty
     {
 
         public SteelSection()
         {
-             Material = BHoM.Materials.Material.Default(MaterialType.Steel);
+            Material = BHoM.Materials.Material.Default(MaterialType.Steel);
         }
 
         /// <summary>
@@ -60,19 +69,35 @@ namespace BHoM.Structural.Properties
 
         public double GetGrade()
         {
-            if (Material.Name[0] == 'S')
-            {
-                return double.Parse(Material.Name.Substring(1));
-            }
-            else
-            {
-                return 0;
-            }
+            return Material.TensileYieldStrength / 1000000;         
         }   
 
         public Fabrication Fabrication
-        { get; set; }
+        {
+            get; set;
+        }
 
+        public PlateRestraint PlateRestraint
+        {
+            get;
+            set;
+        }
+
+        public double B1
+        {
+            get
+            {
+                return SectionData[(int)SteelSectionData.B1];
+            }
+        }
+
+        public double B2
+        {
+            get
+            {
+                return SectionData[(int)SteelSectionData.B2];
+            }
+        }
 
         public double Tw
         {

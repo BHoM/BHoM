@@ -13,6 +13,7 @@ namespace BHoM.Geometry
         private Group<Curve> m_Curves;
 
         internal PolyCurve() { }
+
         internal PolyCurve(List<Curve> curves)
         {
             m_Curves = new Group<Curve>();
@@ -127,7 +128,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + BHoMJSON.WriteProperty("Curves", m_Curves) + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\"," + BHoMJSON.WriteProperty("Curves", m_Curves) + "}";
         }
 
         public static new PolyCurve FromJSON(string json, Project project = null)
@@ -136,7 +137,6 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Group<Curve> curves = Group<Curve>.FromJSON(definition["Curves"], project) as Group<Curve>;
 

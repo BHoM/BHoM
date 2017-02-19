@@ -51,7 +51,7 @@ namespace BHoM.Geometry
             return m_Geometry;
         }
 
-        internal List<T> GeometryData { set { m_Geometry = value; } }
+        internal List<T> GeometryData { get { return m_Geometry; } set { m_Geometry = value; } }
 
         public T this[int i]
         {
@@ -89,10 +89,13 @@ namespace BHoM.Geometry
         {
             if (m_Bounds == null)
             {
-                m_Bounds = m_Geometry[0].Bounds();
-                for (int i = 1; i < m_Geometry.Count; i++)
+                if (m_Geometry.Count != 0)
                 {
-                    m_Bounds = BoundingBox.Merge(m_Bounds, m_Geometry[i].Bounds());
+                    m_Bounds = m_Geometry[0].Bounds();
+                    for (int i = 1; i < m_Geometry.Count; i++)
+                    {
+                        m_Bounds = BoundingBox.Merge(m_Bounds, m_Geometry[i].Bounds());
+                    }
                 }
             }
             return m_Bounds;           
@@ -160,7 +163,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"GroupType\": \"" + typeof(T).FullName + "\"," + BHoMJSON.WriteProperty("Data", m_Geometry) + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"GroupType\": \"" + typeof(T).FullName + "\"," + BHoMJSON.WriteProperty("Data", m_Geometry) + "}";
         }
 
         public static new GeometryBase FromJSON(string json, Project project = null)
@@ -169,8 +172,14 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = Base.BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
-            var typeString = definition["Primitive"].Replace("\"", "").Replace("{", "").Replace("}", "");
+
+            string typeString = null;
+            if (!definition.TryGetValue("__Type__", out typeString))
+                definition.TryGetValue("Primitive", out typeString);
+            if (typeString == null)
+                return null;
+            typeString = typeString.Replace("\"", "").Replace("{", "").Replace("}", "");
+
             Type groupDataType = Type.GetType(definition["GroupType"].Trim('\"', '\"'));
             var groupType = typeof(Group<>);
             var dataType = typeof(List<>);

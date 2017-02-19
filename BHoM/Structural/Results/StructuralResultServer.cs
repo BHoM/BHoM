@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Databases;
 
 namespace BHoM.Structural.Results
 {
@@ -45,7 +46,7 @@ namespace BHoM.Structural.Results
             return (results = GetResult<BarForce>(bars, cases, orderBy)) != null;
         }
 
-        public bool GetBarStresses()
+        public bool GetBarStresses(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, IResultSet> results)
         {
             throw new NotImplementedException();
         }
@@ -104,6 +105,8 @@ namespace BHoM.Structural.Results
                         return TransferResults<PanelStress>(m_Filename, filename, loadcases);
                     case ResultType.NodeCoordinates:
                         return TransferResults<NodeCoordinates>(m_Filename, filename, loadcases);
+                    case ResultType.BarCoordinates:
+                        return TransferResults<BarCoordinates>(m_Filename, filename, loadcases);
                     case ResultType.NodeDisplacement:
                         return TransferResults<NodeDisplacement>(m_Filename, filename, loadcases);
                     case ResultType.SlabReinforcement:
@@ -130,5 +133,17 @@ namespace BHoM.Structural.Results
         {
             return (results = GetResult<NodeCoordinates>(nodes, null, ResultOrder.None)) != null;
         }
+
+        public bool GetBarCoordinates(List<string> bars, out Dictionary<string, IResultSet> results)
+        {
+            return (results = GetResult<BarCoordinates>(bars, null, ResultOrder.None)) != null;
+        }
+
+        public bool PushToDataBase(IDatabaseAdapter dbAdapter, List<ResultType> resultTypes, List<string> loadcases, string key, bool append = false)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

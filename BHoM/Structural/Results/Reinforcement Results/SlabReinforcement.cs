@@ -10,8 +10,8 @@ namespace BHoM.Structural.Results
     public class SlabReinforcement : SlabReinforcement<int, int, int>
     {
         public SlabReinforcement() : base() { }
-        public SlabReinforcement(int number, int node, int loadcase, int timeStep, double Axm, double Axp, double Aym, double Ayp)
-            : base(number, node, loadcase, timeStep, Axm, Axp, Aym, Ayp)
+        public SlabReinforcement(int number, int node, int loadcase, int timeStep, double Axp, double Axm, double Ayp, double Aym)
+            : base(number, node, loadcase, timeStep, Axp, Axm, Ayp, Aym)
         { }
     }
 
@@ -31,7 +31,7 @@ namespace BHoM.Structural.Results
         // TODO: don't forget about PanelDirection
         public static string[] GetColumnHeaders()
         {
-            return new string[] { "Id", "Name", "Loadcase", "TimeStep", "Node", "AXM", "AXP", "AYM", "AYP" };
+            return new string[] { "Id", "Name","Loadcase", "TimeStep", "Node", "AXP", "AXM", "AYP", "AYM" };
         }
 
         public override ResultType ResultType
@@ -49,17 +49,18 @@ namespace BHoM.Structural.Results
 
         public SlabReinforcement(object[] data) { Data = data; }
 
-        public SlabReinforcement(TName number, TName node, TLoadcase loadcase, TTimeStep timeStep, double axm, double axp, double aym, double ayp) : this()
+        public SlabReinforcement(TName number, TName node, TLoadcase loadcase, TTimeStep timeStep, double axp, double axm, double ayp, double aym) : this()
         {
             Name = number;
             TimeStep = timeStep;
             Loadcase = loadcase;
             Node = node;
             Id = Name + ":" + Node + ":" + loadcase + ":" + TimeStep;
-            AXM = axm;
             AXP = axp;
-            AYP = aym;
+            AXM = axm;
             AYP = ayp;
+            AYM = aym;
+            //DirX = dirx;
         }
 
         public TName Node
@@ -74,7 +75,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public double AXM
+        public double AXP
         {
             get
             {
@@ -85,7 +86,7 @@ namespace BHoM.Structural.Results
                 Data[5] = value;
             }
         }
-        public double AXP
+        public double AXM
         {
             get
             {
@@ -96,7 +97,7 @@ namespace BHoM.Structural.Results
                 Data[6] = value;
             }
         }
-        public double AYM
+        public double AYP
         {
             get
             {
@@ -107,7 +108,7 @@ namespace BHoM.Structural.Results
                 Data[7] = value;
             }
         }
-        public double AYP
+        public double AYM
         {
             get
             {
@@ -118,5 +119,16 @@ namespace BHoM.Structural.Results
                 Data[8] = value;
             }
         }
+        //public BHoM.Geometry.Vector DirX
+        //{
+        //    get
+        //    {
+        //        return (BHoM.Geometry.Vector)Data[9];
+        //    }
+        //    set
+        //    {
+        //        Data[9] = value;
+        //    }
+        //}
     }
 }

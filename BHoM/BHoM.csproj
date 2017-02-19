@@ -66,11 +66,22 @@
     <Compile Include="Base\Cipher.cs" />
     <Compile Include="Base\Compress.cs" />
     <Compile Include="Base\Group.cs" />
+    <Compile Include="Base\JsonReader.cs" />
+    <Compile Include="Base\JsonWriter.cs" />
     <Compile Include="Base\Results\Enums.cs" />
     <Compile Include="Base\Results\Envelope.cs" />
     <Compile Include="Base\Results\Result.cs" />
     <Compile Include="Base\Results\ResultSet.cs" />
     <Compile Include="Base\Tolerance.cs" />
+    <Compile Include="Base\TypeDictionary.cs" />
+    <Compile Include="Databases\IDatabaseAdapter.cs" />
+    <Compile Include="Databases\IDatabaseQuery.cs" />
+    <Compile Include="Databases\MapReduceQuery.cs" />
+    <Compile Include="Environmental\Elements\Wall.cs" />
+    <Compile Include="Environmental\Elements\Panel.cs" />
+    <Compile Include="Environmental\Elements\Space.cs" />
+    <Compile Include="Structural\Elements\Design\DesignElement.cs" />
+    <Compile Include="Structural\Elements\Design\Span.cs" />
     <Compile Include="Structural\FileIO.cs" />
     <Compile Include="Generic\Graph.cs" />
     <Compile Include="Generic\GraphLink.cs" />
@@ -113,6 +124,7 @@
     <Compile Include="Structural\Elements\IAreaElement.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
     <Compile Include="Structural\Application.cs" />
+    <Compile Include="Structural\Interface\ICommandAdapter.cs" />
     <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
     <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Base\Object.cs" />
@@ -140,6 +152,7 @@
     <Compile Include="Structural\ModelTracker\BarTracker.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
+    <Compile Include="Structural\Properties\Constraints\NodeDesignConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
     <Compile Include="Structural\Elements\Storey.cs" />
     <Compile Include="Structural\Elements\Bar.cs" />
@@ -172,8 +185,11 @@
     <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
     <Compile Include="Structural\Interface\IResultAdapter.cs" />
     <Compile Include="Base\Results\ResultServer.cs" />
+    <Compile Include="Structural\Results\Bar Forces\BarStress.cs" />
+    <Compile Include="Structural\Results\Bar Forces\CompositeUtilisation.cs" />
     <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
+    <Compile Include="Structural\Results\Geometry\BarCoordinates.cs" />
     <Compile Include="Structural\Results\Geometry\NodeCoordinates.cs" />
     <Compile Include="Structural\Results\Global Results\GlobalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodalResult.cs" />
@@ -237,6 +253,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>SteelSections.mdf</DependentUpon>
     </Content>
+    <None Include="Structural\Properties\Section Properties\Bar.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

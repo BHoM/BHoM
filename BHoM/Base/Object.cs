@@ -15,6 +15,7 @@ namespace BHoM.Base
         System.Guid BHoM_Guid { get; }
         string Name { get; set; }
         Dictionary<string, object> CustomData { get; set; }
+        BHoMObject ShallowClone(bool newGuid = false);
     }
 
     /// <summary>
@@ -189,7 +190,7 @@ namespace BHoM.Base
         /// <returns></returns>
         public override string ToString()
         {
-            return this.GetType().Name + (!string.IsNullOrEmpty(Name) ? ": " + Name : "");
+            return this.GetType().FullName + (!string.IsNullOrEmpty(Name) ? ": " + Name : "");
         }
 
         /// <summary>
@@ -224,8 +225,8 @@ namespace BHoM.Base
             Guid id = obj.BHoM_Guid;
             if (!dependencies.ContainsKey(id))
             {
-                dependencies[id] = obj;
                 obj.GetDeepDependencies(ref dependencies);
+                dependencies[id] = obj;
             }
         }
 

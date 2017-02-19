@@ -143,9 +143,11 @@ namespace BHoM.Structural.Elements
         ////CONSTRUCTORS////
         ////////////////////
 
-        internal Panel()
+        public Panel()
         {
             m_Faces = new List<Face>();
+            m_InteriorEdges = new BHoM.Geometry.Group<Curve>();
+            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
         }
 
         /// <summary>

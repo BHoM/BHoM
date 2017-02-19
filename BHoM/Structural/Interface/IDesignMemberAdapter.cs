@@ -16,5 +16,7 @@ namespace BHoM.Structural.Interface
     {
         bool SetBarDesignElement(List<Bar> bars, out List<string> ids);
 
+        List<string> GetBarDesignElement(out List<Bar> bars, List<string> ids = null);
+
     }
 }

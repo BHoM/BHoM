@@ -127,58 +127,64 @@ namespace BHoM.Base
             Dictionary<TKey, T> result = new Dictionary<TKey, T>();
             for (int i = 0; i < m_Data.Count; i++)
             {
-                TKey key = GetKey<TKey>(m_Data[i], propertyName, option);
-
-                T value = default(T);
-                if (key != null  && !result.TryGetValue(key, out value))
+                if (m_Data[i] != null)
                 {
-                    result.Add(key, m_Data[i]);
+                    TKey key = GetKey<TKey>(m_Data[i], propertyName, option);
+
+                    T value = default(T);
+                    if (key != null && !result.TryGetValue(key, out value))
+                    {
+                        result.Add(key, m_Data[i]);
+                    }
                 }
             }
             return result;
         }
         internal static TKey GetKey<TKey>(T obj, string name, FilterOption option)
         {
-            switch (option)
+            if (obj != null)
             {
-                case FilterOption.Name:
-                    return (TKey)(object)obj.Name;
-                case FilterOption.Guid:
-                    if (typeof(TKey) == typeof(string))
-                    {
-                        return (TKey)(object)obj.BHoM_Guid.ToString();
-                    }
-                    else
-                    {
-                        return (TKey)(object)obj.BHoM_Guid;
-                    }
-                case FilterOption.Property:
-                    System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(name);
-                    if (pInfo != null)
-                    {
-                        return (TKey)(object)pInfo.GetValue(obj);
-                    }
-                    break;
-                case FilterOption.UserData:
-                    object keyResult = null;
-                    if (obj.CustomData.TryGetValue(name, out keyResult))
-                    {
-                        if (keyResult.GetType() != typeof(TKey))
+                switch (option)
+                {
+                    case FilterOption.Name:
+                        return (TKey)(object)obj.Name;
+                    case FilterOption.Guid:
+                        if (typeof(TKey) == typeof(string))
                         {
-                            System.Reflection.MethodInfo parseMethod = typeof(TKey).GetMethod("Parse", new Type[] { typeof(string) });
-                            if (parseMethod != null)
-                            {
-                                obj.CustomData[name] = (obj.CustomData[name] = parseMethod.Invoke(null, new object[] { keyResult.ToString() }));
-                                return (TKey)(object)obj.CustomData[name];
-                            }
+                            return (TKey)(object)obj.BHoM_Guid.ToString();
                         }
                         else
                         {
-                            return (TKey)(object)keyResult;
+                            return (TKey)(object)obj.BHoM_Guid;
                         }
-                       
-                    }
-                    return default(TKey);
+                    case FilterOption.Property:
+                        System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(name);
+                        if (pInfo != null)
+                        {
+                            return (TKey)(object)pInfo.GetValue(obj);
+                        }
+                        break;
+                    case FilterOption.UserData:
+                        object keyResult = null;
+                        if (obj.CustomData.TryGetValue(name, out keyResult))
+                        {
+                            if (keyResult.GetType() != typeof(TKey))
+                            {
+                                System.Reflection.MethodInfo parseMethod = typeof(TKey).GetMethod("Parse", new Type[] { typeof(string) });
+                                if (parseMethod != null)
+                                {
+                                    obj.CustomData[name] = (obj.CustomData[name] = parseMethod.Invoke(null, new object[] { keyResult.ToString() }));
+                                    return (TKey)(object)obj.CustomData[name];
+                                }
+                            }
+                            else
+                            {
+                                return (TKey)(object)keyResult;
+                            }
+
+                        }
+                        return default(TKey);
+                }
             }
             return default(TKey);
         }

@@ -58,6 +58,12 @@ namespace BHoM.Geometry
                     {
                         double maxT = c.Knots[i + c.Degree];
                         double minT = c.Knots[i];
+                        if (i < Length - 1 && sameSide[i] == 0 && sameSide[i + 1] != 0)
+                        {
+                            maxT = c.Knots[i + c.Degree + 1];
+                            minT = c.Knots[i + c.Degree];
+                            i++;
+                        }
                         result.Add(new Point(CurveParameterAtPlane(p, c, tolerance, ref minT, ref maxT, c.UnsafePointAt(minT), c.UnsafePointAt(maxT))));
                         curveParameters.Add(Math.Round((minT + maxT) / 2, rounding));
                     }
@@ -199,40 +205,52 @@ namespace BHoM.Geometry
 
                         if (intersectPoint != null)
                         {
+
                             double maxT1 = c1.Knots[i];
                             double minT1 = c1.Knots[i - c1.Degree];
 
                             double maxT2 = c2.Knots[j];
                             double minT2 = c2.Knots[j - c2.Degree];
 
-                            double[] p1Max = c1.UnsafePointAt(maxT1);
-                            double[] p1Min = c1.UnsafePointAt(minT1);
-
-                            double[] p2Max = c2.UnsafePointAt(maxT2);
-                            double[] p2Min = c2.UnsafePointAt(minT2);
-
-                            int iterations = 0;
-                            double d1 = double.MaxValue;
-                            double d2 = double.MaxValue;
-                            while (iterations++ < 10)
+                            if (c1.Degree > 1 || c2.Degree > 1)
                             {
-                                if (d1 > tolerance)
-                                {
-                                    d1 = UpdateNearestEnd(c1, intersectPoint, ref minT1, ref maxT1, ref p1Min, ref p1Max);
-                                    v1 = VectorUtils.Sub(p1Max, p1Min);
-                                }
-                                if (d2 > tolerance)
-                                {
-                                    d2 = UpdateNearestEnd(c2, intersectPoint, ref minT2, ref maxT2, ref p2Min, ref p2Max);
-                                    v2 = VectorUtils.Sub(p2Max, p2Min);
-                                }
-                                intersectPoint = VectorUtils.Intersect(p1Min, v1, p2Min, v2, false);
 
-                                if (d1 < tolerance && d2 < tolerance) break;
+                                double[] p1Max = c1.UnsafePointAt(maxT1);
+                                double[] p1Min = c1.UnsafePointAt(minT1);
+
+                                double[] p2Max = c2.UnsafePointAt(maxT2);
+                                double[] p2Min = c2.UnsafePointAt(minT2);
+
+                                int interations = 0;
+                                double d1 = double.MaxValue;
+                                double d2 = double.MaxValue;
+                                while (interations++ < 10)
+                                {
+                                    if (d1 > tolerance)
+                                    {
+                                        d1 = UpdateNearestEnd(c1, intersectPoint, ref minT1, ref maxT1, ref p1Min, ref p1Max);
+                                        v1 = VectorUtils.Sub(p1Max, p1Min);
+                                    }
+                                    if (d2 > tolerance)
+                                    {
+                                        d2 = UpdateNearestEnd(c2, intersectPoint, ref minT2, ref maxT2, ref p2Min, ref p2Max);
+                                        v2 = VectorUtils.Sub(p2Max, p2Min);
+                                    }
+                                    intersectPoint = VectorUtils.Intersect(p1Min, v1, p2Min, v2, false);
+
+                                    if (d1 < tolerance && d2 < tolerance) break;
+                                }
+
+                                t1.Add((minT1 + maxT1) / 2);
+                                t2.Add((minT2 + maxT2) / 2);
                             }
+                            else
+                            {
+                                t1.Add( minT1 + (maxT1 - minT1) * VectorUtils.Length(VectorUtils.Sub(intersectPoint, p11)) / VectorUtils.Length(v1));
+                                t1.Add(minT2 + (maxT2 - minT2) * VectorUtils.Length(VectorUtils.Sub(intersectPoint, p21)) / VectorUtils.Length(v2));
+                            }
+
                             result.Add(new Point(intersectPoint));
-                            t1.Add((minT1 + maxT1) / 2);
-                            t2.Add((minT2 + maxT2) / 2);
                         }
                         p21 = p22;
                     }
@@ -275,6 +293,8 @@ namespace BHoM.Geometry
                 maxT = maxT - midQuart;
                 pMin = c.UnsafePointAt(minT);
                 pMax = c.UnsafePointAt(maxT);
+
+                return (distance1 + distance2) / 2;
             }
             else
             {
@@ -285,14 +305,15 @@ namespace BHoM.Geometry
                 {
                     maxT = mid;
                     pMax = midP;
+                    return distance1;
                 }
                 else
                 {
                     minT = mid;
                     pMin = midP;
+                    return distance2;
                 }
             }
-            return (distance1 + distance1) / 2;
         }
 
         private static bool InRange(double[] value, double[] min, double[] max)

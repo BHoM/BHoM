@@ -204,10 +204,12 @@ namespace BHoM.Global
         public BHoM.Base.BHoMObject GetObject(string id)
         {
             BHoM.Base.BHoMObject result = null;
-            m_Objects.TryGetValue(Guid.Parse(id), out result);
+            Guid guid = new Guid();
+            if (Guid.TryParse(id, out guid))
+                m_Objects.TryGetValue(guid, out result);
             return result;
         }
-
+         
         /// <summary>
         /// Adds a BHoM Object to the project
         /// </summary>

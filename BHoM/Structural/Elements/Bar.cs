@@ -56,7 +56,14 @@ namespace BHoM.Structural.Elements
         [Description("Elastic bar constraint")]
         [DefaultValue(null)]
         public BHoM.Structural.Properties.BarConstraint Spring { get; set; }
-        
+
+        /// <summary>Spring</summary>
+        [DisplayName("Offset")]
+        [Description("Bar Offsets")]
+        [DefaultValue(null)]
+        public BHoM.Structural.Properties.Offset Offset { get; set; }
+
+
         public BarStructuralUsage StructuralUsage { get; set; }
 
         /// <summary>
@@ -169,6 +176,16 @@ namespace BHoM.Structural.Elements
             {
                 m_EffectiveLength = value;
             }
+        }
+
+        public double EffectiveLengthMinor
+        {
+            get; set;
+        }
+
+        public double EffectiveLengthMajor
+        {
+            get; set;
         }
 
 
@@ -344,5 +361,16 @@ namespace BHoM.Structural.Elements
         {
             return "Bar: " + StartPoint + " -> " + EndPoint;
         }
+
+        /// <summary>
+        /// Switches start and end node
+        /// </summary>
+        public void FlipNodes()
+        {
+            Node temp = StartNode;
+            StartNode = EndNode;
+            EndNode = temp;
+        }
+
     }
 }

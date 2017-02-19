@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Databases;
 
 namespace BHoM.Structural.Interface
 {
@@ -14,7 +15,7 @@ namespace BHoM.Structural.Interface
         bool StoreResults(string filename, List<ResultType> resultTypes, List<string> loadcases, bool append = false);
 
         bool GetBarForces(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
-        bool GetBarStresses();
+        bool GetBarStresses(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
 
         bool GetNodeReactions(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
         bool GetNodeDisplacements(List<string> nodes, List<string> cases, ResultOrder orderBy, out Dictionary<string, IResultSet> results);
@@ -33,7 +34,9 @@ namespace BHoM.Structural.Interface
 
         //Geometry
         bool GetNodeCoordinates(List<string> nodes, out Dictionary<string, IResultSet> results);
+        bool GetBarCoordinates(List<string> bars, out Dictionary<string, IResultSet> results);
 
+        bool PushToDataBase(IDatabaseAdapter dbAdapter, List<ResultType> resultTypes, List<string> loadcases, string key, bool append = false);
     }
 }
 

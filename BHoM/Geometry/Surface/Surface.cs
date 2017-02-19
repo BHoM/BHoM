@@ -201,7 +201,7 @@ namespace BHoM.Geometry
             string weights = VectorUtils.MinValue(m_Weights) < 1 ? "\"Weights\": " + Common.Utils.CollectionToString(m_Weights) : "";
             string degree = "\"Degree\": " + (m_Order - 1);
             string trimmingCurves = "\"TrimmingCurves\": " + m_TrimCurves.ToJSON();
-            return "{\"Primitive\": \"" + this.GetType().Name + "\"," + degree + "," + uknots + "," + vknots + (weights != "" ? "," : "") + weights + "," + trimmingCurves + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\"," + degree + "," + uknots + "," + vknots + (weights != "" ? "," : "") + weights + "," + trimmingCurves + "}";
         }
     
         #endregion

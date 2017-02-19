@@ -138,7 +138,12 @@ namespace BHoM.Base
                 {
                     try
                     {
-                        list.Add(ReadValue(listType, item, project));
+                        object o = ReadValue(listType, item, project);
+                        list.Add(o);
+                        if (o is BHoMObject)
+                        {
+                            project.AddObject(o as BHoMObject);
+                        }
                     }
                     catch (Exception ex)
                     {

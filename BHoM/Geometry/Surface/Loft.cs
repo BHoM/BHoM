@@ -56,7 +56,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
-            return "{\"Primitive\": \"" + this.GetType().Name + "\", \"Curves\": " + Curves.ToJSON() + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"Curves\": " + Curves.ToJSON() + "}";
         }
 
         public static new Loft FromJSON(string json, Project project = null)
@@ -65,7 +65,6 @@ namespace BHoM.Geometry
                 project = Global.Project.ActiveProject;
 
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            if (!definition.ContainsKey("Primitive")) return null;
 
             Group<Curve> curves = BHoMJSON.ReadValue(typeof(Group<Curve>), definition["Curves"], project) as Group<Curve>;
             return new Loft(curves);

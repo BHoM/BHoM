@@ -53,6 +53,7 @@ namespace BHoM.Structural.Elements
             }
         }
 
+
         /// <summary>Returns true is node is constrained</summary>
         public bool IsConstrained { get; private set; }
 
@@ -85,7 +86,7 @@ namespace BHoM.Structural.Elements
         ////Constructors///
         ///////////////////
 
-        internal Node()
+        public Node()
         {
             Point = new Point();
             m_ConnectedBars = new List<Bar>();
@@ -207,16 +208,35 @@ namespace BHoM.Structural.Elements
         /// <returns></returns>
         public double DistanceTo(Node node)
         {
-            double dist = 0;
+            //double dist = 0;
+            //double[] target = this.CartesianCoordinates;
+            //double[] search = node.CartesianCoordinates;
+
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    dist += (Math.Pow((target[i] - search[i]), 2));
+            //}
+            //dist = Math.Sqrt(dist);
+            //return dist;
+            return Math.Sqrt(SquareDistanceTo(node));
+        }
+
+        /// <summary>
+        /// Calculates the square distance from the input node to this
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public double SquareDistanceTo(Node node)
+        {
+            double sqDist = 0;
             double[] target = this.CartesianCoordinates;
             double[] search = node.CartesianCoordinates;
 
             for (int i = 0; i < 3; i++)
             {
-                dist += (Math.Pow((target[i] - search[i]), 2));
+                sqDist += (Math.Pow((target[i] - search[i]), 2));
             }
-            dist = Math.Sqrt(dist);
-            return dist;
+            return sqDist;
         }
 
         /// <summary>
@@ -403,12 +423,41 @@ namespace BHoM.Structural.Elements
             return "Node: " + Point.ToString();
         }
 
+        public static List<Node> MergeWithin(List<Node> nodes, double tolerance)
+        {
+            int removed = 0;
+            List<Node> result = new List<Node>();
+            nodes.Sort(delegate (Node n1, Node n2)
+            {
+                return n1.Point.DistanceTo(BHoM.Geometry.Point.Origin).CompareTo(n2.Point.DistanceTo(BHoM.Geometry.Point.Origin));
+            });
+            result.AddRange(nodes);
+
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                double distance = nodes[i].Point.DistanceTo(BHoM.Geometry.Point.Origin);
+                int j = i + 1;
+                while (j < nodes.Count && Math.Abs(nodes[j].Point.DistanceTo(BHoM.Geometry.Point.Origin) - distance) < tolerance)
+                {
+                    if (nodes[i].Point.DistanceTo(nodes[j].Point) < tolerance)
+                    {
+                        nodes[j] = nodes[j].Merge(nodes[i]);
+                        result.RemoveAt(i - removed++);
+                        break;
+                    }
+                    j++;
+                }
+            }
+            return result;
+        }
+
         public Node Merge(Node n)
         {
             if (this.Constraint == null)
             {
                 this.Constraint = n.Constraint;
             }
+
             List<Bar> bars = new List<Bar>();
             bars.AddRange(n.ConnectedBars);
             for (int i = 0; i < bars.Count; i++)

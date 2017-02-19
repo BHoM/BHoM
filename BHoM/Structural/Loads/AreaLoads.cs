@@ -43,4 +43,28 @@ namespace BHoM.Structural.Loads
 
         //Varying loads on area based objects
     }
+
+    /// <summary>
+    /// bar temperature load class
+    /// </summary>
+    public class AreaTemperatureLoad : Load<IAreaElement>
+    {
+        public double TemperatureChange { get; set; }
+
+        public override LoadType LoadType
+        {
+            get
+            {
+                return LoadType.BarTemperature;
+            }
+        }
+
+        public AreaTemperatureLoad() { }
+        //Bar temp load object. Expansion in XYZ
+        public AreaTemperatureLoad(Loadcase loadcase, double t)
+        {
+            Loadcase = loadcase;
+            TemperatureChange = t;
+        }
+    }
 }
