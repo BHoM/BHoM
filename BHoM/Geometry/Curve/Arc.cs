@@ -139,7 +139,7 @@ namespace BHoM.Geometry
             get
             {
                 if (!IsNurbForm) CreateNurbForm();
-                return m_Knots.Length > 4 ? m_Knots[3] : 0;
+                return m_Knots.Length > 0 ? m_Knots[m_Knots.Length - 1] : 0;
             }
         }
 

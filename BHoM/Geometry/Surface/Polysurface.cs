@@ -10,14 +10,14 @@ namespace BHoM.Geometry
 {
     public class PolySurface : Brep
     {
-        private Group<Surface> m_Surfaces;
+        private Group<Brep> m_Surfaces;
 
         internal PolySurface()
         {
-
+            m_Surfaces = new Group<Brep>();
         }
 
-        internal PolySurface(Group<Surface> surfaces)
+        internal PolySurface(Group<Brep> surfaces)
         {
             m_Surfaces = surfaces;
         }
@@ -29,6 +29,15 @@ namespace BHoM.Geometry
             surface.m_TrimCurves = m_TrimCurves.DuplicateGroup();
             return surface;
         }
+
+        public List<Brep> Surfaces
+        {
+            get
+            {
+                return m_Surfaces.ToList();
+            }
+        }
+
 
         public override void Mirror(Plane p)
         {
@@ -68,7 +77,7 @@ namespace BHoM.Geometry
         {
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
 
-            Group<Surface> surfaces = Group<Surface>.FromJSON(definition["Surfaces"], project) as Group<Surface>;
+            Group<Brep> surfaces = Group<Brep>.FromJSON(definition["Surfaces"], project) as Group<Brep>;
 
             return new PolySurface(surfaces);
         }

@@ -76,6 +76,11 @@ namespace BHoM.Common
             return result.Trim(',') + "]";
         }
 
+        public static bool Equal(double d1, double d2, double tolerance)
+        {
+            return d1 < d2 + tolerance && d1 > d2 - tolerance;
+        }
+
         public static bool InRange(double value, double upper, double lower, double tolerance)
         {
             return value < upper + tolerance && value > lower - tolerance;

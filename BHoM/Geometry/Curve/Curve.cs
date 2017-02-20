@@ -54,7 +54,7 @@ namespace BHoM.Geometry
         {
             get
             {
-                return new Point(Common.Utils.SubArray<double>(m_ControlPoints, 0, m_Dimensions));
+                return new Point(m_ControlPoints, 0);
             }
         }
 
@@ -63,7 +63,7 @@ namespace BHoM.Geometry
         {
             get
             {
-                return new Point(Common.Utils.SubArray<double>(m_ControlPoints, m_ControlPoints.Length - m_Dimensions - 1, m_Dimensions));
+                return new Point(m_ControlPoints, m_ControlPoints.Length - m_Dimensions - 1);
             }
         }
 
@@ -123,7 +123,7 @@ namespace BHoM.Geometry
         {
             get
             {
-                return new Point(ControlPoint(i));
+                return new Point(m_ControlPoints, (m_Dimensions + 1) * i);
             }
         }
 
@@ -134,7 +134,7 @@ namespace BHoM.Geometry
                 List<Point> cPnts = new List<Point>();
                 for (int i = 0; i < PointCount; i++)
                 {
-                    cPnts.Add(new Point(ControlPoint(i)));
+                    cPnts.Add(new Point(m_ControlPoints, (m_Dimensions + 1) * i));
                 }
                 return cPnts;
             }
@@ -465,8 +465,18 @@ namespace BHoM.Geometry
             double lowerKnot = 0;
             double upperKnot = 0;
             int size = m_Dimensions + 1;
+            int sameKnotCount = 0;
             for (int i = 0; i < m_Knots.Length; i++)
             {
+                if (m_Knots[i] == value)
+                {
+                    sameKnotCount++;
+                    if (sameKnotCount == Degree)
+                    {
+                        return i - Degree;
+
+                    }
+                }
                 if (m_Knots[i] > value)
                 {
                     lowerKnot = m_Knots[i - 1];
@@ -569,6 +579,7 @@ namespace BHoM.Geometry
 
         public virtual List<Curve> Split(List<double> t)
         {
+            t.Sort();
             List<Curve> split = new List<Curve>();
             Curve unsplit = this;
             double tPrev = 0;
@@ -655,6 +666,21 @@ namespace BHoM.Geometry
             rhs.m_Order = m_Order;
 
             return new List<Curve>() { lhs, rhs };
+        }
+
+        public bool Equal(Curve other, double tolerance = 0.001)
+        {
+            if (Common.Utils.Equal(Length, other.Length, tolerance))
+            {
+                if ((VectorUtils.Equal(StartPoint, other.StartPoint, tolerance) &&
+                    VectorUtils.Equal(EndPoint, other.EndPoint, tolerance)) ||
+                    VectorUtils.Equal(StartPoint, other.EndPoint, tolerance) &&
+                    VectorUtils.Equal(EndPoint, other.StartPoint, tolerance))
+                {
+                    return VectorUtils.Equal(UnsafePointAt(Domain[1]/2),other.UnsafePointAt(other.Domain[1]/2),tolerance);                   
+                }
+            }
+            return false;
         }
 
         public abstract void CreateNurbForm();

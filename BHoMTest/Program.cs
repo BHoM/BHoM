@@ -33,6 +33,37 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
+            BrepJoin();
+            
+        }
+
+        public static void BrepJoin()
+        {
+            List<Point> p1 = new List<Point>();
+            p1.Add(new Point(0, 0, 0));
+            p1.Add(new Point(10, 0, 0));
+            p1.Add(new Point(10, 10, 0));
+            p1.Add(new Point(0, 10, 0));
+            p1.Add(new Point(0, 0, 0));
+
+            Polyline pl = new Polyline(p1);
+
+            List<Point> p2 = new List<Point>();
+            p2.Add(new Point(10, 1, 0));
+            p2.Add(new Point(10, 9, 0));
+            p2.Add(new Point(20, 9, 0));
+            p2.Add(new Point(20, 1, 0));
+            p2.Add(new Point(10, 1, 0));
+
+            Polyline pl2 = new Polyline(p2);
+
+           Surface s1= Surface.CreateFromBoundary(pl);
+            Surface s2 = Surface.CreateFromBoundary(pl2);
+
+            Brep.Join(new List<Brep>() { s1, s2 });
+
+        
+        
             //TestWriteJson();
             TestDesignElementCreation();
             Console.Read();
@@ -117,8 +148,7 @@ namespace BHoMTest
             var item3 = JsonReader.ReadObject(json3);
         }
 
-
-
+        
         public static void TestSql()
         {
             SQLAccessor accessor = new SQLAccessor(Database.Material, "Europe");

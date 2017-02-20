@@ -56,8 +56,14 @@ namespace BHoM.Geometry
                 {
                     if (previousSide != 0)
                     {
-                        double maxT = i < Length - 1 && sameSide[i] == 0 && sameSide[i + 1] != 0 ? c.Knots[i++ + c.Degree + 1] : c.Knots[i + c.Degree];
+                        double maxT = c.Knots[i + c.Degree];
                         double minT = c.Knots[i];
+                        if (i < Length - 1 && sameSide[i] == 0 && sameSide[i + 1] != 0)
+                        {
+                            maxT = c.Knots[i + c.Degree + 1];
+                            minT = c.Knots[i + c.Degree];
+                            i++;
+                        }
                         result.Add(new Point(CurveParameterAtPlane(p, c, tolerance, ref minT, ref maxT, c.UnsafePointAt(minT), c.UnsafePointAt(maxT))));
                         curveParameters.Add(Math.Round((minT + maxT) / 2, rounding));
                     }
@@ -79,17 +85,104 @@ namespace BHoM.Geometry
             return result;
         }
 
-        //public static bool CurveCurve(Curve c1, Curve c2, double tolerance, out List<Curve> overLap, out List<Point> intersect)
-        //{
+        public static bool CurveCurve(Curve c1, Curve c2, double tolerance, out List<Point> intersect, out List<Curve> overLap, out List<Curve> naked)
+        {
+            List<double> t1Params = null;
+            List<double> t2Params = null;
+            
 
-        //}
+            if ((intersect = CurveCurve(c1, c2, tolerance, out t1Params, out t2Params)) != null)
+            {
+                List<Curve> result = new List<Curve>();
+                result.AddRange(c1.Split(t1Params));
+                result.AddRange(c2.Split(t2Params));
+                overLap = new List<Curve>();
+                int i = 0;
+                while (i < result.Count)
+                {
+                    for (int j = i + 1; j < result.Count; j++)
+                    {
+                        if (result[i].Equal(result[j], tolerance))
+                        {
+                            overLap.Add(result[i]);
+                            result.RemoveAt(j);
+                            result.RemoveAt(i--);
+                            break;                        
+                        }
+                    }
+                    i++;
+                }
+                naked = result;
+                return true;
+            }
+            else
+            {
+                overLap = null;
+                naked = null;
+                return false;
+            }
+
+            
+        }
+
+        public static bool PointCurve(Curve c, Point p, double tolerance, out double tParam)
+        {
+            int index = 0;
+            double minDistance = double.MaxValue;
+            double knotValue = 0;
+            double[] l1 = c.ControlPoint(0);
+            for (int i = c.Degree + 1; i < c.Knots.Length; i++)
+            {
+                if (c.Knots[i] == knotValue) continue;
+                double[] l2 = c.UnsafePointAt(c.Knots[i]);
+                double distance = VectorUtils.PointLineDistance(l1, l2, p);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    index = i;
+                }
+                knotValue = c.Knots[i];
+            }
+            int iterations = 0;
+            minDistance = double.MaxValue;
+            double maxT1 = c.Knots[index];
+            double minT1 = c.Knots[index - c.Degree];
+
+            double[] p1Max = c.UnsafePointAt(maxT1);
+            double[] p1Min = c.UnsafePointAt(minT1);
+
+            while (iterations++ < 10)
+            {
+                if (minDistance > tolerance)
+                {
+                    minDistance = UpdateNearestEnd(c, p, ref minT1, ref maxT1, ref p1Min, ref p1Max);
+                }
+                else
+                {
+                    tParam = minT1;
+                    return true;
+                }
+            }
+            tParam = 0;
+            return false;
+
+        }
 
         public static List<Point> CurveCurve(Curve c1, Curve c2, double tolerance)
+        {
+            List<double> t1 = null;
+            List<double> t2 = null;
+            return CurveCurve(c1, c2, tolerance, out t1, out t2);
+        }
+
+        public static List<Point> CurveCurve(Curve c1, Curve c2, double tolerance, out List<double> t1, out List<double> t2)
         {
             List<Point> result = new List<Point>();
             if (BoundingBox.InRange(c1.Bounds(), c2.Bounds()))
             {
-                //tolerance = tolerance * tolerance;
+                t1 = new List<double>();
+                t2 = new List<double>();
+                tolerance = tolerance * tolerance;
                 double[] p11 = c1.ControlPoint(0);
                 double knot1 = 0;
                 for (int i = c1.Degree; i < c1.Knots.Length; i++)
@@ -112,13 +205,15 @@ namespace BHoM.Geometry
 
                         if (intersectPoint != null)
                         {
+
+                            double maxT1 = c1.Knots[i];
+                            double minT1 = c1.Knots[i - c1.Degree];
+
+                            double maxT2 = c2.Knots[j];
+                            double minT2 = c2.Knots[j - c2.Degree];
+
                             if (c1.Degree > 1 || c2.Degree > 1)
                             {
-                                double maxT1 = c1.Knots[i];
-                                double minT1 = c1.Knots[i - c1.Degree];
-
-                                double maxT2 = c2.Knots[j];
-                                double minT2 = c2.Knots[j - c2.Degree];
 
                                 double[] p1Max = c1.UnsafePointAt(maxT1);
                                 double[] p1Min = c1.UnsafePointAt(minT1);
@@ -145,13 +240,27 @@ namespace BHoM.Geometry
 
                                     if (d1 < tolerance && d2 < tolerance) break;
                                 }
+
+                                t1.Add((minT1 + maxT1) / 2);
+                                t2.Add((minT2 + maxT2) / 2);
                             }
+                            else
+                            {
+                                t1.Add( minT1 + (maxT1 - minT1) * VectorUtils.Length(VectorUtils.Sub(intersectPoint, p11)) / VectorUtils.Length(v1));
+                                t1.Add(minT2 + (maxT2 - minT2) * VectorUtils.Length(VectorUtils.Sub(intersectPoint, p21)) / VectorUtils.Length(v2));
+                            }
+
                             result.Add(new Point(intersectPoint));
                         }
                         p21 = p22;
                     }
                     p11 = p12;
                 }
+            }
+            else
+            {
+                t1 = null;
+                t2 = null;
             }
             return result;
         }
@@ -165,6 +274,17 @@ namespace BHoM.Geometry
         {
             double distance1 = VectorUtils.LengthSq(VectorUtils.Sub(pointComparison, pMin));
             double distance2 = VectorUtils.LengthSq(VectorUtils.Sub(pointComparison, pMax));
+
+            if (distance1 == 0)
+            {
+                maxT = minT;
+                return 0;
+            }
+            else if (distance2 == 0)
+            {
+                minT = maxT;
+                return 0;
+            }
             double distanceRatio = distance1 / distance2;
             if (distanceRatio < 1.30 && distanceRatio > 0.60)
             {
