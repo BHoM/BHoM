@@ -188,6 +188,7 @@
     <Compile Include="Structural\Results\Bar Forces\BarStress.cs" />
     <Compile Include="Structural\Results\Bar Forces\CompositeUtilisation.cs" />
     <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
+    <Compile Include="Structural\Results\BarDeformation\BarDeformation.cs" />
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
     <Compile Include="Structural\Results\Geometry\BarCoordinates.cs" />
     <Compile Include="Structural\Results\Geometry\NodeCoordinates.cs" />

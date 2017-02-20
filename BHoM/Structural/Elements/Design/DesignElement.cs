@@ -252,7 +252,6 @@ namespace BHoM.Structural.Elements
 
             int barIndex = 0;
 
-
             while (barIndex < AnalyticBars.Count)
             {
 
