@@ -31,7 +31,7 @@ namespace BHoM.Structural.Results
         // TODO: don't forget about PanelDirection
         public static string[] GetColumnHeaders()
         {
-            return new string[] { "Id", "Name","Loadcase", "TimeStep", "Node", "AXP", "AXM", "AYP", "AYM" };
+            return new string[] { "Id", "Name", "Loadcase", "TimeStep", "Node", "AXP", "AXM", "AYP", "AYM" };
         }
 
         public override ResultType ResultType
@@ -119,16 +119,34 @@ namespace BHoM.Structural.Results
                 Data[8] = value;
             }
         }
-        //public BHoM.Geometry.Vector DirX
-        //{
-        //    get
-        //    {
-        //        return (BHoM.Geometry.Vector)Data[9];
-        //    }
-        //    set
-        //    {
-        //        Data[9] = value;
-        //    }
-        //}
+
+        public override int CompareTo(object obj)
+        {
+            var r2 = obj as SlabReinforcement<TName, TLoadcase, TTimeStep>;
+            if (r2 != null)
+            {
+                int n = this.Name.CompareTo(r2.Name);
+                if (n == 0)
+                {
+                    int l = this.Loadcase.CompareTo(r2.Loadcase);
+                    if (l == 0)
+                    {
+                        int no = this.Node.CompareTo(r2.Node);
+                        return no == 0 ? this.TimeStep.CompareTo(r2.TimeStep) : no;
+                    }
+                    else
+                    {
+                        return l;
+                    }
+
+                }
+                else
+                {
+                    return n;
+                }
+            }
+            return 1;
+        }
     }
 }
+

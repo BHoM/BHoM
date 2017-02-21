@@ -82,7 +82,7 @@ namespace BHoM.Structural.Results
             get;
         }
 
-        public int CompareTo(object obj)
+        public virtual int CompareTo(object obj)
         {
             var r2 = obj as Result<TName, TLoadcase, TTimeStep>;
             if (r2 != null)

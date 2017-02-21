@@ -161,7 +161,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public int CompareTo(object obj)
+        public override int CompareTo(object obj)
         {
             var r2 = obj as BarForce<TName, TLoadcase, TTimeStep>;
             if (r2 != null)
@@ -174,6 +174,10 @@ namespace BHoM.Structural.Results
                     {
                         int f = this.ForcePosition.CompareTo(r2.ForcePosition);
                         return f == 0 ? this.TimeStep.CompareTo(r2.TimeStep) : f;
+                    }
+                    else
+                    {
+                        return l;
                     }
                 }
                 else
