@@ -27,6 +27,8 @@ namespace BHoM.Geometry
             PolySurface surface = new PolySurface();
             surface.m_Surfaces = m_Surfaces.DuplicateGroup();
             surface.m_TrimCurves = m_TrimCurves.DuplicateGroup();
+            surface.m_NakedEdges = m_NakedEdges.DuplicateGroup();
+            surface.m_InternalEdges = m_InternalEdges.DuplicateGroup();
             return surface;
         }
 
@@ -70,7 +72,11 @@ namespace BHoM.Geometry
         }
         public override string ToJSON()
         {
-            return "{\"__Type__\": \"" + this.GetType().FullName + "\"," + BHoMJSON.WriteProperty("Surfaces", m_Surfaces) + "}";
+            return "{\"__Type__\": \"" + this.GetType().FullName +
+                "\", " + BHoMJSON.WriteProperty("Surfaces", m_Surfaces) + "}" +
+                "\", " + BHoMJSON.WriteProperty("NakedEdges", m_NakedEdges) + "}" +
+                "\", " + BHoMJSON.WriteProperty("InternalEdges", m_InternalEdges);
+
         }
 
         public static new PolySurface FromJSON(string json, Project project = null)
@@ -78,8 +84,12 @@ namespace BHoM.Geometry
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
 
             Group<Brep> surfaces = Group<Brep>.FromJSON(definition["Surfaces"], project) as Group<Brep>;
-
-            return new PolySurface(surfaces);
+            Group<Curve> nakedEdges = Group<Curve>.FromJSON(definition["NakedEdges"], project) as Group<Curve>;
+            Group<Curve> internalEdges = Group<Curve>.FromJSON(definition["InternalEdges"], project) as Group<Curve>;
+            PolySurface surface = new PolySurface(surfaces);
+            surface.m_InternalEdges = internalEdges;
+            surface.m_NakedEdges = nakedEdges;
+            return surface;
         }
     }
 }
