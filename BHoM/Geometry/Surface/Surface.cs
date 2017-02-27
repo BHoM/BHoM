@@ -54,6 +54,20 @@ namespace BHoM.Geometry
             m_Knots[1] = new double[] { 0, 0, 1, 1 };
         }
 
+        public override Group<Curve> NakedEdges
+        {
+            get
+            {
+                if (m_TrimCurves.Count > 0)
+                {
+                    return m_TrimCurves;
+                }
+                else
+                {
+                    return m_NakedEdges;
+                }
+            }
+        }
 
         internal virtual Point Max
         {

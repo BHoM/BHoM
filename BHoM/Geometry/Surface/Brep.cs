@@ -34,13 +34,7 @@ namespace BHoM.Geometry
         {
             get
             {
-                Group<Curve> result = new Group<Curve>();
-                result.AddRange(m_NakedEdges);
-                if (m_TrimCurves != null)
-                {
-                    result.AddRange(m_TrimCurves);
-                }
-                return result;
+                return m_NakedEdges;
             }
         }
 
