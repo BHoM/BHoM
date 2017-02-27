@@ -90,7 +90,7 @@ namespace BHoM.Base.Results
         {
             foreach (T dataRow in rows)
             {
-                m_Results.Add(dataRow.Data);
+                m_Results.Add(dataRow.GetData());
             }
         }
 
@@ -101,7 +101,7 @@ namespace BHoM.Base.Results
 
         public void AddData(T row)
         {
-            m_Results.Add(row.Data);
+            m_Results.Add(row.GetData());
         }
 
         public void Clear()
@@ -118,7 +118,7 @@ namespace BHoM.Base.Results
             foreach (object[] row in ToListData())
             {
                 T result = new T();
-                result.Data = row;
+                result.SetData(row);
                 listResults.Add(result);
             }
             return listResults;
@@ -154,7 +154,7 @@ namespace BHoM.Base.Results
             get
             {
                 T result = new T();
-                result.Data = m_Results[idx];
+                result.SetData(m_Results[idx]);
                 return result;
             }
         }
@@ -249,7 +249,7 @@ namespace BHoM.Base.Results
             foreach (object[] row in ToListData())
             {
                 T1 result = new T1();
-                result.Data = row;
+                result.SetData(row);
                 listResults.Add(result);
             }
             return listResults;
