@@ -26,6 +26,15 @@ namespace BHoM.Structural.Results
             }
         }
 
+        public object this[int i]
+        {
+            get
+            {
+                return m_data[i];
+            }
+        }
+
+
         public TName Name
         {
             get
