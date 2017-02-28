@@ -180,7 +180,7 @@ namespace BHoM.Structural.Elements
         {
             get
             {
-                return m_EffectiveLength == 0 ? GetUnsupportedLength() : m_EffectiveLength;
+                return m_EffectiveLength;
             }
             set
             {

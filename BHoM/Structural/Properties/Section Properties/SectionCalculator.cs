@@ -659,7 +659,10 @@ namespace BHoM.Structural.Properties
                 {
                     sy += slice.Length * slice.Width * (CentreY - slice.Centre);
                     b = slice.Length;
-                    sum += Math.Pow(sy, 2) / (b) * slice.Width;
+                    if (b > 0)
+                    {
+                        sum += Math.Pow(sy, 2) / b * slice.Width;
+                    }
 
                 }
                 m_Asy = Math.Pow(Iz, 2) / sum;
@@ -682,7 +685,10 @@ namespace BHoM.Structural.Properties
                 {
                     sx += slice.Length * slice.Width * (CentreZ - slice.Centre);
                     b = slice.Length;
-                    sum += Math.Pow(sx, 2) / b * slice.Width;
+                    if (b > 0)
+                    {
+                        sum += Math.Pow(sx, 2) / b * slice.Width;
+                    }
 
                 }
                 m_Asz = Math.Pow(Iy, 2) / sum;
@@ -759,14 +765,16 @@ namespace BHoM.Structural.Properties
             for (int i = 0; i < slices.Count; i++)
             {
                 Slice slice = slices[i];
-                if (slice.Centre > min && slice.Centre < max)
+                if (slice.Centre + slice.Width / 2 > min && slice.Centre - slice.Width / 2 < max)
                 {
-                    double currentLength = slice.Centre;
+                    double botSlice = Math.Max(min, slice.Centre - slice.Width / 2);
+                    double topSlice = Math.Min(max, slice.Centre + slice.Width / 2);
+                    double currentCentre = (topSlice + botSlice) / 2;
                     double currentValue = curve;
-                    
-                    result += currentValue * slice.Length * slice.Width;
-                    sumAreaLength += currentValue * slice.Length * slice.Width * currentLength;
-                }
+                    double sliceWidth = (topSlice - botSlice);
+                    result += currentValue * slice.Length * sliceWidth;
+                    sumAreaLength += currentValue * slice.Length * sliceWidth * currentCentre;
+                }             
             }
             centroid = result != 0 ? sumAreaLength / result : 0;
             return result;
@@ -800,10 +808,13 @@ namespace BHoM.Structural.Properties
             for (int i = 0; i < slices.Count; i++)
             {
                 Slice slice = slices[i];
-                if (slice.Centre > min && slice.Centre < max)
+                if (slice.Centre + slice.Width / 2 > min && slice.Centre - slice.Width / 2 < max)
                 {
-                    double currentLength = slice.Centre;
-                    List<Point> points = Intersect.PlaneCurve(Plane.YZ(currentLength), curve, 0.001);
+                    double botSlice = Math.Max(min, slice.Centre - slice.Width / 2);
+                    double topSlice = Math.Min(max, slice.Centre + slice.Width / 2);
+                    double currentCentre = (topSlice + botSlice) / 2;
+                    double sliceWidth = (topSlice - botSlice);
+                    List<Point> points = Intersect.PlaneCurve(Plane.YZ(currentCentre), curve, 0.001);
                     double currentValue = 0;
                     if (points.Count == 2)
                     {
@@ -813,8 +824,8 @@ namespace BHoM.Structural.Properties
                     {
                         currentValue = points[0].Y;
                     }
-                    result += currentValue * slice.Length * slice.Width;
-                    sumAreaLength += currentValue * slice.Length * slice.Width * currentLength;
+                    result += currentValue * slice.Length * sliceWidth;
+                    sumAreaLength += currentValue * slice.Length * sliceWidth * currentCentre;
                 }
             }
             centroid = result != 0 ? sumAreaLength / result : 0;

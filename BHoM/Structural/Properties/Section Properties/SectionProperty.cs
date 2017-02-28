@@ -635,11 +635,12 @@ namespace BHoM.Structural.Properties
         {
             get
             {
-                double b1 = SectionData[(int)SteelSectionData.B1];
-                double b2 = SectionData[(int)SteelSectionData.B2];
+                double b1 = SectionData[(int)SteelSectionData.B1] == 0 ? TotalWidth : SectionData[(int)SteelSectionData.B1];
+                double b2 = SectionData[(int)SteelSectionData.B2] == 0 ? TotalWidth : SectionData[(int)SteelSectionData.B2];
                 double tf1 = SectionData[(int)SteelSectionData.TF1];
-                double tf2 = SectionData[(int)SteelSectionData.TF2];
+                double tf2 = SectionData[(int)SteelSectionData.TF2] == 0 ? tf1 : SectionData[(int)SteelSectionData.TF2];
                 double tw = SectionData[(int)SteelSectionData.TW];
+
                 switch (Shape)
                 {
                     case ShapeType.ISection:
