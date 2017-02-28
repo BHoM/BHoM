@@ -18,15 +18,40 @@ namespace BHoM.Structural.Elements
     [Serializable]
     public class Node : BHoMObject
     {
-        private List<Bar> m_ConnectedBars;
-        private List<Face> m_ConnectedFaces;
-        private double m_Weight = 1;
-        private NodeConstraint m_Constraint;
+        #region Constructors
+        public Node()
+        {
+            Point = new Point();
+            m_ConnectedBars = new List<Bar>();
+            m_ConnectedFaces = new List<Face>();
+        }
 
-        /////////////////
-        ////Properties///
-        /////////////////
+        /// <summary>
+        /// Constructes a node from CartesianCoordinates and a name
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <param name="name"></param>
+        public Node(double x, double y, double z, string name = "") : this()
+        {
+            Point = new Point(x, y, z);
+            Name = name;
+        }
 
+        /// <summary>
+        /// Constructes a node from a BHoM point and a name
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="name"></param>
+        public Node(Point point, string name = "") : this()
+        {
+            Point = new Point(point);
+            Name = name;
+        }
+        #endregion
+
+        #region Properties
         /// <summary>
         /// Node Number
         /// </summary>
@@ -82,40 +107,6 @@ namespace BHoM.Structural.Elements
         internal Plane Plane { get; private set; }
 
 
-        ///////////////////
-        ////Constructors///
-        ///////////////////
-
-        public Node()
-        {
-            Point = new Point();
-            m_ConnectedBars = new List<Bar>();
-            m_ConnectedFaces = new List<Face>();
-        }
-
-        /// <summary>
-        /// Constructes a node from CartesianCoordinates and a name
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="z"></param>
-        /// <param name="name"></param>
-        public Node(double x, double y, double z, string name = "") : this()
-        {
-            Point = new Point(x, y, z);
-            Name = name;
-        }
-
-        /// <summary>
-        /// Constructes a node from a BHoM point and a name
-        /// </summary>
-        /// <param name="point"></param>
-        /// <param name="name"></param>
-        public Node(Point point, string name = "") : this()
-        {
-            Point = new Point(point);
-            Name = name;
-        }
 
         /// <summary>
         /// Returns true if node is valid (number less than 0 or position is invalid)
@@ -126,25 +117,6 @@ namespace BHoM.Structural.Elements
             {
                 if (!Point.IsValid) { return false; }
                 return true;
-            }
-        }
-
-        //////////////
-        ////Methods///
-        //////////////
-
-        /// <summary></summary>
-        public override BHoM.Geometry.GeometryBase GetGeometry()
-        {
-            return Point;
-        }
-
-        /// <summary></summary>
-        public override void SetGeometry(GeometryBase geometry)
-        {
-            if (geometry is Point)
-            {
-                Point = geometry as Point;
             }
         }
 
@@ -161,9 +133,9 @@ namespace BHoM.Structural.Elements
         /// </summary>
         public double X
         {
-            get 
+            get
             {
-                return Point.X; 
+                return Point.X;
             }
             //set
             //{
@@ -200,6 +172,26 @@ namespace BHoM.Structural.Elements
             //    Point.Z = value;
             //}
         }
+        #endregion
+
+        #region Methods
+
+        /// <summary></summary>
+        public override BHoM.Geometry.GeometryBase GetGeometry()
+        {
+            return Point;
+        }
+
+        /// <summary></summary>
+        public override void SetGeometry(GeometryBase geometry)
+        {
+            if (geometry is Point)
+            {
+                Point = geometry as Point;
+            }
+        }
+
+       
 
         /// <summary>
         /// Calculates the distance from the input node to this
@@ -422,7 +414,36 @@ namespace BHoM.Structural.Elements
         {
             return "Node: " + Point.ToString();
         }
+        public Node Merge(Node n)
+        {
+            if (this.Constraint == null)
+            {
+                this.Constraint = n.Constraint;
+            }
 
+            List<Bar> bars = new List<Bar>();
+            bars.AddRange(n.ConnectedBars);
+            for (int i = 0; i < bars.Count; i++)
+            {
+                if (bars[i].StartNode == n)
+                {
+                    bars[i].StartNode = this;
+                }
+                else
+                {
+                    bars[i].EndNode = this;
+                }
+            }
+
+            this.Point = new Point(this.X + n.X * n.m_Weight, this.Y + n.Y * n.m_Weight, this.Z + n.Z * n.m_Weight) / (1 + n.m_Weight);
+            this.m_Weight = n.m_Weight + 1;
+            return this;
+        }
+
+
+        #endregion
+
+        #region Static Methods
         public static List<Node> MergeWithin(List<Node> nodes, double tolerance)
         {
             int removed = 0;
@@ -450,33 +471,16 @@ namespace BHoM.Structural.Elements
             }
             return result;
         }
+        #endregion
 
-        public Node Merge(Node n)
-        {
-            if (this.Constraint == null)
-            {
-                this.Constraint = n.Constraint;
-            }
+        #region Fields
 
-            List<Bar> bars = new List<Bar>();
-            bars.AddRange(n.ConnectedBars);
-            for (int i = 0; i < bars.Count; i++)
-            {
-                if (bars[i].StartNode == n)
-                {
-                    bars[i].StartNode = this;
-                }
-                else
-                {
-                    bars[i].EndNode = this;
-                }
-            }
+        private List<Bar> m_ConnectedBars;
+        private List<Face> m_ConnectedFaces;
+        private double m_Weight = 1;
+        private NodeConstraint m_Constraint;
 
-            this.Point = new Point(this.X + n.X * n.m_Weight, this.Y + n.Y * n.m_Weight, this.Z + n.Z * n.m_Weight) / (1 + n.m_Weight);
-            this.m_Weight = n.m_Weight + 1;
-            return this;
-        }
-
+        #endregion
     }
 }
     

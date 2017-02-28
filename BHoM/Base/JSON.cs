@@ -257,7 +257,7 @@ namespace BHoM.Base
         public static void ReadProperty(object obj, string propertyName, string value, Project project)
         {
             System.Reflection.PropertyInfo pInfo = obj.GetType().GetProperty(propertyName);
-            if (pInfo == null) return;
+            if (pInfo == null || !pInfo.CanWrite) return;
 
             Type pType = pInfo.PropertyType;
             object result = ReadValue(pType, value, project);

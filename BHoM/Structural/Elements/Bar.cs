@@ -13,13 +13,38 @@ namespace BHoM.Structural.Elements
     /// </summary>
     public class Bar : BHoMObject
     {
-        /////////////////
-        ////Properties///
-        /////////////////
+        #region Constructors
+        public Bar()
+        {
+            SetStartPoint(new Point());
+            SetEndPoint(new Point());
+        }
 
-        private Node m_StartNode;
-        private Node m_EndNode;
-        private double m_EffectiveLength;
+        /// <summary>
+        /// Construct a bar from BHoM points and name
+        /// </summary>
+        /// <param name="startPoint"></param>
+        /// <param name="endPoint"></param>
+        /// <param name="barName"></param>
+        public Bar(Point startPoint, Point endPoint, string barName = "")
+        {
+            SetStartPoint(startPoint);
+            SetEndPoint(endPoint);
+            Name = barName;
+        }
+
+        /// <summary>
+        /// Construct a bar from BHoM line and name
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="barName"></param>
+        public Bar(Line line, string barName = "") : this(line.StartPoint, line.EndPoint, barName)
+        {
+        }
+        #endregion
+
+        #region Properties
+
         /// <summary>
         /// Design type name for design purposes (e.g. Simple Column). Can be used to help 
         /// downstream selections/filters but shouldn't be confused with Groups, which are 
@@ -34,14 +59,11 @@ namespace BHoM.Structural.Elements
         public BHoM.Structural.Properties.SectionProperty SectionProperty { get; set; }
 
         /// <summary>Material inherited from section property</summary>
-        //[DisplayName("Material")]
-        //[Description("Bar Material assigned to the bar object")]
-        //[DefaultValue(null)]
         public BHoM.Materials.Material Material
         {
             get
             {
-                return SectionProperty.Material;
+                return SectionProperty != null ? SectionProperty.Material : null;
             }
         }
 
@@ -63,7 +85,6 @@ namespace BHoM.Structural.Elements
         [DefaultValue(null)]
         public BHoM.Structural.Properties.Offset Offset { get; set; }
 
-
         public BarStructuralUsage StructuralUsage { get; set; }
 
         /// <summary>
@@ -71,7 +92,7 @@ namespace BHoM.Structural.Elements
         /// </summary>
         public BarFEAType FEAType { get; set; }
 
-        public Node StartNode           
+        public Node StartNode    
         {
             get
             {
@@ -124,11 +145,6 @@ namespace BHoM.Structural.Elements
             {
                 return StartNode.Point;
             }
-            //set
-            //{
-            //    if (value != null)
-            //        StartNode = new Node(value);
-            //}
         }
 
         public void SetStartPoint(Point p)
@@ -144,11 +160,6 @@ namespace BHoM.Structural.Elements
             {
                 return EndNode.Point;
             }
-            //set
-            //{
-            //    if (value != null)
-            //        EndNode = new Node(value);
-            //}
         }
         public void SetEndPoint(Point p)
         {
@@ -223,38 +234,7 @@ namespace BHoM.Structural.Elements
         [DefaultValue(null)]
         public Storey Storey { get; private set; }
 
-        ////////////////////
-        ////CONSTRUCTORS////
-        ////////////////////
-
-        public Bar()
-        {
-            SetStartPoint(new Point());
-            SetEndPoint(new Point());
-        }
-
-        /// <summary>
-        /// Construct a bar from BHoM points and name
-        /// </summary>
-        /// <param name="startPoint"></param>
-        /// <param name="endPoint"></param>
-        /// <param name="barName"></param>
-        public Bar(Point startPoint, Point endPoint, string barName = "")
-        {
-            SetStartPoint(startPoint);
-            SetEndPoint(endPoint);
-            Name = barName;
-        }
-
-        /// <summary>
-        /// Construct a bar from BHoM line and name
-        /// </summary>
-        /// <param name="line"></param>
-        /// <param name="barName"></param>
-        public Bar(Line line, string barName = "") : this(line.StartPoint, line.EndPoint, barName)
-        {
-        }
-
+      
         /// <summary>
         /// Construct a bar from BHoM nodes and name
         /// </summary>
@@ -267,12 +247,9 @@ namespace BHoM.Structural.Elements
             this.EndNode = endNode;
             Name = barName;
         }
+        #endregion
 
-
-        ///////////////
-        ////METHODS////
-        ///////////////
-
+        #region Public Methods
 
         /// <summary>
         /// Get the node at the opposite end to the known (input) node
@@ -328,7 +305,7 @@ namespace BHoM.Structural.Elements
         /// <param name="sectionProperty"></param>
         public void SetSectionProperty(BHoM.Structural.Properties.SectionProperty sectionProperty)
         {
-           this.SectionProperty = sectionProperty;
+            this.SectionProperty = sectionProperty;
         }
 
         /// <summary>
@@ -338,29 +315,6 @@ namespace BHoM.Structural.Elements
         public void SetDesignGroupName(string designGroupName)
         {
             this.DesignGroupName = designGroupName;
-        }
-
-        public double GetUnsupportedLength()
-        {
-            double length = this.Length;
-            Node startNode = StartNode;
-            Node endNode = EndNode;
-            Bar other = this;
-            while(startNode.ConnectedBars.Count == 2)
-            {
-                other = startNode.ConnectedBars[0].Equals(other) ? startNode.ConnectedBars[1] : startNode.ConnectedBars[0];
-                length += other.Length;
-                startNode = other.GetOppositeNode(startNode);
-            }
-            other = this;
-
-            while (endNode.ConnectedBars.Count == 2)
-            {
-                other = endNode.ConnectedBars[0].Equals(other) ? endNode.ConnectedBars[1] : endNode.ConnectedBars[0];
-                length += other.Length;
-                endNode = other.GetOppositeNode(endNode);
-            }
-            return length;
         }
 
         /// <summary>
@@ -382,5 +336,15 @@ namespace BHoM.Structural.Elements
             EndNode = temp;
         }
 
+        #endregion
+
+        #region Static Methods
+        #endregion
+
+        #region Fields
+        private Node m_StartNode;
+        private Node m_EndNode;
+        private double m_EffectiveLength;
+        #endregion
     }
 }
