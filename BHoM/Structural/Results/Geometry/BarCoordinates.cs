@@ -9,14 +9,15 @@ namespace BHoM.Structural.Results
 {
     public class BarCoordinates : IResult
     {
+        private object[] m_data;
         public BarCoordinates()
         {
-            Data = new object[9];
+            m_data = new object[9];
         }
 
         public BarCoordinates(string id, double x1, double y1, double z1, double x2, double y2, double z2, string section, double ori)
         {
-            Data = new object[] { id, x1, y1, z1, x2, y2, z2, section, ori };
+            m_data = new object[] { id, x1, y1, z1, x2, y2, z2, section, ori };
         }
 
         public string[] ColumnHeaders
@@ -27,23 +28,17 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public object[] Data
-        {
-            get;
-
-            set;
-        }
 
         public string Id
         {
             get
             {
-                return (string)Data[0];
+                return (string)m_data[0];
             }
 
             set
             {
-                Data[0] = value;
+                m_data[0] = value;
             }
         }
 
@@ -51,12 +46,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[1];
+                return (double)m_data[1];
             }
 
             set
             {
-                Data[1] = value;
+                m_data[1] = value;
             }
         }
 
@@ -64,12 +59,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[2];
+                return (double)m_data[2];
             }
 
             set
             {
-                Data[2] = value;
+                m_data[2] = value;
             }
         }
 
@@ -77,12 +72,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[3];
+                return (double)m_data[3];
             }
 
             set
             {
-                Data[3] = value;
+                m_data[3] = value;
             }
         }
 
@@ -90,12 +85,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[4];
+                return (double)m_data[4];
             }
 
             set
             {
-                Data[1] = value;
+                m_data[1] = value;
             }
         }
 
@@ -103,12 +98,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[5];
+                return (double)m_data[5];
             }
 
             set
             {
-                Data[2] = value;
+                m_data[2] = value;
             }
         }
 
@@ -116,12 +111,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[6];
+                return (double)m_data[6];
             }
 
             set
             {
-                Data[3] = value;
+                m_data[3] = value;
             }
         }
 
@@ -129,12 +124,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (string)Data[7];
+                return (string)m_data[7];
             }
 
             set
             {
-                Data[0] = value;
+                m_data[0] = value;
             }
         }
 
@@ -142,12 +137,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[8];
+                return (double)m_data[8];
             }
 
             set
             {
-                Data[8] = value;
+                m_data[8] = value;
             }
         }
 
@@ -159,6 +154,16 @@ namespace BHoM.Structural.Results
                 return Id.CompareTo(r2.Id);
             }
             return 1;
+        }
+
+        public object[] GetData()
+        {
+            return m_data;
+        }
+
+        public void SetData(object[] data)
+        {
+            m_data = data;
         }
     }
 }

@@ -43,10 +43,10 @@ namespace BHoM.Structural.Results
 
         public PanelStress()
         {
-            Data = new object[13];
+            m_data = new object[13];
         }
 
-        public PanelStress(object[] data) { Data = data; }
+        public PanelStress(object[] data) { m_data = data; }
 
         public PanelStress(TName number, TName node, TLoadcase loadcase, TTimeStep timeStep, double sxTop, double syTop, double sxyTop, double sxBot, double syBot, double sxyBot, double tx, double ty) : this()
         {
@@ -69,11 +69,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (TName)Data[4];
+                return (TName)m_data[4];
             }
             set
             {
-                Data[4] = value;
+                m_data[4] = value;
             }
         }
 
@@ -81,11 +81,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[5];
+                return (double)m_data[5];
             }
             set
             {
-                Data[5] = value;
+                m_data[5] = value;
             }
         }
 
@@ -93,11 +93,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[6];
+                return (double)m_data[6];
             }
             set
             {
-                Data[6] = value;
+                m_data[6] = value;
             }
         }
 
@@ -105,11 +105,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[7];
+                return (double)m_data[7];
             }
             set
             {
-                Data[7] = value;
+                m_data[7] = value;
             }
         }
 
@@ -117,11 +117,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[8];
+                return (double)m_data[8];
             }
             set
             {
-                Data[8] = value;
+                m_data[8] = value;
             }
         }
 
@@ -129,11 +129,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[9];
+                return (double)m_data[9];
             }
             set
             {
-                Data[9] = value;
+                m_data[9] = value;
             }
         }
 
@@ -141,11 +141,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[10];
+                return (double)m_data[10];
             }
             set
             {
-                Data[10] = value;
+                m_data[10] = value;
             }
         }
 
@@ -153,11 +153,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[11];
+                return (double)m_data[11];
             }
             set
             {
-                Data[11] = value;
+                m_data[11] = value;
             }
         }
 
@@ -165,11 +165,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[12];
+                return (double)m_data[12];
             }
             set
             {
-                Data[12] = value;
+                m_data[12] = value;
             }
         }      
     }

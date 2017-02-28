@@ -44,10 +44,10 @@ namespace BHoM.Structural.Results
 
         public SlabReinforcement()
         {
-            Data = new object[9];
+            m_data = new object[9];
         }
 
-        public SlabReinforcement(object[] data) { Data = data; }
+        public SlabReinforcement(object[] data) { m_data = data; }
 
         public SlabReinforcement(TName number, TName node, TLoadcase loadcase, TTimeStep timeStep, double axp, double axm, double ayp, double aym) : this()
         {
@@ -67,11 +67,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (TName)Data[4];
+                return (TName)m_data[4];
             }
             set
             {
-                Data[4] = value;
+                m_data[4] = value;
             }
         }
 
@@ -79,44 +79,44 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[5];
+                return (double)m_data[5];
             }
             set
             {
-                Data[5] = value;
+                m_data[5] = value;
             }
         }
         public double AXM
         {
             get
             {
-                return (double)Data[6];
+                return (double)m_data[6];
             }
             set
             {
-                Data[6] = value;
+                m_data[6] = value;
             }
         }
         public double AYP
         {
             get
             {
-                return (double)Data[7];
+                return (double)m_data[7];
             }
             set
             {
-                Data[7] = value;
+                m_data[7] = value;
             }
         }
         public double AYM
         {
             get
             {
-                return (double)Data[8];
+                return (double)m_data[8];
             }
             set
             {
-                Data[8] = value;
+                m_data[8] = value;
             }
         }
 

@@ -23,10 +23,10 @@ namespace BHoM.Structural.Results
     {
         public BarStress()
         {
-            Data = new object[15];
+            m_data = new object[15];
         }
 
-        public BarStress(object[] data) { Data = data; }
+        public BarStress(object[] data) { m_data = data; }
 
         public BarStress(TName number, TLoadcase loadcase, int position, int divisions, TTimeStep timeStep, double axial, double shearY, double shearZ, double bendingYTop, double bendingYBot, double bendingZTop, double bendingZBot, double combAxialBendingPos, double combAxialBendingNeg) : this()
         {
@@ -82,11 +82,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (int)Data[4];
+                return (int)m_data[4];
             }
             set
             {
-                Data[4] = value;
+                m_data[4] = value;
             }
         }
 
@@ -94,11 +94,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (int)Data[5];
+                return (int)m_data[5];
             }
             set
             {
-                Data[5] = value;
+                m_data[5] = value;
             }
         }
 
@@ -106,11 +106,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[6];
+                return (double)m_data[6];
             }
             set
             {
-                Data[6] = value;
+                m_data[6] = value;
             }
         }
 
@@ -118,11 +118,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[7];
+                return (double)m_data[7];
             }
             set
             {
-                Data[7] = value;
+                m_data[7] = value;
             }
         }
 
@@ -130,11 +130,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[8];
+                return (double)m_data[8];
             }
             set
             {
-                Data[8] = value;
+                m_data[8] = value;
             }
         }
 
@@ -142,11 +142,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[9];
+                return (double)m_data[9];
             }
             set
             {
-                Data[9] = value;
+                m_data[9] = value;
             }
         }
 
@@ -154,11 +154,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[10];
+                return (double)m_data[10];
             }
             set
             {
-                Data[10] = value;
+                m_data[10] = value;
             }
         }
 
@@ -166,11 +166,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[11];
+                return (double)m_data[11];
             }
             set
             {
-                Data[11] = value;
+                m_data[11] = value;
             }
         }
 
@@ -178,11 +178,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[12];
+                return (double)m_data[12];
             }
             set
             {
-                Data[12] = value;
+                m_data[12] = value;
             }
         }
 
@@ -190,11 +190,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[13];
+                return (double)m_data[13];
             }
             set
             {
-                Data[13] = value;
+                m_data[13] = value;
             }
         }
 
@@ -202,11 +202,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[14];
+                return (double)m_data[14];
             }
             set
             {
-                Data[14] = value;
+                m_data[14] = value;
             }
         }
 

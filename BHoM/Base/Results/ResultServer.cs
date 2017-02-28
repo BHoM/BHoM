@@ -209,13 +209,13 @@ namespace BHoM.Base.Results
                     
                     for (int i = 0; i < values.Count; i++)
                     {
-                        string key = values[i].Data[orderCol].ToString();
+                        string key = values[i].GetData()[orderCol].ToString();
                         if (!m_Results.TryGetValue(key, out rSet))
                         {
                             rSet = new ResultSet<T>();
                             m_Results.Add(key, rSet);
                         }
-                        rSet.AddData(values[i].Data);
+                        rSet.AddData(values[i].GetData());
                     }
                 }
             }
@@ -366,7 +366,7 @@ namespace BHoM.Base.Results
             for (int i = 0; i < values.Count; i++)
             {
                 DataRow row = table.NewRow();
-                row.ItemArray = values[i].Data;
+                row.ItemArray = values[i].GetData();
                
                 table.Rows.Add(row);
             }

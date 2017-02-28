@@ -12,17 +12,17 @@ namespace BHoM.Structural.Results
         where TLoadcase : IComparable
         where TTimeStep : IComparable
     {
-        public object[] Data { get; set; }
+        protected object[] m_data;
 
         public string Id
         {
             get
             {
-                return (string)Data[0];
+                return (string)m_data[0];
             }
             set
             {
-                Data[0] = value;
+                m_data[0] = value;
             }
         }
 
@@ -30,11 +30,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (TName)Data[1];
+                return (TName)m_data[1];
             }
             set
             {
-                Data[1] = value;
+                m_data[1] = value;
             }
         }
 
@@ -42,11 +42,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (TLoadcase)Data[2];
+                return (TLoadcase)m_data[2];
             }
             set
             {
-                Data[2] = value;
+                m_data[2] = value;
             }
         }
 
@@ -54,11 +54,11 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (TTimeStep)Data[3];
+                return (TTimeStep)m_data[3];
             }
             set
             {
-                Data[3] = value;
+                m_data[3] = value;
             }
         }
 
@@ -99,6 +99,16 @@ namespace BHoM.Structural.Results
                 }
             }
             return 1;
+        }
+
+        public object[] GetData()
+        {
+            return m_data;
+        }
+
+        public void SetData(object[] data)
+        {
+            m_data = data;
         }
     }
 }

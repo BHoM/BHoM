@@ -9,14 +9,15 @@ namespace BHoM.Structural.Results
 {
     public class NodeCoordinates : IResult
     {
+        private object[] m_data;
         public NodeCoordinates()
         {
-            Data = new object[4];
+            m_data = new object[4];
         }
 
         public NodeCoordinates(string id, double x, double y, double z)
         {
-            Data = new object[] { id, x, y, z };
+            m_data = new object[] { id, x, y, z };
         }
 
         public string[] ColumnHeaders
@@ -27,23 +28,17 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public object[] Data
-        {
-            get;
-
-            set;
-        }
 
         public string Id
         {
             get
             {
-                return (string)Data[0];
+                return (string)m_data[0];
             }
 
             set
             {
-                Data[0] = value;
+                m_data[0] = value;
             }
         }
 
@@ -51,12 +46,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[1];
+                return (double)m_data[1];
             }
 
             set
             {
-                Data[1] = value;
+                m_data[1] = value;
             }
         }
 
@@ -64,12 +59,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[2];
+                return (double)m_data[2];
             }
 
             set
             {
-                Data[2] = value;
+                m_data[2] = value;
             }
         }
 
@@ -77,12 +72,12 @@ namespace BHoM.Structural.Results
         {
             get
             {
-                return (double)Data[3];
+                return (double)m_data[3];
             }
 
             set
             {
-                Data[3] = value;
+                m_data[3] = value;
             }
         }
 
@@ -94,6 +89,16 @@ namespace BHoM.Structural.Results
                 return Id.CompareTo(r2.Id);
             }
             return 1;
+        }
+
+        public object[] GetData()
+        {
+            return m_data;
+        }
+
+        public void SetData(object[] data)
+        {
+            m_data = data;
         }
     }
 }

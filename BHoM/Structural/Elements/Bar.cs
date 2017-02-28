@@ -124,11 +124,17 @@ namespace BHoM.Structural.Elements
             {
                 return StartNode.Point;
             }
-            set
-            {
-                if (value != null)
-                    StartNode = new Node(value);
-            }
+            //set
+            //{
+            //    if (value != null)
+            //        StartNode = new Node(value);
+            //}
+        }
+
+        public void SetStartPoint(Point p)
+        {
+            if (p != null)
+                StartNode = new Node(p);
         }
 
         [DefaultValue(null)]
@@ -138,13 +144,17 @@ namespace BHoM.Structural.Elements
             {
                 return EndNode.Point;
             }
-            set
-            {
-                if (value != null)
-                    EndNode = new Node(value);
-            }
+            //set
+            //{
+            //    if (value != null)
+            //        EndNode = new Node(value);
+            //}
         }
-
+        public void SetEndPoint(Point p)
+        {
+            if (p != null)
+                EndNode = new Node(p);
+        }
 
         /// <summary>The line defining the bar centre or location line</summary>
         public BHoM.Geometry.Line Line 
@@ -219,8 +229,8 @@ namespace BHoM.Structural.Elements
 
         public Bar()
         {
-            StartPoint = new Point();
-            EndPoint = new Point();
+            SetStartPoint(new Point());
+            SetEndPoint(new Point());
         }
 
         /// <summary>
@@ -231,8 +241,8 @@ namespace BHoM.Structural.Elements
         /// <param name="barName"></param>
         public Bar(Point startPoint, Point endPoint, string barName = "")
         {
-            StartPoint = startPoint;
-            EndPoint = endPoint;
+            SetStartPoint(startPoint);
+            SetEndPoint(endPoint);
             Name = barName;
         }
 
@@ -298,8 +308,8 @@ namespace BHoM.Structural.Elements
             if (geometry is Curve)
             {
                 Curve curve = geometry as Curve;
-                StartPoint = curve.StartPoint;
-                EndPoint = curve.EndPoint;
+                SetStartPoint(curve.StartPoint);
+                SetEndPoint(curve.EndPoint);
             }
         }
 

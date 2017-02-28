@@ -75,6 +75,7 @@
     <Compile Include="Base\Tolerance.cs" />
     <Compile Include="Base\TypeDictionary.cs" />
     <Compile Include="Databases\IDatabaseAdapter.cs" />
+    <Compile Include="Databases\IDatabaseCollectionAdapter.cs" />
     <Compile Include="Databases\IDatabaseQuery.cs" />
     <Compile Include="Databases\MapReduceQuery.cs" />
     <Compile Include="Environmental\Elements\Wall.cs" />
