@@ -153,7 +153,7 @@
     <Compile Include="Structural\ModelTracker\BarTracker.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
-    <Compile Include="Structural\Properties\Constraints\NodeDesignConstraint.cs" />
+    <Compile Include="Structural\Properties\Constraints\LinkConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
     <Compile Include="Structural\Elements\Storey.cs" />
     <Compile Include="Structural\Elements\Bar.cs" />

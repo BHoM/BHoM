@@ -216,6 +216,19 @@ namespace BHoM.Structural.Elements
         /************** Methods *******************/
         /******************************************/
 
+        /// <summary>
+        /// Sets the section property for all the analytical bars
+        /// </summary>
+        public void SetSectionProperty(SectionProperty property)
+        {
+            if (m_bars == null)
+                return;
+
+            for (int i = 0; i < m_bars.Count; i++)
+            {
+                m_bars[i].SectionProperty = property;
+            }
+        }
         public void GenerateDefaultSpans()
         {
             m_majorAxisSpans = new List<Span>();
@@ -228,13 +241,14 @@ namespace BHoM.Structural.Elements
             m_LateralTorsionalSpans.Add(Span.CreateDefaultSpan(this));
         }
 
-        public void SetEffectiveLength(double length, SpanDirection direction = SpanDirection.All)
+        public List<Span> SetEffectiveLength(double length, SpanDirection direction = SpanDirection.All)
         {
             Span span = Span.CreateDefaultSpan(this);
             span.EffectiveLength = length;
             List<Span> spans = new List<Span>();
             spans.Add(span);
             SetSpans(spans, direction);
+            return spans;
         }
 
         public List<Tuple<Span, Span, Span>> GetSpanCombinations()
