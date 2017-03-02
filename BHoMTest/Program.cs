@@ -99,7 +99,7 @@ namespace BHoMTest
             elem.GenerateSpans(majSupPos, SpanDirection.MajorAxis, true);
             elem.GenerateSpans(minSupPos, SpanDirection.MinorAndLateralTorsional, true);
 
-            elem.GetSpanCombinations();
+            //elem.GetSpanCombinations();
             //Beam beam = new Beam();
             //beam.AddBars(new Bar[] { b3, b1, b4, b2});
         }
