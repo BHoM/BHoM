@@ -1,6 +1,5 @@
 ﻿using BHG = BHoM.Geometry;
 using BHB = BHoM.Base;
-using BHE = BHoM.Environmental.Elements;
 using System;
 using System.Reflection;
 using BHoM.Structural.Loads;
@@ -12,19 +11,14 @@ namespace BHoM.Environmental.Elements
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Wall : BHB.BHoMObject
+    public class Opening : BHB.BHoMObject
     {
         /////////////////
         ////Properties///
         /////////////////
 
 
-        public BHoM.Geometry.Line Line
-        {
-            get; set;
-        }
-
-        public List<BHE.Panel> Panels
+        public BHoM.Geometry.Polyline Polyline
         {
             get; set;
         }

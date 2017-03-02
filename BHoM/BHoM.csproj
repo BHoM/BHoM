@@ -77,8 +77,9 @@
     <Compile Include="Databases\IDatabaseAdapter.cs" />
     <Compile Include="Databases\IDatabaseQuery.cs" />
     <Compile Include="Databases\MapReduceQuery.cs" />
-    <Compile Include="Environmental\Elements\Wall.cs" />
+    <Compile Include="Environmental\Elements\Location.cs" />
     <Compile Include="Environmental\Elements\Panel.cs" />
+    <Compile Include="Environmental\Elements\Opening.cs" />
     <Compile Include="Environmental\Elements\Space.cs" />
     <Compile Include="Structural\Elements\Design\DesignElement.cs" />
     <Compile Include="Structural\Elements\Design\Span.cs" />
