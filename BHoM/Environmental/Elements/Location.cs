@@ -10,19 +10,20 @@ using System.ComponentModel;
 namespace BHoM.Environmental.Elements
 {
     /// <summary>
-    /// Bar objects for 1D finite element bars. Note, cable elements separate.
+    /// Location objects.
     /// </summary>
-    public class Space : BHB.BHoMObject
+    public class Location : BHB.BHoMObject
     {
         /////////////////
         ////Properties///
         /////////////////
 
-        public List<BHoM.Geometry.Polyline> Polylines
-        {
-            get;
-            set;
-        }
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
+        public double Elevetion { get; set; }
+        public double AngleFromTrueNorth { get; set; }
+        public string Adress { get; set; }
+
     }
 
 }
