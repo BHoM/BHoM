@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BHoM.Structural.Properties;
 using BHoM.Global;
+using BHoM.Structural.Databases;
+using BHoM.Base.Data;
 
 namespace BHoM.Materials
 {
@@ -91,11 +93,13 @@ namespace BHoM.Materials
         }
 
         public static Material LoadFromDB(string name)
-        {
-            object[] data = new SQLAccessor(Database.Material, Project.ActiveProject.Config.MaterialDatabase).GetDataRow("Name", name);
+        {           
+            IDataAdapter database = Project.ActiveProject.GetDatabase<MaterialRow>(Database.Material);
+            database.TableName = Project.ActiveProject.Config.MaterialDatabase;
+            MaterialRow data = (MaterialRow)database.GetDataRow("Name", name);
             if (data != null)
             {
-                return FromDataArray(data);
+                return FromDataRow(data);
             }
             return null;
         }
@@ -122,23 +126,24 @@ namespace BHoM.Materials
 
         public static Material Default(MaterialType type)
         {
-            object[] data = new SQLAccessor(Database.Material, Project.ActiveProject.Config.MaterialDatabase).GetDataRow(new string[] { "Type", "IsDefault" }, new string[] { type.ToString(), "true" }, true);
-
+            IDataAdapter database = Project.ActiveProject.GetDatabase<MaterialRow>(Database.Material);
+            database.TableName = Project.ActiveProject.Config.MaterialDatabase;
+            MaterialRow data = (MaterialRow)database.GetDataRow(new string[] { "Type", "IsDefault" }, new string[] { type.ToString(), "true" });
             if (data != null)
             {
-                return FromDataArray(data);
+                return FromDataRow(data);
             }
             return null;
         }
 
-        private static Material FromDataArray(object[] data)
+        private static Material FromDataRow(MaterialRow data)
         {
-            MaterialType type = (MaterialType)Enum.Parse(typeof(MaterialType), data[(int)MaterialColumnData.Type].ToString(), true);
-            string name = data[(int)MaterialColumnData.Name].ToString().Trim();
-            double e = (double)data[(int)MaterialColumnData.YoungsModulus];
-            double v = (double)data[(int)MaterialColumnData.PoissonRatio];
-            double tC = (double)data[(int)MaterialColumnData.CoefThermalExpansion];
-            double density = (double)data[(int)MaterialColumnData.Mass];
+            MaterialType type = (MaterialType)Enum.Parse(typeof(MaterialType), data.Type.ToString(), true);
+            string name = data.Name.Trim();
+            double e = data.YoungsModulus;
+            double v = data.PoissonsRatio;
+            double tC = data.CoefOfThermalExpansion;
+            double density = data.Mass;
             double g = e / (2 * (1 + v));
 
             Material m = new Material(name, type, e, v, tC, g, density);
@@ -146,15 +151,15 @@ namespace BHoM.Materials
             switch (type)
             {
                 case MaterialType.Concrete:
-                    m.CompressiveYieldStrength = (double)data[(int)MaterialColumnData.CompressiveStrength];
+                    m.CompressiveYieldStrength = data.CompressiveStrength;
                     break;
                 case MaterialType.Steel:
-                    m.TensileYieldStrength = (double)data[(int)MaterialColumnData.MinimumYieldStress];
+                    m.TensileYieldStrength = data.EffectiveTensileStress;
                     m.CompressiveYieldStrength = m.TensileYieldStrength;
                     break;
                 case MaterialType.Rebar:
-                    m.TensileYieldStrength = (double)data[(int)MaterialColumnData.EffectiveTensileStress];
-                    m.CompressiveYieldStrength = (double)data[(int)MaterialColumnData.EffectiveYieldStress];
+                    m.TensileYieldStrength = data.EffectiveTensileStress;
+                    m.CompressiveYieldStrength = data.CompressiveStrength;
                     break;
             }
             return m;

@@ -7,23 +7,16 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BHoM.Base;
+using System.Reflection;
 
-
-namespace BHoM.Base
+namespace BHoM.Base.Data
 { 
     /// <summary>
     /// enums with name/index matching the columns in the section databases
     /// </summary>
 
-    public enum Database
-    {
-        Material,
-        SteelSection,
-        Cables,
-        Custom
-    }
 
-    public class SQLAccessor
+    public class SQLAccessor<T> : IDataAdapter where T : IDataRow, new()
     {
         Database m_Database;
         string m_ConnectionString;
@@ -51,7 +44,7 @@ namespace BHoM.Base
             m_Database = Database.Custom;
         }
 
-        public List<List<string>> Query(string query)
+        public List<IDataRow> Query(string query)
         {
             System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
@@ -65,15 +58,12 @@ namespace BHoM.Base
             foreach (DataColumn d in set.Tables[0].Columns)
                 properties.Add(d.ColumnName);
 
-            List<List<string>> result = new List<List<string>>();
-            result.Add(properties);
+            List<IDataRow> result = new List<IDataRow>();
+            //result.Add(properties);
 
             foreach (DataRow d in set.Tables[0].Rows)
             {
-                List<string> item = new List<string>();
-                foreach (string prop in properties)
-                    item.Add(d[prop].ToString());
-                result.Add(item);
+                result.Add(GetObjectFromDataRow(d));
             }
 
             return result;
@@ -128,7 +118,7 @@ namespace BHoM.Base
             return names;
         }
 
-        public DataSet GetDataSet(string columnName, string matches)
+        public DataSet GetRawDataSet(string columnName, string matches)
         {
             System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
@@ -140,12 +130,23 @@ namespace BHoM.Base
             return set;
         }
 
-        public object[] GetDataRow(string columnName, string matches)
+        public List<IDataRow> GetDataSet(string columnName, string matches)
+        {
+            List<IDataRow> data = new List<IDataRow>();
+            foreach (DataRow row in GetRawDataSet(columnName, matches).Tables[0].Rows)
+            {
+                data.Add(GetObjectFromDataRow(row));
+            }
+            return data;
+        }
+
+
+        public IDataRow GetDataRow(string columnName, string matches)
         {
             return GetDataRow(new string[] { columnName }, new string[] { matches });
         }
 
-        public object[] GetDataRow(string[] columnNames, string[] matches, bool AND = false)
+        public IDataRow GetDataRow(string[] columnNames, string[] matches, bool AND = false)
         {
             try
             {
@@ -168,13 +169,42 @@ namespace BHoM.Base
                 m_DataAdapter.Fill(set);
                 connection.Close();
 
-                return set.Tables.Count > 0 && set.Tables[0].Rows.Count > 0 ? set.Tables[0].Rows[0].ItemArray : null;
+              
+
+
+                return set.Tables.Count > 0 && set.Tables[0].Rows.Count > 0 ? GetObjectFromDataRow(set.Tables[0].Rows[0]) : default(T);
             }
             catch (Exception ex)
             {
 
             }
-            return null;
+            return default(T);
+        }
+
+        private T GetObjectFromDataRow(DataRow data)
+        {
+            List<string> properties = new List<string>();
+            foreach (PropertyInfo d in typeof(T).GetProperties())
+                properties.Add(d.Name);
+
+            List<T> result = new List<T>();
+            //result.Add(properties);
+            T item = new T();
+            foreach (string prop in properties)
+            {
+                if (data[prop] != null && !string.IsNullOrEmpty(data[prop].ToString()))
+                {
+                    if (data[prop] is string)
+                    {
+                        typeof(T).GetProperty(prop).SetValue(item, data[prop].ToString().Trim());
+                    }
+                    else
+                    {
+                        typeof(T).GetProperty(prop).SetValue(item, data[prop]);
+                    }
+                }
+            }
+            return item;        
         }
 
         private string ConnectionString()
@@ -212,7 +242,7 @@ namespace BHoM.Base
         /// Gets all the tables in the current database
         /// </summary>
         /// <returns></returns>
-        public List<string> GetTableNames()
+        public List<string> TableNames()
         {
             System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(m_ConnectionString);
             connection.Open();
@@ -253,5 +283,26 @@ namespace BHoM.Base
             return col;
         }
 
+        public List<string> GetDataColumn(string name)
+        {      
+            List<string> col = new List<string>();
+
+            foreach (object row in GetDataColumn(name))
+            {
+                col.Add(row.ToString());
+            }
+
+            return col;
+        }
+
+        public T1 GetDataRow<T1>(string column, string matches) where T1 : IDataRow
+        {
+            return (T1)GetDataRow(column, matches);
+        }
+
+        public List<string> GetDataColumn(string columnName, string column, string matches)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

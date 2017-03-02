@@ -116,12 +116,12 @@ namespace BHoM.Structural.Properties
         {
             get
             {
-                object[] data = new SQLAccessor(Database.Cables, Project.ActiveProject.Config.StyliteForkSocketDataBase).GetDataRow("CableDia", SectionData[(int)CableSectionData.D].ToString());
+                //object[] data = new SQLAccessor(Database.Cables, Project.ActiveProject.Config.StyliteForkSocketDataBase).GetDataRow("CableDia", SectionData[(int)CableSectionData.D].ToString());
 
-                if (data != null)
-                {
-                    return NumberOfCables * ((double)data[(int)CableSTFConnectorData.PinOCapsWeight] + (double)data[(int)CableSTFConnectorData.SocketWeight]);
-                }
+                //if (data != null)
+                //{
+                //    return NumberOfCables * ((double)data[(int)CableSTFConnectorData.PinOCapsWeight] + (double)data[(int)CableSTFConnectorData.SocketWeight]);
+                //}
 
                 return -1;
             }
@@ -131,12 +131,12 @@ namespace BHoM.Structural.Properties
         {
             get
             {
-                object[] data = new SQLAccessor(Database.Cables, Project.ActiveProject.Config.StyliteAdjustableForkSocketDataBase).GetDataRow("CableDia", SectionData[(int)CableSectionData.D].ToString());
+                //object[] data = new SQLAccessor(Database.Cables, Project.ActiveProject.Config.StyliteAdjustableForkSocketDataBase).GetDataRow("CableDia", SectionData[(int)CableSectionData.D].ToString());
 
-                if (data != null)
-                {
-                    return NumberOfCables * (double)data[(int)CableSTAFConnectorData.Weight];
-                }
+                //if (data != null)
+                //{
+                //    return NumberOfCables * (double)data[(int)CableSTAFConnectorData.Weight];
+                //}
 
                 return -1;
             }
@@ -146,12 +146,12 @@ namespace BHoM.Structural.Properties
         {
             get
             {
-                object[] data = new SQLAccessor(Database.Cables, Project.ActiveProject.Config.StyliteRingConnectorDataBase).GetDataRow("CableDia", SectionData[(int)CableSectionData.D].ToString());
+                //object[] data = new SQLAccessor(Database.Cables, Project.ActiveProject.Config.StyliteRingConnectorDataBase).GetDataRow("CableDia", SectionData[(int)CableSectionData.D].ToString());
 
-                if (data != null)
-                {
-                    return NumberOfCables * (double)data[(int)CableSTRCConnectorData.Weight];
-                }
+                //if (data != null)
+                //{
+                //    return NumberOfCables * (double)data[(int)CableSTRCConnectorData.Weight];
+                //}
 
                 return -1;
             }
