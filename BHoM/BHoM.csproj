@@ -49,6 +49,10 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -65,6 +69,10 @@
     <Compile Include="Acoustic\Zone.cs" />
     <Compile Include="Base\Cipher.cs" />
     <Compile Include="Base\Compress.cs" />
+    <Compile Include="Base\Data\Enum.cs" />
+    <Compile Include="Base\Data\IDataAdapter.cs" />
+    <Compile Include="Base\Data\IDataRow.cs" />
+    <Compile Include="Base\Data\JsonDB.cs" />
     <Compile Include="Base\Group.cs" />
     <Compile Include="Base\JsonReader.cs" />
     <Compile Include="Base\JsonWriter.cs" />
@@ -82,6 +90,14 @@
     <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Opening.cs" />
     <Compile Include="Environmental\Elements\Space.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Structural\Databases\CableSectionRow.cs" />
+    <Compile Include="Structural\Databases\MaterialRow.cs" />
+    <Compile Include="Structural\Databases\SteelSectionRow.cs" />
     <Compile Include="Structural\Elements\Design\DesignElement.cs" />
     <Compile Include="Structural\Elements\Design\Span.cs" />
     <Compile Include="Structural\FileIO.cs" />
@@ -200,7 +216,7 @@
     <Compile Include="Structural\Results\Nodal Results\NodeDisplacement.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeForce.cs" />
     <Compile Include="Structural\Properties\Section Properties\SectionCalculator.cs" />
-    <Compile Include="Base\SQLAccessor.cs" />
+    <Compile Include="Base\Data\SQLAccessor.cs" />
     <Compile Include="Structural\Properties\Section Properties\ShapeBuilder.cs" />
     <Compile Include="Structural\Properties\Section Properties\SectionProperty.cs" />
     <Compile Include="Structural\Properties\Panel Properties\PanelProperty.cs" />
@@ -229,12 +245,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SteelSectionDB.txt" />
+    <None Include="Resources\MaterialDb.txt" />
     <Content Include="Structural\Databases\Cables.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -257,6 +276,12 @@
       <DependentUpon>SteelSections.mdf</DependentUpon>
     </Content>
     <None Include="Structural\Properties\Section Properties\Bar.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

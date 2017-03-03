@@ -110,5 +110,10 @@ namespace BHoM.Structural.Properties
             m_SteelEmbedmentDepth = steelEmbedmentDepth;
             SetEdges();
         }
+
+        public override string ToString()
+        {
+            return GetType().Name + ": " + SteelSection.Name + " - " + ConcreteSection.Name;
+        }
     }
 }

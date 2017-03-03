@@ -15,9 +15,26 @@ using BHoM.Structural.Results;
 using BHoM.Structural.Elements;
 using BHoM.Base.Results;
 using System.Xml;
+using Newtonsoft.Json.Linq;
+using BHoM.Structural.Databases;
+using BHoM.Base.Data;
 
 namespace BHoMTest
 {
+    public class Database
+    {
+        public string Name { get; set; }
+        public List<Table> Tables { get; set; }
+        public Database(string name) { Name = name; Tables = new List<Table>(); }
+    }
+
+    public class Table
+    {
+        public string Name { get; set; }
+        public List<IDataRow> Rows { get; set; }
+        public Table(string name, List<IDataRow> rows) { Name = name; Rows = rows; }
+    }
+
     public class TestObj : BHoMObject
     {
         public List<Point> Data { get; set; }
@@ -33,8 +50,39 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-            BrepJoin();
-            
+          // var mat =   BHoM.Materials.Material.Default(BHoM.Materials.MaterialType.Steel);
+           // CreateJSONDB();
+            TestReadJsonDB();
+        }
+
+        private static void TestReadJsonDB()
+        {
+            JsonFileDB<SteelSectionRow> section = new JsonFileDB<SteelSectionRow>(BHoM.Base.Data.Database.SteelSection);
+            section.TableName = "UK_Sections";
+            SteelSectionRow r = section.GetDataRow<SteelSectionRow>("Id", "1512");
+            var s = section.GetDataSet("Type", "UC");
+            var s2 = section.GetDataColumn("Type");
+        }
+
+        public static void CreateJSONDB()
+        {
+            Database b = new Database("Materials");
+            SQLAccessor<MaterialRow> sql = new SQLAccessor<MaterialRow>(BHoM.Base.Data.Database.Material, "Europe");
+            foreach (string table in sql.TableNames())
+            {
+                sql.TableName = table;
+                List<IDataRow> rows = sql.Query("SELECT * FROM " + table).ToList<IDataRow>();
+                Table t = new Table(table, rows);
+                b.Tables.Add(t);
+            }
+
+
+            string json = JSONWriter.Write(b);
+            using (StreamWriter fs = new StreamWriter(@"C:\Users\edalton\Documents\GitHub\MaterialDb.txt"))
+            {
+                fs.Write(json);
+                fs.Close();
+            }
         }
 
         public static void BrepJoin()
@@ -147,30 +195,7 @@ namespace BHoMTest
             string json3 = "{\"A\":[1,2,3], \"B\":2}";
             var item3 = JsonReader.ReadObject(json3);
         }
-
         
-        public static void TestSql()
-        {
-            SQLAccessor accessor = new SQLAccessor(Database.Material, "Europe");
-            List<object> col = accessor.GetDataColumn("Type");
-            List<object> col2 = accessor.GetDataColumn("IsDefault");
-
-            BHoM.Materials.Material mat = BHoM.Materials.Material.Default(BHoM.Materials.MaterialType.Cable);
-        }
-
-        public static void TestCableConnectionDB()
-        {
-            string table = Project.ActiveProject.Config.StyliteForkSocketDataBase;
-
-            SQLAccessor accessor = new SQLAccessor(Database.Cables, table);
-
-            object[] objs = accessor.GetDataRow("CableDia", "0.09");
-
-            List<string> names =  accessor.Names();
-
-            List<object> col = accessor.GetDataColumn("Name");
-        }
-
 
         static void TestProject()
         {

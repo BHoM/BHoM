@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BHoM.Global;
 using BHoM.Structural.Databases;
+using BHoM.Base.Data;
 
 namespace BHoM.Structural.Properties
 {
@@ -86,25 +87,26 @@ namespace BHoM.Structural.Properties
         public static SectionProperty LoadFromSteelSectionDB(Project project, string name)
         {
             if (name.EndsWith(".0")) name = name.Substring(0, name.Length - 2);
-            object[] data = new SQLAccessor(Database.SteelSection, project.Config.SectionDatabase).GetDataRow(new string[] { "Name", "Name1", "Name2" }, new string[] { name });
-
+            IDataAdapter database = Project.ActiveProject.GetDatabase<SteelSectionRow>(Database.SteelSection);
+            database.TableName = Project.ActiveProject.Config.SectionDatabase;
+            SteelSectionRow data = database.GetDataRow<SteelSectionRow>("Name", name);
             if (data != null)
             {
                 try
                 {
-                    ShapeType shape = (ShapeType)data[(int)SteelSectionData.Shape];
-                    double mass = (double)data[(int)SteelSectionData.Mass];
-                    double breadth = (double)data[(int)SteelSectionData.Width];
-                    double height = (double)data[(int)SteelSectionData.Height];
-                    double tw = (double)data[(int)SteelSectionData.TW];
-                    double tf1 = (double)data[(int)SteelSectionData.TF1];
-                    double tf2 = (double)data[(int)SteelSectionData.TF2];
-                    double b1 = (double)data[(int)SteelSectionData.B1];
-                    double b2 = (double)data[(int)SteelSectionData.B2];
-                    double b3 = (double)data[(int)SteelSectionData.B3];
-                    double s = (double)data[(int)SteelSectionData.Spacing];
-                    double r1 = (double)data[(int)SteelSectionData.r1];
-                    double r2 = (double)data[(int)SteelSectionData.r2];
+                    ShapeType shape = (ShapeType)data.Shape;
+                    double mass = data.Mass;
+                    double breadth = data.Width;
+                    double height = data.Height;
+                    double tw = data.T1;
+                    double tf1 = data.T2;
+                    double tf2 = data.T3;
+                    double b1 = data.B1;
+                    double b2 = data.B2;
+                    double b3 = data.B3;
+                    double s = data.GAP;
+                    double r1 = data.r1;
+                    double r2 = data.r2;
                     
 
                     BHoM.Geometry.Group<Curve> edges = CreateGeometry(shape, height, breadth, tw, tf1, r1, r2, b1, b2, tf2, b3);
@@ -133,12 +135,12 @@ namespace BHoM.Structural.Properties
 
         public static SectionProperty LoadFromCableSectionDBName(Project project, string name, int numberOfCables = 1)
         {
-            object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Name", name);
+            //object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Name", name);
 
-            if (data != null)
-            {
-                return CreateCableSectionFromDB(data, numberOfCables);
-            }
+            //if (data != null)
+            //{
+            //    return CreateCableSectionFromDB(data, numberOfCables);
+            //}
 
             return null;
         }
@@ -150,12 +152,12 @@ namespace BHoM.Structural.Properties
 
         public static SectionProperty LoadFromCableSectionDBDiameter(Project project, double diameter, int numberOfCables = 1)
         {
-            object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Diameter", diameter.ToString());
+            //object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Diameter", diameter.ToString());
 
-            if (data != null)
-            {
-                return CreateCableSectionFromDB(data, numberOfCables);
-            }
+            //if (data != null)
+            //{
+            //    return CreateCableSectionFromDB(data, numberOfCables);
+            //}
 
             return null;
         }

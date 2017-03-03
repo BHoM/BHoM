@@ -8,6 +8,7 @@ using System.IO;
 using BHoM.Base;
 using BHoM.Structural;
 using BHoM.Structural.Elements;
+using BHoM.Base.Data;
 
 namespace BHoM.Global
 {
@@ -33,6 +34,7 @@ namespace BHoM.Global
     {
         private Dictionary<Guid, BHoM.Base.BHoMObject> m_Objects;
         private Queue<Task> m_TaskQueue;
+        private Dictionary<Database, IDataAdapter> m_Databases;
 
         private static readonly Lazy<Project> m_Instance = new Lazy<Project>(() => new Project());
         
@@ -189,6 +191,7 @@ namespace BHoM.Global
         {
             m_Objects = new Dictionary<Guid, BHoMObject>();
             m_TaskQueue = new Queue<Task>();
+            m_Databases = new Dictionary<Database, IDataAdapter>();
             Config = new Config();
         }
 
@@ -301,6 +304,17 @@ namespace BHoM.Global
                     j++;
                 }
             }
+        }
+
+        public IDataAdapter GetDatabase<T>(Database dbType) where T : IDataRow
+        {
+            IDataAdapter result = null;
+            if (!m_Databases.TryGetValue(dbType, out result))
+            {
+                result = new JsonFileDB<T>(dbType);
+                m_Databases.Add(dbType, result);
+            }
+            return result;
         }
     }
 }
