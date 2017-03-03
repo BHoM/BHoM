@@ -65,6 +65,8 @@ namespace BHoM.Structural.Properties
             
         }
 
+        public bool OnlySliceAtDiscontinuity { get; set; } = false;
+
         private List<Slice> CreateSlices(Plane p)
         {
             List<Slice> slices = new List<Slice>();
@@ -83,25 +85,33 @@ namespace BHoM.Structural.Properties
             cutAt.Sort();
             cutAt = cutAt.Distinct<double>().ToList();
 
+
             double currentValue = VectorUtils.DotProduct(m_Edges.Bounds().Min, p.Normal);
             double max = VectorUtils.DotProduct(m_Edges.Bounds().Max, p.Normal);
             int index = 0;
 
-            while (currentValue < max)
+            if (!OnlySliceAtDiscontinuity)
             {
-                if (cutAt.Count > index && currentValue > cutAt[index])
+                while (currentValue < max)
                 {
-                    sliceSegments.Add(cutAt[index]);
-                    index++;
+                    if (cutAt.Count > index && currentValue > cutAt[index])
+                    {
+                        sliceSegments.Add(cutAt[index]);
+                        index++;
+                    }
+                    else
+                    {
+                        sliceSegments.Add(currentValue);
+                        currentValue += Increment(0);
+                    }
                 }
-                else
-                {
-                    sliceSegments.Add(currentValue);
-                    currentValue += Increment(0);
-                }
-            }
 
-            sliceSegments.Add(max);
+                sliceSegments.Add(max);
+            }
+            else
+            {
+                sliceSegments = cutAt;
+            }
 
             for (int i = 0; i < sliceSegments.Count - 1; i++)
             {
@@ -207,7 +217,6 @@ namespace BHoM.Structural.Properties
             }
             return new Slice(width, length, location, isolatedCoords.ToArray());
         }
-
         private double Increment(int direction)
         {
             if (direction == 0)

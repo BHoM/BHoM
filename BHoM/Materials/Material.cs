@@ -154,7 +154,7 @@ namespace BHoM.Materials
                     m.CompressiveYieldStrength = data.CompressiveStrength;
                     break;
                 case MaterialType.Steel:
-                    m.TensileYieldStrength = data.EffectiveTensileStress;
+                    m.TensileYieldStrength = data.MinimumYieldStress;
                     m.CompressiveYieldStrength = m.TensileYieldStrength;
                     break;
                 case MaterialType.Rebar:
