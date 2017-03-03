@@ -160,7 +160,7 @@ namespace BHoM.Structural.Properties
             return slices;
         }
 
-        private Slice GetSliceAt(double location, double width, Plane p)
+        public Slice GetSliceAt(double location, double width, Plane p)
         {
             List<Point> y = new List<Point>();
             double length = 0;
