@@ -320,18 +320,18 @@ namespace BHoM.Structural.Elements
 
             supportedNodes.Sort();
 
-            double firstSpanFactor = 1;
+            double firstSpanFactor = 2;
             double lastSpanFactor = 1;
 
             if (supportedNodes[0] == 0)
             {
-                firstSpanFactor = 2;
+                firstSpanFactor = 1;
                 supportedNodes.RemoveAt(0);
             }
-            if (supportedNodes.Last() != AnalyticBars.Count + 1)
+            if (supportedNodes.Last() != AnalyticBars.Count)
             {
                 lastSpanFactor = 2;
-                supportedNodes.Add(AnalyticBars.Count + 1);
+                supportedNodes.Add(AnalyticBars.Count);
             }
 
             int startBarIndex = 0;
@@ -341,7 +341,7 @@ namespace BHoM.Structural.Elements
             for (int i = 0; i < supportedNodes.Count; i++)
             {
                 List<int> barIndecies = new List<int>();
-                for (int j = startBarIndex; j < Math.Min(supportedNodes[i]-1, AnalyticBars.Count); j++)
+                for (int j = startBarIndex; j < Math.Min(supportedNodes[i], AnalyticBars.Count); j++)
                 {
                     barIndecies.Add(j);
                 }
