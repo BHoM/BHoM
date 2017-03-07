@@ -251,7 +251,7 @@ namespace BHoM.Structural.Elements
             return spans;
         }
         
-        public List<Span> GenerateSpans(List<double> suportPositions, SpanDirection direction, bool positionAsLength = false)
+        public List<Span> GenerateSpans(List<double> suportPositions, SpanDirection direction = SpanDirection.All, bool positionAsLength = false)
         {
 
             //Assumes that suport positions are placed on analytic bar nodes
@@ -308,6 +308,59 @@ namespace BHoM.Structural.Elements
             //if unsupported at end, double the effective length
             if (unsuportedEnd)
                 spans[spans.Count - 1].EffectiveLength *= 2;
+
+            SetSpans(spans, direction);
+            return spans;
+        }
+
+        public List<Span> GenerateSpans(List<int> supportedNodes, SpanDirection direction = SpanDirection.All)
+        {
+            if (supportedNodes.Count < 1)
+                return null;
+
+            supportedNodes.Sort();
+
+            double firstSpanFactor = 1;
+            double lastSpanFactor = 1;
+
+            if (supportedNodes[0] == 0)
+            {
+                firstSpanFactor = 2;
+                supportedNodes.RemoveAt(0);
+            }
+            if (supportedNodes.Last() != AnalyticBars.Count + 1)
+            {
+                lastSpanFactor = 2;
+                supportedNodes.Add(AnalyticBars.Count + 1);
+            }
+
+            int startBarIndex = 0;
+
+            List<Span> spans = new List<Span>();
+
+            for (int i = 0; i < supportedNodes.Count; i++)
+            {
+                List<int> barIndecies = new List<int>();
+                for (int j = startBarIndex; j < Math.Min(supportedNodes[i]-1, AnalyticBars.Count); j++)
+                {
+                    barIndecies.Add(j);
+                }
+
+                if (barIndecies.Count > 0)
+                {
+                    Span span = new Span();
+                    span.BarIndices = barIndecies;
+                    span.EffectiveLength = barIndecies.Select(x => AnalyticBars[x].Length).Sum();
+                    spans.Add(span);
+                }
+                startBarIndex = supportedNodes[i];
+            }
+
+            if (spans.Count < 1)
+                return null;
+
+            spans[0].EffectiveLength *= firstSpanFactor;
+            spans[spans.Count - 1].EffectiveLength *= lastSpanFactor;
 
             SetSpans(spans, direction);
             return spans;
