@@ -1,6 +1,6 @@
 ﻿using BHoM.Base;
 using BHoM.Base.Results;
-using BHoM.Global;
+
 using BHoM.Structural.Loads;
 using System;
 using System.Collections.Generic;

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Common;
-using BHoM.Global;
+
 using BHoM.Base;
 
 namespace BHoM.Geometry
@@ -14,7 +13,23 @@ namespace BHoM.Geometry
     /// </summary>
     public class Point : GeometryBase, IComparable<Point>
     {
-        private double[] Coordinates;
+        private double[] m_Coordinates;
+
+        public override GeometryType GeometryType
+        {
+            get
+            {
+                return GeometryType.Point;
+            }
+        }
+
+        public double[] Coordinates
+        {
+            get
+            {
+                return m_Coordinates;
+            }
+        }
         private int Offset = 0;
 
         /// <summary>X coordinate</summary>
@@ -54,12 +69,17 @@ namespace BHoM.Geometry
             }
         }
 
+        public void SetCoordinates(double[] coords)
+        {
+            m_Coordinates = coords;
+        }
+
         /// <summary>
         /// Construct an empty point
         /// </summary>
         public Point()
         {
-            Coordinates = new double[] { 0, 0, 0, 1 };
+            m_Coordinates = new double[] { 0, 0, 0, 1 };
         }
 
         /// <summary>
@@ -70,7 +90,7 @@ namespace BHoM.Geometry
         /// <param name="z"></param>
         public Point(double x, double y, double z)
         {
-            Coordinates = new double[] { x, y, z, 1 };
+            m_Coordinates = new double[] { x, y, z, 1 };
         }
 
         /// <summary>
@@ -81,14 +101,14 @@ namespace BHoM.Geometry
         /// <param name="z"></param>
         public Point(double[] v)
         {
-            Coordinates = new double[4];
+            m_Coordinates = new double[4];
             Array.Copy(v, Coordinates, v.Length);
             Coordinates[3] = 1;
         }
 
         internal Point(double[] v, int startIndex)
         {
-            Coordinates = v;
+            m_Coordinates = v;
             Offset = startIndex;
         }
 
@@ -98,28 +118,7 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Point(Point dup)
         {
-            Coordinates = BHoM.Common.Utils.Copy<double>(dup);
-        }
-
-        /// <summary>
-        /// Removes duplicate points which have the same value when rounded to the number of input decimals
-        /// </summary>
-        /// <param name="points"></param>
-        /// <param name="decimals"></param>
-        /// <returns></returns>
-        public static List<Point> RemoveDuplicates(List<Point> points, int decimals)
-        {
-            Dictionary<string, Point> values = new Dictionary<string, Point>();
-            Point tempPoint = null;
-            for (int i = 0; i < points.Count; i++)
-            {
-                string key = points[i].ToString(decimals);
-                if (!values.TryGetValue(key, out tempPoint))
-                {
-                    values.Add(key, points[i]);
-                }
-            }
-            return values.Values.ToList();
+            m_Coordinates = Utils.Copy<double>(dup);
         }
 
         /// <summary>
@@ -141,26 +140,6 @@ namespace BHoM.Geometry
                 }
             }
         }
-
-        /// <summary>
-        /// Create a point from json
-        /// </summary>
-        //public static Point FromJSON(string json)
-        //{
-        //    Point newPoint = new Point();
-        //    int i0 = json.IndexOf('{') + 1;
-        //    int i1 = json.LastIndexOf('}');
-        //    string[] coords = json.Substring(i0, i1-i0).Split(',');
-
-        //    if (coords.Length != 3) return null;
-        //    for (int i = 0; i < 3; i++)
-        //    {
-        //        double.TryParse(coords[i], out newPoint.Coordinates[i]);
-        //    }
-
-        //    return newPoint;
-        //}
-
 
         public static implicit operator double[] (Point v)
         {
@@ -349,7 +328,7 @@ namespace BHoM.Geometry
         /// <returns>Max of X,Y,Z values</returns>
         public static Point Max(Point p1, Point p2)
         {
-            return new Point(VectorUtils.Max(p1, p2));
+            return new Point(Math.Max(p1.X, p2.X), Math.Max(p1.Y, p2.Y), Math.Max(p1.Z, p2.Z));
         }
 
         /// <summary>
@@ -360,7 +339,7 @@ namespace BHoM.Geometry
         /// <returns>Min of X,Y,Z Values</returns>
         public static Point Min(Point p1, Point p2)
         {
-            return new Point(VectorUtils.Min(p1, p2));
+            return new Point(Math.Min(p1.X, p2.X), Math.Min(p1.Y, p2.Y), Math.Min(p1.Z, p2.Z));
         }
 
         /// <summary>
@@ -375,7 +354,7 @@ namespace BHoM.Geometry
 
         public double SquareDistanceTo(Point p)
         {
-            return VectorUtils.LengthSq((this - p));
+            return (this - p).SquareLength;
         }
 
         /// <summary>
@@ -404,45 +383,6 @@ namespace BHoM.Geometry
             return new BoundingBox(this, this);
         }
 
-        public override void Transform(Transform t)
-        {
-            Coordinates = VectorUtils.Multiply(t, Coordinates);
-        }
-
-        public override void Translate(Vector v)
-        {
-            Coordinates = VectorUtils.Add(v, Coordinates);
-        }
-
-        public override void Mirror(Plane p)
-        {
-            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates, 2), Coordinates);
-        }
-
-        public override void Project(Plane p)
-        {
-            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates), Coordinates);
-        }
-
-        public override void Update()
-        {
-        }
-
-        public override string ToJSON()
-        {
-            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"Point\": " + ToString() + "}";
-        }
-
-        public static new Point FromJSON(string json, Project project = null)
-        {
-            if (project == null)
-                project = Global.Project.ActiveProject;
-
-            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-
-            return new Point(BHoMJSON.ReadValue(typeof(double[]), definition["Point"], project) as double[]);
-        }
-
         /// <summary>
         /// Compares two points in order of priority of X,Y,Z
         /// </summary>
@@ -457,5 +397,7 @@ namespace BHoM.Geometry
             }
             return this[counter].CompareTo(other[counter]);
         }
+
+        public override void Update() { }
     }
 }

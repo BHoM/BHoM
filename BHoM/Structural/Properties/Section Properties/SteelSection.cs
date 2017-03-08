@@ -4,7 +4,7 @@ using BHoM.Materials;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BHoM.Global;
+
 using BHoM.Structural.Databases;
 
 namespace BHoM.Structural.Properties
@@ -31,27 +31,6 @@ namespace BHoM.Structural.Properties
 
         public SteelSection()
         {
-            Material = BHoM.Materials.Material.Default(MaterialType.Steel);
-        }
-
-        /// <summary>
-        /// Create a section property from standard input values
-        /// </summary>
-        /// <param name="sType">Shape type</param>
-        /// <param name="mType">Material type</param>
-        /// <param name="height">Total Height</param>
-        /// <param name="width">Total width</param>
-        /// <param name="t1">Flange Thickness</param>
-        /// <param name="t2">Web Thickness</param>
-        /// <param name="r1">Radius 1</param>
-        /// <param name="r2">Radius 2</param>
-        /// <param name="mass">Mass per metre</param>
-        public SteelSection(ShapeType sType, double height, double width, double t1, double t2, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double t3 = 0, double b3 = 0):this()
-        {
-            SectionData = CreateSectionData(height, width, t1, t2, r1, r2, mass, b1, b2, t3, b3);
-            Edges = CreateGeometry(sType, height, width, t1, t2, r1, r2, b1, b2, t3, b3);
-            Shape = sType;
-            //SectionMaterial = mType;
         }
 
         /// <summary>
@@ -83,52 +62,24 @@ namespace BHoM.Structural.Properties
             set;
         }
 
-        public double B1
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.B1];
-            }
-        }
+        public double Mass { get; set; }
 
-        public double B2
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.B2];
-            }
-        }
+        public double B1 { get; set; }
 
-        public double Tw
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.TW];
-            }
-        }
+        public double B2 { get; set; }
 
-        public double Tf1
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.TF1];
-            }
-        }
+        public double B3 { get; set; }
 
-        public double Tf2
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.TF2];
-            }
-        }
+        public double Tw { get; set; }
 
-        public double r1
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.r1];
-            }
-        }
+        public double Tf1 { get; set; }
+
+        public double Tf2 { get; set; }
+
+        public double r1 { get; set; }
+
+        public double r2 { get; set; }
+
+        public double Spacing { get; set; }
     }
 }

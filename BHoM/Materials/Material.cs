@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BHoM.Structural.Properties;
-using BHoM.Global;
+
 using BHoM.Structural.Databases;
 using BHoM.Base.Data;
 
@@ -82,8 +82,6 @@ namespace BHoM.Materials
             set;
         }
 
-        /// <summary>Calculate material values at construct</summary>
-        //void CalculateValues();
 
         internal Material() { }
 
@@ -92,78 +90,7 @@ namespace BHoM.Materials
             Name = name;
         }
 
-        public static Material LoadFromDB(string name)
-        {           
-            IDataAdapter database = Project.ActiveProject.GetDatabase<MaterialRow>(Database.Material);
-            database.TableName = Project.ActiveProject.Config.MaterialDatabase;
-            MaterialRow data = (MaterialRow)database.GetDataRow("Name", name);
-            if (data != null)
-            {
-                return FromDataRow(data);
-            }
-            return null;
-        }
-
-        //public static Material Default(SectionType type)
-        //{
-        //    return Default(MaterialType.Concrete);
-        //    switch (type)
-        //    {
-        //        case SectionType.Aluminium:
-        //            return Default(MaterialType.Aluminium);
-        //        case SectionType.ConcreteBeam:
-        //        case SectionType.ConcreteColumn:
-        //        case SectionType.Steel:
-        //            return Default(MaterialType.Steel);
-        //        case SectionType.Timber:
-        //            return Default(MaterialType.Timber);
-        //        case SectionType.Glass:
-        //            return Default(MaterialType.Glass);
-        //        default:
-        //            return null;
-        //    }
-        //}
-
-        public static Material Default(MaterialType type)
-        {
-            IDataAdapter database = Project.ActiveProject.GetDatabase<MaterialRow>(Database.Material);
-            database.TableName = Project.ActiveProject.Config.MaterialDatabase;
-            MaterialRow data = (MaterialRow)database.GetDataRow(new string[] { "Type", "IsDefault" }, new string[] { type.ToString(), "true" });
-            if (data != null)
-            {
-                return FromDataRow(data);
-            }
-            return null;
-        }
-
-        private static Material FromDataRow(MaterialRow data)
-        {
-            MaterialType type = (MaterialType)Enum.Parse(typeof(MaterialType), data.Type.ToString(), true);
-            string name = data.Name.Trim();
-            double e = data.YoungsModulus;
-            double v = data.PoissonsRatio;
-            double tC = data.CoefOfThermalExpansion;
-            double density = data.Mass;
-            double g = e / (2 * (1 + v));
-
-            Material m = new Material(name, type, e, v, tC, g, density);
-
-            switch (type)
-            {
-                case MaterialType.Concrete:
-                    m.CompressiveYieldStrength = data.CompressiveStrength;
-                    break;
-                case MaterialType.Steel:
-                    m.TensileYieldStrength = data.MinimumYieldStress;
-                    m.CompressiveYieldStrength = m.TensileYieldStrength;
-                    break;
-                case MaterialType.Rebar:
-                    m.TensileYieldStrength = data.EffectiveTensileStress;
-                    m.CompressiveYieldStrength = data.CompressiveStrength;
-                    break;
-            }
-            return m;
-        }
+     
 
         public Material(string name, MaterialType type, double E, double v, double tC, double G, double denisty)
         {

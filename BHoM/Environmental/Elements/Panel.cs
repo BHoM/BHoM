@@ -19,40 +19,16 @@ namespace BHoM.Environmental.Elements
         ////Properties///
         /////////////////
 
-        private BHoM.Geometry.Group<Curve> m_ExteriorEdges;
+        private Brep m_Panel;
 
         public string Type { get; set; }
 
-        public List<BHE.Space> adjSpaces { get; set; }
-
-        private void SetEdges(BHoM.Geometry.Group<Curve> curves)
+        public Brep Geometry
         {
-            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
-            List<Curve> crvs = Curve.Join(curves);
-            for (int i = 0; i < crvs.Count; i++)
-            {
-                if (crvs[i].IsClosed())
-                {
-                    m_ExteriorEdges.Add(crvs[i]);
-                }
-            }
+            get; set;
         }
 
-
-
-        public BHoM.Geometry.Group<Curve> External_Contours
-        {
-            set
-            {
-                m_ExteriorEdges = value;
-            }
-            get
-            {
-                return m_ExteriorEdges;
-            }
-        }
-
-        public bool IsValid() { return m_ExteriorEdges != null; }
+        public bool IsValid() { return Geometry != null; }
 
 
         ////////////////////
@@ -61,7 +37,7 @@ namespace BHoM.Environmental.Elements
 
         public Panel()
         {
-            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
+           
         }
 
         /// <summary>
@@ -69,9 +45,9 @@ namespace BHoM.Environmental.Elements
         /// </summary>
         /// <param name="edges"></param>
         /// <param name="number"></param>
-        public Panel(BHoM.Geometry.Group<Curve> edges)
+        public Panel(Surface surface)
         {
-            SetEdges(edges);
+            Geometry = surface;
         }
 
         /// <summary>
@@ -79,9 +55,9 @@ namespace BHoM.Environmental.Elements
         /// </summary>
         /// <param name="edges"></param>
         /// <param name="number"></param>
-        public Panel(List<Curve> edges)
+        public Panel(Brep boundary)
         {
-            SetEdges(new BHoM.Geometry.Group<Curve>(edges));
+            Geometry = boundary;
         }
 
         ///////////////
@@ -91,24 +67,15 @@ namespace BHoM.Environmental.Elements
         /// <summary></summary>
         public override BHoM.Geometry.GeometryBase GetGeometry()
         {
-            BHoM.Geometry.Group<Curve> edges = new BHoM.Geometry.Group<Curve>();
-            edges.AddRange(m_ExteriorEdges);
-            return edges;
+            return Geometry;
         }
 
         /// <summary></summary>
         public override void SetGeometry(GeometryBase geometry)
         {
-            if (geometry is Curve)
+            if (typeof(Brep).IsAssignableFrom(geometry.GetType()))
             {
-                Curve curve = geometry as Curve;
-                BHoM.Geometry.Group<Curve> group = new BHoM.Geometry.Group<Curve>();
-                group.Add(curve);
-                SetEdges(group);
-            }
-            else if (geometry is BHoM.Geometry.Group<Curve>)
-            {
-                SetEdges(geometry as BHoM.Geometry.Group<Curve>);
+                Geometry = geometry as Brep;
             }
         }
     }

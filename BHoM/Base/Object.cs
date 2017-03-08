@@ -5,7 +5,6 @@ using System.Xml;
 using System.Linq;
 using System.ComponentModel;
 using BHoM.Base;
-using BHoM.Global;
 using System.Reflection;
 
 namespace BHoM.Base
@@ -124,7 +123,7 @@ namespace BHoM.Base
                 var value = prop.GetValue(this, null);
                 if (value == null) continue;
 
-                aResult += BHoMJSON.WriteProperty(prop.Name, value) + ',';
+               // aResult += BHoMJSON.WriteProperty(prop.Name, value) + ',';
             }
             if (aResult.Last() == ',')
                 aResult = aResult.Trim(',');
@@ -138,14 +137,12 @@ namespace BHoM.Base
             return aResult;
         }
 
+        /*
         /// <summary>
         /// Method which convert the object as a Json string
         /// </summary>
-        public static BHoMObject FromJSON(string json, Project project = null)
+        public static BHoMObject FromJSON(string json)
         {
-            if (project == null)
-                project = Project.ActiveProject;
-
             // Get the top level definition of the json content
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
             if (!definition.ContainsKey("Primitive") || !definition.ContainsKey("Properties")) return null;
@@ -163,13 +160,13 @@ namespace BHoM.Base
             {
                 string prop = kvp.Key.Trim().Replace("\"", "");
                 string valueString = kvp.Value.Trim().Replace("\"", "");
-                BHoMJSON.ReadProperty(newObject, prop, valueString, project);
+                BHoMJSON.ReadProperty(newObject, prop, valueString);
             }
 
             return newObject;
         }
 
-
+            */
         /// <summary>
         /// Create an object based on its type name
         /// </summary>

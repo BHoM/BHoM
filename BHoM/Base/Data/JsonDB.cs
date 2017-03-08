@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,6 +8,20 @@ using System.Threading.Tasks;
 
 namespace BHoM.Base.Data
 {
+    public class DatabaseObject
+    {
+        public string Name { get; set; }
+        public List<TableObject> Tables { get; set; }
+        public DatabaseObject(string name) { Name = name; Tables = new List<TableObject>(); }
+    }
+
+    public class TableObject
+    {
+        public string Name { get; set; }
+        public List<IDataRow> Rows { get; set; }
+        public TableObject(string name, List<IDataRow> rows) { Name = name; Rows = rows; }
+    }
+
     public class JsonFileDB<T> : IDataAdapter where T : IDataRow
     {
         public string Filename
@@ -20,14 +33,15 @@ namespace BHoM.Base.Data
             set
             {
                 m_Filename = value;
+
                 using (StreamReader fs = new StreamReader(m_Filename))
                 {
-                    m_JObj = JObject.Parse(fs.ReadToEnd());
+                    m_JObj = JsonReader.ReadObject(fs.ReadToEnd()) as DatabaseObject;
                     fs.Close();
                 }
             }
         }
-        private JObject m_JObj;
+        private DatabaseObject m_JObj;
         private string m_Filename;
         public string TableName
         {
@@ -40,15 +54,15 @@ namespace BHoM.Base.Data
             Filename = filename;
         }
 
-        public JsonFileDB(Database type)
+        public JsonFileDB(DatabaseType type)
         {
             switch (type)
             {
-                case Database.SteelSection:
-                    m_JObj = JObject.Parse(BHoM.Properties.Resources.SteelSectionDB.ToString());
+                case DatabaseType.SteelSection:
+                    m_JObj = JsonReader.ReadObject(BHoM.Properties.Resources.SteelSectionDB.ToString()) as DatabaseObject; 
                     break;
-                case Database.Material:
-                    m_JObj = JObject.Parse(BHoM.Properties.Resources.MaterialDB.ToString());
+                case DatabaseType.Material:
+                    m_JObj = JsonReader.ReadObject(BHoM.Properties.Resources.MaterialDB.ToString()) as DatabaseObject;
                     break;
             }
             
@@ -69,70 +83,70 @@ namespace BHoM.Base.Data
 
         public IDataRow GetDataRow(string column, string matches)
         {
-            var row = GetRawDataSet().Where(c => (string)c[column] == matches).First();
-            return (T)JsonReader.ReadObject(row.ToString());
+            return (T)GetRawDataSet(column, matches).First();
         }
 
-        private IEnumerable<JToken> GetRawDataSet(string column, string matches)
+        private IEnumerable<T> GetRawDataSet(string column, string matches)
         {
-            return GetRawDataSet().Where(c => (string)c[column] == matches);
+            return Filter(GetRawDataSet(), column, matches);
         }
 
-        private IEnumerable<JToken> GetRawDataSet()
+
+        private static IEnumerable<T> Filter(IEnumerable<T> list, string column, string matches)
         {
-            List<IDataRow> result = new List<IDataRow>();
-            JToken table = m_JObj.SelectToken("$.Tables[?(@.Name == '" + TableName + "')]");
-            return table["Rows"];
+            PropertyInfo p = typeof(T).GetProperty(column);
+            if (p != null)
+            {
+                return list.Where(c => p.GetValue(c).ToString() == matches);
+            }
+            else
+            {
+                return new List<T>();
+            }
+        }
+
+        private IEnumerable<T> GetRawDataSet()
+        {
+            TableObject table = m_JObj.Tables.Where(t => t.Name == TableName).First();
+            return table != null ? table.Rows.Cast<T>() : new List<T>();
         }
 
         public List<IDataRow> GetDataSet(string column, string matches)
         {
-            List<IDataRow> result = new List<IDataRow>();
-            foreach (JToken row in GetRawDataSet(column, matches))
-            {
-                result.Add((T)JsonReader.ReadObject(row.ToString()));
-            }
-            return result;
+            return GetRawDataSet(column, matches).Cast<IDataRow>().ToList();
         }
 
         public IDataRow GetDataRow(string[] column, string[] matches, bool AND = false)
         {
-            try
+            List<T> result = GetRawDataSet(column[0], matches[0]).ToList();
+            for (int i = 1; i < column.Length; i++)
             {
-                var row = GetRawDataSet().Where(c => (string)c[column[0]] == matches[0] && (string)c[column[1]] == matches[1]).First();
-                return ((T)JsonReader.ReadObject(row.ToString()));
+                if (AND)
+                {
+                    result = Filter(result, column[i], matches[i]).ToList();
+                }
+                else
+                {
+                    result.AddRange(GetRawDataSet(column[i], matches[i]));
+                }
             }
-            catch
-            {
-                return null;
-            }
+            return result.First();
         }
 
         public List<string> Names()
         {
             List<string> result = new List<string>();
-            return GetRawDataSet().Select(t => (string)t.SelectToken("Name")).ToList();
-
-            //foreach (JToken token in m_JObj["Rows"])
-            //{
-            //    result.Add(token["Name"].Value<string>());
-            //}
-            //return result;
+            return GetRawDataSet().Select(r => r.Name).ToList();
         }
 
         public List<IDataRow> Query(string query)
         {
-            List<IDataRow> objs = new List<IDataRow>();
-            foreach (JToken token in m_JObj.SelectTokens(query))
-            {
-                objs.Add((T)token.ToObject(typeof(T)));
-            }
-            return objs;
+            return null;
         }
 
         public List<string> TableNames()
         {
-            return m_JObj["Tables"].Select(t => (string)t.SelectToken("Name")).ToList();
+            return m_JObj.Tables.Select(t => t.Name).ToList();
         }
 
         public T1 GetDataRow<T1>(string column, string matches) where T1 : IDataRow
@@ -142,12 +156,29 @@ namespace BHoM.Base.Data
 
         public List<string> GetDataColumn(string columnName)
         {
-            return GetRawDataSet().Select(t => (string)t.SelectToken(columnName)).ToList();
+            PropertyInfo p = typeof(T).GetProperty(columnName);
+            if (p != null)
+            {
+                return GetRawDataSet().Select(r => p.GetValue(r).ToString()).ToList();
+            }
+            else
+            {
+                return new List<string>();
+            }
         }
 
         public List<string> GetDataColumn(string columnName, string column, string matches)
         {
-            return GetRawDataSet(column, matches).Select(r => (string)r.SelectToken(columnName)).ToList();
+            PropertyInfo matchColumn = typeof(T).GetProperty(column);
+            PropertyInfo resultColumn = typeof(T).GetProperty(columnName);
+            if (matchColumn != null && resultColumn != null)
+            {
+                return GetRawDataSet().Where(r=> matchColumn.GetValue(r).ToString() == matches).Select(r => resultColumn.GetValue(r).ToString()).ToList();
+            }
+            else
+            {
+                return new List<string>();
+            }
         }
     }
 }

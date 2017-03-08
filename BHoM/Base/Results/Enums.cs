@@ -23,4 +23,11 @@ namespace BHoM.Base.Results
         NodeCoordinates,
         BarCoordinates
     }
+    public enum ResultOrder
+    {
+        Name,
+        Loadcase,
+        TimeStep,
+        None
+    }
 }

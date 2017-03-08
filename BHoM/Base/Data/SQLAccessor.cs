@@ -18,12 +18,12 @@ namespace BHoM.Base.Data
 
     public class SQLAccessor<T> : IDataAdapter where T : IDataRow, new()
     {
-        Database m_Database;
+        DatabaseType m_Database;
         string m_ConnectionString;
         string m_TableName;
         SqlDataAdapter m_DataAdapter;
 
-        public SQLAccessor(Database db, string tableName)
+        public SQLAccessor(DatabaseType db, string tableName)
         {
             m_TableName = tableName;
             m_Database = db;
@@ -34,14 +34,14 @@ namespace BHoM.Base.Data
         {
             m_ConnectionString = "Data Source=" + serverName + "; AttachDbFilename = " + databaseName + "; Integrated Security = True; Connect Timeout = 30"; // TODO - Need to handle more than file connection
             m_TableName = tableName;
-            m_Database = Database.Custom;
+            m_Database = DatabaseType.Custom;
         }
 
         public SQLAccessor(string connectionString, string tableName)
         {
             m_ConnectionString = connectionString;
             m_TableName = tableName;
-            m_Database = Database.Custom;
+            m_Database = DatabaseType.Custom;
         }
 
         public List<IDataRow> Query(string query)
@@ -212,11 +212,11 @@ namespace BHoM.Base.Data
             string appData = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             switch (m_Database)
             {
-                case Database.SteelSection:
+                case DatabaseType.SteelSection:
                     return string.Format(Properties.Settings.Default.SteelSectionConnectionsString, appData);
-                case Database.Material:
+                case DatabaseType.Material:
                     return string.Format(Properties.Settings.Default.MaterialConnectionString, appData);
-                case Database.Cables:
+                case DatabaseType.Cables:
                     return string.Format(Properties.Settings.Default.CableSectionConnectionStrin, appData);
                 default:
                     return m_ConnectionString;

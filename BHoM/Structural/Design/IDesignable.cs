@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Base.Data
+namespace BHoM.Structural.Design
 {
-    public enum DatabaseType
+    public interface IDesignable
     {
-        Material,
-        SteelSection,
-        Cables,
-        Custom
+        StructuralLayout GetStructuralLayout();
     }
 }

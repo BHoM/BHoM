@@ -20,96 +20,33 @@ namespace BHoM.Structural.Elements
         ////Properties///
         /////////////////
 
-        private BHoM.Geometry.Group<Curve> m_ExteriorEdges;
-        private BHoM.Geometry.Group<Curve> m_InteriorEdges;
+        private BHoM.Geometry.Brep m_Geometry;
 
         private List<Face> m_Faces;
         /// <summary>
         /// A group of curves which define the perimeter of panel object
         /// </summary>
-        //public Group<Curve> Edges
-        //{
-        //    private get
-        //    {
-        //        Group<Curve> edges = new Group<Curve>();
-        //        edges.AddRange(m_ExteriorEdges);
-        //        edges.AddRange(m_InteriorEdges);
-        //        return edges;
-        //    }
-        //    set
-        //    {
-        //        SetEdges(value);
-        //    }
-        //}
+        public BHoM.Geometry.Group<Curve> GetEdges()
+        {
+            return m_Geometry.GetExternalEdges();
+        }
+
+        public Brep Geometry
+        {
+            get
+            {
+                return m_Geometry;
+            }
+            set
+            {
+                m_Geometry = value;
+            }
+        }
+
 
         public List<Face> GetMeshFaces { get { return m_Faces; } }
 
-        private static bool IsInside(Curve c, List<Curve> crvs)
-        {
-            for (int i = 0; i < crvs.Count; i++)
-            {
-                if (!crvs[i].Equals(c))
-                {
-                    if (crvs[i].ContainsCurve(c))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        private void SetEdges(BHoM.Geometry.Group<Curve> curves)
-        {
-            m_InteriorEdges = new BHoM.Geometry.Group<Curve>();
-            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
-            List<Curve> crvs = Curve.Join(curves);
-            crvs.Sort(delegate (Curve c1, Curve c2)
-            {
-                return c2.Length.CompareTo(c1.Length);
-            });
-
-            for (int i = 0; i < crvs.Count; i++)
-            {
-                if (crvs[i].IsClosed())
-                {
-                    if (IsInside(crvs[i], crvs))
-                    {
-                        m_InteriorEdges.Add(crvs[i]);
-                    }
-                    else
-                    {
-                        m_ExteriorEdges.Add(crvs[i]);
-                    }
-                }
-            }
-        }
-
-        public BHoM.Geometry.Group<Curve> External_Contours
-        {
-            get
-            {
-                return m_ExteriorEdges;
-            }
-            set
-            {
-                m_ExteriorEdges = value;
-            }
-        }
-
-        [DefaultValue(null)]
-        public BHoM.Geometry.Group<Curve> Internal_Contours
-        {
-            get
-            {
-                return m_InteriorEdges;
-            }
-            set
-            {
-                m_InteriorEdges = value;
-            }
-        }
-
+       
         [DefaultValue(null)]
         public PanelProperty PanelProperty { get; set; }
 
@@ -136,7 +73,7 @@ namespace BHoM.Structural.Elements
             }
         }
 
-        public bool IsValid() { return m_ExteriorEdges != null; }
+        public bool IsValid() { return m_Geometry != null; }
 
 
         ////////////////////
@@ -146,8 +83,6 @@ namespace BHoM.Structural.Elements
         public Panel()
         {
             m_Faces = new List<Face>();
-            m_InteriorEdges = new BHoM.Geometry.Group<Curve>();
-            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
         }
 
         /// <summary>
@@ -155,19 +90,9 @@ namespace BHoM.Structural.Elements
         /// </summary>
         /// <param name="edges"></param>
         /// <param name="number"></param>
-        public Panel(BHoM.Geometry.Group<Curve> edges)
+        public Panel(Brep boundary)
         {
-            SetEdges(edges);
-        }
-
-        /// <summary>
-        /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
-        /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="number"></param>
-        public Panel(List<Curve> edges)
-        {
-            SetEdges(new BHoM.Geometry.Group<Curve>(edges));
+            m_Geometry = boundary;
         }
 
         ///////////////
@@ -177,25 +102,15 @@ namespace BHoM.Structural.Elements
         /// <summary></summary>
         public override BHoM.Geometry.GeometryBase GetGeometry()
         {
-            BHoM.Geometry.Group<Curve> edges = new BHoM.Geometry.Group<Curve>();
-            edges.AddRange(m_ExteriorEdges);
-            edges.AddRange(m_InteriorEdges);
-            return edges;
+            return m_Geometry;
         }
 
         /// <summary></summary>
         public override void SetGeometry(GeometryBase geometry)
         {
-            if (geometry is Curve)
+            if (typeof(Brep).IsAssignableFrom(geometry.GetType()))
             {
-                Curve curve = geometry as Curve;
-                BHoM.Geometry.Group<Curve> group = new BHoM.Geometry.Group<Curve>();
-                group.Add(curve);
-                SetEdges(group);
-            }
-            else if (geometry is BHoM.Geometry.Group<Curve>)
-            {
-                SetEdges(geometry as BHoM.Geometry.Group<Curve>);
+                m_Geometry = geometry as Brep;
             }
         }
 
@@ -208,7 +123,7 @@ namespace BHoM.Structural.Elements
         {
             List<Node> nodes = new List<Node>();
             Face face;
-            foreach (Curve edge in m_ExteriorEdges)
+            foreach (Curve edge in m_Geometry.GetExternalEdges())
                 nodes.Add(new Node(edge.StartPoint));
 
             switch (nodes.Count)

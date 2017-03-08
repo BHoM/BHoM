@@ -49,10 +49,6 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -98,9 +94,9 @@
     <Compile Include="Structural\Databases\CableSectionRow.cs" />
     <Compile Include="Structural\Databases\MaterialRow.cs" />
     <Compile Include="Structural\Databases\SteelSectionRow.cs" />
-    <Compile Include="Structural\Elements\Design\DesignElement.cs" />
-    <Compile Include="Structural\Elements\Design\Span.cs" />
-    <Compile Include="Structural\FileIO.cs" />
+    <Compile Include="Structural\Design\DesignElement.cs" />
+    <Compile Include="Structural\Design\IDesignable.cs" />
+    <Compile Include="Structural\Design\Span.cs" />
     <Compile Include="Generic\Graph.cs" />
     <Compile Include="Generic\GraphLink.cs" />
     <Compile Include="Generic\GraphNode.cs" />
@@ -109,12 +105,9 @@
     <Compile Include="Geometry\Curve\NurbCurve.cs" />
     <Compile Include="Geometry\Group.cs" />
     <Compile Include="Geometry\GeometryBase.cs" />
-    <Compile Include="Geometry\Intersect.cs" />
-    <Compile Include="Geometry\Quarternion.cs" />
     <Compile Include="Geometry\Surface\Extrusion.cs" />
     <Compile Include="Geometry\Surface\Loft.cs" />
     <Compile Include="Geometry\Surface\Pipe.cs" />
-    <Compile Include="Geometry\Transform.cs" />
     <Compile Include="Geometry\Utils.cs" />
     <Compile Include="Geometry\Curve\Arc.cs" />
     <Compile Include="Geometry\Curve\Circle.cs" />
@@ -131,24 +124,12 @@
     <Compile Include="Geometry\Vector\Point.cs" />
     <Compile Include="Generic\PointMatrix.cs" />
     <Compile Include="Geometry\Vector\Vector.cs" />
-    <Compile Include="Geometry\Vector\VectorUtils.cs" />
-    <Compile Include="Base\JSON.cs" />
-    <Compile Include="Global\Config\Config.cs" />
-    <Compile Include="Global\Config\MEPConfig.cs" />
-    <Compile Include="Global\Config\StructureConfig.cs" />
     <Compile Include="Structural\Databases\Enums.cs" />
     <Compile Include="Structural\Elements\FEFace.cs" />
     <Compile Include="Structural\Elements\FEMesh.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
-    <Compile Include="Structural\Application.cs" />
-    <Compile Include="Structural\Interface\ICommandAdapter.cs" />
-    <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
-    <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Base\Object.cs" />
-    <Compile Include="Base\ObjectFilter.cs" />
-    <Compile Include="Base\ObjectManager.cs" />
-    <Compile Include="Global\Project.cs" />
     <Compile Include="Base\Utils.cs" />
     <Compile Include="Planning\Construction\ConstructionPhase.cs" />
     <Compile Include="Planning\IPhase.cs" />
@@ -181,10 +162,6 @@
     <Compile Include="Structural\Properties\Enums.cs" />
     <Compile Include="Structural\Properties\Offset.cs" />
     <Compile Include="Structural\Elements\Enums.cs" />
-    <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCBeam.cs" />
-    <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCColumn.cs" />
-    <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_EquivalentStatic.cs" />
-    <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_ResponseSpectrum.cs" />
     <Compile Include="Structural\Loads\AreaLoads.cs" />
     <Compile Include="Structural\Loads\BarLoad.cs" />
     <Compile Include="Structural\Loads\GeometryLoad.cs" />
@@ -201,8 +178,6 @@
     <Compile Include="Structural\Properties\Section Properties\SteelSection.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarForceEnvelope.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
-    <Compile Include="Structural\Interface\IResultAdapter.cs" />
-    <Compile Include="Base\Results\ResultServer.cs" />
     <Compile Include="Structural\Results\Bar Forces\BarStress.cs" />
     <Compile Include="Structural\Results\Bar Forces\CompositeUtilisation.cs" />
     <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
@@ -215,9 +190,8 @@
     <Compile Include="Structural\Results\Nodal Results\NodeAcceleration.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeDisplacement.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeForce.cs" />
-    <Compile Include="Structural\Properties\Section Properties\SectionCalculator.cs" />
     <Compile Include="Base\Data\SQLAccessor.cs" />
-    <Compile Include="Structural\Properties\Section Properties\ShapeBuilder.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Enum.cs" />
     <Compile Include="Structural\Properties\Section Properties\SectionProperty.cs" />
     <Compile Include="Structural\Properties\Panel Properties\PanelProperty.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeVelocity.cs" />
@@ -225,11 +199,9 @@
     <Compile Include="Structural\Results\Panel Results\PanelStress.cs" />
     <Compile Include="Structural\Results\Reinforcement Results\SlabReinforcement.cs" />
     <Compile Include="Structural\Results\Result.cs" />
-    <Compile Include="Structural\Results\StructuralResultServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />
-    <Folder Include="Structural\DesignCodes\Eurocode\Wind\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

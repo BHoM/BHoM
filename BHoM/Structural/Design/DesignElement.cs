@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using BHoM.Base;
 using BHoM.Structural.Properties;
 using BHoM.Geometry;
+using BHoM.Structural.Elements;
 
-namespace BHoM.Structural.Elements
+namespace BHoM.Structural.Design
 {
-    public class DesignElement : BHoMObject
+    public class StructuralLayout : BHoMObject, IDesignable
     {
 
         /******************************************/
@@ -27,18 +28,18 @@ namespace BHoM.Structural.Elements
         /************** Constructors **************/
         /******************************************/
 
-        public DesignElement()
+        public StructuralLayout()
         {
             m_bars = new List<Bar>();
             IsContinuous = false;
         }
 
-        public DesignElement(Bar bar) :this()
+        public StructuralLayout(Bar bar) :this()
         {
             AddBar(bar, false);
         }
 
-        public DesignElement(IEnumerable<Bar> bars):this()
+        public StructuralLayout(IEnumerable<Bar> bars):this()
         {
             AddBars(bars);
         }
@@ -486,80 +487,10 @@ namespace BHoM.Structural.Elements
             m_bars = temp;
         }
 
-        /// <summary>
-        /// Joins a list of connected bars with the same cross-section and outputs the result as design elements
-        /// </summary>
-        /// <param name="bars"></param>
-        /// <returns></returns>
-        public static List<DesignElement> CreateFromConnectedBars(List<Bar> bars, double tolerance = 0.01)
+
+        public StructuralLayout GetStructuralLayout()
         {
-            List<DesignElement> results = new List<DesignElement>();
-            Dictionary<Guid, int> nodeCount = new Dictionary<Guid, int>();
-            int count = 0;
-            for (int i = 0; i < bars.Count; i++)
-            {
-                results.Add(new DesignElement(bars[i]));
-                if (nodeCount.TryGetValue(bars[i].StartNode.BHoM_Guid, out count))
-                {
-                    nodeCount[bars[i].StartNode.BHoM_Guid] = count + 1;
-                }
-                else
-                {
-                    nodeCount.Add(bars[i].StartNode.BHoM_Guid, 1);
-                }
-                if (nodeCount.TryGetValue(bars[i].EndNode.BHoM_Guid, out count))
-                {
-                    nodeCount[bars[i].EndNode.BHoM_Guid] = count + 1;
-                }
-                else
-                {
-                    nodeCount.Add(bars[i].EndNode.BHoM_Guid, 1);
-                }
-            }
-
-            int counter = 0;
-            while (counter < results.Count)
-            {
-                double[] ps1 = results[counter].StartPoint;
-                double[] pe1 = results[counter].EndPoint;
-                for (int j = counter + 1; j < results.Count; j++)
-                {
-                    if (results[counter].SectionProperty.Name == results[j].SectionProperty.Name)
-                    {
-                        double[] ps2 = results[j].StartPoint;
-                        double[] pe2 = results[j].EndPoint;
-                        if (VectorUtils.Equal(pe1, ps2, tolerance) && nodeCount[results[counter].EndNode.BHoM_Guid] == 2)
-                        {
-                            results[j].AddBars(results[counter].AnalyticBars);
-                            results.RemoveAt(counter--);
-                            break;
-                        }
-                        else if (VectorUtils.Equal(pe1, pe2, tolerance) && nodeCount[results[counter].EndNode.BHoM_Guid] == 2)
-                        {
-                            results[j].AddBars(results[counter].AnalyticBars);
-                            results.RemoveAt(counter--);
-                            break;
-                        }
-                        else if (VectorUtils.Equal(ps1, ps2, tolerance) && nodeCount[results[counter].StartNode.BHoM_Guid] == 2)
-                        {
-                            results[j].AddBars(results[counter].AnalyticBars);
-                            results.RemoveAt(counter--);
-                            break;
-                        }
-                        else if (VectorUtils.Equal(ps1, pe2, tolerance) && nodeCount[results[counter].StartNode.BHoM_Guid] == 2)
-                        {
-                            results[j].AddBars(results[counter].AnalyticBars);
-                            results.RemoveAt(counter--);
-                            break;
-                        }
-                    }
-                    
-                }
-                counter++;
-            }
-
-            for (int i = 0; i < results.Count; i++) results[i].GenerateDefaultSpans();
-            return results;
+            throw new NotImplementedException();
         }
     }
 }

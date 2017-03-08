@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Global;
+
 using BHoM.Base;
 
 namespace BHoM.Geometry
@@ -17,14 +17,20 @@ namespace BHoM.Geometry
         Type ObjectType { get; }
 
         Group<T> Cast<T>() where T : GeometryBase;
-
     }
-
 
     public class Group<T> : GeometryBase, IEnumerable<T>, IEnumerable, IGroup where T : GeometryBase 
     {
         private List<T> m_Geometry;
         private BoundingBox m_Bounds;
+
+        public override GeometryType GeometryType
+        {
+            get
+            {
+                return GeometryType.Group;
+            }
+        }
 
         public Group()
         {
@@ -46,12 +52,7 @@ namespace BHoM.Geometry
             m_Geometry.AddRange(geometry);
         }
 
-        internal List<T> Geometry()
-        {
-            return m_Geometry;
-        }
-
-        internal List<T> GeometryData { get { return m_Geometry; } set { m_Geometry = value; } }
+        public List<T> Geometry { get { return m_Geometry; } set { m_Geometry = value; } }
 
         public T this[int i]
         {
@@ -116,42 +117,6 @@ namespace BHoM.Geometry
             return DuplicateGroup();
         }
 
-        public override void Mirror(Plane p)
-        {
-            for (int i = 0; i < m_Geometry.Count; i++)
-            {
-                m_Geometry[i].Mirror(p);
-            }
-            Update();
-        }
-
-        public override void Project(Plane p)
-        {
-            for (int i = 0; i < m_Geometry.Count; i++)
-            {
-                m_Geometry[i].Project(p);
-            }
-            Update();
-        }
-
-        public override void Transform(Transform t)
-        {
-            for (int i = 0; i < m_Geometry.Count; i++)
-            {
-                m_Geometry[i].Transform(t);
-            }
-            Update();
-        }
-
-        public override void Translate(Vector v)
-        {
-            for (int i = 0; i < m_Geometry.Count; i++)
-            {
-                m_Geometry[i].Translate(v);
-            }
-            Update();
-        }
-
         public override void Update()
         {
             for (int i = 0; i < m_Geometry.Count; i++)
@@ -159,40 +124,7 @@ namespace BHoM.Geometry
                 m_Geometry[i].Update();
             }
             m_Bounds = null;
-        }
-
-        public override string ToJSON()
-        {
-            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"GroupType\": \"" + typeof(T).FullName + "\"," + BHoMJSON.WriteProperty("Data", m_Geometry) + "}";
-        }
-
-        public static new GeometryBase FromJSON(string json, Project project = null)
-        {
-            if (project == null)
-                project = Global.Project.ActiveProject;
-
-            Dictionary<string, string> definition = Base.BHoMJSON.GetDefinitionFromJSON(json);
-
-            string typeString = null;
-            if (!definition.TryGetValue("__Type__", out typeString))
-                definition.TryGetValue("Primitive", out typeString);
-            if (typeString == null)
-                return null;
-            typeString = typeString.Replace("\"", "").Replace("{", "").Replace("}", "");
-
-            Type groupDataType = Type.GetType(definition["GroupType"].Trim('\"', '\"'));
-            var groupType = typeof(Group<>);
-            var dataType = typeof(List<>);
-            var data = dataType.MakeGenericType(groupDataType);
-            var groupofType = groupType.MakeGenericType(groupDataType);
-            var group = Activator.CreateInstance(groupofType);
-            System.Reflection.MethodInfo jsonMethod = groupofType.GetMethod("AddRange");
-            if (jsonMethod != null)
-            {
-                object result = jsonMethod.Invoke(group, new object[] { Base.BHoMJSON.ReadValue(data, definition["Data"], project) });
-            }      
-            return group as GeometryBase;
-        }
+        }     
 
         public IEnumerator<T> GetEnumerator()
         {

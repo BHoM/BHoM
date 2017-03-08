@@ -22,11 +22,7 @@ namespace BHoM.Structural.Elements
             }
             set
             {
-                List<Curve> curve = Curve.Join(value);
-                if (curve.Count == 1 && curve[0].IsClosed())
-                {
-                    m_Edges = new BHoM.Geometry.Group<Curve>(curve[0].Explode());
-                }
+                m_Edges = value;
             }
         }
 

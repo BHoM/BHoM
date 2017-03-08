@@ -83,28 +83,28 @@ namespace BHoM.Structural.Elements
         public bool IsConstrained { get; private set; }
 
         /// <summary>Constraint name - is inherited from constraint object if exists</summary>
-        public string ConstraintName { get; private set; }
+        //public string ConstraintName { get; private set; }
 
-        /// <summary>Bars connected to the node</summary>
-        public List<Bar> ConnectedBars { get { return m_ConnectedBars; } }
+        ///// <summary>Bars connected to the node</summary>
+        //public List<Bar> ConnectedBars { get { return m_ConnectedBars; } }
 
-        /// <summary>Faces connected to the node</summary>
-        public List<Face> ConnectedFaces { get; }
+        ///// <summary>Faces connected to the node</summary>
+        //public List<Face> ConnectedFaces { get; }
 
         /// <summary>Valence of node</summary>
-        public int Valence { get; private set; }
+        //public int Valence { get; private set; }
 
-        /// <summary>Absolute angles between connected bars (direct measurement of bar vectors)</summary>
-        public List<double> BarAbsoluteAngles { get; private set; }
+        ///////// <summary>Absolute angles between connected bars (direct measurement of bar vectors)</summary>
+        //////public List<double> BarAbsoluteAngles { get; private set; }
 
-        /// <summary>Delta angles between connected bars measured in the node plane</summary>
-        public List<double> BarDeltaAngles { get; private set; }
+        ///////// <summary>Delta angles between connected bars measured in the node plane</summary>
+        //////public List<double> BarDeltaAngles { get; private set; }
 
-        /// <summary>Theta angles between connected bars measured in the node plane</summary>
-        public List<double> BarThetaAngles { get; private set; }
+        ///////// <summary>Theta angles between connected bars measured in the node plane</summary>
+        //////public List<double> BarThetaAngles { get; private set; }
 
-        /// <summary>Node plane for angular and setting out methods</summary>
-        internal Plane Plane { get; private set; }
+        ///////// <summary>Node plane for angular and setting out methods</summary>
+        //////internal Plane Plane { get; private set; }
 
 
 
@@ -200,16 +200,6 @@ namespace BHoM.Structural.Elements
         /// <returns></returns>
         public double DistanceTo(Node node)
         {
-            //double dist = 0;
-            //double[] target = this.CartesianCoordinates;
-            //double[] search = node.CartesianCoordinates;
-
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    dist += (Math.Pow((target[i] - search[i]), 2));
-            //}
-            //dist = Math.Sqrt(dist);
-            //return dist;
             return Math.Sqrt(SquareDistanceTo(node));
         }
 
@@ -247,173 +237,14 @@ namespace BHoM.Structural.Elements
         public void SetConstraint(NodeConstraint constraint)
         {
             this.Constraint = constraint;
-            this.ConstraintName = constraint.Name;
             this.IsConstrained = true;
-        }
-
-        /// <summary>
-        /// Sets the constraint name of the node
-        /// </summary>
-        /// <param name="constraintName"></param>
-        public void SetConstraintName(string constraintName)
-        {
-            this.ConstraintName = constraintName;
-            this.IsConstrained = true;
-        }
-
-        /// <summary>
-        /// Sets a default plane as coordinate system
-        /// </summary>
-        public void SetCartesianCoordinatesystemAsDefault()
-        {
-            this.Plane = Plane.XY();
-        }
-
-        /// <summary>
-        /// Sets coordinate system as plane
-        /// </summary>
-        /// <param name="plane"></param>
-        public void SetPlane(Plane plane)
-        {
-            this.Plane = plane;
-        }
-
-        /// <summary>
-        /// Resets the topology by removing connected bars and setting valence to 0
-        /// </summary>
-        public void ResetTopology()
-        {
-            this.ConnectedBars.Clear();
-            Valence = 0;
-        }
-
-
-        /// <summary>
-        /// Add a bar instance into connected bar list
-        /// </summary>
-        /// <param name="b"></param>
-        public void AddBar(Bar b)
-        {
-            ConnectedBars.Add(b);
-        }
-
-        /// <summary>
-        /// Add a face instance into connected face list
-        /// </summary>
-        /// <param name="f"></param>
-        public void AddFace(Face f)
-        {
-            ConnectedFaces.Add(f);
-        }
-
-        /// <summary>
-        /// WIP
-        /// </summary>
-        /// <returns></returns>
-        /*public bool SortConnectedBars()
-        {
-            Valence = ConnectedBars.Count;
-            if (Valence < 2) return false;
-
-
-            List<Node> nodeRing = new List<Node>(Valence);
-            foreach (Bar b in ConnectedBars)
-                nodeRing.Add(b.GetOppositeNode(this));
-
-            List<double> angleAccumulator = new List<double>(Valence);
-            Vector v0 = nodeRing[0].Point - this.Point;
-            angleAccumulator.Add(0.0);
-            for (int i = 1; i < Valence; i++)
-            {
-                Vector v1 = nodeRing[i].Point - this.Point;
-                double angle = Vector.VectorAngle(v0, v1, Plane.Normal);
-                if (angle < 0) angle += 2.0 * Math.PI;
-                angleAccumulator.Add(angle);
-            }
-
-            SortBarsByAngle(ConnectedBars, angleAccumulator);
-            SetAngles(angleAccumulator);
-
-            return true;
-        }*/
-        public bool SortConnectedBars()
-        {
-            Valence = ConnectedBars.Count;
-            if (Valence < 2) return false;
-
-
-            List<Point> nodeRing = new List<Point>(Valence);
-            foreach (Bar b in ConnectedBars)
-                nodeRing.Add(b.GetOppositeEnd(this.Point));
-
-            List<double> angleAccumulator = new List<double>(Valence);
-            Vector v0 = nodeRing[0] - this.Point;
-            angleAccumulator.Add(0.0);
-            for (int i = 1; i < Valence; i++)
-            {
-                Vector v1 = nodeRing[i] - this.Point;
-                double angle = Vector.VectorAngle(v0, v1, Plane.Normal);
-                if (angle < 0) angle += 2.0 * Math.PI;
-                angleAccumulator.Add(angle);
-            }
-
-            SortBarsByAngle(ConnectedBars, angleAccumulator);
-            SetAngles(angleAccumulator);
-
-            return true;
-        }
-
-
-        /// <summary>
-        /// WIP - change to use sorted dictionary
-        /// Sort the bars by angle, smallest angle first.
-        /// Assumes one to one mapping of bars to angles in two lists
-        /// </summary>
-        /// <param name="bars"></param>
-        /// <param name="angles"></param>
-        /// <returns></returns>
-        private static bool SortBarsByAngle(List<Bar> bars, List<double> angles)
-        {
-            while (true)
-            {
-                bool swapped = false;
-                for (int i = 0; i < angles.Count - 1; i++)
-                    if (angles[i] > angles[i + 1])
-                    {
-                        double temp = angles[i];
-                        angles[i] = angles[i + 1];
-                        angles[i + 1] = temp;
-
-                        Bar tempBar = bars[i];
-                        bars[i] = bars[i + 1];
-                        bars[i + 1] = tempBar;
-
-                        swapped = true;
-                    }
-                if (!swapped)
-                    break;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// WIP
-        /// </summary>
-        /// <returns></returns>
-        private void SetAngles(List<double> angleAccumulator)
-        {
-            BarDeltaAngles = new List<double>(angleAccumulator.Count);
-            for (int i = 1; i < angleAccumulator.Count; i++)
-                BarDeltaAngles.Add(angleAccumulator[i] - angleAccumulator[i - 1]);
-
-            BarDeltaAngles.Add(2.0 * Math.PI - angleAccumulator.Last());
         }
 
         public override string ToString()
         {
             return "Node: " + Point.ToString();
         }
+
         public Node Merge(Node n)
         {
             if (this.Constraint == null)
@@ -421,25 +252,10 @@ namespace BHoM.Structural.Elements
                 this.Constraint = n.Constraint;
             }
 
-            List<Bar> bars = new List<Bar>();
-            bars.AddRange(n.ConnectedBars);
-            for (int i = 0; i < bars.Count; i++)
-            {
-                if (bars[i].StartNode == n)
-                {
-                    bars[i].StartNode = this;
-                }
-                else
-                {
-                    bars[i].EndNode = this;
-                }
-            }
-
             this.Point = new Point(this.X + n.X * n.m_Weight, this.Y + n.Y * n.m_Weight, this.Z + n.Z * n.m_Weight) / (1 + n.m_Weight);
             this.m_Weight = n.m_Weight + 1;
             return this;
         }
-
 
         #endregion
 

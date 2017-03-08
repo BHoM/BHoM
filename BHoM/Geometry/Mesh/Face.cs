@@ -52,7 +52,7 @@ namespace BHoM.Geometry
 
         public Face Duplicate()
         {
-            return new Face(Common.Utils.Copy<int>(m_Indices));
+            return new Face(Utils.Copy<int>(m_Indices));
         }
 
         public bool IsQuad

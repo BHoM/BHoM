@@ -112,8 +112,8 @@ namespace BHoM.Base
                 return "null";
 
             // Handle BHoM geometry separately for now
-            if (obj is Geometry.GeometryBase)
-                return (obj as Geometry.GeometryBase).ToJSON();
+            //if (obj is Geometry.GeometryBase)
+            //    return (obj as Geometry.GeometryBase).ToJSON();
 
             // Write the type & tags
             string result = "{\"__Type__\":\"" + obj.GetType() + "\"";

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Common
+namespace BHoM.Geometry
 {
     public static class Utils
     {
@@ -98,6 +98,21 @@ namespace BHoM.Common
             }
         }
 
+        internal static int[] MaxMinIndices(double[] v, int length)
+        {
+            int[] result = new int[(length * 2)];
+            for (int i = 0; i < length * 2; i++) result[i] = i % length;
 
+            for (int i = length; i < v.Length; i += length)
+            {
+                for (int j = 0; j < length; j++)
+                {
+                    if (v[i + j] > v[result[j]]) result[j] = i + j;
+                    if (v[i + j] < v[result[j + length]]) result[j + length] = i + j;
+                }
+            }
+
+            return result;
+        }
     }
 }

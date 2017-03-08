@@ -9,13 +9,12 @@ using R = Rhino.Geometry;
 using BHoM.Geometry;
 using BHoM.Structural.Properties;
 using BHoM.Base;
-using BHoM.Global;
+
 using BHoM.Structural.Loads;
 using BHoM.Structural.Results;
 using BHoM.Structural.Elements;
 using BHoM.Base.Results;
 using System.Xml;
-using Newtonsoft.Json.Linq;
 using BHoM.Structural.Databases;
 using BHoM.Base.Data;
 
@@ -57,7 +56,7 @@ namespace BHoMTest
 
         private static void TestReadJsonDB()
         {
-            JsonFileDB<SteelSectionRow> section = new JsonFileDB<SteelSectionRow>(BHoM.Base.Data.Database.SteelSection);
+            JsonFileDB<SteelSectionRow> section = new JsonFileDB<SteelSectionRow>(BHoM.Base.Data.DatabaseType.SteelSection);
             section.TableName = "UK_Sections";
             SteelSectionRow r = section.GetDataRow<SteelSectionRow>("Id", "1512");
             var s = section.GetDataSet("Type", "UC");
@@ -67,7 +66,7 @@ namespace BHoMTest
         public static void CreateJSONDB()
         {
             Database b = new Database("Materials");
-            SQLAccessor<MaterialRow> sql = new SQLAccessor<MaterialRow>(BHoM.Base.Data.Database.Material, "Europe");
+            SQLAccessor<MaterialRow> sql = new SQLAccessor<MaterialRow>(BHoM.Base.Data.DatabaseType.Material, "Europe");
             foreach (string table in sql.TableNames())
             {
                 sql.TableName = table;
@@ -105,8 +104,8 @@ namespace BHoMTest
 
             Polyline pl2 = new Polyline(p2);
 
-           Surface s1= Surface.CreateFromBoundary(pl);
-            Surface s2 = Surface.CreateFromBoundary(pl2);
+            Surface s1 = null;// Surface.CreateFromBoundary(pl);
+            Surface s2 = null;// Surface.CreateFromBoundary(pl2);
 
             Brep.Join(new List<Brep>() { s1, s2 });
 

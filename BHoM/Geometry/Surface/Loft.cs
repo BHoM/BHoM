@@ -1,5 +1,5 @@
 ﻿using BHoM.Base;
-using BHoM.Global;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
-    public class Loft : Brep
+    public partial class Loft : Brep
     {
         public Group<Curve> Curves { get; set; }
 
@@ -17,29 +17,12 @@ namespace BHoM.Geometry
         {
             Curves = curves;
         }
-
-        public override void Mirror(Plane p)
+        public override GeometryType GeometryType
         {
-            base.Mirror(p);
-            Curves.Mirror(p);
-        }
-
-        public override void Project(Plane p)
-        {
-            base.Project(p);
-            Curves.Project(p);
-        }
-
-        public override void Transform(Transform t)
-        {
-            base.Transform(t);
-            Curves.Transform(t);
-        }
-
-        public override void Translate(Vector v)
-        {
-            base.Translate(v);
-            Curves.Translate(v);
+            get
+            {
+                return GeometryType.Loft;
+            }
         }
 
         public override GeometryBase Duplicate()
@@ -52,22 +35,6 @@ namespace BHoM.Geometry
         public override BoundingBox Bounds()
         {
             return Curves.Bounds();
-        }
-
-        public override string ToJSON()
-        {
-            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"Curves\": " + Curves.ToJSON() + "}";
-        }
-
-        public static new Loft FromJSON(string json, Project project = null)
-        {
-            if (project == null)
-                project = Global.Project.ActiveProject;
-
-            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-
-            Group<Curve> curves = BHoMJSON.ReadValue(typeof(Group<Curve>), definition["Curves"], project) as Group<Curve>;
-            return new Loft(curves);
         }
     }
 }

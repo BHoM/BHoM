@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Elements
+namespace BHoM.Structural.Design
 {
     public enum SpanDirection
     {
@@ -26,7 +26,7 @@ namespace BHoM.Structural.Elements
         public List<int> BarIndices { get; set; }
         public double EffectiveLength { get; set; }
 
-        public static Span CreateDefaultSpan(DesignElement elem)
+        public static Span CreateDefaultSpan(StructuralLayout elem)
         {
             Span span = new Span();
             for (int i = 0; i < elem.AnalyticBars.Count; i++)

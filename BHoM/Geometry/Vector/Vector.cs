@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Global;
+
 using BHoM.Base;
 
 namespace BHoM.Geometry
@@ -13,7 +13,17 @@ namespace BHoM.Geometry
     /// </summary>
     public class Vector : GeometryBase
     {
-        private double[] Coordinates;
+        private double[] m_Coordinates;
+        public double[] Coordinates { get; }
+
+        public override GeometryType GeometryType
+        {
+            get
+            {
+                return GeometryType.Vector;
+            }
+        }
+
 
         /// <summary>X coordinate</summary>
         public double X
@@ -52,6 +62,20 @@ namespace BHoM.Geometry
             }
         }
 
+        public double this[int i]
+        {
+            get
+            {
+                return Coordinates[i];
+            }
+        }
+
+
+        public void SetCoordinates(double[] coords)
+        {
+            m_Coordinates = coords;
+        }
+
         /// <summary>
         /// Constructs an empty vector
         /// </summary>
@@ -77,7 +101,7 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Vector(Vector dup)
         {
-            Coordinates = BHoM.Common.Utils.Copy<double>(dup);
+            Coordinates = Utils.Copy<double>(dup);
         }
 
         /// <summary>
@@ -86,10 +110,10 @@ namespace BHoM.Geometry
         /// <param name="pt"></param>
         public Vector(Point pt)
         {
-            Coordinates = BHoM.Common.Utils.Copy<double>(pt);
+            Coordinates = Utils.Copy<double>(pt);
         }
 
-        internal Vector(double[] v)
+        public Vector(double[] v)
         {
             Coordinates = v;
         }
@@ -127,7 +151,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator +(Vector a, Vector b)
         {
-            return new Vector(VectorUtils.Add(a, b));
+            return new Vector(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
         }
 
         /// <summary>
@@ -138,7 +162,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator -(Vector a, Vector b)
         {
-            return new Vector(VectorUtils.Sub(a, b));
+            return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
         }
 
         /// <summary>
@@ -149,7 +173,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator /(Vector a, double b)
         {
-            return new Vector(VectorUtils.Divide(a, b));
+            return new Vector(a.X/b, a.Y/b, a.Z/b);
         }
 
         /// <summary>
@@ -160,7 +184,7 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector operator *(Vector a, double b)
         {
-            return new Vector(VectorUtils.Multiply(a, b));
+            return new Vector(a.X * b, a.Y * b, a.Z * b);
         }
 
         /// <summary>
@@ -169,9 +193,9 @@ namespace BHoM.Geometry
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static Vector operator *(double a, Vector b)
+        public static Vector operator *(double b, Vector a)
         {
-            return new Vector(VectorUtils.Multiply(b, a));
+            return new Vector(a.X * b, a.Y * b, a.Z * b);
         }
 
         /// <summary>
@@ -182,8 +206,31 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static double operator *(Vector a, Vector b)
         {
-            return VectorUtils.DotProduct(a, b);
+            return (a.X * b.X + a.Y * b.Y + a.Z * b.Z);
         }
+
+        /// <summary>
+        /// Vector operations
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static double operator *(Vector a, Point b)
+        {
+            return (a.X * b.X + a.Y * b.Y + a.Z * b.Z);
+        }
+
+        /// <summary>
+        /// Vector operations
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static double operator *(Point a, Vector b)
+        {
+            return (a.X * b.X + a.Y * b.Y + a.Z * b.Z);
+        }
+
 
         /// <summary>
         /// Cross product of two vectors
@@ -193,7 +240,11 @@ namespace BHoM.Geometry
         /// <returns></returns>
         public static Vector CrossProduct(Vector a, Vector b)
         {
-            return new Vector(VectorUtils.CrossProduct(a, b));
+            return new Vector(
+                a[1] * b[2] - a[2] * b[1],
+                a[2] * b[0] - a[0] * b[2],
+                a[0] * b[1] - a[1] * b[0]
+            );
         }
 
         /// <summary>
@@ -208,28 +259,62 @@ namespace BHoM.Geometry
         }
 
         /// <summary>
+        /// Dot product of two vectors
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static double DotProduct(Vector a, Point b)
+        {
+            return a * b;
+        }
+
+        /// <summary>
+        /// Dot product of two vectors
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static double DotProduct(Point a, Vector b)
+        {
+            return a * b;
+        }
+
+
+        /// <summary>
         /// Calculates the vector length
         /// </summary>
         public double Length
         {
-            get { return VectorUtils.Length(this); }
+            get
+            {
+                return Math.Sqrt(SquareLength);
+            }
+        }
+
+        /// <summary>
+        /// Calculates the vector length
+        /// </summary>
+        public double SquareLength
+        {
+            get
+            {
+                double result = 0;
+                for (int i = 0; i < Coordinates.Length; i++)
+                {
+                    result += Coordinates[i] * Coordinates[i];
+                }
+                return result;
+            }
         }
 
         /// <summary>
         /// Sets the vector length to one unit
         /// </summary>
         /// <returns></returns>
-        public bool Unitize()
+        public Vector Normalise()
         {
-            if (this.IsValid)
-            {
-                double length = this.Length;
-
-                Coordinates = VectorUtils.Normalise(this);
-                return true;
-            }
-            else
-                return false;
+            return this / Length;
         }
 
         /// <summary>
@@ -261,23 +346,7 @@ namespace BHoM.Geometry
         {
             return new Vector(this);
         }
-
-        /// <summary>
-        /// Rotates vector using Rodrigues' rotation formula
-        /// </summary>
-        /// <param name="rad"></param>
-        /// <param name="axis"></param>
-        /// <returns></returns>
-        public Vector Rotate(double rad, Vector axis)
-        {
-            // using Rodrigues' rotation formula
-
-            axis.Unitize();
-
-            return this * Math.Cos(rad) + Vector.CrossProduct(axis, this) * Math.Sin(rad) + axis * (axis * this) * (1 - Math.Cos(rad));
-
-        }
-
+      
         /// <summary>
         /// Returns the reversed vector
         /// </summary>
@@ -285,55 +354,6 @@ namespace BHoM.Geometry
         public Vector Reverse()
         {
             return this * -1.0;
-        }
-
-
-        /// <summary>
-        /// Calculate the angle in radians between two vectors
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public static double VectorAngle(Vector a, Vector b)
-        {
-            return VectorUtils.Angle(a, b);
-        }
-
-        /// <summary>
-        /// Computes Acos with tolerance for rounding errors
-        /// </summary>
-        /// <param name="d"></param>
-        /// <returns></returns>
-        public static double SafeAcos(double d)
-        {
-            double tol = 0.00001;
-            if (d > 1.0)
-                if (d - 1.0 <= tol)
-                    return Math.Acos(1.0);
-            return Math.Acos(d);
-        }
-
-        /// <summary>
-        /// Calculate the angle in radians between two vectors with a guide normal vector to determine sign
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <param name="normal"></param>
-        /// <returns></returns>
-        public static double VectorAngle(Vector a, Vector b, Vector normal)
-        {
-            double angle = VectorAngle(a, b);
-
-            Vector crossproduct = CrossProduct(a, b);
-            if (VectorAngle(crossproduct, normal) < (Math.PI / 2.0))
-                return angle;
-            else
-                return -1.0 * angle;
-        }
-
-        public bool IsParallel(Vector v, double tolerance = 0.0001)
-        {
-            return (VectorUtils.Parallel(Coordinates, v.Coordinates, tolerance) != 0);
         }
 
         public override string ToString()
@@ -351,55 +371,13 @@ namespace BHoM.Geometry
             return null;
         }
 
-        /// <summary>
-        /// Transform Vector
-        /// </summary>
-        /// <param name="t">Transformation matrix</param>
-        public override void Transform(Transform t)
-        {
-            Coordinates = VectorUtils.Multiply(t, Coordinates);
-        }
-
-        public override void Translate(Vector v) { }
-
-        /// <summary>
-        /// Mirrors vector about a plane
-        /// </summary>
-        /// <param name="p"></param>
-        public override void Mirror(Plane p)
-        {
-            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates, 2), Coordinates);
-        }
-
-        /// <summary>
-        /// Projects a vector onto a plane
-        /// </summary>
-        /// <param name="plane"></param>
-        public override void Project(Plane p)
-        {
-            Coordinates = VectorUtils.Add(p.ProjectionVectors(Coordinates), Coordinates);
-        }
+      
 
         public override void Update() { }
 
         public override GeometryBase Duplicate()
         {
             return this.DuplicateVector();
-        }
-
-        public override string ToJSON()
-        {
-            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"Vector\": " + ToString() + "}";
-        }
-
-        public static new Vector FromJSON(string json, Project project = null)
-        {
-            if (project == null)
-                project = Global.Project.ActiveProject;
-
-            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-
-            return new Vector(BHoMJSON.ReadValue(typeof(double[]), definition["Vector"], project) as double[]);
         }
     }
 }

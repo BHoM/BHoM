@@ -45,13 +45,6 @@ namespace BHoM.Structural.Elements
 
         #region Properties
 
-        /// <summary>
-        /// Design type name for design purposes (e.g. Simple Column). Can be used to help 
-        /// downstream selections/filters but shouldn't be confused with Groups, which are 
-        /// unique to bars (bars and objects can be added to multiple object groups).
-        /// </summary>
-        public string DesignGroupName { get; private set; }
-
         /// <summary>Section property</summary>
         [DisplayName("Section")]
         [Description("Section Property of the bar")]
@@ -100,18 +93,7 @@ namespace BHoM.Structural.Elements
             }
             set
             {
-                if (m_StartNode != null)
-                {
-                    m_StartNode.ConnectedBars.Remove(this);
-                }
-                if (value != null)
-                {
-                    m_StartNode = value;
-                    if (!m_StartNode.ConnectedBars.Contains(this))
-                    {
-                        m_StartNode.ConnectedBars.Add(this);
-                    }
-                }
+                m_StartNode = value;
             }
         }
         
@@ -123,18 +105,7 @@ namespace BHoM.Structural.Elements
             }
             set
             {
-                if (m_EndNode != null)
-                {
-                    m_EndNode.ConnectedBars.Remove(this);
-                }
-                if (value != null)
-                {
-                    m_EndNode = value;
-                    if (!m_EndNode.ConnectedBars.Contains(this))
-                    {
-                        m_EndNode.ConnectedBars.Add(this);
-                    }
-                }
+                m_EndNode = value;
             }
         }
 
@@ -172,7 +143,6 @@ namespace BHoM.Structural.Elements
         { 
             get
             {
-                //return m_Line != null ? m_Line : m_Line = new Line(StartNode.Point, EndNode.Point);
                 return new Line(StartPoint, EndPoint);
             }
         }
@@ -182,33 +152,9 @@ namespace BHoM.Structural.Elements
         {
             get
             {
-                //return m_Length != 0 ? m_Length : m_Length = Line.Length;
                 return StartPoint.DistanceTo(EndPoint);
             }
         }
-
-        public double EffectiveLength
-        {
-            get
-            {
-                return m_EffectiveLength;
-            }
-            set
-            {
-                m_EffectiveLength = value;
-            }
-        }
-
-        public double EffectiveLengthMinor
-        {
-            get; set;
-        }
-
-        public double EffectiveLengthMajor
-        {
-            get; set;
-        }
-
 
         /// <summary>
         /// Bar orientation angle in radians. For non-vertical bars, angle is measured in the bar YZ plane
@@ -224,16 +170,6 @@ namespace BHoM.Structural.Elements
             get;
             set;
         }
-        /// <summary>Construction phase</summary>
-        //public BHoM.Planning.Construction.ConstructionPhase ConstructionPhase {get; set;}
-
-        /// <summary>Storey of the building that the bar is assigned to</summary>
-        /// 
-        [DisplayName("Storey")]
-        [Description("Storey that the bar is assigned to")]
-        [DefaultValue(null)]
-        public Storey Storey { get; private set; }
-
       
         /// <summary>
         /// Construct a bar from BHoM nodes and name
@@ -291,30 +227,12 @@ namespace BHoM.Structural.Elements
         }
 
         /// <summary>
-        /// Set the storey which the bar belongs to
-        /// </summary>
-        /// <param name="storey"></param>
-        public void SetStorey(Storey storey)
-        {
-            this.Storey = storey;
-        }
-
-        /// <summary>
         /// Set the section property name. 
         /// </summary>
         /// <param name="sectionProperty"></param>
         public void SetSectionProperty(BHoM.Structural.Properties.SectionProperty sectionProperty)
         {
             this.SectionProperty = sectionProperty;
-        }
-
-        /// <summary>
-        /// Set the design group name
-        /// </summary>
-        /// <param name="designGroupName"></param>
-        public void SetDesignGroupName(string designGroupName)
-        {
-            this.DesignGroupName = designGroupName;
         }
 
         /// <summary>

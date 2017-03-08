@@ -101,7 +101,7 @@ namespace BHoM.Structural.Properties
             {
                 tieDiameter = tieDiameter + Math.Cos(Math.PI / 4) * (2 * tieDiameter * (Math.Sqrt(2) - 1) + Diameter / 2) - Diameter / 2;
             }
-            double width = IsVertical ? property.DepthAt(relativeDepth, ref range) : property.WidthAt(relativeDepth, ref range);
+            double width = 0;// IsVertical ? property.DepthAt(relativeDepth, ref range) : property.WidthAt(relativeDepth, ref range);
 
             double spacing = (width - 2 * property.MinimumCover - Diameter - 2 * tieDiameter) / (BarCount - 1.0);
             double start = range != null && range.Length > 0 ? range[0] : 0;
@@ -216,6 +216,7 @@ namespace BHoM.Structural.Properties
                     double Y = property.TotalDepth / 2 - property.MinimumCover - tieDiameter * 3;
                     double yIn = property.TotalDepth / 2 - property.MinimumCover - tieDiameter / 2;
                     double xIn = property.TotalWidth / 2 - property.MinimumCover - tieDiameter / 2;
+                    /*TEMP****************
 
                     Group<Curve> curves = new Group<Curve>();
                     curves.Add(new Line(new Point(-X, yIn, 0), new Point(X, yIn, 0)));
@@ -272,11 +273,11 @@ namespace BHoM.Structural.Properties
                         //{
                         //    c.Mirror(Plane.YZ());
                         //}
-                        c.Translate(Vector.XAxis(location));
+                        //TEMP UNDO c.Translate(Vector.XAxis(location));
                         bars.Add(new Pipe(c, tieDiameter / 2));
                     }
-
-                    return bars;
+                    */
+                    return null;//temp bars;
 
                     //double X = property.TotalWidth / 2 - property.MinimumCover - tieDiameter * 3;
                     //double Y = property.TotalDepth / 2 - property.MinimumCover - tieDiameter * 3;
@@ -336,7 +337,6 @@ namespace BHoM.Structural.Properties
 
         public ConcreteSection()
         {
-            Material = BHoM.Materials.Material.Default(MaterialType.Concrete);
             Reinforcement = new List<Properties.Reinforcement>();
         }
         /// <summary>

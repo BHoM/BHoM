@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BHoM.Structural.Databases;
-using BHoM.Global;
+
 using BHoM.Base;
 
 
@@ -18,29 +18,29 @@ namespace BHoM.Structural.Properties
         public CableSection()
         { }
 
-        public CableSection(double diameter, double areaOfOneCable, int numberOfCables = 1) : this(diameter, areaOfOneCable, BHoM.Materials.Material.Default(Materials.MaterialType.Cable), numberOfCables)
-        {   }
+        //public CableSection(double diameter, double areaOfOneCable, int numberOfCables = 1) : this(diameter, areaOfOneCable, BHoM.Materials.Material.Default(Materials.MaterialType.Cable), numberOfCables)
+        //{   }
 
-        public CableSection(double diameter, double areaOfOneCable, BHoM.Materials.Material mat, int numberOfCables = 1)
-        {
-            m_numberOfCables = numberOfCables;
-            m_Area = areaOfOneCable;
-            Material = mat;
-            CreateEdgeCurves(diameter, numberOfCables);
-            SectionData[(int)CableSectionData.D] = diameter;
-            SectionData[(int)CableSectionData.A] = areaOfOneCable;
-        }
+        //public CableSection(double diameter, double areaOfOneCable, BHoM.Materials.Material mat, int numberOfCables = 1)
+        //{
+        //    m_numberOfCables = numberOfCables;
+        //    m_Area = areaOfOneCable;
+        //    Material = mat;
+        //    CreateEdgeCurves(diameter, numberOfCables);
+        //    SectionData[(int)CableSectionData.D] = diameter;
+        //    SectionData[(int)CableSectionData.A] = areaOfOneCable;
+        //}
 
-        public override double GrossArea
-        {
-            get
-            {
-                if (m_Area == 0)
-                    m_Area = SectionData[(int)CableSectionData.A];
+        //public override double GrossArea
+        //{
+        //    get
+        //    {
+        //        if (m_Area == 0)
+        //            m_Area = SectionData[(int)CableSectionData.A];
 
-                return m_Area * m_numberOfCables;
-            }
-        }
+        //        return m_Area * m_numberOfCables;
+        //    }
+        //}
 
         public int NumberOfCables
         {
@@ -54,12 +54,12 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        private void CreateEdgeCurves(double diameter, int numberOfCables)
-        {
-            //TODO: Add something for creation of multiple cables
-            Edges = CreateGeometry(ShapeType.Circle, diameter, diameter, 0, 0, 0, 0);
+        //private void CreateEdgeCurves(double diameter, int numberOfCables)
+        //{
+        //    //TODO: Add something for creation of multiple cables
+        //    Edges = CreateGeometry(ShapeType.Circle, diameter, diameter, 0, 0, 0, 0);
             
-        }
+        //}
 
 
         public override ShapeType Shape
@@ -75,42 +75,42 @@ namespace BHoM.Structural.Properties
             }
         }
 
-        protected override string GenerateStandardName()
-        {
-            return m_numberOfCables + "-CABLE LCØ"+SectionData[(int)CableSectionData.D] * 1000;
-        }
+        //protected string GenerateStandardName()
+        //{
+        //    return m_numberOfCables + "-CABLE LCØ"+SectionData[(int)CableSectionData.D] * 1000;
+        //}
 
-        public double BreakingLoad
-        {
-            get
-            {
-                return SectionData[(int)CableSectionData.BL]*NumberOfCables;
-            }
-        }
+        //public double BreakingLoad
+        //{
+        //    get
+        //    {
+        //        return SectionData[(int)CableSectionData.BL]*NumberOfCables;
+        //    }
+        //}
 
-        public double MassPerMetre
-        {
-            get
-            {
-                return SectionData[(int)CableSectionData.Weight] * NumberOfCables;
-            }
-        }
+        //public double MassPerMetre
+        //{
+        //    get
+        //    {
+        //        return SectionData[(int)CableSectionData.Weight] * NumberOfCables;
+        //    }
+        //}
 
-        public double WeightOpenSpelterSocket
-        {
-            get
-            {
-                return SectionData[(int)CableSectionData.WeightEndOpen] * NumberOfCables;
-            }
-        }
+        //public double WeightOpenSpelterSocket
+        //{
+        //    get
+        //    {
+        //        return SectionData[(int)CableSectionData.WeightEndOpen] * NumberOfCables;
+        //    }
+        //}
 
-        public double WeightOpenAdjustableSpelterSocket
-        {
-            get
-            {
-                return SectionData[(int)CableSectionData.WeightEndAdjustable] * NumberOfCables;
-            }
-        }
+        //public double WeightOpenAdjustableSpelterSocket
+        //{
+        //    get
+        //    {
+        //        return SectionData[(int)CableSectionData.WeightEndAdjustable] * NumberOfCables;
+        //    }
+        //}
 
         public double WeightStyliteForkSocket
         {
@@ -154,112 +154,6 @@ namespace BHoM.Structural.Properties
                 //}
 
                 return -1;
-            }
-        }
-
-
-        /*************************************************************/
-        /***** Property overrides Setting properties to 0 ************/
-        /*************************************************************/
-
-        public override double Asy
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public override double Asz
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public override double Iy
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public override double Iz
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public override double J
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public override double Sy
-        {
-            get
-            {
-                return 0;
-            }
-        }
-        public override double Sz
-        {
-            get
-            {
-                return 0;
-            }
-        }
-        public override double Vpy
-        {
-            get
-            {
-                return 0;
-            }
-        }
-        public override double Vpz
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public override double Vy
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public override double Vz
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public override double Zy
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
-        public override double Zz
-        {
-            get
-            {
-                return 0;
             }
         }
     }
