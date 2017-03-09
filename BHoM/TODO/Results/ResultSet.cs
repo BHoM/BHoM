@@ -7,18 +7,6 @@ using System.Threading.Tasks;
 
 namespace BHoM.Base.Results
 {
-    public interface IResultSet
-    {
-        void AddData(IEnumerable<object[]> rows);
-        void AddData(object[] rows);
-        List<object[]> ToListData();
-        List<T> AsList<T>() where T : IResult, new();
-        Envelope MaxEnvelope();
-        Envelope MinEnvelope();
-        Envelope AbsoluteEnvelope();
-    }
-
-
     public class ResultSet<T> : IResultSet where T : IResult, new()
     {
         private List<object[]> m_Results;       

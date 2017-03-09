@@ -7,8 +7,8 @@
     <ProjectGuid>{60F6777E-C8C8-47B4-BBAE-F77DAC08A142}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BHoMTest</RootNamespace>
-    <AssemblyName>BHoMTest</AssemblyName>
+    <RootNamespace>BHoM_Test</RootNamespace>
+    <AssemblyName>BHoM_Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
