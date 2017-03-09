@@ -65,10 +65,6 @@
     <Compile Include="Acoustic\Zone.cs" />
     <Compile Include="Base\Cipher.cs" />
     <Compile Include="Base\Compress.cs" />
-    <Compile Include="Base\Data\Enum.cs" />
-    <Compile Include="Base\Data\IDataAdapter.cs" />
-    <Compile Include="Base\Data\IDataRow.cs" />
-    <Compile Include="Base\Data\JsonDB.cs" />
     <Compile Include="Base\Group.cs" />
     <Compile Include="Base\JsonReader.cs" />
     <Compile Include="Base\JsonWriter.cs" />
@@ -91,9 +87,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Structural\Databases\CableSectionRow.cs" />
-    <Compile Include="Structural\Databases\MaterialRow.cs" />
-    <Compile Include="Structural\Databases\SteelSectionRow.cs" />
     <Compile Include="Structural\Design\DesignElement.cs" />
     <Compile Include="Structural\Design\IDesignable.cs" />
     <Compile Include="Structural\Design\Span.cs" />
@@ -124,7 +117,6 @@
     <Compile Include="Geometry\Vector\Point.cs" />
     <Compile Include="Generic\PointMatrix.cs" />
     <Compile Include="Geometry\Vector\Vector.cs" />
-    <Compile Include="Structural\Databases\Enums.cs" />
     <Compile Include="Structural\Elements\FEFace.cs" />
     <Compile Include="Structural\Elements\FEMesh.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
@@ -190,7 +182,6 @@
     <Compile Include="Structural\Results\Nodal Results\NodeAcceleration.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeDisplacement.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeForce.cs" />
-    <Compile Include="Base\Data\SQLAccessor.cs" />
     <Compile Include="Structural\Properties\Section Properties\Enum.cs" />
     <Compile Include="Structural\Properties\Section Properties\SectionProperty.cs" />
     <Compile Include="Structural\Properties\Panel Properties\PanelProperty.cs" />
@@ -226,27 +217,6 @@
   <ItemGroup>
     <None Include="Resources\SteelSectionDB.txt" />
     <None Include="Resources\MaterialDb.txt" />
-    <Content Include="Structural\Databases\Cables.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Structural\Databases\Cables_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Cables.mdf</DependentUpon>
-    </Content>
-    <Content Include="Structural\Databases\Materials.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Structural\Databases\Materials_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Materials.mdf</DependentUpon>
-    </Content>
-    <Content Include="Structural\Databases\SteelSections.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Structural\Databases\SteelSections_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SteelSections.mdf</DependentUpon>
-    </Content>
     <None Include="Structural\Properties\Section Properties\Bar.json" />
   </ItemGroup>
   <ItemGroup>
@@ -257,8 +227,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>MKDir "C:\Users\$(Username)\AppData\Roaming\BHoM\Structural\Databases"
-Copy "$(TargetDir)Structural\Databases" "C:\Users\$(Username)\AppData\Roaming\BHoM\Structural\Databases"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

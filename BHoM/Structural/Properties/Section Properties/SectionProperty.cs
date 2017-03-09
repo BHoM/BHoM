@@ -5,8 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-using BHoM.Structural.Databases;
-using BHoM.Base.Data;
+
+
 
 namespace BHoM.Structural.Properties
 {

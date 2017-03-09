@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BHoM.Structural.Properties;
 
-using BHoM.Structural.Databases;
-using BHoM.Base.Data;
+
+
 
 namespace BHoM.Materials
 {

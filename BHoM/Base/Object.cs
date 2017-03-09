@@ -108,34 +108,34 @@ namespace BHoM.Base
 
         /// <summary>
         /// Method which convert the object as a Json string
-        /// </summary>
-        public virtual string ToJSON(string extra = "")
-        {
-            string aResult = "{";
-            aResult += string.Format("\"{0}\": {1},", "Type", "\"" + GetType() + "\"");
-            aResult += string.Format("\"{0}\": {1},", "Primitive", "\""+GetType().AssemblyQualifiedName.Replace(",", ";") + "\"");
+        ///// </summary>
+        //public virtual string ToJSON(string extra = "")
+        //{
+        //    string aResult = "{";
+        //    aResult += string.Format("\"{0}\": {1},", "Type", "\"" + GetType() + "\"");
+        //    aResult += string.Format("\"{0}\": {1},", "Primitive", "\""+GetType().AssemblyQualifiedName.Replace(",", ";") + "\"");
 
-            // Write all the properties
-            aResult += "\"Properties\": {";
-            foreach (var prop in this.GetType().GetProperties())
-            {
-                if (!prop.CanRead || !prop.CanWrite) continue;
-                var value = prop.GetValue(this, null);
-                if (value == null) continue;
+        //    // Write all the properties
+        //    aResult += "\"Properties\": {";
+        //    foreach (var prop in this.GetType().GetProperties())
+        //    {
+        //        if (!prop.CanRead || !prop.CanWrite) continue;
+        //        var value = prop.GetValue(this, null);
+        //        if (value == null) continue;
 
-               // aResult += BHoMJSON.WriteProperty(prop.Name, value) + ',';
-            }
-            if (aResult.Last() == ',')
-                aResult = aResult.Trim(',');
-            aResult += "}";
+        //       // aResult += BHoMJSON.WriteProperty(prop.Name, value) + ',';
+        //    }
+        //    if (aResult.Last() == ',')
+        //        aResult = aResult.Trim(',');
+        //    aResult += "}";
 
-            // Write the extra information
-            if (extra.Length > 0)
-                aResult += "," + extra;
+        //    // Write the extra information
+        //    if (extra.Length > 0)
+        //        aResult += "," + extra;
    
-            aResult += "}";
-            return aResult;
-        }
+        //    aResult += "}";
+        //    return aResult;
+        //}
 
         /*
         /// <summary>
