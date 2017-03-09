@@ -37,8 +37,6 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-          // var mat =   BHoM.Materials.Material.Default(BHoM.Materials.MaterialType.Steel);
-           // CreateJSONDB();
         }
     }
 }
