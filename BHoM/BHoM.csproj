@@ -139,6 +139,10 @@
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structural\Interface\ICommandAdapter.cs" />
+    <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
+    <Compile Include="Structural\Interface\IElementAdapter.cs" />
+    <Compile Include="Structural\Interface\IResultAdapter.cs" />
     <Compile Include="Structural\Loads\GravityLoad.cs" />
     <Compile Include="Structural\ModelTracker\BarTracker.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
