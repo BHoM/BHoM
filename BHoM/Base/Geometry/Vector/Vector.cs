@@ -11,7 +11,7 @@ namespace BHoM.Geometry
     /// <summary>
     /// BHoM Vector object
     /// </summary>
-    public class Vector : GeometryBase
+    public class Vector : BHoMGeometry
     {
         private double[] m_Coordinates;
         public double[] Coordinates { get; }
@@ -375,7 +375,7 @@ namespace BHoM.Geometry
 
         public override void Update() { }
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             return this.DuplicateVector();
         }

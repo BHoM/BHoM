@@ -164,7 +164,7 @@ namespace BHoM.Structural.Properties
 
 
 
-        public override GeometryBase GetGeometry()
+        public override BHoMGeometry GetGeometry()
         {
 
             return Edges;

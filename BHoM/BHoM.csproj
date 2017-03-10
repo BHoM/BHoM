@@ -71,8 +71,6 @@
     <Compile Include="Base\Geometry\Curve\NurbCurve.cs" />
     <Compile Include="Base\Geometry\Curve\PolyCurve.cs" />
     <Compile Include="Base\Geometry\Curve\Polyline.cs" />
-    <Compile Include="Base\Interface\IObject.cs" />
-    <Compile Include="Base\Type\BHoMGeometry.cs" />
     <Compile Include="Base\Geometry\Group.cs" />
     <Compile Include="Base\Geometry\Mesh\Face.cs" />
     <Compile Include="Base\Geometry\Mesh\Mesh.cs" />
@@ -86,7 +84,10 @@
     <Compile Include="Base\Geometry\Vector\Point.cs" />
     <Compile Include="Base\Geometry\Vector\Vector.cs" />
     <Compile Include="Base\Interface\IAdapter.cs" />
+    <Compile Include="Base\Interface\IObject.cs" />
     <Compile Include="Base\Type\BHoMObject.cs" />
+    <Compile Include="Base\Type\GeometryBase.cs" />
+    <Compile Include="Base\Type\Group.cs" />
     <Compile Include="Environmental\Elements\Location.cs" />
     <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Opening.cs" />

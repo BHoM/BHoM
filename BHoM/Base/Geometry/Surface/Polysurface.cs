@@ -48,7 +48,7 @@ namespace BHoM.Geometry
             Surfaces = surfaces;
         }
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             PolySurface surface = new PolySurface();
             surface.Surfaces = Surfaces.DuplicateGroup();

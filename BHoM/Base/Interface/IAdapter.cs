@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Base.Interface
 {
-    public interface IDatabaseAdapter
+    public interface IAdapter
     {
         bool Push(IEnumerable<object> data, out List<object> failed, string config = "");
 

@@ -43,7 +43,7 @@ namespace BHoM.Structural.Properties
         }
 
         public abstract bool IsLongitudinal { get; }
-        public abstract GeometryBase GetLayout(ConcreteSection property, bool extrude = false);
+        public abstract BHoMGeometry GetLayout(ConcreteSection property, bool extrude = false);
 
         public virtual List<double> Location(ConcreteSection property, double location, double axis)
         {
@@ -92,7 +92,7 @@ namespace BHoM.Structural.Properties
         {
             Depth = depth;
         }
-        public override GeometryBase GetLayout(ConcreteSection property, bool extrude = false)
+        public override BHoMGeometry GetLayout(ConcreteSection property, bool extrude = false)
         {
             double relativeDepth = IsVertical ? property.Edges.Bounds().Max.X - Depth : property.Edges.Bounds().Max.Y - Depth;
             double[] range = null;
@@ -132,7 +132,7 @@ namespace BHoM.Structural.Properties
 
         public ReoPattern Pattern { get; set; }
 
-        public override GeometryBase GetLayout(ConcreteSection property, bool extrude = false)
+        public override BHoMGeometry GetLayout(ConcreteSection property, bool extrude = false)
         {
             double d = property.TotalDepth;
             double w = property.TotalWidth;
@@ -206,7 +206,7 @@ namespace BHoM.Structural.Properties
                 return false;
             }
         }
-        public override GeometryBase GetLayout(ConcreteSection property, bool extrude = false)
+        public override BHoMGeometry GetLayout(ConcreteSection property, bool extrude = false)
         {
             double tieDiameter = property.TieDiameter;
             switch (property.Shape)
@@ -352,15 +352,15 @@ namespace BHoM.Structural.Properties
             //SectionMaterial = mType;
         }
 
-        public GeometryBase GetReinforcementLayout(double xStart = 0, double xEnd = 1)
+        public BHoMGeometry GetReinforcementLayout(double xStart = 0, double xEnd = 1)
         {
-            Group<GeometryBase> geometry = new Group<GeometryBase>();
+            Group<BHoMGeometry> geometry = new Group<BHoMGeometry>();
             foreach (Reinforcement reo in Reinforcement)
             {
-                GeometryBase layout = reo.GetLayout(this);
+                BHoMGeometry layout = reo.GetLayout(this);
                 if (typeof(IGroup).IsAssignableFrom(layout.GetType()))
                 {
-                    foreach (GeometryBase obj in ((IGroup)layout).Objects)
+                    foreach (BHoMGeometry obj in ((IGroup)layout).Objects)
                     {
                         if (obj is Point)
                         {
@@ -380,9 +380,9 @@ namespace BHoM.Structural.Properties
             return geometry;
         }
 
-        public override GeometryBase GetGeometry()
+        public override BHoMGeometry GetGeometry()
         {
-            Group<GeometryBase> geometry = new Group<GeometryBase>();
+            Group<BHoMGeometry> geometry = new Group<BHoMGeometry>();
             geometry.Add(GetReinforcementLayout());
             geometry.Add(base.GetGeometry());
             return geometry;

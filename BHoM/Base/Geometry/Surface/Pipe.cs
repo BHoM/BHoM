@@ -29,7 +29,7 @@ namespace BHoM.Geometry
             Centreline = centreline;
         }
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             Pipe dup = base.Duplicate() as Pipe;
             dup.Centreline = Centreline.DuplicateCurve();
@@ -39,7 +39,7 @@ namespace BHoM.Geometry
         public override BoundingBox Bounds()
         {
             BoundingBox box = Centreline.Bounds(); //Add bounds of curves at the base
-            //return box.Add(new List<GeometryBase>() { box.Max + Direction, box.Min + Direction });
+            //return box.Add(new List<BHoMGeometry>() { box.Max + Direction, box.Min + Direction });
             return box;
         }
     }

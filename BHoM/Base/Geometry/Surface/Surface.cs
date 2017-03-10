@@ -211,7 +211,7 @@ namespace BHoM.Geometry
         }
 
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             return DuplicateSurface();
         }

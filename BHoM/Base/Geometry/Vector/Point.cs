@@ -11,7 +11,7 @@ namespace BHoM.Geometry
     /// <summary>
     /// BHoM Point object
     /// </summary>
-    public class Point : GeometryBase, IComparable<Point>
+    public class Point : BHoMGeometry, IComparable<Point>
     {
         private double[] m_Coordinates;
 
@@ -176,7 +176,7 @@ namespace BHoM.Geometry
         /// Duplicates a point
         /// </summary>
         /// <returns></returns>
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             return DuplicatePoint();
         }

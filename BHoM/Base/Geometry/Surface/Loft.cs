@@ -25,7 +25,7 @@ namespace BHoM.Geometry
             }
         }
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             Loft dup = base.Duplicate() as Loft;
             dup.Curves = Curves.DuplicateGroup();

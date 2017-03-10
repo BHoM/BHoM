@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Geometry
 {
-    public abstract class Brep : GeometryBase
+    public abstract class Brep : BHoMGeometry
     {
         protected Group<Curve> m_ExternalEdges;
         protected Group<Curve> m_InternalEdges;
@@ -33,7 +33,7 @@ namespace BHoM.Geometry
             return null;
         }
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             return DuplicateBrep();
         }

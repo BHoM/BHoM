@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using BHoM.Base;
 using System.Reflection;
 
-namespace BHoM.Geometry
+namespace BHoM.Base.Type
 {
-    public enum GeometryType
+    public enum GeometryType  // Why do we need this?
     {
         Point,
         Vector,
@@ -29,20 +27,20 @@ namespace BHoM.Geometry
         Group
     }
 
-    public abstract class GeometryBase
+    public abstract class BHoMGeometry
     {
-        public Guid Id { get; set; }
+        //public Guid Id { get; set; }
         public abstract GeometryType GeometryType { get; }        
-        internal GeometryBase() { Id = Guid.NewGuid(); }
+        internal BHoMGeometry() { /*Id = Guid.NewGuid();*/ }
 
-        public abstract BoundingBox Bounds();
+        public abstract Geometry.BoundingBox Bounds();
         public abstract void Update();
-        public abstract GeometryBase Duplicate();
+        public abstract BHoMGeometry Duplicate();
 
         /// <summary>Create a shallow copy of the object</summary>
-        public GeometryBase ShallowClone()
+        public BHoMGeometry ShallowClone()
         {
-            return (GeometryBase)this.MemberwiseClone();
+            return (BHoMGeometry)this.MemberwiseClone();
         }
     }
 }

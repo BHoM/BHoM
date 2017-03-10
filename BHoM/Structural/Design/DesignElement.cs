@@ -397,7 +397,7 @@ namespace BHoM.Structural.Design
             }
         }
 
-        public override GeometryBase GetGeometry()
+        public override BHoMGeometry GetGeometry()
         {
             BHoM.Geometry.Group<Curve> crvs = new BHoM.Geometry.Group<Curve>();
             m_bars.ForEach(x => crvs.Add(x.Line));

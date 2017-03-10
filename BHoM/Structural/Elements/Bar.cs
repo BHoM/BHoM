@@ -210,13 +210,13 @@ namespace BHoM.Structural.Elements
         }
 
         /// <summary></summary>
-        public override BHoM.Geometry.GeometryBase GetGeometry()
+        public override BHoM.Geometry.BHoMGeometry GetGeometry()
         {
             return Line;
         }
 
         /// <summary></summary>
-        public override void SetGeometry(GeometryBase geometry)
+        public override void SetGeometry(BHoMGeometry geometry)
         {
             if (geometry is Curve)
             {

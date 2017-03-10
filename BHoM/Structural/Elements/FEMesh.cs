@@ -31,7 +31,7 @@ namespace BHoM.Structural.Elements
             }
         }
 
-        public override GeometryBase GetGeometry()
+        public override BHoMGeometry GetGeometry()
         {
             Group<Point> points = new Group<Point>();
             List<Geometry.Face> faces = new List<Geometry.Face>();

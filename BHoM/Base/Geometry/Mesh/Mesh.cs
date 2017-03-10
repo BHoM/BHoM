@@ -13,7 +13,7 @@ namespace BHoM.Geometry
     /// BHoM Mesh geometry object
     /// </summary>
     [Serializable]
-    public class Mesh : GeometryBase
+    public class Mesh : BHoMGeometry
     {
         private Group<Point> m_Vertices;
         private List<Face> m_Faces;
@@ -202,7 +202,7 @@ namespace BHoM.Geometry
             m_Vertices.Update();
         }
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             return DuplicateMesh();
         }

@@ -8,7 +8,7 @@ using BHoM.Base;
 
 namespace BHoM.Geometry
 {
-    public abstract class Curve : GeometryBase
+    public abstract class Curve : BHoMGeometry
     {
         internal double[] m_ControlPoints;
         protected double[] m_Knots;
@@ -257,7 +257,7 @@ namespace BHoM.Geometry
 
         public bool IsClosed() { return StartPoint == EndPoint; }
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             return DuplicateCurve();
         }

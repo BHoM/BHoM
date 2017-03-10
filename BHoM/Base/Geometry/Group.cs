@@ -9,17 +9,17 @@ using BHoM.Base;
 
 namespace BHoM.Geometry
 {
-    public class Group : Group<GeometryBase> { }
+    public class Group : Group<BHoMGeometry> { }
 
     public interface IGroup
     {
-        IEnumerable<GeometryBase> Objects { get; }
+        IEnumerable<BHoMGeometry> Objects { get; }
         Type ObjectType { get; }
 
-        Group<T> Cast<T>() where T : GeometryBase;
+        Group<T> Cast<T>() where T : BHoMGeometry;
     }
 
-    public class Group<T> : GeometryBase, IEnumerable<T>, IEnumerable, IGroup where T : GeometryBase 
+    public class Group<T> : BHoMGeometry, IEnumerable<T>, IEnumerable, IGroup where T : BHoMGeometry 
     {
         private List<T> m_Geometry;
         private BoundingBox m_Bounds;
@@ -70,11 +70,11 @@ namespace BHoM.Geometry
             }
         }
 
-        public IEnumerable<GeometryBase> Objects
+        public IEnumerable<BHoMGeometry> Objects
         {
             get
             {
-                return m_Geometry.Cast<GeometryBase>();
+                return m_Geometry.Cast<BHoMGeometry>();
             }
         }
 
@@ -112,7 +112,7 @@ namespace BHoM.Geometry
             return group;
         }
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             return DuplicateGroup();
         }
@@ -136,7 +136,7 @@ namespace BHoM.Geometry
             return m_Geometry.GetEnumerator();
         }
         
-        public Group<T1> Cast<T1>() where T1 : GeometryBase
+        public Group<T1> Cast<T1>() where T1 : BHoMGeometry
         {
             return new Group<T1>(m_Geometry.Cast<T1>().ToList());
         }

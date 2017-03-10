@@ -8,7 +8,7 @@ namespace BHoM.Geometry
     /// <summary>
     /// BHoM Plane object
     /// </summary>
-    public class Plane : GeometryBase
+    public class Plane : BHoMGeometry
     {
         //Plane: ax + by + cz + d = 0
         //Normal: { a, b, c, 0 }
@@ -100,7 +100,7 @@ namespace BHoM.Geometry
             }
         }
 
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             return DuplicatePlane();
         }

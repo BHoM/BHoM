@@ -177,13 +177,13 @@ namespace BHoM.Structural.Elements
         #region Methods
 
         /// <summary></summary>
-        public override BHoM.Geometry.GeometryBase GetGeometry()
+        public override BHoM.Geometry.BHoMGeometry GetGeometry()
         {
             return Point;
         }
 
         /// <summary></summary>
-        public override void SetGeometry(GeometryBase geometry)
+        public override void SetGeometry(BHoMGeometry geometry)
         {
             if (geometry is Point)
             {

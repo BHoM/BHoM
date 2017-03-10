@@ -30,7 +30,7 @@ namespace BHoM.Geometry
         }
 
      
-        public override GeometryBase Duplicate()
+        public override BHoMGeometry Duplicate()
         {
             Extrusion dup = base.Duplicate() as Extrusion;
             dup.Curve = Curve.DuplicateCurve();
@@ -41,7 +41,7 @@ namespace BHoM.Geometry
         public override BoundingBox Bounds()
         {
             BoundingBox box = Curve.Bounds();
-            return box.Add(new List<GeometryBase>() { box.Max + Direction, box.Min + Direction });
+            return box.Add(new List<BHoMGeometry>() { box.Max + Direction, box.Min + Direction });
         }
     }
 }
