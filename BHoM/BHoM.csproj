@@ -63,25 +63,40 @@
     <Compile Include="Acoustic\Speaker.cs" />
     <Compile Include="Acoustic\STIResult.cs" />
     <Compile Include="Acoustic\Zone.cs" />
-    <Compile Include="Base\Cipher.cs" />
-    <Compile Include="Base\Compress.cs" />
-    <Compile Include="Base\Group.cs" />
-    <Compile Include="Base\JsonReader.cs" />
-    <Compile Include="Base\JsonWriter.cs" />
-    <Compile Include="Base\Results\Enums.cs" />
-    <Compile Include="Base\Results\Envelope.cs" />
-    <Compile Include="Base\Results\Result.cs" />
-    <Compile Include="Base\Results\ResultSet.cs" />
-    <Compile Include="Base\Tolerance.cs" />
-    <Compile Include="Base\TypeDictionary.cs" />
-    <Compile Include="Databases\IDatabaseAdapter.cs" />
-    <Compile Include="Databases\IDatabaseCollectionAdapter.cs" />
-    <Compile Include="Databases\IDatabaseQuery.cs" />
-    <Compile Include="Databases\MapReduceQuery.cs" />
+    <Compile Include="Base\Geometry\BoundingBox.cs" />
+    <Compile Include="Base\Geometry\Curve\Arc.cs" />
+    <Compile Include="Base\Geometry\Curve\Circle.cs" />
+    <Compile Include="Base\Geometry\Curve\Curve.cs" />
+    <Compile Include="Base\Geometry\Curve\Line.cs" />
+    <Compile Include="Base\Geometry\Curve\NurbCurve.cs" />
+    <Compile Include="Base\Geometry\Curve\PolyCurve.cs" />
+    <Compile Include="Base\Geometry\Curve\Polyline.cs" />
+    <Compile Include="Base\Interface\IObject.cs" />
+    <Compile Include="Base\Type\Geometry.cs" />
+    <Compile Include="Base\Geometry\Group.cs" />
+    <Compile Include="Base\Geometry\Mesh\Face.cs" />
+    <Compile Include="Base\Geometry\Mesh\Mesh.cs" />
+    <Compile Include="Base\Geometry\Surface\Brep.cs" />
+    <Compile Include="Base\Geometry\Surface\Extrusion.cs" />
+    <Compile Include="Base\Geometry\Surface\Loft.cs" />
+    <Compile Include="Base\Geometry\Surface\Pipe.cs" />
+    <Compile Include="Base\Geometry\Surface\Polysurface.cs" />
+    <Compile Include="Base\Geometry\Surface\Surface.cs" />
+    <Compile Include="Base\Geometry\Vector\Plane.cs" />
+    <Compile Include="Base\Geometry\Vector\Point.cs" />
+    <Compile Include="Base\Geometry\Vector\Vector.cs" />
+    <Compile Include="Base\Interface\IAdapter.cs" />
+    <Compile Include="Base\Type\Object.cs" />
     <Compile Include="Environmental\Elements\Location.cs" />
     <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Opening.cs" />
     <Compile Include="Environmental\Elements\Space.cs" />
+    <Compile Include="Humans\BodyParts.cs" />
+    <Compile Include="Humans\Skeleton.cs" />
+    <Compile Include="MEP\Element.cs" />
+    <Compile Include="MEP\Geometry.cs" />
+    <Compile Include="MEP\Location.cs" />
+    <Compile Include="MEP\Space.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,39 +105,10 @@
     <Compile Include="Structural\Design\DesignElement.cs" />
     <Compile Include="Structural\Design\IDesignable.cs" />
     <Compile Include="Structural\Design\Span.cs" />
-    <Compile Include="Generic\Graph.cs" />
-    <Compile Include="Generic\GraphLink.cs" />
-    <Compile Include="Generic\GraphNode.cs" />
-    <Compile Include="Generic\PriorityQueue.cs" />
-    <Compile Include="Geometry\BoundingBox.cs" />
-    <Compile Include="Geometry\Curve\NurbCurve.cs" />
-    <Compile Include="Geometry\Group.cs" />
-    <Compile Include="Geometry\GeometryBase.cs" />
-    <Compile Include="Geometry\Surface\Extrusion.cs" />
-    <Compile Include="Geometry\Surface\Loft.cs" />
-    <Compile Include="Geometry\Surface\Pipe.cs" />
-    <Compile Include="Geometry\Utils.cs" />
-    <Compile Include="Geometry\Curve\Arc.cs" />
-    <Compile Include="Geometry\Curve\Circle.cs" />
-    <Compile Include="Geometry\Curve\Curve.cs" />
-    <Compile Include="Geometry\Curve\Line.cs" />
-    <Compile Include="Geometry\Curve\PolyCurve.cs" />
-    <Compile Include="Geometry\Curve\Polyline.cs" />
-    <Compile Include="Geometry\Mesh\Face.cs" />
-    <Compile Include="Geometry\Mesh\Mesh.cs" />
-    <Compile Include="Geometry\Surface\Brep.cs" />
-    <Compile Include="Geometry\Surface\PolySurface.cs" />
-    <Compile Include="Geometry\Surface\Surface.cs" />
-    <Compile Include="Geometry\Vector\Plane.cs" />
-    <Compile Include="Geometry\Vector\Point.cs" />
-    <Compile Include="Generic\PointMatrix.cs" />
-    <Compile Include="Geometry\Vector\Vector.cs" />
     <Compile Include="Structural\Elements\FEFace.cs" />
     <Compile Include="Structural\Elements\FEMesh.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
-    <Compile Include="Base\Object.cs" />
-    <Compile Include="Base\Utils.cs" />
     <Compile Include="Planning\Construction\ConstructionPhase.cs" />
     <Compile Include="Planning\IPhase.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -134,8 +120,6 @@
     <Compile Include="Structural\Elements\Opening.cs" />
     <Compile Include="Structural\Elements\Panel.cs" />
     <Compile Include="Structural\Elements\SuperBar.cs" />
-    <Compile Include="HumanBody\BodyParts.cs" />
-    <Compile Include="HumanBody\Skeleton.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,9 +178,15 @@
     <Compile Include="Structural\Results\Panel Results\PanelStress.cs" />
     <Compile Include="Structural\Results\Reinforcement Results\SlabReinforcement.cs" />
     <Compile Include="Structural\Results\Result.cs" />
+    <Compile Include="TODO\Results\Enums.cs" />
+    <Compile Include="TODO\Results\Envelope.cs" />
+    <Compile Include="TODO\Results\IResult.cs" />
+    <Compile Include="TODO\Results\IResultSet.cs" />
+    <Compile Include="TODO\Results\ResultSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />
+    <Folder Include="Planning\Project\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -218,8 +208,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SteelSectionDB.txt" />
-    <None Include="Resources\MaterialDb.txt" />
     <None Include="Structural\Properties\Section Properties\Bar.json" />
   </ItemGroup>
   <ItemGroup>

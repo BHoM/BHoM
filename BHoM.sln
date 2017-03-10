@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHoM", "BHoM\BHoM.csproj", "{94D88927-62A2-48FC-8EFE-D139B67A3373}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHoMTest", "BHoMTest\BHoMTest.csproj", "{60F6777E-C8C8-47B4-BBAE-F77DAC08A142}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHoM_Test", "BHoM_Test\BHoM_Test.csproj", "{60F6777E-C8C8-47B4-BBAE-F77DAC08A142}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
