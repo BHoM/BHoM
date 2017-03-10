@@ -1,5 +1,4 @@
-﻿using BHoM.Global;
-using BHoM.MEP;
+﻿using BHoM.MEP;
 using System;
 using System.Collections.Generic;
 using System.Linq;

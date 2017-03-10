@@ -15,7 +15,7 @@ namespace BHoM.Structural.Elements
         Mesh
     }
 
-    public interface IAreaElement : IBase
+    public interface IAreaElement : IObject
     {
         PanelProperty PanelProperty { get; set; }
         AreaElementType ElementType { get; }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Base.Interface
+namespace BHoM.Base
 {
-    interface IObject
+    public interface IObject
     {
         System.Guid BHoM_Guid { get; }
 

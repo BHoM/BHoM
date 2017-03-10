@@ -216,7 +216,7 @@ namespace BHoM.Structural.Elements
         }
 
         /// <summary></summary>
-        public override void SetGeometry(BHoMGeometry geometry)
+        public void SetGeometry(BHoMGeometry geometry)
         {
             if (geometry is Curve)
             {

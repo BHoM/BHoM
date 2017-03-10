@@ -10,7 +10,7 @@ namespace BHoM.Structural.Loads
     /// <summary>
     /// Loadcase class 
     /// </summary>
-    public interface ICase : IBase
+    public interface ICase : IObject
     {
         /// <summary>Loadcase number</summary>
         int Number { get; set; }

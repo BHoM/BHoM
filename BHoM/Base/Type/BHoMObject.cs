@@ -6,6 +6,7 @@ using System.Linq;
 using System.ComponentModel;
 using BHB = BHoM.Base;
 using System.Reflection;
+using BHoM.Geometry;
 
 namespace BHoM.Base
 {
@@ -13,7 +14,7 @@ namespace BHoM.Base
     /// BHoM object abstract class, all methods and attributes applicable to all structural objects with
     /// BHoM implemented
     /// </summary>
-    public abstract class BHoMObject : Interface.IObject
+    public abstract class BHoMObject : IObject
     {
         /***************************************************/
         /**** Properties                                ****/                                      

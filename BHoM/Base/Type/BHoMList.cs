@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 
 namespace BHoM.Base
 {
-    public interface IGroup : IBase
+    public interface IBHoMList : IObject
     {
         IEnumerable<BHoMObject> Objects { get; }
         Type ObjectType { get; }
 
-        Group<T> Cast<T>() where T : IBase;
+        BHoMList<T> Cast<T>() where T : IObject;
         int Count { get; }
     }
 
-    public class Group<T>: BHoMObject, IEnumerable<T>, IGroup where T : IBase
+    public class BHoMList<T>: BHoMObject, IEnumerable<T>, IBHoMList where T : IObject
     {
-        public Group()
+        public BHoMList()
         {
             Data = new List<T>();
         }
 
-        public Group(List<T> list)
+        public BHoMList(List<T> list)
         {
             Data = list;
         }
 
-        public Group(string name, List<T> list)
+        public BHoMList(string name, List<T> list)
         {
             Name = name;
             Data = list;
@@ -80,24 +80,24 @@ namespace BHoM.Base
             return GetEnumerator();
         }
 
-        public static implicit operator List<T>(Group<T> group)
+        public static implicit operator List<T>(BHoMList<T> group)
         {
             return group.Data;
         }
 
-        public static implicit operator Group<T>(List<T> list)
+        public static implicit operator BHoMList<T>(List<T> list)
         {
-            return new Group<T>(list);
+            return new BHoMList<T>(list);
         }
 
-        public override string ToString()
+        public string ToString()
         {
             return Name + " Group of " + ObjectType + ". Containing " +Data.Count+ " items"; 
         }
 
-        public Group<T1> Cast<T1>() where T1 : IBase
+        public BHoMList<T1> Cast<T1>() where T1 : IObject
         {
-            return new Group<T1>(Data.Cast<T1>().ToList());            
+            return new BHoMList<T1>(Data.Cast<T1>().ToList());            
         }
     }
 }

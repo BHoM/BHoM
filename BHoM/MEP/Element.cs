@@ -1,4 +1,4 @@
-﻿using BHoM.Global;
+﻿using BHoM.Base;
 using BHoM.Geometry;
 using System;
 using System.Collections.Generic;
@@ -34,8 +34,7 @@ namespace BHoM.MEP
 
         private void Initialize()
         {
-            SetBHoMGuid();
-
+            //SetBHoMGuid();
         }
     }
 }

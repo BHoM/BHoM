@@ -87,7 +87,7 @@
     <Compile Include="Base\Interface\IObject.cs" />
     <Compile Include="Base\Type\BHoMObject.cs" />
     <Compile Include="Base\Type\BHoMGeometry.cs" />
-    <Compile Include="Base\Type\Group.cs" />
+    <Compile Include="Base\Type\BHoMList.cs" />
     <Compile Include="Environmental\Elements\Location.cs" />
     <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Opening.cs" />

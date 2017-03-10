@@ -19,7 +19,7 @@ namespace BHoM.Structural.Loads
     /// <summary>
     /// Interface implemented by all loading related classes
     /// </summary>
-    public interface ILoad : IBase
+    public interface ILoad : IObject
     {
         LoadType LoadType { get; }
         /// <summary>Loadcase as BHoM object</summary>
@@ -32,12 +32,12 @@ namespace BHoM.Structural.Loads
     /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
     /// constructor allows for a default force and moment nodal load instance.
     /// </summary>
-    public abstract class Load<T> : BHoMObject, ILoad where T : IBase
+    public abstract class Load<T> : BHoMObject, ILoad where T : IObject
     {
         private Loadcase m_Loadcase;
-        private BHoM.Base.Group<T> m_Objects;
+        private BHoMList<T> m_Objects;
 
-        internal Load() { m_Objects = new Base.Group<T>(); }
+        internal Load() { m_Objects = new BHoMList<T>(); }
 
         [DefaultValue(LoadAxis.Global)]
         public LoadAxis Axis
@@ -64,7 +64,7 @@ namespace BHoM.Structural.Loads
         public abstract LoadType LoadType { get; }
 
         /// <summary>A list of structural elements that the nodal load is applicable to</summary>
-        public BHoM.Base.Group<T> Objects
+        public BHoMList<T> Objects
         {
             get { return m_Objects; }
             set { m_Objects = value; }

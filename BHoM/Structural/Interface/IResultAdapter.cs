@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Databases;
 
 namespace BHoM.Structural.Interface
 {
@@ -36,7 +35,7 @@ namespace BHoM.Structural.Interface
         bool GetNodeCoordinates(List<string> nodes, out Dictionary<string, IResultSet> results);
         bool GetBarCoordinates(List<string> bars, out Dictionary<string, IResultSet> results);
 
-        bool PushToDataBase(IDatabaseAdapter dbAdapter, List<ResultType> resultTypes, List<string> loadcases, string key, bool append = false);
+        //bool PushToDataBase(IDatabaseAdapter dbAdapter, List<ResultType> resultTypes, List<string> loadcases, string key, bool append = false);
     }
 }
 

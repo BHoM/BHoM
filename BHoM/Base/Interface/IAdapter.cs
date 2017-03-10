@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Base.Interface
+namespace BHoM.Base
 {
     public interface IAdapter
     {
