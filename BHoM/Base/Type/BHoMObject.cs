@@ -7,7 +7,7 @@ using System.ComponentModel;
 using BHB = BHoM.Base;
 using System.Reflection;
 
-namespace BHoM.Base.Type
+namespace BHoM.Base
 {
     /// <summary>
     /// BHoM object abstract class, all methods and attributes applicable to all structural objects with

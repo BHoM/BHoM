@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 
-namespace BHoM.Base.Type
+namespace BHoM.Base
 {
     public enum GeometryType  // Why do we need this?
     {
