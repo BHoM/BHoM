@@ -46,7 +46,7 @@ namespace BHoM.Geometry
         {
             get
             {
-                return new Point(Utils.SubArray<double>(m_ControlPoints, 4, 4));
+                return new Point(CollectionUtils.SubArray<double>(m_ControlPoints, 4, 4));
             }
             set
             {

@@ -85,7 +85,7 @@ namespace BHoM.Geometry
             {
                 if (m_MaxMin == null)
                 {
-                    m_MaxMin = Utils.MaxMinIndices(m_ControlPoints, m_Dimensions + 1);
+                    m_MaxMin = CollectionUtils.MaxMinIndices(m_ControlPoints, m_Dimensions + 1);
                 }
                 return new Point(m_ControlPoints[m_MaxMin[0]], m_ControlPoints[m_MaxMin[1]], m_ControlPoints[m_MaxMin[2]]);
             }
@@ -97,7 +97,7 @@ namespace BHoM.Geometry
             {
                 if (m_MaxMin == null)
                 {
-                    m_MaxMin = Utils.MaxMinIndices(m_ControlPoints, m_Dimensions + 1);
+                    m_MaxMin = CollectionUtils.MaxMinIndices(m_ControlPoints, m_Dimensions + 1);
                 }
                 return new Point(m_ControlPoints[m_MaxMin[4]], m_ControlPoints[m_MaxMin[5]], m_ControlPoints[m_MaxMin[6]]);
             }
@@ -270,10 +270,10 @@ namespace BHoM.Geometry
         public virtual Curve DuplicateCurve()
         {
             Curve c = (Curve)Activator.CreateInstance(this.GetType(), true);
-            c.m_ControlPoints = Utils.Copy<double>(m_ControlPoints);
+            c.m_ControlPoints = CollectionUtils.Copy<double>(m_ControlPoints);
             c.m_Dimensions = m_Dimensions;
-            c.m_Weights =Utils.Copy<double>(m_Weights);
-            c.m_Knots = Utils.Copy<double>(m_Knots);
+            c.m_Weights =CollectionUtils.Copy<double>(m_Weights);
+            c.m_Knots = CollectionUtils.Copy<double>(m_Knots);
             c.m_Order = m_Order;
             return c;
         }

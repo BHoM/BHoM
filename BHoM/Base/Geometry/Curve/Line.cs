@@ -29,7 +29,7 @@ namespace BHoM.Geometry
         public Line(Point startpoint, Point endpoint)
         {
             m_Dimensions = 3;
-            m_ControlPoints = Utils.Merge<double>(startpoint, endpoint);
+            m_ControlPoints = CollectionUtils.Merge<double>(startpoint, endpoint);
         }
 
         public Line(double[] startpoint, double[] endpoint)

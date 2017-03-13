@@ -12,6 +12,11 @@ namespace BHoM.MEP
 
     }
 
+    //Added to 
+    public class PolyLoop
+    { }
+
+
     public class ClosedShell : Geometry
     {
         private List<PolyLoop> pPolyLoops;

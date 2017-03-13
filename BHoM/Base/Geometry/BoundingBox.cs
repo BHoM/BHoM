@@ -48,7 +48,7 @@ namespace BHoM.Geometry
 
         internal BoundingBox(double[] points, int dimension)
         {
-            int[] maxMin = Utils.MaxMinIndices(points, dimension + 1);
+            int[] maxMin = CollectionUtils.MaxMinIndices(points, dimension + 1);
             Point Max = new Point(points[maxMin[0]], points[maxMin[1]], points[maxMin[2]]);
             Point Min = new Point(points[maxMin[3]], points[maxMin[4]], points[maxMin[5]]);
             Extents = (Max - Min) / 2;

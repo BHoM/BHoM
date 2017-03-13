@@ -118,7 +118,7 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Point(Point dup)
         {
-            m_Coordinates = Utils.Copy<double>(dup);
+            m_Coordinates = CollectionUtils.Copy<double>(dup);
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace BHoM.Geometry
 
         public static implicit operator double[] (Point v)
         {
-            return v.Coordinates.Length == 4 ? v.Coordinates : BHoM.Base.Utils.SubArray<double>(v.Coordinates, v.Offset, 4);
+            return v.Coordinates.Length == 4 ? v.Coordinates : CollectionUtils.SubArray<double>(v.Coordinates, v.Offset, 4);
         }
 
         /// <summary>

@@ -80,6 +80,7 @@
     <Compile Include="Base\Geometry\Surface\Pipe.cs" />
     <Compile Include="Base\Geometry\Surface\Polysurface.cs" />
     <Compile Include="Base\Geometry\Surface\Surface.cs" />
+    <Compile Include="Base\Utils.cs" />
     <Compile Include="Base\Geometry\Vector\Plane.cs" />
     <Compile Include="Base\Geometry\Vector\Point.cs" />
     <Compile Include="Base\Geometry\Vector\Vector.cs" />

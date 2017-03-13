@@ -101,7 +101,7 @@ namespace BHoM.Geometry
         /// <param name="dup"></param>
         public Vector(Vector dup)
         {
-            Coordinates = Utils.Copy<double>(dup);
+            Coordinates = CollectionUtils.Copy<double>(dup);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace BHoM.Geometry
         /// <param name="pt"></param>
         public Vector(Point pt)
         {
-            Coordinates = Utils.Copy<double>(pt);
+            Coordinates = CollectionUtils.Copy<double>(pt);
         }
 
         public Vector(double[] v)
