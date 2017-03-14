@@ -43,7 +43,7 @@ namespace BHoM.Base
 
 
         /***************************************************/
-        /**** Getter Methods                            ****/
+        /**** Public Methods                            ****/
         /***************************************************/
 
         /// <summary>
@@ -80,6 +80,12 @@ namespace BHoM.Base
             return null;
         }
 
+        /***************************************************/
+
+        /// <summary>Sets the geometry of the object (whatever that might be)</summary>
+        public virtual void SetGeometry(BHoMGeometry geometry)
+        {
+        }
 
         /// <summary>
         /// Creates a BHoM Object of the specified type
@@ -98,10 +104,7 @@ namespace BHoM.Base
 
 
 
-        /// <summary>Sets the geometry of the object (whatever that might be)</summary>
-        /*public virtual void SetGeometry(BHoM.Base.Geometry.Geometry geometry)
-        {
-        }*/
+
 
 
         /// <summary>Method which gets a properties dictionary for simple downstream deconstruct</summary>
