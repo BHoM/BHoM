@@ -19,7 +19,7 @@ namespace BHoM.Environmental.Elements
         ////Properties///
         /////////////////
 
-        private Brep m_Panel;
+        //private Brep m_Panel;   //Never used
 
         public string Type { get; set; }
 
@@ -71,7 +71,7 @@ namespace BHoM.Environmental.Elements
         }
 
         /// <summary></summary>
-        public void SetGeometry(BHoMGeometry geometry)
+        public override void SetGeometry(BHoMGeometry geometry)
         {
             if (typeof(Brep).IsAssignableFrom(geometry.GetType()))
             {

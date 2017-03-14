@@ -19,38 +19,38 @@ namespace BHoM.MEP
 
     public class ClosedShell : Geometry
     {
-        private List<PolyLoop> pPolyLoops;
+        // private List<PolyLoop> pPolyLoops;    //Never assigned to
 
-        public List<PolyLoop> PolyLoops
+        /*public List<PolyLoop> PolyLoops
         {
             get
             {
                 return pPolyLoops;
             }
 
-       }
+       }*/
     }
 
     public class SpatialBoundary : Geometry
     {
-        private Element pElement;
-        private List<PolyLoop> pPolyLoops;
+        //private Element pElement;   //Never assigned to
+        // private List<PolyLoop> pPolyLoops;   //Never used
 
-        public Element Element
+        /*public Element Element
         {
             get
             {
                 return pElement;
             }
-        }
+        }*/
 
-        public List<PolyLoop> PolyLoops
+        /*public List<PolyLoop> PolyLoops
         {
             get
             {
                 return pPolyLoops;
             }
 
-        }
+        }*/
     }
 }

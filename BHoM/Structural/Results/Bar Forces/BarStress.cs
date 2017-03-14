@@ -210,7 +210,7 @@ namespace BHoM.Structural.Results
             }
         }
 
-        public int CompareTo(object obj)
+        public override int CompareTo(object obj)
         {
             var r2 = obj as BarStress<TName, TLoadcase, TTimeStep>;
             if (r2 != null)

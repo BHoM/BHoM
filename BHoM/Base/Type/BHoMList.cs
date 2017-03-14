@@ -90,7 +90,7 @@ namespace BHoM.Base
             return new BHoMList<T>(list);
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return Name + " Group of " + ObjectType + ". Containing " +Data.Count+ " items"; 
         }

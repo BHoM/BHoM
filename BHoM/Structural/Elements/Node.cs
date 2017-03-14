@@ -183,7 +183,7 @@ namespace BHoM.Structural.Elements
         }
 
         /// <summary></summary>
-        public void SetGeometry(BHoMGeometry geometry)
+        public override void SetGeometry(BHoMGeometry geometry)
         {
             if (geometry is Point)
             {

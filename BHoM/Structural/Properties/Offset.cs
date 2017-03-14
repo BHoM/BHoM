@@ -15,7 +15,7 @@ namespace BHoM.Structural.Properties
     public class Offset : BHoM.Base.BHoMObject
     {
         /// <summary>Offset name</summary>
-        public string Name { get; private set; }
+        //public string Name { get; private set; }
         /// <summary>Offset array</summary>
         public double[] Offsets { get; private set; }
 

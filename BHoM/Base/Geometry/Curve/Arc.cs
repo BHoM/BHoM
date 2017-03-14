@@ -10,8 +10,8 @@ namespace BHoM.Geometry
     /// </summary>
     public class Arc : Curve
     {
-        double[] m_Centre;
-        double m_Radius;
+        //double[] m_Centre;      //Never used
+        //double m_Radius;        //Never used
 
         public override GeometryType GeometryType
         {

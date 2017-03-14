@@ -216,7 +216,7 @@ namespace BHoM.Structural.Elements
         }
 
         /// <summary></summary>
-        public void SetGeometry(BHoMGeometry geometry)
+        public override void SetGeometry(BHoMGeometry geometry)
         {
             if (geometry is Curve)
             {
@@ -262,7 +262,7 @@ namespace BHoM.Structural.Elements
         #region Fields
         private Node m_StartNode;
         private Node m_EndNode;
-        private double m_EffectiveLength;
+        // private double m_EffectiveLength;    //Never used
         #endregion
     }
 }

@@ -9,17 +9,17 @@ namespace BHoM.MEP
 {
     public class Space : Element
     {
-        private string pName;
+        //private string pName;
         private string pNumber;
 
         public Space(string Name, string Number, SpatialBoundary SpatialBoundary, Location Location)
             : base(Location, SpatialBoundary)
         {
-            pName = Name;
+            this.Name = Name;
             pNumber = Number;
         }
 
-        public string Name
+        /*public string Name
         {
             get
             {
@@ -29,7 +29,7 @@ namespace BHoM.MEP
             {
                 pName = value;
             }
-        }
+        }*/
 
         public string Number
         {
