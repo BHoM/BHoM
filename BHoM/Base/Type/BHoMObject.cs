@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
 using System.Linq;
-using System.ComponentModel;
-using BHB = BHoM.Base;
-using System.Reflection;
 using BHoM.Geometry;
 
 namespace BHoM.Base
@@ -14,36 +9,28 @@ namespace BHoM.Base
     /// BHoM object abstract class, all methods and attributes applicable to all structural objects with
     /// BHoM implemented
     /// </summary>
-    public abstract class BHoMObject : IObject
+    public class BHoMObject : IObject
     {
         /***************************************************/
-        /**** Properties                                ****/                                      
+        /**** Properties                                ****/
         /***************************************************/
 
-        public System.Guid BHoM_Guid { get; protected set; }
+        public Guid BHoM_Guid { get; set; } = Guid.NewGuid();
 
-        [DefaultValue("")]
-        public string Name { get; set; }
+        public string Name { get; set; } = "";
 
-        [DisplayName("CustomData")]
-        [Description("Additonal object information")]
-        [DefaultValue(null)]
-        public Dictionary<string, object> CustomData { get; set; }
+        public Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
-        public BHoMObject()
-        {
-            CustomData = new Dictionary<string, object>();
-            this.BHoM_Guid = System.Guid.NewGuid();
-            Name = "";
-        }
+
+        public BHoMObject() {}
 
 
         /***************************************************/
-        /**** Public Methods                            ****/
+        /**** Local Methods                             ****/
         /***************************************************/
 
         /// <summary>
@@ -63,7 +50,11 @@ namespace BHoM.Base
 
         /***************************************************/
 
-        /// <summary>Create a shallow copy of the object</summary>
+        /// <summary>
+        /// Create a shallow copy of the object
+        /// </summary>
+        /// <param name="newGuid">Defines if the clone needs a new Guid</param>
+        /// <returns>The clone </returns>
         public BHoMObject ShallowClone(bool newGuid = false)
         {
             BHoMObject obj = (BHoMObject)this.MemberwiseClone();
@@ -74,7 +65,9 @@ namespace BHoM.Base
 
         /***************************************************/
 
-        /// <summary>Gets the geometry of the object (whatever that might be)</summary>
+        /// <summary>
+        /// Gets the geometry of the object (whatever that might be)
+        /// </summary>
         public virtual BHoMGeometry GetGeometry()
         {
             return null;
@@ -82,10 +75,24 @@ namespace BHoM.Base
 
         /***************************************************/
 
-        /// <summary>Sets the geometry of the object (whatever that might be)</summary>
+        /// <summary>
+        /// Sets the geometry of the object (whatever that might be)
+        /// </summary>
+        /// <param name="geometry">The geometry to set</param>
         public virtual void SetGeometry(BHoMGeometry geometry)
         {
         }
+
+
+
+
+
+
+
+
+
+
+
 
         /// <summary>
         /// Creates a BHoM Object of the specified type
