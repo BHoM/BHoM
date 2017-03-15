@@ -190,6 +190,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />
+    <Folder Include="Common\" />
+    <Folder Include="Physical\" />
     <Folder Include="Planning\Project\" />
   </ItemGroup>
   <ItemGroup>
