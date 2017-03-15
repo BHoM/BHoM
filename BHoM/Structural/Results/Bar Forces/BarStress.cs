@@ -1,5 +1,4 @@
 ﻿using BHoM.Base;
-using BHoM.Base.Results;
 
 using BHoM.Structural.Loads;
 using System;

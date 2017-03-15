@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BHoM.Structural.Results;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Base.Results
+namespace BHoM.Structural.Interface
 {
     public interface IResultSet
     {

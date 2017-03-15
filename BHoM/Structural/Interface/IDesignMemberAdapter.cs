@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BHoM.Structural.Elements;
-using BHoM.Base.Results;
 using BHoM.Structural.Results;
 
 namespace BHoM.Structural.Interface

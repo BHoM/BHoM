@@ -7,26 +7,6 @@ using System.Reflection;
 
 namespace BHoM.Geometry
 {
-    public enum GeometryType  // Why do we need this?
-    {
-        Point,
-        Vector,
-        Plane,
-        Mesh,
-        Arc,
-        Circle,
-        Line,
-        Polyline,
-        PolyCurve,
-        NurbCurve,
-        Surface,
-        Loft,
-        Pipe,
-        Extrusion,
-        PolySurface,
-        Group
-    }
-
     public abstract class BHoMGeometry
     {
         //public Guid Id { get; set; }

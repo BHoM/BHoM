@@ -1,5 +1,4 @@
 ﻿using System;
-using BHoM.Base.Results;
 using BHoM.Geometry;
 
 namespace BHoM.Structural.Results

@@ -13,7 +13,6 @@ using BHoM.Base;
 using BHoM.Structural.Loads;
 using BHoM.Structural.Results;
 using BHoM.Structural.Elements;
-using BHoM.Base.Results;
 using System.Xml;
 
 

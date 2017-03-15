@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Base.Results
+namespace BHoM.Structural.Results
 {
     public abstract class Envelope
     {
