@@ -514,7 +514,7 @@ namespace BHoM.Structural.Elements
         /// </summary>
         /// <param name="bars"></param>
         /// <returns></returns>
-        public static List<DesignElement> CreateFromConnectedBars(List<Bar> bars, double tolerance = 0.01)
+        public static List<DesignElement> CreateFromConnectedBars(List<Bar> bars)
         {
             List<DesignElement> results = new List<DesignElement>();
             Dictionary<Guid, int> nodeCount = new Dictionary<Guid, int>();
@@ -551,25 +551,25 @@ namespace BHoM.Structural.Elements
                     {
                         double[] ps2 = results[j].StartPoint;
                         double[] pe2 = results[j].EndPoint;
-                        if (VectorUtils.Equal(pe1, ps2, tolerance) && nodeCount[results[counter].EndNode.BHoM_Guid] == 2)
+                        if (VectorUtils.Equal(pe1, ps2, 0.001) && nodeCount[results[counter].EndNode.BHoM_Guid] == 2)
                         {
                             results[j].AddBars(results[counter].AnalyticBars);
                             results.RemoveAt(counter--);
                             break;
                         }
-                        else if (VectorUtils.Equal(pe1, pe2, tolerance) && nodeCount[results[counter].EndNode.BHoM_Guid] == 2)
+                        else if (VectorUtils.Equal(pe1, pe2, 0.001) && nodeCount[results[counter].EndNode.BHoM_Guid] == 2)
                         {
                             results[j].AddBars(results[counter].AnalyticBars);
                             results.RemoveAt(counter--);
                             break;
                         }
-                        else if (VectorUtils.Equal(ps1, ps2, tolerance) && nodeCount[results[counter].StartNode.BHoM_Guid] == 2)
+                        else if (VectorUtils.Equal(ps1, ps2, 0.001) && nodeCount[results[counter].StartNode.BHoM_Guid] == 2)
                         {
                             results[j].AddBars(results[counter].AnalyticBars);
                             results.RemoveAt(counter--);
                             break;
                         }
-                        else if (VectorUtils.Equal(ps1, pe2, tolerance) && nodeCount[results[counter].StartNode.BHoM_Guid] == 2)
+                        else if (VectorUtils.Equal(ps1, pe2, 0.001) && nodeCount[results[counter].StartNode.BHoM_Guid] == 2)
                         {
                             results[j].AddBars(results[counter].AnalyticBars);
                             results.RemoveAt(counter--);
