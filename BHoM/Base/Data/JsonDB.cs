@@ -50,6 +50,9 @@ namespace BHoM.Base.Data
                 case Database.Material:
                     m_JObj = JObject.Parse(BHoM.Properties.Resources.MaterialDB.ToString());
                     break;
+                case Database.Cables:
+                    m_JObj = JObject.Parse(BHoM.Properties.Resources.CablesDB.ToString());
+                    break;
             }
             
         }
@@ -69,8 +72,8 @@ namespace BHoM.Base.Data
 
         public IDataRow GetDataRow(string column, string matches)
         {
-            var row = GetRawDataSet().Where(c => (string)c[column] == matches).First();
-            return (T)JsonReader.ReadObject(row.ToString());
+            var row = GetRawDataSet().Where(c => (string)c[column] == matches).FirstOrDefault();
+            return row == null ? default(T) : (T)JsonReader.ReadObject(row.ToString());
         }
 
         private IEnumerable<JToken> GetRawDataSet(string column, string matches)

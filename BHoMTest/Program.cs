@@ -51,25 +51,26 @@ namespace BHoMTest
         static void Main(string[] args)
         {
           // var mat =   BHoM.Materials.Material.Default(BHoM.Materials.MaterialType.Steel);
-           // CreateJSONDB();
+           //CreateJSONDB();
             TestReadJsonDB();
         }
 
         private static void TestReadJsonDB()
         {
-            JsonFileDB<SteelSectionRow> section = new JsonFileDB<SteelSectionRow>(BHoM.Base.Data.Database.SteelSection);
-            section.TableName = "UK_Sections";
-            SteelSectionRow r = section.GetDataRow<SteelSectionRow>("Id", "1512");
-            var s = section.GetDataSet("Type", "UC");
-            var s2 = section.GetDataColumn("Type");
+            JsonFileDB<CableSectionRow> section = new JsonFileDB<CableSectionRow>(BHoM.Base.Data.Database.Cables);
+            section.TableName = "PfeiferFullLocked";
+            CableSectionRow r = section.GetDataRow<CableSectionRow>("Diameter", "0.12");
+
         }
 
         public static void CreateJSONDB()
         {
-            Database b = new Database("Materials");
-            SQLAccessor<MaterialRow> sql = new SQLAccessor<MaterialRow>(BHoM.Base.Data.Database.Material, "Europe");
+            Database b = new Database("Cables");
+            SQLAccessor<CableSectionRow> sql = new SQLAccessor<CableSectionRow>(BHoM.Base.Data.Database.Cables, "PfeiferFullLocked");
             foreach (string table in sql.TableNames())
             {
+                if (table != "PfeiferFullLocked")
+                    continue;
                 sql.TableName = table;
                 List<IDataRow> rows = sql.Query("SELECT * FROM " + table).ToList<IDataRow>();
                 Table t = new Table(table, rows);
@@ -78,7 +79,7 @@ namespace BHoMTest
 
 
             string json = JSONWriter.Write(b);
-            using (StreamWriter fs = new StreamWriter(@"C:\Users\edalton\Documents\GitHub\MaterialDb.txt"))
+            using (StreamWriter fs = new StreamWriter(@"C:\Users\inaslund\Documents\GitHub\Cables.txt"))
             {
                 fs.Write(json);
                 fs.Close();

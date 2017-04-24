@@ -254,6 +254,8 @@
   <ItemGroup>
     <None Include="Resources\SteelSectionDB.txt" />
     <None Include="Resources\MaterialDb.txt" />
+    <None Include="CablesDB.txt" />
+    <None Include="Resources\CablesDB.txt" />
     <Content Include="Structural\Databases\Cables.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
