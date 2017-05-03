@@ -285,7 +285,7 @@ namespace BHoM.Geometry
                 faceVertices.Add(p2);
                 faceVertices.Add(p3);
                 if (m_Faces[i].IsQuad) { faceVertices.Add(p4); }
-                faceVertices.Add(p1);
+                faceVertices.Add(p1);                               // Closed Polyline
                 Polyline edge = new Polyline(faceVertices);
                 edges.Add(edge);
             }
@@ -295,30 +295,30 @@ namespace BHoM.Geometry
         /// <summary>
         /// Returns area of a BHoM mesh
         /// </summary>
-        //public double Area()                          // Not tested yet, but should be ok
-        //{
-        //    Mesh m = new Mesh();
-        //    m.AddVertices(m_Vertices.ToList());
-        //    m.AddFaces(m_Faces);
-        //    m.Triangulate();
-        //    List<Polyline> Edges = m.GetEdges();
-        //    List<double> faceArea = new List<double>();
-        //    for ( int i = 0; i < Edges.Count; i++)                  //foreach face
-        //    {
-        //        double p = (Edges[i].Length)/2;
-        //        List<Curve> seg = Edges[i].Explode();
-        //        List<double> segLen = new List<double>();
-        //        for (int j = 0; j < seg.Count; i++)                 //foreach face edge
-        //        {
-        //            double f1 = p - seg[j].Length; 
-        //            segLen.Add(f1);
-        //        }
-        //        double fArea = Math.Sqrt(segLen[0] * segLen[1] * segLen[2] * p);       //Triangle area by Heron's formula
-        //        faceArea.Add(fArea);
-        //    }
-        //    int area = faceArea.Sum(x => Convert.ToInt32(x));
-        //    return area;
-        //}
+        public double Area()                          // Not tested yet, but should be ok
+        {
+            Mesh m = new Mesh();
+            m.AddVertices(m_Vertices.ToList());
+            m.AddFaces(m_Faces);
+            m.Triangulate();
+            List<Polyline> Edges = m.GetEdges();
+            List<double> faceArea = new List<double>();
+            for ( int i = 0; i < Edges.Count; i++)                  //foreach face
+            {
+                double p = (Edges[i].Length)/2;
+                List<Curve> seg = Edges[i].Explode();
+                List<double> segLen = new List<double>();
+                for (int j = 0; j < seg.Count; i++)                 //foreach face edge
+                {
+                    double f1 = p - seg[j].Length; 
+                    segLen.Add(f1);
+                }
+                double fArea = (Math.Sqrt(segLen[0] * segLen[1] * segLen[2] * p));       //Triangle area by Heron's formula
+                faceArea.Add(fArea);
+            }
+            return faceArea.Sum();
+
+        }
         
         public override string ToJSON()
         {
