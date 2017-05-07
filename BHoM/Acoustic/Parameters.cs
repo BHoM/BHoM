@@ -8,11 +8,17 @@ using BHoM.Base;
 namespace BHoM.Acoustic
 {
 
-    public class AcousticParameters : BHoMObject
+    public class Parameters : BHoMObject
     {
-        public List<double> Frequencies { get; set; }       // Ask Matthew H. why both Frequencies and Octaves? Should be the same thing.
+        public double Value { get; set; }
+        public string Source { get; set; }
+        public string Target { get; set; }
+        public List<string> BouncingPattern { get; set; }
         public List<double> Octaves { get; set; }
-        public List<double> ReverberationTimes { get; set; }
+
+
+        public List<double> Frequencies { get; set; }           // Ask Matthew H. why both Frequencies and Octaves?
+        public List<double> ReverberationTimes { get; set; }    //Should be the same thing.
         public List<double> NoiseLevels { get; set; }
         public List<double> Gains { get; set; }
         public List<double> Speeches { get; set; }
@@ -37,4 +43,26 @@ namespace BHoM.Acoustic
             return Speeches[0];
         }
     }
+
+    public class SPL : Parameters
+    {
+
+    }
+
+    public class RASTI : Parameters
+    {
+
+    }
+
+    public class RT : Parameters
+    {
+
+    }
+
+    public class C80 : Parameters
+    {
+
+    }
+
+    public class ST
 }

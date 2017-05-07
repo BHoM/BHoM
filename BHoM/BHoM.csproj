@@ -62,7 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acoustic\AcousticParameters.cs" />
+    <Compile Include="Acoustic\Parameters.cs" />
     <Compile Include="Acoustic\AcousticRASTIParameters.cs" />
     <Compile Include="Acoustic\Panel.cs" />
     <Compile Include="Acoustic\Ray.cs" />
