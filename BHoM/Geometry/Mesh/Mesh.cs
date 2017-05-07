@@ -295,7 +295,7 @@ namespace BHoM.Geometry
         /// <summary>
         /// Returns area of a BHoM mesh
         /// </summary>
-        public double Area()                          // Not tested yet, but should be ok
+        public double Area()
         {
             Mesh m = new Mesh();
             m.AddVertices(m_Vertices.ToList());
@@ -308,16 +308,13 @@ namespace BHoM.Geometry
                 double p = (Edges[i].Length)/2;
                 List<Curve> seg = Edges[i].Explode();
                 List<double> segLen = new List<double>();
-                for (int j = 0; j < seg.Count; i++)                 //foreach face edge
+                for (int j = 0; j < seg.Count; j++)                 //foreach face edge
                 {
-                    double f1 = p - seg[j].Length; 
-                    segLen.Add(f1);
-                }
-                double fArea = (Math.Sqrt(segLen[0] * segLen[1] * segLen[2] * p));       //Triangle area by Heron's formula
-                faceArea.Add(fArea);
+                    segLen.Add(p - seg[j].Length);
+                }     
+                faceArea.Add(Math.Sqrt(segLen[0] * segLen[1] * segLen[2] * p));     //Triangle area by Heron's formula
             }
             return faceArea.Sum();
-
         }
         
         public override string ToJSON()
