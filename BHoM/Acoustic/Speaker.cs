@@ -8,7 +8,7 @@ using BHoM.Base;
 
 namespace BHoM.Acoustic
 {
-    public class Speaker : BHoMObject
+    public class Speaker
     {
         /// <summary>
         /// Source emissive point

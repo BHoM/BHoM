@@ -8,7 +8,7 @@ using BHoM.Geometry;
 
 namespace BHoM.Acoustic
 {
-    class Ray : BHoMObject
+    class Ray
     {
 
         public Polyline Path { get; set; }

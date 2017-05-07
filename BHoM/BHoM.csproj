@@ -49,8 +49,8 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Acoustic\AcousticParameters.cs" />
     <Compile Include="Acoustic\AcousticRASTIParameters.cs" />
+    <Compile Include="Acoustic\Panel.cs" />
+    <Compile Include="Acoustic\Ray.cs" />
+    <Compile Include="Acoustic\Receiver.cs" />
     <Compile Include="Acoustic\Speaker.cs" />
     <Compile Include="Acoustic\STIResult.cs" />
     <Compile Include="Acoustic\Zone.cs" />
@@ -228,6 +231,7 @@
     <Compile Include="Structural\Results\StructuralResultServer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Acoustic\Database\" />
     <Folder Include="Cities\" />
     <Folder Include="Structural\DesignCodes\Eurocode\Wind\" />
   </ItemGroup>
@@ -254,6 +258,8 @@
   <ItemGroup>
     <None Include="Resources\SteelSectionDB.txt" />
     <None Include="Resources\MaterialDb.txt" />
+    <None Include="CablesDB.txt" />
+    <None Include="Resources\CablesDB.txt" />
     <Content Include="Structural\Databases\Cables.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
