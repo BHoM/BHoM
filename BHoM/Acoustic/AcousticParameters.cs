@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BHoM.Base;
 
 namespace BHoM.Acoustic
 {
 
-    public class AcousticParameters
+    public class AcousticParameters : BHoMObject
     {
-        public List<double> Frequencies { get; set; }
+        public List<double> Frequencies { get; set; }       // Ask Matthew H. why both Frequencies and Octaves? Should be the same thing.
         public List<double> Octaves { get; set; }
         public List<double> ReverberationTimes { get; set; }
         public List<double> NoiseLevels { get; set; }
