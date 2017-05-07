@@ -8,7 +8,7 @@ using BHoM.Base;
 
 namespace BHoM.Acoustic
 {
-    class Panel
+    public class Panel
     {
         #region Constructor
 

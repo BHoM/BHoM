@@ -8,7 +8,7 @@ using BHoM.Geometry;
 
 namespace BHoM.Acoustic
 {
-    class Receiver
+    public class Receiver
     {   
 
         public Point Position { get; set; }

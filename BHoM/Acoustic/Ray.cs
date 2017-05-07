@@ -8,7 +8,7 @@ using BHoM.Geometry;
 
 namespace BHoM.Acoustic
 {
-    class Ray
+    public class Ray
     {
 
         public Polyline Path { get; set; }
@@ -18,7 +18,7 @@ namespace BHoM.Acoustic
 
         #region Constructor
 
-        public Ray(Polyline path, string source = null, string target = null, List<string>bouncingPattern = null)
+        public Ray(Polyline path = null, string source = null, string target = null, List<string>bouncingPattern = null)
         {
             Path = path;
             Source = source;
