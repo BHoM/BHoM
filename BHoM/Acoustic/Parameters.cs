@@ -64,5 +64,8 @@ namespace BHoM.Acoustic
 
     }
 
-    public class ST
+    public class STearly
+    {
+
+    }
 }
