@@ -74,6 +74,7 @@
     <Compile Include="Base\Data\IDataRow.cs" />
     <Compile Include="Base\Data\JsonDB.cs" />
     <Compile Include="Base\Group.cs" />
+    <Compile Include="Base\Interface\IAdapter.cs" />
     <Compile Include="Base\JsonReader.cs" />
     <Compile Include="Base\JsonWriter.cs" />
     <Compile Include="Base\Results\Enums.cs" />

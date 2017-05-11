@@ -198,36 +198,52 @@ namespace BHoM.Base
         public static Dictionary<string, string> GetDefinitionFromJSON(string json)
         {
             int level = 0;
+            bool inDoubleQuotes = false;
+            char prevChar = ' ';
+
             string key = "";
             string value = "";
             int i0 = json.IndexOf('{') + 1;
             string inside = json.Substring(i0, json.LastIndexOf('}') - i0);
+
             i0 = 0;
             int index = 0;
             Dictionary<string, string> definition = new Dictionary<string, string>();
             for (int i = 0; i < inside.Length; i++)
             {
-                if (inside[i] == '{' || inside[i] == '[')
+                char c = inside[i];
+                if (c == '{' || c == '[')
                     level++;
-                else if (inside[i] == '}' || inside[i] == ']')
+                else if (c == '}' || c == ']')
                     level--;
-                else if (level == 0 && inside[i] == ':')
+                else if (c == '"')
                 {
-                    key = inside.Substring(i0, i - i0).Trim().Replace("\"", "");
-                    i0 = i + 1;
+                    if (prevChar != '\\')
+                        inDoubleQuotes = !inDoubleQuotes;
                 }
-                else if (level == 0 && inside[i] == ',')
+                else if (level == 0 && !inDoubleQuotes)
                 {
-                    value = inside.Substring(i0, i - i0).Trim();
-                    definition.Add(key == "" ? index++.ToString() : key, value);
-                    i0 = i + 1;
+                    if (c == ':')
+                    {
+                        key = inside.Substring(i0, i - i0).Trim().Replace("\"", "");
+                        i0 = i + 1;
+                    }
+                    else if (c == ',')
+                    {
+                        value = inside.Substring(i0, i - i0).Trim();
+                        definition.Add(key == "" ? index++.ToString() : key, value);
+                        i0 = i + 1;
+                    }
                 }
+
                 if (i == inside.Length - 1)
                 {
                     value = inside.Substring(i0, i + 1 - i0).Trim();
                     definition.Add(key == "" ? index++.ToString() : key, value);
                     i0 = i + 1;
                 }
+
+                prevChar = c;
             }
 
             return definition;
