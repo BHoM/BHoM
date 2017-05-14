@@ -18,7 +18,7 @@ namespace BHoM.Acoustic
 
         #region Constructor
 
-        public Ray(Polyline path = null, string source = null, string target = null, List<string>bouncingPattern = null)
+        public Ray(Polyline path = null, string source = null, string target = null, List<string> bouncingPattern = null)
         {
             Path = path;
             Source = source;
@@ -37,7 +37,7 @@ namespace BHoM.Acoustic
 
         public double ToF()             // Time of Flight
         {
-            return Path.Length/343;
+            return Path.Length / 343;
         }
 
         public int Order()
@@ -45,6 +45,10 @@ namespace BHoM.Acoustic
             return BouncingPattern.Count;
         }
 
+        public Point Origin()
+        {
+            return Path.EndPoint;
+        }
         #endregion
     }
 }
