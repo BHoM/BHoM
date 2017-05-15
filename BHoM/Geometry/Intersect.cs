@@ -377,17 +377,17 @@ namespace BHoM.Geometry
         /// </summary>
         /// <param name="mesh">Mesh to intersect with</param>
         /// <param name="ray">The ray to test hit for.</param>
-        /// <returns><c>true</c> when the ray hits the triangle, otherwise <c>false</c></returns>
-        public static bool MeshSegment(Mesh mesh, Curve ray)
-        {
+        /// <returns>Intersection point when the ray hits the triangle, otherwise <c>false</c></returns>
+        public static Point MeshSegment(Mesh mesh, Curve ray)
+        { 
             // Mesh Points
             List<Point> meshPts = mesh.Vertices.ToList();
-            Point p1 = meshPts[0];
-            Point p2 = meshPts[1];
-            Point p3 = meshPts[2];
+            Point p1 = meshPts[0];  /*Call function*/
+            Point p2 = meshPts[1];  /*Call function*/
+            Point p3 = meshPts[2];  /*Call function*/
 
             // Ray direction
-            Vector d = new Vector(ray.PointAt(1) - ray.PointAt(0));
+            Vector d = new Vector(ray.PointAt(1) - ray.PointAt(0));                     /*Call function*/
 
             // Vectors from p1 to p2/p3 (edges)
             Vector e1, e2;
@@ -400,42 +400,43 @@ namespace BHoM.Geometry
             e2 = p3 - p1;
 
             // calculating determinant 
-            p = Vector.CrossProduct(d, e2);
+            p = Vector.CrossProduct(d, e2);                                             /*Call function*/
 
             //Calculate determinat
-            det = Vector.DotProduct(e1, p);
+            det = Vector.DotProduct(e1, p);                                             /*Call function*/
 
             //if determinant is near zero, ray lies in plane of triangle otherwise not
-            if (det > - Double.Epsilon && det < Double.Epsilon) { return false; }
+            if (det > - Double.Epsilon && det < Double.Epsilon) { return null; }
             invDet = 1.0f / det;
 
             //calculate distance from p1 to ray origin
-            t = ray.PointAt(0) - p1;
+            t = ray.PointAt(0) - p1;                                                    /*Call function*/
 
             //Calculate u parameter
-            u = Vector.DotProduct(t, p) * invDet;
+            u = Vector.DotProduct(t, p) * invDet;   // can this be replaced by   t*p*invDet   ? Is ti faster?
 
             //Check for ray hit
-            if (u < 0 || u > 1) { return false; }
+            if (u < 0 || u > 1) { return null; }
 
             //Prepare to test v parameter
-            q = Vector.CrossProduct(t, e1);
+            q = Vector.CrossProduct(t, e1);                                             /*Call function*/
 
             //Calculate v parameter
-            v = Vector.DotProduct(d, q) * invDet;
+            v = Vector.DotProduct(d, q) * invDet;                                       /*Call function*/
 
             //Check for ray hit
-            if (v < 0 || u + v > 1) { return false; }
+            if (v < 0 || u + v > 1) { return null; }
 
-            if ((Vector.DotProduct(e2, q) * invDet) > Double.Epsilon)
+            if ((Vector.DotProduct(e2, q) * invDet) > Double.Epsilon)                   /*Call function*/
             {
                 //ray does intersect
-                return true;
+                return ((1 - u - v) * p1 + u * p2 + v * p3);    
             }
-
-            // No hit at all
-            return false;
+            return null;
         }
+
+
+
 
     }
 }
