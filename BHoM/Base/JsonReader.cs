@@ -95,7 +95,7 @@ namespace BHoM.Base
             foreach (KeyValuePair<string, string> kvp in def)
             {
                 string propString = kvp.Key.Trim(toTrim);
-                string valueString = kvp.Value.Trim(toTrim);
+                string valueString = kvp.Value.Trim();
                 if (propString.StartsWith("__")) continue;
 
                 PropertyInfo pInfo = newObject.GetType().GetProperty(propString);
@@ -182,7 +182,7 @@ namespace BHoM.Base
             foreach (KeyValuePair<string, string> kvp in def)
             {
                 string keyString = kvp.Key.Trim(toTrim);
-                string valueString = kvp.Value.Trim(toTrim);
+                string valueString = kvp.Value.Trim();
                 if (keyString.StartsWith("_")) continue;
 
                 collection.Add(ReadValue(keyType, keyString), ReadValue(valueType, valueString));
