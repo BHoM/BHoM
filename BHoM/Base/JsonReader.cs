@@ -212,27 +212,31 @@ namespace BHoM.Base
             for (int i = 0; i < inside.Length; i++)
             {
                 char c = inside[i];
-                if (c == '{' || c == '[')
-                    level++;
-                else if (c == '}' || c == ']')
-                    level--;
-                else if (c == '"')
+
+                if (c == '"')
                 {
                     if (prevChar != '\\')
                         inDoubleQuotes = !inDoubleQuotes;
                 }
-                else if (level == 0 && !inDoubleQuotes)
+                else if (!inDoubleQuotes)
                 {
-                    if (c == ':')
+                    if (c == '{' || c == '[')
+                        level++;
+                    else if (c == '}' || c == ']')
+                        level--;
+                    else if (level == 0)
                     {
-                        key = inside.Substring(i0, i - i0).Trim().Replace("\"", "");
-                        i0 = i + 1;
-                    }
-                    else if (c == ',')
-                    {
-                        value = inside.Substring(i0, i - i0).Trim();
-                        definition.Add(key == "" ? index++.ToString() : key, value);
-                        i0 = i + 1;
+                        if (c == ':')
+                        {
+                            key = inside.Substring(i0, i - i0).Trim().Replace("\"", "");
+                            i0 = i + 1;
+                        }
+                        else if (c == ',')
+                        {
+                            value = inside.Substring(i0, i - i0).Trim();
+                            definition.Add(key == "" ? index++.ToString() : key, value);
+                            i0 = i + 1;
+                        }
                     }
                 }
 
@@ -254,6 +258,9 @@ namespace BHoM.Base
         public static List<String> GetArrayFromJSON(string json)
         {
             int level = 0;
+            bool inDoubleQuotes = false;
+            char prevChar = ' ';
+
             int i0 = json.IndexOf('[') + 1;
             string inside = json.Substring(i0, json.LastIndexOf(']') - i0);
             i0 = 0;
@@ -261,20 +268,32 @@ namespace BHoM.Base
             List<string> array = new List<string>();
             for (int i = 0; i < inside.Length; i++)
             {
-                if (inside[i] == '{' || inside[i] == '[')
-                    level++;
-                else if (inside[i] == '}' || inside[i] == ']')
-                    level--;
-                else if (level == 0 && inside[i] == ',')
+                char c = inside[i];
+
+                if (c == '"')
                 {
-                    array.Add(inside.Substring(i0, i - i0).Trim());
-                    i0 = i + 1;
+                    if (prevChar != '\\')
+                        inDoubleQuotes = !inDoubleQuotes;
+                }
+                else if (!inDoubleQuotes)
+                {
+                    if (c == '{' || c == '[')
+                        level++;
+                    else if (c == '}' || c == ']')
+                        level--;
+                    else if (level == 0 && c == ',')
+                    {
+                        array.Add(inside.Substring(i0, i - i0).Trim());
+                        i0 = i + 1;
+                    }
                 }
                 if (i == inside.Length - 1)
                 {
                     array.Add(inside.Substring(i0, i + 1 - i0).Trim());
                     i0 = i + 1;
                 }
+
+                prevChar = c;
             }
 
             return array;
