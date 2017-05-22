@@ -38,7 +38,7 @@ namespace BHoM.Acoustic
         public Speaker(Point position, Vector direction = null, string category = null)
         {
             if (direction == null)
-                direction = new Vector(0, 0, 1);
+                direction = new Vector(1, 0, 0);
             if (category == null)
                 category = "Omni";
 

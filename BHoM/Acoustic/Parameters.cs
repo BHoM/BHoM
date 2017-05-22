@@ -28,9 +28,9 @@ namespace BHoM.Acoustic
             return ReverberationTimes[0];
         }
 
-        public virtual double GetNoiseLevel(double frequency, double octave)
+        public virtual List<double> GetNoiseLevel()
         {
-            return NoiseLevels[0];
+            return NoiseLevels;
         }
 
         public virtual double GetGain(double frequency, double octave)
@@ -38,9 +38,9 @@ namespace BHoM.Acoustic
             return Gains[0];
         }
 
-        public virtual double GetSpeech(double frequency, double octave)
+        public virtual List<double> GetSpeech()
         {
-            return Speeches[0];
+            return Speeches;
         }
     }
 
@@ -49,7 +49,7 @@ namespace BHoM.Acoustic
 
     }
 
-    public class RASTI : Parameters
+    public class STI : Parameters
     {
 
     }
@@ -60,11 +60,6 @@ namespace BHoM.Acoustic
     }
 
     public class C80 : Parameters
-    {
-
-    }
-
-    public class STearly
     {
 
     }
