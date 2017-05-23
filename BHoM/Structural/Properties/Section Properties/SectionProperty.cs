@@ -159,17 +159,27 @@ namespace BHoM.Structural.Properties
             database.TableName = Project.ActiveProject.Config.CableDataBase;
             CableSectionRow data = database.GetDataRow<CableSectionRow>("Diameter", diameter.ToString());
 
+            Material mat = null;
+
+            if (database.TableName == "BridonFullLocked")
+            {
+                mat = Material.LoadFromDB("CaFullLockBridon");
+            }
+
             if (data != null)
             {
-                return CreateCableSectionFromDB(data, numberOfCables);
+                return CreateCableSectionFromDB(data, numberOfCables, mat);
             }
 
             return null;
         }
 
-        private static SectionProperty CreateCableSectionFromDB(CableSectionRow data, int numberOfCables)
+        private static SectionProperty CreateCableSectionFromDB(CableSectionRow data, int numberOfCables, Material mat = null)
         {
-            CableSection sec = new CableSection(data.Diameter, data.Area, numberOfCables);
+            if (mat == null)
+                mat = BHoM.Materials.Material.Default(Materials.MaterialType.Cable);
+
+            CableSection sec = new CableSection(data.Diameter, data.Area, mat, numberOfCables);
 
             sec.SectionData[(int)CableSectionData.A] = data.Area;
             sec.SectionData[(int)CableSectionData.BL] = data.BreakingLoad;
