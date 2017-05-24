@@ -18,49 +18,13 @@ namespace BHoM.Acoustic
 
 
         public List<double> Frequencies { get; set; }           // Ask Matthew H. why both Frequencies and Octaves?
-        public List<double> ReverberationTimes { get; set; }    //Should be the same thing.
-        public List<double> NoiseLevels { get; set; }
         public List<double> Gains { get; set; }
-        public List<double> Speeches { get; set; }
 
-        public double GetRevTime(double frequency, double octave)
-        {
-            return ReverberationTimes[0];
-        }
-
-        public virtual List<double> GetNoiseLevel()
-        {
-            return NoiseLevels;
-        }
 
         public virtual double GetGain(double frequency, double octave)
         {
             return Gains[0];
         }
-
-        public virtual List<double> GetSpeech()
-        {
-            return Speeches;
-        }
-    }
-
-    public class SPL : Parameters
-    {
-
-    }
-
-    public class STI : Parameters
-    {
-
-    }
-
-    public class RT : Parameters
-    {
-
-    }
-
-    public class C80 : Parameters
-    {
 
     }
 }
