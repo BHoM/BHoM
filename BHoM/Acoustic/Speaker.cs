@@ -26,6 +26,10 @@ namespace BHoM.Acoustic
         /// Automatically generated identifier of a source
         /// </summary>
         public string SpeakerID { get; set; }       // Ask Arnauld how to generate it automatically
+        /// <summary>
+        /// Acoustic Gain
+        /// </summary>
+        public List<double> Gains { get; set; }      // value for each frequency
 
         #region Constructor
 
@@ -68,39 +72,16 @@ namespace BHoM.Acoustic
 
         #region Properties
 
+        public double GetGain(double frequency, double octave)
+        {
+            return (frequency < 5) ? Gains[0] : Gains[1];
+        }
+
         public double GetGainAngleFactor(double angle, double octave) // take out octave
         {
             return (octave < 1000) ? (-2 * angle / 90 - 8) : (-18 * angle / 150 - 2); // I made some asumption here since matlab handles only 500Hz and 2000Hz
         }
 
-        /*
-        /// <summary>
-        /// Returns a list of the max emissive power in dB at eight frequency bands 125 250 500 1k 2k 4k 8k 16k
-        /// </summary>
-        /// <param name="source"></param>
-        /// <returns></returns>
-        public List<double> mSPL(Speaker speaker)       // Get values from  Json derived from CATT sd files.
-        {
-        }
-        /// <summary>
-        /// Returns a list of the nominal emissive power in dB at eight frequency bands 125 250 500 1k 2k 4k 8k 16k
-        /// </summary>
-        /// <param name="source"></param>
-        /// <returns></returns>
-        public List<double> nSPL(Speaker speaker)       // Get values from  Json derived from CATT sd files.
-        {
-
-        }
-        /// <summary>
-        /// Returns a two dimensional 19x36 array that stores directivity index of the source. 
-        /// </summary>
-        /// <param name="source"></param>
-        /// <returns></returns>
-        public double[,] dSPL(Speaker speaker)          // Get values from  Json derived from CATT sd files.
-        {
-            
-        }
-        */
         #endregion
 
     }

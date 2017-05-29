@@ -20,11 +20,5 @@ namespace BHoM.Acoustic
         public List<double> Frequencies { get; set; }           // Ask Matthew H. why both Frequencies and Octaves?
         public List<double> Gains { get; set; }
 
-
-        public virtual double GetGain(double frequency, double octave)
-        {
-            return Gains[0];
-        }
-
     }
 }
