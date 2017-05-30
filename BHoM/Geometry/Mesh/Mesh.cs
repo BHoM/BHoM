@@ -329,7 +329,7 @@ namespace BHoM.Geometry
                 }
                 aResult = aResult.Trim(',') + "]";
             }
-            aResult = "]";
+            aResult += "]";
 
             return "{\"__Type__\": \"" + this.GetType().FullName + "\"," + BHoMJSON.WriteProperty("Vertices", m_Vertices) + ",\"Faces\": " + aResult + "}";
         }
