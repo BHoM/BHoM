@@ -32,7 +32,7 @@ namespace BHoM.Geometry
             IsNurbForm = true;
         }
 
-        public override double Length   // Error of 40%, to be reviewed
+        public override double Length
         {
             get
             {
