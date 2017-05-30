@@ -296,23 +296,28 @@ namespace BHoM.Geometry
         /// Returns area of a BHoM mesh
         /// </summary>
         public double Area()
-        {
-            Mesh m = new Mesh();
-            m.AddVertices(m_Vertices.ToList());
-            m.AddFaces(m_Faces);
-            m.Triangulate();
-            List<Polyline> Edges = m.GetEdges();
+        {          
             List<double> faceArea = new List<double>();
-            for ( int i = 0; i < Edges.Count; i++)                  //foreach face
+            for ( int i = 0; i < m_Faces.Count; i++)
             {
-                double p = (Edges[i].Length)/2;
-                List<Curve> seg = Edges[i].Explode();
-                List<double> segLen = new List<double>();
-                for (int j = 0; j < seg.Count; j++)                 //foreach face edge
+                Point pA = m_Vertices[m_Faces[i].A];
+                Point pB = m_Vertices[m_Faces[i].B];
+                Point pC = m_Vertices[m_Faces[i].C];
+                if (m_Faces[i].IsTriangle)
                 {
-                    segLen.Add(p - seg[j].Length);
-                }     
-                faceArea.Add(Math.Sqrt(segLen[0] * segLen[1] * segLen[2] * p));     //Triangle area by Heron's formula
+                    Vector AB = new Vector(pB.X - pA.X, pB.Y - pA.Y, pB.Z - pA.Z);
+                    Vector AC = new Vector(pC.X - pA.X, pC.Y - pA.Y, pC.Z - pA.Z);
+                    faceArea.Add(Vector.CrossProduct(AB, AC).Length);
+                }
+                else
+                {
+                    Point pD = m_Vertices[m_Faces[i].D];
+                    Vector AB = new Vector(pB.X - pA.X, pB.Y - pA.Y, pB.Z - pA.Z);
+                    Vector AC = new Vector(pC.X - pA.X, pC.Y - pA.Y, pC.Z - pA.Z);
+                    Vector CB = new Vector(pB.X - pC.X, pB.Y - pC.Y, pB.Z - pC.Z);
+                    Vector CD = new Vector(pD.X - pC.X, pD.Y - pC.Y, pD.Z - pC.Z);
+                    faceArea.Add(Vector.CrossProduct(AB, AC).Length + Vector.CrossProduct(CB, CD).Length);
+                }
             }
             return faceArea.Sum();
         }
