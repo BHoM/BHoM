@@ -10,7 +10,7 @@ namespace BHoM.Geometry
 {
     public class Polyline : Curve
     {
-        internal Polyline() { }
+        public Polyline() { }
 
         public Polyline(List<Point> points) : base(points) { }
 
