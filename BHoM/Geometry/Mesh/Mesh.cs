@@ -51,12 +51,58 @@ namespace BHoM.Geometry
             return m_Vertices.Bounds();
         }
 
-        public Vector FaceNormal(int face)
+        public Vector FaceNormal(int face)      // Why here? Should be in the Face class
         {
             Point p1 = m_Vertices[(m_Faces[face].A)];
             Point p2 = m_Vertices[(m_Faces[face].B)];
             Point p3 = m_Vertices[(m_Faces[face].C)];
             return new Vector( VectorUtils.CrossProduct(VectorUtils.Sub(p2, p1), VectorUtils.Sub(p3, p1)));        
+        }
+
+        /// <summary>
+        /// Calculates the normals of a mesh at each triangular face
+        /// </summary>
+        /// <param name="mesh"></param>
+        /// <returns>Returns the normals of a mesh for each face as a list of BHoM Vectors</returns>
+        public List<Vector> FaceNormals()
+        {
+            List<Vector> normals = new List<Vector>();
+            for ( int i = 0; i<m_Faces.Count; i++)
+            {
+                Point p1 = m_Vertices[(m_Faces[i].A)];
+                Point p2 = m_Vertices[(m_Faces[i].B)];
+                Point p3 = m_Vertices[(m_Faces[i].C)];
+                normals.Add(new Vector(VectorUtils.CrossProduct(VectorUtils.Sub(p2, p1), VectorUtils.Sub(p3, p1))));    // Assumption that if the face is quad, it is a flat quad.
+            }
+            return normals;
+        }
+
+        /// <summary>
+        /// Calculates the barycentic point of each Mesh Face
+        /// </summary>
+        /// <returns></returns>
+        public List<Point> FaceCentres()
+        {
+            List<Point> centres = new List<Point>();
+            for (int i = 0; i < m_Faces.Count; i++)
+            {
+                if (m_Faces[i].IsQuad)
+                {
+                    Point p1 = m_Vertices[(m_Faces[i].A)];
+                    Point p2 = m_Vertices[(m_Faces[i].B)];
+                    Point p3 = m_Vertices[(m_Faces[i].C)];
+                    centres.Add(new Point((p1.X + p2.X + p3.X) / 3, (p1.Y + p2.Y + p3.Y) / 3, (p1.Z + p2.Z + p3.Z) / 3));
+                }
+                else
+                {
+                    Point p1 = m_Vertices[(m_Faces[i].A)];
+                    Point p2 = m_Vertices[(m_Faces[i].B)];
+                    Point p3 = m_Vertices[(m_Faces[i].C)];
+                    Point p4 = m_Vertices[(m_Faces[i].D)];
+                    centres.Add(new Point((p1.X + p2.X + p3.X + p4.X) / 4, (p1.Y + p2.Y + p3.Y + p4.Y) / 4, (p1.Z + p2.Z + p3.Z + p4.Z) / 4));
+                }
+            }
+                return centres;
         }
 
         /// <summary>
@@ -278,13 +324,11 @@ namespace BHoM.Geometry
                 List<Point> faceVertices = new List<Point>();
                 Point p1 = m_Vertices[m_Faces[i].A];
                 Point p2 = m_Vertices[m_Faces[i].B];
-                Point p3 = m_Vertices[m_Faces[i].C];
-                Point p4 = new Point();
-                if (m_Faces[i].IsQuad) { p4 = m_Vertices[m_Faces[i].D]; }               
+                Point p3 = m_Vertices[m_Faces[i].C];             
                 faceVertices.Add(p1);
                 faceVertices.Add(p2);
                 faceVertices.Add(p3);
-                if (m_Faces[i].IsQuad) { faceVertices.Add(p4); }
+                if (m_Faces[i].IsQuad) { faceVertices.Add(m_Vertices[m_Faces[i].D]); }
                 faceVertices.Add(p1);                               // Closed Polyline
                 Polyline edge = new Polyline(faceVertices);
                 edges.Add(edge);

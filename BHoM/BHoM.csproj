@@ -286,7 +286,11 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>MKDir "C:\Users\$(Username)\AppData\Roaming\BHoM\Structural\Databases"
-Copy "$(TargetDir)Structural\Databases" "C:\Users\$(Username)\AppData\Roaming\BHoM\Structural\Databases"</PostBuildEvent>
+Copy "$(TargetDir)Structural\Databases" "C:\Users\$(Username)\AppData\Roaming\BHoM\Structural\Databases"
+
+Copy "$(TargetPath)" "C:\Users\$(Username)\AppData\Roaming\BHoM\$(ProjectName).dll"
+
+copy /Y "$(TargetDir)BHoM.dll" "C:\Users\$(Username)\AppData\Roaming\BHoM\BHoM.dll"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
