@@ -41,7 +41,7 @@ namespace BHoM.Base
 
         public static Guid ReadGuid(string json)
         {
-            return Guid.Parse(json);
+            return Guid.Parse(json.Trim(new char[] { ' ', '\"' }));
         }
 
         /**************************************/
@@ -120,6 +120,8 @@ namespace BHoM.Base
 
             if (type == typeof(string))
                 return ReadString(json);
+            else if (type == typeof(Guid))
+                return ReadGuid(json);
             else if (type.IsValueType && parseMethod != null)
                 return parseMethod.Invoke(null, new object[] { json });
             else if (type.IsEnum)

@@ -75,7 +75,7 @@ namespace BHoM.Base
             if ((value.StartsWith("{") && value.EndsWith("}")) || (value.StartsWith("[") && value.EndsWith("]")))
                 return value.Replace("\\", "\\\\").Replace("\n", "\\n").Replace("\r", "");
             else
-                return "\"" + value.Replace("\\", "\\\\") + "\"";
+                return "\"" + value.Replace("\\", "\\\\").Replace("\n", "\\n").Replace("\r", "").Replace("\"", "\\\"") + "\"";
         }
 
         /**************************************/
