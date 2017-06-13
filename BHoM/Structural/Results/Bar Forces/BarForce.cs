@@ -166,7 +166,16 @@ namespace BHoM.Structural.Results
             var r2 = obj as BarForce<TName, TLoadcase, TTimeStep>;
             if (r2 != null)
             {
-                int n = this.Name.CompareTo(r2.Name);
+                int i1, i2;
+                int n;
+                if (int.TryParse(this.Name.ToString(), out i1) && int.TryParse(r2.Name.ToString(), out i2))
+                {
+                    n = i2.CompareTo(i2);
+                }
+                else
+                {
+                    n = this.Name.CompareTo(r2.Name);
+                }
                 if (n == 0)
                 {
                     int l = this.Loadcase.CompareTo(r2.Loadcase);

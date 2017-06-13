@@ -144,6 +144,9 @@ namespace BHoM.Structural.Results
             throw new NotImplementedException();
         }
 
-
+        public bool GetBarDisplacements(List<string> bars, List<string> cases, int divisions, ResultOrder orderBy, out Dictionary<string, IResultSet> results)
+        {
+            return (results = GetResult<BarDisplacement>(bars, null, orderBy)) != null;
+        }
     }
 }

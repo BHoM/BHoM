@@ -21,6 +21,7 @@ namespace BHoM.Base.Results
         Utilisation,
         SlabReinforcement,
         NodeCoordinates,
-        BarCoordinates
+        BarCoordinates,
+        BarDisplacement
     }
 }
