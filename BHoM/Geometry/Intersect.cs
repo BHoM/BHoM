@@ -351,7 +351,7 @@ namespace BHoM.Geometry
         private static double[] CurveParameterAtPlane(Plane p, Curve c, double tolerance, ref double minT, ref double maxT, double[] p1, double[] p2)
         {
             double mid = (minT + maxT) / 2;
-            if (minT == maxT)
+            if (minT > maxT - tolerance)
             {
                 return p1;
             }

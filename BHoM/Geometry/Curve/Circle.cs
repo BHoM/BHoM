@@ -104,6 +104,7 @@ namespace BHoM.Geometry
 
         public override string ToJSON()
         {
+            if (m_Plane == null) m_Plane = Plane.XY();
             return "{\"__Type__\":\"" + this.GetType() + "\", \"Plane\": " + m_Plane.ToJSON() + ", \"Radius\": " + m_Radius + "}";
         }
         public static new Circle FromJSON(string json, Project project = null)

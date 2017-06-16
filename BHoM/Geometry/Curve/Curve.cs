@@ -198,7 +198,6 @@ namespace BHoM.Geometry
             }
         }
 
-
         public bool ContainsCurve(Curve c)
         {
             Plane p = null;
@@ -276,23 +275,28 @@ namespace BHoM.Geometry
             return false;
         }
 
-        private double BasisFunction(int i, int n, double t)
+        private double BasisFunction(int i, int n, double t, int depth)
         {
+            if (depth > 20)
+            {
+                return 1;
+            }
             if (n > 0 && t >= m_Knots[i] && t < m_Knots[i + n + 1])
             {
                 double result = 0;
                 if (m_Knots[i + n] - m_Knots[i] > 0)
                 {
-                    result += BasisFunction(i, n - 1, t) * (t - m_Knots[i]) / (m_Knots[i + n] - m_Knots[i]);
+                    result += BasisFunction(i, n - 1, t, depth++ + 1) * (t - m_Knots[i]) / (m_Knots[i + n] - m_Knots[i]);
                 }
                 if (m_Knots[i + n + 1] - m_Knots[i + 1] > 0)
                 {
-                    result += BasisFunction(i + 1, n - 1, t) * (m_Knots[i + n + 1] - t) / (m_Knots[i + n + 1] - m_Knots[i + 1]);
+                    result += BasisFunction(i + 1, n - 1, t, depth++ + 1) * (m_Knots[i + n + 1] - t) / (m_Knots[i + n + 1] - m_Knots[i + 1]);
                 }
 
                 return result;
             }
             else
+
             {
                 return t >= m_Knots[i] && t < m_Knots[i + 1] ? 1 : 0;
             }
@@ -305,11 +309,11 @@ namespace BHoM.Geometry
                 double result = 0;
                 if (i + n < m_Knots.Length && m_Knots[i + n] - m_Knots[i] > 0)
                 {
-                    result += BasisFunction(i, n - 1, t) * n / (m_Knots[i + n] - m_Knots[i]);
+                    result += BasisFunction(i, n - 1, t,1) * n / (m_Knots[i + n] - m_Knots[i]);
                 }
                 if (i + n + 1 < m_Knots.Length && m_Knots[i + n + 1] - m_Knots[i + 1] > 0)
                 {
-                    result -= BasisFunction(i + 1, n - 1, t) * n / (m_Knots[i + n + 1] - m_Knots[i + 1]);
+                    result -= BasisFunction(i + 1, n - 1, t,1) * n / (m_Knots[i + n + 1] - m_Knots[i + 1]);
                 }
                 return result;
             }
@@ -331,7 +335,7 @@ namespace BHoM.Geometry
             else if (t >= m_Knots[m_Knots.Length - 1]) return Common.Utils.SubArray<double>(m_ControlPoints, m_ControlPoints.Length - 4, 3);
             for (int i = 0; i < m_ControlPoints.Length / (m_Dimensions + 1); i++)
             {
-                double Nt = BasisFunction(i, m_Order - 1, t);
+                double Nt = BasisFunction(i, m_Order - 1, t,1);
                 if (Nt == 0) continue;
                 sumNwP = VectorUtils.Add(sumNwP, VectorUtils.Multiply(m_ControlPoints, Nt * m_Weights[i], i * (m_Dimensions + 1), m_Dimensions));
                 sumNw += Nt * m_Weights[i];
@@ -349,7 +353,7 @@ namespace BHoM.Geometry
 
             for (int i = 0; i < m_ControlPoints.Length / (m_Dimensions + 1); i++)
             {
-                double Nt = BasisFunction(i, m_Order - 1, t);
+                double Nt = BasisFunction(i, m_Order - 1, t,1);
                 double Nder = DerivativeFunction(i, m_Order - 1, t);
                 double[] P = Common.Utils.SubArray<double>(m_ControlPoints, i * (m_Dimensions + 1), m_Dimensions);
                 sumNwP = VectorUtils.Add(sumNwP, VectorUtils.Multiply(P, Nt * m_Weights[i]));
@@ -373,6 +377,7 @@ namespace BHoM.Geometry
             {
                 double max = m_Knots.Max();
                 m_Knots = VectorUtils.Sub(new double[] { max }, m_Knots);
+                m_Knots = m_Knots.Reverse().ToArray();
                 m_Weights = m_Weights.Reverse().ToArray();
             }
             return this;
@@ -385,7 +390,6 @@ namespace BHoM.Geometry
 
             return BHoM.Common.Utils.SubArray<double>(m_ControlPoints, 0, index * (m_Dimensions + 1));
         }
-
 
         protected double[] RightControlPoints(double t)
         {
@@ -402,7 +406,6 @@ namespace BHoM.Geometry
                 return new double[0];
             }
         }
-
         public void ChangeDegree(int newDegree)
         {
             while (newDegree > Degree)

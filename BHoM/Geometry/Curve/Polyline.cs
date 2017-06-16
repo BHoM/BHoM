@@ -48,10 +48,10 @@ namespace BHoM.Geometry
         public override List<Curve> Explode()
         {
             List<Curve> lineSegments = new List<Curve>();
-            lineSegments.Add(new Line(ControlPoint(0), ControlPoint(1)));
-            for (int i = 1; i < PointCount - 1; i++)
+            lineSegments.Add(new Line(ControlPoint(0), ControlPoint(Degree)));
+            for (int i = Degree; i < PointCount - Degree; i+= Degree)
             {
-                lineSegments.Add(new Line(lineSegments[i - 1].EndPoint, ControlPoint(i + 1)));
+                lineSegments.Add(new Line(lineSegments[i / Degree - 1].EndPoint, ControlPoint(i + Degree)));
             }
             return lineSegments;
         }
