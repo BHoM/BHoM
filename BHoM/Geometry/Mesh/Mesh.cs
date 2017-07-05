@@ -277,7 +277,7 @@ namespace BHoM.Geometry
         }
 
         /// <summary>
-        /// Turns quad faces of a BHoM mesh into triangles
+        /// Turns Quadrilateral Faces of a Mesh into Trianglular Faces
         /// </summary>
         public Mesh Triangulate()
         {
@@ -340,30 +340,21 @@ namespace BHoM.Geometry
         /// Returns area of a BHoM mesh
         /// </summary>
         public double Area()
-        {          
-            List<double> faceArea = new List<double>();
-            for ( int i = 0; i < m_Faces.Count; i++)
+        {
+            Mesh mesh = this.Triangulate();    
+            double area = 0;
+            List<Face> faces = mesh.Faces;
+            List<Point> vertices = mesh.Vertices.ToList();
+            for ( int i = 0; i < faces.Count; i++)
             {
-                Point pA = m_Vertices[m_Faces[i].A];
-                Point pB = m_Vertices[m_Faces[i].B];
-                Point pC = m_Vertices[m_Faces[i].C];
-                if (m_Faces[i].IsTriangle)
-                {
-                    Vector AB = new Vector(pB.X - pA.X, pB.Y - pA.Y, pB.Z - pA.Z);
-                    Vector AC = new Vector(pC.X - pA.X, pC.Y - pA.Y, pC.Z - pA.Z);
-                    faceArea.Add(Vector.CrossProduct(AB, AC).Length);
-                }
-                else
-                {
-                    Point pD = m_Vertices[m_Faces[i].D];
-                    Vector AB = new Vector(pB.X - pA.X, pB.Y - pA.Y, pB.Z - pA.Z);
-                    Vector AC = new Vector(pC.X - pA.X, pC.Y - pA.Y, pC.Z - pA.Z);
-                    Vector CB = new Vector(pB.X - pC.X, pB.Y - pC.Y, pB.Z - pC.Z);
-                    Vector CD = new Vector(pD.X - pC.X, pD.Y - pC.Y, pD.Z - pC.Z);
-                    faceArea.Add(Vector.CrossProduct(AB, AC).Length + Vector.CrossProduct(CB, CD).Length);
-                }
+                Point pA = vertices[faces[i].A];
+                Point pB = vertices[faces[i].B];
+                Point pC = vertices[faces[i].C];
+                Vector AB = new Vector(pB.X - pA.X, pB.Y - pA.Y, pB.Z - pA.Z);
+                Vector AC = new Vector(pC.X - pA.X, pC.Y - pA.Y, pC.Z - pA.Z);
+                area += Vector.CrossProduct(AB, AC).Length;
             }
-            return faceArea.Sum();
+            return area/2;
         }
         
         public override string ToJSON()
