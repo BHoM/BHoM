@@ -39,7 +39,7 @@ namespace BHoM.Geometry
                 double length = 0;
                 for (int i = 1; i < ControlPoints.Count; i++)
                 {
-                    length += VectorUtils.Length(VectorUtils.Sub(ControlPoints[i], ControlPoints[i - 1]));
+                    length += VectorUtils.Length(VectorUtils.Sub(ControlPoints[i-1], ControlPoints[i]));
                 }
                 return length;
             }
