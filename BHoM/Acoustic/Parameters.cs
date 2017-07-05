@@ -16,11 +16,11 @@ namespace BHoM.Acoustic
         private string Source { get; set; }
         private string Target { get; set; }
         private List<string> BouncingPattern { get; set; }
-        private List<double> Octaves { get; set; }
+        public List<double> Octaves { get; set; }
 
 
-        private List<double> Frequencies { get; set; }           // Ask Matthew H. why both Frequencies and Octaves?
-        private List<double> Gains { get; set; }
+        public List<double> Frequencies { get; set; }           // Ask Matthew H. why both Frequencies and Octaves?
+        public List<double> Gains { get; set; }
 
 
     }

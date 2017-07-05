@@ -10,14 +10,39 @@ namespace BHoM.Acoustic
 {
     public class Ray
     {
+        #region Private Fields
 
-        private Polyline Path { get; set; }
-        private string Source { get; set; }
-        private string Target { get; set; }
-        private List<string> BouncingPattern { get; set; }
+        private Polyline _Path { get; set; }
+        private int _SpeakerID { get; set; }
+        private int _ReceiverID { get; set; }
+        private List<int> _S { get; set; }
+
+        #endregion
+
+        #region Public Properties
+
+        public Polyline Path
+        {
+            get { return _Path; }
+            set { _Path = Path; }
+        }
+
+        public int SpeakerID
+        {
+            get { return _SpeakerID; }
+            set { _SpeakerID = SpeakerID; }
+        }
+
+        public int ReceiverID
+        {
+            get { return _ReceiverID; }
+            set { _ReceiverID = ReceiverID; }
+        }
+
+        #endregion
 
         #region Constructor
-
+            /*
         public Ray(Polyline path = null, string source = null, string target = null, List<string> bouncingPattern = null)
         {
             Path = path;
@@ -32,7 +57,7 @@ namespace BHoM.Acoustic
 
         public double Length()
         {
-            return Path.Length;         // Remember to fix Polyline.Length method
+            return Path.Length;
         }
 
         public double ToF()             // Time of Flight
@@ -48,7 +73,7 @@ namespace BHoM.Acoustic
         public Point Origin()
         {
             return Path.EndPoint;
-        }
+        }*/
         #endregion
     }
 }
