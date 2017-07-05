@@ -11,10 +11,10 @@ namespace BHoM.Acoustic
     public class Ray
     {
 
-        public Polyline Path { get; set; }
-        public string Source { get; set; }
-        public string Target { get; set; }
-        public List<string> BouncingPattern { get; set; }
+        private Polyline Path { get; set; }
+        private string Source { get; set; }
+        private string Target { get; set; }
+        private List<string> BouncingPattern { get; set; }
 
         #region Constructor
 

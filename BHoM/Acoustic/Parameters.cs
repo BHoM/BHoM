@@ -7,18 +7,21 @@ using BHoM.Base;
 
 namespace BHoM.Acoustic
 {
-
+    /// <summary>
+    /// BHom Acoustic parameters class
+    /// </summary>
     public class Parameters : BHoMObject
     {
-        public double Value { get; set; }
-        public string Source { get; set; }
-        public string Target { get; set; }
-        public List<string> BouncingPattern { get; set; }
-        public List<double> Octaves { get; set; }
+        private double Value { get; set; }
+        private string Source { get; set; }
+        private string Target { get; set; }
+        private List<string> BouncingPattern { get; set; }
+        private List<double> Octaves { get; set; }
 
 
-        public List<double> Frequencies { get; set; }           // Ask Matthew H. why both Frequencies and Octaves?
-        public List<double> Gains { get; set; }
+        private List<double> Frequencies { get; set; }           // Ask Matthew H. why both Frequencies and Octaves?
+        private List<double> Gains { get; set; }
+
 
     }
 }

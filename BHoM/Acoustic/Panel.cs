@@ -8,18 +8,60 @@ using BHoM.Base;
 
 namespace BHoM.Acoustic
 {
+    /// <summary>
+    /// BHoM Acoustic Panel as Mesh. Please make sure you mesh is exploded into quadrangular or triangular mesh faces.
+    /// </summary>
     public class Panel
     {
-        #region Constructor
+        #region Private Fields
 
         /// <summary>
-        /// Geometry as quadrilateral or triangular MeshFace
+        /// Geometry as quadrilateral or triangular Mesh
         /// </summary>
-        public Mesh Mesh { get; set; }
+        private Mesh _Mesh { get; set; }
         /// <summary>
         /// Absorbtion factor at each Octave
         /// </summary>
-        public List<double> R { get; set; }
+        private List<double> _R { get; set; }
+
+        /// <summary>
+        /// Mesh Plane used for image mirroring
+        /// </summary>
+        private Plane _Plane { get; set; }
+
+        #endregion
+
+        #region Public Properties
+
+        public Mesh Mesh
+        {
+            get { return _Mesh; }
+            set { Mesh = _Mesh; }
+        }
+
+        public List<double> R
+        {
+            get { return _R; }
+            set { R = _R; }
+        }
+
+        /// <summary>
+        /// Returns the plane panel for sources mirroring
+        /// </summary>
+        /// <returns></returns>
+        public Plane Plane
+        {
+            get { return _Plane; }
+            set
+            {
+                List<Point> Ver = Mesh.Vertices.ToList();
+                _Plane = new Plane(Ver[0], Ver[1], Ver[2]);
+            }
+        }
+
+        #endregion
+
+        #region Constructor
 
         /// <summary>
         /// Defines an acoustic panel and an absorbtion factor
@@ -41,18 +83,6 @@ namespace BHoM.Acoustic
 
         #endregion
 
-        #region Properties
 
-        /// <summary>
-        /// Returns the plane panel for sources mirroring
-        /// </summary>
-        /// <returns></returns>
-        public Plane mPlane()
-        {
-            List<Point> Ver = Mesh.Vertices.ToList();
-            return new Plane(Ver[0], Ver[1], Ver[2]);
-        }
-
-        #endregion
     }
 }
