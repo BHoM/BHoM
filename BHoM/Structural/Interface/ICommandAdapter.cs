@@ -17,7 +17,9 @@ namespace BHoM.Structural.Interface
 
         bool Close();
 
+        bool ClearModel();
 
+        bool ScreenCapture(string fileName = null, List<string> cases = null, List<string> viewNames = null);
 
     }
 }
