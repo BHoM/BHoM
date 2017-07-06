@@ -8,12 +8,41 @@ using BHoM.Geometry;
 
 namespace BHoM.Acoustic
 {
+    /// <summary>
+    /// BHoM Acoustic Receiver
+    /// </summary>
     public class Receiver
-    {   
+    {
+        #region Fields
 
-        public Point Position { get; set; }
-        public string Category { get; set; }
-        public string ReceiverID { get; set; }          // Ask Arnauld how to generate it automatically
+        private Point _Position;
+        private string _Category;
+        private int _ReceiverID;
+
+        #endregion
+
+        #region Properties
+
+        public Point Position
+        {
+            get { return _Position; }
+            set { _Position = Position; }
+        }
+
+        public string Category
+        {
+            get { return _Category; }
+            set { _Category = Category; }
+        }
+
+        public int ReceiverID
+        {
+            get { return _ReceiverID; }
+            set { _ReceiverID = ReceiverID; }
+        }
+
+        #endregion
+
 
         #region Constructor
 

@@ -8,28 +8,91 @@ using BHoM.Base;
 
 namespace BHoM.Acoustic
 {
+    /// <summary>
+    /// BHoM Acoustic Speaker
+    /// </summary>
     public class Speaker
     {
+        #region Fields
+
         /// <summary>
         /// Source emissive point
         /// </summary>
-        public Point Position { get; set; }
+        private Point _Position;
         /// <summary>
         /// Main emissive direction for directivity factor
         /// </summary>
-        public Vector Direction { get; set; }
+        private Vector _Direction;
         /// <summary>
         /// Source dirctivity type as string
         /// </summary>
-        public string Category { get; set; }
+        private string _Category;
         /// <summary>
         /// Automatically generated identifier of a source
         /// </summary>
-        public string SpeakerID { get; set; }       // Ask Arnauld how to generate it automatically
+        private int _SpeakerID;
         /// <summary>
         /// Acoustic Gain
         /// </summary>
-        public List<double> Gains { get; set; }      // value for each frequency
+        private List<double> _Gains;     // value for each frequency
+        /// <summary>
+        /// Directivity factor measured on a sphere each 10deg longitudinally
+        /// </summary>
+        private double[,,] _Directivity;  // [8,36, 19]
+
+        #endregion
+
+        #region Properties
+
+        public Point Position
+        {
+            get { return _Position; }
+            set { _Position = Position; }
+        }
+
+        public Vector Direction
+        {
+            get { return _Direction; }
+            set { _Direction = Direction; }
+        }
+
+        public string Category
+        {
+            get { return _Category; }
+            set { _Category = Category; }
+        }
+
+        public int SpeakerID
+        {
+            get { return _SpeakerID; }
+            set { _SpeakerID = SpeakerID; }
+        }
+
+        public List<double> Gains
+        {
+            get { return _Gains; }
+            set { _Gains = Gains; }
+        }
+
+        public double[,,] Directivity
+        {
+            get { return _Directivity; }
+            set { _Directivity = _Directivity; }
+        }
+
+        /***************** Additional Properties ******************/
+
+        public double GetGain(double frequency, double octave)
+        {
+            return (frequency < 5) ? Gains[0] : Gains[1];
+        }
+
+        public double GetGainAngleFactor(double angle, double octave) // take out octave
+        {
+            return (octave < 1000) ? (-2 * angle / 90 - 8) : (-18 * angle / 150 - 2); // I made some asumption here since matlab handles only 500Hz and 2000Hz
+        }
+
+        #endregion
 
         #region Constructor
 
@@ -69,20 +132,5 @@ namespace BHoM.Acoustic
         }
 
         #endregion
-
-        #region Properties
-
-        public double GetGain(double frequency, double octave)
-        {
-            return (frequency < 5) ? Gains[0] : Gains[1];
-        }
-
-        public double GetGainAngleFactor(double angle, double octave) // take out octave
-        {
-            return (octave < 1000) ? (-2 * angle / 90 - 8) : (-18 * angle / 150 - 2); // I made some asumption here since matlab handles only 500Hz and 2000Hz
-        }
-
-        #endregion
-
     }
 }

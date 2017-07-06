@@ -8,14 +8,17 @@ using BHoM.Geometry;
 
 namespace BHoM.Acoustic
 {
+    /// <summary>
+    /// BHoM Acoustic Ray
+    /// </summary>
     public class Ray
     {
         #region Private Fields
 
-        private Polyline _Path { get; set; }
-        private int _SpeakerID { get; set; }
-        private int _ReceiverID { get; set; }
-        private List<int> _S { get; set; }
+        private Polyline _Path;
+        private int _SpeakerID;
+        private int _ReceiverID;
+        private List<int> _PanelsID;
 
         #endregion
 
@@ -39,41 +42,42 @@ namespace BHoM.Acoustic
             set { _ReceiverID = ReceiverID; }
         }
 
+        public List<int> PanelsID
+        {
+            get { return _PanelsID; }
+            set { _PanelsID = PanelsID; }
+        }
+
+
+        /********** Additional Properties**********/
+
+        public double Length
+        {
+            get { return Path.Length; }
+        }
+
+        public double Time
+        {
+            get { return Path.Length / 343; }
+        }
+
+        public int Order
+        {
+            get { return PanelsID.Count; }
+        }
+
         #endregion
 
         #region Constructor
-            /*
-        public Ray(Polyline path = null, string source = null, string target = null, List<string> bouncingPattern = null)
+
+        public Ray(Polyline path, int source, int target, List<int> bouncingPattern = null)
         {
             Path = path;
-            Source = source;
-            Target = target;
-            BouncingPattern = bouncingPattern;
+            SpeakerID = source;
+            ReceiverID = target;
+            PanelsID = bouncingPattern;
         }
 
-        #endregion
-
-        #region Properties
-
-        public double Length()
-        {
-            return Path.Length;
-        }
-
-        public double ToF()             // Time of Flight
-        {
-            return Path.Length / 343;
-        }
-
-        public int Order()
-        {
-            return BouncingPattern.Count;
-        }
-
-        public Point Origin()
-        {
-            return Path.EndPoint;
-        }*/
         #endregion
     }
 }

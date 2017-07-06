@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BHoM.Acoustic
 {
-    public class AcousticRASTIParameters : Parameters
+    public class AcousticRASTIParameters : Parameter
     {
         // Hard coded AcousticParameters, discuss further with M. Harrison
         public AcousticRASTIParameters()

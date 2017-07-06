@@ -18,16 +18,15 @@ namespace BHoM.Acoustic
         /// <summary>
         /// Geometry as quadrilateral or triangular Mesh
         /// </summary>
-        private Mesh _Mesh { get; set; }
+        private Mesh _Mesh;
         /// <summary>
         /// Absorbtion factor at each Octave
         /// </summary>
-        private List<double> _R { get; set; }
-
+        private List<double> _R;
         /// <summary>
         /// Mesh Plane used for image mirroring
         /// </summary>
-        private Plane _Plane { get; set; }
+        private Plane _Plane;
 
         #endregion
 
@@ -36,7 +35,7 @@ namespace BHoM.Acoustic
         public Mesh Mesh
         {
             get { return _Mesh; }
-            set { Mesh = _Mesh; }
+            set { _Mesh = Mesh; }
         }
 
         public List<double> R
