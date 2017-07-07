@@ -36,7 +36,9 @@ namespace BHoM.Base
             }
             aResult += ",\"Dependencies\": [";
             foreach (BHoMObject obj in dependencies.Values)
-                aResult += obj.ToJSON() + ",";
+            {
+                if (obj != null) aResult += obj.ToJSON() + ",";
+            }
             aResult = aResult.Trim(',');
             aResult += "]";
 
@@ -44,6 +46,7 @@ namespace BHoM.Base
             aResult += ",\"Objects\": [";
             foreach (var value in objects)
             {
+                if (value != null)
                 aResult += value.ToJSON() + ",";
             }
             aResult = aResult.Trim(',');
@@ -232,6 +235,7 @@ namespace BHoM.Base
         public static string WriteValue(object value)
         {
             string aResult = "";
+            if (value == null) return null;
 
             if (value is BHoMObject)
                 aResult += "\"" + (value as BHoMObject).BHoM_Guid + "\"";
@@ -250,6 +254,7 @@ namespace BHoM.Base
             else
                 aResult += value.ToString();
             return aResult;
+
         }
 
         /**************************************/
