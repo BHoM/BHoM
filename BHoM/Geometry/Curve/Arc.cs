@@ -48,8 +48,8 @@ namespace BHoM.Geometry
             double[] localYAxis = VectorUtils.CrossProduct(plane.Normal, localXAxis);
 
             double[] crossProduct = VectorUtils.Normalise(VectorUtils.CrossProduct(v1, v2));
-            double multiplier1 = VectorUtils.DotProduct(v1, localYAxis) > 0 ? 1 : -1;
-            double multiplier2 = VectorUtils.DotProduct(crossProduct, plane.Normal) > 0 ? 1 : -1;
+            double multiplier1 = VectorUtils.DotProduct(v1, localYAxis) >= 0 ? 1 : -1;
+            double multiplier2 = VectorUtils.DotProduct(crossProduct, plane.Normal) >= 0 ? 1 : -1;
 
             double startAngle = VectorUtils.Angle(localXAxis, v1) * multiplier1;
             double arcAngle = VectorUtils.Angle(v1, v2) * multiplier2;
