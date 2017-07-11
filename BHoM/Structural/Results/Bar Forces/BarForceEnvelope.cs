@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BHoM.Structural.Results.Bars
+namespace BH.oM.Structural.Results.Bars
 {
     /// <summary>
     /// Envelope of bar forces representing the minima and maxima forces and principle
@@ -65,7 +65,7 @@ namespace BHoM.Structural.Results.Bars
         public double SMin { get; set; }
 
         /// <summary>Orientation of bar forces inherited from bar</summary>
-        public BHoM.Geometry.Plane[] OrientationPlane { get; set; }
+        public BH.oM.Geometry.Plane[] OrientationPlane { get; set; }
 
         /// <summary>User text field for any user data</summary>
         public string UserData { get; set; }

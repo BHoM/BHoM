@@ -1,11 +1,11 @@
-﻿using BHoM.Structural.Interface;
+﻿using BH.oM.Structural.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     public class NodeCoordinates : IResult
     {

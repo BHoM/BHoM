@@ -1,12 +1,12 @@
-﻿using BHoM.Structural.Properties;
-using BHoM.Structural.Results;
+﻿using BH.oM.Structural.Properties;
+using BH.oM.Structural.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
 
     public class SteelUtilisation : SteelUtilisation<string, string, string>

@@ -1,6 +1,6 @@
 ﻿//using System.Collections.Generic;
 
-//namespace BHoM.Structural.Elements
+//namespace BH.oM.Structural.Elements
 //{
 //    /// <summary>
 //    /// Beam class, can be used as a wrapper for an analytical bar object
@@ -17,9 +17,9 @@
 //        public List<Bar> Bars { get; private set; }
 
 //        /// <summary>Beam start point</summary>
-//        public BHoM.Geometry.Point StartPoint { get; private set; }
+//        public BH.oM.Geometry.Point StartPoint { get; private set; }
 //        /// <summary>Beam end point</summary>
-//        public BHoM.Geometry.Point EndPoint { get; private set; }
+//        public BH.oM.Geometry.Point EndPoint { get; private set; }
 
 //        /// <summary>Level for vertical reference</summary>
 //        public string LevelName { get; private set; }

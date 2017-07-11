@@ -1,25 +1,26 @@
-﻿using BHoM.Base;
+﻿using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
-using BHoM.Structural.Properties;
+using BH.oM.Structural.Properties;
 
 
 
 
-namespace BHoM.Materials
+namespace BH.oM.Materials
 {
     /// <summary>
     /// Material class for use in all other object classes and namespaces
     /// </summary>
     public class Material : BHoMObject
     {
-        //////////////////
-        ////Properties////
-        //////////////////
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public MaterialType Type { get; set; }
 
         /// <summary>Young's Modulus (MPa)</summary>
@@ -52,45 +53,27 @@ namespace BHoM.Materials
         [DefaultValue(null)]
         public double Density { get; set; }
 
-        /// <summary>
-        /// Returns the weight of the material in [kN/m^3] 
-        /// Calulated as Density * g / 1000, where g = 9.80665
-        /// </summary>
-        public double Weight
-        {
-            get
-            {
-                return Density * 9.80665 / 1000;
-            }
-        }
+        public double CompressiveYieldStrength { get; set; }
 
-        public double CompressiveYieldStrength
-        {
-            get;
-            set;
-        }
+        public double TensileYieldStrength { get; set; }
 
-        public double TensileYieldStrength
-        {
-            get;
-            set;
-        }
-
-        public double StainAtYield
-        {
-            get;
-            set;
-        }
+        public double StainAtYield { get; set; }
 
 
-        internal Material() { }
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Material() { }
+
+        /***************************************************/
 
         public Material(string name)
         {
             Name = name;
         }
 
-     
+        /***************************************************/
 
         public Material(string name, MaterialType type, double E, double v, double tC, double G, double denisty)
         {
@@ -101,6 +84,20 @@ namespace BHoM.Materials
             CoeffThermalExpansion = tC;
             ShearModulus = G;
             Density = denisty;
-        }       
+        }
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+        /// <summary>
+        /// Returns the weight of the material in [kN/m^3] 
+        /// Calulated as Density * g / 1000, where g = 9.80665
+        /// </summary>
+        public double GetWeight()
+        {
+            return Density * 9.80665 / 1000;
+        }
     }
 }

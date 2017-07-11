@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results.BarDeformation
+namespace BH.oM.Structural.Results.BarDeformation
 {
     class BarDeformation
     {

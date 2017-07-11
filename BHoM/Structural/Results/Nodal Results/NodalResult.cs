@@ -1,7 +1,7 @@
 ﻿using System;
-using BHoM.Geometry;
+using BH.oM.Geometry;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     /// <summary>
     /// Nodal Result object contains a set of coexisting forces, node reference
@@ -156,7 +156,7 @@ namespace BHoM.Structural.Results
     //    public int NodeNumber { get; set; }
 
     //    /// <summary>Loadcase</summary>
-    //    public BHoM.Structural.Loads.Loadcase Loadcase { get; set; }
+    //    public BH.oM.Structural.Loads.Loadcase Loadcase { get; set; }
 
     //    /// <summary>Associated loadcase number</summary>
     //    public int LoadcaseNumber { get; internal set; }
@@ -165,31 +165,31 @@ namespace BHoM.Structural.Results
     //    public string LoadcaseName { get; internal set; }
 
     //    /// <summary>Translation vector</summary>
-    //    public BHoM.Geometry.Vector Translation { get; set; }
+    //    public BH.oM.Geometry.Vector Translation { get; set; }
 
     //    /// <summary>Rotation vector</summary>
-    //    public BHoM.Geometry.Vector Rotation { get; set; }
+    //    public BH.oM.Geometry.Vector Rotation { get; set; }
 
     //    /// <summary>Acceleration vector</summary>
-    //    public BHoM.Geometry.Vector Acceleration { get; set; }
+    //    public BH.oM.Geometry.Vector Acceleration { get; set; }
 
     //    /// <summary>Angular acceleration vector</summary>
-    //    public BHoM.Geometry.Vector AngularAcceleration { get; set; }
+    //    public BH.oM.Geometry.Vector AngularAcceleration { get; set; }
 
     //    /// <summary>Velocity vector</summary>
-    //    public BHoM.Geometry.Vector Velocity { get; set; }
+    //    public BH.oM.Geometry.Vector Velocity { get; set; }
 
     //    /// <summary>Angular velocity vector</summary>
-    //    public BHoM.Geometry.Vector AngularVelocity { get; set; }
+    //    public BH.oM.Geometry.Vector AngularVelocity { get; set; }
 
     //    /// <summary>Force vector</summary>
-    //    public BHoM.Geometry.Vector Force { get; set; }
+    //    public BH.oM.Geometry.Vector Force { get; set; }
 
     //    /// <summary>Moment vector</summary>
-    //    public BHoM.Geometry.Vector Moment { get; set; }
+    //    public BH.oM.Geometry.Vector Moment { get; set; }
 
     //    /// <summary>Orientation of node results</summary>
-    //    public BHoM.Geometry.Plane OrientationPlane { get; set; }
+    //    public BH.oM.Geometry.Plane OrientationPlane { get; set; }
 
     //    /// <summary>User text field for any user data</summary>
     //    public string UserData { get; set; }
@@ -205,7 +205,7 @@ namespace BHoM.Structural.Results
     //    }
 
     //    /// <summary>Construct a nodal result with orientation plane</summary>
-    //    public NodalResult(int nodeNumber, BHoM.Geometry.Plane orientationPlane)
+    //    public NodalResult(int nodeNumber, BH.oM.Geometry.Plane orientationPlane)
     //    {
     //        this.NodeNumber = nodeNumber;
     //        this.OrientationPlane = orientationPlane;

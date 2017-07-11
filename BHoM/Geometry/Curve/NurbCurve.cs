@@ -1,95 +1,142 @@
-﻿using BHoM.Base;
-
+﻿using BH.oM.Base;
+using BH.oM.Geometry.Curve;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
-    public class NurbCurve : Curve
+    public class NurbCurve : ICurve
     {
-        internal NurbCurve()
-        {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
+        public List<Point> ControlPoints { get; set; } = new List<Point>();
+
+        public List<double> Weights { get; set; } = new List<double>();
+
+        public List<double> Knots { get; set; } = new List<double>();
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public NurbCurve() { }
+
+        /***************************************************/
+
+        public NurbCurve(IEnumerable<Point> controlPoints, int degree = 3)
+        {
+            int n = controlPoints.Count();
+            int d = degree - 1;
+            ControlPoints = controlPoints.ToList();
+            Weights = Enumerable.Repeat(1.0, n).ToList();
+            Knots = Enumerable.Repeat(0, d).Concat(Enumerable.Range(0, n - d).Concat(Enumerable.Repeat(n - d - 1, d))).Select(x => (double)x).ToList();
         }
 
-        public NurbCurve(List<double[]> points, int degree, double[] knots, double[] weights) : base(points)
+        /***************************************************/
+
+        public NurbCurve(IEnumerable<Point> controlPoints, IEnumerable<double> weights, int degree = 3)
         {
-            m_Dimensions = 3;
-            m_Order = degree + 1;
-            m_Knots = knots;
-            m_Weights = weights;
+            int n = controlPoints.Count();
+            int d = degree - 1;
+            ControlPoints = controlPoints.ToList();
+            Weights = weights.ToList();
+            Knots = Enumerable.Repeat(0, d).Concat(Enumerable.Range(0, n - d).Concat(Enumerable.Repeat(n - d - 1, d))).Select(x => (double)x).ToList();
         }
 
-        public NurbCurve(List<Point> points, int degree, double[] knots, double[] weights) : base(points)
+        /***************************************************/
+
+        public NurbCurve(IEnumerable<Point> controlPoints, IEnumerable<double> weights, IEnumerable<double> knots)
         {
-            m_Dimensions = 3;
-            m_Order = degree + 1;
-            m_Knots = knots;
-            m_Weights = weights;
+            ControlPoints = controlPoints.ToList();
+            Weights = weights.ToList();
+            Knots = knots.ToList();
         }
 
-        public override GeometryType GeometryType
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+        public int GetDegree()
         {
-            get
-            {
-                return GeometryType.NurbCurve;
-            }
+            return 1 + Knots.Count - ControlPoints.Count;
         }
 
-        public new double[] Knots
+
+        /***************************************************/
+        /**** IBHoMGeometry Interface                   ****/
+        /***************************************************/
+
+        public GeometryType GetGeometryType()
         {
-            get
-            {
-                return base.Knots;
-            }
-            set
-            {
-                m_Knots = value;
-            }
+            return GeometryType.NurbCurve;
         }
 
-        public new double[] Weights
+        /***************************************************/
+
+        public BoundingBox GetBounds()
         {
-            get
-            {
-                return base.Weights;
-            }
-            set
-            {
-                m_Weights = value;
-            }
+            throw new NotImplementedException(); //TODO: Implement bounds for NurbsCurve
         }
 
-        public new double[] ControlPointVector
+        /***************************************************/
+
+        public object Clone()
         {
-            get
-            {
-                return base.ControlPointVector;
-            }
-            set
-            {
-                m_ControlPoints = value;
-            }
+            return new NurbCurve(ControlPoints.Select(x => x.Clone() as Point), Weights, Knots);
         }
 
-        public new int Degree
+        /***************************************************/
+
+        public IBHoMGeometry GetTranslated(Vector t)
         {
-            get
-            {
-                return base.Degree;
-            }
-            set
-            {
-                m_Order = value + 1;
-            }
+            return new NurbCurve(ControlPoints.Select(x => x + t), Weights, Knots);
         }
 
-        public static NurbCurve Create(List<Point> points, int degree, double[] knots, double[] weights)
+
+        /***************************************************/
+        /**** ICurve Interface                          ****/
+        /***************************************************/
+
+        public Point GetStart()
         {
-            return new NurbCurve(points, degree, knots, weights);
+            return ControlPoints.Count > 0 ? ControlPoints.First() : null;
         }
+
+        /***************************************************/
+
+        public Point GetEnd()
+        {
+            return ControlPoints.Count > 0 ? ControlPoints.Last() : null;
+        }
+
+        /***************************************************/
+
+        public Vector GetStartDir()
+        {
+            throw new NotImplementedException(); //TODO: get start dir of nurb curve
+        }
+
+        /***************************************************/
+
+        public Vector GetEndDir()
+        {
+            throw new NotImplementedException(); //TODO: get end dir of nurb curve
+        }
+
+        /***************************************************/
+
+        public bool IsClosed()
+        {
+            return ControlPoints.Count > 0 ? ControlPoints.Last() == ControlPoints.First() : false;
+        }
+
+
     }
 }

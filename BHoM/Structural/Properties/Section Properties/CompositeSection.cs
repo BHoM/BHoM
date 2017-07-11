@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Geometry;
-namespace BHoM.Structural.Properties
+using BH.oM.Geometry;
+namespace BH.oM.Structural.Properties
 {
     public class CompositeSection : SectionProperty
     {
@@ -46,8 +46,8 @@ namespace BHoM.Structural.Properties
         //        concreteRectangle.Transform(Transform.Scale(Point.Origin, new Vector(n, 1, 1)));
         //        Group<Curve> steelSection = m_SteelSection.Edges;
 
-        //        double topSteel = steelSection.Bounds().Max.Y;
-        //        double botConcrete = concreteRectangle.Bounds().Min.Y;
+        //        double topSteel = steelSection.GetBounds().Max.Y;
+        //        double botConcrete = concreteRectangle.GetBounds().Min.Y;
         //        double steelOffset = topSteel - botConcrete - SteelEmbedmentDepth;
 
         //        //TEMP UNDO steelSection.Translate(Vector.YAxis(-steelOffset));
@@ -61,7 +61,7 @@ namespace BHoM.Structural.Properties
         //                List<Curve> curves = perimeter.Split(Plane.YZ(botConcrete), true);
         //                if (curves.Count == 2)
         //                {
-        //                    if (curves[0].Bounds().Centre.Y < botConcrete)
+        //                    if (curves[0].GetBounds().Centre.Y < botConcrete)
         //                    {
         //                        concreteRectangle.Add(curves[0]);
         //                    }

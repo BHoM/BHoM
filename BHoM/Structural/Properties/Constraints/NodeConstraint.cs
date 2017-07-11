@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
-using BHoM.Base;
+using BH.oM.Base;
 
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {       
     /// <summary>
     /// Constraint object - base class for all release, restraint, support classes. 

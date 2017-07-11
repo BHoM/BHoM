@@ -3,68 +3,106 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Base;
-using BHoM.Structural.Elements;
+using BH.oM.Base;
+using BH.oM.Structural.Elements;
 
-namespace BHoM.Structural.Loads
+namespace BH.oM.Structural.Loads
 {
     /// <summary>
     /// Uniformly distributed area load
     /// </summary>
     [Serializable]
-    public class AreaUniformalyDistributedLoad : Load<IAreaElement>
+    public class AreaUniformalyDistributedLoad : Load<IAreaElement>  //TODO: one class per file
     {
-        public BHoM.Geometry.Vector Pressure { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public override LoadType LoadType
-        {
-            get
-            {
-                return LoadType.AreaUniformLoad;
-            }
-        }
+        public BH.oM.Geometry.Vector Pressure { get; set; }
 
-        public AreaUniformalyDistributedLoad()
-        { }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public AreaUniformalyDistributedLoad() { }
+
+        /***************************************************/
 
         public AreaUniformalyDistributedLoad(Loadcase loadcase, double px, double py, double pz)
         {
             Pressure = new Geometry.Vector(px, py, pz);
         }
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+        public override LoadType GetLoadType()
+        {
+            return LoadType.AreaUniformLoad;
+        }
+
+        
         //Perhaps we can have one area load object for all 'area' type objects - panels, walls, floors, finite elements
     }
+
+
+
 
     /// <summary>
     /// Varying load distributed over an area
     /// </summary>
-    [Serializable]
     public class AreaVaryingDistributedLoad
     {
 
         //Varying loads on area based objects
     }
 
+
+
+
     /// <summary>
     /// bar temperature load class
     /// </summary>
     public class AreaTemperatureLoad : Load<IAreaElement>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public double TemperatureChange { get; set; }
 
-        public override LoadType LoadType
-        {
-            get
-            {
-                return LoadType.BarTemperature;
-            }
-        }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         public AreaTemperatureLoad() { }
-        //Bar temp load object. Expansion in XYZ
+
+        /***************************************************/
+
         public AreaTemperatureLoad(Loadcase loadcase, double t)
         {
             Loadcase = loadcase;
             TemperatureChange = t;
         }
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** ILoad Interface                           ****/
+        /***************************************************/
+
+        public override LoadType GetLoadType()
+        {
+            return LoadType.BarTemperature;
+        }
+
     }
 }

@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-using BHoM.Base;
+using BH.oM.Base;
 
 
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {
     public class CableSection : SectionProperty
     {
@@ -18,10 +18,10 @@ namespace BHoM.Structural.Properties
         public CableSection()
         { }
 
-        //public CableSection(double diameter, double areaOfOneCable, int numberOfCables = 1) : this(diameter, areaOfOneCable, BHoM.Materials.Material.Default(Materials.MaterialType.Cable), numberOfCables)
+        //public CableSection(double diameter, double areaOfOneCable, int numberOfCables = 1) : this(diameter, areaOfOneCable, BH.oM.Materials.Material.Default(Materials.MaterialType.Cable), numberOfCables)
         //{   }
 
-        //public CableSection(double diameter, double areaOfOneCable, BHoM.Materials.Material mat, int numberOfCables = 1)
+        //public CableSection(double diameter, double areaOfOneCable, BH.oM.Materials.Material mat, int numberOfCables = 1)
         //{
         //    m_numberOfCables = numberOfCables;
         //    m_Area = areaOfOneCable;

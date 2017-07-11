@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
     public enum GeometryType  
     {
@@ -18,7 +18,7 @@ namespace BHoM.Geometry
         Polyline,
         PolyCurve,
         NurbCurve,
-        Surface,
+        NurbSurface,
         Loft,
         Pipe,
         Extrusion,

@@ -1,40 +1,97 @@
-﻿using BHoM.Base;
-
+﻿using BH.oM.Base;
+using BH.oM.Geometry.Curve;
+using BH.oM.Geometry.Surface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
-    public partial class Loft : Brep
+    public partial class Loft : ISurface
     {
-        public Group<Curve> Curves { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public List<ICurve> Curves { get; set; } = new List<ICurve>();
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         public Loft() { }
-        public Loft(Group<Curve> curves)
+
+        /***************************************************/
+
+        public Loft(IEnumerable<ICurve> curves)
         {
-            Curves = curves;
-        }
-        public override GeometryType GeometryType
-        {
-            get
-            {
-                return GeometryType.Loft;
-            }
+            Curves = curves.ToList();
         }
 
-        public override BHoMGeometry Duplicate()
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+
+        /***************************************************/
+        /**** IBHoMGeometry Interface                   ****/
+        /***************************************************/
+
+        public GeometryType GetGeometryType()
         {
-            Loft dup = base.Duplicate() as Loft;
-            dup.Curves = Curves.DuplicateGroup();
-            return dup;
+            return GeometryType.Loft;
         }
 
-        public override BoundingBox Bounds()
+        /***************************************************/
+
+        public BoundingBox GetBounds()
         {
-            return Curves.Bounds();
+            if (Curves.Count == 0)
+                return null;
+
+            BoundingBox box = Curves[0].GetBounds();
+            for (int i = 1; i < Curves.Count; i++)
+                box += Curves[i].GetBounds();
+
+            return box;
         }
+
+        /***************************************************/
+
+        public object Clone()
+        {
+            return new Loft(Curves.Select(x => x.Clone() as ICurve));
+        }
+
+        /***************************************************/
+
+        public IBHoMGeometry GetTranslated(Vector t)
+        {
+            return new Loft(Curves.Select(x => x.GetTranslated(t) as ICurve)); 
+        }
+
+
+        /***************************************************/
+        /**** IBrep Interface                           ****/
+        /***************************************************/
+
+        public List<ICurve> GetExternalEdges()
+        {
+            return Curves;
+
+        }
+
+        /***************************************************/
+
+        public List<ICurve> GetInternalEdges()
+        {
+            return new List<ICurve>();
+        }
+
     }
 }

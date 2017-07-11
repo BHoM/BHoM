@@ -64,6 +64,8 @@
     <Compile Include="Acoustic\Speaker.cs" />
     <Compile Include="Acoustic\STIResult.cs" />
     <Compile Include="Acoustic\Zone.cs" />
+    <Compile Include="Base\Interface\IObjectList.cs" />
+    <Compile Include="Geometry\Curve\ICurve.cs" />
     <Compile Include="Geometry\Misc\BoundingBox.cs" />
     <Compile Include="Geometry\Curve\Arc.cs" />
     <Compile Include="Geometry\Curve\Circle.cs" />
@@ -73,15 +75,16 @@
     <Compile Include="Geometry\Curve\PolyCurve.cs" />
     <Compile Include="Geometry\Curve\Polyline.cs" />
     <Compile Include="Geometry\Enums.cs" />
-    <Compile Include="Geometry\Misc\Group.cs" />
+    <Compile Include="Geometry\Misc\GeometryGroup.cs" />
     <Compile Include="Geometry\Mesh\Face.cs" />
     <Compile Include="Geometry\Mesh\Mesh.cs" />
     <Compile Include="Geometry\Surface\Brep.cs" />
     <Compile Include="Geometry\Surface\Extrusion.cs" />
+    <Compile Include="Geometry\Surface\ISurface.cs" />
     <Compile Include="Geometry\Surface\Loft.cs" />
     <Compile Include="Geometry\Surface\Pipe.cs" />
     <Compile Include="Geometry\Surface\Polysurface.cs" />
-    <Compile Include="Geometry\Surface\Surface.cs" />
+    <Compile Include="Geometry\Surface\NurbSurface.cs" />
     <Compile Include="Geometry\Utils.cs" />
     <Compile Include="Geometry\Vector\Plane.cs" />
     <Compile Include="Geometry\Vector\Point.cs" />
@@ -89,18 +92,14 @@
     <Compile Include="Base\Interface\IAdapter.cs" />
     <Compile Include="Base\Interface\IObject.cs" />
     <Compile Include="Base\BHoMObject.cs" />
-    <Compile Include="Geometry\BHoMGeometry.cs" />
-    <Compile Include="Base\BHoMList.cs" />
+    <Compile Include="Geometry\IBHoMGeometry.cs" />
+    <Compile Include="Base\BHoMGroup.cs" />
     <Compile Include="Environmental\Elements\Location.cs" />
     <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Opening.cs" />
     <Compile Include="Environmental\Elements\Space.cs" />
     <Compile Include="Humans\BodyParts.cs" />
     <Compile Include="Humans\Skeleton.cs" />
-    <Compile Include="MEP\Element.cs" />
-    <Compile Include="MEP\Geometry.cs" />
-    <Compile Include="MEP\Location.cs" />
-    <Compile Include="MEP\Space.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -191,6 +190,7 @@
   <ItemGroup>
     <Folder Include="Cities\" />
     <Folder Include="Common\" />
+    <Folder Include="MEP\" />
     <Folder Include="Physical\" />
     <Folder Include="Planning\Project\" />
   </ItemGroup>

@@ -1,11 +1,11 @@
-﻿using BHoM.Base;
+﻿using BH.oM.Base;
 
-using BHoM.Structural.Loads;
+using BH.oM.Structural.Loads;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     /// <summary>
     /// Bar force object contains a set of coexisting forces, bar reference
@@ -197,7 +197,7 @@ namespace BHoM.Structural.Results
     //    public int ForcePosition { get; set; }
 
     //    /// <summary>Loadcase</summary>
-    //   // public BHoM.Structural.Loads.Loadcase Loadcase { get; set; }
+    //   // public BH.oM.Structural.Loads.Loadcase Loadcase { get; set; }
 
     //    /// <summary>Associated loadcase number</summary>
     //    //public int LoadcaseNumber { get; private set; }
@@ -227,7 +227,7 @@ namespace BHoM.Structural.Results
     //    //public double SMin { get; set; }
 
     //    /// <summary>Orientation of bar forces inherited from bar</summary>
-    //   // public BHoM.Geometry.Plane OrientationPlane { get; set; }
+    //   // public BH.oM.Geometry.Plane OrientationPlane { get; set; }
 
     //    /// <summary>User text field for any user data</summary>
     //    //public string UserData { get; set; }
@@ -245,7 +245,7 @@ namespace BHoM.Structural.Results
     //    //// CONSTRUCTORS ////
 
     //    /// <summary>Construct a bar force with loadcases</summary>
-    //    public BarForce(int barNumber, int forcePosition, BHoM.Structural.Loads.Loadcase loadcase, BHoM.Geometry.Plane orientationPlane)
+    //    public BarForce(int barNumber, int forcePosition, BH.oM.Structural.Loads.Loadcase loadcase, BH.oM.Geometry.Plane orientationPlane)
     //    {
     //        this.Name = barNumber;
     //        this.ForcePosition = forcePosition;

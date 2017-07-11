@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHB = BHoM.Base;
-using BHG = BHoM.Geometry;
+using BHB = BH.oM.Base;
+using BHG = BH.oM.Geometry;
 
-namespace BHoM.Acoustic
+namespace BH.oM.Acoustic
 {
     public class Speaker : BHB.BHoMObject
     {

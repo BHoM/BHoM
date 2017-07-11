@@ -3,10 +3,10 @@
 //using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
-//using BHoM.Base.Results;
-//using BHoM.Structural.Elements;
+//using BH.oM.Base.Results;
+//using BH.oM.Structural.Elements;
 
-//namespace BHoM.Structural.ModelTracker
+//namespace BH.oM.Structural.ModelTracker
 //{
 //    public class BarTracker : IResult
 //    {

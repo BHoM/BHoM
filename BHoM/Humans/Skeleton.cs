@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Geometry;
+using BH.oM.Geometry;
 
-namespace BHoM.HumanBody
+namespace BH.oM.HumanBody
 {
     /// <summary>
     /// BHoM Human skeleton class
     /// </summary>
-    public class Skeleton : BHoM.Base.BHoMObject
+    public class Skeleton : BH.oM.Base.BHoMObject
     {
         /// <summary>
         /// Constructs an empty skeleton object

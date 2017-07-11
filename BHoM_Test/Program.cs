@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
 using R = Rhino.Geometry;
-using BHoM.Geometry;
-using BHoM.Structural.Properties;
-using BHoM.Base;
+using BH.oM.Geometry;
+using BH.oM.Structural.Properties;
+using BH.oM.Base;
 
-using BHoM.Structural.Loads;
-using BHoM.Structural.Results;
-using BHoM.Structural.Elements;
+using BH.oM.Structural.Loads;
+using BH.oM.Structural.Results;
+using BH.oM.Structural.Elements;
 using System.Xml;
 
 

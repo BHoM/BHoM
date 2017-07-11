@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Base
+namespace BH.oM.Base
 {
     public interface IObject
     {

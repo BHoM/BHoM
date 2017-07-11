@@ -1,65 +1,99 @@
-﻿using BHoM.Base;
-
+﻿using BH.oM.Base;
+using BH.oM.Geometry.Curve;
+using BH.oM.Geometry.Surface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
-    public class PolySurface : Brep
+    public class PolySurface : ISurface
     {
-        public Group<Brep> Surfaces { get; set; }
-        public Group<Curve> ExternalEdges
-        {
-            get
-            {
-                return m_ExternalEdges;
-            }
-            set
-            {
-                m_ExternalEdges = value;
-            }
-        }
-        public Group<Curve> InternalEdges
-        {
-            get { return m_InternalEdges; }
-                
-            set { m_InternalEdges = value; }
-        }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public override GeometryType GeometryType
-        {
-            get
-            {
-                return GeometryType.PolySurface;
-            }
-        }
+        public List<ISurface> Surfaces { get; set; } = new List<ISurface>();
 
 
-        public PolySurface()
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public PolySurface() { }
+
+        /***************************************************/
+
+        public PolySurface(IEnumerable<ISurface> surfaces)
         {
-            Surfaces = new Group<Brep>();
+            Surfaces = surfaces.ToList();
         }
 
-        public PolySurface(Group<Brep> surfaces)
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** IBHoMGeometry Interface                   ****/
+        /***************************************************/
+
+        public GeometryType GetGeometryType()
         {
-            Surfaces = surfaces;
+            return GeometryType.PolySurface;
         }
 
-        public override BHoMGeometry Duplicate()
+        /***************************************************/
+
+        public BoundingBox GetBounds()
         {
-            PolySurface surface = new PolySurface();
-            surface.Surfaces = Surfaces.DuplicateGroup();
-            surface.ExternalEdges = ExternalEdges.DuplicateGroup();
-            surface.InternalEdges = InternalEdges.DuplicateGroup();
-            return surface;
+            if (Surfaces.Count == 0)
+                return null;
+
+            BoundingBox box = Surfaces[0].GetBounds();
+            for (int i = 1; i < Surfaces.Count; i++)
+                box += Surfaces[i].GetBounds();
+
+            return box;
         }
 
-        public override void Update()
+        /***************************************************/
+
+        public object Clone()
         {
-            base.Update();
+            return new PolySurface(Surfaces.Select(x => x.Clone() as ISurface));
         }
+
+        /***************************************************/
+
+        public IBHoMGeometry GetTranslated(Vector t)
+        {
+            return new PolySurface(Surfaces.Select(x => x.GetTranslated(t) as ISurface));
+        }
+
+
+        /***************************************************/
+        /**** IBrep Interface                           ****/
+        /***************************************************/
+
+        public List<ICurve> GetExternalEdges()
+        {
+            return Surfaces.SelectMany(x => x.GetExternalEdges()).ToList();
+        }
+
+        /***************************************************/
+
+        public List<ICurve> GetInternalEdges()
+        {
+            return Surfaces.SelectMany(x => x.GetInternalEdges()).ToList();
+        }
+
+
+        //public override void Update()
+        //{
+        //    base.Update();
+        //}
     }
 }

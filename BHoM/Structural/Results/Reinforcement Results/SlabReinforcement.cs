@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     public class SlabReinforcement : SlabReinforcement<int, int, int>
     {

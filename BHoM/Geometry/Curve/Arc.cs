@@ -1,81 +1,136 @@
 ﻿using System;
 
 using System.Collections.Generic;
-using BHoM.Base;
+using BH.oM.Base;
+using BH.oM.Geometry.Curve;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
     /// <summary>
     /// Arc object
     /// </summary>
-    public class Arc : Curve
+    public class Arc : ICurve
     {
-        //double[] m_Centre;      //Never used
-        //double m_Radius;        //Never used
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public override GeometryType GeometryType
+        public Point Start { get; set; } = new Point();
+
+        public Point End { get; set; } = new Point();
+
+        public Point Centre { get; set; } = new Point();
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Arc() { }
+
+        /***************************************************/
+
+        public Arc(Point start, Point end, Point centre)
         {
-            get
-            {
-                return GeometryType.Arc;
-            }
+            Start = start;
+            End = end;
+            Centre = centre;
         }
 
-        public Arc()
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+
+        /***************************************************/
+        /**** IBHoMGeometry Interface                   ****/
+        /***************************************************/
+
+        public GeometryType GetGeometryType()
         {
-            m_Dimensions = 3;
-            m_ControlPoints = new double[(m_Dimensions + 1) * 3];
+            return GeometryType.Arc;
         }
 
-        /// <summary>
-        /// Arc from 3 points
-        /// </summary>
-        /// <param name="startpoint"></param>
-        /// <param name="endpoint"></param>
-        /// <param name="internalpoint"></param>
-        public Arc(Point startpoint, Point endpoint, Point internalpoint)
+        /***************************************************/
+
+        public BoundingBox GetBounds()
         {
-            m_ControlPoints = new double[12];
-            Array.Copy(startpoint, m_ControlPoints, 4);
-            Array.Copy(endpoint, 0, m_ControlPoints, 4 * 2, 4);
-            Array.Copy(internalpoint, 0, m_ControlPoints, 4, 4);
-            m_Dimensions = 3;
+            throw new NotImplementedException(); //TODO: implement Bounds for Arc.
         }
 
-        public Point InternalPoint
+        /***************************************************/
+
+        public object Clone()
         {
-            get
-            {
-                return new Point(CollectionUtils.SubArray<double>(m_ControlPoints, 4, 4));
-            }
-            set
-            {
-                Array.Copy(value, 0, m_ControlPoints, m_Dimensions + 1, m_Dimensions + 1);
-            }
+            return new Arc(Start.Clone() as Point, End.Clone() as Point, Centre.Clone() as Point);
         }
 
-        public new Point StartPoint
+        /***************************************************/
+
+        public IBHoMGeometry GetTranslated(Vector t)
         {
-            get
-            {
-                return base.StartPoint;
-            }
-            set
-            {
-                Array.Copy(value, 0, m_ControlPoints, 0, m_Dimensions + 1);
-            }
+            return new Arc(Start+t, End+t, Centre+t);
         }
 
-        public new Point EndPoint
+
+        /***************************************************/
+        /**** ICurve Interface                          ****/
+        /***************************************************/
+
+        public Point GetStart()
         {
-            get
-            {
-                return base.StartPoint;
-            }
-            set
-            {
-                Array.Copy(value, 0, m_ControlPoints, m_ControlPoints.Length - (m_Dimensions + 1) - 1, m_Dimensions + 1);
-            }
-        }   
+            return Start;
+        }
+
+        /***************************************************/
+
+        public Point GetEnd()
+        {
+            return End;
+        }
+
+        /***************************************************/
+
+        public Vector GetStartDir()
+        {
+            throw new NotImplementedException(); //TODO: get start dir of arc
+        }
+
+        /***************************************************/
+
+        public Vector GetEndDir()
+        {
+            throw new NotImplementedException(); //TODO: get end dir of arc
+        }
+
+        /***************************************************/
+
+        public bool IsClosed()
+        {
+            return Start == End;
+        }
+
+
+
+
+
+        ///// <summary>
+        ///// Arc from 3 points
+        ///// </summary>
+        ///// <param name="startpoint"></param>
+        ///// <param name="endpoint"></param>
+        ///// <param name="internalpoint"></param>
+        //public Arc(Point startpoint, Point endpoint, Point internalpoint)
+        //{
+        //    m_ControlPoints = new double[12];
+        //    Array.Copy(startpoint, m_ControlPoints, 4);
+        //    Array.Copy(endpoint, 0, m_ControlPoints, 4 * 2, 4);
+        //    Array.Copy(internalpoint, 0, m_ControlPoints, 4, 4);
+        //    m_Dimensions = 3;
+        //}
+
+
+
     }
 }

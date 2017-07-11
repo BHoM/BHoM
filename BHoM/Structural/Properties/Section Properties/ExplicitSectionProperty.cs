@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {
     public class ExplicitSectionProperty : SectionProperty
     {

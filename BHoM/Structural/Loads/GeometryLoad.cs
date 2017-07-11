@@ -1,117 +1,166 @@
-﻿using BHoM.Geometry;
-using BHoM.Base;
+﻿using BH.oM.Geometry;
+using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using BH.oM.Geometry.Curve;
 
-namespace BHoM.Structural.Loads
+namespace BH.oM.Structural.Loads
 {
-    public class GeometricalAreaLoad : BHoMObject, ILoad
+    public class GeometricalAreaLoad : BHoMObject, ILoad   //TODO: Only one class per file
     {
-        public Curve Contour { get; set; }
-        private Loadcase m_Loadcase;
-        /// <summary>Force - fx, fy, fz defined as a BHoM.Geometry.Vector</summary>
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public ICurve Contour { get; set; }
+
+        public Loadcase Loadcase { get; set; } = new Loadcase();
+
+        /// <summary>Force - fx, fy, fz defined as a BH.oM.Geometry.Vector</summary>
         public Geometry.Vector Force { get; set; }
 
-        public LoadType LoadType
-        {
-            get
-            {
-                return LoadType.Geometrical;
-            }
-        }
+        public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
-        public Loadcase Loadcase
-        {
-            get
-            {
-                return m_Loadcase;
-            }
-            set
-            {
-                if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Remove(this);
-                m_Loadcase = value;
-                if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Add(this);
-            }
-        }
+        public bool Projected { get; set; } = false;
 
-        [DefaultValue(LoadAxis.Global)]
-        public LoadAxis Axis
-        {
-            get; set;
-        }
-        [DefaultValue(false)]
-        public bool Projected { get; set; }
 
-        public GeometricalAreaLoad(BHoM.Geometry.Curve contour, Geometry.Vector force)
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public GeometricalAreaLoad() { }
+
+        /***************************************************/
+
+        public GeometricalAreaLoad(ICurve contour, Geometry.Vector force)
         {
             Contour = contour;
             Force = force;
-            Loadcase = new Loadcase();
         }
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** ILoad Interface                           ****/
+        /***************************************************/
+
+        public LoadType GetLoadType()
+        {
+            return LoadType.Geometrical;
+        }
+
+
+        //public Loadcase Loadcase
+        //{
+        //    get
+        //    {
+        //        return m_Loadcase;
+        //    }
+        //    set
+        //    {
+        //        if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Remove(this);
+        //        m_Loadcase = value;
+        //        if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Add(this);
+        //    }
+        //}
+        
     }
+
+
+
+
 
     public class GeometricalLineLoad : BHoMObject, ILoad
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public Line Location { get; set; }
-        private Loadcase m_Loadcase;
-        /// <summary>Force - fx, fy, fz defined as a BHoM.Geometry.Vector</summary>
+
+        /// <summary>Force - fx, fy, fz defined as a BH.oM.Geometry.Vector</summary>
         public Geometry.Vector ForceA { get; set; }
+
         public Geometry.Vector ForceB { get; set; }
 
         public Geometry.Vector MomentA { get; set; }
+
         public Geometry.Vector MomentB { get; set; }
 
         [DefaultValue(LoadAxis.Global)]
-        public LoadAxis Axis
-        {
-            get; set;
-        }
-        [DefaultValue(false)]
-        public bool Projected { get; set; }
+        public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
-        public LoadType LoadType
-        {
-            get
-            {
-                return LoadType.Geometrical;
-            }
-        }
+        public bool Projected { get; set; } = false;
 
-        public Loadcase Loadcase
-        {
-            get
-            {
-                return m_Loadcase;
-            }
-            set
-            {
-                if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Remove(this);
-                m_Loadcase = value;
-                if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Add(this);
-            }
-        }
+        public Loadcase Loadcase { get; set; } = new Loadcase();
 
-        public GeometricalLineLoad(BHoM.Geometry.Line line, Geometry.Vector force, Geometry.Vector moment = null)
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public GeometricalLineLoad() { }
+
+        /***************************************************/
+
+        public GeometricalLineLoad(BH.oM.Geometry.Line line, Geometry.Vector force, Geometry.Vector moment = null)
         {
             Location = line;
             ForceA = force;
             ForceB = force;
-            MomentA = moment == null ? Vector.Zero : moment;
-            MomentB = moment == null ? Vector.Zero : moment;
+            MomentA = moment == null ? new Vector(0,0,0) : moment;
+            MomentB = moment == null ? new Vector(0, 0, 0) : moment;
         }
 
-        public GeometricalLineLoad(BHoM.Geometry.Line line, Vector forceA, Vector forceB, Vector momentA = null, Vector momentB = null)
+
+        /***************************************************/
+        public GeometricalLineLoad(BH.oM.Geometry.Line line, Vector forceA, Vector forceB, Vector momentA = null, Vector momentB = null)
         {
             Location = line;
             ForceA = forceA;
             ForceB = forceB;
-            MomentA = momentA == null ? Vector.Zero : momentA;
-            MomentB = momentB == null ? Vector.Zero : momentB;
+            MomentA = momentA == null ? new Vector(0, 0, 0) : momentA;
+            MomentB = momentB == null ? new Vector(0, 0, 0) : momentB;
         }
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** ILoad Interface                           ****/
+        /***************************************************/
+
+        public LoadType GetLoadType()
+        {
+            return LoadType.Geometrical;
+        }
+
+        //public Loadcase Loadcase
+        //{
+        //    get
+        //    {
+        //        return m_Loadcase;
+        //    }
+        //    set
+        //    {
+        //        if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Remove(this);
+        //        m_Loadcase = value;
+        //        if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Add(this);
+        //    }
+        //}
+
+       
 
     }
 

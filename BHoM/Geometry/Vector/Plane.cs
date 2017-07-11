@@ -1,113 +1,118 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using BHoM.Base;
+using BH.oM.Base;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
     /// <summary>
     /// BHoM Plane object
     /// </summary>
-    public class Plane : BHoMGeometry
+    public class Plane : IBHoMGeometry
     {
-        //Plane: ax + by + cz + d = 0
-        //Normal: { a, b, c, 0 }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        double[] m_Normal;
-        double[] m_Origin;
+        public Point Origin { get; set; } = new Point();
 
-        public override GeometryType GeometryType
-        {
-            get
-            {
-                return GeometryType.Plane;
-            }
-        }
+        public Vector Normal { get; set; } = new Vector(0, 0, 1);
 
 
-        public Point Origin
-        {
-            get
-            {
-                return new Point(m_Origin);
-            }
-            set
-            {
-                m_Origin = value;
-                Update();
-            }
-        }
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public Vector Normal
-        {
-            get
-            {
-                return new Vector(m_Normal);
-            }
-            set
-            {
-                m_Normal = value;
-                Update();
-            }
-        }
+        public Plane() { }
 
-        /// <summary>
-        /// Scalar value in the plane equation ax + by + cz + d = 0
-        /// </summary>
-        public double D { get; private set; }
+        /***************************************************/
 
         public Plane(Point origin, Vector normal)
         {
-            m_Normal = normal.Normalise();
-            Origin = origin.DuplicatePoint();
-        }
-
-        public Plane(Point p1, Point p2, Point p3)
-        {
-            m_Normal = Vector.CrossProduct(p2 - p1, p3 - p1).Normalise();
-            D = -Vector.DotProduct(Normal, p1);
-            Origin = p1.DuplicatePoint();
-        }
-
-        public static Plane XY(double z = 0)
-        {
-            return new Plane(new Point(0,0,z), Vector.ZAxis());
-        }
-
-        public static Plane YZ(double x = 0)
-        {
-            return new Plane(new Point(x, 0, 0), Vector.XAxis());
-        }
-
-        public static Plane XZ(double y = 0)
-        {
-            return new Plane(new Point(0, y, 0), Vector.YAxis());
-        }
-        public override BoundingBox Bounds()
-        {
-            return null;
+            Origin = origin;
+            Normal = normal;
         }
 
 
-        public override void Update()
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** IBHoMGeometry Interface                   ****/
+        /***************************************************/
+
+        public GeometryType GetGeometryType()
         {
-            for (int i = 0; i < 3; i++)
-            {
-                D -= m_Normal[i] * m_Origin[i];
-            }
+            return GeometryType.Plane;
         }
 
-        public override BHoMGeometry Duplicate()
+        /***************************************************/
+
+        public BoundingBox GetBounds()
         {
-            return DuplicatePlane();
+            double x = Normal.X == 0 ? 0 : double.MaxValue;
+            double y = Normal.Y == 0 ? 0 : double.MaxValue;
+            double z = Normal.Z == 0 ? 0 : double.MaxValue;
+
+            return new BoundingBox(new Point(-x, -y, -z), new Point(x, y, z));
         }
 
-        public Plane DuplicatePlane()
+        /***************************************************/
+
+        public object Clone()
         {
-            return new Plane(Origin.DuplicatePoint(), Normal.DuplicateVector());
+            return new Plane(Origin.Clone() as Point, Normal.Clone() as Vector);
         }
+
+        /***************************************************/
+
+        public IBHoMGeometry GetTranslated(Vector t)
+        {
+            return new Plane(Origin+t, Normal.Clone() as Vector);
+        }
+
+
+
+
+        ///// <summary>
+        ///// Scalar value in the plane equation ax + by + cz + d = 0
+        ///// </summary>
+        //public double D { get; private set; }
+
+        //public Plane(Point p1, Point p2, Point p3)
+        //{
+        //    m_Normal = Vector.CrossProduct(p2 - p1, p3 - p1).Normalise();
+        //    D = -Vector.DotProduct(Normal, p1);
+        //    Origin = p1.Clone() as Point;
+        //}
+
+        //public static Plane XY(double z = 0)
+        //{
+        //    return new Plane(new Point(0,0,z), Vector.ZAxis());
+        //}
+
+        //public static Plane YZ(double x = 0)
+        //{
+        //    return new Plane(new Point(x, 0, 0), Vector.XAxis());
+        //}
+
+        //public static Plane XZ(double y = 0)
+        //{
+        //    return new Plane(new Point(0, y, 0), Vector.YAxis());
+        //}
+
+
+
+        //public override void Update()
+        //{
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        D -= m_Normal[i] * m_Origin[i];
+        //    }
+        //}
+
+
     }
 }

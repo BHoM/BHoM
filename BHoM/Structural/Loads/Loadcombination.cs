@@ -1,11 +1,11 @@
-﻿using BHoM.Base;
+﻿using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Loads
+namespace BH.oM.Structural.Loads
 {
     /// <summary>
     /// Loadcombination, different to loadcase as combination also contains information

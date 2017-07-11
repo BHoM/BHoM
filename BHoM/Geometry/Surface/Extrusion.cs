@@ -1,47 +1,100 @@
-﻿using BHoM.Base;
-
+﻿using BH.oM.Base;
+using BH.oM.Geometry.Curve;
+using BH.oM.Geometry.Surface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
-    public class Extrusion : Brep
+
+    public class Extrusion : IBHoMGeometry, ISurface
     {
-        public bool Capped { get; set; }
-        public Curve Curve { get; set; }
-        public Vector Direction { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public ICurve Curve { get; set; } = new Line();
+
+        public Vector Direction { get; set; } = new Vector(0, 0, 1);
+
+        public bool Capped { get; set; } = true;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
         public Extrusion() { }
-        public Extrusion(Curve curve, Vector direction, bool capped)
+
+        /***************************************************/
+
+        public Extrusion(ICurve curve, Vector direction, bool capped = true)
         {
             Curve = curve;
             Direction = direction;
             Capped = curve.IsClosed() && capped;
         }
 
-        public override GeometryType GeometryType
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+
+        /***************************************************/
+        /**** IBHoMGeometry Interface                   ****/
+        /***************************************************/
+
+        public GeometryType GetGeometryType()
         {
-            get
+            return GeometryType.Extrusion;
+        }
+
+        /***************************************************/
+
+        public BoundingBox GetBounds()
+        {
+            BoundingBox box = Curve.GetBounds();
+            return box + (box + Direction);
+        }
+
+        /***************************************************/
+
+        public object Clone()
+        {
+            return new Extrusion(Curve.Clone() as ICurve, Direction.Clone() as Vector, Capped);
+        }
+
+        /***************************************************/
+
+        public IBHoMGeometry GetTranslated( Vector t)
+        {
+            return new Extrusion(Curve.GetTranslated(t) as ICurve, Direction.Clone() as Vector, Capped);
+        }
+
+
+        /***************************************************/
+        /**** IBrep Interface                           ****/
+        /***************************************************/
+
+        public List<ICurve> GetExternalEdges()
+        {
+            return new List<ICurve>
             {
-                return GeometryType.Extrusion;
-            }
+                Curve.Clone() as ICurve,
+                Curve.GetTranslated(Direction) as ICurve
+            };
         }
 
-     
-        public override BHoMGeometry Duplicate()
+        /***************************************************/
+
+        public List<ICurve> GetInternalEdges()
         {
-            Extrusion dup = base.Duplicate() as Extrusion;
-            dup.Curve = Curve.DuplicateCurve();
-            dup.Direction = Direction.DuplicateVector();
-            return dup;
+            return new List<ICurve>();
         }
 
-        public override BoundingBox Bounds()
-        {
-            BoundingBox box = Curve.Bounds();
-            return box.Add(new List<BHoMGeometry>() { box.Max + Direction, box.Min + Direction });
-        }
     }
 }

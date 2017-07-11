@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BHoM.Structural.Loads;
+using BH.oM.Structural.Loads;
 
-namespace BHoM.Structural.Interface
+namespace BH.oM.Structural.Interface
 {
     public interface ICommandAdapter
     {

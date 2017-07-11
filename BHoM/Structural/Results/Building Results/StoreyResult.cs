@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     /// <summary>
     /// Results for building storeys for use in multi/tall building post processing
@@ -12,7 +12,7 @@ namespace BHoM.Structural.Results
     public class StoreyResult
     {
         /// <summary>Loadcase as BHoM object</summary>
-        public BHoM.Structural.Loads.Loadcase Loadcase { get; private set; }
+        public BH.oM.Structural.Loads.Loadcase Loadcase { get; private set; }
       
         /// <summary>Storey drift in X (refer to ASCE7 for basis)</summary>
         public double DriftX { get; private set; }
@@ -54,18 +54,18 @@ namespace BHoM.Structural.Results
         public double AxialToWalls { get; private set; }
 
         /// <summary>Mass of storey used in seismic calculation</summary>
-        public BHoM.Geometry.Vector SeismicMass { get; private set; }
+        public BH.oM.Geometry.Vector SeismicMass { get; private set; }
 
         /// <summary>Centre of rigidity of the storey</summary>
-        public BHoM.Geometry.Point CentreOfRigidity { get; private set; }
+        public BH.oM.Geometry.Point CentreOfRigidity { get; private set; }
         /// <summary>Centre of mass of the storey</summary>
-        public BHoM.Geometry.Point CentreOfGravity { get; private set; }
+        public BH.oM.Geometry.Point CentreOfGravity { get; private set; }
 
         /// <summary>Eccentricity of the storey (vector distance between COG and COR)</summary>
-        public BHoM.Geometry.Vector Eccentricity { get; private set; }
+        public BH.oM.Geometry.Vector Eccentricity { get; private set; }
 
         /// <summary>Moment of inertia of a storey</summary>
-        public BHoM.Geometry.Vector MomentOfInertia { get; private set; }
+        public BH.oM.Geometry.Vector MomentOfInertia { get; private set; }
 
         
         /// <summary>
@@ -79,7 +79,7 @@ namespace BHoM.Structural.Results
         /// Constructs a storey result using a BHoM loadcase object
         /// </summary>
         /// <param name="loadcase"></param>
-        public StoreyResult(BHoM.Structural.Loads.Loadcase loadcase)
+        public StoreyResult(BH.oM.Structural.Loads.Loadcase loadcase)
         {
             this.Loadcase = loadcase;
         }  
@@ -88,7 +88,7 @@ namespace BHoM.Structural.Results
         /// Sets the loadcase by using an existing BHoM loadcase object
         /// </summary>
         /// <param name="loadcase"></param>
-        public void SetLoadcase(BHoM.Structural.Loads.Loadcase loadcase)
+        public void SetLoadcase(BH.oM.Structural.Loads.Loadcase loadcase)
         {
             this.Loadcase = loadcase;
         }
@@ -187,7 +187,7 @@ namespace BHoM.Structural.Results
         /// <param name="massZ"></param>
         public void SetSeismicMass(double massX, double massY, double massZ)
         {
-            this.SeismicMass = new BHoM.Geometry.Vector(massX, massY, massZ);
+            this.SeismicMass = new BH.oM.Geometry.Vector(massX, massY, massZ);
         }
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace BHoM.Structural.Results
         /// <param name="z"></param>
         public void SetCentreOfRigidity(double x, double y, double z)
         {
-            this.CentreOfRigidity = new BHoM.Geometry.Point(x, y, z);
+            this.CentreOfRigidity = new BH.oM.Geometry.Point(x, y, z);
         }
 
         /// <summary>
@@ -211,7 +211,7 @@ namespace BHoM.Structural.Results
         /// <param name="z"></param>
         public void SetCentreOfGravity(double x, double y, double z)
         {
-            this.CentreOfGravity = new BHoM.Geometry.Point(x, y, z);
+            this.CentreOfGravity = new BH.oM.Geometry.Point(x, y, z);
         }
 
         /// <summary>
@@ -223,7 +223,7 @@ namespace BHoM.Structural.Results
         /// <param name="ez"></param>
         public void SetEccentricity(double ex, double ey, double ez)
         {
-            this.Eccentricity = new BHoM.Geometry.Vector(ex, ey, ez);
+            this.Eccentricity = new BH.oM.Geometry.Vector(ex, ey, ez);
         }
 
         /// <summary>
@@ -234,7 +234,7 @@ namespace BHoM.Structural.Results
         /// <param name="iz"></param>
         public void SetMomentOfIntertia(double ix, double iy, double iz)
         {
-            this.MomentOfInertia = new BHoM.Geometry.Vector(ix, iy, iz);
+            this.MomentOfInertia = new BH.oM.Geometry.Vector(ix, iy, iz);
         }
     }
 }

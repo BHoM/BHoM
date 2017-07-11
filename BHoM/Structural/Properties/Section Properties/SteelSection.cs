@@ -1,14 +1,15 @@
-﻿using BHoM.Geometry;
-using BHoM.Base;
-using BHoM.Materials;
+﻿using BH.oM.Geometry;
+using BH.oM.Base;
+using BH.oM.Materials;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Geometry.Curve;
 
-
-
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {
+
+    // TODO: Things that probably need to be taken elsewhere ?
     public enum Fabrication
     {
         Welded,
@@ -28,39 +29,13 @@ namespace BHoM.Structural.Properties
 
     public class SteelSection : SectionProperty
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public SteelSection()
-        {
-        }
+        public Fabrication Fabrication { get; set; }
 
-        /// <summary>
-        /// Create a section property from a list of edges, shape type and material
-        /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="sType"></param>
-        /// <param name="mType"></param>
-        public SteelSection(BHoM.Geometry.Group<Curve> edges, ShapeType sType) : this()
-        {
-            Edges = edges;
-            Shape = sType;
-            //SectionMaterial = mType;
-        }     
-
-        public double GetGrade()
-        {
-            return Material.TensileYieldStrength / 1000000;         
-        }   
-
-        public Fabrication Fabrication
-        {
-            get; set;
-        }
-
-        public PlateRestraint PlateRestraint
-        {
-            get;
-            set;
-        }
+        public PlateRestraint PlateRestraint { get; set; }
 
         public double Mass { get; set; }
 
@@ -81,5 +56,38 @@ namespace BHoM.Structural.Properties
         public double r2 { get; set; }
 
         public double Spacing { get; set; }
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public SteelSection() { }
+
+        /***************************************************/
+
+        /// <summary>
+        /// Create a section property from a list of edges, shape type and material
+        /// </summary>
+        /// <param name="edges"></param>
+        /// <param name="sType"></param>
+        /// <param name="mType"></param>
+        public SteelSection(List<ICurve> edges, ShapeType sType)
+        {
+            Edges = edges;
+            Shape = sType;
+        }
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+        public double GetGrade()
+        {
+            return Material.TensileYieldStrength / 1000000;         
+        }   
+
+        
     }
 }

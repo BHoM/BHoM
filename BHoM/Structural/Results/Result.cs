@@ -1,12 +1,12 @@
-﻿using BHoM.Structural.Interface;
-using BHoM.Structural.Results;
+﻿using BH.oM.Structural.Interface;
+using BH.oM.Structural.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     public abstract class Result<TName, TLoadcase, TTimeStep> : IResult
         where TName : IComparable

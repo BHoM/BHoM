@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Materials;
+using BH.oM.Materials;
 using System.ComponentModel;
 
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {
     /// <summary>
     /// Offsets for bars
     /// </summary>
     [Serializable]
-    public class Offset : BHoM.Base.BHoMObject
+    public class Offset : BH.oM.Base.BHoMObject
     {
         /// <summary>Offset name</summary>
         //public string Name { get; private set; }

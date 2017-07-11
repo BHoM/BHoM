@@ -1,14 +1,14 @@
-﻿using BHoM.Structural;
-using BHoM.Structural.Loads;
+﻿using BH.oM.Structural;
+using BH.oM.Structural.Loads;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Structural.Elements;
-using BHoM.Base;
+using BH.oM.Structural.Elements;
+using BH.oM.Base;
 
-namespace BHoM.Structural.Interface
+namespace BH.oM.Structural.Interface
 {
     public enum ObjectSelection
     {
@@ -34,7 +34,7 @@ namespace BHoM.Structural.Interface
         List<string> GetLevels(out List<Storey> levels, List<string> ids = null);
         List<string> GetGrids(out List<Grid> grids, List<string> ids = null);
         List<string> GetRigidLinks(out List<RigidLink> links, List<string> ids = null);
-        List<string> GetGroups(out List<IBHoMList> groups, List<string> ids = null);
+        List<string> GetGroups(out List<BHoMGroup> groups, List<string> ids = null);
         List<string> GetLoadcases(out List<ICase> cases);
         bool GetLoads(out List<ILoad> loads, List<Loadcase> ids = null);
 
@@ -46,7 +46,7 @@ namespace BHoM.Structural.Interface
         bool SetLevels(List<Storey> stores, out List<string> ids);
         bool SetGrids(List<Grid> grid, out List<string> ids);
         bool SetRigidLinks(List<RigidLink> rigidLinks, out List<string> ids);
-        bool SetGroups(List<IBHoMList> groups, out List<string> ids);
+        bool SetGroups(List<BHoMGroup> groups, out List<string> ids);
 
         bool SetLoads(List<ILoad> loads);
         bool SetLoadcases(List<ICase> cases);

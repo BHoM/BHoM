@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Geometry;
-using BHoM.Base;
+using BH.oM.Geometry;
+using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BHoM.Structural.Loads
+namespace BH.oM.Structural.Loads
 {
 
     public enum LoadAxis
@@ -19,14 +19,17 @@ namespace BHoM.Structural.Loads
     /// <summary>
     /// Interface implemented by all loading related classes
     /// </summary>
-    public interface ILoad : IObject
+    public interface ILoad : IObject        //TODO: Write this on a separate file
     {
-        LoadType LoadType { get; }
+        LoadType GetLoadType();
         /// <summary>Loadcase as BHoM object</summary>
-        BHoM.Structural.Loads.Loadcase Loadcase { get; set; }
+        BH.oM.Structural.Loads.Loadcase Loadcase { get; set; }
         LoadAxis Axis { get; set; }
         bool Projected { get; set; }
     }
+
+
+
 
     /// <summary>
     /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
@@ -34,41 +37,60 @@ namespace BHoM.Structural.Loads
     /// </summary>
     public abstract class Load<T> : BHoMObject, ILoad where T : IObject
     {
-        private Loadcase m_Loadcase;
-        private BHoMList<T> m_Objects;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        internal Load() { m_Objects = new BHoMList<T>(); }
+        public Loadcase Loadcase { get; set; }
 
-        [DefaultValue(LoadAxis.Global)]
-        public LoadAxis Axis
-        {
-            get; set;
-        }
-        [DefaultValue(false)]
-        public bool Projected { get; set; }
-        /// <summary>Loadcase as BHoM object</summary>
-        public BHoM.Structural.Loads.Loadcase Loadcase
-        {
-            get
-            {
-                return m_Loadcase;
-            }
-            set
-            {            
-                if (m_Loadcase != null && m_Loadcase.LoadRecords!= null) m_Loadcase.LoadRecords.Remove(this);                
-                m_Loadcase = value;
-                if (m_Loadcase != null && m_Loadcase.LoadRecords != null && !m_Loadcase.LoadRecords.Contains(this)) m_Loadcase.LoadRecords.Add(this);
-            }
-        }
+        public List<T> Objects { get; set; } = new List<T>();
 
-        public abstract LoadType LoadType { get; }
+        public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
-        /// <summary>A list of structural elements that the nodal load is applicable to</summary>
-        public BHoMList<T> Objects
-        {
-            get { return m_Objects; }
-            set { m_Objects = value; }
-        } 
+        public bool Projected { get; set; } = false;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** ILoad Interface                           ****/
+        /***************************************************/
+
+        public abstract LoadType GetLoadType();
+
+
+
+
+
+        //internal Load() { m_Objects = new BHoMList<T>(); }
+
+
+        ///// <summary>Loadcase as BHoM object</summary>
+        //public BH.oM.Structural.Loads.Loadcase Loadcase
+        //{
+        //    get
+        //    {
+        //        return m_Loadcase;
+        //    }
+        //    set
+        //    {            
+        //        if (m_Loadcase != null && m_Loadcase.LoadRecords!= null) m_Loadcase.LoadRecords.Remove(this);                
+        //        m_Loadcase = value;
+        //        if (m_Loadcase != null && m_Loadcase.LoadRecords != null && !m_Loadcase.LoadRecords.Contains(this)) m_Loadcase.LoadRecords.Add(this);
+        //    }
+        //}
+
+
+
+
 
     }
 }

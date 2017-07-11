@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BHoM.Geometry;
+using BH.oM.Geometry;
 
-namespace BHoM.Base
+namespace BH.oM.Base
 {
     /// <summary>
     /// BHoM object abstract class, all methods and attributes applicable to all structural objects with
@@ -68,7 +68,7 @@ namespace BHoM.Base
         /// <summary>
         /// Gets the geometry of the object (whatever that might be)
         /// </summary>
-        public virtual BHoMGeometry GetGeometry()
+        public virtual IBHoMGeometry GetGeometry()
         {
             return null;
         }
@@ -79,7 +79,7 @@ namespace BHoM.Base
         /// Sets the geometry of the object (whatever that might be)
         /// </summary>
         /// <param name="geometry">The geometry to set</param>
-        public virtual void SetGeometry(BHoMGeometry geometry)
+        public virtual void SetGeometry(IBHoMGeometry geometry)
         {
         }
 

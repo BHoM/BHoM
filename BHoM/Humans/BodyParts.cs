@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Geometry;
+using BH.oM.Geometry;
 
-namespace BHoM.HumanBody
+namespace BH.oM.HumanBody
 {
     /// <summary>
     /// BHoM Human head object

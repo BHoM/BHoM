@@ -4,380 +4,298 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BHoM.Base;
+using BH.oM.Base;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
     /// <summary>
     /// BHoM Vector object
     /// </summary>
-    public class Vector : BHoMGeometry
+    public class Vector : IBHoMGeometry
     {
-        private double[] m_Coordinates;
-        public double[] Coordinates { get; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public override GeometryType GeometryType
+        public double X { get; set; } = 0.0;
+
+        public double Y { get; set; } = 0.0;
+
+        public double Z { get; set; } = 0.0;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Vector(double x = 0, double y = 0, double z = 0)
         {
-            get
-            {
-                return GeometryType.Vector;
-            }
+            X = x;
+            Y = y;
+            Z = z;
         }
 
+        /***************************************************/
 
-        /// <summary>X coordinate</summary>
-        public double X
-        {
-            get
-            {
-                return Coordinates[0];
-            }
-            set
-            {
-                Coordinates[0] = value;
-            }
-        }
-        /// <summary>Y coordinate</summary>
-        public double Y
-        {
-            get
-            {
-                return Coordinates[1];
-            }
-            set
-            {
-                Coordinates[1] = value;
-            }
-        }
-        /// <summary>Z coordinate</summary>
-        public double Z
-        {
-            get
-            {
-                return Coordinates[2];
-            }
-            set
-            {
-                Coordinates[2] = value;
-            }
-        }
-
-        public double this[int i]
-        {
-            get
-            {
-                return Coordinates[i];
-            }
-        }
-
-
-        public void SetCoordinates(double[] coords)
-        {
-            m_Coordinates = coords;
-        }
-
-        /// <summary>
-        /// Constructs an empty vector
-        /// </summary>
-        public Vector()
-        {
-            Coordinates = new double[4];
-        }
-
-        /// <summary>
-        /// Constructs a vector from XYZ coordinates
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="z"></param>
-        public Vector(double x, double y, double z)
-        {
-            Coordinates = new double[] { x, y, z, 0 };
-        }
-
-        /// <summary>
-        /// Duplicates a vector
-        /// </summary>
-        /// <param name="dup"></param>
-        public Vector(Vector dup)
-        {
-            Coordinates = CollectionUtils.Copy<double>(dup);
-        }
-
-        /// <summary>
-        /// Constructs a vector from a point
-        /// </summary>
-        /// <param name="pt"></param>
         public Vector(Point pt)
         {
-            Coordinates = CollectionUtils.Copy<double>(pt);
+            X = pt.X;
+            Y = pt.Y;
+            Z = pt.Z;
         }
 
-        public Vector(double[] v)
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+        public double GetLength()
         {
-            Coordinates = v;
+            return Math.Sqrt(X * X + Y * Y + Z * Z);
         }
 
-        public static implicit operator double[] (Vector v)
+        /***************************************************/
+
+        public double GetSquareLength()
         {
-            return v.Coordinates;
+            return X * X + Y * Y + Z * Z;
         }
 
-        public static Vector Zero
+        /***************************************************/
+
+        public Vector Normalise()
         {
-            get { return new Vector(0, 0, 0); }
+            double L = GetLength();
+            return new Vector(X / L, Y / L, Z / L);
         }
 
+        /***************************************************/
 
-        public static Vector XAxis(double n = 1)
+        public bool IsValid()
         {
-            return new Vector(n, 0, 0);
+            return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
         }
 
-        public static Vector YAxis(double n = 1)
+        /***************************************************/
+
+        public Vector Reverse()
         {
-            return new Vector(0, n, 0);
+            return new Vector(-X, -Y, -Z);
         }
 
-        public static Vector ZAxis(double n = 1)
+        /***************************************************/
+
+        public string ToString(int decimals = int.MaxValue)
         {
-            return new Vector(0, 0, n);
+            if (decimals == int.MaxValue)
+                return "[" + X + ", " + Y + ", " + Z + "]";
+            else
+                return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
         }
-        /// <summary>
-        /// Vector operations
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+
+
+        /***************************************************/
+        /**** IBHoMGeometry Interface                   ****/
+        /***************************************************/
+
+        public GeometryType GetGeometryType()
+        {
+            return GeometryType.Vector;
+        }
+
+        /***************************************************/
+
+        public BoundingBox GetBounds()
+        {
+            return null;
+        }
+
+        /***************************************************/
+
+        public object Clone()
+        {
+            return new Vector(X, Y, Z);
+        }
+
+        /***************************************************/
+
+        public IBHoMGeometry GetTranslated(Vector t)
+        {
+            return Clone() as IBHoMGeometry;
+        }
+
+
+        /***************************************************/
+        /**** Static Operators Override                 ****/
+        /***************************************************/
+
         public static Vector operator +(Vector a, Vector b)
         {
             return new Vector(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
         }
 
-        /// <summary>
-        /// Vector operations
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /***************************************************/
+
         public static Vector operator -(Vector a, Vector b)
         {
             return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
         }
 
-        /// <summary>
-        /// Vector operations
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /***************************************************/
+
         public static Vector operator /(Vector a, double b)
         {
-            return new Vector(a.X/b, a.Y/b, a.Z/b);
+            return new Vector(a.X / b, a.Y / b, a.Z / b);
         }
 
-        /// <summary>
-        /// Vector operations
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /***************************************************/
+
         public static Vector operator *(Vector a, double b)
         {
             return new Vector(a.X * b, a.Y * b, a.Z * b);
         }
 
-        /// <summary>
-        /// Vector operations
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /***************************************************/
+
         public static Vector operator *(double b, Vector a)
         {
             return new Vector(a.X * b, a.Y * b, a.Z * b);
         }
 
-        /// <summary>
-        /// Vector operations
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /***************************************************/
+
         public static double operator *(Vector a, Vector b)
         {
             return (a.X * b.X + a.Y * b.Y + a.Z * b.Z);
         }
 
-        /// <summary>
-        /// Vector operations
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /***************************************************/
+
         public static double operator *(Vector a, Point b)
         {
             return (a.X * b.X + a.Y * b.Y + a.Z * b.Z);
         }
 
-        /// <summary>
-        /// Vector operations
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        /***************************************************/
+
         public static double operator *(Point a, Vector b)
         {
             return (a.X * b.X + a.Y * b.Y + a.Z * b.Z);
         }
 
+        /***************************************************/
 
-        /// <summary>
-        /// Cross product of two vectors
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public static Vector CrossProduct(Vector a, Vector b)
+        public static bool operator ==(Vector a, Vector b)
         {
-            return new Vector(
-                a[1] * b[2] - a[2] * b[1],
-                a[2] * b[0] - a[0] * b[2],
-                a[0] * b[1] - a[1] * b[0]
-            );
+            return a != null && b != null && a.X == b.X && a.Y == b.Y && a.Z == b.Z;
         }
 
-        /// <summary>
-        /// Dot product of two vectors
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public static double DotProduct(Vector a, Vector b)
+        /***************************************************/
+
+        public static bool operator !=(Vector a, Vector b)
         {
-            return a * b;
+            return a == null || b == null || a.X != b.X || a.Y != b.Y || a.Z != b.Z;
         }
 
-        /// <summary>
-        /// Dot product of two vectors
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public static double DotProduct(Vector a, Point b)
+        /***************************************************/
+
+        public override bool Equals(object obj)
         {
-            return a * b;
+            return obj.GetType() == typeof(Vector) && this == ((Vector)obj); 
         }
 
-        /// <summary>
-        /// Dot product of two vectors
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public static double DotProduct(Point a, Vector b)
-        {
-            return a * b;
-        }
+        /***************************************************/
 
-
-        /// <summary>
-        /// Calculates the vector length
-        /// </summary>
-        public double Length
+        public override int GetHashCode()
         {
-            get
+            unchecked 
             {
-                return Math.Sqrt(SquareLength);
+                int hash = 17;
+                hash = hash * 23 + X.GetHashCode();
+                hash = hash * 23 + Y.GetHashCode();
+                hash = hash * 23 + Z.GetHashCode();
+                return hash;
             }
         }
+        
 
-        /// <summary>
-        /// Calculates the vector length
-        /// </summary>
-        public double SquareLength
-        {
-            get
-            {
-                double result = 0;
-                for (int i = 0; i < Coordinates.Length; i++)
-                {
-                    result += Coordinates[i] * Coordinates[i];
-                }
-                return result;
-            }
-        }
+        //public override void Update() { }
 
-        /// <summary>
-        /// Sets the vector length to one unit
-        /// </summary>
-        /// <returns></returns>
-        public Vector Normalise()
-        {
-            return this / Length;
-        }
 
-        /// <summary>
-        /// True if the vector XYZ values are set
-        /// </summary>
-        public bool IsValid
-        {
-            get
-            {
-                if (double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z)) return false;
 
-                else return true;
-            }
-        }
+
+        ///// <summary>
+        ///// Cross product of two vectors
+        ///// </summary>
+        ///// <param name="a"></param>
+        ///// <param name="b"></param>
+        ///// <returns></returns>
+        //public static Vector CrossProduct(Vector a, Vector b)
+        //{
+        //    return new Vector(
+        //        a[1] * b[2] - a[2] * b[1],
+        //        a[2] * b[0] - a[0] * b[2],
+        //        a[0] * b[1] - a[1] * b[0]
+        //    );
+        //}
+
+        ///// <summary>
+        ///// Dot product of two vectors
+        ///// </summary>
+        ///// <param name="a"></param>
+        ///// <param name="b"></param>
+        ///// <returns></returns>
+        //public static double DotProduct(Vector a, Vector b)
+        //{
+        //    return a * b;
+        //}
+
+        ///// <summary>
+        ///// Dot product of two vectors
+        ///// </summary>
+        ///// <param name="a"></param>
+        ///// <param name="b"></param>
+        ///// <returns></returns>
+        //public static double DotProduct(Vector a, Point b)
+        //{
+        //    return a * b;
+        //}
+
+        ///// <summary>
+        ///// Dot product of two vectors
+        ///// </summary>
+        ///// <param name="a"></param>
+        ///// <param name="b"></param>
+        ///// <returns></returns>
+        //public static double DotProduct(Point a, Vector b)
+        //{
+        //    return a * b;
+        //}
+
+
+
 
         /// <summary>
         /// Gets the vector length
         /// </summary>
-        public double U
-        {
-            get { return this.Length; }
-        }
+        //public double U
+        //{
+        //    get { return this.Length; }
+        //}
 
-        /// <summary>
-        /// Duplicates the vector
-        /// </summary>
-        /// <returns></returns>
-        public Vector DuplicateVector()
-        {
-            return new Vector(this);
-        }
-      
+        ///// <summary>
+        ///// Duplicates the vector
+        ///// </summary>
+        ///// <returns></returns>
+        //public Vector DuplicateVector()
+        //{
+        //    return new Vector(this);
+        //}
+
         /// <summary>
         /// Returns the reversed vector
         /// </summary>
         /// <returns></returns>
-        public Vector Reverse()
-        {
-            return this * -1.0;
-        }
 
-        public override string ToString()
-        {
-            return "[" + X + ", " + Y + ", " + Z + "]";
-        }
-
-        public string ToString(int decimals)
-        {
-            return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
-        }
-
-        public override BoundingBox Bounds()
-        {
-            return null;
-        }
-
-      
-
-        public override void Update() { }
-
-        public override BHoMGeometry Duplicate()
-        {
-            return this.DuplicateVector();
-        }
     }
 }

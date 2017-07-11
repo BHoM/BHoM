@@ -1,79 +1,131 @@
-﻿using BHoM.Base;
-
+﻿using BH.oM.Base;
+using BH.oM.Geometry.Curve;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
-    public class Circle : Curve
+    public class Circle : ICurve
     {
-        double m_Radius;
-        Plane m_Plane;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        internal Circle() { }
+        public Point Centre { get; set; } = new Point();
 
-        public Circle(double radius, Plane p)
+        public Vector Normal { get; set; } = new Vector(0, 0, 1);
+
+        public double Radius { get; set; } = 0;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Circle() { }
+
+        /***************************************************/
+
+        public Circle(Point centre, double radius = 0)
         {
-            m_Radius = radius;
-            m_Dimensions = 3;
-            m_Order = 3;
-            m_Plane = p;
+            Centre = centre;
+            Radius = radius;
         }
 
-        public override GeometryType GeometryType
+        /***************************************************/
+
+        public Circle(Point centre, Vector normal, double radius = 0)
         {
-            get
-            {
-                return GeometryType.Circle;
-            }
+            Centre = centre;
+            Normal = normal.Normalise();
+            Radius = radius;
         }
 
-        public override int PointCount
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+
+        /***************************************************/
+        /**** IBHoMGeometry Interface                   ****/
+        /***************************************************/
+
+        public GeometryType GetGeometryType()
         {
-            get
-            {
-                return base.PointCount;
-            }
+            return GeometryType.Circle;
         }
 
-        public Point Centre
+        /***************************************************/
+
+        public BoundingBox GetBounds()
         {
-            get
-            {
-                return m_Plane.Origin;
-            }
+            return new BoundingBox(Centre - Radius * Normal, Centre + Radius * Normal);
         }
 
-        public double Radius
+        /***************************************************/
+
+        public object Clone()
         {
-            get
-            {
-                return m_Radius;
-            }
-            set
-            {
-                m_Radius = value;
-            }
+            return new Circle(Centre.Clone() as Point, Normal.Clone() as Vector, Radius);
         }
 
-        public Plane Plane
+        /***************************************************/
+
+        public IBHoMGeometry GetTranslated(Vector t)
         {
-            get
-            {
-                return m_Plane;
-            }
-            set
-            {
-                m_Plane = value;
-            }
+            return new Circle(Centre + t, Normal.Clone() as Vector, Radius);
         }
 
-        public override void Update()
+
+        /***************************************************/
+        /**** ICurve Interface                          ****/
+        /***************************************************/
+
+        public Point GetStart()
         {
-            base.Update();
+            if (Normal.X == 0 && Normal.Y == 0)
+                return new Point(Centre.X + Radius * Normal.Z, Centre.Y, Centre.Z);
+            else
+                return new Point(Centre.X + Radius * Normal.Y, Centre.Y - Radius * Normal.X, Centre.Z);
         }
+
+        /***************************************************/
+
+        public Point GetEnd()
+        {
+            return GetStart();
+        }
+
+        /***************************************************/
+
+        public Vector GetStartDir()
+        {
+            throw new NotImplementedException(); //TODO: get start dir of circle (would require cross product
+        }
+
+        /***************************************************/
+
+        public Vector GetEndDir()
+        {
+            throw new NotImplementedException(); //TODO: get end dir of circle (would require cross product
+        }
+
+        /***************************************************/
+
+        public bool IsClosed()
+        {
+            return true;
+        }
+
+
+
+        //public override void Update()
+        //{
+        //    base.Update();
+        //}
     }
 }

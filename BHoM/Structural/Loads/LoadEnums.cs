@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Loads
+namespace BH.oM.Structural.Loads
 {
     public enum CaseType
     {

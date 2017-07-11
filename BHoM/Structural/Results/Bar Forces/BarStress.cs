@@ -1,11 +1,11 @@
-﻿using BHoM.Base;
+﻿using BH.oM.Base;
 
-using BHoM.Structural.Loads;
+using BH.oM.Structural.Loads;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     public class BarStress : BarStress<string, string, string>
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Structural.Elements;
-using BHoM.Structural.Results;
+using BH.oM.Structural.Elements;
+using BH.oM.Structural.Results;
 
-namespace BHoM.Structural.Interface
+namespace BH.oM.Structural.Interface
 {
     /// <summary>
     /// Interface for setting elements to be designed in an external application

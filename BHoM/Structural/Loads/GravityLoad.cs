@@ -4,30 +4,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHB = BHoM.Base;
-using BHG = BHoM.Geometry;
+using BHB = BH.oM.Base;
+using BHG = BH.oM.Geometry;
 
-namespace BHoM.Structural.Loads
+namespace BH.oM.Structural.Loads
 {
     public class GravityLoad : Load<BHB.BHoMObject>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public BHG.Vector GravityDirection { get; set; } = new BHG.Vector(0, 0, -1);
 
-        public GravityLoad()
-        {
-        }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public GravityLoad() { }
+
+        /***************************************************/
 
         public GravityLoad(Loadcase loadcase, double Gx, double gy, double gz)
         {
             GravityDirection = new Geometry.Vector(Gx, gy, gz);
         }
 
-        public override LoadType LoadType
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+        /***************************************************/
+        /**** ILoad Interface                           ****/
+        /***************************************************/
+
+        public override LoadType GetLoadType()
         {
-            get
-            {
-                return LoadType.Selfweight;
-            }
+            return LoadType.Selfweight;
         }
     }
 }

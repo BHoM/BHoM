@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Design
+namespace BH.oM.Structural.Design
 {
     public interface IDesignable
     {

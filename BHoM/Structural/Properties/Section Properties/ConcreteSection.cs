@@ -1,5 +1,6 @@
-﻿using BHoM.Geometry;
-using BHoM.Materials;
+﻿using BH.oM.Geometry;
+using BH.oM.Geometry.Curve;
+using BH.oM.Materials;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties  //TODO: Only one class per file
 {
     public enum ReoPattern
     {
@@ -18,8 +19,12 @@ namespace BHoM.Structural.Properties
     }
 
 
-    public abstract class Reinforcement : BHoM.Base.BHoMObject
+    public abstract class Reinforcement : BH.oM.Base.BHoMObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public double Diameter { get; set; }
         public int BarCount { get; set; }
 
@@ -27,31 +32,46 @@ namespace BHoM.Structural.Properties
 
         [DisplayName("StartLocation")]
         [Description("location of the beginning of the reinforcement as a ratio of the bar length")]
-        [DefaultValue(0)]
-        public double StartLocation { get; set; }
+        public double StartLocation { get; set; } = 0;
+
         [DisplayName("EndLocation")]
         [Description("location of the end of the reinforcement as a ratio of the bar length")]
-        [DefaultValue(1)]
-        public double EndLocation { get; set; }
+        public double EndLocation { get; set; } = 1;
 
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         public Reinforcement() { }
+
+        /***************************************************/
+
         public Reinforcement(double diameter, int barCount)
         {
             Diameter = diameter;
             BarCount = barCount;
         }
 
-        public abstract bool IsLongitudinal { get; }
-        public abstract BHoMGeometry GetLayout(ConcreteSection property, bool extrude = false);
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+        public abstract bool IsLongitudinal();
+
+        /***************************************************/
+
+        public abstract IBHoMGeometry GetLayout(ConcreteSection property, bool extrude = false);
+
+        /***************************************************/
 
         public virtual List<double> Location(ConcreteSection property, double location, double axis)
         {
             List<double> result = new List<double>();
             if (location >= StartLocation && location <= EndLocation)
             {
-                Group<Point> geom = GetLayout(property, false) as Group<Point>;
-                foreach (Point p in geom)
+                GeometryGroup<Point> geom = GetLayout(property, false) as GeometryGroup<Point>;
+                foreach (Point p in geom.Elements)
                 {
                     if (axis == 0)
                     {
@@ -67,148 +87,219 @@ namespace BHoM.Structural.Properties
         }
     }
 
+
+
     public class LayerReinforcement : Reinforcement
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public double Depth { get; set; }
 
         [DisplayName("IsVertical")]
         [Description("Set as vertical reinforcement layer")]
-        [DefaultValue(false)]
-        public bool IsVertical { get; set; }
+        public bool IsVertical { get; set; } = false;
 
-        public override bool IsLongitudinal
-        {
-            get
-            {
-                return true;
-            }
-        }
 
-        public LayerReinforcement()
-        {
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        }
-        public LayerReinforcement(double diameter, double depth, int count) : base (diameter, count)
+        public LayerReinforcement() { }
+
+        /***************************************************/
+
+        public LayerReinforcement(double diameter, double depth, int count)
         {
+            Diameter = diameter;
+            BarCount = count;
             Depth = depth;
         }
-        public override BHoMGeometry GetLayout(ConcreteSection property, bool extrude = false)
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** Override Reinforcement                    ****/
+        /***************************************************/
+
+        public override bool IsLongitudinal()
         {
-            double relativeDepth = IsVertical ? property.Edges.Bounds().Max.X - Depth : property.Edges.Bounds().Max.Y - Depth;
-            double[] range = null;
-            double tieDiameter = property.TieDiameter;
-            if (property.Shape == ShapeType.Rectangle)
-            {
-                tieDiameter = tieDiameter + Math.Cos(Math.PI / 4) * (2 * tieDiameter * (Math.Sqrt(2) - 1) + Diameter / 2) - Diameter / 2;
-            }
-            double width = 0;// IsVertical ? property.DepthAt(relativeDepth, ref range) : property.WidthAt(relativeDepth, ref range);
+            return true;
+        }
 
-            double spacing = (width - 2 * property.MinimumCover - Diameter - 2 * tieDiameter) / (BarCount - 1.0);
-            double start = range != null && range.Length > 0 ? range[0] : 0;
-            Group<Point> location = new Group<Point>();
-            for (int i = 0; i < BarCount; i++)
-            {
-                double x = IsVertical ? relativeDepth : property.MinimumCover + Diameter / 2 + tieDiameter + spacing * i + start;
-                double y = IsVertical ? property.MinimumCover + Diameter / 2 + spacing * i + tieDiameter + start : relativeDepth;
+        /***************************************************/
 
-                location.Add(new Point(x, y, 0));
-            }
+        public override IBHoMGeometry GetLayout(ConcreteSection property, bool extrude = false)
+        {
+            //double relativeDepth = IsVertical ? property.Edges.GetBounds().Max.X - Depth : property.Edges.GetBounds().Max.Y - Depth;
+            //double[] range = null;
+            //double tieDiameter = property.TieDiameter;
+            //if (property.Shape == ShapeType.Rectangle)
+            //{
+            //    tieDiameter = tieDiameter + Math.Cos(Math.PI / 4) * (2 * tieDiameter * (Math.Sqrt(2) - 1) + Diameter / 2) - Diameter / 2;
+            //}
+            //double width = 0;// IsVertical ? property.DepthAt(relativeDepth, ref range) : property.WidthAt(relativeDepth, ref range);
+
+            //double spacing = (width - 2 * property.MinimumCover - Diameter - 2 * tieDiameter) / (BarCount - 1.0);
+            //double start = range != null && range.Length > 0 ? range[0] : 0;
+            GeometryGroup<Point> location = new GeometryGroup<Point>();
+            //for (int i = 0; i < BarCount; i++)
+            //{
+            //    double x = IsVertical ? relativeDepth : property.MinimumCover + Diameter / 2 + tieDiameter + spacing * i + start;
+            //    double y = IsVertical ? property.MinimumCover + Diameter / 2 + spacing * i + tieDiameter + start : relativeDepth;
+
+            //    location.Add(new Point(x, y, 0));
+            //}
             return location;
         }
     }
+
+
+
+
+
 
     /// <summary>
     /// Perimeter Reinforcement is aimed at columns and is only valid on rectangular and circular sections
     /// </summary>
     public class PerimeterReinforcement : Reinforcement
     {
-        public override bool IsLongitudinal
-        {
-            get
-            {
-                return true;
-            }
-        }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public ReoPattern Pattern { get; set; }
 
-        public override BHoMGeometry GetLayout(ConcreteSection property, bool extrude = false)
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+
+        /***************************************************/
+        /**** Override Reinforcement                    ****/
+        /***************************************************/
+
+        public override bool IsLongitudinal()
         {
-            double d = property.TotalDepth;
-            double w = property.TotalWidth;
-            double tieDiameter = property.TieDiameter;
-            Group<Point> location = new Group<Point>();
-            if (property.Shape == ShapeType.Rectangle) //Rectangle
-            {
-                int topCount = 0;
-                int sideCount = 0;
-                double tieOffset = tieDiameter + Math.Cos(Math.PI/ 4) * (2 * tieDiameter * (Math.Sqrt(2) - 1) + Diameter / 2) - Diameter / 2;
-                switch (Pattern)
-                {
-                    case ReoPattern.Equispaced:
-                        topCount = (int)(BarCount * w / (2 * w + 2 * d) + 1);
-                        sideCount = (BarCount - 2 * topCount) / 2 + 2;
-                        break;
-                    case ReoPattern.Horizontal:
-                        topCount = BarCount / 2;
-                        sideCount = 2;
-                        break;
-                    case ReoPattern.Vertical:
-                        topCount = 2;
-                        sideCount = BarCount / 2;
-                        break;                        
-                }
-                double verticalSpacing = (d - 2 * property.MinimumCover - Diameter - 2 * tieOffset) / (sideCount - 1);
-                double depth = property.MinimumCover + Diameter / 2 + tieOffset;
-                for (int i = 0; i < sideCount; i++)
-                {
-                    int count = topCount;
-                    double currentDepth = depth + i * verticalSpacing;
-                    if (i > 0 && i < sideCount - 1)
-                    {
-                        count = 2;
-                    }
-                    Group<Point> layout = new LayerReinforcement(Diameter, currentDepth, count).GetLayout(property) as Group<Point>;
+            return true;
+        }
 
-                    location.AddRange(layout);
-                }
-            }
-            else if (property.Shape == ShapeType.Circle) //Circular
-            {
-                double angle = Math.PI * 2 / BarCount;
-                double startAngle = 0;
-                double radius = d / 2 - property.MinimumCover - Diameter / 2;
-                switch (Pattern)
-                {
-                    case ReoPattern.Horizontal:
-                        startAngle = angle / 2;
-                        break;
-                }
-                for (int i = 0; i < BarCount; i++)
-                {
-                    double x = Math.Cos(startAngle + angle * i) * radius;
-                    double y = Math.Sin(startAngle + angle * i) * radius;
-                    location.Add(new Point(x, y, 0));
-                }
+        /***************************************************/
 
-            }
+        public override IBHoMGeometry GetLayout(ConcreteSection property, bool extrude = false)
+        {
+            //double d = property.TotalDepth;
+            //double w = property.TotalWidth;
+            //double tieDiameter = property.TieDiameter;
+            GeometryGroup<Point> location = new GeometryGroup<Point>();
+            //if (property.Shape == ShapeType.Rectangle) //Rectangle
+            //{
+            //    int topCount = 0;
+            //    int sideCount = 0;
+            //    double tieOffset = tieDiameter + Math.Cos(Math.PI/ 4) * (2 * tieDiameter * (Math.Sqrt(2) - 1) + Diameter / 2) - Diameter / 2;
+            //    switch (Pattern)
+            //    {
+            //        case ReoPattern.Equispaced:
+            //            topCount = (int)(BarCount * w / (2 * w + 2 * d) + 1);
+            //            sideCount = (BarCount - 2 * topCount) / 2 + 2;
+            //            break;
+            //        case ReoPattern.Horizontal:
+            //            topCount = BarCount / 2;
+            //            sideCount = 2;
+            //            break;
+            //        case ReoPattern.Vertical:
+            //            topCount = 2;
+            //            sideCount = BarCount / 2;
+            //            break;                        
+            //    }
+            //    double verticalSpacing = (d - 2 * property.MinimumCover - Diameter - 2 * tieOffset) / (sideCount - 1);
+            //    double depth = property.MinimumCover + Diameter / 2 + tieOffset;
+            //    for (int i = 0; i < sideCount; i++)
+            //    {
+            //        int count = topCount;
+            //        double currentDepth = depth + i * verticalSpacing;
+            //        if (i > 0 && i < sideCount - 1)
+            //        {
+            //            count = 2;
+            //        }
+            //        Group<Point> layout = new LayerReinforcement(Diameter, currentDepth, count).GetLayout(property) as Group<Point>;
+
+            //        location.AddRange(layout);
+            //    }
+            //}
+            //else if (property.Shape == ShapeType.Circle) //Circular
+            //{
+            //    double angle = Math.PI * 2 / BarCount;
+            //    double startAngle = 0;
+            //    double radius = d / 2 - property.MinimumCover - Diameter / 2;
+            //    switch (Pattern)
+            //    {
+            //        case ReoPattern.Horizontal:
+            //            startAngle = angle / 2;
+            //            break;
+            //    }
+            //    for (int i = 0; i < BarCount; i++)
+            //    {
+            //        double x = Math.Cos(startAngle + angle * i) * radius;
+            //        double y = Math.Sin(startAngle + angle * i) * radius;
+            //        location.Add(new Point(x, y, 0));
+            //    }
+
+            //}
             return location;
         }
     }
 
+
+
+
+
     public class TieReinforcement : Reinforcement
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public double Spacing { get; set; }
-        public override bool IsLongitudinal
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+
+        /***************************************************/
+        /**** Override Reinforcement                    ****/
+        /***************************************************/
+
+        public override bool IsLongitudinal()
         {
-            get
-            {
-                return false;
-            }
+            return false;
         }
-        public override BHoMGeometry GetLayout(ConcreteSection property, bool extrude = false)
+
+        /***************************************************/
+
+        public override IBHoMGeometry GetLayout(ConcreteSection property, bool extrude = false)
         {
-            double tieDiameter = property.TieDiameter;
+            double tieDiameter = property.GetTieDiameter();
             switch (property.Shape)
             {
                 case ShapeType.Rectangle:
@@ -314,78 +405,100 @@ namespace BHoM.Structural.Properties
         }
 
     }
+
+
+
     
 
     public class ConcreteSection : SectionProperty
     {
-        public List<Reinforcement> Reinforcement { get; set; }
-        public double MinimumCover { get; set; }
-        public double TieDiameter
-        {
-            get
-            {
-                foreach(Reinforcement reo in Reinforcement)
-                {
-                    if (reo is TieReinforcement)
-                    {
-                        return reo.Diameter;
-                    }
-                }
-                return 0;
-            }
-        }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public ConcreteSection()
-        {
-            Reinforcement = new List<Properties.Reinforcement>();
-        }
+        public List<Reinforcement> Reinforcement { get; set; } = new List<Properties.Reinforcement>();
+        public double MinimumCover { get; set; }
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ConcreteSection() { }
+
+        /***************************************************/
+
         /// <summary>
         /// Create a section property from a list of edges, shape type and material
         /// </summary>
         /// <param name="edges"></param>
         /// <param name="sType"></param>
         /// <param name="mType"></param>
-        public ConcreteSection(BHoM.Geometry.Group<Curve> edges, ShapeType sType) : this()
+        public ConcreteSection(IEnumerable<ICurve> edges, ShapeType sType) : this()
         {
-            Edges = edges;
+            Edges = edges.ToList();
             Shape = sType;
             //SectionMaterial = mType;
         }
 
-        public BHoMGeometry GetReinforcementLayout(double xStart = 0, double xEnd = 1)
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+        public double GetTieDiameter()
         {
-            Group<BHoMGeometry> geometry = new Group<BHoMGeometry>();
-            foreach (Reinforcement reo in Reinforcement)
+            foreach(Reinforcement reo in Reinforcement)
             {
-                BHoMGeometry layout = reo.GetLayout(this);
-                if (typeof(IGroup).IsAssignableFrom(layout.GetType()))
+                if (reo is TieReinforcement)
                 {
-                    foreach (BHoMGeometry obj in ((IGroup)layout).Objects)
-                    {
-                        if (obj is Point)
-                        {
-                            geometry.Add(new Circle(reo.Diameter / 2, new Plane(obj as Point, Vector.ZAxis())));
-                        }
-                        else
-                        {
-                            geometry.Add(obj);
-                        }                       
-                    }
-                }
-                else
-                {
-                    geometry.Add(layout);
+                    return reo.Diameter;
                 }
             }
+            return 0;
+        }
+
+        /***************************************************/
+
+        public IBHoMGeometry GetReinforcementLayout(double xStart = 0, double xEnd = 1)
+        {
+            GeometryGroup<IBHoMGeometry> geometry = new GeometryGroup<IBHoMGeometry>();
+            //foreach (Reinforcement reo in Reinforcement)
+            //{
+            //    IBHoMGeometry layout = reo.GetLayout(this);
+            //    if (typeof(IGroup).IsAssignableFrom(layout.GetType()))
+            //    {
+            //        foreach (IBHoMGeometry obj in ((IGroup)layout).Objects)
+            //        {
+            //            if (obj is Point)
+            //            {
+            //                geometry.Add(new Circle(reo.Diameter / 2, new Plane(obj as Point, Vector.ZAxis())));
+            //            }
+            //            else
+            //            {
+            //                geometry.Add(obj);
+            //            }                       
+            //        }
+            //    }
+            //    else
+            //    {
+            //        geometry.Add(layout);
+            //    }
+            //}
             return geometry;
         }
 
-        public override BHoMGeometry GetGeometry()
+
+        /***************************************************/
+        /**** Override BHoMObject                       ****/
+        /***************************************************/
+
+        public override IBHoMGeometry GetGeometry()
         {
-            Group<BHoMGeometry> geometry = new Group<BHoMGeometry>();
-            geometry.Add(GetReinforcementLayout());
-            geometry.Add(base.GetGeometry());
-            return geometry;
+            return new GeometryGroup<IBHoMGeometry>(new List<IBHoMGeometry> {
+                GetReinforcementLayout(),
+                base.GetGeometry()
+            });
         }
     }
 }

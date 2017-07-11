@@ -1,5 +1,5 @@
 ﻿
-namespace BHoM.Structural.Elements
+namespace BH.oM.Structural.Elements
 {
     /// <summary>Usage of the bar for downstream implementations</summary>
     public enum BarStructuralUsage
@@ -18,6 +18,8 @@ namespace BHoM.Structural.Elements
         Pile
     }
 
+    /***************************************************/
+
     /// <summary>Manufacture type for steel</summary>
     public enum ManufactureType
     {
@@ -35,6 +37,8 @@ namespace BHoM.Structural.Elements
         unknown,
     }
 
+    /***************************************************/
+
     /// <summary>Steel strut buckling curves</summary>
     public enum BucklingCurve
     {
@@ -51,6 +55,8 @@ namespace BHoM.Structural.Elements
         /// <summary>Not Known</summary>
         unknown,
     }
+
+    /***************************************************/
 
     /// <summary>Shear type</summary>
     public enum ShearType
@@ -74,6 +80,8 @@ namespace BHoM.Structural.Elements
         /// <summary>g</summary>
         g,
     }
+
+    /***************************************************/
 
     /// <summary>
     /// Sets the type of FE element model to use for bars in analysis software

@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Structural.Interface;
+using BH.oM.Structural.Interface;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     public class ResultSet<T> : IResultSet where T : IResult, new()
     {

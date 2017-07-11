@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BHoM.Planning.Construction
+namespace BH.oM.Planning.Construction
 {
     /// <summary>
     /// Construction phase class for use across all BHoM projects. By default, construction phases should be
@@ -8,81 +8,34 @@ namespace BHoM.Planning.Construction
     /// </summary>
     public class ConstructionPhase : IPhase
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         /// <summary>
         /// Construction stage duration
         /// </summary>
-        public TimeSpan Duration
-        {
-            get
-            {
-                return Duration;
-            }
-            set
-            {
-                Duration = value;
-            }
-        }
+        public TimeSpan Duration { get; set; }
 
         /// <summary>
         /// Construction stage name
         /// </summary>
-        public string Name
-        {
-            get
-            {
-                return Name;
-            }
-            set
-            {
-                Name = value;
-            }
-        }
+        public string Name { get; set; }
 
         /// <summary>
         /// Construction stage sequential number
         /// </summary>
-        public int Number
-        {
-            get
-            {
-                return Number;
-            }
-            set
-            {
-                Number = value;
-            }
-        }
+        public int Number { get; set; }
 
         /// <summary>
         /// Construction stage start time
         /// </summary>
-        public DateTime StartTime
-        {
-            get
-            {
-                return StartTime;
-            }
-            set
-            {
-                StartTime = value;
-            }
-        }
+        public DateTime StartTime { get; set; }
 
         /// <summary>
         /// Construction stage end time
         /// </summary>
-        public DateTime EndTime
-        {
-            get
-            {
-                return EndTime;
-            }
-            set
-            {
-                EndTime = value;
-            }
-        }
+        public DateTime EndTime { get; set; }
 
     }
 }

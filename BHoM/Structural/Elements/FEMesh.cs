@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHB = BHoM.Base;
-using BHoM.Structural.Properties;
-using BHoM.Geometry;
+using BHB = BH.oM.Base;
+using BH.oM.Structural.Properties;
+using BH.oM.Geometry;
 
-namespace BHoM.Structural.Elements
+namespace BH.oM.Structural.Elements
 {
     public class FEMesh : BHB.BHoMObject, IAreaElement
     {
-        public FEMesh()
-        {
-            Nodes = new List<Node>();
-            Faces = new List<FEFace>();
-        }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public PanelProperty PanelProperty { get; set; }
 
@@ -23,28 +21,42 @@ namespace BHoM.Structural.Elements
 
         public List<FEFace> Faces { get; set; }
 
-        public AreaElementType ElementType
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public FEMesh()
         {
-            get
-            {
-                return AreaElementType.Mesh;
-            }
+            Nodes = new List<Node>();
+            Faces = new List<FEFace>();
         }
 
-        public override BHoMGeometry GetGeometry()
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+
+
+        /***************************************************/
+        /**** IBHoMGeometry Interface                   ****/
+        /***************************************************/
+
+        public AreaElementType GetElementType()
         {
-            Group<Point> points = new Group<Point>();
-            List<Geometry.Face> faces = new List<Geometry.Face>();
+            return AreaElementType.Mesh;
+        }
 
-            for(int i = 0; i < Nodes.Count;i++)
-            {
-                points.Add(Nodes[i].Point);
-            }
 
-            for (int i = 0; i < Faces.Count; i++)
-            {
-                faces.Add(new Geometry.Face(Faces[i].NodeIndices.ToArray()));
-            }
+        /***************************************************/
+        /**** Override BHoMObject                       ****/
+        /***************************************************/
+
+        public override IBHoMGeometry GetGeometry()
+        {
+            IEnumerable<Point> points = Nodes.Select(x => x.Point);
+            IEnumerable<Geometry.Face> faces = Faces.Select(x => x.GetGeometryFace());
+
             return new Mesh(points, faces);
         }
     }

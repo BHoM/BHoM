@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     /// <summary>
     /// This class is used to collect and inspect results for a 
@@ -13,7 +13,7 @@ namespace BHoM.Structural.Results
     public class GlobalResult
     {
         /// <summary>Loadcase as BHoM object</summary>
-        public BHoM.Structural.Loads.Loadcase Loadcase { get; private set; }
+        public BH.oM.Structural.Loads.Loadcase Loadcase { get; private set; }
 
         /// <summary>Base shear force in X direction (reacion in X as a percentage of total mass)</summary>
         public double BaseShearX {get; private set;}
@@ -21,10 +21,10 @@ namespace BHoM.Structural.Results
         public double BaseShearY { get; private set; }
 
         /// <summary>Sum of reactions (X, Y, Z) as vector</summary>
-        public BHoM.Geometry.Vector SumOfReactions_F {get; private set;}
+        public BH.oM.Geometry.Vector SumOfReactions_F {get; private set;}
 
         /// <summary>Sum of reactions (MX, MY, MZ) as vector</summary>
-        public BHoM.Geometry.Vector SumOfReactions_M { get; private set; }
+        public BH.oM.Geometry.Vector SumOfReactions_M { get; private set; }
 
         /// <summary>Sum of modal masses as vector</summary>
         public double SumOfMass { get; private set; }
@@ -36,7 +36,7 @@ namespace BHoM.Structural.Results
         /// Constructs a global result using a BHoM loadcase object
         /// </summary>
         /// <param name="loadcase"></param>
-        public GlobalResult(BHoM.Structural.Loads.Loadcase loadcase)
+        public GlobalResult(BH.oM.Structural.Loads.Loadcase loadcase)
         {
             this.Loadcase = loadcase;
         }
@@ -64,8 +64,8 @@ namespace BHoM.Structural.Results
         /// <param name="mZ"></param>
         public void SetReactions(double fX, double fY, double fZ, double mX, double mY, double mZ)
         {
-            this.SumOfReactions_F = new BHoM.Geometry.Vector(fX, fY, fZ);
-            this.SumOfReactions_M = new BHoM.Geometry.Vector(mX, mY, mZ);
+            this.SumOfReactions_F = new BH.oM.Geometry.Vector(fX, fY, fZ);
+            this.SumOfReactions_M = new BH.oM.Geometry.Vector(mX, mY, mZ);
         }
 
         /// <summary>

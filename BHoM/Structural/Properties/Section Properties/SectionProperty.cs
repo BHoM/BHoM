@@ -1,14 +1,12 @@
-﻿using BHoM.Geometry;
-using BHoM.Base;
-using BHoM.Materials;
+﻿using BH.oM.Geometry;
+using BH.oM.Base;
+using BH.oM.Materials;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Geometry.Curve;
 
-
-
-
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {
     /// <summary>
     /// Section property class, the parent abstract class for all structural 
@@ -16,45 +14,19 @@ namespace BHoM.Structural.Properties
     /// parent class are those that would populate a multi category section database only
     /// </summary>
 
-    public abstract partial class SectionProperty : BHoMObject
+    public abstract partial class SectionProperty : BHoMObject  
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public SectionProperty() { }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        /// <summary>
-        /// Geometry of the cross section
-        /// </summary>
+        public List<ICurve> Edges { get; set; } = new List<ICurve>();
 
-        [Browsable(false)]
-        [DefaultValue(null)]
-        public BHoM.Geometry.Group<Curve> Edges { get; set; }
+        public Material Material { get; set; } = new Material();
 
+        public virtual ShapeType Shape { get; set; } = new ShapeType();
 
-        /// <summary>Material of the section property</summary>
-        [DisplayName("Material")]
-        [Description("Bar Material assigned to the bar object")]
-        public BHoM.Materials.Material Material { get; set; }
-
-        /************************************************/
-        /********* Steel sections from data base ********/
-        /************************************************/
-
-      
-        /// <summary>Section type</summary> /// 
-        [DefaultValue(null)]
-        public virtual ShapeType Shape { get; set; }
-
-        /// <summary>
-        /// Orientation
-        /// </summary>
-        [DefaultValue(null)]
-        public virtual double Orientation
-        {
-            get;
-            set;
-        }
+        public virtual double Orientation { get; set; } // TODO: Defien all the default values;
 
         /// <summary>
         /// Gross Area of the cross section
@@ -158,17 +130,19 @@ namespace BHoM.Structural.Properties
         public double TotalWidth { get; set; }
 
 
-        /// <summary>Cross sectional area</summary>
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        /// <summary>Torsion Constant</summary>
+        public SectionProperty() { }
+
+        /***************************************************/
 
 
 
-        public override BHoMGeometry GetGeometry()
-        {
-
-            return Edges;
-        }
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
 
         public override string ToString()
         {
@@ -177,5 +151,17 @@ namespace BHoM.Structural.Properties
             return name + "-" + mat;
 
         }
+
+
+        /***************************************************/
+        /**** Override BHoMObject                       ****/
+        /***************************************************/
+
+        public override IBHoMGeometry GetGeometry()
+        {
+            return new GeometryGroup<ICurve> (Edges);
+        }
+
+        
     }
 }

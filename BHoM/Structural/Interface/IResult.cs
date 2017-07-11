@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Interface
+namespace BH.oM.Structural.Interface
 {
     public interface IResult : IComparable
     {

@@ -1,81 +1,75 @@
-﻿using BHoM.Geometry;
-using BHB = BHoM.Base;
-using BHE = BHoM.Environmental.Elements;
+﻿using BH.oM.Geometry;
+using BHB = BH.oM.Base;
+using BHE = BH.oM.Environmental.Elements;
 using System;
 using System.Reflection;
-using BHoM.Structural.Loads;
+using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Geometry.Surface;
 
-namespace BHoM.Environmental.Elements
+namespace BH.oM.Environmental.Elements
 {
     /// <summary>
     /// Panel object for environmental models.
     /// </summary>
     public class Panel : BHB.BHoMObject
     {
-
-        /////////////////
-        ////Properties///
-        /////////////////
-
-        //private Brep m_Panel;   //Never used
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public string Type { get; set; }
 
-        public Brep Geometry
-        {
-            get; set;
-        }
-
-        public bool IsValid() { return Geometry != null; }
+        public ISurface Geometry { get; set; } = null;
 
 
-        ////////////////////
-        ////CONSTRUCTORS////
-        ////////////////////
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        public Panel()
-        {
-           
-        }
+        public Panel() { }
+
+        /***************************************************/
 
         /// <summary>
         /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
         /// </summary>
         /// <param name="edges"></param>
         /// <param name="number"></param>
-        public Panel(Surface surface)
+        public Panel(ISurface surface)
         {
             Geometry = surface;
         }
 
-        /// <summary>
-        /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
-        /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="number"></param>
-        public Panel(Brep boundary)
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
+        public bool IsValid()
         {
-            Geometry = boundary;
+            return Geometry != null;
         }
 
-        ///////////////
-        ////METHODS////
-        ///////////////
+
+        /***************************************************/
+        /**** Override BHoMObject                       ****/
+        /***************************************************/
 
         /// <summary></summary>
-        public override BHoM.Geometry.BHoMGeometry GetGeometry()
+        public override IBHoMGeometry GetGeometry()
         {
             return Geometry;
         }
 
+        /***************************************************/
+
         /// <summary></summary>
-        public override void SetGeometry(BHoMGeometry geometry)
+        public override void SetGeometry(IBHoMGeometry geometry)
         {
-            if (typeof(Brep).IsAssignableFrom(geometry.GetType()))
+            if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
             {
-                Geometry = geometry as Brep;
+                Geometry = geometry as ISurface;
             }
         }
     }

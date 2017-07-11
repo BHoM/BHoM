@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Design
+namespace BH.oM.Structural.Design
 {
     public enum SpanDirection
     {
@@ -16,25 +16,37 @@ namespace BHoM.Structural.Design
     }
 
 
-    public class Span : BHoM.Base.BHoMObject
+    public class Span : BH.oM.Base.BHoMObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public Span()
-        {
-            BarIndices = new List<int>();
-        }
-        public List<int> BarIndices { get; set; }
+        public List<int> BarIndices { get; set; } = new List<int>();
+
         public double EffectiveLength { get; set; }
 
-        public static Span CreateDefaultSpan(StructuralLayout elem)
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Span() { }
+
+        /***************************************************/
+
+        public Span(StructuralLayout elem)
         {
-            Span span = new Span();
             for (int i = 0; i < elem.AnalyticBars.Count; i++)
-                span.BarIndices.Add(i);
+                BarIndices.Add(i);
 
-            span.EffectiveLength = elem.Length;
-
-            return span;
+            EffectiveLength = elem.GetLength();
         }
+
+
+        /***************************************************/
+        /**** Local Methods                             ****/
+        /***************************************************/
+
     }
 }
