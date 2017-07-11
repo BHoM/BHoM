@@ -4,7 +4,6 @@ using BH.oM.Materials;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Geometry.Curve;
 
 namespace BH.oM.Structural.Properties
 {

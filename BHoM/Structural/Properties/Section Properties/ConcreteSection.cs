@@ -1,5 +1,4 @@
 ﻿using BH.oM.Geometry;
-using BH.oM.Geometry.Curve;
 using BH.oM.Materials;
 using System;
 using System.Collections;

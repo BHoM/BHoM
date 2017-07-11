@@ -7,8 +7,7 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Structural.Properties;
-using BH.oM.Geometry.Curve;
-using BH.oM.Geometry.Surface;
+
 
 namespace BH.oM.Structural.Elements
 {
@@ -23,7 +22,7 @@ namespace BH.oM.Structural.Elements
 
         public List<Face> MeshFaces { get; set; } = new List<Face>();
 
-        public Geometry.Surface.ISurface Surface { get; set; } = null;
+        public ISurface Surface { get; set; } = null;
 
         public Materials.Material Material { get; set; } = null;
 

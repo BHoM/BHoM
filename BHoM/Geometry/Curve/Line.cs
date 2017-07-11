@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
-using BH.oM.Geometry.Curve;
+
 
 namespace BH.oM.Geometry
 {

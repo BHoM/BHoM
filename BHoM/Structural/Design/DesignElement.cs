@@ -7,7 +7,6 @@ using BH.oM.Base;
 using BH.oM.Structural.Properties;
 using BH.oM.Geometry;
 using BH.oM.Structural.Elements;
-using BH.oM.Geometry.Curve;
 
 namespace BH.oM.Structural.Design
 {

@@ -1,5 +1,4 @@
 ﻿using BH.oM.Base;
-using BH.oM.Geometry.Curve;
 using System;
 using System.Collections.Generic;
 using System.Linq;

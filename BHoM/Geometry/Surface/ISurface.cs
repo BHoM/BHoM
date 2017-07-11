@@ -1,11 +1,10 @@
-﻿using BH.oM.Geometry.Curve;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Geometry.Surface
+namespace BH.oM.Geometry
 {
     public interface ISurface : IBHoMGeometry
     {

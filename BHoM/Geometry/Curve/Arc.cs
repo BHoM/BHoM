@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Geometry.Curve;
+
 
 namespace BH.oM.Geometry
 {

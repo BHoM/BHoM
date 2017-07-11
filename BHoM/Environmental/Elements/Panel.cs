@@ -6,7 +6,6 @@ using System.Reflection;
 using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Geometry.Surface;
 
 namespace BH.oM.Environmental.Elements
 {

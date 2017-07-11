@@ -5,7 +5,6 @@ using System.Reflection;
 using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Geometry.Curve;
 
 namespace BH.oM.Structural.Elements
 {
