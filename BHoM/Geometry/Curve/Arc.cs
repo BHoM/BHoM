@@ -19,7 +19,7 @@ namespace BH.oM.Geometry
 
         public Point End { get; set; } = new Point();
 
-        public Point Centre { get; set; } = new Point();
+        public Point Middle { get; set; } = new Point();
 
 
         /***************************************************/
@@ -30,11 +30,11 @@ namespace BH.oM.Geometry
 
         /***************************************************/
 
-        public Arc(Point start, Point end, Point centre)
+        public Arc(Point start, Point end, Point middle)
         {
             Start = start;
             End = end;
-            Centre = centre;
+            Middle = middle;
         }
 
         /***************************************************/
@@ -63,14 +63,14 @@ namespace BH.oM.Geometry
 
         public object Clone()
         {
-            return new Arc(Start.Clone() as Point, End.Clone() as Point, Centre.Clone() as Point);
+            return new Arc(Start.Clone() as Point, End.Clone() as Point, Middle.Clone() as Point);
         }
 
         /***************************************************/
 
         public IBHoMGeometry GetTranslated(Vector t)
         {
-            return new Arc(Start+t, End+t, Centre+t);
+            return new Arc(Start+t, End+t, Middle+t);
         }
 
 

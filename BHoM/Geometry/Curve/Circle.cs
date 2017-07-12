@@ -39,7 +39,7 @@ namespace BH.oM.Geometry
         public Circle(Point centre, Vector normal, double radius = 0)
         {
             Centre = centre;
-            Normal = normal.Normalise();
+            Normal = normal.GetNormalised();
             Radius = radius;
         }
 

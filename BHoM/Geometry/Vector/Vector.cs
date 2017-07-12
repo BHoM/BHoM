@@ -63,9 +63,9 @@ namespace BH.oM.Geometry
 
         /***************************************************/
 
-        public Vector Normalise()
+        public Vector GetNormalised()
         {
-            double L = GetLength();
+            double L = Math.Sqrt(X * X + Y * Y + Z * Z);
             return new Vector(X / L, Y / L, Z / L);
         }
 

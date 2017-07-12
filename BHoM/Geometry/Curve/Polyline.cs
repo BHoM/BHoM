@@ -112,7 +112,7 @@ namespace BH.oM.Geometry
             Point pt1 = ControlPoints[0];
             Point pt2 = ControlPoints[1];
 
-            return new Vector(pt2.X - pt1.X, pt2.Y - pt1.Y, pt2.Z - pt1.Z).Normalise();
+            return new Vector(pt2.X - pt1.X, pt2.Y - pt1.Y, pt2.Z - pt1.Z).GetNormalised();
         }
 
         /***************************************************/
@@ -124,7 +124,7 @@ namespace BH.oM.Geometry
             Point pt1 = ControlPoints[ControlPoints.Count - 2];
             Point pt2 = ControlPoints[ControlPoints.Count - 1];
 
-            return new Vector(pt2.X - pt1.X, pt2.Y - pt1.Y, pt2.Z - pt1.Z).Normalise();
+            return new Vector(pt2.X - pt1.X, pt2.Y - pt1.Y, pt2.Z - pt1.Z).GetNormalised();
         }
 
         /***************************************************/

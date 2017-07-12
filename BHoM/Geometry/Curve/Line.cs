@@ -21,6 +21,8 @@ namespace BH.oM.Geometry
 
         public Point End { get; set; } = new Point();
 
+        public bool Infinite { get; set; } = false;
+
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -37,12 +39,22 @@ namespace BH.oM.Geometry
         }
 
         /***************************************************/
+
+        public Line(Point start, Vector direction)
+        {
+            Start = start;
+            End = start + direction;
+            Infinite = true;
+        }
+
+
+        /***************************************************/
         /**** Local Methods                             ****/
         /***************************************************/
 
         public Vector GetDirection()
         {
-            return new Vector(End.X - Start.X, End.Y - Start.Y, End.Z - Start.Z).Normalise();
+            return new Vector(End.X - Start.X, End.Y - Start.Y, End.Z - Start.Z).GetNormalised();
         }
 
         /***************************************************/
@@ -107,14 +119,14 @@ namespace BH.oM.Geometry
 
         public Vector GetStartDir()
         {
-            return new Vector(End.X - Start.X, End.Y - Start.Y, End.Z - Start.Z).Normalise();
+            return new Vector(End.X - Start.X, End.Y - Start.Y, End.Z - Start.Z).GetNormalised();
         }
 
         /***************************************************/
 
         public Vector GetEndDir()
         {
-            return new Vector(End.X - Start.X, End.Y - Start.Y, End.Z - Start.Z).Normalise();
+            return new Vector(End.X - Start.X, End.Y - Start.Y, End.Z - Start.Z).GetNormalised();
         }
 
         /***************************************************/
