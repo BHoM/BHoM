@@ -35,18 +35,15 @@ namespace BH.oM.Structural.Design
 
         /***************************************************/
 
-        public Span(StructuralLayout elem)
+        public Span(StructuralLayout elem, double effectiveLength = 0)
         {
             for (int i = 0; i < elem.AnalyticBars.Count; i++)
                 BarIndices.Add(i);
 
-            EffectiveLength = elem.GetLength();
+            EffectiveLength = effectiveLength;
         }
 
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
 
     }
 }

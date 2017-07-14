@@ -33,45 +33,51 @@ namespace BH.oM.Geometry
             Normal = normal;
         }
 
+    }
+}
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+        
 
 
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
 
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Plane;
-        }
 
-        /***************************************************/
 
-        public BoundingBox GetBounds()
-        {
-            double x = Normal.X == 0 ? 0 : double.MaxValue;
-            double y = Normal.Y == 0 ? 0 : double.MaxValue;
-            double z = Normal.Z == 0 ? 0 : double.MaxValue;
 
-            return new BoundingBox(new Point(-x, -y, -z), new Point(x, y, z));
-        }
+            
+            
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
 
-        /***************************************************/
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Plane;
+        //}
 
-        public object Clone()
-        {
-            return new Plane(Origin.Clone() as Point, Normal.Clone() as Vector);
-        }
+        ///***************************************************/
 
-        /***************************************************/
+        //public BoundingBox GetBounds()
+        //{
+        //    double x = Normal.X == 0 ? 0 : double.MaxValue;
+        //    double y = Normal.Y == 0 ? 0 : double.MaxValue;
+        //    double z = Normal.Z == 0 ? 0 : double.MaxValue;
 
-        public IBHoMGeometry GetTranslated(Vector t)
-        {
-            return new Plane(Origin+t, Normal.Clone() as Vector);
-        }
+        //    return new BoundingBox(new Point(-x, -y, -z), new Point(x, y, z));
+        //}
+
+        ///***************************************************/
+
+        //public object Clone()
+        //{
+        //    return new Plane(Origin.Clone() as Point, Normal.Clone() as Vector);
+        //}
+
+        ///***************************************************/
+
+        //public IBHoMGeometry GetTranslated(Vector t)
+        //{
+        //    return new Plane(Origin+t, Normal.Clone() as Vector);
+        //}
 
 
 
@@ -113,6 +119,3 @@ namespace BH.oM.Geometry
         //    }
         //}
 
-
-    }
-}

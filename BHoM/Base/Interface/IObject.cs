@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base
 {
-    public interface IObject
+    public interface IObject //TODO: Do we need this?
     {
         System.Guid BHoM_Guid { get; }
 

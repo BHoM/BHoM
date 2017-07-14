@@ -46,82 +46,12 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Local Methods                             ****/
+        /**** Local Optimisation Methods                ****/
         /***************************************************/
 
-        public double GetLength()
-        {
-            return Math.Sqrt(X * X + Y * Y + Z * Z);
-        }
-
-        /***************************************************/
-
-        public double GetSquareLength()
-        {
-            return X * X + Y * Y + Z * Z;
-        }
-
-        /***************************************************/
-
-        public Vector GetNormalised()
-        {
-            double L = Math.Sqrt(X * X + Y * Y + Z * Z);
-            return new Vector(X / L, Y / L, Z / L);
-        }
-
-        /***************************************************/
-
-        public bool IsValid()
-        {
-            return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
-        }
-
-        /***************************************************/
-
-        public Vector Reverse()
-        {
-            return new Vector(-X, -Y, -Z);
-        }
-
-        /***************************************************/
-
-        public string ToString(int decimals = int.MaxValue)
-        {
-            if (decimals == int.MaxValue)
-                return "[" + X + ", " + Y + ", " + Z + "]";
-            else
-                return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
-        }
-
-
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Vector;
-        }
-
-        /***************************************************/
-
-        public BoundingBox GetBounds()
-        {
-            return null;
-        }
-
-        /***************************************************/
-
-        public object Clone()
+        public object GetClone() // Optimisation
         {
             return new Vector(X, Y, Z);
-        }
-
-        /***************************************************/
-
-        public IBHoMGeometry GetTranslated(Vector t)
-        {
-            return Clone() as IBHoMGeometry;
         }
 
 
@@ -139,6 +69,13 @@ namespace BH.oM.Geometry
         public static Vector operator -(Vector a, Vector b)
         {
             return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+        }
+
+        /***************************************************/
+
+        public static Vector operator -(Vector a)
+        {
+            return new Vector(-a.X, -a.Y, -a.Z);
         }
 
         /***************************************************/
@@ -201,14 +138,14 @@ namespace BH.oM.Geometry
 
         public override bool Equals(object obj)
         {
-            return obj.GetType() == typeof(Vector) && this == ((Vector)obj); 
+            return obj.GetType() == typeof(Vector) && this == ((Vector)obj);
         }
 
         /***************************************************/
 
         public override int GetHashCode()
         {
-            unchecked 
+            unchecked
             {
                 int hash = 17;
                 hash = hash * 23 + X.GetHashCode();
@@ -217,7 +154,63 @@ namespace BH.oM.Geometry
                 return hash;
             }
         }
-        
+
+    }
+}
+
+
+
+        //public bool IsValid()
+        //{
+        //    return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
+        //}
+
+        ///***************************************************/
+
+        //public Vector Reverse()
+        //{
+        //    return new Vector(-X, -Y, -Z);
+        //}
+
+        ///***************************************************/
+
+        //public string ToString(int decimals = int.MaxValue)
+        //{
+        //    if (decimals == int.MaxValue)
+        //        return "[" + X + ", " + Y + ", " + Z + "]";
+        //    else
+        //        return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
+        //}
+
+        ///***************************************************/
+
+
+
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
+
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Vector;
+        //}
+
+        ///***************************************************/
+
+        //public BoundingBox GetBounds()
+        //{
+        //    return null;
+        //}
+
+
+
+        ///***************************************************/
+
+        //public IBHoMGeometry GetTranslated(Vector t)
+        //{
+        //    return Clone() as IBHoMGeometry;
+        //}
+
 
         //public override void Update() { }
 
@@ -296,6 +289,3 @@ namespace BH.oM.Geometry
         /// Returns the reversed vector
         /// </summary>
         /// <returns></returns>
-
-    }
-}

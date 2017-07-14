@@ -22,25 +22,22 @@ namespace BH.oM.Structural.Elements
 
         public FEFace() {}
 
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-        public bool IsQuad
-        {
-            get { return NodeIndices.Count == 4; }
-        }
-
-        /***************************************************/
-
-        public Geometry.Face GetGeometryFace()      // TODO: this again feels unecessary
-        {
-            Geometry.Face face = new Geometry.Face(NodeIndices[0], NodeIndices[1], NodeIndices[2]);
-            if (NodeIndices.Count == 4)
-                face.D = NodeIndices[3];
-            return face;
-        }
-
     }
 }
+
+
+
+//public bool IsQuad
+//{
+//    get { return NodeIndices.Count == 4; }
+//}
+
+///***************************************************/
+
+//public Geometry.Face GetGeometryFace()      // TODO: this again feels unecessary
+//{
+//    Geometry.Face face = new Geometry.Face(NodeIndices[0], NodeIndices[1], NodeIndices[2]);
+//    if (NodeIndices.Count == 4)
+//        face.D = NodeIndices[3];
+//    return face;
+//}

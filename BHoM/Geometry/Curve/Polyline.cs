@@ -28,111 +28,113 @@ namespace BH.oM.Geometry
         {
             ControlPoints = points.ToList();
         }
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
+    }
+}
+        
 
 
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Polyline;
-        }
-
-        /***************************************************/
-
-        public BoundingBox GetBounds()
-        {
-            if (ControlPoints.Count == 0) return null;
-
-            Point pt = ControlPoints[0];
-            double minX = pt.X;
-            double minY = pt.Y;
-            double minZ = pt.Z;
-            double maxX = minX;
-            double maxY = minY;
-            double maxZ = minZ;
-
-            for (int i = ControlPoints.Count - 1; i > 0; i--)
-            {
-                pt = ControlPoints[i];
-                if (pt.X < minX) minX = pt.X;
-                if (pt.Y < minY) minY = pt.Y;
-                if (pt.Z < minZ) minZ = pt.Z;
-                if (pt.X > maxX) maxX = pt.X;
-                if (pt.Y > maxY) maxY = pt.Y;
-                if (pt.Z > maxZ) maxZ = pt.Z;
-            }
-
-            return new BoundingBox(new Point(minX, minY, minZ), new Point(maxX, maxY, maxZ));
-        }
-
-        /***************************************************/
-
-        public object Clone()
-        {
-            return new Polyline(ControlPoints.Select(x => x.Clone() as Point));
-        }
-
-        /***************************************************/
-
-        public IBHoMGeometry GetTranslated( Vector t)
-        {
-            return new Polyline(ControlPoints.Select(x => x + t));
-        }
 
 
-        /***************************************************/
-        /**** ICurve Interface                          ****/
-        /***************************************************/
 
-        public Point GetStart()
-        {
-            return ControlPoints.Count > 0 ? ControlPoints.First() : null;
-        }
 
-        /***************************************************/
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
 
-        public Point GetEnd()
-        {
-            return ControlPoints.Count > 0 ? ControlPoints.Last() : null;
-        }
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Polyline;
+        //}
 
-        /***************************************************/
+        ///***************************************************/
 
-        public Vector GetStartDir()
-        {
-            if (ControlPoints.Count < 2) return null;
+        //public BoundingBox GetBounds()
+        //{
+        //    if (ControlPoints.Count == 0) return null;
 
-            Point pt1 = ControlPoints[0];
-            Point pt2 = ControlPoints[1];
+        //    Point pt = ControlPoints[0];
+        //    double minX = pt.X;
+        //    double minY = pt.Y;
+        //    double minZ = pt.Z;
+        //    double maxX = minX;
+        //    double maxY = minY;
+        //    double maxZ = minZ;
 
-            return new Vector(pt2.X - pt1.X, pt2.Y - pt1.Y, pt2.Z - pt1.Z).GetNormalised();
-        }
+        //    for (int i = ControlPoints.Count - 1; i > 0; i--)
+        //    {
+        //        pt = ControlPoints[i];
+        //        if (pt.X < minX) minX = pt.X;
+        //        if (pt.Y < minY) minY = pt.Y;
+        //        if (pt.Z < minZ) minZ = pt.Z;
+        //        if (pt.X > maxX) maxX = pt.X;
+        //        if (pt.Y > maxY) maxY = pt.Y;
+        //        if (pt.Z > maxZ) maxZ = pt.Z;
+        //    }
 
-        /***************************************************/
+        //    return new BoundingBox(new Point(minX, minY, minZ), new Point(maxX, maxY, maxZ));
+        //}
 
-        public Vector GetEndDir()
-        {
-            if (ControlPoints.Count < 2) return null;
+        ///***************************************************/
 
-            Point pt1 = ControlPoints[ControlPoints.Count - 2];
-            Point pt2 = ControlPoints[ControlPoints.Count - 1];
+        //public object Clone()
+        //{
+        //    return new Polyline(ControlPoints.Select(x => x.Clone() as Point));
+        //}
 
-            return new Vector(pt2.X - pt1.X, pt2.Y - pt1.Y, pt2.Z - pt1.Z).GetNormalised();
-        }
+        ///***************************************************/
 
-        /***************************************************/
+        //public IBHoMGeometry GetTranslated( Vector t)
+        //{
+        //    return new Polyline(ControlPoints.Select(x => x + t));
+        //}
 
-        public bool IsClosed()
-        {
-            return ControlPoints.Count > 0 ? ControlPoints.Last() == ControlPoints.First() : false;
-        }
+
+        ///***************************************************/
+        ///**** ICurve Interface                          ****/
+        ///***************************************************/
+
+        //public Point GetStart()
+        //{
+        //    return ControlPoints.Count > 0 ? ControlPoints.First() : null;
+        //}
+
+        ///***************************************************/
+
+        //public Point GetEnd()
+        //{
+        //    return ControlPoints.Count > 0 ? ControlPoints.Last() : null;
+        //}
+
+        ///***************************************************/
+
+        //public Vector GetStartDir()
+        //{
+        //    if (ControlPoints.Count < 2) return null;
+
+        //    Point pt1 = ControlPoints[0];
+        //    Point pt2 = ControlPoints[1];
+
+        //    return new Vector(pt2.X - pt1.X, pt2.Y - pt1.Y, pt2.Z - pt1.Z).GetNormalised();
+        //}
+
+        ///***************************************************/
+
+        //public Vector GetEndDir()
+        //{
+        //    if (ControlPoints.Count < 2) return null;
+
+        //    Point pt1 = ControlPoints[ControlPoints.Count - 2];
+        //    Point pt2 = ControlPoints[ControlPoints.Count - 1];
+
+        //    return new Vector(pt2.X - pt1.X, pt2.Y - pt1.Y, pt2.Z - pt1.Z).GetNormalised();
+        //}
+
+        ///***************************************************/
+
+        //public bool IsClosed()
+        //{
+        //    return ControlPoints.Count > 0 ? ControlPoints.Last() == ControlPoints.First() : false;
+        //}
 
 
 
@@ -159,5 +161,3 @@ namespace BH.oM.Geometry
         //    }
         //    return lineSegments;
         //}
-    }
-}

@@ -32,32 +32,16 @@ namespace BH.oM.Structural.Elements
         }
 
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+        ///***************************************************/
+        ///**** Override BHoMObject                       ****/
+        ///***************************************************/
 
+        //public override IBHoMGeometry GetGeometry()
+        //{
+        //    IEnumerable<Point> points = Nodes.Select(x => x.Point);
+        //    IEnumerable<Geometry.Face> faces = Faces.Select(x => x.GetGeometryFace());
 
-
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public AreaElementType GetElementType()
-        {
-            return AreaElementType.Mesh;
-        }
-
-
-        /***************************************************/
-        /**** Override BHoMObject                       ****/
-        /***************************************************/
-
-        public override IBHoMGeometry GetGeometry()
-        {
-            IEnumerable<Point> points = Nodes.Select(x => x.Point);
-            IEnumerable<Geometry.Face> faces = Faces.Select(x => x.GetGeometryFace());
-
-            return new Mesh(points, faces);
-        }
+        //    return new Mesh(points, faces);
+        //}
     }
 }

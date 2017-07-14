@@ -61,88 +61,26 @@ namespace BH.oM.Structural.Elements
         }
 
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+        ///***************************************************/
+        ///**** Override BHoMObject                       ****/
+        ///***************************************************/
 
-        public Materials.Material GetMaterial()
-        {
-            return SectionProperty != null ? SectionProperty.Material : null;
-        }
+        //public override IBHoMGeometry GetGeometry()
+        //{
+        //    return new Line(StartNode.Point, EndNode.Point);
+        //}
 
-        /***************************************************/
+        ///***************************************************/
 
-        public Point GetStartPoint()
-        {
-            return (StartNode == null) ? null : StartNode.Point;
-        }
-
-        /***************************************************/
-
-        public Point GetEndPoint()
-        {
-            return (EndNode == null) ? null : EndNode.Point;
-        }
-
-        /***************************************************/
-
-        public Line GetLine()
-        {
-            return new Line(GetStartPoint(), GetEndPoint());
-        }
-
-        /***************************************************/
-
-        public double GetLength()
-        {
-            return (GetStartPoint() - GetEndPoint()).GetLength();
-        }
-
-        /***************************************************/
-
-        public void SetStartPoint(Point point)
-        {
-            if (point == null) return;
-
-            if (StartNode == null)
-                StartNode = new Node(point);
-            else
-                StartNode.Point = point;
-        }
-
-        /***************************************************/
-
-        public void SetEndPoint(Point point)
-        {
-            if (point == null) return;
-
-            if (EndNode == null)
-                EndNode = new Node(point);
-            else
-                EndNode.Point = point;
-        }
-
-
-        /***************************************************/
-        /**** Override BHoMObject                       ****/
-        /***************************************************/
-
-        public override IBHoMGeometry GetGeometry()
-        {
-            return GetLine();
-        }
-
-        /***************************************************/
-
-        public override void SetGeometry(IBHoMGeometry geometry)
-        {
-            if (geometry is ICurve)
-            {
-                ICurve curve = geometry as ICurve;
-                SetStartPoint(curve.GetStart());
-                SetEndPoint(curve.GetEnd());
-            }
-        }
+        //public override void SetGeometry(IBHoMGeometry geometry)
+        //{
+        //    if (geometry is Line)
+        //    {
+        //        Line curve = geometry as Line;
+        //        StartNode.Point = curve.Start;
+        //        EndNode.Point = curve.End;
+        //    }
+        //}
 
 
 

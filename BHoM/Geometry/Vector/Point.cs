@@ -46,53 +46,12 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Local Methods                             ****/
+        /**** Local Optimisation Methods                ****/
         /***************************************************/
 
-        public bool IsValid()
-        {
-            return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
-        }
-
-        /***************************************************/
-
-        public string ToString(int decimals = int.MaxValue)
-        {
-            if (decimals == int.MaxValue)
-                return "[" + X + ", " + Y + ", " + Z + "]";
-            else
-                return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
-        }
-
-
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Point;
-        }
-
-        /***************************************************/
-
-        public BoundingBox GetBounds()
-        {
-            return new BoundingBox(this, this);
-        }
-
-        /***************************************************/
-
-        public object Clone()
+        public object GetClone() // Optimisation
         {
             return new Point(X, Y, Z);
-        }
-
-        /***************************************************/
-
-        public IBHoMGeometry GetTranslated(Vector t)
-        {
-            return this + t;
         }
 
 
@@ -204,8 +163,53 @@ namespace BH.oM.Geometry
             }
         }
 
+    }
+}
 
 
+
+
+        //public bool IsValid()
+        //{
+        //    return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
+        //}
+
+        ///***************************************************/
+
+        //public string ToString(int decimals = int.MaxValue)
+        //{
+        //    if (decimals == int.MaxValue)
+        //        return "[" + X + ", " + Y + ", " + Z + "]";
+        //    else
+        //        return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
+        //}
+
+        ///***************************************************/
+
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
+
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Point;
+        //}
+
+        ///***************************************************/
+
+        //public BoundingBox GetBounds()
+        //{
+        //    return new BoundingBox(this, this);
+        //}
+
+
+
+        ///***************************************************/
+
+        //public IBHoMGeometry GetTranslated(Vector t)
+        //{
+        //    return this + t;
+        //}
 
 
 
@@ -308,6 +312,3 @@ namespace BH.oM.Geometry
         //    }
         //}
 
-
-    }
-}

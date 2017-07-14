@@ -31,9 +31,6 @@ namespace BH.oM.Structural.Loads
             GravityDirection = new Geometry.Vector(Gx, gy, gz);
         }
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
 
         /***************************************************/
         /**** ILoad Interface                           ****/

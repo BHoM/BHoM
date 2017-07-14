@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
+using BH.oM.Geometry;
+
 namespace BH.oM.Structural.Elements
 {
     /// <summary>
@@ -44,14 +46,14 @@ namespace BH.oM.Structural.Elements
         }
 
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+        ///***************************************************/
+        ///**** Override BHoMObject                       ****/
+        ///***************************************************/
 
-        public Geometry.Plane GetPlane()
-        {
-            return new Geometry.Plane(new Geometry.Point(0, 0, Elevation), new Geometry.Vector(0,0,1));
-        }
+        //public override IBHoMGeometry GetGeometry()
+        //{
+        //    return new Geometry.Plane(new Geometry.Point(0, 0, Elevation), new Geometry.Vector(0,0,1));
+        //}
 
 
     }

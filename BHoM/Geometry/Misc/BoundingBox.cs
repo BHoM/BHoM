@@ -41,30 +41,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-      
-        public Vector GetExtents()
-        {
-            return new Vector(Max.X-Min.X, Max.Y-Min.Y, Max.Z-Min.Z);
-        }
-
-        /***************************************************/
-
-        public Point GetCentre()
-        {
-            return new Point((Max.X + Min.X)/2, (Max.Y + Min.Y) / 2, (Max.Z + Min.Z) / 2);
-        }
-
-        /***************************************************/
-
-        public override string ToString()
-        {
-            return "Min: " + Min.ToString(3) + ", Max: " + Max.ToString(3);
-        }
-
-
-        /***************************************************/
         /**** Static Operators Override                 ****/
         /***************************************************/
 
@@ -82,6 +58,19 @@ namespace BH.oM.Geometry
         {
             return new BoundingBox(box.Min + v, box.Max + v);
         }
+
+    }
+}
+
+
+
+
+        ///***************************************************/
+
+        //public override string ToString()
+        //{
+        //    return "Min: " + Min.ToString(3) + ", Max: " + Max.ToString(3);
+        //}
 
 
         //public BoundingBox(List<Point> pnts)
@@ -174,5 +163,3 @@ namespace BH.oM.Geometry
         //}
 
 
-    }
-}

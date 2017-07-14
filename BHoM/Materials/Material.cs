@@ -86,18 +86,18 @@ namespace BH.oM.Materials
             Density = denisty;
         }
 
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-        /// <summary>
-        /// Returns the weight of the material in [kN/m^3] 
-        /// Calulated as Density * g / 1000, where g = 9.80665
-        /// </summary>
-        public double GetWeight()
-        {
-            return Density * 9.80665 / 1000;
-        }
     }
 }
+
+
+
+
+
+///// <summary>
+///// Returns the weight of the material in [kN/m^3] 
+///// Calulated as Density * g / 1000, where g = 9.80665
+///// </summary>
+//public double GetWeight()
+//{
+//    return Density * 9.80665 / 1000;
+//}

@@ -139,27 +139,23 @@ namespace BH.oM.Structural.Properties
 
 
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+        //public override string ToString()     // That needs to be json
+        //{
+        //    string name = !string.IsNullOrWhiteSpace(Name) ? Name + " " : "";
+        //    string mat = (this.Material != null && !string.IsNullOrWhiteSpace(this.Material.Name)) ? "-" + this.Material.Name : "";
+        //    return name + "-" + mat;
 
-        public override string ToString()
-        {
-            string name = !string.IsNullOrWhiteSpace(Name) ? Name + " " : "";
-            string mat = (this.Material != null && !string.IsNullOrWhiteSpace(this.Material.Name)) ? "-" + this.Material.Name : "";
-            return name + "-" + mat;
-
-        }
+        //}
 
 
-        /***************************************************/
-        /**** Override BHoMObject                       ****/
-        /***************************************************/
+        ///***************************************************/
+        ///**** Override BHoMObject                       ****/
+        ///***************************************************/
 
-        public override IBHoMGeometry GetGeometry()
-        {
-            return new GeometryGroup<ICurve> (Edges);
-        }
+        //public override IBHoMGeometry GetGeometry()
+        //{
+        //    return new GeometryGroup<ICurve> (Edges);
+        //}
 
         
     }

@@ -39,86 +39,88 @@ namespace BH.oM.Geometry
         public Circle(Point centre, Vector normal, double radius = 0)
         {
             Centre = centre;
-            Normal = normal.GetNormalised();
+            Normal = normal;
             Radius = radius;
         }
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
+    }
+}
+        
 
 
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Circle;
-        }
-
-        /***************************************************/
-
-        public BoundingBox GetBounds()
-        {
-            return new BoundingBox(Centre - Radius * Normal, Centre + Radius * Normal);
-        }
-
-        /***************************************************/
-
-        public object Clone()
-        {
-            return new Circle(Centre.Clone() as Point, Normal.Clone() as Vector, Radius);
-        }
-
-        /***************************************************/
-
-        public IBHoMGeometry GetTranslated(Vector t)
-        {
-            return new Circle(Centre + t, Normal.Clone() as Vector, Radius);
-        }
 
 
-        /***************************************************/
-        /**** ICurve Interface                          ****/
-        /***************************************************/
 
-        public Point GetStart()
-        {
-            if (Normal.X == 0 && Normal.Y == 0)
-                return new Point(Centre.X + Radius * Normal.Z, Centre.Y, Centre.Z);
-            else
-                return new Point(Centre.X + Radius * Normal.Y, Centre.Y - Radius * Normal.X, Centre.Z);
-        }
 
-        /***************************************************/
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
 
-        public Point GetEnd()
-        {
-            return GetStart();
-        }
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Circle;
+        //}
 
-        /***************************************************/
+        ///***************************************************/
 
-        public Vector GetStartDir()
-        {
-            throw new NotImplementedException(); //TODO: get start dir of circle (would require cross product
-        }
+        //public BoundingBox GetBounds()
+        //{
+        //    return new BoundingBox(Centre - Radius * Normal, Centre + Radius * Normal);
+        //}
 
-        /***************************************************/
+        ///***************************************************/
 
-        public Vector GetEndDir()
-        {
-            throw new NotImplementedException(); //TODO: get end dir of circle (would require cross product
-        }
+        //public object Clone()
+        //{
+        //    return new Circle(Centre.Clone() as Point, Normal.Clone() as Vector, Radius);
+        //}
 
-        /***************************************************/
+        ///***************************************************/
 
-        public bool IsClosed()
-        {
-            return true;
-        }
+        //public IBHoMGeometry GetTranslated(Vector t)
+        //{
+        //    return new Circle(Centre + t, Normal.Clone() as Vector, Radius);
+        //}
+
+
+        ///***************************************************/
+        ///**** ICurve Interface                          ****/
+        ///***************************************************/
+
+        //public Point GetStart()
+        //{
+        //    if (Normal.X == 0 && Normal.Y == 0)
+        //        return new Point(Centre.X + Radius * Normal.Z, Centre.Y, Centre.Z);
+        //    else
+        //        return new Point(Centre.X + Radius * Normal.Y, Centre.Y - Radius * Normal.X, Centre.Z);
+        //}
+
+        ///***************************************************/
+
+        //public Point GetEnd()
+        //{
+        //    return GetStart();
+        //}
+
+        ///***************************************************/
+
+        //public Vector GetStartDir()
+        //{
+        //    throw new NotImplementedException(); //TODO: get start dir of circle (would require cross product
+        //}
+
+        ///***************************************************/
+
+        //public Vector GetEndDir()
+        //{
+        //    throw new NotImplementedException(); //TODO: get end dir of circle (would require cross product
+        //}
+
+        ///***************************************************/
+
+        //public bool IsClosed()
+        //{
+        //    return true;
+        //}
 
 
 
@@ -126,5 +128,3 @@ namespace BH.oM.Geometry
         //{
         //    base.Update();
         //}
-    }
-}

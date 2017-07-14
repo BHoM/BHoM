@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class GeometryGroup<T> : IBHoMGeometry  where T: IBHoMGeometry
+    public class GeometryGroup<T> : IBHoMGeometry where T : IBHoMGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -30,48 +30,52 @@ namespace BH.oM.Geometry
             Elements = elements.ToList();
         }
 
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+    }
+}
 
 
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
 
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Group;
-        }
 
-        /***************************************************/
 
-        public BoundingBox GetBounds()
-        {
-            if (Elements.Count == 0)
-                return null;
 
-            BoundingBox box = Elements[0].GetBounds();
-            for (int i = 1; i < Elements.Count; i++)
-                box += Elements[i].GetBounds();
 
-            return box;
-        }
 
-        /***************************************************/
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
 
-        public object Clone()
-        {
-            return new GeometryGroup<T>(Elements.Select(x => (T)x.Clone()));
-        }
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Group;
+        //}
 
-        /***************************************************/
+        ///***************************************************/
 
-        public IBHoMGeometry GetTranslated(Vector t)
-        {
-            return new GeometryGroup<T>(Elements.Select(x =>(T) x.GetTranslated(t)));
-        }
+        //public BoundingBox GetBounds()
+        //{
+        //    if (Elements.Count == 0)
+        //        return null;
+
+        //    BoundingBox box = Elements[0].GetBounds();
+        //    for (int i = 1; i < Elements.Count; i++)
+        //        box += Elements[i].GetBounds();
+
+        //    return box;
+        //}
+
+        ///***************************************************/
+
+        //public object Clone()
+        //{
+        //    return new GeometryGroup<T>(Elements.Select(x => (T)x.Clone()));
+        //}
+
+        ///***************************************************/
+
+        //public IBHoMGeometry GetTranslated(Vector t)
+        //{
+        //    return new GeometryGroup<T>(Elements.Select(x =>(T) x.GetTranslated(t)));
+        //}
 
 
 
@@ -201,5 +205,3 @@ namespace BH.oM.Geometry
         //        {
         //            return new Group<T1>(m_Geometry.Cast<T1>().ToList());
         //        }
-    }
-}

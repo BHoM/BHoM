@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Design
 {
-    public interface IDesignable
+    public interface IDesignable //TODO: Do we still need this?
     {
-        StructuralLayout GetStructuralLayout();
+        //StructuralLayout GetStructuralLayout();
     }
 }

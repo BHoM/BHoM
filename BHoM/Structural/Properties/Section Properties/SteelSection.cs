@@ -78,15 +78,14 @@ namespace BH.oM.Structural.Properties
         }
 
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-        public double GetGrade()
-        {
-            return Material.TensileYieldStrength / 1000000;         
-        }   
+          
 
         
     }
 }
+
+
+//public double GetGrade()
+//{
+//    return Material.TensileYieldStrength / 1000000;
+//}

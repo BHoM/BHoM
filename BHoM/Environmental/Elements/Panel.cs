@@ -41,35 +41,26 @@ namespace BH.oM.Environmental.Elements
             Geometry = surface;
         }
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
 
-        public bool IsValid()
-        {
-            return Geometry != null;
-        }
+        ///***************************************************/
+        ///**** Override BHoMObject                       ****/
+        ///***************************************************/
 
+        ///// <summary></summary>
+        //public override IBHoMGeometry GetGeometry()
+        //{
+        //    return Geometry;
+        //}
 
-        /***************************************************/
-        /**** Override BHoMObject                       ****/
-        /***************************************************/
+        ///***************************************************/
 
-        /// <summary></summary>
-        public override IBHoMGeometry GetGeometry()
-        {
-            return Geometry;
-        }
-
-        /***************************************************/
-
-        /// <summary></summary>
-        public override void SetGeometry(IBHoMGeometry geometry)
-        {
-            if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
-            {
-                Geometry = geometry as ISurface;
-            }
-        }
+        ///// <summary></summary>
+        //public override void SetGeometry(IBHoMGeometry geometry)
+        //{
+        //    if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
+        //    {
+        //        Geometry = geometry as ISurface;
+        //    }
+        //}
     }
 }

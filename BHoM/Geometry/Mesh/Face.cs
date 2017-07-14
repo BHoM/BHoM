@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class Face : ICloneable
+    public class Face
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -37,23 +37,28 @@ namespace BH.oM.Geometry
             D = d;
         }
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-        public bool IsQuad()
-        {
-            return D != -1;
-        }
-
-
-        /***************************************************/
-        /**** Clonable Interface                        ****/
-        /***************************************************/
-
-        public object Clone()
-        {
-            return new Face(A, B, C, D);
-        }
     }
 }
+
+
+
+
+
+
+
+//public bool IsQuad()
+//{
+//    return D != -1;
+//}
+
+
+
+///***************************************************/
+///**** Clonable Interface                        ****/
+///***************************************************/
+
+//public object Clone()
+//{
+//    return new Face(A, B, C, D);
+//}
+

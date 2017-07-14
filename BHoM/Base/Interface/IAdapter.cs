@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base
 {
-    public interface IAdapter
+    public interface IAdapter //TODO: Might now be part of the BH.Adapter.Base
     {
         bool Push(IEnumerable<object> data, string tag = "", Dictionary<string, string> config = null);
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Geometry
 {
 
-    public class Extrusion : IBHoMGeometry, ISurface
+    public class Extrusion : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -33,66 +33,67 @@ namespace BH.oM.Geometry
         {
             Curve = curve;
             Direction = direction;
-            Capped = curve.IsClosed() && capped;
+            Capped = capped;
         }
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-
-
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Extrusion;
-        }
-
-        /***************************************************/
-
-        public BoundingBox GetBounds()
-        {
-            BoundingBox box = Curve.GetBounds();
-            return box + (box + Direction);
-        }
-
-        /***************************************************/
-
-        public object Clone()
-        {
-            return new Extrusion(Curve.Clone() as ICurve, Direction.Clone() as Vector, Capped);
-        }
-
-        /***************************************************/
-
-        public IBHoMGeometry GetTranslated( Vector t)
-        {
-            return new Extrusion(Curve.GetTranslated(t) as ICurve, Direction.Clone() as Vector, Capped);
-        }
-
-
-        /***************************************************/
-        /**** IBrep Interface                           ****/
-        /***************************************************/
-
-        public List<ICurve> GetExternalEdges()
-        {
-            return new List<ICurve>
-            {
-                Curve.Clone() as ICurve,
-                Curve.GetTranslated(Direction) as ICurve
-            };
-        }
-
-        /***************************************************/
-
-        public List<ICurve> GetInternalEdges()
-        {
-            return new List<ICurve>();
-        }
-
     }
 }
+      
+
+
+
+
+
+
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
+
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Extrusion;
+        //}
+
+        ///***************************************************/
+
+        //public BoundingBox GetBounds()
+        //{
+        //    BoundingBox box = Curve.GetBounds();
+        //    return box + (box + Direction);
+        //}
+
+        ///***************************************************/
+
+        //public object Clone()
+        //{
+        //    return new Extrusion(Curve.Clone() as ICurve, Direction.Clone() as Vector, Capped);
+        //}
+
+        ///***************************************************/
+
+        //public IBHoMGeometry GetTranslated( Vector t)
+        //{
+        //    return new Extrusion(Curve.GetTranslated(t) as ICurve, Direction.Clone() as Vector, Capped);
+        //}
+
+
+        ///***************************************************/
+        ///**** IBrep Interface                           ****/
+        ///***************************************************/
+
+        //public List<ICurve> GetExternalEdges()
+        //{
+        //    return new List<ICurve>
+        //    {
+        //        Curve.Clone() as ICurve,
+        //        Curve.GetTranslated(Direction) as ICurve
+        //    };
+        //}
+
+        ///***************************************************/
+
+        //public List<ICurve> GetInternalEdges()
+        //{
+        //    return new List<ICurve>();
+        //}
+
+ 

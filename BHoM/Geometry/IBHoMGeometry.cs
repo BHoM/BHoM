@@ -7,18 +7,7 @@ using System.Reflection;
 
 namespace BH.oM.Geometry
 {
-    public interface IBHoMGeometry : ICloneable
+    public interface IBHoMGeometry 
     {
-        GeometryType GetGeometryType();      
-
-        BoundingBox GetBounds();
-
-        IBHoMGeometry GetTranslated(Vector v);
-
-        /// <summary>Create a shallow copy of the object</summary>
-        //public IBHoMGeometry ShallowClone()
-        //{
-        //    return (IBHoMGeometry)this.MemberwiseClone();
-        //}
     }
 }

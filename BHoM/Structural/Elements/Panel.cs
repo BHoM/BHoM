@@ -45,49 +45,40 @@ namespace BH.oM.Structural.Elements
         }
 
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+        ///***************************************************/
+        ///**** Override BHoMObject                       ****/
+        ///***************************************************/
 
-        /// <summary>
-        /// A group of curves which define the perimeter of panel object
-        /// </summary>
-        public List<ICurve> GetEdges()
-        {
-            if (Surface != null)
-                return Surface.GetExternalEdges();
-            else
-                return new List<ICurve>();
-        }
+        //public override IBHoMGeometry GetGeometry()
+        //{
+        //    return Surface;
+        //}
 
+        ///***************************************************/
 
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public AreaElementType GetElementType()
-        {
-            return AreaElementType.Panel;
-        }
+        ///// <summary></summary>
+        //public override void SetGeometry(IBHoMGeometry geometry)
+        //{
+        //    if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
+        //    {
+        //        Surface = geometry as ISurface;
+        //    }
+        //}
 
 
-        /***************************************************/
-        /**** Override BHoMObject                       ****/
-        /***************************************************/
 
-        public override IBHoMGeometry GetGeometry()
-        {
-            return Surface;
-        }
 
-        /// <summary></summary>
-        public override void SetGeometry(IBHoMGeometry geometry)
-        {
-            if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
-            {
-                Surface = geometry as ISurface;
-            }
-        }
+        ///// <summary>
+        ///// A group of curves which define the perimeter of panel object
+        ///// </summary>
+        //public List<ICurve> GetEdges()
+        //{
+        //    if (Surface != null)
+        //        return Surface.GetExternalEdges();
+        //    else
+        //        return new List<ICurve>();
+        //}
+
 
 
 
@@ -119,7 +110,7 @@ namespace BH.oM.Structural.Elements
         /////////////////
 
         ///// <summary></summary>
-       
+
 
 
         ///// <summary>

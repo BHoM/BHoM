@@ -29,93 +29,97 @@ namespace BH.oM.Geometry
             Curves = curves.ToList();
         }
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+    }
+}   
 
 
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.PolyCurve;
-        }
-
-        /***************************************************/
-
-        public BoundingBox GetBounds()
-        {
-            if (Curves.Count == 0)
-                return null;
-
-            BoundingBox box = Curves[0].GetBounds();
-            for (int i = 1; i < Curves.Count; i++)
-                box += Curves[i].GetBounds();
-
-            return box;
-        }
-
-        /***************************************************/
-
-        public object Clone()
-        {
-            return new PolyCurve(Curves.Select(x => x.Clone() as ICurve));
-        }
-
-        /***************************************************/
-
-        public IBHoMGeometry GetTranslated(Vector t)
-        {
-            return new PolyCurve(Curves.Select(x => x.GetTranslated(t) as ICurve));
-        }
 
 
-        /***************************************************/
-        /**** ICurve Interface                          ****/
-        /***************************************************/
 
-        public Point GetStart()
-        {
-            return Curves.Count > 0 ? Curves.First().GetStart() : null;
-        }
 
-        /***************************************************/
 
-        public Point GetEnd()
-        {
-            return Curves.Count > 0 ? Curves.Last().GetEnd() : null;
-        }
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
 
-        /***************************************************/
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.PolyCurve;
+        //}
 
-        public Vector GetStartDir()
-        {
-            return Curves.Count > 0 ? Curves.First().GetStartDir() : null;
-        }
+        ///***************************************************/
 
-        /***************************************************/
+        //public BoundingBox GetBounds()
+        //{
+        //    if (Curves.Count == 0)
+        //        return null;
 
-        public Vector GetEndDir()
-        {
-            return Curves.Count > 0 ? Curves.Last().GetEndDir() : null;
-        }
+        //    BoundingBox box = Curves[0].GetBounds();
+        //    for (int i = 1; i < Curves.Count; i++)
+        //        box += Curves[i].GetBounds();
 
-        /***************************************************/
+        //    return box;
+        //}
 
-        public bool IsClosed()
-        {
-            if (Curves.Count == 0) return false;
+        ///***************************************************/
 
-            for (int i = 1; i < Curves.Count; i++)
-            {
-                if (Curves[i - 1].GetEnd() != Curves[i].GetStart())
-                    return false;
-            }
+        //public object Clone()
+        //{
+        //    return new PolyCurve(Curves.Select(x => x.Clone() as ICurve));
+        //}
 
-            return true;
-        }
+        ///***************************************************/
+
+        //public IBHoMGeometry GetTranslated(Vector t)
+        //{
+        //    return new PolyCurve(Curves.Select(x => x.GetTranslated(t) as ICurve));
+        //}
+
+
+        ///***************************************************/
+        ///**** ICurve Interface                          ****/
+        ///***************************************************/
+
+        //public Point GetStart()
+        //{
+        //    return Curves.Count > 0 ? Curves.First().GetStart() : null;
+        //}
+
+        ///***************************************************/
+
+        //public Point GetEnd()
+        //{
+        //    return Curves.Count > 0 ? Curves.Last().GetEnd() : null;
+        //}
+
+        ///***************************************************/
+
+        //public Vector GetStartDir()
+        //{
+        //    return Curves.Count > 0 ? Curves.First().GetStartDir() : null;
+        //}
+
+        ///***************************************************/
+
+        //public Vector GetEndDir()
+        //{
+        //    return Curves.Count > 0 ? Curves.Last().GetEndDir() : null;
+        //}
+
+        ///***************************************************/
+
+        //public bool IsClosed()
+        //{
+        //    if (Curves.Count == 0) return false;
+
+        //    for (int i = 1; i < Curves.Count; i++)
+        //    {
+        //        if (Curves[i - 1].GetEnd() != Curves[i].GetStart())
+        //            return false;
+        //    }
+
+        //    return true;
+        //}
 
 
         //public override List<Curve> Explode()
@@ -143,5 +147,3 @@ namespace BH.oM.Geometry
         //{
 
         //}
-    }
-}

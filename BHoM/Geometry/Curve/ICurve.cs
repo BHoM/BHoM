@@ -8,14 +8,5 @@ namespace BH.oM.Geometry
 {
     public interface ICurve : IBHoMGeometry
     {
-        Point GetStart();
-
-        Point GetEnd();
-
-        Vector GetStartDir();
-
-        Vector GetEndDir();
-
-        bool IsClosed();  
     }
 }

@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public enum GeometryType  
-    {
-        Point,
-        Vector,
-        Plane,
-        Mesh,
-        Arc,
-        Circle,
-        Line,
-        Polyline,
-        PolyCurve,
-        NurbCurve,
-        NurbSurface,
-        Loft,
-        Pipe,
-        Extrusion,
-        PolySurface,
-        Group
-    }
+    //public enum GeometryType  
+    //{
+    //    Point,
+    //    Vector,
+    //    Plane,
+    //    Mesh,
+    //    Arc,
+    //    Circle,
+    //    Line,
+    //    Polyline,
+    //    PolyCurve,
+    //    NurbCurve,
+    //    NurbSurface,
+    //    Loft,
+    //    Pipe,
+    //    Extrusion,
+    //    PolySurface,
+    //    Group
+    //}
 }

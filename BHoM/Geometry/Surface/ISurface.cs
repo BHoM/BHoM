@@ -8,8 +8,5 @@ namespace BH.oM.Geometry
 {
     public interface ISurface : IBHoMGeometry
     {
-        List<ICurve> GetExternalEdges();
-
-        List<ICurve> GetInternalEdges();
     }
 }

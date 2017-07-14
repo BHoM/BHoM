@@ -35,65 +35,68 @@ namespace BH.oM.Geometry
             Capped = capped;
         }
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-
-
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Pipe;
-        }
-
-        /***************************************************/
-
-        public BoundingBox GetBounds()
-        {
-            BoundingBox box = Centreline.GetBounds();
-            box.Min -= new Vector(Radius, Radius, Radius);  // TODO: more accurate bounding box needed
-            box.Max += new Vector(Radius, Radius, Radius);
-
-            return box;
-        }
-
-        /***************************************************/
-
-        public object Clone()
-        {
-            return new Pipe(Centreline.Clone() as ICurve, Radius, Capped);
-        }
-
-        /***************************************************/
-
-        public IBHoMGeometry GetTranslated(Vector t)
-        {
-            return new Pipe(Centreline.GetTranslated(t) as ICurve, Radius, Capped); 
-        }
-
-
-        /***************************************************/
-        /**** IBrep Interface                           ****/
-        /***************************************************/
-
-        public List<ICurve> GetExternalEdges()
-        {
-            return new List<ICurve>     // TODO: This is actually more complicated than this since the curve can be a polyline or a polycurve that would create intermediate edges
-            {
-                new Circle(Centreline.GetStart(), Centreline.GetStartDir(), Radius),
-                new Circle(Centreline.GetEnd(), Centreline.GetEndDir(), Radius)
-            };
-        }
-
-        /***************************************************/
-
-        public List<ICurve> GetInternalEdges()
-        {
-            return new List<ICurve>();
-        }
     }
 }
+
+
+
+
+
+
+
+
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
+
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Pipe;
+        //}
+
+        ///***************************************************/
+
+        //public BoundingBox GetBounds()
+        //{
+        //    BoundingBox box = Centreline.GetBounds();
+        //    box.Min -= new Vector(Radius, Radius, Radius);  // TODO: more accurate bounding box needed
+        //    box.Max += new Vector(Radius, Radius, Radius);
+
+        //    return box;
+        //}
+
+        ///***************************************************/
+
+        //public object Clone()
+        //{
+        //    return new Pipe(Centreline.Clone() as ICurve, Radius, Capped);
+        //}
+
+        ///***************************************************/
+
+        //public IBHoMGeometry GetTranslated(Vector t)
+        //{
+        //    return new Pipe(Centreline.GetTranslated(t) as ICurve, Radius, Capped); 
+        //}
+
+
+        ///***************************************************/
+        ///**** IBrep Interface                           ****/
+        ///***************************************************/
+
+        //public List<ICurve> GetExternalEdges()
+        //{
+        //    return new List<ICurve>     // TODO: This is actually more complicated than this since the curve can be a polyline or a polycurve that would create intermediate edges
+        //    {
+        //        new Circle(Centreline.GetStart(), Centreline.GetStartDir(), Radius),
+        //        new Circle(Centreline.GetEnd(), Centreline.GetEndDir(), Radius)
+        //    };
+        //}
+
+        ///***************************************************/
+
+        //public List<ICurve> GetInternalEdges()
+        //{
+        //    return new List<ICurve>();
+        //}
+

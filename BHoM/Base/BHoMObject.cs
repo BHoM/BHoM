@@ -63,25 +63,25 @@ namespace BH.oM.Base
             return obj;
         }
 
-        /***************************************************/
+        ///***************************************************/
 
-        /// <summary>
-        /// Gets the geometry of the object (whatever that might be)
-        /// </summary>
-        public virtual IBHoMGeometry GetGeometry()
-        {
-            return null;
-        }
+        ///// <summary>
+        ///// Gets the geometry of the object (whatever that might be)
+        ///// </summary>
+        //public virtual IBHoMGeometry GetGeometry()      //TODO: Should it be in the BHoM Engine ?
+        //{
+        //    return null;
+        //}
 
-        /***************************************************/
+        ///***************************************************/
 
-        /// <summary>
-        /// Sets the geometry of the object (whatever that might be)
-        /// </summary>
-        /// <param name="geometry">The geometry to set</param>
-        public virtual void SetGeometry(IBHoMGeometry geometry)
-        {
-        }
+        ///// <summary>
+        ///// Sets the geometry of the object (whatever that might be)
+        ///// </summary>
+        ///// <param name="geometry">The geometry to set</param>
+        //public virtual void SetGeometry(IBHoMGeometry geometry)     //TODO: Should it be in the BHoM Engine ?
+        //{
+        //}
 
 
 

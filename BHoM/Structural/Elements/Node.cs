@@ -44,48 +44,43 @@ namespace BH.oM.Structural.Elements
         }
 
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+        ///***************************************************/
+        ///**** Override BHoMObject                       ****/
+        ///***************************************************/
 
-        /// <summary>Returns true is node is constrained</summary>
-        public bool IsConstrained()
-        {
-            return Constraint != null;
-        }
+        //public override BH.oM.Geometry.IBHoMGeometry GetGeometry()
+        //{
+        //    return Point;
+        //}
 
-        /***************************************************/
+        ///***************************************************/
 
-        public override string ToString()
-        {
-            return "Node: " + Point.ToString();
-        }
-
-
-        /***************************************************/
-        /**** Override BHoMObject                       ****/
-        /***************************************************/
-
-        public override BH.oM.Geometry.IBHoMGeometry GetGeometry()
-        {
-            return Point;
-        }
-
-        /***************************************************/
-
-        /// <summary></summary>
-        public override void SetGeometry(IBHoMGeometry geometry)
-        {
-            if (geometry is Point)
-            {
-                Point = geometry as Point;
-            }
-        }
+        ///// <summary></summary>
+        //public override void SetGeometry(IBHoMGeometry geometry)
+        //{
+        //    if (geometry is Point)
+        //    {
+        //        Point = geometry as Point;
+        //    }
+        //}
 
 
 
 
 
+
+        ///// <summary>Returns true is node is constrained</summary>
+        //public bool IsConstrained()
+        //{
+        //    return Constraint != null;
+        //}
+
+        ///***************************************************/
+
+        //public override string ToString()
+        //{
+        //    return "Node: " + Point.ToString();
+        //}
 
 
 
@@ -217,9 +212,9 @@ namespace BH.oM.Structural.Elements
         //#region Methods
 
         ///// <summary></summary>
-        
 
-       
+
+
 
         ///// <summary>
         ///// Calculates the distance from the input node to this
@@ -268,7 +263,7 @@ namespace BH.oM.Structural.Elements
         //    this.IsConstrained = true;
         //}
 
-        
+
 
         //public Node Merge(Node n)
         //{

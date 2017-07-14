@@ -28,68 +28,69 @@ namespace BH.oM.Geometry
         {
             Curves = curves.ToList();
         }
-
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-
-
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
-
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Loft;
-        }
-
-        /***************************************************/
-
-        public BoundingBox GetBounds()
-        {
-            if (Curves.Count == 0)
-                return null;
-
-            BoundingBox box = Curves[0].GetBounds();
-            for (int i = 1; i < Curves.Count; i++)
-                box += Curves[i].GetBounds();
-
-            return box;
-        }
-
-        /***************************************************/
-
-        public object Clone()
-        {
-            return new Loft(Curves.Select(x => x.Clone() as ICurve));
-        }
-
-        /***************************************************/
-
-        public IBHoMGeometry GetTranslated(Vector t)
-        {
-            return new Loft(Curves.Select(x => x.GetTranslated(t) as ICurve)); 
-        }
-
-
-        /***************************************************/
-        /**** IBrep Interface                           ****/
-        /***************************************************/
-
-        public List<ICurve> GetExternalEdges()
-        {
-            return Curves;
-
-        }
-
-        /***************************************************/
-
-        public List<ICurve> GetInternalEdges()
-        {
-            return new List<ICurve>();
-        }
-
     }
 }
+
+
+
+
+
+
+
+
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
+
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Loft;
+        //}
+
+        ///***************************************************/
+
+        //public BoundingBox GetBounds()
+        //{
+        //    if (Curves.Count == 0)
+        //        return null;
+
+        //    BoundingBox box = Curves[0].GetBounds();
+        //    for (int i = 1; i < Curves.Count; i++)
+        //        box += Curves[i].GetBounds();
+
+        //    return box;
+        //}
+
+        ///***************************************************/
+
+        //public object Clone()
+        //{
+        //    return new Loft(Curves.Select(x => x.Clone() as ICurve));
+        //}
+
+        ///***************************************************/
+
+        //public IBHoMGeometry GetTranslated(Vector t)
+        //{
+        //    return new Loft(Curves.Select(x => x.GetTranslated(t) as ICurve)); 
+        //}
+
+
+        ///***************************************************/
+        ///**** IBrep Interface                           ****/
+        ///***************************************************/
+
+        //public List<ICurve> GetExternalEdges()
+        //{
+        //    return Curves;
+
+        //}
+
+        ///***************************************************/
+
+        //public List<ICurve> GetInternalEdges()
+        //{
+        //    return new List<ICurve>();
+        //}
+
+

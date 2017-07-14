@@ -41,58 +41,59 @@ namespace BH.oM.Structural.Design
         }
 
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-        public Node GetStartNode()
-        {
-            if (AnalyticBars.Count > 0)
-                return AnalyticBars.First().StartNode;
-            else
-                return null;
-        }
-
-        /***************************************************/
-
-        public Node GetEndNode()
-        {
-            if (AnalyticBars.Count > 0)
-                return AnalyticBars.Last().EndNode;
-            else
-                return null;
-        }
-
-        /***************************************************/
-
-        public double GetLength()
-        {
-            return AnalyticBars.Sum(x => x.GetLength());
-        }
 
 
+        ///***************************************************/
+        ///**** Override BHoMObject                       ****/
+        ///***************************************************/
+
+        //public override IBHoMGeometry GetGeometry()
+        //{
+        //    return new Geometry.GeometryGroup<Line>(AnalyticBars.Select(x => x.GetGeometry() as Line));
+        //}
 
 
-        /***************************************************/
-        /**** IDesignable Interface                     ****/
-        /***************************************************/
+        //public Node GetStartNode()
+        //{
+        //    if (AnalyticBars.Count > 0)
+        //        return AnalyticBars.First().StartNode;
+        //    else
+        //        return null;
+        //}
 
-        public StructuralLayout GetStructuralLayout()
-        {
-            throw new NotImplementedException();  //TODO: Implement this
-        }
+        ///***************************************************/
+
+        //public Node GetEndNode()
+        //{
+        //    if (AnalyticBars.Count > 0)
+        //        return AnalyticBars.Last().EndNode;
+        //    else
+        //        return null;
+        //}
+
+        ///***************************************************/
+
+        //public double GetLength()
+        //{
+        //    return AnalyticBars.Sum(x => x.GetLength());
+        //}
 
 
-        /***************************************************/
-        /**** Override BHoMObject                       ****/
-        /***************************************************/
 
-        public override IBHoMGeometry GetGeometry()
-        {
-            return new Geometry.GeometryGroup<ICurve>(AnalyticBars.Select(x => x.GetLine()));
-        }
 
-        
+        ///***************************************************/
+        ///**** IDesignable Interface                     ****/
+        ///***************************************************/
+
+        //public StructuralLayout GetStructuralLayout()
+        //{
+        //    throw new NotImplementedException();  //TODO: Implement this
+        //}
+
+
+
+
+
 
         ///******************************************/
         ///************** Fields ********************/

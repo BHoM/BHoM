@@ -35,15 +35,12 @@ namespace BH.oM.Acoustic
             Direction = dir;
             Category = category;
         }
-
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-        public double GetGainAngleFactor(double angle, double octave) 
-        {
-            return (octave < 1000) ? (-2 * angle / 90 - 8) : (-18 * angle / 150 - 2); // I made some asumption here since matlab handles only 500Hz and 2000Hz
-        }
+  
     }
 }
+
+
+//public static double GetGainAngleFactor(double angle, double octave)
+//{
+//    return (octave < 1000) ? (-2 * angle / 90 - 8) : (-18 * angle / 150 - 2); // I made some asumption here since matlab handles only 500Hz and 2000Hz
+//}

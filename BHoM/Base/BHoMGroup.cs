@@ -28,16 +28,11 @@ namespace BH.oM.Base
         {
             Elements = elements.ToList();
         }
-
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
-
-
-
     }
 }
+
+
+
 //        IEnumerable<BHoMObject> Objects { get; }
 //        Type ObjectType { get; }
 

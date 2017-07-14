@@ -34,6 +34,11 @@ namespace BH.oM.Structural.Elements
         }
 
 
+
+
+
+
+
         //public Grid(Line line)
         //{
         //    Line = line;

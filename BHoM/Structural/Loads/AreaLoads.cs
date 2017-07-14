@@ -36,7 +36,7 @@ namespace BH.oM.Structural.Loads
 
 
         /***************************************************/
-        /**** Local Methods                             ****/
+        /**** ILoad Interface                           ****/
         /***************************************************/
 
         public override LoadType GetLoadType()
@@ -88,11 +88,6 @@ namespace BH.oM.Structural.Loads
             Loadcase = loadcase;
             TemperatureChange = t;
         }
-
-
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
 
 
         /***************************************************/

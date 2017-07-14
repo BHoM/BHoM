@@ -12,9 +12,9 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        List<Point> Vertices { get; set; } = new List<Point>();
+        public List<Point> Vertices { get; set; } = new List<Point>();
 
-        List<Face> Faces { get; set; } = new List<Face>();
+        public List<Face> Faces { get; set; } = new List<Face>();
 
 
         /***************************************************/
@@ -31,61 +31,66 @@ namespace BH.oM.Geometry
             Faces = faces.ToList();
         }
 
-        /***************************************************/
-        /**** Local Methods                             ****/
-        /***************************************************/
+    }
+}
 
 
-        /***************************************************/
-        /**** IBHoMGeometry Interface                   ****/
-        /***************************************************/
 
-        public GeometryType GetGeometryType()
-        {
-            return GeometryType.Mesh;
-        }
 
-        /***************************************************/
 
-        public BoundingBox GetBounds()
-        {
-            if (Vertices.Count == 0) return null;
 
-            Point pt = Vertices[0];
-            double minX = pt.X;
-            double minY = pt.Y;
-            double minZ = pt.Z;
-            double maxX = minX;
-            double maxY = minY;
-            double maxZ = minZ;
 
-            for (int i = Vertices.Count - 1; i > 0; i--)
-            {
-                pt = Vertices[i];
-                if (pt.X < minX) minX = pt.X;
-                if (pt.Y < minY) minY = pt.Y;
-                if (pt.Z < minZ) minZ = pt.Z;
-                if (pt.X > maxX) maxX = pt.X;
-                if (pt.Y > maxY) maxY = pt.Y;
-                if (pt.Z > maxZ) maxZ = pt.Z;
-            }
 
-            return new BoundingBox(new Point(minX, minY, minZ), new Point(maxX, maxY, maxZ));
-        }
+        ///***************************************************/
+        ///**** IBHoMGeometry Interface                   ****/
+        ///***************************************************/
 
-        /***************************************************/
+        //public GeometryType GetGeometryType()
+        //{
+        //    return GeometryType.Mesh;
+        //}
 
-        public object Clone()
-        {
-            return new Mesh(Vertices.Select(x => x.Clone() as Point), Faces.Select(x => x.Clone() as Face));
-        }
+        ///***************************************************/
 
-        /***************************************************/
+        //public BoundingBox GetBounds()
+        //{
+        //    if (Vertices.Count == 0) return null;
 
-        public IBHoMGeometry GetTranslated(Vector t)
-        {
-            return new Mesh(Vertices.Select(x => x+t), Faces.Select(x => x.Clone() as Face));
-        }
+        //    Point pt = Vertices[0];
+        //    double minX = pt.X;
+        //    double minY = pt.Y;
+        //    double minZ = pt.Z;
+        //    double maxX = minX;
+        //    double maxY = minY;
+        //    double maxZ = minZ;
+
+        //    for (int i = Vertices.Count - 1; i > 0; i--)
+        //    {
+        //        pt = Vertices[i];
+        //        if (pt.X < minX) minX = pt.X;
+        //        if (pt.Y < minY) minY = pt.Y;
+        //        if (pt.Z < minZ) minZ = pt.Z;
+        //        if (pt.X > maxX) maxX = pt.X;
+        //        if (pt.Y > maxY) maxY = pt.Y;
+        //        if (pt.Z > maxZ) maxZ = pt.Z;
+        //    }
+
+        //    return new BoundingBox(new Point(minX, minY, minZ), new Point(maxX, maxY, maxZ));
+        //}
+
+        ///***************************************************/
+
+        //public object Clone()
+        //{
+        //    return new Mesh(Vertices.Select(x => x.Clone() as Point), Faces.Select(x => x.Clone() as Face));
+        //}
+
+        ///***************************************************/
+
+        //public IBHoMGeometry GetTranslated(Vector t)
+        //{
+        //    return new Mesh(Vertices.Select(x => x+t), Faces.Select(x => x.Clone() as Face));
+        //}
 
 
 
@@ -217,5 +222,3 @@ namespace BH.oM.Geometry
         //{
         //    m_Vertices.Update();
         //}
-    }
-}

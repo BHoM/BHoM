@@ -18,6 +18,8 @@ namespace BH.oM.Structural.Elements
     public interface IAreaElement : IObject
     {
         PanelProperty PanelProperty { get; set; }
-        AreaElementType GetElementType();
+
+
+        //AreaElementType GetElementType(); //TODO: We should probably get rid of this
     }
 }
