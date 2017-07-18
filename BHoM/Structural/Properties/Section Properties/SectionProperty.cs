@@ -52,11 +52,17 @@ namespace BHoM.Structural.Properties
         {
             get
             {
-                return m_OrigionalEdges;
+                if (double.IsInfinity(m_Cy))
+                {
+                    Update();
+                    m_Edges.Translate(new Vector(-CentreY, -CentreZ, 0));
+                }
+                return m_Edges;
             }
             set
             {
                 m_OrigionalEdges = value;
+                m_SectionData = null;
                 Update();
             }
         }
@@ -229,12 +235,13 @@ namespace BHoM.Structural.Properties
                 {
                     Shape = ShapeType.Circle;
                 }
-                else if (Utils.NearEqual(vSlices[(int)vSlices.Count / 2].Length, depth, 0.001))
+                else if (Utils.NearEqual(vSlices[(int)vSlices.Count / 2].Length, depth, 0.001) &&
+                    !Utils.NearEqual(hSlices[(int)hSlices.Count / 2 + 2].Length, width, 0.01))
                 {
                     //ISection, TSection, ZSection
                     Slice verticalThird = vSlices[vSlices.Count / 3];
                     Slice verticalTwoThird = vSlices[vSlices.Count * 2 / 3];
-                    for (int i = vSlices.Count / 3; i < vSlices.Count * 2; i++)
+                    for (int i = vSlices.Count / 3; i < vSlices.Count * 2 / 3; i++)
                     {
                         if (vSlices[i].Placement.Length == 4)
                         {
@@ -326,6 +333,26 @@ namespace BHoM.Structural.Properties
             section.Shape = ShapeType.ISection;
             return section;
         }
+
+        /// <summary>
+        /// Create an I Shaped section property
+        /// </summary>
+        /// <param name="mType"></param>
+        /// <param name="totalWidth"></param>
+        /// <param name="totalDepth"></param>
+        /// <param name="flangeThickness"></param>
+        /// <param name="webThickness"></param>
+        /// <param name="webRadius"></param>
+        /// <returns></returns>
+        public static SectionProperty CreateChannelSection(MaterialType matType, double totalWidth, double totalDepth, double flangeThickness, double webThickness, double webRadius)
+        {
+            SectionProperty section = CreateSection(matType);
+            section.SectionData = CreateSectionData(totalDepth, totalWidth, webThickness, flangeThickness, webRadius, 0, 0);
+            section.Edges = CreateGeometry(ShapeType.Channel, totalDepth, totalWidth, webThickness, flangeThickness, webRadius,0);
+            section.Shape = ShapeType.Channel;
+            return section;
+        }
+
 
         /// <summary>
         /// Create a rectangular shaped section
@@ -537,6 +564,9 @@ namespace BHoM.Structural.Properties
                 case ShapeType.Tube:
                     edges = ShapeBuilder.CreateTube(breadth / 2, tw);
                     break;
+                case ShapeType.Channel:
+                    edges = ShapeBuilder.CreateChannel(breadth, height, tf1, tw, r1);
+                    break;
             }
             return edges;
         }
@@ -544,36 +574,43 @@ namespace BHoM.Structural.Properties
         protected virtual string GenerateStandardName()
         {
             string name = null;
-            switch (Shape)
+            if (SectionData == null || SectionData.Length < Enum.GetNames(typeof(SteelSectionData)).Length)
             {
-                case ShapeType.ISection:
-                    name = "UB " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
-                    break;
-                case ShapeType.Tee:
-                    name = "TUB " + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
-                    break;
-                case ShapeType.Box:
-                    name = "RHS " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
-                    if (SectionData[(int)SteelSectionData.TW] != SectionData[(int)SteelSectionData.TF1])
-                        name += "x" + (SectionData[(int)SteelSectionData.TF1] * 1000).ToString();
-                    break;
-                case ShapeType.Angle:
-                    name = "L " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
-                    if (SectionData[(int)SteelSectionData.TW] != SectionData[(int)SteelSectionData.TF1])
-                        name += "x" + (SectionData[(int)SteelSectionData.TF1] * 1000).ToString();
-                    break;
-                case ShapeType.Circle:
-                    name = "C " + (SectionData[(int)SteelSectionData.Width] * 1000).ToString();
-                    break;
-                case ShapeType.Rectangle:
-                    name = "R " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString();
-                    break;
-                case ShapeType.Tube:
-                    name = "CHS " + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
-                    break;
-                default:
-                    name = Shape.ToString();
-                    break;
+                SectionData = GetSectionData();
+            }
+            if (SectionData != null)
+            {
+                switch (Shape)
+                {
+                    case ShapeType.ISection:
+                        name = "UB " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
+                        break;
+                    case ShapeType.Tee:
+                        name = "TUB " + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
+                        break;
+                    case ShapeType.Box:
+                        name = "RHS " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
+                        if (SectionData[(int)SteelSectionData.TW] != SectionData[(int)SteelSectionData.TF1])
+                            name += "x" + (SectionData[(int)SteelSectionData.TF1] * 1000).ToString();
+                        break;
+                    case ShapeType.Angle:
+                        name = "L " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
+                        if (SectionData[(int)SteelSectionData.TW] != SectionData[(int)SteelSectionData.TF1])
+                            name += "x" + (SectionData[(int)SteelSectionData.TF1] * 1000).ToString();
+                        break;
+                    case ShapeType.Circle:
+                        name = "C " + (SectionData[(int)SteelSectionData.Width] * 1000).ToString();
+                        break;
+                    case ShapeType.Rectangle:
+                        name = "R " + (SectionData[(int)SteelSectionData.Height] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.Width] * 1000).ToString();
+                        break;
+                    case ShapeType.Tube:
+                        name = "CHS " + (SectionData[(int)SteelSectionData.Width] * 1000).ToString() + "x" + (SectionData[(int)SteelSectionData.TW] * 1000).ToString();
+                        break;
+                    default:
+                        name = Shape.ToString();
+                        break;
+                }
             }
             return name;
         }

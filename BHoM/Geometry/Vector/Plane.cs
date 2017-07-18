@@ -201,8 +201,15 @@ namespace BHoM.Geometry
 
                 while (VectorUtils.Equal(currentPoint, nextPoint, 0.0001))
                 {
-                    currentPoint = nextPoint;
-                    nextPoint = Common.Utils.SubArray<double>(pnts, length * (++counter), length);
+                    if (((counter + 2) * length) < pnts.Length)
+                    {
+                        currentPoint = nextPoint;
+                        nextPoint = Common.Utils.SubArray<double>(pnts, length * (++counter), length);
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
                 Array.Copy(nextPoint, 0, planePts, length, length);
 

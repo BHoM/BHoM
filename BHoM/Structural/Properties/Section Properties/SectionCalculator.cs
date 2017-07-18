@@ -57,7 +57,7 @@ namespace BHoM.Structural.Properties
             if (m_OrigionalEdges != null)
             {
                 m_Edges = m_OrigionalEdges.DuplicateGroup();
-                if (Orientation > 0)
+                if (Orientation != 0)
                 {
                     m_Edges.Transform(Transform.Rotation(Point.Origin, Vector.ZAxis(), Orientation));
                 }
