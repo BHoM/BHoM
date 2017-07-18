@@ -50,8 +50,26 @@ namespace BHoMTest
     {
         static void Main(string[] args)
         {
-          // var mat =   BHoM.Materials.Material.Default(BHoM.Materials.MaterialType.Steel);
-           // CreateJSONDB();
+            // var mat =   BHoM.Materials.Material.Default(BHoM.Materials.MaterialType.Steel);
+            // CreateJSONDB();
+
+            SectionProperty p = SectionProperty.CreateISection(BHoM.Materials.MaterialType.Steel, 100, 100, 200, 10, 10, 10, 2,0);
+
+            BHoM.Geometry.Group<Curve> edges = p.Edges;
+            foreach (Curve e in edges)
+            {
+                e.Transform(Transform.Rotation(Point.Origin, Vector.ZAxis(), Math.PI / 2));
+                e.Transform(Transform.Rotation(Point.Origin, Vector.YAxis(), Math.PI / 2));
+            }
+
+            Curve c = Curve.Join(p.Edges)[0];
+
+
+            c.Transform(Transform.Rotation(Point.Origin, Vector.ZAxis(), Math.PI / 2));
+            c.Transform(Transform.Rotation(Point.Origin, Vector.YAxis(), Math.PI / 2));
+
+            List<Curve> crvs = c.Explode();
+
             TestReadJsonDB();
         }
 

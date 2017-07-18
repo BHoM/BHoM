@@ -513,7 +513,7 @@ namespace BHoM.Geometry
             double dotProduct = DotProduct(v1, v2);
             double length = Length(v1) * Length(v2);
 
-            return (Math.Abs(dotProduct) < length) ? Math.Acos(dotProduct / length) : (Math.Abs(dotProduct) < length + 0.0001) ? Math.PI : 0;
+            return (Math.Abs(dotProduct) < length) ? Math.Acos(dotProduct / length) : dotProduct < 0 ? Math.PI : 0;
         }
 
         public static double[] Normalise(double[] m_Coordinates)

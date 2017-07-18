@@ -254,27 +254,6 @@
   <ItemGroup>
     <None Include="Resources\SteelSectionDB.txt" />
     <None Include="Resources\MaterialDb.txt" />
-    <Content Include="Structural\Databases\Cables.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Structural\Databases\Cables_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Cables.mdf</DependentUpon>
-    </Content>
-    <Content Include="Structural\Databases\Materials.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Structural\Databases\Materials_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Materials.mdf</DependentUpon>
-    </Content>
-    <Content Include="Structural\Databases\SteelSections.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Structural\Databases\SteelSections_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SteelSections.mdf</DependentUpon>
-    </Content>
     <None Include="Structural\Properties\Section Properties\Bar.json" />
   </ItemGroup>
   <ItemGroup>
@@ -285,8 +264,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>MKDir "C:\Users\$(Username)\AppData\Roaming\BHoM\Structural\Databases"
-Copy "$(TargetDir)Structural\Databases" "C:\Users\$(Username)\AppData\Roaming\BHoM\Structural\Databases"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
