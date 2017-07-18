@@ -350,6 +350,7 @@ namespace BHoM.Structural.Properties
             section.SectionData = CreateSectionData(totalDepth, totalWidth, webThickness, flangeThickness, webRadius, 0, 0);
             section.Edges = CreateGeometry(ShapeType.Channel, totalDepth, totalWidth, webThickness, flangeThickness, webRadius,0);
             section.Shape = ShapeType.Channel;
+
             return section;
         }
 
