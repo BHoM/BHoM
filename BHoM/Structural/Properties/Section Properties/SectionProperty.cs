@@ -335,6 +335,26 @@ namespace BHoM.Structural.Properties
         }
 
         /// <summary>
+        /// Create an I Shaped section property
+        /// </summary>
+        /// <param name="mType"></param>
+        /// <param name="totalWidth"></param>
+        /// <param name="totalDepth"></param>
+        /// <param name="flangeThickness"></param>
+        /// <param name="webThickness"></param>
+        /// <param name="webRadius"></param>
+        /// <returns></returns>
+        public static SectionProperty CreateChannelSection(MaterialType matType, double totalWidth, double totalDepth, double flangeThickness, double webThickness, double webRadius)
+        {
+            SectionProperty section = CreateSection(matType);
+            section.SectionData = CreateSectionData(totalDepth, totalWidth, webThickness, flangeThickness, webRadius, 0, 0);
+            section.Edges = CreateGeometry(ShapeType.Channel, totalDepth, totalWidth, webThickness, flangeThickness, webRadius,0);
+            section.Shape = ShapeType.Channel;
+            return section;
+        }
+
+
+        /// <summary>
         /// Create a rectangular shaped section
         /// </summary>
         /// <param name="mType"></param>
@@ -543,6 +563,9 @@ namespace BHoM.Structural.Properties
                     break;
                 case ShapeType.Tube:
                     edges = ShapeBuilder.CreateTube(breadth / 2, tw);
+                    break;
+                case ShapeType.Channel:
+                    edges = ShapeBuilder.CreateChannel(breadth, height, tf1, tw, r1);
                     break;
             }
             return edges;
