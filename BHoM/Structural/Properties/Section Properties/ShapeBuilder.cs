@@ -67,6 +67,39 @@ namespace BHoM.Structural.Properties
         }
 
         /// <summary>
+        /// Create a Channel Section shape
+        /// </summary>
+        /// <param name="tf">Thickness of Flanges</param>
+        /// <param name="tw">thickness of web</param>
+        /// <param name="width">Total width</param>
+        /// <param name="depth">Total depth</param>
+        /// <param name="r1">web radius</param>
+        /// <returns></returns>
+        public static Group<Curve> CreateChannel(double width, double depth, double tf, double tw, double r1)
+        {
+            Group<Curve> perimeter = new Group<Curve>();
+            Point p = new Point(0, 0, 0);
+
+            perimeter.Add(new Line(p, p = p + Vector.XAxis(width)));
+            perimeter.Add(new Line(p, p = p + Vector.YAxis(tf)));
+            perimeter.Add(new Line(p, p = p - Vector.XAxis(width - tw - r1)));
+            if (r1 > 0) perimeter.Add(new Arc(p, p = p + new Vector(-r1, r1, 0), new Plane(p + Vector.XAxis(r1), Vector.ZAxis())));
+            perimeter.Add(new Line(p, p = p + Vector.YAxis(depth - 2 * (tf+r1))));
+            if (r1 > 0) perimeter.Add(new Arc(p, p = p + new Vector(r1, r1, 0), new Plane(p - Vector.YAxis(r1), Vector.ZAxis())));
+            perimeter.Add(new Line(p, p = p + Vector.XAxis(width - tw - r1)));
+            perimeter.Add(new Line(p, p = p + Vector.YAxis(tf)));
+            perimeter.Add(new Line(p, p = p - Vector.XAxis(width)));
+            perimeter.Add(new Line(p, p - Vector.YAxis(depth)));
+
+            //double xVector = -(perimeter.Max(0) + perimeter.Min(0)) / 2;
+            //double yVector = -(perimeter.Max(1) + perimeter.Min(1)) / 2;
+
+            perimeter.Update();
+
+            return perimeter;//.Move(new XYZ(xVector, yVector, 0)) as Curve;
+        }
+
+        /// <summary>
         /// Create an T Section shape
         /// </summary>
         /// <param name="tft">Thickness of Flange</param>
