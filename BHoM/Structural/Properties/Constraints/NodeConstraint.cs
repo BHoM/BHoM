@@ -113,7 +113,7 @@ namespace BH.oM.Structural.Properties
 
         public DOFType RZ { get; set; }
 
-        public new string Name
+        /*public new string Name
         {
             get
             {
@@ -123,7 +123,7 @@ namespace BH.oM.Structural.Properties
             {
                 base.Name = value;
             }
-        }
+        }*/
 
 
         /// <summary>Constraint type</summary>
