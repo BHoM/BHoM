@@ -89,7 +89,6 @@
     <Compile Include="Geometry\Vector\Plane.cs" />
     <Compile Include="Geometry\Vector\Point.cs" />
     <Compile Include="Geometry\Vector\Vector.cs" />
-    <Compile Include="Base\Interface\IAdapter.cs" />
     <Compile Include="Base\Interface\IObject.cs" />
     <Compile Include="Base\BHoMObject.cs" />
     <Compile Include="Geometry\IBHoMGeometry.cs" />

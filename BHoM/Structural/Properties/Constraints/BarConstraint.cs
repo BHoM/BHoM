@@ -9,6 +9,10 @@ namespace BH.oM.Structural.Properties
 {
     public class BarConstraint : BHoMObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public DOFType UX { get; set; }
 
         public DOFType UY { get; set; }
@@ -24,23 +28,15 @@ namespace BH.oM.Structural.Properties
         public double KZ { get; set; }
 
         public double HX { get; set; }
-        ///////////////////
-        ////Constructors///
-        ///////////////////
 
-        /// <summary>
-        /// Construct an empty constraint object
-        /// </summary>
-        internal BarConstraint()
-        { 
-        }
 
-        /// <summary>
-        /// Construct an empty constraint object with a name
-        /// </summary>
-        public BarConstraint(string name) : this()
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BarConstraint(string name = "") 
         {
-            this.Name = name;
+            Name = name;
         }
     }
 

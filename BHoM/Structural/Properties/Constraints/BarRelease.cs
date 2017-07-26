@@ -12,53 +12,33 @@ namespace BH.oM.Structural.Properties
     /// </summary>
     public class BarRelease : BHoMObject
     {
-        /// <summary>Start constraint</summary>
-        public NodeConstraint StartConstraint 
-        {
-            get;
-            set;
-        }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        /// <summary>End constraint</summary>
-        public NodeConstraint EndConstraint
-        {
-            get;
-            set;
-        }
+        public NodeConstraint StartConstraint { get; set; }
 
-        internal BarRelease() { }
+        public NodeConstraint EndConstraint { get; set; }
 
-        /// <summary>Construct a new constraint using constraint objects for start/end releases</summary>
-        public BarRelease(NodeConstraint startConstraint, NodeConstraint endConstraint)
-        {
-            this.StartConstraint = startConstraint;
-            this.EndConstraint = endConstraint;
-            this.Name = startConstraint.Name + "-" + endConstraint.Name;
-        }
 
-        /// <summary>Construct a new constraint using constraint objects for start/end releases and name</summary>          
-        public BarRelease(NodeConstraint startConstraint, NodeConstraint endConstraint, string name)
-        {
-            this.StartConstraint = startConstraint;
-            this.EndConstraint = endConstraint;
-            this.Name = name;
-        }
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        public new string Name
-        {
-            get
-            {
-                return base.Name == "" ? ToString() : base.Name;
-            }
-            set
-            {
-                base.Name = value;
-            }
-        }
+        public BarRelease() { }
 
-        public override string ToString()
+        /***************************************************/
+
+        public BarRelease(NodeConstraint startConstraint, NodeConstraint endConstraint, string name = "")
         {
-            return string.IsNullOrEmpty(base.Name) ? StartConstraint.Name + "-" + EndConstraint.Name : base.Name;
+            StartConstraint = startConstraint;
+            EndConstraint = endConstraint;
+            Name = name;
         }
     }  
 }
+
+//public override string ToString()
+//{
+//    return string.IsNullOrEmpty(base.Name) ? StartConstraint.Name + "-" + EndConstraint.Name : base.Name;
+//}

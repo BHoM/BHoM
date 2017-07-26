@@ -18,10 +18,19 @@ namespace BH.oM.Structural.Properties
 
     public class LoadingPanelProperty : PanelProperty
     {
-        public LoadingPanelProperty()
-        { }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public LoadPanelSupportConditions LoadApplication { get; set; }
+
         public int ReferenceEdge { get; set; } = 1;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public LoadingPanelProperty() { }
     }
 }

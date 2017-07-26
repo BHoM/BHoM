@@ -8,7 +8,7 @@ namespace BH.oM.Base
 {
     public interface IObject //TODO: Do we need this?
     {
-        System.Guid BHoM_Guid { get; }
+        System.Guid BHoM_Guid { get; set; }
 
         string Name { get; set; }
 

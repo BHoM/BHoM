@@ -22,10 +22,8 @@ namespace BH.oM.Structural.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        /// <summary>Node position as a point object</summary>
         public Point Point { get; set; } = new Point();
 
-        /// <summary>Node constraint (support/restraint)</summary>
         public NodeConstraint Constraint { get; set; } = null;
 
 

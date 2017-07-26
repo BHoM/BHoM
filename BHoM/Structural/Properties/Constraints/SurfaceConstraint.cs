@@ -9,9 +9,9 @@ namespace BH.oM.Structural.Properties
 {
     public class SurfaceConstraint : BHoMObject
     {
-        /////////////////
-        ////Properties///
-        /////////////////
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public DOFType UX { get; set; }
 
@@ -19,30 +19,20 @@ namespace BH.oM.Structural.Properties
 
         public DOFType Normal { get; set; }
 
-        public double KX { get; set; }
+        public double KX { get; set; } = 0;
 
-        public double KY { get; set; }
+        public double KY { get; set; } = 0;
 
-        public double KNorm { get; set; }
+        public double KNorm { get; set; } = 0;
 
 
-        ///////////////////
-        ////Constructors///
-        ///////////////////
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        /// <summary>
-        /// Construct an empty constraint object
-        /// </summary>
-        internal SurfaceConstraint()
-        {           
-        }
-
-        /// <summary>
-        /// Construct an empty constraint object with a name
-        /// </summary>
-        public SurfaceConstraint(string name) : this()
+        public SurfaceConstraint(string name = "") 
         {
-            this.Name = name;
+            Name = name;
         }
     }
 }

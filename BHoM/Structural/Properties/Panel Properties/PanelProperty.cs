@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Structural.Properties
 {
 
-    public enum PanelDirection
+    public enum PanelDirection  //TODO: one class per file please
     {
         X = 0,
         Y

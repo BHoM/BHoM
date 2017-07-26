@@ -11,119 +11,49 @@ namespace BH.oM.Structural.Properties
     /// <summary>
     /// Offsets for bars
     /// </summary>
-    [Serializable]
     public class Offset : BH.oM.Base.BHoMObject
     {
-        /// <summary>Offset name</summary>
-        //public string Name { get; private set; }
-        /// <summary>Offset array</summary>
-        public double[] Offsets { get; private set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        /// <summary>
-        /// Construct an offset by values
-        /// </summary>
-        /// <param name="xi">Axial Offset at start node</param>
-        /// <param name="yi">Minor Axis Offset as start node</param>
-        /// <param name="zi">Major Axis Offset as start node</param>
-        /// <param name="xj">Axial Offset at end node</param>
-        /// <param name="yj">Minor Axis Offset as end node</param>
-        /// <param name="zj">Major Axis Offset as end node</param>
-        public Offset(double xi, double yi, double zi, double xj, double yj, double zj)
-        {
-            this.Offsets = new double[] { xi, yi, zi, xj, yj, zj };
-        }
-
-        public Offset()
-        {
-            Offsets = new double[6];
-        }
-
-        [DisplayName("StartX")]
         [Description("Axial Offset from start node")]
-        [DefaultValue(0)]
-        public double StartX
-        {
-            get
-            {
-                return Offsets[0];
-            }
-            set
-            {
-                Offsets[0] = value;
-            }
-        }
-        [DisplayName("StartY")]
+        public double StartX { get; set; } = 0;
+
+
         [Description("Minor axis offset from start node")]
-        [DefaultValue(0)]
-        public double StartY
-        {
-            get
-            {
-                return Offsets[1];
-            }
-            set
-            {
-                Offsets[1] = value;
-            }
-        }
+        public double StartY { get; set; } = 0;
 
-        [DisplayName("StartZ")]
         [Description("Major axis offset from start node")]
-        [DefaultValue(0)]
-        public double StartZ
-        {
-            get
-            {
-                return Offsets[2];
-            }
-            set
-            {
-                Offsets[2] = value;
-            }
-        }
+        public double StartZ { get; set; } = 0;
 
-        [DisplayName("EndX")]
         [Description("Axial Offset from end node")]
-        [DefaultValue(0)]
-        public double EndX
-        {
-            get
-            {
-                return Offsets[3];
-            }
-            set
-            {
-                Offsets[3] = value;
-            }
-        }
-        [DisplayName("EndY")]
+        public double EndX { get; set; } = 0;
+
         [Description("Minor axis offset from end node")]
-        [DefaultValue(0)]
-        public double EndY
+        public double EndY { get; set; } = 0;
+
+        [Description("Major axis offset from end node")]
+        public double EndZ { get; set; } = 0;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Offset() { }
+
+        /***************************************************/
+
+        public Offset(double startX, double startY, double startZ, double endX, double endY, double endZ)
         {
-            get
-            {
-                return Offsets[4];
-            }
-            set
-            {
-                Offsets[4] = value;
-            }
+            StartX = startX;
+            StartY = startY;
+            StartZ = startZ;
+            EndX = endX;
+            EndY = endY;
+            EndZ = endZ;
         }
 
-        [DisplayName("EndZ")]
-        [Description("Major axis offset from end node")]
-        [DefaultValue(0)]
-        public double EndZ
-        {
-            get
-            {
-                return Offsets[5];
-            }
-            set
-            {
-                Offsets[5] = value;
-            }
-        }
     }
 }
