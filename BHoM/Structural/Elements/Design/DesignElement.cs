@@ -424,13 +424,13 @@ namespace BHoM.Structural.Elements
             switch (direction)
             {
                 case SpanDirection.MajorAxis:
-                    return m_majorAxisSpans;
+                    return MajorAxisSpan;
                 case SpanDirection.MinorAxis:
-                    return m_minorAxisSpans;
+                    return MinorAxisSpan;
                 case SpanDirection.LateralTorsional:
-                    return m_LateralTorsionalSpans;
-                default:
-                    return m_majorAxisSpans;
+                    return LateralTorsionalSpan;
+                default: 
+                    return MajorAxisSpan;
             }           
         }
 
@@ -439,13 +439,13 @@ namespace BHoM.Structural.Elements
             switch (direction)
             {
                 case SpanDirection.MajorAxis:
-                    return m_majorAxisSpans.Where(x => x.BarIndices.Contains(barIdx)).First();
+                    return MajorAxisSpan.Where(x => x.BarIndices.Contains(barIdx)).First();
                 case SpanDirection.MinorAxis:
-                    return m_minorAxisSpans.Where(x => x.BarIndices.Contains(barIdx)).First();
+                    return MinorAxisSpan.Where(x => x.BarIndices.Contains(barIdx)).First();
                 case SpanDirection.LateralTorsional:
-                    return m_LateralTorsionalSpans.Where(x => x.BarIndices.Contains(barIdx)).First();
+                    return LateralTorsionalSpan.Where(x => x.BarIndices.Contains(barIdx)).First();
                 default:
-                    return m_majorAxisSpans.Where(x => x.BarIndices.Contains(barIdx)).First();
+                    return MajorAxisSpan.Where(x => x.BarIndices.Contains(barIdx)).First();
             }
         }
 
