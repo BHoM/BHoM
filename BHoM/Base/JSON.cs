@@ -50,7 +50,10 @@ namespace BHoM.Base
             aResult += "]}";
 
             if (password.Length > 0)
-                return Cipher.Encrypt(Compress.Zip(aResult), password);
+                if(password == "NoEnc")
+                    return Compress.Zip(aResult);
+                else
+                    return Cipher.Encrypt(Compress.Zip(aResult), password);
             else
                 return aResult;
         }
@@ -61,7 +64,12 @@ namespace BHoM.Base
         {
             string json = package;
             if (password.Length > 0)
-                json = Compress.Unzip(Cipher.Decrypt(package, password));
+            {
+                if(password == "NoEnc")
+                    json = Compress.Unzip(package);//Compress.Unzip(Cipher.Decrypt(package, password));
+                else
+                    json = Compress.Unzip(Cipher.Decrypt(package, password));
+            }
 
             Project project = new Project();
             Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);

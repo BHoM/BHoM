@@ -61,6 +61,15 @@ namespace BHoM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;__Type__&quot;:&quot;BHoMTest.Database&quot;,&quot;Name&quot;: &quot;Cables&quot;,&quot;Tables&quot;: [{&quot;__Type__&quot;:&quot;BHoMTest.Table&quot;,&quot;Name&quot;: &quot;PfeiferFullLocked&quot;,&quot;Rows&quot;: [{&quot;__Type__&quot;:&quot;BHoM.Structural.Databases.CableSectionRow&quot;,&quot;Name&quot;: &quot;FLC21&quot;,&quot;Id&quot;: 1,&quot;Diameter&quot;: 0.021,&quot;BreakingLoad&quot;: 405000,&quot;LimitTension&quot;: 245000,&quot;Area&quot;: 0.000281,&quot;Weight&quot;: 2.4,&quot;AxialStiffness&quot;: 45000000,&quot;Construction&quot;: &quot;VVS-1&quot;,&quot;SelfWeightEnd&quot;: 3,&quot;AdjustableSpeltFork&quot;: 9},{&quot;__Type__&quot;:&quot;BHoM.Structural.Databases.CableSectionRow&quot;,&quot;Name&quot;: &quot;FLC26&quot;,&quot;Id&quot;: 2,&quot;Diameter&quot;: 0.026,&quot;BreakingLoad&quot;: 6 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CablesDB {
+            get {
+                return ResourceManager.GetString("CablesDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;__Type__&quot;:&quot;BHoMTest.Database&quot;,&quot;Name&quot;: &quot;Materials&quot;,&quot;Tables&quot;: [{&quot;__Type__&quot;:&quot;BHoMTest.Table&quot;,&quot;Name&quot;: &quot;Europe&quot;,&quot;Rows&quot;: [{&quot;__Type__&quot;:&quot;BHoM.Structural.Databases.MaterialRow&quot;,&quot;Name&quot;: &quot;S235&quot;,&quot;Type&quot;: &quot;Steel&quot;,&quot;Id&quot;: 1,&quot;Grade&quot;: &quot;S235&quot;,&quot;IsDefault&quot;: &quot;false&quot;,&quot;Weight&quot;: 76972.86394,&quot;Mass&quot;: 7850,&quot;YoungsModulus&quot;: 210000000000,&quot;PoissonsRatio&quot;: 0.3,&quot;CoefOfThermalExpansion&quot;: 1.17E-05,&quot;MinimumYieldStress&quot;: 235000000,&quot;MinimumTensileStress&quot;: 360000000,&quot;EffectiveYieldStress&quot;: 258500000,&quot;EffectiveTensileStress&quot;: 396000000,&quot;Compress [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string MaterialDB {

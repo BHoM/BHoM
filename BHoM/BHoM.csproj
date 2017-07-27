@@ -206,7 +206,7 @@
     <Compile Include="Structural\Results\Bar Forces\BarStress.cs" />
     <Compile Include="Structural\Results\Bar Forces\CompositeUtilisation.cs" />
     <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
-    <Compile Include="Structural\Results\BarDeformation\BarDeformation.cs" />
+    <Compile Include="Structural\Results\BarDisplacement\BarDisplacement.cs" />
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
     <Compile Include="Structural\Results\Geometry\BarCoordinates.cs" />
     <Compile Include="Structural\Results\Geometry\NodeCoordinates.cs" />
@@ -254,6 +254,8 @@
   <ItemGroup>
     <None Include="Resources\SteelSectionDB.txt" />
     <None Include="Resources\MaterialDb.txt" />
+    <None Include="CablesDB.txt" />
+    <None Include="Resources\CablesDB.txt" />
     <Content Include="Structural\Databases\Cables.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -135,12 +135,15 @@ namespace BHoM.Structural.Properties
 
         public static SectionProperty LoadFromCableSectionDBName(Project project, string name, int numberOfCables = 1)
         {
-            //object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Name", name);
+            if (name.EndsWith(".0")) name = name.Substring(0, name.Length - 2);
+            IDataAdapter database = Project.ActiveProject.GetDatabase<CableSectionRow>(Database.Cables);
+            database.TableName = Project.ActiveProject.Config.CableDataBase;
+            CableSectionRow data = database.GetDataRow<CableSectionRow>("Name", name);
 
-            //if (data != null)
-            //{
-            //    return CreateCableSectionFromDB(data, numberOfCables);
-            //}
+            if (data != null)
+            {
+                return CreateCableSectionFromDB(data, numberOfCables);
+            }
 
             return null;
         }
@@ -152,34 +155,62 @@ namespace BHoM.Structural.Properties
 
         public static SectionProperty LoadFromCableSectionDBDiameter(Project project, double diameter, int numberOfCables = 1)
         {
-            //object[] data = new SQLAccessor(Database.Cables, project.Config.CableDataBase).GetDataRow("Diameter", diameter.ToString());
+            IDataAdapter database = Project.ActiveProject.GetDatabase<CableSectionRow>(Database.Cables);
+            database.TableName = Project.ActiveProject.Config.CableDataBase;
+            CableSectionRow data = database.GetDataRow<CableSectionRow>("Diameter", diameter.ToString());
 
-            //if (data != null)
-            //{
-            //    return CreateCableSectionFromDB(data, numberOfCables);
-            //}
+            Material mat = null;
+
+            if (database.TableName == "BridonFullLocked")
+            {
+                mat = Material.LoadFromDB("CaFullLockBridon");
+            }
+
+            if (data != null)
+            {
+                return CreateCableSectionFromDB(data, numberOfCables, mat);
+            }
 
             return null;
         }
 
-        private static SectionProperty CreateCableSectionFromDB(object[] data, int numberOfCables)
+        private static SectionProperty CreateCableSectionFromDB(CableSectionRow data, int numberOfCables, Material mat = null)
         {
-            double d = (double)data[(int)CableSectionData.D];
-            double A = (double)data[(int)CableSectionData.A];
-            string name = (string)data[(int)CableSectionData.Name];
-            CableSection sec = new CableSection(d, A, numberOfCables);
+            if (mat == null)
+                mat = BHoM.Materials.Material.Default(Materials.MaterialType.Cable);
 
-            sec.SectionData[(int)CableSectionData.A] = (double)data[(int)CableSectionData.A];
-            sec.SectionData[(int)CableSectionData.BL] = (double)data[(int)CableSectionData.BL];
-            sec.SectionData[(int)CableSectionData.D] = (double)data[(int)CableSectionData.D];
-            sec.SectionData[(int)CableSectionData.LimTen] = (double)data[(int)CableSectionData.LimTen];
-            sec.SectionData[(int)CableSectionData.Stiffness] = (double)data[(int)CableSectionData.Stiffness];
-            sec.SectionData[(int)CableSectionData.Weight] = (double)data[(int)CableSectionData.Weight];
-            sec.SectionData[(int)CableSectionData.WeightEndAdjustable] = (double)data[(int)CableSectionData.WeightEndAdjustable];
-            sec.SectionData[(int)CableSectionData.WeightEndOpen] = (double)data[(int)CableSectionData.WeightEndOpen];
+            CableSection sec = new CableSection(data.Diameter, data.Area, mat, numberOfCables);
+
+            sec.SectionData[(int)CableSectionData.A] = data.Area;
+            sec.SectionData[(int)CableSectionData.BL] = data.BreakingLoad;
+            sec.SectionData[(int)CableSectionData.D] = data.Diameter;
+            sec.SectionData[(int)CableSectionData.LimTen] = data.LimitTension;
+            sec.SectionData[(int)CableSectionData.Stiffness] = data.AxialStiffness;
+            sec.SectionData[(int)CableSectionData.Weight] = data.Weight;
+            sec.SectionData[(int)CableSectionData.WeightEndAdjustable] = data.AdjustableSpeltFork;
+            sec.SectionData[(int)CableSectionData.WeightEndOpen] = data.SelfWeightEnd;
 
             return sec;
         }
+
+        //private static SectionProperty CreateCableSectionFromDB(object[] data, int numberOfCables)
+        //{
+        //    double d = (double)data[(int)CableSectionData.D];
+        //    double A = (double)data[(int)CableSectionData.A];
+        //    string name = (string)data[(int)CableSectionData.Name];
+        //    CableSection sec = new CableSection(d, A, numberOfCables);
+
+        //    sec.SectionData[(int)CableSectionData.A] = (double)data[(int)CableSectionData.A];
+        //    sec.SectionData[(int)CableSectionData.BL] = (double)data[(int)CableSectionData.BL];
+        //    sec.SectionData[(int)CableSectionData.D] = (double)data[(int)CableSectionData.D];
+        //    sec.SectionData[(int)CableSectionData.LimTen] = (double)data[(int)CableSectionData.LimTen];
+        //    sec.SectionData[(int)CableSectionData.Stiffness] = (double)data[(int)CableSectionData.Stiffness];
+        //    sec.SectionData[(int)CableSectionData.Weight] = (double)data[(int)CableSectionData.Weight];
+        //    sec.SectionData[(int)CableSectionData.WeightEndAdjustable] = (double)data[(int)CableSectionData.WeightEndAdjustable];
+        //    sec.SectionData[(int)CableSectionData.WeightEndOpen] = (double)data[(int)CableSectionData.WeightEndOpen];
+
+        //    return sec;
+        //}
 
         protected static double[] CreateSectionData(double height, double width, double tw, double tf1, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double tf2 = 0, double b3 = 0, double spacing = 0)
         {
