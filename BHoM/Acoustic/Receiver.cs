@@ -11,13 +11,13 @@ namespace BHoM.Acoustic
     /// <summary>
     /// BHoM Acoustic Receiver
     /// </summary>
-    public class Receiver
+    public struct Receiver
     {
         #region Fields
 
-        private Point _Position;
-        private string _Category;
-        private int _ReceiverID;
+        private readonly Point _Position;
+        private readonly string _Category;
+        private readonly int _ReceiverID;
 
         #endregion
 
@@ -26,37 +26,28 @@ namespace BHoM.Acoustic
         public Point Position
         {
             get { return _Position; }
-            set { _Position = Position; }
         }
 
         public string Category
         {
             get { return _Category; }
-            set { _Category = Category; }
         }
 
         public int ReceiverID
         {
             get { return _ReceiverID; }
-            set { _ReceiverID = ReceiverID; }
         }
 
         #endregion
 
 
-        #region Constructor
+        #region Constructors
 
-        public Receiver(Point position, string category = null)
+        public Receiver(Point position, string category = "Omni", int receiverID = 0)
         {
-            if (category == null)
-                Category = category;
-
-            Position = position;
-            Category = category;
-        }
-
-        public Receiver(Point position) : this(position, null)
-        {
+            _Position = position;
+            _Category = category;
+            _ReceiverID = receiverID;
         }
 
         #endregion

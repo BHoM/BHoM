@@ -11,71 +11,65 @@ namespace BHoM.Acoustic
     /// <summary>
     /// BHoM Acoustic Ray
     /// </summary>
-    public class Ray
+    public struct Ray
     {
-        #region Private Fields
+        #region Fields
 
-        private Polyline _Path;
-        private int _SpeakerID;
-        private int _ReceiverID;
-        private List<int> _PanelsID;
+        private readonly Curve _Path;
+        private readonly int _SpeakerID;
+        private readonly int _ReceiverID;
+        private readonly List<int> _PanelsID;
 
         #endregion
+        #region Properties
 
-        #region Public Properties
-
-        public Polyline Path
+        public Curve Path
         {
             get { return _Path; }
-            set { _Path = Path; }
         }
 
         public int SpeakerID
         {
             get { return _SpeakerID; }
-            set { _SpeakerID = SpeakerID; }
         }
 
         public int ReceiverID
         {
             get { return _ReceiverID; }
-            set { _ReceiverID = ReceiverID; }
         }
 
         public List<int> PanelsID
         {
             get { return _PanelsID; }
-            set { _PanelsID = PanelsID; }
         }
-
 
         /********** Additional Properties**********/
 
         public double Length
         {
-            get { return Path.Length; }
+            get { return _Path.Length; }
         }
 
         public double Time
         {
-            get { return Path.Length / 343; }
+            get { return _Path.Length / 343; }
         }
 
         public int Order
         {
-            get { return PanelsID.Count; }
+            get { return _PanelsID.Count; }
         }
 
         #endregion
 
-        #region Constructor
+        #region Constructors
 
-        public Ray(Polyline path, int source, int target, List<int> bouncingPattern = null)
+        public Ray(Curve path, int source, int target, List<int> bouncingPattern = null)
         {
-            Path = path;
-            SpeakerID = source;
-            ReceiverID = target;
-            PanelsID = bouncingPattern;
+            _Path = path;
+            _SpeakerID = source;
+            _ReceiverID = target;
+            _PanelsID = bouncingPattern;
         }
 
         #endregion

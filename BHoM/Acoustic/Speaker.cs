@@ -11,34 +11,16 @@ namespace BHoM.Acoustic
     /// <summary>
     /// BHoM Acoustic Speaker
     /// </summary>
-    public class Speaker
+    public struct Speaker
     {
         #region Fields
 
-        /// <summary>
-        /// Source emissive point
-        /// </summary>
-        private Point _Position;
-        /// <summary>
-        /// Main emissive direction for directivity factor
-        /// </summary>
-        private Vector _Direction;
-        /// <summary>
-        /// Source dirctivity type as string
-        /// </summary>
-        private string _Category;
-        /// <summary>
-        /// Automatically generated identifier of a source
-        /// </summary>
-        private int _SpeakerID;
-        /// <summary>
-        /// Acoustic Gain
-        /// </summary>
+        private readonly Point _Position;
+        private readonly Vector _Direction;
+        private readonly string _Category;
+        private readonly int _SpeakerID;
         private List<double> _Gains;     // value for each frequency
-        /// <summary>
-        /// Directivity factor measured on a sphere each 10deg longitudinally
-        /// </summary>
-        private double[,,] _Directivity;  // [8,36, 19]
+        //private readonly double[] _Directivity;   //public double[,,] Directivity { get; set; }  // [8,36, 19]
 
         #endregion
 
@@ -47,40 +29,28 @@ namespace BHoM.Acoustic
         public Point Position
         {
             get { return _Position; }
-            set { _Position = Position; }
         }
 
         public Vector Direction
         {
             get { return _Direction; }
-            set { _Direction = Direction; }
         }
 
         public string Category
         {
             get { return _Category; }
-            set { _Category = Category; }
         }
 
         public int SpeakerID
         {
             get { return _SpeakerID; }
-            set { _SpeakerID = SpeakerID; }
         }
 
         public List<double> Gains
         {
             get { return _Gains; }
-            set { _Gains = Gains; }
+            set { }
         }
-
-        public double[,,] Directivity
-        {
-            get { return _Directivity; }
-            set { _Directivity = _Directivity; }
-        }
-
-        /***************** Additional Properties ******************/
 
         public double GetGain(double frequency, double octave)
         {
@@ -94,41 +64,18 @@ namespace BHoM.Acoustic
 
         #endregion
 
-        #region Constructor
+        #region Constructors
 
-        /// <summary>
-        /// Instantiate a new source by emissive point, direction and directivity type.
-        /// </summary>
-        /// <param name="position">Defines position of the source</param>
-        /// <param name="direction">Defines main directivity vector</param>
-        /// <param name="category">Defines source directivity type</param>
-        public Speaker(Point position, Vector direction = null, string category = null)
+        public Speaker(Point position, Vector direction = null, string category = "Omni", int speakerID = 0, List<double> gains = null)
         {
-            if (direction == null)
-                direction = new Vector(1, 0, 0);
-            if (category == null)
-                category = "Omni";
+            if (direction == null)  { direction = new Vector(1, 0, 0); }
+            if (gains == null)      { gains = new List<double> { 1, 1 }; }
 
-            Position = position;
-            Direction = direction;
-            Category = category;
-        }
-
-        /// <summary>
-        /// Instantiate a new source by emissive point and category. Emits on Z axis.
-        /// </summary>
-        /// <param name="position">Defines position of the source</param>
-        /// <param name="category">Defines source directivity type</param>
-        public Speaker(Point position, string category) : this(position, null, category)
-        {
-        }
-
-        /// <summary>
-        /// Instantiate a new source by emissive point. By default, emits on Z axis as Omnidirectional source.
-        /// </summary>
-        /// <param name="position">Defines position of the source</param>
-        public Speaker(Point position) : this(position, null, null)
-        {
+            _Position = position;
+            _Direction = direction;
+            _Category = category;
+            _SpeakerID = speakerID;
+            _Gains = gains;
         }
 
         #endregion
