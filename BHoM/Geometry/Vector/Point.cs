@@ -45,11 +45,10 @@ namespace BH.oM.Geometry
         }
 
         /***************************************************/
+        /**** Static special cases                      ****/
+        /***************************************************/
 
-        public static Point Origin()
-        {
-            return new Geometry.Point(0, 0, 0);
-        }
+        public static Point Origin = new Point(0, 0, 0);
 
 
         /***************************************************/

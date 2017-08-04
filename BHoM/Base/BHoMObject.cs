@@ -26,8 +26,9 @@ namespace BH.oM.Base
 
         public BHoMObject() { }
 
+
         /***************************************************/
-        /**** Public methods                            ****/
+        /**** Public Local Methods                      ****/
         /***************************************************/
 
         /// <summary>

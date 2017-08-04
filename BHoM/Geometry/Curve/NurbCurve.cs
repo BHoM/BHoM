@@ -58,88 +58,16 @@ namespace BH.oM.Geometry
             Knots = knots.ToList();
         }
 
+        /***************************************************/
+        /**** Local Optimisation Methods                ****/
+        /***************************************************/
+
+        public int GetDegree()
+        {
+            return 1 + Knots.Count - ControlPoints.Count;
+        }
     }
 }
 
-
-
-
-
-
-
-//public int GetDegree()
-//{
-//    return 1 + Knots.Count - ControlPoints.Count;
-//}
-
-
-
-///***************************************************/
-///**** IBHoMGeometry Interface                   ****/
-///***************************************************/
-
-//public GeometryType GetGeometryType()
-//{
-//    return GeometryType.NurbCurve;
-//}
-
-///***************************************************/
-
-//public BoundingBox GetBounds()
-//{
-//    throw new NotImplementedException(); //TODO: Implement bounds for NurbsCurve
-//}
-
-///***************************************************/
-
-//public object Clone()
-//{
-//    return new NurbCurve(ControlPoints.Select(x => x.Clone() as Point), Weights, Knots);
-//}
-
-///***************************************************/
-
-//public IBHoMGeometry GetTranslated(Vector t)
-//{
-//    return new NurbCurve(ControlPoints.Select(x => x + t), Weights, Knots);
-//}
-
-
-///***************************************************/
-///**** ICurve Interface                          ****/
-///***************************************************/
-
-//public Point GetStart()
-//{
-//    return ControlPoints.Count > 0 ? ControlPoints.First() : null;
-//}
-
-///***************************************************/
-
-//public Point GetEnd()
-//{
-//    return ControlPoints.Count > 0 ? ControlPoints.Last() : null;
-//}
-
-///***************************************************/
-
-//public Vector GetStartDir()
-//{
-//    throw new NotImplementedException(); //TODO: get start dir of nurb curve
-//}
-
-///***************************************************/
-
-//public Vector GetEndDir()
-//{
-//    throw new NotImplementedException(); //TODO: get end dir of nurb curve
-//}
-
-///***************************************************/
-
-//public bool IsClosed()
-//{
-//    return ControlPoints.Count > 0 ? ControlPoints.Last() == ControlPoints.First() : false;
-//}
 
 

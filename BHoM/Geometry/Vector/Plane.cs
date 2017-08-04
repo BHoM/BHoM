@@ -33,22 +33,20 @@ namespace BH.oM.Geometry
             Normal = normal;
         }
 
+
+        /***************************************************/
+        /**** Static special cases                      ****/
         /***************************************************/
 
-        public static Plane XY(double z = 0)
-        {
-            return new Plane(new Point(0, 0, z), Vector.ZAxis());
-        }
+        public static Plane XY = new Plane(new Point(0, 0, 0), Vector.ZAxis);
 
-        public static Plane YZ(double x = 0)
-        {
-            return new Plane(new Point(x, 0, 0), Vector.XAxis());
-        }
+        /***************************************************/
 
-        public static Plane XZ(double y = 0)
-        {
-            return new Plane(new Point(0, y, 0), Vector.YAxis());
-        }
+        public static Plane YZ = new Plane(new Point(0, 0, 0), Vector.XAxis);
+
+        /***************************************************/
+
+        public static Plane XZ = new Plane(new Point(0, 0, 0), Vector.YAxis);
 
     }
 }
