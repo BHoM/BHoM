@@ -26,6 +26,23 @@ namespace BH.oM.Base
 
         public BHoMObject() { }
 
+        /***************************************************/
+        /**** Public methods                            ****/
+        /***************************************************/
+
+        /// <summary>
+        /// Create a shallow copy of the object
+        /// </summary>
+        /// <param name="newGuid">Defines if the clone needs a new Guid</param>
+        /// <returns>The clone </returns>
+        public BHoMObject GetShallowClone(bool newGuid = false)
+        {
+            BHoMObject obj = (BHoMObject)this.MemberwiseClone();
+            if (newGuid)
+                obj.BHoM_Guid = Guid.NewGuid();
+            return obj;
+        }
+
     }
 }
 
@@ -50,20 +67,7 @@ namespace BH.oM.Base
         //    }
         //}
 
-        ///***************************************************/
 
-        ///// <summary>
-        ///// Create a shallow copy of the object
-        ///// </summary>
-        ///// <param name="newGuid">Defines if the clone needs a new Guid</param>
-        ///// <returns>The clone </returns>
-        //public BHoMObject ShallowClone(bool newGuid = false)
-        //{
-        //    BHoMObject obj = (BHoMObject)this.MemberwiseClone();
-        //    if (newGuid)
-        //        obj.BHoM_Guid = Guid.NewGuid();
-        //    return obj;
-        //}
 
         ///***************************************************/
 
