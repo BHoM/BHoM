@@ -19,7 +19,7 @@ namespace BH.oM.Structural.Elements
 
         /// <summary>Storey level (in metres)</summary>
         public double Elevation { get; set; }
-        
+
         /// <summary>Storey height</summary>
         public double Height { get; set; }
 
@@ -45,6 +45,8 @@ namespace BH.oM.Structural.Elements
             Height = height;
         }
 
+    }
+}
 
         ///***************************************************/
         ///**** Override BHoMObject                       ****/
@@ -56,5 +58,3 @@ namespace BH.oM.Structural.Elements
         //}
 
 
-    }
-}

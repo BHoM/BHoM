@@ -2,7 +2,7 @@
 namespace BH.oM.Structural.Elements
 {
     /// <summary>Usage of the bar for downstream implementations</summary>
-    public enum BarStructuralUsage
+    public enum BarStructuralUsage //TODO: Need to better organise those enums into relevant groups per file
     {
         /// <summary>Undefined</summary>
         Undefined = 0,
@@ -97,6 +97,14 @@ namespace BH.oM.Structural.Elements
         /// <summary>Pin ended conection, compression only. 2 x 3 DOF:s</summary>
         TensionOnly,
         //Cable
+    }
+
+    /***************************************************/
+
+    public enum AreaElementType
+    {
+        Panel,
+        Mesh
     }
 
 }

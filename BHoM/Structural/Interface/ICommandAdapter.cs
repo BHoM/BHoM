@@ -8,7 +8,7 @@ using BH.oM.Structural.Loads;
 
 namespace BH.oM.Structural.Interface
 {
-    public interface ICommandAdapter
+    public interface ICommandAdapter //TODO: Probably needs to be deleted or moved to BHoM_Adapter
     {
         bool Analyse(List<string> cases = null);
         bool ClearResults();

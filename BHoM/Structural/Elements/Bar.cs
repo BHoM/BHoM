@@ -60,6 +60,8 @@ namespace BH.oM.Structural.Elements
             Name = barName;
         }
 
+    }
+}
 
         ///***************************************************/
         ///**** Override BHoMObject                       ****/
@@ -135,5 +137,5 @@ namespace BH.oM.Structural.Elements
         //#endregion
 
 
-    }
-}
+//    }
+//}

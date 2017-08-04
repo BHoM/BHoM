@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHB = BH.oM.Base;
+using BH.oM.Base;
 using BH.oM.Structural.Properties;
 using BH.oM.Geometry;
 
 namespace BH.oM.Structural.Elements
 {
-    public class FEMesh : BHB.BHoMObject, IAreaElement
+    public class FEMesh : BHoMObject, IAreaElement
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -31,6 +31,8 @@ namespace BH.oM.Structural.Elements
             Faces = new List<FEFace>();
         }
 
+    }
+}
 
         ///***************************************************/
         ///**** Override BHoMObject                       ****/
@@ -43,5 +45,5 @@ namespace BH.oM.Structural.Elements
 
         //    return new Mesh(points, faces);
         //}
-    }
-}
+//    }
+//}

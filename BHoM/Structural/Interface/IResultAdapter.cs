@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Interface
 {
-    public interface IResultAdapter
+    public interface IResultAdapter //TODO: Probably needs to be deleted or moved to BHoM_Adapter
     {
         //Analytical Results
         bool StoreResults(string filename, List<ResultType> resultTypes, List<string> loadcases, bool append = false);

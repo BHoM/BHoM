@@ -8,8 +8,6 @@ using System.ComponentModel;
 using BH.oM.Structural.Properties;
 
 
-
-
 namespace BH.oM.Materials
 {
     /// <summary>

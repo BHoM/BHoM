@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Interface
 {
-    public interface IResult : IComparable
+    public interface IResult : IComparable //TODO: where does this go?
     {
         string Id { get; set; }
         //object[] Data { get; set; }

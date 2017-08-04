@@ -23,7 +23,7 @@ namespace BH.oM.Structural.Elements
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Grid() {}
+        public Grid() { }
 
         /***************************************************/
 
@@ -33,7 +33,8 @@ namespace BH.oM.Structural.Elements
             Plane = plane;
         }
 
-
+    }
+}
 
 
 
@@ -54,5 +55,5 @@ namespace BH.oM.Structural.Elements
 
         
 
-    }
-}
+//    }
+//}

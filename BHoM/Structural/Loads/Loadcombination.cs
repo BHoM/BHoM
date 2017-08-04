@@ -14,22 +14,24 @@ namespace BH.oM.Structural.Loads
     [Serializable]
     public class LoadCombination : BHoMObject, ICase
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        //Combination
-        public CaseType CaseType
-        {
-            get
-            {
-                return CaseType.Combination;
-            }
-        }
+        public List<ICase> Loadcases { get; set; } = new List<ICase>();
 
-        public List<ICase> Loadcases { get; set; }
-        public List<double> LoadFactors { get; set; }
+        public List<double> LoadFactors { get; set; } = new List<double>();
 
-        public int Number { get; set; }
+        public int Number { get; set; } = 0;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         public LoadCombination() { }
+
+        /***************************************************/
 
         public LoadCombination(string name, List<ICase> loadcases, List<double> loadfactors)
         {
@@ -37,5 +39,16 @@ namespace BH.oM.Structural.Loads
             Name = name;
             LoadFactors = loadfactors;
         }
+
+
+        /***************************************************/
+        /**** ICase Interface                           ****/
+        /***************************************************/
+
+        public CaseType GetCaseType()
+        {
+            return CaseType.Combination;
+        }
+
     }
 }

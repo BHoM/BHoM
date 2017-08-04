@@ -6,15 +6,6 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Design
 {
-    public enum SpanDirection
-    {
-        MajorAxis,
-        MinorAxis,
-        LateralTorsional,
-        MinorAndLateralTorsional,
-        All
-    }
-
 
     public class Span : BH.oM.Base.BHoMObject
     {

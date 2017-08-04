@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Interface
 {
-    public interface IResultSet
+    public interface IResultSet // TODO: Where does this go?
     {
         void AddData(IEnumerable<object[]> rows);
         void AddData(object[] rows);

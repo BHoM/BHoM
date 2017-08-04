@@ -36,7 +36,8 @@ namespace BH.oM.Structural.Elements
             Edges = edges.ToList();
         }
 
-
+    }
+}
 
 
         //public Opening(Curve edges)
@@ -45,5 +46,4 @@ namespace BH.oM.Structural.Elements
         //    group.Add(edges);
         //    Edges = group;
         //}
-    }
-}
+

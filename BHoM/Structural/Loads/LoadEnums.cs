@@ -14,6 +14,8 @@ namespace BH.oM.Structural.Loads
         Envelope
     }
 
+    /***************************************************/
+
     public enum LoadNature
     {
         Dead = 0,
@@ -27,6 +29,8 @@ namespace BH.oM.Structural.Loads
         Prestress,
         Other
     }
+
+    /***************************************************/
 
     public enum LoadType
     {
@@ -45,5 +49,13 @@ namespace BH.oM.Structural.Loads
         AreaTemperature,
         Pressure,
         Geometrical
+    }
+
+    /***************************************************/
+
+    public enum LoadAxis 
+    {
+        Global,
+        Local,
     }
 }

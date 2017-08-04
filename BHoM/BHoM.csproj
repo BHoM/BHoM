@@ -107,6 +107,7 @@
     <Compile Include="Structural\Design\DesignElement.cs" />
     <Compile Include="Structural\Design\IDesignable.cs" />
     <Compile Include="Structural\Design\Span.cs" />
+    <Compile Include="Structural\Design\SpanDirection.cs" />
     <Compile Include="Structural\Elements\FEFace.cs" />
     <Compile Include="Structural\Elements\FEMesh.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
@@ -130,6 +131,8 @@
     <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Structural\Interface\IResultAdapter.cs" />
     <Compile Include="Structural\Loads\GravityLoad.cs" />
+    <Compile Include="Structural\Loads\ICase.cs" />
+    <Compile Include="Structural\Loads\ILoad.cs" />
     <Compile Include="Structural\ModelTracker\BarTracker.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />

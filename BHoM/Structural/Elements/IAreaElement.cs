@@ -8,17 +8,9 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Elements
 {
-
-    public enum AreaElementType     // TODO: only one class/enum/intefrace per file. 
-    {
-        Panel,
-        Mesh
-    }
-
     public interface IAreaElement : IObject
     {
         PanelProperty PanelProperty { get; set; }
-
 
         //AreaElementType GetElementType(); //TODO: We should probably get rid of this
     }

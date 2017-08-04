@@ -10,27 +10,6 @@ using System.ComponentModel;
 namespace BH.oM.Structural.Loads
 {
 
-    public enum LoadAxis
-    {
-        Global,
-        Local,
-    }
-
-    /// <summary>
-    /// Interface implemented by all loading related classes
-    /// </summary>
-    public interface ILoad : IObject        //TODO: Write this on a separate file
-    {
-        LoadType GetLoadType();
-        /// <summary>Loadcase as BHoM object</summary>
-        BH.oM.Structural.Loads.Loadcase Loadcase { get; set; }
-        LoadAxis Axis { get; set; }
-        bool Projected { get; set; }
-    }
-
-
-
-
     /// <summary>
     /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
     /// constructor allows for a default force and moment nodal load instance.
@@ -62,7 +41,8 @@ namespace BH.oM.Structural.Loads
         public abstract LoadType GetLoadType();
 
 
-
+    }
+}
 
 
         //internal Load() { m_Objects = new BHoMList<T>(); }
@@ -86,6 +66,3 @@ namespace BH.oM.Structural.Loads
 
 
 
-
-    }
-}

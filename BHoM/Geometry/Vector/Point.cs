@@ -69,6 +69,27 @@ namespace BH.oM.Geometry
                 return Z.CompareTo(other.Z);
         }
 
+        /***************************************************/
+
+        public override bool Equals(object obj)
+        {
+            return obj.GetType() == typeof(Point) && this == ((Point)obj);
+        }
+
+        /***************************************************/
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + X.GetHashCode();
+                hash = hash * 23 + Y.GetHashCode();
+                hash = hash * 23 + Z.GetHashCode();
+                return hash;
+            }
+        }
+
 
         /***************************************************/
         /**** Static Operators Override                 ****/
@@ -140,27 +161,6 @@ namespace BH.oM.Geometry
         public static bool operator !=(Point a, Point b)
         {
             return a == null || b == null || a.X != b.X || a.Y != b.Y || a.Z != b.Z;
-        }
-
-        /***************************************************/
-
-        public override bool Equals(object obj)
-        {
-            return obj.GetType() == typeof(Point) && this == ((Point)obj);
-        }
-
-        /***************************************************/
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 17;
-                hash = hash * 23 + X.GetHashCode();
-                hash = hash * 23 + Y.GetHashCode();
-                hash = hash * 23 + Z.GetHashCode();
-                return hash;
-            }
         }
 
     }

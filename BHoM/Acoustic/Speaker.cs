@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BHB = BH.oM.Base;
-using BHG = BH.oM.Geometry;
+﻿
+using BH.oM.Base;
+using BH.oM.Geometry;
 
 namespace BH.oM.Acoustic
 {
-    public class Speaker : BHB.BHoMObject
+    public class Speaker : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public BHG.Point Position { get; set; } = new BHG.Point();
+        public Point Position { get; set; } = new Point();
 
-        public BHG.Vector Direction { get; set; } = new BHG.Vector();
+        public Vector Direction { get; set; } = new Vector();
 
         public string Category { get; set; } = "";
 
@@ -29,7 +25,7 @@ namespace BH.oM.Acoustic
 
         /***************************************************/
 
-        public Speaker(BHG.Point pos, BHG.Vector dir, string category)
+        public Speaker(Point pos, Vector dir, string category = "")
         {
             Position = pos;
             Direction = dir;
@@ -38,6 +34,8 @@ namespace BH.oM.Acoustic
   
     }
 }
+
+
 
 
 //public static double GetGainAngleFactor(double angle, double octave)

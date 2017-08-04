@@ -1,5 +1,5 @@
-﻿using BHG = BH.oM.Geometry;
-using BHB = BH.oM.Base;
+﻿using  BH.oM.Geometry;
+using BH.oM.Base;
 using System;
 using System.Reflection;
 using BH.oM.Structural.Loads;
@@ -11,13 +11,13 @@ namespace BH.oM.Environmental.Elements
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Opening : BHB.BHoMObject
+    public class Opening : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public BHG.Polyline Polyline { get; set; }
+        public Polyline Polyline { get; set; }
 
     }
 

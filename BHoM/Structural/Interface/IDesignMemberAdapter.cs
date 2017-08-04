@@ -11,7 +11,7 @@ namespace BH.oM.Structural.Interface
     /// <summary>
     /// Interface for setting elements to be designed in an external application
     /// </summary>
-    public interface IDesignMemberAdapter
+    public interface IDesignMemberAdapter //TODO: Probably needs to be deleted or moved to BHoM_Adapter
     {
         bool SetBarDesignElement(List<Bar> bars, out List<string> ids);
 

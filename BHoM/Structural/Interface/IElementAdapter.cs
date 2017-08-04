@@ -10,7 +10,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Interface
 {
-    public enum ObjectSelection
+    public enum ObjectSelection //TODO: remove?
     {
         All,
         Selected,
@@ -20,7 +20,7 @@ namespace BH.oM.Structural.Interface
     /// <summary>
     /// An interface class which should be inherited by an external application in order to import and export BHoMObjects
     /// </summary>
-    public interface IElementAdapter
+    public interface IElementAdapter //TODO: Probably needs to be deleted or moved to BHoM_Adapter
     {
         string Filename { get; }
 

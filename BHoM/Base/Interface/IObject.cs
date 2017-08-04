@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base
 {
-    public interface IObject //TODO: Do we need this?
+    public interface IObject 
     {
-        System.Guid BHoM_Guid { get; set; }
+        Guid BHoM_Guid { get; set; }
 
         string Name { get; set; }
+
+        HashSet<string> Tags { get; set; }
 
         Dictionary<string, object> CustomData { get; set; }
     }

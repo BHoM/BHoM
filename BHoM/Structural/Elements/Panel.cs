@@ -11,9 +11,6 @@ using BH.oM.Structural.Properties;
 
 namespace BH.oM.Structural.Elements
 {
-    /// <summary>
-    /// Panel Class
-    /// </summary>
     public class Panel : BHoMObject, IAreaElement
     {
         /***************************************************/
@@ -39,11 +36,13 @@ namespace BH.oM.Structural.Elements
 
         /***************************************************/
 
-        public Panel (ISurface surface)
+        public Panel(ISurface surface)
         {
             Surface = surface;
         }
 
+    }
+}
 
         ///***************************************************/
         ///**** Override BHoMObject                       ****/
@@ -140,5 +139,4 @@ namespace BH.oM.Structural.Elements
 
         //    return true;
         //}
-    }
-}
+

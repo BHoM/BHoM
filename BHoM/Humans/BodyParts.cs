@@ -10,7 +10,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BHoM Human head object
     /// </summary>
-    public class Head
+    public class Head // Sort out this collection of classes (can we generalise them?)
     {
         /// <summary>Point at centre of head</summary>
         public Point TrackingPoint { get; private set; }

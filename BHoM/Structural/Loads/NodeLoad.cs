@@ -13,7 +13,7 @@ namespace BH.oM.Structural.Loads
     /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
     /// constructor allows for a default force and moment nodal load instance.
     /// </summary>
-    public class PointForce : Load<Node>
+    public class PointForce : Load<Node> //TODO: one class per file
     {
         /// <summary>Force - fx, fy, fz defined as a BH.oM.Geometry.Vector</summary>
         public BH.oM.Geometry.Vector Force { get;  set; }

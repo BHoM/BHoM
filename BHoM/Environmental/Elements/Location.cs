@@ -1,6 +1,5 @@
-﻿using BHG = BH.oM.Geometry;
-using BHB = BH.oM.Base;
-using BHE = BH.oM.Environmental.Elements;
+﻿using BH.oM.Geometry;
+using BH.oM.Base;
 using System;
 using System.Reflection;
 using BH.oM.Structural.Loads;
@@ -12,7 +11,7 @@ namespace BH.oM.Environmental.Elements
     /// <summary>
     /// Location objects.
     /// </summary>
-    public class Location : BHB.BHoMObject
+    public class Location : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

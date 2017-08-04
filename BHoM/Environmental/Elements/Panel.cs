@@ -1,6 +1,6 @@
 ﻿using BH.oM.Geometry;
-using BHB = BH.oM.Base;
-using BHE = BH.oM.Environmental.Elements;
+using BH.oM.Base;
+using BH.oM.Environmental.Elements;
 using System;
 using System.Reflection;
 using BH.oM.Structural.Loads;
@@ -12,7 +12,7 @@ namespace BH.oM.Environmental.Elements
     /// <summary>
     /// Panel object for environmental models.
     /// </summary>
-    public class Panel : BHB.BHoMObject
+    public class Panel : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -40,27 +40,27 @@ namespace BH.oM.Environmental.Elements
         {
             Geometry = surface;
         }
-
-
-        ///***************************************************/
-        ///**** Override BHoMObject                       ****/
-        ///***************************************************/
-
-        ///// <summary></summary>
-        //public override IBHoMGeometry GetGeometry()
-        //{
-        //    return Geometry;
-        //}
-
-        ///***************************************************/
-
-        ///// <summary></summary>
-        //public override void SetGeometry(IBHoMGeometry geometry)
-        //{
-        //    if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
-        //    {
-        //        Geometry = geometry as ISurface;
-        //    }
-        //}
     }
 }
+
+
+///***************************************************/
+///**** Override BHoMObject                       ****/
+///***************************************************/
+
+///// <summary></summary>
+//public override IBHoMGeometry GetGeometry()
+//{
+//    return Geometry;
+//}
+
+///***************************************************/
+
+///// <summary></summary>
+//public override void SetGeometry(IBHoMGeometry geometry)
+//{
+//    if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
+//    {
+//        Geometry = geometry as ISurface;
+//    }
+//}

@@ -11,7 +11,7 @@ namespace BH.oM.Geometry
     /// <summary>
     /// BHoM Vector object
     /// </summary>
-    public class Vector : IBHoMGeometry
+    public class Vector : IBHoMGeometry, IComparable<Vector>
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -52,6 +52,42 @@ namespace BH.oM.Geometry
         public object GetClone() // Optimisation
         {
             return new Vector(X, Y, Z);
+        }
+
+
+        /***************************************************/
+        /**** IComparable Interface                     ****/
+        /***************************************************/
+
+        public int CompareTo(Vector other)
+        {
+            if (X != other.X)
+                return X.CompareTo(other.X);
+            else if (Y != other.Y)
+                return Y.CompareTo(other.Y);
+            else
+                return Z.CompareTo(other.Z);
+        }
+
+        /***************************************************/
+
+        public override bool Equals(object obj)
+        {
+            return obj.GetType() == typeof(Vector) && this == ((Vector)obj);
+        }
+
+        /***************************************************/
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + X.GetHashCode();
+                hash = hash * 23 + Y.GetHashCode();
+                hash = hash * 23 + Z.GetHashCode();
+                return hash;
+            }
         }
 
 
@@ -132,27 +168,6 @@ namespace BH.oM.Geometry
         public static bool operator !=(Vector a, Vector b)
         {
             return a == null || b == null || a.X != b.X || a.Y != b.Y || a.Z != b.Z;
-        }
-
-        /***************************************************/
-
-        public override bool Equals(object obj)
-        {
-            return obj.GetType() == typeof(Vector) && this == ((Vector)obj);
-        }
-
-        /***************************************************/
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 17;
-                hash = hash * 23 + X.GetHashCode();
-                hash = hash * 23 + Y.GetHashCode();
-                hash = hash * 23 + Z.GetHashCode();
-                return hash;
-            }
         }
 
     }

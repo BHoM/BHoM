@@ -31,7 +31,7 @@ namespace BH.oM.Structural.Design
         /**** Constructors                              ****/
         /***************************************************/
 
-        public StructuralLayout() {}
+        public StructuralLayout() { }
 
         /***************************************************/
 
@@ -40,7 +40,8 @@ namespace BH.oM.Structural.Design
             AnalyticBars = bars.ToList();
         }
 
-
+    }
+}
 
 
         ///***************************************************/
@@ -545,5 +546,5 @@ namespace BH.oM.Structural.Design
         //{
         //    throw new NotImplementedException();
         //}
-    }
-}
+//    }
+//}
