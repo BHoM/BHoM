@@ -47,36 +47,6 @@ namespace BH.oM.Geometry
 
 
 
-///***************************************************/
-///**** IBHoMGeometry Interface                   ****/
-///***************************************************/
-
-//public GeometryType GetGeometryType()
-//{
-//    return GeometryType.Arc;
-//}
-
-///***************************************************/
-
-//public BoundingBox GetBounds()
-//{
-//    throw new NotImplementedException(); //TODO: implement Bounds for Arc.
-//}
-
-///***************************************************/
-
-//public object Clone()
-//{
-//    return new Arc(Start.Clone() as Point, End.Clone() as Point, Middle.Clone() as Point);
-//}
-
-///***************************************************/
-
-//public IBHoMGeometry GetTranslated(Vector t)
-//{
-//    return new Arc(Start+t, End+t, Middle+t);
-//}
-
 
 ///***************************************************/
 ///**** ICurve Interface                          ****/
@@ -116,21 +86,4 @@ namespace BH.oM.Geometry
 //}
 
 
-
-
-
-///// <summary>
-///// Arc from 3 points
-///// </summary>
-///// <param name="startpoint"></param>
-///// <param name="endpoint"></param>
-///// <param name="internalpoint"></param>
-//public Arc(Point startpoint, Point endpoint, Point internalpoint)
-//{
-//    m_ControlPoints = new double[12];
-//    Array.Copy(startpoint, m_ControlPoints, 4);
-//    Array.Copy(endpoint, 0, m_ControlPoints, 4 * 2, 4);
-//    Array.Copy(internalpoint, 0, m_ControlPoints, 4, 4);
-//    m_Dimensions = 3;
-//}
 

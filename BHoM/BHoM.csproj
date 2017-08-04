@@ -85,6 +85,7 @@
     <Compile Include="Geometry\Surface\Pipe.cs" />
     <Compile Include="Geometry\Surface\Polysurface.cs" />
     <Compile Include="Geometry\Surface\NurbSurface.cs" />
+    <Compile Include="Geometry\Tolerance.cs" />
     <Compile Include="Geometry\Utils.cs" />
     <Compile Include="Geometry\Vector\Plane.cs" />
     <Compile Include="Geometry\Vector\Point.cs" />

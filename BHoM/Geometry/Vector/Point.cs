@@ -44,6 +44,13 @@ namespace BH.oM.Geometry
             Z = v.Z;
         }
 
+        /***************************************************/
+
+        public static Point Origin()
+        {
+            return new Geometry.Point(0, 0, 0);
+        }
+
 
         /***************************************************/
         /**** Local Optimisation Methods                ****/
@@ -52,6 +59,13 @@ namespace BH.oM.Geometry
         public object GetClone() // Optimisation
         {
             return new Point(X, Y, Z);
+        }
+
+        /***************************************************/
+
+        public bool IsValid()
+        {
+            return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
         }
 
 
@@ -166,149 +180,4 @@ namespace BH.oM.Geometry
     }
 }
 
-
-
-
-        //public bool IsValid()
-        //{
-        //    return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
-        //}
-
-        ///***************************************************/
-
-        //public string ToString(int decimals = int.MaxValue)
-        //{
-        //    if (decimals == int.MaxValue)
-        //        return "[" + X + ", " + Y + ", " + Z + "]";
-        //    else
-        //        return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
-        //}
-
-        ///***************************************************/
-
-        ///***************************************************/
-        ///**** IBHoMGeometry Interface                   ****/
-        ///***************************************************/
-
-        //public GeometryType GetGeometryType()
-        //{
-        //    return GeometryType.Point;
-        //}
-
-        ///***************************************************/
-
-        //public BoundingBox GetBounds()
-        //{
-        //    return new BoundingBox(this, this);
-        //}
-
-
-
-        ///***************************************************/
-
-        //public IBHoMGeometry GetTranslated(Vector t)
-        //{
-        //    return this + t;
-        //}
-
-
-
-        ///// <summary>
-        ///// Calcualte mean pt from list of points
-        ///// </summary>
-        ///// <param name="pts"></param>
-        ///// <returns></returns>
-        //public static Point Average(List<Point> pts)
-        //{
-        //    int count = pts.Count;
-        //    if (count < 1) return null;
-        //    Point mean = new Point(pts[0]);
-
-        //    for (int i = 1; i < count; i++)
-        //        mean += pts[i];
-
-        //    return mean /= count;
-        //}
-
-        ///// <summary>
-        ///// Calcualte max pt from list of points
-        ///// </summary>
-        ///// <param name="pts"></param>
-        ///// <returns></returns>
-        //public static Point Max(List<Point> pts)
-        //{
-        //    int count = pts.Count;
-        //    if (count < 1) return null;
-        //    Point max = new Point(pts[0]);
-
-        //    for (int i = 1; i < count; i++)
-        //        max = Max(max, pts[i]);
-
-        //    return max;
-        //}
-
-        ///// <summary>
-        ///// Calcualte min pt from list of points
-        ///// </summary>
-        ///// <param name="pts"></param>
-        ///// <returns></returns>
-        //public static Point Min(List<Point> pts)
-        //{
-        //    int count = pts.Count;
-        //    if (count < 1) return null;
-        //    Point min = new Point(pts[0]);
-
-        //    for (int i = 1; i < count; i++)
-        //        min = Min(min, pts[i]);
-
-        //    return min;
-        //}
-
-        ///// <summary>
-        ///// Max Values
-        ///// </summary>
-        ///// <param name="p1"></param>
-        ///// <param name="p2"></param>
-        ///// <returns>Max of X,Y,Z values</returns>
-        //public static Point Max(Point p1, Point p2)
-        //{
-        //    return new Point(Math.Max(p1.X, p2.X), Math.Max(p1.Y, p2.Y), Math.Max(p1.Z, p2.Z));
-        //}
-
-        ///// <summary>
-        ///// Min Values
-        ///// </summary>
-        ///// <param name="p1"></param>
-        ///// <param name="p2"></param>
-        ///// <returns>Min of X,Y,Z Values</returns>
-        //public static Point Min(Point p1, Point p2)
-        //{
-        //    return new Point(Math.Min(p1.X, p2.X), Math.Min(p1.Y, p2.Y), Math.Min(p1.Z, p2.Z));
-        //}
-
-        ///// <summary>
-        ///// Get the distance from a point 
-        ///// </summary>
-        ///// <param name="p"></param>
-        ///// <returns></returns>
-        //public double DistanceTo(Point p)
-        //{
-        //    return (this - p).Length;
-        //}
-
-        //public double SquareDistanceTo(Point p)
-        //{
-        //    return (this - p).SquareLength;
-        //}
-
-        ///// <summary>
-        ///// Constructs a point at 0,0,0
-        ///// </summary>
-        //public static Point Origin
-        //{
-        //    get
-        //    {
-        //        return new Point(0, 0, 0);
-        //    }
-        //}
 

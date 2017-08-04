@@ -44,6 +44,27 @@ namespace BH.oM.Geometry
             Z = pt.Z;
         }
 
+        /***************************************************/
+
+        public static Vector XAxis()
+        {
+            return new Vector(1, 0, 0);
+        }
+
+        /***************************************************/
+
+        public static Vector YAxis()
+        {
+            return new Vector(0, 1, 0);
+        }
+
+        /***************************************************/
+
+        public static Vector ZAxis()
+        {
+            return new Vector(0, 0, 1);
+        }
+
 
         /***************************************************/
         /**** Local Optimisation Methods                ****/
@@ -52,6 +73,13 @@ namespace BH.oM.Geometry
         public object GetClone() // Optimisation
         {
             return new Vector(X, Y, Z);
+        }
+
+        /***************************************************/
+
+        public bool IsValid()
+        {
+            return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
         }
 
 
@@ -173,134 +201,3 @@ namespace BH.oM.Geometry
     }
 }
 
-
-
-        //public bool IsValid()
-        //{
-        //    return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
-        //}
-
-        ///***************************************************/
-
-        //public Vector Reverse()
-        //{
-        //    return new Vector(-X, -Y, -Z);
-        //}
-
-        ///***************************************************/
-
-        //public string ToString(int decimals = int.MaxValue)
-        //{
-        //    if (decimals == int.MaxValue)
-        //        return "[" + X + ", " + Y + ", " + Z + "]";
-        //    else
-        //        return "[" + Math.Round(X, decimals) + ", " + Math.Round(Y, decimals) + ", " + Math.Round(Z, decimals) + "]";
-        //}
-
-        ///***************************************************/
-
-
-
-        ///***************************************************/
-        ///**** IBHoMGeometry Interface                   ****/
-        ///***************************************************/
-
-        //public GeometryType GetGeometryType()
-        //{
-        //    return GeometryType.Vector;
-        //}
-
-        ///***************************************************/
-
-        //public BoundingBox GetBounds()
-        //{
-        //    return null;
-        //}
-
-
-
-        ///***************************************************/
-
-        //public IBHoMGeometry GetTranslated(Vector t)
-        //{
-        //    return Clone() as IBHoMGeometry;
-        //}
-
-
-        //public override void Update() { }
-
-
-
-
-        ///// <summary>
-        ///// Cross product of two vectors
-        ///// </summary>
-        ///// <param name="a"></param>
-        ///// <param name="b"></param>
-        ///// <returns></returns>
-        //public static Vector CrossProduct(Vector a, Vector b)
-        //{
-        //    return new Vector(
-        //        a[1] * b[2] - a[2] * b[1],
-        //        a[2] * b[0] - a[0] * b[2],
-        //        a[0] * b[1] - a[1] * b[0]
-        //    );
-        //}
-
-        ///// <summary>
-        ///// Dot product of two vectors
-        ///// </summary>
-        ///// <param name="a"></param>
-        ///// <param name="b"></param>
-        ///// <returns></returns>
-        //public static double DotProduct(Vector a, Vector b)
-        //{
-        //    return a * b;
-        //}
-
-        ///// <summary>
-        ///// Dot product of two vectors
-        ///// </summary>
-        ///// <param name="a"></param>
-        ///// <param name="b"></param>
-        ///// <returns></returns>
-        //public static double DotProduct(Vector a, Point b)
-        //{
-        //    return a * b;
-        //}
-
-        ///// <summary>
-        ///// Dot product of two vectors
-        ///// </summary>
-        ///// <param name="a"></param>
-        ///// <param name="b"></param>
-        ///// <returns></returns>
-        //public static double DotProduct(Point a, Vector b)
-        //{
-        //    return a * b;
-        //}
-
-
-
-
-        /// <summary>
-        /// Gets the vector length
-        /// </summary>
-        //public double U
-        //{
-        //    get { return this.Length; }
-        //}
-
-        ///// <summary>
-        ///// Duplicates the vector
-        ///// </summary>
-        ///// <returns></returns>
-        //public Vector DuplicateVector()
-        //{
-        //    return new Vector(this);
-        //}
-
-        /// <summary>
-        /// Returns the reversed vector
-        /// </summary>
-        /// <returns></returns>
