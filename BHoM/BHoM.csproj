@@ -69,16 +69,13 @@
     <Compile Include="Geometry\Misc\BoundingBox.cs" />
     <Compile Include="Geometry\Curve\Arc.cs" />
     <Compile Include="Geometry\Curve\Circle.cs" />
-    <Compile Include="Geometry\Curve\Curve.cs" />
     <Compile Include="Geometry\Curve\Line.cs" />
     <Compile Include="Geometry\Curve\NurbCurve.cs" />
     <Compile Include="Geometry\Curve\PolyCurve.cs" />
     <Compile Include="Geometry\Curve\Polyline.cs" />
-    <Compile Include="Geometry\Enums.cs" />
     <Compile Include="Geometry\Misc\GeometryGroup.cs" />
     <Compile Include="Geometry\Mesh\Face.cs" />
     <Compile Include="Geometry\Mesh\Mesh.cs" />
-    <Compile Include="Geometry\Surface\Brep.cs" />
     <Compile Include="Geometry\Surface\Extrusion.cs" />
     <Compile Include="Geometry\Surface\ISurface.cs" />
     <Compile Include="Geometry\Surface\Loft.cs" />
@@ -86,7 +83,6 @@
     <Compile Include="Geometry\Surface\Polysurface.cs" />
     <Compile Include="Geometry\Surface\NurbSurface.cs" />
     <Compile Include="Geometry\Tolerance.cs" />
-    <Compile Include="Geometry\Utils.cs" />
     <Compile Include="Geometry\Vector\Plane.cs" />
     <Compile Include="Geometry\Vector\Point.cs" />
     <Compile Include="Geometry\Vector\Vector.cs" />
