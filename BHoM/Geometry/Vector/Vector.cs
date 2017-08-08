@@ -48,15 +48,15 @@ namespace BH.oM.Geometry
         /**** Static special cases                      ****/
         /***************************************************/
 
-        public static Vector XAxis = new Vector(1, 0, 0);
+        public static readonly Vector XAxis = new Vector(1, 0, 0);
 
         /***************************************************/
 
-        public static Vector YAxis = new Vector(0, 1, 0);
+        public static readonly Vector YAxis = new Vector(0, 1, 0);
 
         /***************************************************/
 
-        public static Vector ZAxis = new Vector(0, 0, 1);
+        public static readonly Vector ZAxis = new Vector(0, 0, 1);
 
 
         /***************************************************/

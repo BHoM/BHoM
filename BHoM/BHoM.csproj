@@ -76,13 +76,15 @@
     <Compile Include="Geometry\Misc\GeometryGroup.cs" />
     <Compile Include="Geometry\Mesh\Face.cs" />
     <Compile Include="Geometry\Mesh\Mesh.cs" />
+    <Compile Include="Geometry\Misc\Quaternion.cs" />
+    <Compile Include="Geometry\Misc\TransformMatrix.cs" />
     <Compile Include="Geometry\Surface\Extrusion.cs" />
     <Compile Include="Geometry\Surface\ISurface.cs" />
     <Compile Include="Geometry\Surface\Loft.cs" />
     <Compile Include="Geometry\Surface\Pipe.cs" />
     <Compile Include="Geometry\Surface\Polysurface.cs" />
     <Compile Include="Geometry\Surface\NurbSurface.cs" />
-    <Compile Include="Geometry\Tolerance.cs" />
+    <Compile Include="Geometry\Misc\Tolerance.cs" />
     <Compile Include="Geometry\Vector\Plane.cs" />
     <Compile Include="Geometry\Vector\Point.cs" />
     <Compile Include="Geometry\Vector\Vector.cs" />

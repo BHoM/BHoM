@@ -38,15 +38,15 @@ namespace BH.oM.Geometry
         /**** Static special cases                      ****/
         /***************************************************/
 
-        public static Plane XY = new Plane(new Point(0, 0, 0), Vector.ZAxis);
+        public static readonly Plane XY = new Plane(new Point(0, 0, 0), Vector.ZAxis);
 
         /***************************************************/
 
-        public static Plane YZ = new Plane(new Point(0, 0, 0), Vector.XAxis);
+        public static readonly Plane YZ = new Plane(new Point(0, 0, 0), Vector.XAxis);
 
         /***************************************************/
 
-        public static Plane XZ = new Plane(new Point(0, 0, 0), Vector.YAxis);
+        public static readonly Plane XZ = new Plane(new Point(0, 0, 0), Vector.YAxis);
 
     }
 }
