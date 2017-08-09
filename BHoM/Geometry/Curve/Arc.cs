@@ -30,7 +30,7 @@ namespace BH.oM.Geometry
 
         /***************************************************/
 
-        public Arc(Point start, Point end, Point middle)
+        public Arc(Point start, Point middle, Point end)
         {
             Start = start;
             End = end;
