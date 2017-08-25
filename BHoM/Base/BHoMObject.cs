@@ -39,6 +39,7 @@ namespace BH.oM.Base
         public BHoMObject GetShallowClone(bool newGuid = false)
         {
             BHoMObject obj = (BHoMObject)this.MemberwiseClone();
+            obj.CustomData = new Dictionary<string, object>(CustomData);
             if (newGuid)
                 obj.BHoM_Guid = Guid.NewGuid();
             return obj;

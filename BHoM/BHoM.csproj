@@ -64,6 +64,7 @@
     <Compile Include="Acoustic\Speaker.cs" />
     <Compile Include="Acoustic\STIResult.cs" />
     <Compile Include="Acoustic\Zone.cs" />
+    <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IObjectList.cs" />
     <Compile Include="Geometry\Curve\ICurve.cs" />
     <Compile Include="Geometry\Misc\BoundingBox.cs" />
