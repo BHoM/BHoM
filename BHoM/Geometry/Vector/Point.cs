@@ -166,14 +166,14 @@ namespace BH.oM.Geometry
 
         public static bool operator ==(Point a, Point b)
         {
-            return (object)(a) != null && (object)(b) != null && a.X == b.X && a.Y == b.Y && a.Z == b.Z;
+            return a?.X == b?.X && a?.Y == b?.Y && a?.Z == b?.Z;
         }
 
         /***************************************************/
 
         public static bool operator !=(Point a, Point b)
         {
-            return (object)(a) == null || (object)(b) == null || a.X != b.X || a.Y != b.Y || a.Z != b.Z;
+            return a?.X != b?.X || a?.Y != b?.Y || a?.Z != b?.Z;
         }
 
     }
