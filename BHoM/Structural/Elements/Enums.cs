@@ -1,6 +1,7 @@
 ﻿
 namespace BH.oM.Structural.Elements
 {
+    //TODO:Where does this go? Does it actually fit within the structural elements folder???
     /// <summary>Usage of the bar for downstream implementations</summary>
     public enum BarStructuralUsage //TODO: Need to better organise those enums into relevant groups per file
     {

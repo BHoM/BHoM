@@ -17,7 +17,7 @@ namespace BH.oM.Structural.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Face> MeshFaces { get; set; } = new List<Face>();
+        public List<PanelFace> MeshFaces { get; set; } = new List<PanelFace>();
 
         public ISurface Surface { get; set; } = null;
 

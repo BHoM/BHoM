@@ -10,7 +10,7 @@ namespace BH.oM.Structural.Elements
     /// BHoM Face class
     /// </summary>
     [Serializable]
-    public class Face : BH.oM.Base.BHoMObject
+    public class PanelFace : BH.oM.Base.BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -29,7 +29,7 @@ namespace BH.oM.Structural.Elements
         public List<Bar> Edges { get; set; } = new List<Bar>();
 
         /// <summary>Face neighbors</summary>
-        public List<Face> Neighbours { get; set; } = new List<Face>();
+        public List<PanelFace> Neighbours { get; set; } = new List<PanelFace>();
 
 
         /***************************************************/
@@ -39,7 +39,7 @@ namespace BH.oM.Structural.Elements
         /// <summary>
         /// Constructs an empty face
         /// </summary>
-        public Face() { }
+        public PanelFace() { }
 
         /***************************************************/
 
@@ -49,7 +49,7 @@ namespace BH.oM.Structural.Elements
         /// <param name="n0"></param>
         /// <param name="n1"></param>
         /// <param name="n2"></param>
-        public Face(Node n0, Node n1, Node n2, Node n3 = null)
+        public PanelFace(Node n0, Node n1, Node n2, Node n3 = null)
         {
             Nodes.Add(n0);
             Nodes.Add(n1);

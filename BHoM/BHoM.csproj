@@ -139,7 +139,7 @@
     <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
     <Compile Include="Structural\Elements\Storey.cs" />
     <Compile Include="Structural\Elements\Bar.cs" />
-    <Compile Include="Structural\Elements\Face.cs" />
+    <Compile Include="Structural\Elements\PanelFace.cs" />
     <Compile Include="Structural\Elements\Node.cs" />
     <Compile Include="Structural\Properties\Constraints\BarRelease.cs" />
     <Compile Include="Structural\Properties\Constraints\SurfaceConstraint.cs" />
