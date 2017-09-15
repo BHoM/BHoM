@@ -86,12 +86,7 @@ namespace BH.oM.Structural.Elements
 
 
 
-        //public Node()
-        //{
-        //    Point = new Point();
-        //    m_ConnectedBars = new List<Bar>();
-        //    m_ConnectedFaces = new List<Face>();
-        //}
+
 
         ///// <summary>
         ///// Constructes a node from CartesianCoordinates and a name
@@ -111,37 +106,6 @@ namespace BH.oM.Structural.Elements
         ///// </summary>
         ///// <param name="point"></param>
         ///// <param name="name"></param>
-        //public Node(Point point, string name = "") : this()
-        //{
-        //    Point = new Point(point);
-        //    Name = name;
-        //}
-
-
-
-        ///// <summary>Constraint name - is inherited from constraint object if exists</summary>
-        ////public string ConstraintName { get; private set; }
-
-        /////// <summary>Bars connected to the node</summary>
-        ////public List<Bar> ConnectedBars { get { return m_ConnectedBars; } }
-
-        /////// <summary>Faces connected to the node</summary>
-        ////public List<Face> ConnectedFaces { get; }
-
-        ///// <summary>Valence of node</summary>
-        ////public int Valence { get; private set; }
-
-        /////////// <summary>Absolute angles between connected bars (direct measurement of bar vectors)</summary>
-        ////////public List<double> BarAbsoluteAngles { get; private set; }
-
-        /////////// <summary>Delta angles between connected bars measured in the node plane</summary>
-        ////////public List<double> BarDeltaAngles { get; private set; }
-
-        /////////// <summary>Theta angles between connected bars measured in the node plane</summary>
-        ////////public List<double> BarThetaAngles { get; private set; }
-
-        /////////// <summary>Node plane for angular and setting out methods</summary>
-        ////////internal Plane Plane { get; private set; }
 
 
 
@@ -168,47 +132,17 @@ namespace BH.oM.Structural.Elements
         ///// <summary>
         ///// Gets or sets the X value of the node position
         ///// </summary>
-        //public double X
-        //{
-        //    get
-        //    {
-        //        return Point.X;
-        //    }
-        //    //set
-        //    //{
-        //    //    Point.X = value;
-        //    //}
-        //}
+
 
         ///// <summary>
         ///// Gets or sets the Y value of the node position
         ///// </summary>
-        //public double Y
-        //{
-        //    get
-        //    {
-        //        return Point.Y;
-        //    }
-        //    //set
-        //    //{
-        //    //    Point.Y = value;
-        //    //}
-        //}
+
 
         ///// <summary>
         ///// Gets or sets the Z value of the node position
         ///// </summary>
-        //public double Z
-        //{
-        //    get
-        //    {
-        //        return Point.Z;
-        //    }
-        //    //set
-        //    //{
-        //    //    Point.Z = value;
-        //    //}
-        //}
+
         //#endregion
 
         //#region Methods
@@ -223,47 +157,23 @@ namespace BH.oM.Structural.Elements
         ///// </summary>
         ///// <param name="node"></param>
         ///// <returns></returns>
-        //public double DistanceTo(Node node)
-        //{
-        //    return Math.Sqrt(SquareDistanceTo(node));
-        //}
 
         ///// <summary>
         ///// Calculates the square distance from the input node to this
         ///// </summary>
         ///// <param name="node"></param>
         ///// <returns></returns>
-        //public double SquareDistanceTo(Node node)
-        //{
-        //    double sqDist = 0;
-        //    double[] target = this.CartesianCoordinates;
-        //    double[] search = node.CartesianCoordinates;
-
-        //    for (int i = 0; i < 3; i++)
-        //    {
-        //        sqDist += (Math.Pow((target[i] - search[i]), 2));
-        //    }
-        //    return sqDist;
-        //}
 
         ///// <summary>
         ///// Sets the name of the node
         ///// </summary>
         ///// <param name="name"></param>
-        //public void SetName(string name)
-        //{
-        //    this.Name = name;
-        //}
+
 
         ///// <summary>
         ///// Sets the constraint of a node
         ///// </summary>
         ///// <param name="constraint"></param>
-        //public void SetConstraint(NodeConstraint constraint)
-        //{
-        //    this.Constraint = constraint;
-        //    this.IsConstrained = true;
-        //}
 
 
 
@@ -311,12 +221,8 @@ namespace BH.oM.Structural.Elements
         //}
         //#endregion
 
+        // move over to engine without weights if possible
         //#region Fields
-
-        //private List<Bar> m_ConnectedBars;
-        //private List<Face> m_ConnectedFaces;
-        //private double m_Weight = 1;
-        //private NodeConstraint m_Constraint;
 
         //#endregion
 //    }

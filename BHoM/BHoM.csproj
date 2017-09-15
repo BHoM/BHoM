@@ -122,7 +122,6 @@
     <Compile Include="Structural\Elements\Grid.cs" />
     <Compile Include="Structural\Elements\Opening.cs" />
     <Compile Include="Structural\Elements\Panel.cs" />
-    <Compile Include="Structural\Elements\SuperBar.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
