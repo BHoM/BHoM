@@ -48,13 +48,5 @@ namespace BH.oM.Structural.Elements
     }
 }
 
-        ///***************************************************/
-        ///**** Override BHoMObject                       ****/
-        ///***************************************************/
-
-        //public override IBHoMGeometry GetGeometry()
-        //{
-        //    return new Geometry.Plane(new Geometry.Point(0, 0, Elevation), new Geometry.Vector(0,0,1));
-        //}
 
 

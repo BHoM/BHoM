@@ -61,23 +61,7 @@ namespace BH.oM.Structural.Elements
 
     }
 }
-      
-
-
-
-
-
-        ///// <summary>Calculates the centroid of the face</summary>
-        //public BH.oM.Geometry.Point CalculateCentroid()
-        //{
-        //    List<BH.oM.Geometry.Point> pts = new List<BH.oM.Geometry.Point>(4);
-
-        //    foreach (Node n in Nodes)
-        //        pts.Add(n.Point);
-
-        //    return BH.oM.Geometry.Point.Average(pts);
-        //}
-
+        //TODO: Do we really need this? Grasshopper way of thinking is the opposit //PSH
         ///// <summary>Get the distance to the centroid from point p</summary>
         //public double DistanceTo(BH.oM.Geometry.Point p)
         //{

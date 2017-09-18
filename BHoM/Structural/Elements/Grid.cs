@@ -35,25 +35,3 @@ namespace BH.oM.Structural.Elements
 
     }
 }
-
-
-
-
-
-        //public Grid(Line line)
-        //{
-        //    Line = line;
-        //    Plane = new Plane(line.Start, Vector.CrossProduct(line.End - line.Start, Vector.ZAxis()));
-        //}
-
-
-        //public Grid( Point origin, Vector direction, string name = "")
-        //{
-        //    Plane = new Plane(origin, Vector.CrossProduct(direction, Vector.ZAxis()));
-        //    Line = new Line(origin, origin + direction * 20);
-        //}
-
-        
-
-//    }
-//}

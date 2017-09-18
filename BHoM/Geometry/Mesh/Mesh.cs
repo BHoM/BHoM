@@ -13,7 +13,7 @@ namespace BH.oM.Geometry
 
         public List<Point> Vertices { get; set; } = new List<Point>();
 
-        public List<PanelFace> Faces { get; set; } = new List<PanelFace>();
+        public List<Face> Faces { get; set; } = new List<Face>();
 
 
         /***************************************************/
@@ -24,7 +24,7 @@ namespace BH.oM.Geometry
 
         /***************************************************/
 
-        public Mesh(IEnumerable<Point> vertices, IEnumerable<PanelFace> faces)
+        public Mesh(IEnumerable<Point> vertices, IEnumerable<Face> faces)
         {
             Vertices = vertices.ToList();
             Faces = faces.ToList();

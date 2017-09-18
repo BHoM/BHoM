@@ -48,39 +48,6 @@ namespace BH.oM.Structural.Elements
         ///**** Override BHoMObject                       ****/
         ///***************************************************/
 
-        //public override IBHoMGeometry GetGeometry()
-        //{
-        //    return Surface;
-        //}
-
-        ///***************************************************/
-
-        ///// <summary></summary>
-        //public override void SetGeometry(IBHoMGeometry geometry)
-        //{
-        //    if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
-        //    {
-        //        Surface = geometry as ISurface;
-        //    }
-        //}
-
-
-
-
-        ///// <summary>
-        ///// A group of curves which define the perimeter of panel object
-        ///// </summary>
-        //public List<ICurve> GetEdges()
-        //{
-        //    if (Surface != null)
-        //        return Surface.GetExternalEdges();
-        //    else
-        //        return new List<ICurve>();
-        //}
-
-
-
-
 
         //public bool IsValid() { return m_Geometry != null; }
 

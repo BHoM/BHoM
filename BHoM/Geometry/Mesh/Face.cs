@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class PanelFace
+    public class Face
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -25,11 +25,11 @@ namespace BH.oM.Geometry
         /**** Constructors                              ****/
         /***************************************************/
 
-        public PanelFace() { }
+        public Face() { }
 
         /***************************************************/
 
-        public PanelFace(int a, int b, int c, int d = -1)
+        public Face(int a, int b, int c, int d = -1)
         {
             A = a;
             B = b;
