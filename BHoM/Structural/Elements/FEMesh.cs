@@ -19,7 +19,7 @@ namespace BH.oM.Structural.Elements
 
         public List<Node> Nodes { get; set; }
 
-        public List<FEFace> Faces { get; set; }
+        public List<MeshFace> Faces { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -28,7 +28,7 @@ namespace BH.oM.Structural.Elements
         public FEMesh()
         {
             Nodes = new List<Node>();
-            Faces = new List<FEFace>();
+            Faces = new List<MeshFace>();
         }
 
     }

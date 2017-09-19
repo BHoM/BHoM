@@ -61,7 +61,7 @@ namespace BH.oM.Structural.Elements
 
     }
 }
-        //TODO: Do we really need this? Grasshopper way of thinking is the opposit //PSH
+        //TODO: Do we really need this?
         ///// <summary>Get the distance to the centroid from point p</summary>
         //public double DistanceTo(BH.oM.Geometry.Point p)
         //{

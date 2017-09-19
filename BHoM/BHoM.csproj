@@ -108,7 +108,7 @@
     <Compile Include="Structural\Design\IDesignable.cs" />
     <Compile Include="Structural\Design\Span.cs" />
     <Compile Include="Structural\Design\SpanDirection.cs" />
-    <Compile Include="Structural\Elements\FEFace.cs" />
+    <Compile Include="Structural\Elements\MeshFace.cs" />
     <Compile Include="Structural\Elements\FEMesh.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
