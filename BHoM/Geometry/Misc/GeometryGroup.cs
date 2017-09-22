@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class GeometryGroup 
+    public class GeometryGroup : IBHoMGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMGeometry> Elements = new List<IBHoMGeometry>();
+        public Dictionary<string, IBHoMGeometry> Elements = new Dictionary<string, IBHoMGeometry>();
 
 
         /***************************************************/
@@ -27,7 +27,13 @@ namespace BH.oM.Geometry
 
         public GeometryGroup(IEnumerable<IBHoMGeometry> elements)
         {
-            Elements = elements.ToList();
+            Dictionary<string, IBHoMGeometry> geometryGroup = new Dictionary<string, IBHoMGeometry>();
+            for (int i = 0; i < elements.Count(); i++)
+            {
+                geometryGroup.Add(i.ToString(),elements.ElementAt(i));
+            }
+
+            Elements = geometryGroup;
         }
 
     }
