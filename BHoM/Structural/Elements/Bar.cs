@@ -6,12 +6,12 @@ using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.Structural.Elements 
+namespace BH.oM.Structural.Elements
 {
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Bar : BHoMObject, ISpatialObject
+    public class Bar : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -44,7 +44,6 @@ namespace BH.oM.Structural.Elements
         /// </summary>
         public double OrientationAngle { get; set; } = 0;
 
-        public IBHoMGeometry Geometry { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/
