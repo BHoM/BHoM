@@ -11,7 +11,7 @@ namespace BH.oM.Structural.Elements
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Bar : BHoMObject
+    public class Bar : BHoMObject, ISpatialObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -44,6 +44,9 @@ namespace BH.oM.Structural.Elements
         /// </summary>
         public double OrientationAngle { get; set; } = 0;
 
+        public IBHoMGeometry Geometry { get; set; }
+
+        public Location Location { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/
