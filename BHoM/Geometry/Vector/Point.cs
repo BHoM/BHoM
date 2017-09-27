@@ -9,7 +9,7 @@ using BH.oM.Base;
 namespace BH.oM.Geometry
 {
     /// <summary>
-    /// BHoM Point object
+    /// BH.oM Point object
     /// </summary>
     public class Point : IBHoMGeometry, IComparable<Point>
     {

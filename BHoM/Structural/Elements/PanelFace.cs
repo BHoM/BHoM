@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Structural.Elements
 {
     /// <summary>
-    /// BHoM Face class
+    /// BH.oM Face class
     /// </summary>
     [Serializable]
     public class PanelFace : BH.oM.Base.BHoMObject

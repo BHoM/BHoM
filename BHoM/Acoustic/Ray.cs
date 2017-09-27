@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Base;
-using BHoM.Geometry;
+using BH.oM.Base;
+using BH.oM.Geometry;
 
-namespace BHoM.Acoustic
+namespace BH.oM.Acoustic
 {
     /// <summary>
-    /// BHoM Acoustic Ray
+    /// BH.oM Acoustic Ray
     /// </summary>
     public struct Ray
     {
         #region Fields
 
-        private readonly Curve _Path;
+        private readonly ICurve _Path;
         private readonly int _SpeakerID;
         private readonly int _ReceiverID;
         private readonly List<int> _PanelsID;
@@ -23,7 +23,7 @@ namespace BHoM.Acoustic
         #endregion
         #region Properties
 
-        public Curve Path
+        public ICurve Path
         {
             get { return _Path; }
         }
@@ -45,15 +45,15 @@ namespace BHoM.Acoustic
 
         /********** Additional Properties**********/
 
-        public double Length
-        {
-            get { return _Path.Length; }
-        }
+        //public double Length // TODO Move to Engine
+        //{
+        //    get { return _Path.Length; }
+        //}
 
-        public double Time
-        {
-            get { return _Path.Length / 343; }
-        }
+        //public double Time
+        //{
+        //    get { return _Path.Length / 343; } // TODO Move to Engine
+        //}
 
         public int Order
         {
@@ -64,7 +64,7 @@ namespace BHoM.Acoustic
 
         #region Constructors
 
-        public Ray(Curve path, int source, int target, List<int> bouncingPattern = null)
+        public Ray(ICurve path, int source, int target, List<int> bouncingPattern = null)
         {
             _Path = path;
             _SpeakerID = source;

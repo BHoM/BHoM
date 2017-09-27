@@ -9,7 +9,7 @@ using BH.oM.Base;
 namespace BH.oM.Geometry
 {
     /// <summary>
-    /// BHoM Line object
+    /// BH.oM Line object
     /// </summary>
     public class Line : ICurve
     {

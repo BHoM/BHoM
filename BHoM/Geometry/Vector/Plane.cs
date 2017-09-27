@@ -6,7 +6,7 @@ using BH.oM.Base;
 namespace BH.oM.Geometry
 {
     /// <summary>
-    /// BHoM Plane object
+    /// BH.oM Plane object
     /// </summary>
     public class Plane : IBHoMGeometry
     {

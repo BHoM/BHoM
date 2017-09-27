@@ -48,7 +48,7 @@ namespace BH.oM.Structural.Loads
         //internal Load() { m_Objects = new BHoMList<T>(); }
 
 
-        ///// <summary>Loadcase as BHoM object</summary>
+        ///// <summary>Loadcase as BH.oM object</summary>
         //public BH.oM.Structural.Loads.Loadcase Loadcase
         //{
         //    get

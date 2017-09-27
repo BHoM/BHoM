@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Elements
 {
-    public class MeshFace : BH.oM.Base.BHoMObject     //TODO: There is already the face class in the BHoM Geoemtry. There should at least be coherent with each other
+    public class MeshFace : BH.oM.Base.BHoMObject     //TODO: There is already the face class in the BH.oM Geoemtry. There should at least be coherent with each other
     {
         /***************************************************/
         /**** Properties                                ****/

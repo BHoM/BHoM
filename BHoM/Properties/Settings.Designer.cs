@@ -26,7 +26,7 @@ namespace BH.oM.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\ProjectsV13;AttachDbFilename={0}\\BHoM\\Structural\\Databases\\" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\ProjectsV13;AttachDbFilename={0}\\BH.oM\\Structural\\Databases\\" +
             "SteelSections.mdf;Integrated Security=True;Connect Timeout=30")]
         public string SteelSectionConnectionsString {
             get {
@@ -37,7 +37,7 @@ namespace BH.oM.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\ProjectsV13;AttachDbFilename={0}\\BHoM\\Structural\\Databases\\" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\ProjectsV13;AttachDbFilename={0}\\BH.oM\\Structural\\Databases\\" +
             "Materials.mdf;Integrated Security=True;Connect Timeout=30")]
         public string MaterialConnectionString {
             get {
@@ -48,7 +48,7 @@ namespace BH.oM.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\ProjectsV13;AttachDbFilename={0}\\BHoM\\Structural\\Databases\\" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\ProjectsV13;AttachDbFilename={0}\\BH.oM\\Structural\\Databases\\" +
             "Cables.mdf;Integrated Security=True;Connect Timeout=30")]
         public string CableSectionConnectionStrin {
             get {

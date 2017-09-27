@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Base;
+using BH.oM.Base;
 
-namespace BHoM.Acoustic
+namespace BH.oM.Acoustic
 {
     /// <summary>
     /// BHom Acoustic parameters class

@@ -9,7 +9,7 @@ using BH.oM.Base;
 namespace BH.oM.Geometry
 {
     /// <summary>
-    /// BHoM Vector object
+    /// BH.oM Vector object
     /// </summary>
     public class Vector : IBHoMGeometry, IComparable<Vector>
     {

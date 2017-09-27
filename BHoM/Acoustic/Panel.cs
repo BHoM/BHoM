@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Geometry;
-using BHoM.Base;
+using BH.oM.Geometry;
+using BH.oM.Base;
 
-namespace BHoM.Acoustic
+namespace BH.oM.Acoustic
 {
     /// <summary>
-    /// BHoM Acoustic Panel as Mesh. Please make sure you mesh is exploded into quadrangular or triangular mesh faces.
+    /// BH.oM Acoustic Panel as Mesh. Please make sure you mesh is exploded into quadrangular or triangular mesh faces.
     /// </summary>
     public struct Panel
     {
@@ -39,7 +39,7 @@ namespace BHoM.Acoustic
             set
             {
                 List<Point> Ver = Mesh.Vertices.ToList();
-                Plane = new Plane(Ver[0], Ver[1], Ver[2]);
+                //Plane = new Plane(Ver[0], Ver[1], Ver[2]);  // TODO Nedds to be in the Engine
             }
         }
 

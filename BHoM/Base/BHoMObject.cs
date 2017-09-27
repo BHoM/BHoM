@@ -76,7 +76,7 @@ namespace BH.oM.Base
         ///// <summary>
         ///// Gets the geometry of the object (whatever that might be)
         ///// </summary>
-        //public virtual IBHoMGeometry GetGeometry()      //TODO: Should it be in the BHoM Engine ?
+        //public virtual IBHoMGeometry GetGeometry()      //TODO: Should it be in the BH.oM Engine ?
         //{
         //    return null;
         //}
@@ -87,7 +87,7 @@ namespace BH.oM.Base
         ///// Sets the geometry of the object (whatever that might be)
         ///// </summary>
         ///// <param name="geometry">The geometry to set</param>
-        //public virtual void SetGeometry(IBHoMGeometry geometry)     //TODO: Should it be in the BHoM Engine ?
+        //public virtual void SetGeometry(IBHoMGeometry geometry)     //TODO: Should it be in the BH.oM Engine ?
         //{
         //}
 
@@ -103,7 +103,7 @@ namespace BH.oM.Base
 
 
         /// <summary>
-        /// Creates a BHoM Object of the specified type
+        /// Creates a BH.oM Object of the specified type
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
@@ -210,7 +210,7 @@ namespace BH.oM.Base
 
 
         /// <summary>
-        /// BHoM Object will return its name as default 
+        /// BH.oM Object will return its name as default 
         /// </summary>
         /// <returns></returns>
         /*public override string ToString()
@@ -305,7 +305,7 @@ namespace BH.oM.Base
                     foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
                     {
                         string name = asm.GetName().Name;
-                        if (name == "BHoM" || name.EndsWith("_oM"))
+                        if (name == "BH.oM" || name.EndsWith("_oM"))
                         {
                             foreach (Type type in asm.GetTypes())
                             {

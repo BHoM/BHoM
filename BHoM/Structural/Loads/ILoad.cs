@@ -14,7 +14,7 @@ namespace BH.oM.Structural.Loads
     {
         LoadType GetLoadType();
 
-        /// <summary>Loadcase as BHoM object</summary>
+        /// <summary>Loadcase as BH.oM object</summary>
         BH.oM.Structural.Loads.Loadcase Loadcase { get; set; }
 
         LoadAxis Axis { get; set; }

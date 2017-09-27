@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Base;
-using BHoM.Geometry;
+using BH.oM.Base;
+using BH.oM.Geometry;
 
-namespace BHoM.Acoustic
+namespace BH.oM.Acoustic
 {
     /// <summary>
-    /// BHoM Acoustic Receiver
+    /// BH.oM Acoustic Receiver
     /// </summary>
     public struct Receiver
     {

@@ -8,7 +8,7 @@ using BH.oM.Geometry;
 namespace BH.oM.HumanBody
 {
     /// <summary>
-    /// BHoM Human head object
+    /// BH.oM Human head object
     /// </summary>
     public class Head // Sort out this collection of classes (can we generalise them?)
     {
@@ -53,7 +53,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human right hand object
+    /// BH.oM Human right hand object
     /// </summary>
     public class HandRight
     {
@@ -129,7 +129,7 @@ namespace BH.oM.HumanBody
     }
    
     /// <summary>
-    /// BHoM Human left hand object
+    /// BH.oM Human left hand object
     /// </summary>
     public class HandLeft
     {
@@ -205,7 +205,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human right thumb object
+    /// BH.oM Human right thumb object
     /// </summary>
     public class ThumbRight
     {
@@ -270,7 +270,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human left thumb object
+    /// BH.oM Human left thumb object
     /// </summary>
     public class ThumbLeft
     {
@@ -335,7 +335,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human neck object
+    /// BH.oM Human neck object
     /// </summary>
     public class Neck
     {
@@ -371,7 +371,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human right shoulder object
+    /// BH.oM Human right shoulder object
     /// </summary>
     public class ShoulderRight
     {
@@ -407,7 +407,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human left shoulder object
+    /// BH.oM Human left shoulder object
     /// </summary>
     public class ShoulderLeft
     {
@@ -443,7 +443,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human upper right arm
+    /// BH.oM Human upper right arm
     /// </summary>
     public class UpperArmRight
     {
@@ -479,7 +479,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human left arm object
+    /// BH.oM Human left arm object
     /// </summary>
     public class UpperArmLeft
     {
@@ -515,7 +515,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human lower right arm object
+    /// BH.oM Human lower right arm object
     /// </summary>
     public class LowerArmRight
     {
@@ -551,7 +551,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human lower left arm
+    /// BH.oM Human lower left arm
     /// </summary>
     public class LowerArmLeft
     {
@@ -587,7 +587,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human spine object
+    /// BH.oM Human spine object
     /// </summary>
     public class Spine
     {
@@ -623,7 +623,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human right hip object
+    /// BH.oM Human right hip object
     /// </summary>
     public class HipRight
     {
@@ -659,7 +659,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human left hip object
+    /// BH.oM Human left hip object
     /// </summary>
     public class HipLeft
     {
@@ -695,7 +695,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM upper right leg object
+    /// BH.oM upper right leg object
     /// </summary>
     public class UpperLegRight
     {
@@ -731,7 +731,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human upper left leg
+    /// BH.oM Human upper left leg
     /// </summary>
     public class UpperLegLeft
     {
@@ -767,7 +767,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human lower right leg
+    /// BH.oM Human lower right leg
     /// </summary>
     public class LowerLegRight
     {
@@ -803,7 +803,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human lower left leg object
+    /// BH.oM Human lower left leg object
     /// </summary>
     public class LowerLegLeft
     {
@@ -839,7 +839,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human right foot object
+    /// BH.oM Human right foot object
     /// </summary>
     public class FootRight
     {
@@ -875,7 +875,7 @@ namespace BH.oM.HumanBody
     }
 
     /// <summary>
-    /// BHoM Human left foot object
+    /// BH.oM Human left foot object
     /// </summary>
     public class FootLeft
     {

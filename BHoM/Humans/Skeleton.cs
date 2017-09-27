@@ -8,7 +8,7 @@ using BH.oM.Geometry;
 namespace BH.oM.HumanBody
 {
     /// <summary>
-    /// BHoM Human skeleton class
+    /// BH.oM Human skeleton class
     /// </summary>
     public class Skeleton : BH.oM.Base.BHoMObject //TODO: Sort out this class
     {
