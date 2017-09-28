@@ -1,8 +1,8 @@
-﻿using BHoM.Geometry;
-using BHoM.Base;
+﻿using BH.oM.Geometry;
+using BH.oM.Base;
 using System;
 using System.Reflection;
-using BHoM.Structural.Loads;
+using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -28,7 +28,7 @@ namespace BHoM.Architectural.Elements
         /// <summary>
         /// Grid curves
         /// </summary>
-        public Curve Line
+        public ICurve Line
         {
             get;set;
          }
