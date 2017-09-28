@@ -67,6 +67,7 @@
     <Compile Include="Acoustic\Speaker.cs" />
     <Compile Include="Acoustic\STIResult.cs" />
     <Compile Include="Acoustic\Zone.cs" />
+    <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Base\Cipher.cs" />
     <Compile Include="Base\Compress.cs" />
     <Compile Include="Base\Data\Enum.cs" />
