@@ -20,7 +20,7 @@ namespace BHoM.Architectural.Elements
         /// <summary>
         /// Construct grid by passing list of curves and name
         /// </summary>
-        public Grid(List<BH.oM.Geometry.Line> lines)
+        public Grid(List<ICurve> lines)
         {
             Lines = lines;
         }
@@ -28,7 +28,7 @@ namespace BHoM.Architectural.Elements
         /// <summary>
         /// Grid curves
         /// </summary>
-        public List<BH.oM.Geometry.Line> Lines
+        public List<ICurve> Lines
         {
             get;set;
          }
