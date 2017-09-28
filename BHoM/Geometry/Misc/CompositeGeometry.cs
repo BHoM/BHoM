@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class GeometryGroup 
+    public class CompositeGeometry : IBHoMGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -21,11 +21,11 @@ namespace BH.oM.Geometry
         /**** Constructors                              ****/
         /***************************************************/
 
-        public GeometryGroup() { }
+        public CompositeGeometry() { }
 
         /***************************************************/
 
-        public GeometryGroup(IEnumerable<IBHoMGeometry> elements)
+        public CompositeGeometry(IEnumerable<IBHoMGeometry> elements)
         {
             Elements = elements.ToList();
         }

@@ -44,6 +44,9 @@ namespace BH.oM.Structural.Elements
         /// </summary>
         public double OrientationAngle { get; set; } = 0;
 
+        public IBHoMGeometry Geometry { get; set; }
+
+        public Location Location { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/
