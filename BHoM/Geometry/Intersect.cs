@@ -89,7 +89,7 @@ namespace BHoM.Geometry
         {
             List<double> t1Params = null;
             List<double> t2Params = null;
-            
+
 
             if ((intersect = CurveCurve(c1, c2, tolerance, out t1Params, out t2Params)) != null)
             {
@@ -107,7 +107,7 @@ namespace BHoM.Geometry
                             overLap.Add(result[i]);
                             result.RemoveAt(j);
                             result.RemoveAt(i--);
-                            break;                        
+                            break;
                         }
                     }
                     i++;
@@ -122,7 +122,7 @@ namespace BHoM.Geometry
                 return false;
             }
 
-            
+
         }
 
         public static bool PointCurve(Curve c, Point p, double tolerance, out double tParam)
@@ -246,7 +246,7 @@ namespace BHoM.Geometry
                             }
                             else
                             {
-                                t1.Add( minT1 + (maxT1 - minT1) * VectorUtils.Length(VectorUtils.Sub(intersectPoint, p11)) / VectorUtils.Length(v1));
+                                t1.Add(minT1 + (maxT1 - minT1) * VectorUtils.Length(VectorUtils.Sub(intersectPoint, p11)) / VectorUtils.Length(v1));
                                 t1.Add(minT2 + (maxT2 - minT2) * VectorUtils.Length(VectorUtils.Sub(intersectPoint, p21)) / VectorUtils.Length(v2));
                             }
 
@@ -370,5 +370,73 @@ namespace BHoM.Geometry
                 return CurveParameterAtPlane(p, c, tolerance, ref minT, ref maxT, p1, p3);
             }
         }
+
+        /// <summary>
+        /// Möller–Trumbore ray-triangle intersection algorithm implementation.
+        /// Make sure that the Mesh is exploded into triangular faces as new meshes.
+        /// </summary>
+        /// <param name="mesh">Mesh to intersect with</param>
+        /// <param name="ray">The ray to test hit for.</param>
+        /// <returns>Intersection point when the ray hits the triangle, otherwise <c>false</c></returns>
+        public static Point MeshSegment(Mesh mesh, Curve ray)
+        { 
+            // Mesh Points
+            List<Point> meshPts = mesh.Vertices.ToList();
+            Point p1 = meshPts[0];  /*Call function*/
+            Point p2 = meshPts[1];  /*Call function*/
+            Point p3 = meshPts[2];  /*Call function*/
+
+            // Ray direction
+            Vector d = new Vector(ray.PointAt(1) - ray.PointAt(0));                     /*Call function*/
+
+            // Vectors from p1 to p2/p3 (edges)
+            Vector e1, e2;
+
+            Vector p, q, t;
+            double det, invDet, u, v;
+
+            //Find vectors for two edges sharing vertex/point p1
+            e1 = p2 - p1;
+            e2 = p3 - p1;
+
+            // calculating determinant 
+            p = Vector.CrossProduct(d, e2);                                             /*Call function*/
+
+            //Calculate determinat
+            det = Vector.DotProduct(e1, p);                                             /*Call function*/
+
+            //if determinant is near zero, ray lies in plane of triangle otherwise not
+            if (det > - Double.Epsilon && det < Double.Epsilon) { return null; }
+            invDet = 1.0f / det;
+
+            //calculate distance from p1 to ray origin
+            t = ray.PointAt(0) - p1;                                                    /*Call function*/
+
+            //Calculate u parameter
+            u = Vector.DotProduct(t, p) * invDet;   // can this be replaced by   t*p*invDet   ? Is ti faster?
+
+            //Check for ray hit
+            if (u < 0 || u > 1) { return null; }
+
+            //Prepare to test v parameter
+            q = Vector.CrossProduct(t, e1);                                             /*Call function*/
+
+            //Calculate v parameter
+            v = Vector.DotProduct(d, q) * invDet;                                       /*Call function*/
+
+            //Check for ray hit
+            if (v < 0 || u + v > 1) { return null; }
+
+            if ((Vector.DotProduct(e2, q) * invDet) > Double.Epsilon)                   /*Call function*/
+            {
+                //ray does intersect
+                return ((1 - u - v) * p1 + u * p2 + v * p3);    
+            }
+            return null;
+        }
+
+
+
+
     }
 }

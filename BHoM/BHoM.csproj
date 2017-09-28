@@ -62,8 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acoustic\AcousticParameters.cs" />
     <Compile Include="Acoustic\AcousticRASTIParameters.cs" />
+    <Compile Include="Acoustic\Panel.cs" />
+    <Compile Include="Acoustic\Parameter.cs" />
+    <Compile Include="Acoustic\Ray.cs" />
+    <Compile Include="Acoustic\Receiver.cs" />
     <Compile Include="Acoustic\Speaker.cs" />
     <Compile Include="Acoustic\STIResult.cs" />
     <Compile Include="Acoustic\Zone.cs" />
@@ -228,6 +231,7 @@
     <Compile Include="Structural\Results\StructuralResultServer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Acoustic\Database\" />
     <Folder Include="Cities\" />
     <Folder Include="Structural\DesignCodes\Eurocode\Wind\" />
   </ItemGroup>
@@ -254,6 +258,8 @@
   <ItemGroup>
     <None Include="Resources\SteelSectionDB.txt" />
     <None Include="Resources\MaterialDb.txt" />
+    <None Include="CablesDB.txt" />
+    <None Include="Resources\CablesDB.txt" />
     <Content Include="Structural\Databases\Cables.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
