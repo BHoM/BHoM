@@ -65,7 +65,6 @@
     <Compile Include="Acoustic\STIResult.cs" />
     <Compile Include="Acoustic\Zone.cs" />
     <Compile Include="Base\CustomObject.cs" />
-    <Compile Include="Base\Interface\ISpatialObject.cs" />
     <Compile Include="Base\Interface\IObjectList.cs" />
     <Compile Include="Geometry\Curve\ICurve.cs" />
     <Compile Include="Geometry\Misc\Location.cs" />
@@ -76,7 +75,7 @@
     <Compile Include="Geometry\Curve\NurbCurve.cs" />
     <Compile Include="Geometry\Curve\PolyCurve.cs" />
     <Compile Include="Geometry\Curve\Polyline.cs" />
-    <Compile Include="Geometry\Misc\GeometryGroup.cs" />
+    <Compile Include="Geometry\Misc\CompositeGeometry.cs" />
     <Compile Include="Geometry\Mesh\Face.cs" />
     <Compile Include="Geometry\Mesh\Mesh.cs" />
     <Compile Include="Geometry\Misc\Quaternion.cs" />

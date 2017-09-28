@@ -11,7 +11,7 @@ namespace BH.oM.Structural.Elements
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Bar : BHoMObject, ISpatialObject
+    public class Bar : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
