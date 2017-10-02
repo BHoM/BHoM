@@ -63,7 +63,7 @@ namespace BH.oM.Geometry
         /**** Local Optimisation Methods                ****/
         /***************************************************/
 
-        public object GetClone() // Optimisation
+        public Vector GetClone() // Optimisation
         {
             return new Vector(X, Y, Z);
         }
