@@ -55,7 +55,7 @@ namespace BH.oM.Geometry
         /**** Local Optimisation Methods                ****/
         /***************************************************/
 
-        public object GetClone() // Optimisation
+        public Point GetClone() // Optimisation
         {
             return new Point(X, Y, Z);
         }
