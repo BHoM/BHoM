@@ -1,34 +1,35 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Base;
+﻿using BH.oM.Structural.Elements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Structural.Elements
+namespace BH.oM.Structural.Loads
 {
-    public class Grid : BHoMObject
+    public class BarPrestressLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Plane Plane { get; set; }
-        public Line Line { get; set; }
+        public double PrestressValue { get; set; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Grid() { }
+        public BarPrestressLoad() { }
+
 
         /***************************************************/
+        /**** ILoad Interface                           ****/
+        /***************************************************/
 
-        public Grid(Plane plane, Line line)
+        public override LoadType GetLoadType()
         {
-            Line = line;
-            Plane = plane;
+            return LoadType.Pressure;
         }
 
     }

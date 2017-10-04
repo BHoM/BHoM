@@ -18,9 +18,7 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ICase> Loadcases { get; set; } = new List<ICase>();
-
-        public List<double> LoadFactors { get; set; } = new List<double>();
+        public List<Tuple<double, ICase>> LoadCases { get; set; } = new List<Tuple<double, ICase>>();
 
         public int Number { get; set; } = 0;
 
@@ -33,11 +31,10 @@ namespace BH.oM.Structural.Loads
 
         /***************************************************/
 
-        public LoadCombination(string name, List<ICase> loadcases, List<double> loadfactors)
+        public LoadCombination(string name, List<Tuple<double, ICase>> loadCases)
         {
-            Loadcases = loadcases;
+            LoadCases = loadCases;
             Name = name;
-            LoadFactors = loadfactors;
         }
 
 

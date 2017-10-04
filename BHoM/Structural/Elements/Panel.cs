@@ -3,107 +3,61 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.Geometry;
 using BH.oM.Structural.Properties;
-
 
 namespace BH.oM.Structural.Elements
 {
-    public class Panel : BHoMObject, IAreaElement
+    /// <summary>
+    /// BH.oM Face class
+    /// </summary>
+    [Serializable]
+    public class Panel : BH.oM.Base.BHoMObject, IAreaElement
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<PanelFace> MeshFaces { get; set; } = new List<PanelFace>();
-
-        public ISurface Surface { get; set; } = null;
-
-        public Materials.Material Material { get; set; } = null;
-
-        public PanelProperty PanelProperty { get; set; } = null;
-
-        public SurfaceConstraint PlanarSpring { get; set; } = null;
-
+        /// <summary>Face nodes</summary>
+        public List<Node> Nodes { get; set; } = new List<Node>();
+        public PanelProperty PanelProperty { get; set; }
+        
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
+        /// <summary>
+        /// Constructs an empty face
+        /// </summary>
         public Panel() { }
-
+   
         /***************************************************/
 
-        public Panel(ISurface surface)
+        /// <summary>
+        /// Constructs a 3 sided face with 3 nodes
+        /// </summary>
+        /// <param name="n0"></param>
+        /// <param name="n1"></param>
+        /// <param name="n2"></param>
+        public Panel(Node n0, Node n1, Node n2, Node n3 = null)
         {
-            Surface = surface;
+            Nodes.Add(n0);
+            Nodes.Add(n1);
+            Nodes.Add(n2);
+
+            if (n3 != null)
+                Nodes.Add(n3);
         }
 
     }
 }
-
-        ///***************************************************/
-        ///**** Override BHoMObject                       ****/
-        ///***************************************************/
-
-
-        //public bool IsValid() { return m_Geometry != null; }
-
-
-        //////////////////////
-        //////CONSTRUCTORS////
-        //////////////////////
-
-        //public Panel()
+        //TODO: Do we really need this?
+        ///// <summary>Get the distance to the centroid from point p</summary>
+        //public double DistanceTo(BH.oM.Geometry.Point p)
         //{
-        //    m_Faces = new List<Face>();
+        //    return this.CalculateCentroid().DistanceTo(p);
         //}
 
-        ///// <summary>
-        ///// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
-        ///// </summary>
-        ///// <param name="edges"></param>
-        ///// <param name="number"></param>
-        //public Panel(Brep boundary)
-        //{
-        //    m_Geometry = boundary;
-        //}
+//    }
 
-        /////////////////
-        //////METHODS////
-        /////////////////
-
-        ///// <summary></summary>
-
-
-
-        ///// <summary>
-        ///// assumes ordered 3 or 4 sided panel
-        ///// </summary>
-        ///// <returns></returns>
-        //public bool MeshAsSingleFace()
-        //{
-        //    List<Node> nodes = new List<Node>();
-        //    Face face;
-        //    foreach (Curve edge in m_Geometry.GetExternalEdges())
-        //        nodes.Add(new Node(edge.StartPoint));
-
-        //    switch (nodes.Count)
-        //    {
-        //        case 3:
-        //            face = new Face(nodes[0], nodes[1], nodes[2]);
-        //            break;
-        //        case 4:
-        //            face = new Face(nodes[0], nodes[1], nodes[2], nodes[3]);
-        //            break;
-        //        default:
-        //            return false;
-        //    }
-
-        //    m_Faces.Add(face);
-
-        //    return true;
-        //}
-
+//}

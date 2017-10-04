@@ -4,45 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
+using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
 {
-    /// <summary>
-    /// Simple Loadcase class
-    /// </summary>
-    public class Loadcase : BHoMObject, ICase
+    public class AreaTemperatureLoad : Load<IAreaElement>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public LoadNature Nature { get; set; } = LoadNature.Other;
-        public int Number { get; set; } = 0;
+        public double TemperatureChange { get; set; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Loadcase() { }
+        public AreaTemperatureLoad() { }
 
         /***************************************************/
 
-        public Loadcase(string name, LoadNature nature, double selfWeightMultiplier = 0)
+        public AreaTemperatureLoad(Loadcase loadcase, double t)
         {
-            Name = name;
-            Nature = nature;
+            Loadcase = loadcase;
+            TemperatureChange = t;
         }
 
 
         /***************************************************/
-        /**** ICase Interface                           ****/
+        /**** ILoad Interface                           ****/
         /***************************************************/
 
-        public CaseType GetCaseType() //TODO: Do we need this?
+        public override LoadType GetLoadType()
         {
-            return CaseType.Simple;
+            return LoadType.BarTemperature;
         }
- 
+
     }
-
 }

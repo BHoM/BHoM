@@ -114,8 +114,6 @@
     <Compile Include="Structural\Design\IDesignable.cs" />
     <Compile Include="Structural\Design\Span.cs" />
     <Compile Include="Structural\Design\SpanDirection.cs" />
-    <Compile Include="Structural\Elements\MeshFace.cs" />
-    <Compile Include="Structural\Elements\FEMesh.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
     <Compile Include="Planning\Construction\ConstructionPhase.cs" />
@@ -127,7 +125,7 @@
     </Compile>
     <Compile Include="Structural\Elements\Grid.cs" />
     <Compile Include="Structural\Elements\Opening.cs" />
-    <Compile Include="Structural\Elements\Panel.cs" />
+    <Compile Include="Structural\Elements\Contour.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,48 +133,52 @@
     <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
     <Compile Include="Structural\Interface\IElementAdapter.cs" />
     <Compile Include="Structural\Interface\IResultAdapter.cs" />
+    <Compile Include="Structural\Loads\AreaTemperatureLoad.cs" />
+    <Compile Include="Structural\Loads\AreaUniformalyDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\BarPrestressLoad.cs" />
+    <Compile Include="Structural\Loads\BarTemperatureLoad.cs" />
+    <Compile Include="Structural\Loads\BarUniformlyDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\BarVaryingDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\GeometricalLineLoad.cs" />
     <Compile Include="Structural\Loads\GravityLoad.cs" />
     <Compile Include="Structural\Loads\ICase.cs" />
     <Compile Include="Structural\Loads\ILoad.cs" />
-    <Compile Include="Structural\ModelTracker\BarTracker.cs" />
+    <Compile Include="Structural\Loads\PointAcceleration.cs" />
+    <Compile Include="Structural\Loads\PointDisplacement.cs" />
+    <Compile Include="Structural\Loads\PointVelocity.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
     <Compile Include="Structural\Properties\Constraints\LinkConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
     <Compile Include="Structural\Elements\Storey.cs" />
     <Compile Include="Structural\Elements\Bar.cs" />
-    <Compile Include="Structural\Elements\PanelFace.cs" />
+    <Compile Include="Structural\Elements\Panel.cs" />
     <Compile Include="Structural\Elements\Node.cs" />
     <Compile Include="Structural\Properties\Constraints\BarRelease.cs" />
     <Compile Include="Structural\Properties\Constraints\SurfaceConstraint.cs" />
     <Compile Include="Structural\Properties\Enums.cs" />
     <Compile Include="Structural\Properties\Offset.cs" />
     <Compile Include="Structural\Elements\Enums.cs" />
-    <Compile Include="Structural\Loads\AreaLoads.cs" />
-    <Compile Include="Structural\Loads\BarLoad.cs" />
-    <Compile Include="Structural\Loads\GeometryLoad.cs" />
+    <Compile Include="Structural\Loads\AreaVaryingDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\BarPointLoad.cs" />
+    <Compile Include="Structural\Loads\GeometricalAreaLoad.cs" />
     <Compile Include="Structural\Loads\Load.cs" />
     <Compile Include="Structural\Loads\Loadcase.cs" />
     <Compile Include="Structural\Loads\Loadcombination.cs" />
     <Compile Include="Structural\Loads\LoadEnums.cs" />
-    <Compile Include="Structural\Loads\NodeLoad.cs" />
+    <Compile Include="Structural\Loads\PointForce.cs" />
     <Compile Include="Structural\Properties\Panel Properties\LoadingPanel.cs" />
     <Compile Include="Structural\Properties\Section Properties\CableSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\CompositeSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\ConcreteSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\ExplicitSectionProperty.cs" />
     <Compile Include="Structural\Properties\Section Properties\SteelSection.cs" />
-    <Compile Include="Structural\Results\Bar Forces\BarForceEnvelope.cs" />
-    <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
-    <Compile Include="Structural\Results\Bar Forces\BarStress.cs" />
-    <Compile Include="Structural\Results\Bar Forces\CompositeUtilisation.cs" />
-    <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
+    <Compile Include="Structural\Results\Bar Results\BarForce.cs" />
+    <Compile Include="Structural\Results\Bar Results\BarStress.cs" />
+    <Compile Include="Structural\Results\Bar Results\CompositeUtilisation.cs" />
+    <Compile Include="Structural\Results\Bar Results\SteelUtilisation.cs" />
     <Compile Include="Structural\Results\BarDeformation\BarDeformation.cs" />
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
-    <Compile Include="Structural\Results\Geometry\BarCoordinates.cs" />
-    <Compile Include="Structural\Results\Geometry\NodeCoordinates.cs" />
-    <Compile Include="Structural\Results\Global Results\GlobalResult.cs" />
-    <Compile Include="Structural\Results\Nodal Results\NodalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeAcceleration.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeDisplacement.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeForce.cs" />
@@ -189,10 +191,8 @@
     <Compile Include="Structural\Results\Reinforcement Results\SlabReinforcement.cs" />
     <Compile Include="Structural\Results\Result.cs" />
     <Compile Include="Structural\Results\Enums.cs" />
-    <Compile Include="Structural\Results\Envelope.cs" />
     <Compile Include="Structural\Interface\IResult.cs" />
     <Compile Include="Structural\Interface\IResultSet.cs" />
-    <Compile Include="Structural\Results\ResultSet.cs" />
     <Compile Include="DataStructure\VennDiagram.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +201,7 @@
     <Folder Include="MEP\" />
     <Folder Include="Physical\" />
     <Folder Include="Planning\Project\" />
+    <Folder Include="Structural\Results\Global Results\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

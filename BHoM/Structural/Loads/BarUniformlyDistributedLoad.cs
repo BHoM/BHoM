@@ -1,48 +1,48 @@
-﻿using System;
+﻿using BH.oM.Geometry;
+using BH.oM.Structural.Elements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.oM.Base;
 
 namespace BH.oM.Structural.Loads
 {
-    /// <summary>
-    /// Simple Loadcase class
-    /// </summary>
-    public class Loadcase : BHoMObject, ICase
+    public class BarUniformlyDistributedLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public LoadNature Nature { get; set; } = LoadNature.Other;
-        public int Number { get; set; } = 0;
+        public Geometry.Vector ForceVector { get; set; }
+
+        public Geometry.Vector MomentVector { get; set; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Loadcase() { }
+        public BarUniformlyDistributedLoad() { }
 
         /***************************************************/
 
-        public Loadcase(string name, LoadNature nature, double selfWeightMultiplier = 0)
+        public BarUniformlyDistributedLoad(Loadcase loadcase, double fx, double fy, double fz)
         {
-            Name = name;
-            Nature = nature;
+            Loadcase = loadcase;
+            ForceVector = new Geometry.Vector(fx, fy, fz);
+            MomentVector = new Vector(0, 0, 0);
         }
 
 
         /***************************************************/
-        /**** ICase Interface                           ****/
+        /**** ILoad Interface                           ****/
         /***************************************************/
 
-        public CaseType GetCaseType() //TODO: Do we need this?
+        public override LoadType GetLoadType()
         {
-            return CaseType.Simple;
+            return LoadType.BarUniformLoad;
         }
- 
+
     }
-
 }

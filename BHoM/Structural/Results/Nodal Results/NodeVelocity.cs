@@ -18,21 +18,6 @@ namespace BH.oM.Structural.Results
          where TName : IComparable
          where TLoadcase : IComparable
          where TTimeStep : IComparable
-    {
-        public override string[] ColumnHeaders
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override ResultType ResultType
-        {
-            get
-            {
-                return ResultType.NodeVelocity;
-            }
-        }
-    }
+    { }
+    
 }
