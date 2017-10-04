@@ -1,48 +1,43 @@
-﻿using System;
+﻿using BH.oM.Structural.Elements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.oM.Base;
 
 namespace BH.oM.Structural.Loads
 {
-    /// <summary>
-    /// Simple Loadcase class
-    /// </summary>
-    public class Loadcase : BHoMObject, ICase
+    public class BarTemperatureLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public LoadNature Nature { get; set; } = LoadNature.Other;
-        public int Number { get; set; } = 0;
+        public Geometry.Vector TemperatureChange { get; set; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Loadcase() { }
+        public BarTemperatureLoad() { }
 
         /***************************************************/
 
-        public Loadcase(string name, LoadNature nature, double selfWeightMultiplier = 0)
+        public BarTemperatureLoad(Loadcase loadcase, double tx, double ty, double tz)
         {
-            Name = name;
-            Nature = nature;
+            Loadcase = loadcase;
+            TemperatureChange = new Geometry.Vector(tx, ty, tz);
         }
 
 
         /***************************************************/
-        /**** ICase Interface                           ****/
+        /**** ILoad Interface                           ****/
         /***************************************************/
 
-        public CaseType GetCaseType() //TODO: Do we need this?
+        public override LoadType GetLoadType()
         {
-            return CaseType.Simple;
+            return LoadType.BarTemperature;
         }
- 
     }
-
 }

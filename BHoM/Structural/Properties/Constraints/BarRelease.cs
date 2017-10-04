@@ -37,8 +37,3 @@ namespace BH.oM.Structural.Properties
         }
     }  
 }
-
-//public override string ToString()
-//{
-//    return string.IsNullOrEmpty(base.Name) ? StartConstraint.Name + "-" + EndConstraint.Name : base.Name;
-//}

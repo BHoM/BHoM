@@ -25,6 +25,7 @@ namespace BH.oM.Structural.Elements
 
         public BH.oM.Structural.Properties.Offset Offset { get; set; } = null;
 
+        //TODO: Move to future beam class??
         public BarStructuralUsage StructuralUsage { get; set; }
 
         /// <summary>
@@ -44,9 +45,6 @@ namespace BH.oM.Structural.Elements
         /// </summary>
         public double OrientationAngle { get; set; } = 0;
 
-        public IBHoMGeometry Geometry { get; set; }
-
-        public Location Location { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/

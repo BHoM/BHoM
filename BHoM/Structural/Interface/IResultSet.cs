@@ -13,8 +13,8 @@ namespace BH.oM.Structural.Interface
         void AddData(object[] rows);
         List<object[]> ToListData();
         List<T> AsList<T>() where T : IResult, new();
-        Envelope MaxEnvelope();
-        Envelope MinEnvelope();
-        Envelope AbsoluteEnvelope();
+        //Envelope MaxEnvelope();
+        //Envelope MinEnvelope();
+        //Envelope AbsoluteEnvelope();
     }
 }

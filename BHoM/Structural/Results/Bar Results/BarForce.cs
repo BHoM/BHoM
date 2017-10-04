@@ -26,11 +26,7 @@ namespace BH.oM.Structural.Results
          where TTimeStep : IComparable
     {
         public BarForce()
-        {
-            m_data = new object[12];           
-        }
-
-        public BarForce(object[] data) { m_data = data; }
+        { }
 
         public BarForce(TName number, TLoadcase loadcase, int position, int divisions, TTimeStep timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
         {
@@ -48,144 +44,49 @@ namespace BH.oM.Structural.Results
             MZ = mz;
         }
 
-        public override string[] ColumnHeaders
-        {
-            get
-            {
-                return new string[] { "Id", "Name", "Loadcase", "TimeStep", "ForcePosition", "Divisions", "FX", "FY", "FZ", "MX", "MY", "MZ" };
-            }
-        }
+        public int ForcePosition { get; set; }
 
-        public override ResultType ResultType
-        {
-            get
-            {
-                return ResultType.BarForce;
-            }
-        }
+        public int Divisions { get; set; }
 
-        public int ForcePosition
-        {
-            get
-            {
-                return (int)m_data[4];
-            }
-            set
-            {
-                m_data[4] = value;
-            }
-        }
+        public double FX { get; set; }
 
-        public int Divisions
-        {
-            get
-            {
-                return (int)m_data[5];
-            }
-            set
-            {
-                m_data[5] = value;
-            }
-        }
+        public double FY { get; set; }
 
-        public double FX
-        {
-            get
-            {
-                return (double)m_data[6];
-            }
-            set
-            {
-                m_data[6] = value;
-            }
-        }
+        public double FZ { get; set; }
 
-        public double FY
-        {
-            get
-            {
-                return (double)m_data[7];
-            }
-            set
-            {
-                m_data[7] = value;
-            }
-        }
+        public double MX { get; set; }
 
-        public double FZ
-        {
-            get
-            {
-                return (double)m_data[8];
-            }
-            set
-            {
-                m_data[8] = value;
-            }
-        }
+        public double MY { get; set; }
 
-        public double MX
-        {
-            get
-            {
-                return (double)m_data[9];
-            }
-            set
-            {
-                m_data[9] = value;
-            }
-        }
+        public double MZ { get; set; }
 
-        public double MY
-        {
-            get
-            {
-                return (double)m_data[10];
-            }
-            set
-            {
-                m_data[10] = value;
-            }
-        }
 
-        public double MZ
-        {
-            get
-            {
-                return (double)m_data[11];
-            }
-            set
-            {
-                m_data[11] = value;
-            }
-        }
-
-        public override int CompareTo(object obj)
-        {
-            var r2 = obj as BarForce<TName, TLoadcase, TTimeStep>;
-            if (r2 != null)
-            {
-                int n = this.Name.CompareTo(r2.Name);
-                if (n == 0)
-                {
-                    int l = this.Loadcase.CompareTo(r2.Loadcase);
-                    if (l == 0)
-                    {
-                        int f = this.ForcePosition.CompareTo(r2.ForcePosition);
-                        return f == 0 ? this.TimeStep.CompareTo(r2.TimeStep) : f;
-                    }
-                    else
-                    {
-                        return l;
-                    }
-                }
-                else
-                {
-                    return n;
-                }
-            }
-            return 1;
-        }
+        //public override int CompareTo(object obj)
+        //{
+        //    var r2 = obj as BarForce<TName, TLoadcase, TTimeStep>;
+        //    if (r2 != null)
+        //    {
+        //        int n = this.Name.CompareTo(r2.Name);
+        //        if (n == 0)
+        //        {
+        //            int l = this.Loadcase.CompareTo(r2.Loadcase);
+        //            if (l == 0)
+        //            {
+        //                int f = this.ForcePosition.CompareTo(r2.ForcePosition);
+        //                return f == 0 ? this.TimeStep.CompareTo(r2.TimeStep) : f;
+        //            }
+        //            else
+        //            {
+        //                return l;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            return n;
+        //        }
+        //    }
+        //    return 1;
+        //}
     }
 
     //public class BarForce : Result
