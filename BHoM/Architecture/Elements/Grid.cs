@@ -6,7 +6,7 @@ using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BHoM.Architectural.Elements
+namespace BH.oM.Architecture
 {
     /// <summary>
     /// Building grids for setting out - curve (list of) based objects with name and text parameters
