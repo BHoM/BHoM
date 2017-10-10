@@ -29,18 +29,3 @@ namespace BH.oM.Acoustic
         }
     }
 }
-
-//public override double GetNoiseLevel(double frequency, double octave)
-//{
-//    return (frequency < 5) ? NoiseLevels[0] : NoiseLevels[1];
-//}
-
-//public override double GetGain(double frequency, double octave)
-//{
-//    return (frequency < 5) ? Gains[0] : Gains[1];
-//}
-
-//public override double GetSpeech(double frequency, double octave)
-//{
-//    return (frequency < 5) ? Speeches[0] : Speeches[1];
-//}

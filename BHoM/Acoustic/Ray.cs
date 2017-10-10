@@ -13,65 +13,41 @@ namespace BH.oM.Acoustic
     /// </summary>
     public struct Ray
     {
-        #region Fields
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        private readonly ICurve _Path;
-        private readonly int _SpeakerID;
-        private readonly int _ReceiverID;
-        private readonly List<int> _PanelsID;
+        /// <summary>
+        /// Ray geometric path from speaker to receiver
+        /// </summary>
+        public Polyline Geometry;
 
-        #endregion
-        #region Properties
+        /// <summary>
+        /// Speaker source of the ray represented by ID
+        /// </summary>
+        public int SpeakerID;
 
-        public ICurve Path
+        /// <summary>
+        /// Receiver target of the ray represented by ID
+        /// </summary>
+        public int ReceiverID;
+
+        /// <summary>
+        /// Useful panels for ray bounces, represented by ID
+        /// </summary>
+        public List<int> PanelsID;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Ray(Polyline path, int source, int target, List<int> bouncingPattern = null)
         {
-            get { return _Path; }
+            Geometry = path;
+            SpeakerID = source;
+            ReceiverID = target;
+            PanelsID = bouncingPattern;
         }
-
-        public int SpeakerID
-        {
-            get { return _SpeakerID; }
-        }
-
-        public int ReceiverID
-        {
-            get { return _ReceiverID; }
-        }
-
-        public List<int> PanelsID
-        {
-            get { return _PanelsID; }
-        }
-
-        /********** Additional Properties**********/
-
-        //public double Length // TODO Move to Engine
-        //{
-        //    get { return _Path.Length; }
-        //}
-
-        //public double Time
-        //{
-        //    get { return _Path.Length / 343; } // TODO Move to Engine
-        //}
-
-        public int Order
-        {
-            get { return _PanelsID.Count; }
-        }
-
-        #endregion
-
-        #region Constructors
-
-        public Ray(ICurve path, int source, int target, List<int> bouncingPattern = null)
-        {
-            _Path = path;
-            _SpeakerID = source;
-            _ReceiverID = target;
-            _PanelsID = bouncingPattern;
-        }
-
-        #endregion
     }
 }

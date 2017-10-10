@@ -13,16 +13,34 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
+        /// <summary>
+        /// Frequency spectrum of the acoustic speaker
+        /// </summary>
         public List<double> Frequencies { get; set; } = new List<double>();
 
+        /// <summary>
+        /// Frequency spectrum of the acoustic speaker
+        /// </summary>
         public List<double> Octaves { get; set; } = new List<double>();
 
+        /// <summary>
+        /// Reverberation times of the room
+        /// </summary>
         public List<double> ReverberationTimes { get; set; } = new List<double>();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public List<double> NoiseLevels { get; set; } = new List<double>();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public List<double> Gains { get; set; } = new List<double>();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public List<double> Speeches { get; set; } = new List<double>();
 
 
@@ -34,23 +52,3 @@ namespace BH.oM.Acoustic
 
     }
 }
-
-//public double GetRevTime(double frequency, double octave)
-//{
-//    return ReverberationTimes[0];
-//}
-
-//public virtual double GetNoiseLevel(double frequency, double octave)
-//{
-//    return NoiseLevels[0];
-//}
-
-//public virtual double GetGain(double frequency, double octave)
-//{
-//    return Gains[0];
-//}
-
-//public virtual double GetSpeech(double frequency, double octave)
-//{
-//    return Speeches[0];
-//}

@@ -9,48 +9,39 @@ using BH.oM.Geometry;
 namespace BH.oM.Acoustic
 {
     /// <summary>
-    /// BH.oM Acoustic Receiver
+    /// BHoM Acoustic Receiver
     /// </summary>
     public struct Receiver
     {
-        #region Fields
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        private readonly Point _Position;
-        private readonly string _Category;
-        private readonly int _ReceiverID;
+        /// <summary>
+        /// Spatial position of the receiver
+        /// </summary>
+        public Point Geometry { get; set; }
 
-        #endregion
+        /// <summary>
+        /// Directivity pattern category of the receiver. Default is set to omnidirectional. Format to be agreed
+        /// </summary>
+        public string Category { get; set; }
 
-        #region Properties
-
-        public Point Position
-        {
-            get { return _Position; }
-        }
-
-        public string Category
-        {
-            get { return _Category; }
-        }
-
-        public int ReceiverID
-        {
-            get { return _ReceiverID; }
-        }
-
-        #endregion
+        /// <summary>
+        /// Receiver identifier, this is unique for each model
+        /// </summary>
+        public int ReceiverID { get; set; }
 
 
-        #region Constructors
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         public Receiver(Point position, string category = "Omni", int receiverID = 0)
         {
-            _Position = position;
-            _Category = category;
-            _ReceiverID = receiverID;
+            Geometry = position;
+            Category = category;
+            ReceiverID = receiverID;
         }
-
-        #endregion
-
     }
 }

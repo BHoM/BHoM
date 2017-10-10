@@ -3,39 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.oM.Geometry;
-using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
-    /// <summary>
-    /// BH.oM Acoustic Panel as Mesh. Please make sure you mesh is exploded into individual quadrangular or triangular mesh faces.
-    /// </summary>
-    public struct Panel
+    public abstract class Result
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         /// <summary>
-        /// Mesh geometry of the panel
+        /// Acoustic parameter objective of the analysis
         /// </summary>
-        public Mesh Geometry { get; set; }
+        protected virtual Parameter Parameter { get; set; } = Parameter.SPL;
 
         /// <summary>
-        /// List of absorbtion coefficients by frequency
+        /// Result value as a double
         /// </summary>
-        public List<double> R { get; set; }
+        protected virtual double Value { get; set; } = 0;
+
+        /// <summary>
+        /// Receiver that owns the calculated result value
+        /// </summary>
+        protected virtual int ReceiverID { get; set; } = 0;
+
+        /// <summary>
+        /// Frequency address of the calculated value
+        /// </summary>
+        protected virtual int Octaves { get; set; } = 0;
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Panel(Mesh mesh, List<double> r) // TODO Add check for planarity of panel
-        {
-            Geometry = mesh;
-            R = r;
-        }
+        protected Result() { }
     }
 }

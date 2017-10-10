@@ -13,71 +13,53 @@ namespace BH.oM.Acoustic
     /// </summary>
     public struct Speaker
     {
-        #region Fields
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        private readonly Point _Position;
-        private readonly Vector _Direction;
-        private readonly string _Category;
-        private readonly int _SpeakerID;
-        private List<double> _Gains;     // value for each frequency
-        //private readonly double[] _Directivity;   //public double[,,] Directivity { get; set; }  // [8,36, 19]
+        /// <summary>
+        /// Spatial position of the speaker
+        /// </summary>
+        public Point Geometry { get; set; }
 
-        #endregion
+        /// <summary>
+        /// Main emissive direction. The arrow of the vector represents the front of the source
+        /// </summary>
+        public Vector Direction { get; set; }
 
-        #region Properties
+        /// <summary>
+        /// Directivity pattern category of the speaker. Format to be agreed, whereas CATT .sd1 proposed
+        /// </summary>
+        public string Category { get; set; }
 
-        public Point Position
-        {
-            get { return _Position; }
-        }
+        /// <summary>
+        /// Speaker identifier, this is unique for each model
+        /// </summary>
+        public int SpeakerID { get; set; }
 
-        public Vector Direction
-        {
-            get { return _Direction; }
-        }
+        /// <summary>
+        /// Speaker gains used for STI calculations
+        /// </summary>
+        public List<double> Gains { get; set; }     // value for each frequency
 
-        public string Category
-        {
-            get { return _Category; }
-        }
+        /// <summary>
+        /// Directivity pattern stored in a three-dimensional array.
+        /// First dimension represents the frequency, the second longitudinal sections, the third latitudinal sections.
+        /// </summary>
+        //private readonly double[] Directivity;   //public double[,,] Directivity { get; set; }  // [8,36, 19]
 
-        public int SpeakerID
-        {
-            get { return _SpeakerID; }
-        }
 
-        public List<double> Gains
-        {
-            get { return _Gains; }
-            set { }
-        }
-
-        public double GetGain(double frequency, double octave)
-        {
-            return (frequency < 5) ? Gains[0] : Gains[1];
-        }
-
-        public double GetGainAngleFactor(double angle, double octave) // take out octave
-        {
-            return (octave < 1000) ? (-2 * angle / 90 - 8) : (-18 * angle / 150 - 2); // I made some asumption here since matlab handles only 500Hz and 2000Hz
-        }
-
-        #endregion
-
-        #region Constructors
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         public Speaker(Point position, Vector direction = null, string category = "Omni", int speakerID = 0, List<double> gains = null)
         {
-            if (direction == null) { direction = new Vector(1, 0, 0); }
-            if (gains == null) { gains = new List<double> { 1, 1 }; }
-
-            _Position = position;
-            _Direction = direction;
-            _Category = category;
-            _SpeakerID = speakerID;
-            _Gains = gains;
+            Geometry = position;
+            Direction = direction;
+            Category = category;
+            SpeakerID = speakerID;
+            Gains = gains;
         }
-
-        #endregion
     }
 }

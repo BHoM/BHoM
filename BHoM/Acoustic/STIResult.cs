@@ -6,20 +6,26 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public class STIResult
+    public class STI : Result
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<double> Rasti { get; set; }
+        protected override double Value { get; set; } = 0;
+
+        protected override int ReceiverID { get; set; } = 0;
+
+        protected override int Octaves { get; set; } = 0;
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public STIResult() { }
+        public STI() { }
+
+        public STI(List<>)
 
     }
 }
