@@ -10,7 +10,7 @@ namespace BH.oM.Structural.Properties
     /// Bar release applicable to bar objects, contains BH.oM.Structural.Constraint objects
     /// for the start and end of a bar
     /// </summary>
-    public class BarRelease : BHoMObject
+    public class BarEndReleases : BHoMObject // TODO Should it be named BarEndConstraints to match the False = Free convention?
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -25,11 +25,11 @@ namespace BH.oM.Structural.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BarRelease() { }
+        public BarEndReleases() { }
 
         /***************************************************/
 
-        public BarRelease(NodeConstraint startConstraint, NodeConstraint endConstraint, string name = "")
+        public BarEndReleases(NodeConstraint startConstraint, NodeConstraint endConstraint, string name = "")
         {
             StartConstraint = startConstraint;
             EndConstraint = endConstraint;

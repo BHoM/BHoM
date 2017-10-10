@@ -19,23 +19,23 @@ namespace BH.oM.Structural.Elements
 
         public Properties.SectionProperty SectionProperty { get; set; } = null;
 
-        public BH.oM.Structural.Properties.BarRelease Release { get; set; } = null;
+        public Properties.BarEndReleases EndReleases { get; set; } = null;
 
-        public BH.oM.Structural.Properties.BarConstraint Spring { get; set; } = null;
+        public Properties.BarConstraint Spring { get; set; } = null;
 
-        public BH.oM.Structural.Properties.Offset Offset { get; set; } = null;
+        public Properties.Offset Offset { get; set; } = null;
 
         //TODO: Move to future beam class??
-        public BarStructuralUsage StructuralUsage { get; set; }
+        public BarStructuralUsage StructuralUsage { get; set; } = BarStructuralUsage.Undefined;
 
         /// <summary>
         /// Sets the type of elements that should be used in analysis software
         /// </summary>
-        public BarFEAType FEAType { get; set; }
+        public BarFEAType FEAType { get; set; } = default(BarFEAType);
 
-        public Node StartNode { get; set; }
+        public Node StartNode { get; set; } = null;
 
-        public Node EndNode { get; set; }
+        public Node EndNode { get; set; } = null;
 
         /// <summary>
         /// Bar orientation angle in radians. For non-vertical bars, angle is measured in the bar YZ plane
