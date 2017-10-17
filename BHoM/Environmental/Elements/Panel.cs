@@ -1,115 +1,66 @@
-﻿using BHoM.Geometry;
-using BHB = BHoM.Base;
-using BHE = BHoM.Environmental.Elements;
+﻿using BH.oM.Geometry;
+using BH.oM.Base;
+using BH.oM.Environmental.Elements;
 using System;
 using System.Reflection;
-using BHoM.Structural.Loads;
+using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BHoM.Environmental.Elements
+namespace BH.oM.Environmental.Elements
 {
     /// <summary>
     /// Panel object for environmental models.
     /// </summary>
-    public class Panel : BHB.BHoMObject
+    public class Panel : BHoMObject
     {
-
-        /////////////////
-        ////Properties///
-        /////////////////
-
-        private BHoM.Geometry.Group<Curve> m_ExteriorEdges;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public string Type { get; set; }
 
-        public List<BHE.Space> adjSpaces { get; set; }
-
-        private void SetEdges(BHoM.Geometry.Group<Curve> curves)
-        {
-            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
-            List<Curve> crvs = Curve.Join(curves);
-            for (int i = 0; i < crvs.Count; i++)
-            {
-                if (crvs[i].IsClosed())
-                {
-                    m_ExteriorEdges.Add(crvs[i]);
-                }
-            }
-        }
+        public ISurface Geometry { get; set; } = null;
 
 
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        public BHoM.Geometry.Group<Curve> External_Contours
-        {
-            set
-            {
-                m_ExteriorEdges = value;
-            }
-            get
-            {
-                return m_ExteriorEdges;
-            }
-        }
+        public Panel() { }
 
-        public bool IsValid() { return m_ExteriorEdges != null; }
-
-
-        ////////////////////
-        ////CONSTRUCTORS////
-        ////////////////////
-
-        public Panel()
-        {
-            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
-        }
+        /***************************************************/
 
         /// <summary>
         /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
         /// </summary>
         /// <param name="edges"></param>
         /// <param name="number"></param>
-        public Panel(BHoM.Geometry.Group<Curve> edges)
+        public Panel(ISurface surface)
         {
-            SetEdges(edges);
-        }
-
-        /// <summary>
-        /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
-        /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="number"></param>
-        public Panel(List<Curve> edges)
-        {
-            SetEdges(new BHoM.Geometry.Group<Curve>(edges));
-        }
-
-        ///////////////
-        ////METHODS////
-        ///////////////
-
-        /// <summary></summary>
-        public override BHoM.Geometry.GeometryBase GetGeometry()
-        {
-            BHoM.Geometry.Group<Curve> edges = new BHoM.Geometry.Group<Curve>();
-            edges.AddRange(m_ExteriorEdges);
-            return edges;
-        }
-
-        /// <summary></summary>
-        public override void SetGeometry(GeometryBase geometry)
-        {
-            if (geometry is Curve)
-            {
-                Curve curve = geometry as Curve;
-                BHoM.Geometry.Group<Curve> group = new BHoM.Geometry.Group<Curve>();
-                group.Add(curve);
-                SetEdges(group);
-            }
-            else if (geometry is BHoM.Geometry.Group<Curve>)
-            {
-                SetEdges(geometry as BHoM.Geometry.Group<Curve>);
-            }
+            Geometry = surface;
         }
     }
 }
+
+
+///***************************************************/
+///**** Override BHoMObject                       ****/
+///***************************************************/
+
+///// <summary></summary>
+//public override IBHoMGeometry GetGeometry()
+//{
+//    return Geometry;
+//}
+
+///***************************************************/
+
+///// <summary></summary>
+//public override void SetGeometry(IBHoMGeometry geometry)
+//{
+//    if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
+//    {
+//        Geometry = geometry as ISurface;
+//    }
+//}

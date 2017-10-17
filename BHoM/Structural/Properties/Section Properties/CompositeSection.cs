@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Geometry;
-namespace BHoM.Structural.Properties
+using BH.oM.Geometry;
+namespace BH.oM.Structural.Properties
 {
     public class CompositeSection : SectionProperty
     {
@@ -20,7 +20,7 @@ namespace BHoM.Structural.Properties
             set
             {
                 m_SteelSection = value;
-                SetEdges();              
+               // SetEdges();              
             }
         }
 
@@ -33,52 +33,52 @@ namespace BHoM.Structural.Properties
             set
             {
                 m_ConcreteSection = value;
-                SetEdges();
+                //SetEdges();
             }
         }
 
-        private void SetEdges()
-        {
-            if (m_ConcreteSection != null && m_SteelSection != null)
-            {
-                double n = m_ConcreteSection.Material.YoungsModulus / m_SteelSection.Material.YoungsModulus;
-                Group<Curve> concreteRectangle = m_ConcreteSection.Edges.DuplicateGroup();
-                concreteRectangle.Transform(Transform.Scale(Point.Origin, new Vector(n, 1, 1)));
-                Group<Curve> steelSection = m_SteelSection.Edges;
+        //private void SetEdges()
+        //{
+        //    if (m_ConcreteSection != null && m_SteelSection != null)
+        //    {
+        //        double n = m_ConcreteSection.Material.YoungsModulus / m_SteelSection.Material.YoungsModulus;
+        //        Group<Curve> concreteRectangle = m_ConcreteSection.Edges.DuplicateGroup();
+        //        concreteRectangle.Transform(Transform.Scale(Point.Origin, new Vector(n, 1, 1)));
+        //        Group<Curve> steelSection = m_SteelSection.Edges;
 
-                double topSteel = steelSection.Bounds().Max.Y;
-                double botConcrete = concreteRectangle.Bounds().Min.Y;
-                double steelOffset = topSteel - botConcrete - SteelEmbedmentDepth;
+        //        double topSteel = steelSection.GetBounds().Max.Y;
+        //        double botConcrete = concreteRectangle.GetBounds().Min.Y;
+        //        double steelOffset = topSteel - botConcrete - SteelEmbedmentDepth;
 
-                steelSection.Translate(Vector.YAxis(-steelOffset));
-                m_SteelSection.Edges = steelSection;
+        //        //TEMP UNDO steelSection.Translate(Vector.YAxis(-steelOffset));
+        //        m_SteelSection.Edges = steelSection;
 
-                if (SteelEmbedmentDepth > 0)
-                {
-                    Curve perimeter = Curve.Join(steelSection)[0];
-                    if (perimeter != null)
-                    {
-                        List<Curve> curves = perimeter.Split(Plane.YZ(botConcrete), true);
-                        if (curves.Count == 2)
-                        {
-                            if (curves[0].Bounds().Centre.Y < botConcrete)
-                            {
-                                concreteRectangle.Add(curves[0]);
-                            }
-                            else
-                            {
-                                concreteRectangle.Add(curves[1]);
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    concreteRectangle.AddRange(steelSection);
-                }
-                Edges = concreteRectangle;
-            }
-        }
+        //        if (SteelEmbedmentDepth > 0)
+        //        {
+        //            Curve perimeter = Curve.Join(steelSection)[0];
+        //            if (perimeter != null)
+        //            {
+        //                List<Curve> curves = perimeter.Split(Plane.YZ(botConcrete), true);
+        //                if (curves.Count == 2)
+        //                {
+        //                    if (curves[0].GetBounds().Centre.Y < botConcrete)
+        //                    {
+        //                        concreteRectangle.Add(curves[0]);
+        //                    }
+        //                    else
+        //                    {
+        //                        concreteRectangle.Add(curves[1]);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            concreteRectangle.AddRange(steelSection);
+        //        }
+        //        Edges = concreteRectangle;
+        //    }
+        //}
 
         public double SteelEmbedmentDepth
         {
@@ -90,7 +90,7 @@ namespace BHoM.Structural.Properties
             {
                 bool valueChanged = value != m_SteelEmbedmentDepth;
                 m_SteelEmbedmentDepth = value;
-                if (valueChanged) SetEdges();
+               // if (valueChanged) SetEdges();
             }
         }
 
@@ -108,7 +108,7 @@ namespace BHoM.Structural.Properties
             m_SteelSection = steel;
             m_ConcreteSection = concrete;
             m_SteelEmbedmentDepth = steelEmbedmentDepth;
-            SetEdges();
+           // SetEdges();
         }
 
         public override string ToString()

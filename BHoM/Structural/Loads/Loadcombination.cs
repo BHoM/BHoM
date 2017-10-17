@@ -1,11 +1,11 @@
-﻿using BHoM.Base;
+﻿using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Loads
+namespace BH.oM.Structural.Loads
 {
     /// <summary>
     /// Loadcombination, different to loadcase as combination also contains information
@@ -14,28 +14,38 @@ namespace BHoM.Structural.Loads
     [Serializable]
     public class LoadCombination : BHoMObject, ICase
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        //Combination
-        public CaseType CaseType
-        {
-            get
-            {
-                return CaseType.Combination;
-            }
-        }
+        public List<Tuple<double, ICase>> LoadCases { get; set; } = new List<Tuple<double, ICase>>();
 
-        public List<ICase> Loadcases { get; set; }
-        public List<double> LoadFactors { get; set; }
+        public int Number { get; set; } = 0;
 
-        public int Number { get; set; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         public LoadCombination() { }
 
-        public LoadCombination(string name, List<ICase> loadcases, List<double> loadfactors)
+        /***************************************************/
+
+        public LoadCombination(string name, List<Tuple<double, ICase>> loadCases)
         {
-            Loadcases = loadcases;
+            LoadCases = loadCases;
             Name = name;
-            LoadFactors = loadfactors;
         }
+
+
+        /***************************************************/
+        /**** ICase Interface                           ****/
+        /***************************************************/
+
+        public CaseType GetCaseType()
+        {
+            return CaseType.Combination;
+        }
+
     }
 }

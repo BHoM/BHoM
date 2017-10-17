@@ -3,62 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BHoM.Base;
-using BHoM.Structural.Properties;
+using BH.oM.Base;
+using BH.oM.Structural.Properties;
 
-namespace BHoM.Structural.Elements
+namespace BH.oM.Structural.Elements
 {
     public class RigidLink : BHoMObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        /*********************************************/
-        /*** Constructurs          *******************/
-        /*********************************************/
+        public Node MasterNode { get; set; } = new Node();
 
-        public RigidLink()
+        public List<Node> SlaveNodes { get; set; } = new List<Node>();
+
+        public LinkConstraint Constraint { get; set; } = null;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public RigidLink() {}
+
+        /***************************************************/
+
+        public RigidLink(Node masterNode, IEnumerable<Node> slaveNodes, LinkConstraint constriant = null)
         {
-            m_slaveNodes = new List<Node>();
+            MasterNode = masterNode;
+            SlaveNodes = slaveNodes.ToList();
         }
 
-        public RigidLink(Node masterNode, IEnumerable<Node> slaveNodes)
-        {
-            m_masterNode = masterNode;
-            m_slaveNodes = slaveNodes.ToList();
-        }
 
-        public RigidLink(Node masterNode, IEnumerable<Node> slaveNodes, LinkConstraint constriant)
-        {
-            m_masterNode = masterNode;
-            m_slaveNodes = slaveNodes.ToList();
-            Constraint = constriant;
-        }
-
-        /*********************************************/
-        /*** Properties            *******************/
-        /*********************************************/
-
-        public Node MasterNode
-        {
-            get { return m_masterNode; }
-            set { m_masterNode = value; }
-        }
-
-        public List<Node> SlaveNodes
-        {
-            get { return m_slaveNodes; }
-            set { m_slaveNodes = value; }
-        }
-
-        public LinkConstraint Constraint
-        {
-            get;set;
-        }
-
-        /*********************************************/
-        /*** Private fields        *******************/
-        /*********************************************/
-
-        Node m_masterNode;
-        List<Node> m_slaveNodes;
     }
 }

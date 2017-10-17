@@ -1,40 +1,34 @@
-﻿using BHoM.Geometry;
-using BHoM.Base;
+﻿using BH.oM.Geometry;
+using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Elements
+namespace BH.oM.Structural.Elements
 {
     public class Grid : BHoMObject
     {
-        public Grid()
-        {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        }
+        public Plane Plane { get; set; }
+        public Line Line { get; set; }
 
-        public Grid(Line line)
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Grid() { }
+
+        /***************************************************/
+
+        public Grid(Plane plane, Line line)
         {
             Line = line;
-            Plane = new Plane(line.StartPoint, Vector.CrossProduct(line.EndPoint - line.StartPoint, Vector.ZAxis()));
-        }
-
-        public Grid(string name, Point origin, Vector direction)
-        {
-            Plane = new Plane(origin, Vector.CrossProduct(direction, Vector.ZAxis()));
-            Line = new Line(origin, origin + direction * 20);
-        }
-
-        public Plane Plane
-        {
-            get; set;
-        }
-
-        public Curve Line
-        {
-            get; set;
+            Plane = plane;
         }
 
     }

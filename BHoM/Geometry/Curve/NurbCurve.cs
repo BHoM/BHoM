@@ -1,69 +1,73 @@
-﻿using BHoM.Base;
-using BHoM.Global;
+﻿using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
-    public class NurbCurve : Curve
+    public class NurbCurve : ICurve
     {
-        internal NurbCurve()
-        {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
+        public List<Point> ControlPoints { get; set; } = new List<Point>();
+
+        public List<double> Weights { get; set; } = new List<double>();
+
+        public List<double> Knots { get; set; } = new List<double>();
+
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public NurbCurve() { }
+
+        /***************************************************/
+
+        public NurbCurve(IEnumerable<Point> controlPoints, int degree = 3)
+        {
+            int n = controlPoints.Count();
+            int d = degree - 1;
+            ControlPoints = controlPoints.ToList();
+            Weights = Enumerable.Repeat(1.0, n).ToList();
+            Knots = Enumerable.Repeat(0, d).Concat(Enumerable.Range(0, n - d).Concat(Enumerable.Repeat(n - d - 1, d))).Select(x => (double)x).ToList();
         }
 
-        public NurbCurve(List<double[]> points, int degree, double[] knots, double[] weights) : base(points)
+        /***************************************************/
+
+        public NurbCurve(IEnumerable<Point> controlPoints, IEnumerable<double> weights, int degree = 3)
         {
-            m_Dimensions = 3;
-            m_Order = degree + 1;
-            m_Knots = knots;
-            m_Weights = weights != null ? weights : VectorUtils.Splat(1, points.Count);
+            int n = controlPoints.Count();
+            int d = degree - 1;
+            ControlPoints = controlPoints.ToList();
+            Weights = weights.ToList();
+            Knots = Enumerable.Repeat(0, d).Concat(Enumerable.Range(0, n - d).Concat(Enumerable.Repeat(n - d - 1, d))).Select(x => (double)x).ToList();
         }
 
-        public NurbCurve(List<Point> points, int degree, double[] knots, double[] weights) : base(points)
+        /***************************************************/
+
+        public NurbCurve(IEnumerable<Point> controlPoints, IEnumerable<double> weights, IEnumerable<double> knots)
         {
-            m_Dimensions = 3;
-            m_Order = degree + 1;
-            m_Knots = knots;
-            m_Weights = weights != null ? weights : VectorUtils.Splat(1, points.Count);
+            ControlPoints = controlPoints.ToList();
+            Weights = weights.ToList();
+            Knots = knots.ToList();
         }
 
-        public override void CreateNurbForm()
+        /***************************************************/
+        /**** Local Optimisation Methods                ****/
+        /***************************************************/
+
+        public int GetDegree()
         {
-            IsNurbForm = true;
-        }
-
-        public static NurbCurve Create(List<Point> points, int degree, double[] knots, double[] weights)
-        {
-            return new NurbCurve(points, degree, knots, weights);
-        }
-
-        public static new NurbCurve FromJSON(string json, Project project = null)
-        {
-            if (project == null)
-                project = Global.Project.ActiveProject;
-
-            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-            string typeString = null;
-            if (!definition.TryGetValue("__Type__", out typeString))
-                definition.TryGetValue("Primitive", out typeString);
-            if (typeString == null)
-                return null;
-            typeString = typeString.Replace("\"", "").Replace("{", "").Replace("}", "");
-
-            Type type = Type.GetType(typeString);
-
-            Curve result = Activator.CreateInstance(type, true) as Curve;
-
-            List<double[]> curvePoints = BHoMJSON.ReadValue(typeof(List<double[]>), definition["Points"], project) as List<double[]>;
-            double[] Knots = definition.ContainsKey("Knots") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["Knots"], project) : null;
-            double[] Weights = definition.ContainsKey("Weights") ? (double[])BHoMJSON.ReadValue(typeof(double[]), definition["Weights"], project) : null;
-            int degree = (int)BHoMJSON.ReadValue(typeof(int), definition["Degree"], project);
-
-            return new NurbCurve(curvePoints, degree, Knots, Weights);
+            return 1 + Knots.Count - ControlPoints.Count;
         }
     }
 }
+
+
+

@@ -4,10 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Acoustic
+namespace BH.oM.Acoustic
 {
     public class AcousticRASTIParameters : AcousticParameters
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
         // Hard coded AcousticParameters, discuss further with M. Harrison
         public AcousticRASTIParameters()
         {
@@ -18,20 +27,20 @@ namespace BHoM.Acoustic
             Gains = new List<double> { 1.6, 5.3 };
             Speeches = new List<double> { 85, 85 };
         }
-
-        public override double GetNoiseLevel(double frequency, double octave)
-        {
-            return (frequency < 5) ? NoiseLevels[0] : NoiseLevels[1];
-        }
-
-        public override double GetGain(double frequency, double octave)
-        {
-            return (frequency < 5) ? Gains[0] : Gains[1];
-        }
-
-        public override double GetSpeech(double frequency, double octave)
-        {
-            return (frequency < 5) ? Speeches[0] : Speeches[1];
-        }
     }
 }
+
+//public override double GetNoiseLevel(double frequency, double octave)
+//{
+//    return (frequency < 5) ? NoiseLevels[0] : NoiseLevels[1];
+//}
+
+//public override double GetGain(double frequency, double octave)
+//{
+//    return (frequency < 5) ? Gains[0] : Gains[1];
+//}
+
+//public override double GetSpeech(double frequency, double octave)
+//{
+//    return (frequency < 5) ? Speeches[0] : Speeches[1];
+//}

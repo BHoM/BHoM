@@ -1,73 +1,34 @@
-﻿using BHoM.Base;
-using BHoM.Global;
+﻿using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Geometry
+namespace BH.oM.Geometry
 {
-    public class Loft : Brep
+    public partial class Loft : ISurface
     {
-        public Group<Curve> Curves { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public List<ICurve> Curves { get; set; } = new List<ICurve>();
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         public Loft() { }
-        public Loft(Group<Curve> curves)
+
+        /***************************************************/
+
+        public Loft(IEnumerable<ICurve> curves)
         {
-            Curves = curves;
-        }
-
-        public override void Mirror(Plane p)
-        {
-            base.Mirror(p);
-            Curves.Mirror(p);
-        }
-
-        public override void Project(Plane p)
-        {
-            base.Project(p);
-            Curves.Project(p);
-        }
-
-        public override void Transform(Transform t)
-        {
-            base.Transform(t);
-            Curves.Transform(t);
-        }
-
-        public override void Translate(Vector v)
-        {
-            base.Translate(v);
-            Curves.Translate(v);
-        }
-
-        public override GeometryBase Duplicate()
-        {
-            Loft dup = base.Duplicate() as Loft;
-            dup.Curves = Curves.DuplicateGroup();
-            return dup;
-        }
-
-        public override BoundingBox Bounds()
-        {
-            return Curves.Bounds();
-        }
-
-        public override string ToJSON()
-        {
-            return "{\"__Type__\": \"" + this.GetType().FullName + "\", \"Curves\": " + Curves.ToJSON() + "}";
-        }
-
-        public static new Loft FromJSON(string json, Project project = null)
-        {
-            if (project == null)
-                project = Global.Project.ActiveProject;
-
-            Dictionary<string, string> definition = BHoMJSON.GetDefinitionFromJSON(json);
-
-            Group<Curve> curves = BHoMJSON.ReadValue(typeof(Group<Curve>), definition["Curves"], project) as Group<Curve>;
-            return new Loft(curves);
+            Curves = curves.ToList();
         }
     }
 }
+
+

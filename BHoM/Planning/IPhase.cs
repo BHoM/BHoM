@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BHoM.Planning
+namespace BH.oM.Planning
 {
     /// <summary>
     /// Phase interface class, holds interface properties for all objects that use phases

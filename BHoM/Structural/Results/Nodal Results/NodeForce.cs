@@ -1,11 +1,10 @@
-﻿using BHoM.Base.Results;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     public class NodeReaction : NodeReaction<string, string, string>
     {
@@ -20,28 +19,9 @@ namespace BHoM.Structural.Results
          where TLoadcase : IComparable
          where TTimeStep : IComparable
     {
-        public override string[] ColumnHeaders
-        {
-            get
-            {
-                return new string[] { "Id", "Name", "Loadcase", "TimeStep", "FX", "FY", "FZ", "MX", "MY", "MZ" };
-            }
-        }
-
-        public override ResultType ResultType
-        {
-            get
-            {
-                return ResultType.NodeReaction;
-            }
-        }
 
         public NodeReaction()
-        {
-            m_data = new object[10];
-        }
-
-        public NodeReaction(object[] data) { m_data = data; }
+        { }
 
         public NodeReaction(TName number, TLoadcase loadcase, TTimeStep timeStep, double fx, double fy, double fz, double mx, double my, double mz) : this()
         {
@@ -57,76 +37,17 @@ namespace BHoM.Structural.Results
             MZ = mz;
         }
 
-        public double FX
-        {
-            get
-            {
-                return (double)m_data[4];
-            }
-            set
-            {
-                m_data[4] = value;
-            }
-        }
-
-        public double FY
-        {
-            get
-            {
-                return (double)m_data[5];
-            }
-            set
-            {
-                m_data[5] = value;
-            }
-        }
-
-        public double FZ
-        {
-            get
-            {
-                return (double)m_data[6];
-            }
-            set
-            {
-                m_data[6] = value;
-            }
-        }
-
-        public double MX
-        {
-            get
-            {
-                return (double)m_data[7];
-            }
-            set
-            {
-                m_data[7] = value;
-            }
-        }
-
-        public double MY
-        {
-            get
-            {
-                return (double)m_data[8];
-            }
-            set
-            {
-                m_data[8] = value;
-            }
-        }
-
-        public double MZ
-        {
-            get
-            {
-                return (double)m_data[9];
-            }
-            set
-            {
-                m_data[9] = value;
-            }
-        }
+        public double FX { get; set; }
+        
+        public double FY { get; set; }
+        
+        public double FZ { get; set; }
+        
+        public double MX { get; set; }
+        
+        public double MY { get; set; }
+        
+        public double MZ { get; set; }
+        
     }
 }

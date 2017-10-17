@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Loads
+namespace BH.oM.Structural.Loads
 {
     public enum CaseType
     {
@@ -13,6 +13,8 @@ namespace BHoM.Structural.Loads
         Combination,
         Envelope
     }
+
+    /***************************************************/
 
     public enum LoadNature
     {
@@ -27,6 +29,8 @@ namespace BHoM.Structural.Loads
         Prestress,
         Other
     }
+
+    /***************************************************/
 
     public enum LoadType
     {
@@ -45,5 +49,13 @@ namespace BHoM.Structural.Loads
         AreaTemperature,
         Pressure,
         Geometrical
+    }
+
+    /***************************************************/
+
+    public enum LoadAxis 
+    {
+        Global,
+        Local,
     }
 }

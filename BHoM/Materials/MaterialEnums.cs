@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Materials
+namespace BH.oM.Materials
 {
     public enum MaterialColumnData
     {
@@ -24,6 +24,8 @@ namespace BHoM.Materials
         StainAtUltimate
     }
 
+    /***************************************************/
+
     /// <summary>Steel grade</summary>
     public enum SteelGrade
     {
@@ -42,6 +44,9 @@ namespace BHoM.Materials
         /// <summary>Not known</summary>
         unknown
     }
+
+    /***************************************************/
+
     /// <summary>
     /// 
     /// </summary>
@@ -56,6 +61,8 @@ namespace BHoM.Materials
         Glass,
         Cable
     }
+
+    /***************************************************/
 
     /// <summary>
     /// Default materials
@@ -73,6 +80,8 @@ namespace BHoM.Materials
         /// <summary>Glass</summary>
         Glass
     }
+
+    /***************************************************/
 
     /// <summary>
     /// Material analytical model

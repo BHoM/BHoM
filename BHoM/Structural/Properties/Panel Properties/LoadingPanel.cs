@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {
     public enum LoadPanelSupportConditions
     {
@@ -18,10 +18,19 @@ namespace BHoM.Structural.Properties
 
     public class LoadingPanelProperty : PanelProperty
     {
-        public LoadingPanelProperty()
-        { }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public LoadPanelSupportConditions LoadApplication { get; set; }
+
         public int ReferenceEdge { get; set; } = 1;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public LoadingPanelProperty() { }
     }
 }

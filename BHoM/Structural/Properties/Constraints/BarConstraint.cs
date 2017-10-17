@@ -1,14 +1,18 @@
-﻿using BHoM.Base;
+﻿using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {
     public class BarConstraint : BHoMObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public DOFType UX { get; set; }
 
         public DOFType UY { get; set; }
@@ -24,23 +28,15 @@ namespace BHoM.Structural.Properties
         public double KZ { get; set; }
 
         public double HX { get; set; }
-        ///////////////////
-        ////Constructors///
-        ///////////////////
 
-        /// <summary>
-        /// Construct an empty constraint object
-        /// </summary>
-        internal BarConstraint()
-        { 
-        }
 
-        /// <summary>
-        /// Construct an empty constraint object with a name
-        /// </summary>
-        public BarConstraint(string name) : this()
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BarConstraint(string name = "") 
         {
-            this.Name = name;
+            Name = name;
         }
     }
 
