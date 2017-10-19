@@ -1,4 +1,5 @@
-﻿using BH.oM.Geometry;
+﻿using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics
 {
-    public class SVGDocument
+    public class SVGDocument : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
