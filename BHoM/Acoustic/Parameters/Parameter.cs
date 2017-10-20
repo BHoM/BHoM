@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public abstract class Result
+    public abstract class Parameter
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -15,7 +15,7 @@ namespace BH.oM.Acoustic
         /// <summary>
         /// Acoustic parameter objective of the analysis
         /// </summary>
-        protected virtual Parameter Parameter { get; set; } = Parameter.SPL;
+        protected virtual ParameterTypes Name { get; set; } = ParameterTypes.SPL;
 
         /// <summary>
         /// Result value as a double
@@ -30,13 +30,13 @@ namespace BH.oM.Acoustic
         /// <summary>
         /// Frequency address of the calculated value
         /// </summary>
-        protected virtual int Octaves { get; set; } = 0;
+        protected virtual Frequency Octave { get; set; } = Octaves.Hz1000;
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        protected Result() { }
+        protected Parameter() { }
     }
 }

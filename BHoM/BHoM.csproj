@@ -62,11 +62,14 @@
     <Compile Include="Acoustic\AcousticParameters.cs" />
     <Compile Include="Acoustic\AcousticRASTIParameters.cs" />
     <Compile Include="Acoustic\Panel.cs" />
+    <Compile Include="Acoustic\Parameters\Octaves.cs" />
     <Compile Include="Acoustic\Ray.cs" />
     <Compile Include="Acoustic\Receiver.cs" />
-    <Compile Include="Acoustic\Result.cs" />
+    <Compile Include="Acoustic\Parameters\Parameter.cs" />
+    <Compile Include="Acoustic\Parameters\ParameterTypes.cs" />
+    <Compile Include="Acoustic\Parameters\SPL.cs" />
     <Compile Include="Acoustic\Speaker.cs" />
-    <Compile Include="Acoustic\STIResult.cs" />
+    <Compile Include="Acoustic\Parameters\RASTI.cs" />
     <Compile Include="Acoustic\Room.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Base\CustomObject.cs" />

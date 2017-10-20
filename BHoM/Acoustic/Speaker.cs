@@ -40,20 +40,20 @@ namespace BH.oM.Acoustic
         /// <summary>
         /// Speaker gains used for STI calculations
         /// </summary>
-        public List<double> Gains { get; set; }     // value for each frequency
+        public Dictionary<Frequency, double> Gains { get; set; }     // value for each frequency
 
         /// <summary>
         /// Directivity pattern stored in a three-dimensional array.
         /// First dimension represents the frequency, the second longitudinal sections, the third latitudinal sections.
         /// </summary>
-        //private readonly double[] Directivity;   //public double[,,] Directivity { get; set; }  // [8,36, 19]
+        //public double[] Directivity { get; set; } = new double[8,36,19]
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Speaker(Point position, Vector direction = null, string category = "Omni", int speakerID = 0, List<double> gains = null)
+        public Speaker(Point position, Vector direction = null, string category = "Omni", int speakerID = 0, Dictionary<Frequency, double> gains = null)
         {
             Geometry = position;
             Direction = direction;
