@@ -512,8 +512,25 @@ namespace BHoM.Geometry
         {
             double dotProduct = DotProduct(v1, v2);
             double length = Length(v1) * Length(v2);
+            if (length == 0)
+                length += 0.0001;
 
-            return (Math.Abs(dotProduct) < length) ? Math.Acos(dotProduct / length) : (Math.Abs(dotProduct) < length + 0.0001) ? Math.PI : 0;
+            //NEW CODE STARTS HERE
+
+            double SCI;
+
+            if (Math.Abs(dotProduct) < length)
+                SCI = Math.Acos(dotProduct / length);
+            else if (dotProduct < 0)
+                SCI = Math.PI;
+            else
+                SCI = 0;
+
+            return SCI;
+
+            //Code above replaces this line 
+            //Reason: Last condition needs to check for polarity to determine PI or 0
+            //return (Math.Abs(dotProduct) < length) ? Math.Acos(dotProduct / length) : (Math.Abs(dotProduct) < length + 0.0001) ? Math.PI : 0;
         }
 
         public static double[] Normalise(double[] m_Coordinates)
