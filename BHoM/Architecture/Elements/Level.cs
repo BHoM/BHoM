@@ -1,35 +1,34 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
 using System;
+using System.Reflection;
+using BH.oM.Structural.Loads;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Structural.Elements
+namespace BH.oM.Architecture
 {
-    public class Grid : BHoMObject
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Level : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Plane Plane { get; set; }
-        public Line Line { get; set; }
+        public double Elevation { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Grid() { }
+        public Level(double elevation)
+        {
+            this.Elevation = elevation;
+        }
 
         /***************************************************/
-
-        public Grid(Plane plane, Line line)
-        {
-            Line = line;
-            Plane = plane;
-        }
 
     }
 }

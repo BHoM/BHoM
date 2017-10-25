@@ -9,28 +9,35 @@ using System.ComponentModel;
 namespace BH.oM.Architecture
 {
     /// <summary>
-    /// Building grids for setting out - curve (list of) based objects with name and text parameters
+    /// 
     /// </summary>
-    public class Grid : BHoMObject 
+    public class Grid : BHoMObject
     {
-        public Grid()
-        {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        }
-        /// <summary>
-        /// Construct grid by passing list of curves and name
-        /// </summary>
-        public Grid(List<ICurve> lines)
+        public List<ICurve> Curves { get; set; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Grid() { }
+
+        /***************************************************/
+
+        public Grid(ICurve curve)
         {
-            Lines = lines;
+            List<ICurve> curves = new List<Geometry.ICurve>();
+            curves.Add(curve);
+            this.Curves = curves;
         }
-        
-        /// <summary>
-        /// Grid curves
-        /// </summary>
-        public List<ICurve> Lines
+
+        public Grid(List<ICurve> curves)
         {
-            get;set;
-         }
+            this.Curves = curves;
+        }
+
     }
 }
