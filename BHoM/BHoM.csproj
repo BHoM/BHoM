@@ -68,6 +68,7 @@
     <Compile Include="Acoustic\Speaker.cs" />
     <Compile Include="Acoustic\STIResult.cs" />
     <Compile Include="Acoustic\Zone.cs" />
+    <Compile Include="Architecture\Elements\Level.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IObjectList.cs" />
@@ -111,10 +112,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Structural\Design\DesignGroup.cs" />
     <Compile Include="Structural\Design\DesignElement.cs" />
     <Compile Include="Structural\Design\IDesignable.cs" />
     <Compile Include="Structural\Design\Span.cs" />
     <Compile Include="Structural\Design\SpanDirection.cs" />
+    <Compile Include="Structural\Elements\Column.cs" />
+    <Compile Include="Structural\Elements\Beam.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
     <Compile Include="Planning\Construction\ConstructionPhase.cs" />
