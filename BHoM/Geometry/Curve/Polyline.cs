@@ -81,15 +81,19 @@ namespace BHoM.Geometry
 
         public override Point ClosestPoint(Point point)
         {
+
             List<Point> points = ControlPoints;
 
             double minDist = 1e10;
             Point closest = (points.Count() > 0) ? points[0] : new Point(Double.PositiveInfinity, Double.PositiveInfinity, Double.PositiveInfinity);
             for (int i = 1; i < points.Count(); i++)
             {
-                Vector dir = (points[i] - points[i-1]) / Length;
-                double t = Math.Min(Math.Max(dir * (point - points[i - 1]), 0), Length);
-                Point cp = StartPoint + t * dir;
+                Vector dir = (points[i] - points[i-1]);
+                Vector unit_dir = dir / dir.Length;
+                // checking against length of segment and not total polyline
+                double t = Math.Min(Math.Max(unit_dir * (point - points[i - 1]), 0), dir.Length);
+                // changed from startpoint of polyline to controlpoint at beginning of segment
+                Point cp = points[i - 1] + t * unit_dir;
 
                 double dist = cp.DistanceTo(point);
                 if (dist < minDist)
