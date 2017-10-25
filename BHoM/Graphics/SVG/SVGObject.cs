@@ -14,9 +14,9 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public IBHoMGeometry Geometry { get; set; } = default(IBHoMGeometry);
+        public IBHoMGeometry Geometry { get; set; } = null;
 
-        public string Style { get; set; } = "";
+        public SVGStyle Style { get; set; } = new SVGStyle();
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -26,7 +26,7 @@ namespace BH.oM.Graphics
 
         /***************************************************/
 
-        public SVGObject(IBHoMGeometry geometry, string style)
+        public SVGObject(IBHoMGeometry geometry, SVGStyle style)
         {
             Geometry = geometry;
             Style = style;
