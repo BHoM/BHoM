@@ -128,7 +128,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Structural\Elements\Grid.cs" />
     <Compile Include="Structural\Elements\Opening.cs" />
     <Compile Include="Structural\Elements\Contour.cs" />
     <Compile Include="Materials\Material.cs" />
