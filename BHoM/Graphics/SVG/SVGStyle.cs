@@ -13,8 +13,6 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Style { get; set; } = "";
-
         /// <summary>
         /// stroke-width
         /// </summary>
@@ -43,7 +41,7 @@ namespace BH.oM.Graphics
         /// <summary>
         /// stroke-dasharray
         /// </summary>
-        public double StrokeDash { get; set; } = 0; 
+        public List<double> StrokeDash { get; set; } = new List<double>() {0}; 
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -53,9 +51,14 @@ namespace BH.oM.Graphics
 
         /***************************************************/
 
-        public SVGStyle(string style)
+        public SVGStyle(double strokeWidth = 0, string strokeColor = "", string fillColor = "", double strokeOpacity = 1, double fillOpacity = 0, List<double> strokeDash = null)
         {
-            Style = style;
+            StrokeWidth = strokeWidth;
+            StrokeColor = strokeColor;
+            FillColor = fillColor;
+            StrokeOpacity = strokeOpacity;
+            FillOpacity = fillOpacity;
+            StrokeDash = strokeDash;
         }
     }
 }
