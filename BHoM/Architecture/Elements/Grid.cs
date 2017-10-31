@@ -13,7 +13,7 @@ namespace BH.oM.Architecture
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ICurve> Curves { get; set; }
+        public List<ICurve> Curves { get; set; } = new List<ICurve>();
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -25,9 +25,7 @@ namespace BH.oM.Architecture
 
         public Grid(ICurve curve)
         {
-            List<ICurve> curves = new List<Geometry.ICurve>();
-            curves.Add(curve);
-            this.Curves = curves;
+            Curves.Add(curve);
         }
 
         public Grid(List<ICurve> curves)

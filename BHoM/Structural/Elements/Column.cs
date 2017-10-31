@@ -15,13 +15,13 @@ namespace BH.oM.Structural.Elements
 
         public List<Bar> AnalyticBars { get; set; } = new List<Bar>();
 
-        public ICurve LocationCurve { get; set; }
+        public ICurve LocationCurve { get; set; } = null;
 
         
 
         public Properties.SectionProperty SectionProperty { get; set; } = null;
 
-        public BarStructuralUsage StructuralUsage { get; set; }
+        public BarStructuralUsage StructuralUsage { get; set; } = BarStructuralUsage.Beam;
 
         /// <summary>
         /// Bar orientation angle in radians. For non-vertical bars, angle is measured in the bar YZ plane
@@ -29,7 +29,7 @@ namespace BH.oM.Structural.Elements
         /// nodes. For vertical bars, angle is measured between the bar Y axis and global Y axis. A bar is 
         /// vertical if the distance between end points projected to a horizontal plane is less than 0.0001
         /// </summary>
-        public double OrientationAngle { get; set; } = 0;
+        public double OrientationAngle { get; set; } = 0.0;
 
 
         /***************************************************/
