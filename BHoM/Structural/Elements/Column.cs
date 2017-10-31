@@ -21,7 +21,7 @@ namespace BH.oM.Structural.Elements
 
         public Properties.SectionProperty SectionProperty { get; set; } = null;
 
-        public BarStructuralUsage StructuralUsage { get; set; } = BarStructuralUsage.Beam;
+        public BarStructuralUsage StructuralUsage { get; set; } = BarStructuralUsage.Column;
 
         /// <summary>
         /// Bar orientation angle in radians. For non-vertical bars, angle is measured in the bar YZ plane
