@@ -11,7 +11,7 @@ namespace BH.oM.Architecture
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Elevation { get; set; }
+        public double Elevation { get; set; } = 0.0;
 
         /***************************************************/
         /**** Constructors                              ****/
