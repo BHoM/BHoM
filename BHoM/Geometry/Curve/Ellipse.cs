@@ -13,7 +13,11 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        public Plane Plane { get; set; } = Plane.XY;
+        public Point Centre { get; set; } = new Point();
+
+        public Vector Vector1 { get; set; } = new Vector();
+
+        public Vector Vector2 { get; set; } = new Vector();
 
         public double Radius1 { get; set; } = 0;
 
@@ -27,9 +31,11 @@ namespace BH.oM.Geometry
 
         /***************************************************/
 
-        public Ellipse(Plane plane, double radius1 = 0, double radius2 = 0)
+        public Ellipse(Point centre, Vector vector1 = null, Vector vector2 = null, double radius1 = 0, double radius2 = 0)
         {
-            Plane = plane;
+            Centre = centre;
+            Vector1 = vector1;
+            Vector2 = vector2;
             Radius1 = radius1;
             Radius2 = radius2;
         }
