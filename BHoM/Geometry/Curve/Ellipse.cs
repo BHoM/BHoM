@@ -15,9 +15,9 @@ namespace BH.oM.Geometry
 
         public Point Centre { get; set; } = new Point();
 
-        public Vector Vector1 { get; set; } = new Vector();
+        public Vector Axis1 { get; set; } = new Vector();
 
-        public Vector Vector2 { get; set; } = new Vector();
+        public Vector Axis2 { get; set; } = new Vector();
 
         public double Radius1 { get; set; } = 0;
 
@@ -31,11 +31,11 @@ namespace BH.oM.Geometry
 
         /***************************************************/
 
-        public Ellipse(Point centre, Vector vector1 = null, Vector vector2 = null, double radius1 = 0, double radius2 = 0)
+        public Ellipse(Point centre, Vector axis1, Vector axis2, double radius1, double radius2)
         {
             Centre = centre;
-            Vector1 = vector1;
-            Vector2 = vector2;
+            Axis1 = axis1;
+            Axis2 = axis2;
             Radius1 = radius1;
             Radius2 = radius2;
         }
