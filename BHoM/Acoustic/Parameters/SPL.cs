@@ -15,22 +15,27 @@ namespace BH.oM.Acoustic
         /// <summary>
         /// Sound Pressure level
         /// </summary>
-        protected override ParameterTypes Name { get; set; } = ParameterTypes.SPL;
+        public override ParameterTypes Name { get; set; } = ParameterTypes.SPL;
 
         /// <summary>
         /// Sound Level result value in dB
         /// </summary>
-        protected override double Value { get; set; } = 0;
+        public override double Value { get; set; } = 0;
 
         /// <summary>
         /// Receiver at SPL calculation
         /// </summary>
-        protected override int ReceiverID { get; set; } = 0;
+        public override int ReceiverID { get; set; } = 0;
+
+        /// <summary>
+        /// Speaker origin of SPL calculation
+        /// </summary>
+        public override int SpeakerID { get; set; } = 0;
 
         /// <summary>
         /// Frequency of the analysed value
         /// </summary>
-        protected override Frequency Octave { get; set; } = Octaves.Hz1000;
+        public override Frequency Octave { get; set; } = Octaves.Hz1000;
 
 
         /***************************************************/
@@ -41,10 +46,11 @@ namespace BH.oM.Acoustic
 
         /***************************************************/
 
-        public SPL(double value, int receiverID, Frequency octave)
+        public SPL(double value, int receiverID, int speakerID, Frequency octave)
         {
             Value = value;
             ReceiverID = receiverID;
+            SpeakerID = speakerID;
             Octave = octave;
         }
     }

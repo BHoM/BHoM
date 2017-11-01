@@ -16,6 +16,7 @@ namespace BH.oM.Acoustic
         C80     = 5,
         C50     = 6,
         D80     = 7,
-        D50     = 8
+        D50     = 8,
+        SN      = 9,
     }
 }

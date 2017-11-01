@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public class RASTI : Parameter
+    public class SNRatio : Parameter
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -15,7 +15,7 @@ namespace BH.oM.Acoustic
         /// <summary>
         /// Rapid Speech Transmission Index
         /// </summary>
-        public override ParameterTypes Name { get; set; } = ParameterTypes.RASTI;
+        public override ParameterTypes Name { get; set; } = ParameterTypes.SN;
 
         /// <summary>
         /// STI result between 0 and 1
@@ -37,11 +37,11 @@ namespace BH.oM.Acoustic
         /**** Constructors                              ****/
         /***************************************************/
 
-        public RASTI() { }
+        public SNRatio() { }
 
         /***************************************************/
 
-        public RASTI(double value, int receiverID, int speakerID, Frequency octave)
+        public SNRatio(double value, int receiverID, int speakerID, Frequency octave)
         {
             Value = value;
             ReceiverID = receiverID;

@@ -63,6 +63,7 @@
     <Compile Include="Acoustic\AcousticRASTIParameters.cs" />
     <Compile Include="Acoustic\Panel.cs" />
     <Compile Include="Acoustic\Parameters\Octaves.cs" />
+    <Compile Include="Acoustic\Parameters\SNRatio.cs" />
     <Compile Include="Acoustic\Ray.cs" />
     <Compile Include="Acoustic\Receiver.cs" />
     <Compile Include="Acoustic\Parameters\Parameter.cs" />
