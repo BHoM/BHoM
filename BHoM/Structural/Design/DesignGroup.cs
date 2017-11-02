@@ -1,35 +1,30 @@
-﻿using BH.oM.Geometry;
+﻿using System.Collections.Generic;
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Structural.Elements
+namespace BH.oM.Structural.Design
 {
-    public class Grid : BHoMObject
+    public class DesignGroup : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Plane Plane { get; set; }
-        public Line Line { get; set; }
+        public int Number { get; set; } = 0;
+
+        public string MaterialName { get; set; } = "";
+
+        public List<int> MemberIds { get; set; } = new List<int>();
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Grid() { }
+        public DesignGroup() { }
 
         /***************************************************/
-
-        public Grid(Plane plane, Line line)
-        {
-            Line = line;
-            Plane = plane;
-        }
-
     }
 }
+
+
+
+     
