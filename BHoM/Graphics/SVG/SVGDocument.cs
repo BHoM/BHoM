@@ -18,6 +18,7 @@ namespace BH.oM.Graphics
 
         public BoundingBox Canvas { get; set; } = new BoundingBox();
 
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/

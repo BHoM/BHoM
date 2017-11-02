@@ -18,6 +18,7 @@ namespace BH.oM.Graphics
 
         public SVGStyle Style { get; set; } = new SVGStyle();
         
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/

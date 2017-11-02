@@ -43,6 +43,7 @@ namespace BH.oM.Graphics
         /// </summary>
         public List<double> StrokeDash { get; set; } = new List<double>() {0}; 
 
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
