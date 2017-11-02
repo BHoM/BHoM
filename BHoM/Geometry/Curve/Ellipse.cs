@@ -15,11 +15,13 @@ namespace BH.oM.Geometry
 
         public Point Centre { get; set; } = new Point();
 
-        public Vector Normal { get; set; } = new Vector(0, 0, 1);
+        public Vector Axis1 { get; set; } = new Vector();
 
-        public double XRadius { get; set; } = 0;
+        public Vector Axis2 { get; set; } = new Vector();
 
-        public double YRadius { get; set; } = 0;
+        public double Radius1 { get; set; } = 0;
+
+        public double Radius2 { get; set; } = 0;
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -29,21 +31,13 @@ namespace BH.oM.Geometry
 
         /***************************************************/
 
-        public Ellipse(Point centre, double xRadius = 0, double yRadius = 0)
+        public Ellipse(Point centre, Vector axis1, Vector axis2, double radius1, double radius2)
         {
             Centre = centre;
-            XRadius = xRadius;
-            YRadius = yRadius;
-        }
-
-        /***************************************************/
-
-        public Ellipse(Point centre, Vector normal, double xRadius = 0, double yRadius = 0)
-        {
-            Centre = centre;
-            Normal = normal;
-            XRadius = xRadius;
-            YRadius = yRadius;
+            Axis1 = axis1;
+            Axis2 = axis2;
+            Radius1 = radius1;
+            Radius2 = radius2;
         }
     }
 }

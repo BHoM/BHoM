@@ -21,12 +21,12 @@ namespace BH.oM.Graphics
         /// <summary>
         /// stroke
         /// </summary>
-        public string StrokeColor { get; set; } = "";
+        public string StrokeColor { get; set; } = "black";
 
         /// <summary>
         /// fill
         /// </summary>
-        public string FillColor { get; set; } = "";
+        public string FillColor { get; set; } = "none";
 
         /// <summary>
         /// stroke-opacity
@@ -36,7 +36,7 @@ namespace BH.oM.Graphics
         /// <summary>
         /// fill-opacity
         /// </summary>
-        public double FillOpacity { get; set; } = 0;
+        public double FillOpacity { get; set; } = 1;
 
         /// <summary>
         /// stroke-dasharray
@@ -51,7 +51,7 @@ namespace BH.oM.Graphics
 
         /***************************************************/
 
-        public SVGStyle(double strokeWidth = 0, string strokeColor = "", string fillColor = "", double strokeOpacity = 1, double fillOpacity = 0, List<double> strokeDash = null)
+        public SVGStyle(double strokeWidth, string strokeColor, string fillColor, double strokeOpacity, double fillOpacity, List<double> strokeDash)
         {
             StrokeWidth = strokeWidth;
             StrokeColor = strokeColor;
