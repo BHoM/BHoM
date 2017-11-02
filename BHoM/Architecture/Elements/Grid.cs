@@ -2,7 +2,7 @@
 using BH.oM.Base;
 using System.Collections.Generic;
 
-namespace BH.oM.Architecture
+namespace BH.oM.Architecture.Elements
 {
     /// <summary>
     /// 
