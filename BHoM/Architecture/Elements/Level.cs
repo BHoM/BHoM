@@ -1,6 +1,6 @@
 ﻿using BH.oM.Base;
 
-namespace BH.oM.Architecture
+namespace BH.oM.Architecture.Elements
 {
     /// <summary>
     /// 
