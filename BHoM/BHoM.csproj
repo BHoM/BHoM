@@ -105,6 +105,9 @@
     <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Opening.cs" />
     <Compile Include="Environmental\Elements\Space.cs" />
+    <Compile Include="Graphics\SVG\SVGDocument.cs" />
+    <Compile Include="Graphics\SVG\SVGObject.cs" />
+    <Compile Include="Graphics\SVG\SVGStyle.cs" />
     <Compile Include="Humans\BodyParts.cs" />
     <Compile Include="Humans\Skeleton.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
