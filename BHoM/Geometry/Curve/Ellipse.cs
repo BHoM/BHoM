@@ -23,14 +23,14 @@ namespace BH.oM.Geometry
         public double Radius1 { get; set; } = 0;
 
         public double Radius2 { get; set; } = 0;
-        
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
         public Ellipse() { }
-        
+
         /***************************************************/
 
         public Ellipse(Point centre, double radius1, double radius2)
