@@ -1,37 +1,28 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Base;
-using System.Collections.Generic;
+﻿using BH.oM.Base;
 
 namespace BH.oM.Architecture.Elements
 {
     /// <summary>
     /// 
     /// </summary>
-    public class Grid : BHoMObject
+    public class Level : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ICurve> Curves { get; set; } = new List<ICurve>();
+        public double Elevation { get; set; } = 0.0;
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Grid() { }
+        public Level(double elevation)
+        {
+            this.Elevation = elevation;
+        }
 
         /***************************************************/
-
-        public Grid(ICurve curve)
-        {
-            Curves.Add(curve);
-        }
-
-        public Grid(List<ICurve> curves)
-        {
-            this.Curves = curves;
-        }
 
     }
 }

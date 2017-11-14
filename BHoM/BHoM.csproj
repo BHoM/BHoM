@@ -75,6 +75,7 @@
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IObjectList.cs" />
+    <Compile Include="Geometry\Curve\Ellipse.cs" />
     <Compile Include="Geometry\Curve\ICurve.cs" />
     <Compile Include="Geometry\Misc\Location.cs" />
     <Compile Include="Geometry\Misc\BoundingBox.cs" />
@@ -107,6 +108,9 @@
     <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Opening.cs" />
     <Compile Include="Environmental\Elements\Space.cs" />
+    <Compile Include="Graphics\SVG\SVGDocument.cs" />
+    <Compile Include="Graphics\SVG\SVGObject.cs" />
+    <Compile Include="Graphics\SVG\SVGStyle.cs" />
     <Compile Include="Humans\BodyParts.cs" />
     <Compile Include="Humans\Skeleton.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -114,10 +118,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Structural\Design\DesignGroup.cs" />
     <Compile Include="Structural\Design\DesignElement.cs" />
     <Compile Include="Structural\Design\IDesignable.cs" />
     <Compile Include="Structural\Design\Span.cs" />
     <Compile Include="Structural\Design\SpanDirection.cs" />
+    <Compile Include="Structural\Elements\Column.cs" />
+    <Compile Include="Structural\Elements\Beam.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
     <Compile Include="Planning\Construction\ConstructionPhase.cs" />
@@ -127,7 +134,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Structural\Elements\Grid.cs" />
     <Compile Include="Structural\Elements\Opening.cs" />
     <Compile Include="Structural\Elements\Contour.cs" />
     <Compile Include="Materials\Material.cs" />

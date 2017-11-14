@@ -1,37 +1,36 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Base;
+﻿using System;
+using BH.oM.Geometry;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Base;
 
-namespace BH.oM.Architecture.Elements
+namespace BH.oM.Graphics
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class Grid : BHoMObject
+    public class SVGObject : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ICurve> Curves { get; set; } = new List<ICurve>();
+        public List<IBHoMGeometry> Geometry { get; set; } = null;
+
+        public SVGStyle Style { get; set; } = new SVGStyle();
+        
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Grid() { }
+        public SVGObject() { }
 
         /***************************************************/
 
-        public Grid(ICurve curve)
+        public SVGObject(List<IBHoMGeometry> geometry, SVGStyle style = null)
         {
-            Curves.Add(curve);
+            Geometry = geometry;
+            Style = style;
         }
-
-        public Grid(List<ICurve> curves)
-        {
-            this.Curves = curves;
-        }
-
     }
 }
