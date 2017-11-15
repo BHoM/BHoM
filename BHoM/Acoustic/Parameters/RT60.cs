@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public class SNRatio : IAcousticParameter
+    public class RT60 : IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ParameterType Parameter { get; } = ParameterType.SNRATIO;
+        public ParameterType Parameter { get; } = ParameterType.RT60;
 
         public double Value { get; set; } = 0.0;
 
@@ -22,16 +22,18 @@ namespace BH.oM.Acoustic
 
         public Frequency Frequency { get; set; }
 
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public SNRatio() { }
+        public RT60() { }
 
         /***************************************************/
 
-        public SNRatio(double value, int receiverID, int speakerID)
+        public RT60(double value, int receiverID, int speakerID)
         {
+            Parameter = ParameterType.RT60;
             Value = value;
             ReceiverID = receiverID;
             SpeakerID = speakerID;

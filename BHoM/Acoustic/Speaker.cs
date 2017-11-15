@@ -40,20 +40,22 @@ namespace BH.oM.Acoustic
         /// <summary>
         /// Speaker gains used for STI calculations
         /// </summary>
-        public Dictionary<Frequency, double> Gains { get; set; }     // value for each frequency
+        public Dictionary<Frequency, double> Gains { get; set; }
 
         /// <summary>
         /// Directivity pattern stored in a three-dimensional array.
         /// First dimension represents the frequency, the second longitudinal sections, the third latitudinal sections.
         /// </summary>
-        //public double[] Directivity { get; set; } = new double[8,36,19]
+        // TODO - Acoustic - Speaker : Commented out since struct will require an instance of this field
+        //public Dictionary<Frequency, double[]> Directivity { get; set; }
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Speaker(Point position, Vector direction = null, string category = "Omni", int speakerID = 0, Dictionary<Frequency, double> gains = null)
+        public Speaker(Point position, Vector direction = null, string category = "Omni",
+                       int speakerID = 0, Dictionary<Frequency, double> gains = null)
         {
             Geometry = position;
             Direction = direction;

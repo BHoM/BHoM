@@ -6,36 +6,21 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public class SPL : Parameter
+    public class SPL : IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        /// <summary>
-        /// Sound Pressure level
-        /// </summary>
-        public override ParameterTypes Name { get; set; } = ParameterTypes.SPL;
+        public ParameterType Parameter { get; set; } = ParameterType.SPL;
 
-        /// <summary>
-        /// Sound Level result value in dB
-        /// </summary>
-        public override double Value { get; set; } = 0;
+        public double Value { get; set; } = 0.0;
 
-        /// <summary>
-        /// Receiver at SPL calculation
-        /// </summary>
-        public override int ReceiverID { get; set; } = 0;
+        public int ReceiverID { get; set; } = 0;
 
-        /// <summary>
-        /// Speaker origin of SPL calculation
-        /// </summary>
-        public override int SpeakerID { get; set; } = 0;
+        public int SpeakerID { get; set; } = -1;
 
-        /// <summary>
-        /// Frequency of the analysed value
-        /// </summary>
-        public override Frequency Octave { get; set; } = Octaves.Hz1000;
+        public Frequency Frequency { get; set; }
 
 
         /***************************************************/
@@ -46,12 +31,25 @@ namespace BH.oM.Acoustic
 
         /***************************************************/
 
-        public SPL(double value, int receiverID, int speakerID, Frequency octave)
+        public SPL(double value, int receiverID, int speakerID, Frequency frequency)
         {
             Value = value;
             ReceiverID = receiverID;
             SpeakerID = speakerID;
-            Octave = octave;
+            Frequency = frequency;
         }
+
+        /***************************************************/
+        /**** Static Operators Override                 ****/
+        /***************************************************/
+
+        public static SPL operator +(SPL a, SPL b)
+        {
+            return new SPL((10 * Math.Log10(Math.Pow(10, a.Value / 10))) + (10 * Math.Log10(Math.Pow(10, b.Value / 10))),
+                            a.ReceiverID,
+                            -1,
+                            a.Frequency);
+        }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public enum ParameterTypes
+    public enum ParameterType
     {
         SPL     = 0,
         STI     = 1,
@@ -17,6 +17,6 @@ namespace BH.oM.Acoustic
         C50     = 6,
         D80     = 7,
         D50     = 8,
-        SN      = 9,
+        SNRATIO = 9,
     }
 }

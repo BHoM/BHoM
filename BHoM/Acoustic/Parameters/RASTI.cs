@@ -6,31 +6,21 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public class RASTI : Parameter
+    public class RASTI : IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        /// <summary>
-        /// Rapid Speech Transmission Index
-        /// </summary>
-        public override ParameterTypes Name { get; set; } = ParameterTypes.RASTI;
+        public ParameterType Parameter { get; } = ParameterType.RASTI;
 
-        /// <summary>
-        /// STI result between 0 and 1
-        /// </summary>
-        public override double Value { get; set; } = 0;
+        public double Value { get; set; } = 0.0;
 
-        /// <summary>
-        /// Receiver at STI calculation
-        /// </summary>
-        public override int ReceiverID { get; set; } = 0;
+        public int ReceiverID { get; set; } = 0;
 
-        /// <summary>
-        /// Frequency of the analysed value
-        /// </summary>
-        public override Frequency Octave { get; set; } = Octaves.Sum;
+        public int SpeakerID { get; set; } = 0;
+
+        public Frequency Frequency { get; set; }
 
 
         /***************************************************/
@@ -41,12 +31,12 @@ namespace BH.oM.Acoustic
 
         /***************************************************/
 
-        public RASTI(double value, int receiverID, int speakerID, Frequency octave)
+        public RASTI(double value, int receiverID, int speakerID)
         {
+            Parameter = ParameterType.RASTI;
             Value = value;
             ReceiverID = receiverID;
             SpeakerID = speakerID;
-            Octave = octave;
         }
     }
 }
