@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public class RASTI : IAcousticParameter
+    public class Rasti : IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -18,7 +18,7 @@ namespace BH.oM.Acoustic
 
         public int ReceiverID { get; set; } = 0;
 
-        public int SpeakerID { get; set; } = 0;
+        public int SpeakerID { get; set; } = -1;
 
         public Frequency Frequency { get; set; }
 
@@ -27,16 +27,15 @@ namespace BH.oM.Acoustic
         /**** Constructors                              ****/
         /***************************************************/
 
-        public RASTI() { }
+        public Rasti() { }
 
         /***************************************************/
 
-        public RASTI(double value, int receiverID, int speakerID)
+        public Rasti(double value, int receiverID)
         {
             Parameter = ParameterType.RASTI;
             Value = value;
             ReceiverID = receiverID;
-            SpeakerID = speakerID;
         }
     }
 }

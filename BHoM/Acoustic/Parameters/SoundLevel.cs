@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public class SPL : IAcousticParameter
+    public class SoundLevel : IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -27,11 +27,11 @@ namespace BH.oM.Acoustic
         /**** Constructors                              ****/
         /***************************************************/
 
-        public SPL() { }
+        public SoundLevel() { }
 
         /***************************************************/
 
-        public SPL(double value, int receiverID, int speakerID, Frequency frequency)
+        public SoundLevel(double value, int receiverID, int speakerID, Frequency frequency)
         {
             Value = value;
             ReceiverID = receiverID;
@@ -39,17 +39,23 @@ namespace BH.oM.Acoustic
             Frequency = frequency;
         }
 
+
         /***************************************************/
         /**** Static Operators Override                 ****/
         /***************************************************/
 
-        public static SPL operator +(SPL a, SPL b)
+        public static SoundLevel operator +(SoundLevel a, SoundLevel b)
         {
-            return new SPL((10 * Math.Log10(Math.Pow(10, a.Value / 10))) + (10 * Math.Log10(Math.Pow(10, b.Value / 10))),
-                            a.ReceiverID,
-                            -1,
-                            a.Frequency);
+            return new SoundLevel((10 * Math.Log10(Math.Pow(10, a.Value / 10))) + (10 * Math.Log10(Math.Pow(10, b.Value / 10))),
+                            a.ReceiverID, -1, a.Frequency);
         }
+        
+        /***************************************************/
 
+        public static SoundLevel operator -(SoundLevel a, SoundLevel b)
+        {
+            return new SoundLevel((10 * Math.Log10(Math.Pow(10, a.Value / 10))) - (10 * Math.Log10(Math.Pow(10, b.Value / 10))),
+                            a.ReceiverID, -1, a.Frequency);
+        }
     }
 }
