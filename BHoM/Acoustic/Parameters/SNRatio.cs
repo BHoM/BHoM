@@ -31,11 +31,12 @@ namespace BH.oM.Acoustic
 
         /***************************************************/
 
-        public SNRatio(double value, int receiverID, int speakerID)
+        public SNRatio(double value, int receiverID, int speakerID, Frequency frequency)
         {
             Value = value;
             ReceiverID = receiverID;
             SpeakerID = speakerID;
+            Frequency = frequency;
         }
     }
 }
