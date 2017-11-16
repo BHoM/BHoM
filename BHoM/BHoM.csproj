@@ -62,7 +62,7 @@
     <Compile Include="Acoustic\Panel.cs" />
     <Compile Include="Acoustic\Parameters\Constants.cs" />
     <Compile Include="Acoustic\Parameters\Frequency.cs" />
-    <Compile Include="Acoustic\Parameters\RTT60.cs" />
+    <Compile Include="Acoustic\Parameters\RT60.cs" />
     <Compile Include="Acoustic\Parameters\SNRatio.cs" />
     <Compile Include="Acoustic\Ray.cs" />
     <Compile Include="Acoustic\Receiver.cs" />
