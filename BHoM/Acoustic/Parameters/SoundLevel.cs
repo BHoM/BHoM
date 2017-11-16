@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BH.oM.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public class SoundLevel : IAcousticParameter
+    public class SoundLevel : BHoMObject, IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -18,9 +19,9 @@ namespace BH.oM.Acoustic
 
         public int ReceiverID { get; set; } = 0;
 
-        public int SpeakerID { get; set; } = -1;
+        public int SpeakerID { get; set; } = -1;    // -1 represents Sum of all sources
 
-        public Frequency Frequency { get; set; }
+        public Frequency Frequency { get; set; } = Frequency.Hz1000;
 
 
         /***************************************************/

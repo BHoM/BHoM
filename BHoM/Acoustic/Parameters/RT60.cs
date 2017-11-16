@@ -18,9 +18,9 @@ namespace BH.oM.Acoustic
 
         public int ReceiverID { get; set; } = 0;
 
-        public int SpeakerID { get; set; } = -1;
+        public int SpeakerID { get; set; } = 0;
 
-        public Frequency Frequency { get; set; }
+        public Frequency Frequency { get; set; } = Frequency.Hz1000;
 
 
         /***************************************************/

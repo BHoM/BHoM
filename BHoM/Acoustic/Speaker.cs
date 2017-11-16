@@ -8,50 +8,31 @@ using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
-    /// <summary>
-    /// BHoM Acoustic Speaker
-    /// </summary>
-    public struct Speaker
+    public class Speaker : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        /// <summary>
-        /// Spatial position of the speaker
-        /// </summary>
-        public Point Geometry { get; set; }
+        public Point Geometry { get; set; } = new Point();
 
-        /// <summary>
-        /// Main emissive direction. The arrow of the vector represents the front of the source
-        /// </summary>
-        public Vector Direction { get; set; }
+        public Vector Direction { get; set; } = new Vector();
 
-        /// <summary>
-        /// Directivity pattern category of the speaker. Format to be agreed, whereas CATT .sd1 proposed
-        /// </summary>
-        public string Category { get; set; }
+        public string Category { get; set; } = "Omni";
 
-        /// <summary>
-        /// Speaker identifier, this is unique for each model
-        /// </summary>
-        public int SpeakerID { get; set; }
+        public int SpeakerID { get; set; } = -1;
 
-        /// <summary>
-        /// Speaker gains used for STI calculations
-        /// </summary>
-        public Dictionary<Frequency, double> Gains { get; set; }
+        public Dictionary<Frequency, double> Gains { get; set; } = new Dictionary<Frequency, double>();
 
-        /// <summary>
-        /// Directivity pattern stored in a three-dimensional array.
-        /// First dimension represents the frequency, the second longitudinal sections, the third latitudinal sections.
-        /// </summary>
-        // TODO - Acoustic - Speaker : Commented out since struct will require an instance of this field
-        //public Dictionary<Frequency, double[]> Directivity { get; set; }
+        public Dictionary<Frequency, double[,]> Directivity { get; set; } = new Dictionary<Frequency, double[,]>();
 
 
         /***************************************************/
         /**** Constructors                              ****/
+        /***************************************************/
+
+        public Speaker() { }
+
         /***************************************************/
 
         public Speaker(Point position, Vector direction = null, string category = "Omni",

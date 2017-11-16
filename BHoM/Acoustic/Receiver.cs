@@ -8,36 +8,35 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Acoustic
 {
-    /// <summary>
-    /// BHoM Acoustic Receiver
-    /// </summary>
-    public struct Receiver
+    public class Receiver : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        /// <summary>
-        /// Spatial position of the receiver
-        /// </summary>
-        public Point Geometry { get; set; }
+        public Point Geometry { get; set; } = new Point();
 
-        /// <summary>
-        /// Directivity pattern category of the receiver. Default is set to omnidirectional. Format to be agreed
-        /// </summary>
-        public string Category { get; set; }
+        public string Category { get; set; } = "Omni";
 
-        /// <summary>
-        /// Receiver identifier, this is unique for each model
-        /// </summary>
-        public int ReceiverID { get; set; }
+        public int ReceiverID { get; set; } = 0;
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Receiver(Point position, string category = "Omni", int receiverID = 0)
+        public Receiver() { }
+
+        /***************************************************/
+
+        public Receiver(Point position)
+        {
+            Geometry = position;
+        }
+
+        /***************************************************/
+
+        public Receiver(Point position, string category, int receiverID)
         {
             Geometry = position;
             Category = category;

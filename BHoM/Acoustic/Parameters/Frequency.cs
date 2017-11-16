@@ -19,6 +19,4 @@ namespace BH.oM.Acoustic
         Hz16000 = 16000,
         Sum     = 0,
     }
-    
-
 }

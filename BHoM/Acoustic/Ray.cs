@@ -8,49 +8,35 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Acoustic
 {
-    /// <summary>
-    /// BH.oM Acoustic Ray
-    /// </summary>
-    public struct Ray : IObject
+    public class Ray : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Polyline Geometry;
+        public Polyline Geometry { get; set; } = new Polyline();
 
-        public int SpeakerID;
+        public int SpeakerID { get; set; } = -1;
 
-        public int ReceiverID;
+        public int ReceiverID { get; set; } = 0;
 
-        public List<int> PanelsID;
-
-        /***************************************************/
-
-        public Guid BHoM_Guid { get; set; }
-
-        public string Name { get; set; }
-
-        public HashSet<string> Tags { get; set; }
-
-        public Dictionary<string, object> CustomData { get; set; }
+        public List<int> PanelsID { get; set; } = new List<int>();
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Ray(Polyline path, int source, int target, List<int> bouncingPattern = null, Dictionary<string, object> customData = null)
+        public Ray() { }
+
+        /***************************************************/
+
+        public Ray(Polyline path, int source, int target, List<int> bouncingPattern = null)
         {
             Geometry = path;
             SpeakerID = source;
             ReceiverID = target;
             PanelsID = bouncingPattern;
-            CustomData = customData;
-
-            BHoM_Guid = Guid.NewGuid();
-            Name = "";
-            Tags = new HashSet<string>();
         }
     }
 }

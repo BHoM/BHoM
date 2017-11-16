@@ -8,31 +8,36 @@ using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
-    /// <summary>
-    /// BH.oM Acoustic Panel as Mesh. Please make sure you mesh is exploded into individual quadrangular or triangular mesh faces.
-    /// </summary>
-    public struct Panel
+    public class Panel : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        /// <summary>
-        /// Mesh geometry of the panel
-        /// </summary>
-        public Mesh Geometry { get; set; }
+        public Mesh Geometry { get; set; } = new Mesh();
 
-        /// <summary>
-        /// List of absorbtion coefficients by frequency
-        /// </summary>
-        public List<double> R { get; set; }
-
-
+        public Dictionary<Frequency, double> R { get; set; } = new Dictionary<Frequency, double>
+        {
+            { Frequency.Hz63, 1 }, { Frequency.Hz125, 1 }, { Frequency.Hz250, 1 }, { Frequency.Hz500, 1 }, { Frequency.Hz1000, 1 },
+            { Frequency.Hz2000, 1 }, { Frequency.Hz4000, 1 }, { Frequency.Hz8000, 1 }, { Frequency.Hz16000, 1 },
+        };
+        
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Panel(Mesh mesh, List<double> r) // TODO Add check for planarity of panel
+        public Panel() { }
+
+        /***************************************************/
+
+        public Panel(Mesh mesh)
+        {
+            Geometry = mesh;
+        }
+
+        /***************************************************/
+
+        public Panel(Mesh mesh, Dictionary<Frequency, double> r)
         {
             Geometry = mesh;
             R = r;
