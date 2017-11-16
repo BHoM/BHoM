@@ -12,21 +12,33 @@ namespace BH.oM.Environmental.Elements
     /// Location objects.
     /// </summary>
     public class Location : BHoMObject
+
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Longitude { get; set; }
+        public double Latitude { get; set; } = 0.0;
+        public double Longitude { get; set; } = 0.0;
+        public double Elevation { get; set; } = 0.0;
+       
+                
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+        
+        public Location() { }
 
-        public double Latitude { get; set; }
+        /***************************************************/
 
-        public double Elevetion { get; set; }
-
-        public double AngleFromTrueNorth { get; set; }
-
-        public string Adress { get; set; }
-
+        public Location(string placename, double latitude, double longitude, double elevation)
+        {
+            Name = placename;
+            Latitude = latitude;
+            Longitude = longitude;
+            Elevation = elevation;
+        }
+             
     }
 
 }
