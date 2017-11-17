@@ -8,76 +8,41 @@ using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
-    /// <summary>
-    /// BHoM Acoustic Speaker
-    /// </summary>
-    public struct Speaker
+    public class Speaker : BHoMObject
     {
-        #region Fields
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        private readonly Point _Position;
-        private readonly Vector _Direction;
-        private readonly string _Category;
-        private readonly int _SpeakerID;
-        private List<double> _Gains;     // value for each frequency
-        //private readonly double[] _Directivity;   //public double[,,] Directivity { get; set; }  // [8,36, 19]
+        public Point Geometry { get; set; } = new Point();
 
-        #endregion
+        public Vector Direction { get; set; } = new Vector();
 
-        #region Properties
+        public string Category { get; set; } = "Omni";
 
-        public Point Position
+        public int SpeakerID { get; set; } = -1;
+
+        public Dictionary<Frequency, double> Gains { get; set; } = new Dictionary<Frequency, double>();
+
+        public Dictionary<Frequency, double[,]> Directivity { get; set; } = new Dictionary<Frequency, double[,]>();
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Speaker() { }
+
+        /***************************************************/
+
+        public Speaker(Point position, Vector direction = null, string category = "Omni",
+                       int speakerID = 0, Dictionary<Frequency, double> gains = null)
         {
-            get { return _Position; }
+            Geometry = position;
+            Direction = direction;
+            Category = category;
+            SpeakerID = speakerID;
+            Gains = gains;
         }
-
-        public Vector Direction
-        {
-            get { return _Direction; }
-        }
-
-        public string Category
-        {
-            get { return _Category; }
-        }
-
-        public int SpeakerID
-        {
-            get { return _SpeakerID; }
-        }
-
-        public List<double> Gains
-        {
-            get { return _Gains; }
-            set { }
-        }
-
-        public double GetGain(double frequency, double octave)
-        {
-            return (frequency < 5) ? Gains[0] : Gains[1];
-        }
-
-        public double GetGainAngleFactor(double angle, double octave) // take out octave
-        {
-            return (octave < 1000) ? (-2 * angle / 90 - 8) : (-18 * angle / 150 - 2); // I made some asumption here since matlab handles only 500Hz and 2000Hz
-        }
-
-        #endregion
-
-        #region Constructors
-
-        public Speaker(Point position, Vector direction = null, string category = "Omni", int speakerID = 0, List<double> gains = null)
-        {
-            if (direction == null) { direction = new Vector(1, 0, 0); }
-            if (gains == null) { gains = new List<double> { 1, 1 }; }
-
-            _Position = position;
-            _Direction = direction;
-            _Category = category;
-            _SpeakerID = speakerID;
-            _Gains = gains;
-        }
-
-        #endregion
     }
 }

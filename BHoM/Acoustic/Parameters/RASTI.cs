@@ -1,42 +1,41 @@
-﻿using System;
+﻿using BH.oM.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.oM.Base;
-using BH.oM.Geometry;
 
 namespace BH.oM.Acoustic
 {
-    public class Ray : BHoMObject
+    public class Rasti : BHoMObject, IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Polyline Geometry { get; set; } = new Polyline();
+        public ParameterType Parameter { get; set; } = ParameterType.RASTI;
 
-        public int SpeakerID { get; set; } = -1;
+        public double Value { get; set; } = 0.0;
 
         public int ReceiverID { get; set; } = 0;
 
-        public List<int> PanelsID { get; set; } = new List<int>();
+        public int SpeakerID { get; set; } = -1;
+
+        public Frequency Frequency { get; set; } = Frequency.Hz1000;
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Ray() { }
+        public Rasti() { }
 
         /***************************************************/
 
-        public Ray(Polyline path, int source, int target, List<int> bouncingPattern = null)
+        public Rasti(double value, int receiverID)
         {
-            Geometry = path;
-            SpeakerID = source;
-            ReceiverID = target;
-            PanelsID = bouncingPattern;
+            Value = value;
+            ReceiverID = receiverID;
         }
     }
 }

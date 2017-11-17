@@ -3,40 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.oM.Base;
-using BH.oM.Geometry;
 
 namespace BH.oM.Acoustic
 {
-    public class Ray : BHoMObject
+    public class RT60 : IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Polyline Geometry { get; set; } = new Polyline();
+        public ParameterType Parameter { get; set; } = ParameterType.RT60;
 
-        public int SpeakerID { get; set; } = -1;
+        public double Value { get; set; } = 0.0;
 
         public int ReceiverID { get; set; } = 0;
 
-        public List<int> PanelsID { get; set; } = new List<int>();
+        public int SpeakerID { get; set; } = 0;
+
+        public Frequency Frequency { get; set; } = Frequency.Hz1000;
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Ray() { }
+        public RT60() { }
 
         /***************************************************/
 
-        public Ray(Polyline path, int source, int target, List<int> bouncingPattern = null)
+        public RT60(double value, int receiverID, int speakerID)
         {
-            Geometry = path;
-            SpeakerID = source;
-            ReceiverID = target;
-            PanelsID = bouncingPattern;
+            Value = value;
+            ReceiverID = receiverID;
+            SpeakerID = speakerID;
         }
     }
 }

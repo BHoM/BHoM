@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BH.oM.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
-    public class STIResult
+    public interface IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<double> Rasti { get; set; }
+        ParameterType Parameter { get; set; }
 
+        double Value { get; set; }
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
+        int ReceiverID { get; set; }
 
-        public STIResult() { }
+        int SpeakerID { get; set; }
+
+        Frequency Frequency { get; set; }
 
     }
 }

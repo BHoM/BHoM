@@ -4,31 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Geometry;
+using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
-    public class Zone
+    public class Room : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        public PolySurface Geometry { get; set; } = new PolySurface();
+        
         public double Area { get; set; } = 0;
 
         public double Volume { get; set; } = 0;
 
-        public List<Point> SamplePoints { get; set; } = new List<Point>();
+        public List<Receiver> Samples { get; set; } = new List<Receiver>();
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Zone(List<Point> points, double area, double volume)
+        public Room(List<Point> points, double area, double volume)
         {
             Area = area;
             Volume = volume;
-            SamplePoints = points;
+            Samples = points.Select( x => new Receiver(x)).ToList();
+        }
+
+        /***************************************************/
+
+        public Room(List<Receiver> receivers, double area, double volume)
+        {
+            Area = area;
+            Volume = volume;
+            Samples = receivers;
         }
     }
 }

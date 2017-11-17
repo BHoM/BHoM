@@ -8,49 +8,39 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Acoustic
 {
-    /// <summary>
-    /// BH.oM Acoustic Receiver
-    /// </summary>
-    public struct Receiver
+    public class Receiver : BHoMObject
     {
-        #region Fields
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        private readonly Point _Position;
-        private readonly string _Category;
-        private readonly int _ReceiverID;
+        public Point Geometry { get; set; } = new Point();
 
-        #endregion
+        public string Category { get; set; } = "Omni";
 
-        #region Properties
+        public int ReceiverID { get; set; } = 0;
 
-        public Point Position
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Receiver() { }
+
+        /***************************************************/
+
+        public Receiver(Point position)
         {
-            get { return _Position; }
+            Geometry = position;
         }
 
-        public string Category
+        /***************************************************/
+
+        public Receiver(Point position, string category, int receiverID)
         {
-            get { return _Category; }
+            Geometry = position;
+            Category = category;
+            ReceiverID = receiverID;
         }
-
-        public int ReceiverID
-        {
-            get { return _ReceiverID; }
-        }
-
-        #endregion
-
-
-        #region Constructors
-
-        public Receiver(Point position, string category = "Omni", int receiverID = 0)
-        {
-            _Position = position;
-            _Category = category;
-            _ReceiverID = receiverID;
-        }
-
-        #endregion
-
     }
 }

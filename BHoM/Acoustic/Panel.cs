@@ -8,65 +8,39 @@ using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
-    /// <summary>
-    /// BH.oM Acoustic Panel as Mesh. Please make sure you mesh is exploded into quadrangular or triangular mesh faces.
-    /// </summary>
-    public struct Panel
+    public class Panel : BHoMObject
     {
-        #region Fields
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        private readonly Mesh _Mesh;
-        private readonly List<double> _R;
-        //private readonly Plane _Plane;
+        public Mesh Geometry { get; set; } = new Mesh();
 
-        #endregion
-
-        #region Properties
-
-        public Mesh Mesh
+        public Dictionary<Frequency, double> R { get; set; } = new Dictionary<Frequency, double>
         {
-            get { return _Mesh; }
-        }
-
-        public List<double> R
-        {
-            get { return _R; }
-        }
-
-        public Plane Plane
-        {
-            get { return Plane; }
-            set
-            {
-                List<Point> Ver = Mesh.Vertices.ToList();
-                //Plane = new Plane(Ver[0], Ver[1], Ver[2]);  // TODO Nedds to be in the Engine
-            }
-        }
-
-        #endregion
-
-        #region Constructors
-
-        /// <summary>
-        /// Defines an acoustic panel and an absorbtion factor
-        /// </summary>
-        /// <param name="mesh"></param>
-        /// <param name="r"></param>
-        public Panel(Mesh mesh, List<double> r) // TODO Add check for planarity of panel
-        {
-            _Mesh = mesh;
-            _R = r;
-        }
-        /// <summary>
-        /// Defines an acoustic panel. Default absorbtion index is 0.
-        /// </summary>
-        /// <param name="mesh"></param>
-        public Panel(Mesh mesh) : this(mesh, new List<double> { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 }) 
-        {
-        }
+            { Frequency.Hz63, 1 }, { Frequency.Hz125, 1 }, { Frequency.Hz250, 1 }, { Frequency.Hz500, 1 }, { Frequency.Hz1000, 1 },
+            { Frequency.Hz2000, 1 }, { Frequency.Hz4000, 1 }, { Frequency.Hz8000, 1 }, { Frequency.Hz16000, 1 },
+        };
         
-        #endregion
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
+        public Panel() { }
 
+        /***************************************************/
+
+        public Panel(Mesh mesh)
+        {
+            Geometry = mesh;
+        }
+
+        /***************************************************/
+
+        public Panel(Mesh mesh, Dictionary<Frequency, double> r)
+        {
+            Geometry = mesh;
+            R = r;
+        }
     }
 }
