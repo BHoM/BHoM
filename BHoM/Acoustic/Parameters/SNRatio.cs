@@ -13,7 +13,7 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public ParameterType Parameter { get; } = ParameterType.SNRATIO;
+        public ParameterType Parameter { get; set; } = ParameterType.SNRATIO;
 
         public double Value { get; set; } = 0.0;
 

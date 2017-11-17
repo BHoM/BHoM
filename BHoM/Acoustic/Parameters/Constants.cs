@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Acoustic
 {
-   public class Constants
+   public static class Constants
     {
         /***************************************************/
         /**** Acoustic Constants                        ****/

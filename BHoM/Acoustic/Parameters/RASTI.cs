@@ -13,7 +13,7 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public ParameterType Parameter { get; } = ParameterType.RASTI;
+        public ParameterType Parameter { get; set; } = ParameterType.RASTI;
 
         public double Value { get; set; } = 0.0;
 
@@ -34,7 +34,6 @@ namespace BH.oM.Acoustic
 
         public Rasti(double value, int receiverID)
         {
-            Parameter = ParameterType.RASTI;
             Value = value;
             ReceiverID = receiverID;
         }

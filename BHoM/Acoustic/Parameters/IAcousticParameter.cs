@@ -13,7 +13,7 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        ParameterType Parameter { get; }
+        ParameterType Parameter { get; set; }
 
         double Value { get; set; }
 
