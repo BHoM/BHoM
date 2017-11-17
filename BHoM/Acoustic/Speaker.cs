@@ -20,7 +20,7 @@ namespace BH.oM.Acoustic
 
         public string Category { get; set; } = "Omni";
 
-        public int SpeakerID { get; set; } = -1;
+        public int SpeakerID { get; set; } = 0;
 
         public Dictionary<Frequency, double> Gains { get; set; } = new Dictionary<Frequency, double>();
 
