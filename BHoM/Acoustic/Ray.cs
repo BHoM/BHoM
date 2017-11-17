@@ -16,7 +16,7 @@ namespace BH.oM.Acoustic
 
         public Polyline Geometry { get; set; } = new Polyline();
 
-        public int SpeakerID { get; set; } = -1;
+        public int SpeakerID { get; set; } = 0;
 
         public int ReceiverID { get; set; } = 0;
 
