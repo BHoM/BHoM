@@ -67,7 +67,6 @@
     <Compile Include="Acoustic\Ray.cs" />
     <Compile Include="Acoustic\Receiver.cs" />
     <Compile Include="Acoustic\Parameters\IAcousticParameter.cs" />
-    <Compile Include="Acoustic\Parameters\ParameterType.cs" />
     <Compile Include="Acoustic\Parameters\SoundLevel.cs" />
     <Compile Include="Acoustic\Speaker.cs" />
     <Compile Include="Acoustic\Parameters\Rasti.cs" />

@@ -12,8 +12,6 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public ParameterType Parameter { get; set; } = ParameterType.RT60;
-
         public double Value { get; set; } = 0.0;
 
         public int ReceiverID { get; set; } = 0;
