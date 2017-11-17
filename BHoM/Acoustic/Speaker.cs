@@ -14,7 +14,7 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Geometry { get; set; } = new Point();
+        public Point Location { get; set; } = new Point();
 
         public Vector Direction { get; set; } = new Vector();
 
@@ -35,10 +35,10 @@ namespace BH.oM.Acoustic
 
         /***************************************************/
 
-        public Speaker(Point position, Vector direction = null, string category = "Omni",
+        public Speaker(Point location, Vector direction = null, string category = "Omni",
                        int speakerID = 0, Dictionary<Frequency, double> gains = null)
         {
-            Geometry = position;
+            Location = location;
             Direction = direction;
             Category = category;
             SpeakerID = speakerID;

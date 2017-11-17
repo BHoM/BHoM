@@ -30,16 +30,16 @@ namespace BH.oM.Acoustic
 
         /***************************************************/
 
-        public Panel(Mesh mesh)
+        public Panel(Mesh geometry)
         {
-            Geometry = mesh;
+            Geometry = geometry;
         }
 
         /***************************************************/
 
-        public Panel(Mesh mesh, Dictionary<Frequency, double> r)
+        public Panel(Mesh geometry, Dictionary<Frequency, double> r)
         {
-            Geometry = mesh;
+            Geometry = geometry;
             R = r;
         }
     }

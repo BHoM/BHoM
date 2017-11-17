@@ -14,7 +14,7 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Geometry { get; set; } = new Point();
+        public Point Location { get; set; } = new Point();
 
         public string Category { get; set; } = "Omni";
 
@@ -29,16 +29,16 @@ namespace BH.oM.Acoustic
 
         /***************************************************/
 
-        public Receiver(Point position)
+        public Receiver(Point location)
         {
-            Geometry = position;
+            Location = location;
         }
 
         /***************************************************/
 
         public Receiver(Point position, string category, int receiverID)
         {
-            Geometry = position;
+            Location = position;
             Category = category;
             ReceiverID = receiverID;
         }
