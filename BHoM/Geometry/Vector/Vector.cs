@@ -181,14 +181,14 @@ namespace BH.oM.Geometry
 
         public static bool operator ==(Vector a, Vector b)
         {
-            return a != null && b != null && a.X == b.X && a.Y == b.Y && a.Z == b.Z;
+            return a?.X == b?.X && a?.Y == b?.Y && a?.Z == b?.Z;
         }
 
         /***************************************************/
 
         public static bool operator !=(Vector a, Vector b)
         {
-            return a == null || b == null || a.X != b.X || a.Y != b.Y || a.Z != b.Z;
+            return a?.X != b?.X || a?.Y != b?.Y || a?.Z != b?.Z;
         }
 
     }
