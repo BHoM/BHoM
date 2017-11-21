@@ -45,7 +45,7 @@ namespace BH.oM.Acoustic
 
         public static SoundLevel operator +(SoundLevel a, SoundLevel b)
         {
-            return new SoundLevel((10 * Math.Log10(Math.Pow(10, a.Value / 10))) + (10 * Math.Log10(Math.Pow(10, b.Value / 10))),
+            return new SoundLevel((10 * Math.Log10(Math.Pow(10, a.Value / 10) + (Math.Pow(10, b.Value / 10)))),
                             a.ReceiverID, -1, a.Frequency);
         }
         
@@ -53,7 +53,7 @@ namespace BH.oM.Acoustic
 
         public static SoundLevel operator -(SoundLevel a, SoundLevel b)
         {
-            return new SoundLevel((10 * Math.Log10(Math.Pow(10, a.Value / 10))) - (10 * Math.Log10(Math.Pow(10, b.Value / 10))),
+            return new SoundLevel((10 * Math.Log10(Math.Pow(10, a.Value / 10) - (Math.Pow(10, b.Value / 10)))),
                             a.ReceiverID, -1, a.Frequency);
         }
     }
