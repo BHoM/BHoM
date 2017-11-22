@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.Threading;
 
 namespace BH.oM.Acoustic
 {
@@ -40,7 +41,14 @@ namespace BH.oM.Acoustic
         {
             Location = position;
             Category = category;
-            ReceiverID = receiverID;
+            ReceiverID = Interlocked.Increment(ref globalInstanceCount);
         }
+
+
+        /***************************************************/
+        /**** Static shared fields                      ****/
+        /***************************************************/
+
+        public static int globalInstanceCount = -1;
     }
 }
