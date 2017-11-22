@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using System.Threading;
 
 namespace BH.oM.Acoustic
 {
@@ -15,6 +16,8 @@ namespace BH.oM.Acoustic
         /***************************************************/
 
         public Mesh Geometry { get; set; } = new Mesh();
+
+        public static int PanelID { get; set; } = 0;
 
         public Dictionary<Frequency, double> R { get; set; } = new Dictionary<Frequency, double>
         {
@@ -39,8 +42,16 @@ namespace BH.oM.Acoustic
 
         public Panel(Mesh geometry, Dictionary<Frequency, double> r)
         {
+            PanelID = Interlocked.Increment(ref globalInstanceCount);
             Geometry = geometry;
             R = r;
         }
+
+
+        /***************************************************/
+        /**** Static shared fields                      ****/
+        /***************************************************/
+
+        public static int globalInstanceCount = -1;
     }
 }
