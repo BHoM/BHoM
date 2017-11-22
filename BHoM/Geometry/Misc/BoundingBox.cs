@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class BoundingBox
+    public class BoundingBox : IBHoMGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
