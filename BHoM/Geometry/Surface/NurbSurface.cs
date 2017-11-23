@@ -66,11 +66,22 @@ namespace BH.oM.Geometry
         /**** Local Optimisation Methods                ****/
         /***************************************************/
 
-        public int GetDegree()
+        public List<int> GetDegrees()
         {
-            return 1 + UKnots.Count + VKnots.Count - ControlPoints.Count; //TODO: Calculate degree properly
+            int uDegree = 1;
+            for (int i = 1; i < UKnots.Count; i++)
+            {
+                if (UKnots[i - 1] == UKnots[i]) uDegree++;
+                else break;
+            }
+            int vDegree = 1;
+            for (int i = 1; i < VKnots.Count; i++)
+            {
+                if (VKnots[i - 1] == VKnots[i]) vDegree++;
+                else break;
+            }
+            return new List<int>() { uDegree, vDegree };
         }
-
     }
 }
 
