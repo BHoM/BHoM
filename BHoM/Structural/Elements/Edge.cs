@@ -4,23 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Structural.Properties;
+using BH.oM.Geometry;
 
 namespace BH.oM.Structural.Elements
 {
     /// <summary>
-    /// BH.oM panel class - a planar surface object with a list of 'edges' (curves with properties) for both external and internal edges (openings)
+    /// BH.oM Face class
     /// </summary>
     [Serializable]
-    public class Panel : BH.oM.Base.BHoMObject, IAreaElement
+    public class Edge : BH.oM.Base.BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public List<Edge> InternalEdges = new List<Edge>();
-        public List<Edge> ExpernalEdges = new List<Edge>();
-        public PanelProperty PanelProperty { get; set; } = new ConstantThickness();      
-
+                
+        public ICurve Curve { get; set; }
+        public EdgeConstraint Constraint { get; set; } = null;
+        
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
@@ -28,7 +28,7 @@ namespace BH.oM.Structural.Elements
         /// <summary>
         /// Constructs an empty panel
         /// </summary>
-        public Panel() { }
+        public Edge() { }
    
         /***************************************************/   
 
