@@ -11,7 +11,7 @@ using BH.oM.Structural.Properties;
 
 namespace BH.oM.Structural.Elements
 {
-    public class Contour : BHoMObject, IAreaElement
+    public class PanelFreeForm : BHoMObject, IAreaElement
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -19,7 +19,7 @@ namespace BH.oM.Structural.Elements
 
         public ISurface Surface { get; set; } = null;
 
-        public PanelProperty PanelProperty { get; set; } = null;
+        public Property2D Property { get; set; } = null;
 
         public SurfaceConstraint PlanarSpring { get; set; } = null;
 
@@ -28,11 +28,11 @@ namespace BH.oM.Structural.Elements
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Contour() { }
+        public PanelFreeForm() { }
 
         /***************************************************/
 
-        public Contour(ISurface surface)
+        public PanelFreeForm(ISurface surface)
         {
             Surface = surface;
         }
@@ -52,7 +52,7 @@ namespace BH.oM.Structural.Elements
         //////CONSTRUCTORS////
         //////////////////////
 
-        //public Panel()
+        //public PanelPlanar()
         //{
         //    m_Faces = new List<Face>();
         //}
@@ -62,7 +62,7 @@ namespace BH.oM.Structural.Elements
         ///// </summary>
         ///// <param name="edges"></param>
         ///// <param name="number"></param>
-        //public Panel(Brep boundary)
+        //public PanelPlanar(Brep boundary)
         //{
         //    m_Geometry = boundary;
         //}

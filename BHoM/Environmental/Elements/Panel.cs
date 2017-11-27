@@ -10,7 +10,7 @@ using System.ComponentModel;
 namespace BH.oM.Environmental.Elements
 {
     /// <summary>
-    /// Panel object for environmental models.
+    /// PanelPlanar object for environmental models.
     /// </summary>
     public class Panel : BHoMObject
     {

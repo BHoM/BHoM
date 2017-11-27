@@ -16,9 +16,9 @@ namespace BH.oM.Structural.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        public NodeConstraint StartConstraint { get; set; }
+        public Constraint6DOF StartRelease { get; set; }
 
-        public NodeConstraint EndConstraint { get; set; }
+        public Constraint6DOF EndRelease { get; set; }
 
 
         /***************************************************/
@@ -29,10 +29,10 @@ namespace BH.oM.Structural.Properties
 
         /***************************************************/
 
-        public BarRelease(NodeConstraint startConstraint, NodeConstraint endConstraint, string name = "")
+        public BarRelease(Constraint6DOF startConstraint, Constraint6DOF endConstraint, string name = "")
         {
-            StartConstraint = startConstraint;
-            EndConstraint = endConstraint;
+            StartRelease = startConstraint;
+            EndRelease = endConstraint;
             Name = name;
         }
     }  
