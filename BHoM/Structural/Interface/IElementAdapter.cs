@@ -28,7 +28,7 @@
 
 //        List<string> GetNodes(out List<Node> nodes, List<string> ids = null);
 //        List<string> GetBars(out List<Bar> bars, List<string> ids = null);
-//        List<string> GetPanels(out List<Panel> panels, List<string> ids = null);
+//        List<string> GetPanels(out List<PanelPlanar> panels, List<string> ids = null);
 //        List<string> GetFEMeshes(out List<FEMesh> meshes, List<string> ids = null);
 //        List<string> GetOpenings(out List<Opening> opening, List<string> ids = null);
 //        List<string> GetLevels(out List<Storey> levels, List<string> ids = null);
@@ -40,7 +40,7 @@
 
 //        bool SetNodes(List<Node> nodes, out List<string> ids);
 //        bool SetBars(List<Bar> bars, out List<string> ids);
-//        bool SetPanels(List<Panel> panels, out List<string> ids);
+//        bool SetPanels(List<PanelPlanar> panels, out List<string> ids);
 //        bool SetFEMeshes(List<FEMesh> meshes, out List<string> ids);
 //        bool SetOpenings(List<Opening> opening, out List<string> ids);
 //        bool SetLevels(List<Storey> stores, out List<string> ids);

@@ -9,7 +9,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Structural.Elements
 {
     /// <summary>
-    /// BH.oM Face class
+    /// BH.oM edge class to describe the edges of panels (or other objects) by a curve plus properties
     /// </summary>
     [Serializable]
     public class Edge : BH.oM.Base.BHoMObject
@@ -19,15 +19,12 @@ namespace BH.oM.Structural.Elements
         /***************************************************/
                 
         public ICurve Curve { get; set; }
-        public EdgeConstraint Constraint { get; set; } = null;
+        public Constraint4DOF Constraint { get; set; } = null;
         
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        /// <summary>
-        /// Constructs an empty panel
-        /// </summary>
         public Edge() { }
    
         /***************************************************/   

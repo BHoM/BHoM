@@ -10,6 +10,6 @@ namespace BH.oM.Structural.Elements
 {
     public interface IAreaElement : IObject
     {
-        PanelProperty PanelProperty { get; set; }
+        Property2D Property { get; set; }
     }
 }

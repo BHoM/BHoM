@@ -24,7 +24,7 @@ namespace BH.oM.Structural.Elements
 
         public Point Point { get; set; } = new Point();
 
-        public NodeConstraint Constraint { get; set; } = null;
+        public Constraint6DOF Constraint { get; set; } = null;
 
 
         /***************************************************/

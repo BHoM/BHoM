@@ -21,7 +21,7 @@ namespace BH.oM.Structural.Elements
 
         public BH.oM.Structural.Properties.BarRelease Release { get; set; } = null;
 
-        public BH.oM.Structural.Properties.BarConstraint Spring { get; set; } = null;
+        public BH.oM.Structural.Properties.Constraint4DOF Spring { get; set; } = null;
 
         public BH.oM.Structural.Properties.Offset Offset { get; set; } = null;
 

@@ -137,7 +137,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Structural\Elements\Opening.cs" />
-    <Compile Include="Structural\Elements\Contour.cs" />
+    <Compile Include="Structural\Elements\PanelFreeForm.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,14 +158,12 @@
     <Compile Include="Structural\Loads\PointAcceleration.cs" />
     <Compile Include="Structural\Loads\PointDisplacement.cs" />
     <Compile Include="Structural\Loads\PointVelocity.cs" />
-    <Compile Include="Structural\Properties\Constraints\EdgeConstraint.cs" />
-    <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
-    <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
+    <Compile Include="Structural\Properties\Constraints\Constraint4DOF.cs" />
     <Compile Include="Structural\Properties\Constraints\LinkConstraint.cs" />
-    <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
+    <Compile Include="Structural\Properties\Constraints\Constraint6DOF.cs" />
     <Compile Include="Structural\Elements\Storey.cs" />
     <Compile Include="Structural\Elements\Bar.cs" />
-    <Compile Include="Structural\Elements\Panel.cs" />
+    <Compile Include="Structural\Elements\PanelPlanar.cs" />
     <Compile Include="Structural\Elements\Node.cs" />
     <Compile Include="Structural\Properties\Constraints\BarRelease.cs" />
     <Compile Include="Structural\Properties\Constraints\SurfaceConstraint.cs" />
@@ -181,6 +179,12 @@
     <Compile Include="Structural\Loads\LoadEnums.cs" />
     <Compile Include="Structural\Loads\PointForce.cs" />
     <Compile Include="Structural\Properties\Panel Properties\LoadingPanel.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\ConstantThickness.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\ConcreteRibbed.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\ConcreteWaffle.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\PanelDirection.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\PanelType.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\PanelModifier.cs" />
     <Compile Include="Structural\Properties\Section Properties\CableSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\CompositeSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\ConcreteSection.cs" />
@@ -197,7 +201,7 @@
     <Compile Include="Structural\Results\Nodal Results\NodeForce.cs" />
     <Compile Include="Structural\Properties\Section Properties\Enum.cs" />
     <Compile Include="Structural\Properties\Section Properties\SectionProperty.cs" />
-    <Compile Include="Structural\Properties\Panel Properties\PanelProperty.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\Property2D.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeVelocity.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelForce.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelStress.cs" />
