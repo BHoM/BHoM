@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
 {
-    public class BarConstraint : BHoMObject
+    public class EdgeConstraint : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -20,6 +20,10 @@ namespace BH.oM.Structural.Properties
         public DOFType TranslationZ { get; set; }
 
         public DOFType RotationX { get; set; }
+
+        public DOFType RotationY { get; set; }
+
+        public DOFType RotationZ { get; set; }
 
         public double StiffnessX { get; set; }
 
@@ -34,7 +38,7 @@ namespace BH.oM.Structural.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BarConstraint(string name = "") 
+        public EdgeConstraint(string name = "") 
         {
             Name = name;
         }
