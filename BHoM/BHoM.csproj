@@ -126,6 +126,8 @@
     <Compile Include="Structural\Elements\Column.cs" />
     <Compile Include="Structural\Elements\Beam.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
+    <Compile Include="Structural\Elements\MeshFace.cs" />
+    <Compile Include="Structural\Elements\Edge.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
     <Compile Include="Planning\Construction\ConstructionPhase.cs" />
     <Compile Include="Planning\IPhase.cs" />
@@ -156,6 +158,7 @@
     <Compile Include="Structural\Loads\PointAcceleration.cs" />
     <Compile Include="Structural\Loads\PointDisplacement.cs" />
     <Compile Include="Structural\Loads\PointVelocity.cs" />
+    <Compile Include="Structural\Properties\Constraints\EdgeConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
     <Compile Include="Structural\Properties\Constraints\LinkConstraint.cs" />
