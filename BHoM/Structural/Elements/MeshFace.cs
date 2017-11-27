@@ -19,7 +19,7 @@ namespace BH.oM.Structural.Elements
 
         /// <summary>MeshFace nodes</summary>
         public List<Node> Nodes { get; set; } = new List<Node>();
-        public PanelProperty PanelProperty { get; set; } = new ConstantThickness();
+        public Property2D Property { get; set; } = new ConstantThickness();
         
 
         /***************************************************/

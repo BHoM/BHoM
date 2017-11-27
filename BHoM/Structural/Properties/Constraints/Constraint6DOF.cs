@@ -9,42 +9,42 @@ namespace BH.oM.Structural.Properties
     /// <summary>
     /// Constraint object - base class for all release, restraint, support classes. 
     /// </summary>
-    public class NodeConstraint : BHoMObject
+    public class Constraint6DOF : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double KX { get; set; } = 0;
+        public double TranslationalStiffnessX { get; set; } = 0;
 
-        public double KY { get; set; } = 0;
+        public double TranslationalStiffnessY { get; set; } = 0;
 
-        public double KZ { get; set; } = 0;
+        public double TranslationalStiffnessZ { get; set; } = 0;
 
-        public double HX { get; set; } = 0;
+        public double RotationalStiffnessX { get; set; } = 0;
 
-        public double HY { get; set; } = 0;
+        public double RotationalStiffnessY { get; set; } = 0;
 
-        public double HZ { get; set; } = 0;
+        public double RotationalStiffnessZ { get; set; } = 0;
 
-        public DOFType UX { get; set; }
+        public DOFType TranslationX { get; set; } = DOFType.Free;
 
-        public DOFType UY { get; set; }
+        public DOFType TranslationY { get; set; } = DOFType.Free;
 
-        public DOFType UZ { get; set; }
+        public DOFType TranslationZ { get; set; } = DOFType.Free;
 
-        public DOFType RX { get; set; }
+        public DOFType RotationX { get; set; } = DOFType.Free;
 
-        public DOFType RY { get; set; }
+        public DOFType RotationY { get; set; } = DOFType.Free;
 
-        public DOFType RZ { get; set; }
+        public DOFType RotationZ { get; set; } = DOFType.Free;
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public NodeConstraint(string name = "")
+        public Constraint6DOF(string name = "")
         {
             Name = name;
         }
@@ -169,7 +169,7 @@ namespace BH.oM.Structural.Properties
 //        /// <summary>
 //        /// Construct an empty constraint object
 //        /// </summary>
-//        public NodeConstraint()
+//        public Constraint6DOF()
 //        {
 //            m_Values = new double[6];
 //        }
@@ -177,7 +177,7 @@ namespace BH.oM.Structural.Properties
 //        /// <summary>
 //        /// Construct an empty constraint object with a name
 //        /// </summary>
-//        public NodeConstraint(string name) : this()
+//        public Constraint6DOF(string name) : this()
 //        {
 //            this.Name = name;
 //        }
@@ -193,7 +193,7 @@ namespace BH.oM.Structural.Properties
 //        /// <summary>Construct a constraint from true/false. True blocks a DOF. 
 //        /// Only fixed or free constraint types can be constructed using this.</summary>       
 
-//        public NodeConstraint(string name, bool[] fixity, double[] values) : this(name)
+//        public Constraint6DOF(string name, bool[] fixity, double[] values) : this(name)
 //        {
 //            UX = (fixity[0]) ? DOFType.Fixed : (values[0] == 0) ? DOFType.Free : DOFType.Spring;
 //            UY = (fixity[1]) ? DOFType.Fixed : (values[1] == 0) ? DOFType.Free : DOFType.Spring;
@@ -204,7 +204,7 @@ namespace BH.oM.Structural.Properties
 //            m_Values = values;
 //        }
 
-//        public NodeConstraint(string name, double[] values) : this(name)
+//        public Constraint6DOF(string name, double[] values) : this(name)
 //        {
 //            UX = (values[0] == -1) ? DOFType.Fixed : (values[0] == 0) ? DOFType.Free : DOFType.Spring;
 //            UY = (values[1] == -1) ? DOFType.Fixed : (values[1] == 0) ? DOFType.Free : DOFType.Spring;
