@@ -86,6 +86,7 @@
     <Compile Include="Environmental\Properties\VentilationSystem.cs" />
     <Compile Include="Geometry\Curve\Ellipse.cs" />
     <Compile Include="Geometry\Curve\ICurve.cs" />
+    <Compile Include="Geometry\Math\IntegrationSlice.cs" />
     <Compile Include="Geometry\Misc\Location.cs" />
     <Compile Include="Geometry\Misc\BoundingBox.cs" />
     <Compile Include="Geometry\Curve\Arc.cs" />
