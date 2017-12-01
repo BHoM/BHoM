@@ -23,5 +23,37 @@ namespace BH.oM.Structural.Properties
         //Maybe should move elsewhere
         Cable = 30,
     }
-    
+
+    /// <summary>
+    /// Fabrication type for steel sections
+    /// </summary>
+    public enum Fabrication
+    {
+        Welded,
+        HotRolled,
+        HotFormed,
+        ColdFormed
+    }
+
+    /// <summary>
+    /// Restraint types for steel sections
+    /// </summary>
+    public enum PlateRestraint
+    {
+        NoRestraint,
+        TopFlangeRestraint,
+        BottomFlangeRestraint,
+        WebRestraint,
+        FullRestraint
+    }
+
+    public enum CableType
+    {
+        FullLockedCoil,
+        SpiralStrand,
+        ParallelStrand,
+        StructuralWireRope
+
+    }
+
 }
