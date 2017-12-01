@@ -1,163 +1,133 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Base;
-using BH.oM.Materials;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Materials;
+using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    /// <summary>
-    /// Section property class, the parent abstract class for all structural 
-    /// sections (RC, steel, PT beams, columns, bracing). Properties defined in this 
-    /// parent class are those that would populate a multi category section database only
-    /// </summary>
-
-    public abstract partial class SectionProperty : BHoMObject  
+    public class ExplicitSection : BHoMObject, ICrossSection
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ICurve> Edges { get; set; } = new List<ICurve>();
-
-        public Material Material { get; set; } = new Material();
-
-        public virtual ShapeType Shape { get; set; } = new ShapeType();
-
-        public virtual double Orientation { get; set; } // TODO: Defien all the default values;
+        public Material Material { get; set; } = null;
 
         /// <summary>
         /// Gross Area of the cross section
         /// </summary>
-        public double Area { get; set; }
+        public double Area { get; set; } = 0;
 
         /// <summary>
         /// Radius of Gyration about the Y-Axis
         /// </summary>
-        public double Rgy { get; set; }
+        public double Rgy { get; set; } = 0;
 
         /// <summary>
         /// Radius of Gyration about the Z-Axis
         /// </summary>
-        public double Rgz { get; set; }
+        public double Rgz { get; set; } = 0;
 
         /// <summary>
         /// Torsion Constant
         /// </summary>
-        public double J { get; set; }
+        public double J { get; set; } = 0;
 
         /// <summary>
         /// Moment of Inertia about the Y-Axis
         /// </summary>
-        public virtual double Iy { get; set; }
+        public double Iy { get; set; } = 0;
 
         /// <summary>
         /// Moment of Inertia about the Z-Axis
         /// </summary>
-        public virtual double Iz { get; set; }
+        public double Iz { get; set; } = 0;
 
         /// <summary>
         /// Warping Constant
         /// </summary>
-        public double Iw { get; set; }
+        public double Iw { get; set; } = 0;
 
         /// <summary>
         /// Elastic Modulus of the section about the Y-Axis
         /// </summary>
-        public virtual double Zy { get; set; }
+        public double Zy { get; set; } = 0;
 
         /// <summary>
         /// Elastic Modulus of the section about the Z-Axis
         /// </summary>
-        public virtual double Zz { get; set; }
+        public double Zz { get; set; } = 0;
         /// <summary>
         /// Plastic Modulus of the section about the Y-Axis
         /// </summary>
-        public virtual double Sy { get; set; }
+        public double Sy { get; set; } = 0;
 
         /// <summary>
         /// Plastic Modulus of the section about the Z-Axis
         /// </summary>
-        public virtual double Sz { get; set; }
+        public double Sz { get; set; } = 0;
         /// <summary>
         /// Geometric centre of the section in the Z direction
         /// </summary>
-        public virtual double CentreZ { get; set; }
+        public double CentreZ { get; set; } = 0;
         /// <summary>
         /// Geometric centre of the section in the Y direction
         /// </summary>
-        public virtual double CentreY { get; set; }
+        public double CentreY { get; set; } = 0;
 
         /// <summary>
         /// Z Distance from the centroid of the section to top edge of the section
         /// </summary>
-        public virtual double Vz { get; set; }
+        public double Vz { get; set; } = 0;
 
         /// <summary>
         /// Z Distance from the centroid of the section to bottom edge of the section
         /// </summary>
-        public virtual double Vpz { get; set; }
+        public double Vpz { get; set; } = 0;
         /// <summary>
         /// Y Distance from the centroid of the section to right edge of the section
         /// </summary>
-        public virtual double Vy { get; set; }
+        public double Vy { get; set; } = 0;
         /// <summary>
         /// Y Distance from the centroid of the section to Left edge of the section
         /// </summary>
-        public virtual double Vpy { get; set; }
+        public double Vpy { get; set; } = 0;
 
         /// <summary>
         /// Shear Area in the Y direction
         /// </summary>
-        public virtual double Asy { get; set; }
+        public double Asy { get; set; } = 0;
 
         /// <summary>
         /// Shear Area in the Z direction
         /// </summary>
-        public virtual double Asz { get; set; }
+        public double Asz { get; set; } = 0;
 
 
         /// <summary>
         /// Total Depth of the section
         /// </summary>
-        public double TotalDepth { get; set; }
+        public double TotalDepth { get; set; } = 0;
 
         /// <summary>
         /// Total Width of the section
         /// </summary>
-        public double TotalWidth { get; set; }
+        public double TotalWidth { get; set; } = 0;
+
+
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public SectionProperty() { }
-        
+        public ExplicitSection()
+        {
+
+        }
     }
 }
-
-
-/***************************************************/
-
-
-
-//public override string ToString()     // That needs to be json
-//{
-//    string name = !string.IsNullOrWhiteSpace(Name) ? Name + " " : "";
-//    string mat = (this.Material != null && !string.IsNullOrWhiteSpace(this.Material.Name)) ? "-" + this.Material.Name : "";
-//    return name + "-" + mat;
-
-//}
-
-
-///***************************************************/
-///**** Override BHoMObject                       ****/
-///***************************************************/
-
-//public override IBHoMGeometry GetGeometry()
-//{
-//    return new GeometryGroup<ICurve> (Edges);
-//}
-
