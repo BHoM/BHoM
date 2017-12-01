@@ -64,7 +64,7 @@ namespace BH.oM.Geometry
 
         public int GetDegree()
         {
-            return 1 + Knots.Count - ControlPoints.Count;
+            return Knots.Count - ControlPoints.Count-1;
         }
     }
 }

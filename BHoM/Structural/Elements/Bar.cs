@@ -17,7 +17,7 @@ namespace BH.oM.Structural.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public Properties.SectionProperty SectionProperty { get; set; } = null;
+        public Properties.ICrossSection SectionProperty { get; set; } = null;
 
         public BH.oM.Structural.Properties.BarRelease Release { get; set; } = null;
 
