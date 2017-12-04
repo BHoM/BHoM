@@ -27,6 +27,11 @@ namespace BH.oM.Structural.Properties
 
         public CableType CableType { get; } = CableType.FullLockedCoil;
 
+
+        public double BreakingLoad { get; }
+
+
+
         /***************************************************/
         /**** Properties - Section constants            ****/
         /***************************************************/
@@ -145,6 +150,7 @@ namespace BH.oM.Structural.Properties
             int numberOfCables,
             double diameter,
             CableType cableType,
+            double breakingLoad,
 
             double area,
             double rgy,
@@ -173,6 +179,7 @@ namespace BH.oM.Structural.Properties
             CableDiameter = diameter;
             NumberOfCables = numberOfCables;
             CableType = cableType;
+            BreakingLoad = breakingLoad;
 
             Area = area;
             Rgy = rgy;
