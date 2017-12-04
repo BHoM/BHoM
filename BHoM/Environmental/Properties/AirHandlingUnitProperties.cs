@@ -12,7 +12,7 @@ namespace BH.oM.Environmental.Properties
     /// <summary>
     /// AHU Properties (before HVAC)
     /// </summary>
-    public class AHUProperties : BHoMObject
+    public class AirHandlingUnitProperties : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -76,7 +76,7 @@ namespace BH.oM.Environmental.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
-        public AHUProperties() { }
+        public AirHandlingUnitProperties() { }
     }
 
 }

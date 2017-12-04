@@ -24,7 +24,7 @@ namespace BH.oM.Environmental.Properties
         public string iesFilePath { get; set; } = "";
         public string MEPBridgeFilePath { get; set; } = "";
         public string NCM_Country { get; set; } = "";
-        public bool NCM_IsMainsGasAvailable { get; set; } = true; //Or false?
+        public bool NCM_IsMainsGasAvailable { get; set; } = true; //Or false as default?
         public double NCMPowerFactorCorrection { get; set; } = 0;
         public string NCMWeatherFile { get; set; } = "";
         public double NorthAngle { get; set; } = 0.0;

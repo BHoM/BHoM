@@ -19,32 +19,32 @@ namespace BH.oM.Environmental.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        ApertureDescriptionDay;
-        ApertureDescriptionNight;
-        ApertureProfileDescriptionDay;
-        ApertureProfileDescriptionNight;
-        ApertureFunctionDay;
-        ApertureFunctionNight;
-        ApertureOpeningProportionDay;
-        ApertureOpeningProportionNight;
-        ApertureScheduleDay;
-        ApertureScheduleNight;
-        BuildingElementAir;
-        BuildingElementColor;
-        BuildingElementDescription;
-        BuildingElementGround;
-        BuildingElementGUID;
-        BuildingElementInternalShadows;
-        BuildingElementMaterial;
-        BuildingElementModified;
-        BuildingElementThickness;
-        BuildingElementTransparent;
-        BuildingElementType;
-        gValue;
-        gValueShading;
-        LtValue;
-        ThermalConductivity;
-        UValue;
+        public double ApertureDescriptionDay;
+        public double ApertureDescriptionNight;
+        public double ApertureProfileDescriptionDay;
+        public double ApertureProfileDescriptionNight;
+        public double ApertureFunctionDay;
+        public double ApertureFunctionNight;
+        public double ApertureOpeningProportionDay;
+        public double ApertureOpeningProportionNight;
+        public double ApertureScheduleDay;
+        public double ApertureScheduleNight;
+        public double BuildingElementAir;
+        public double BuildingElementColor;
+        public double BuildingElementDescription;
+        public double BuildingElementGround;
+        public string BuildingElementGUID;
+        public double BuildingElementInternalShadows;
+        public double BuildingElementMaterial;
+        public double BuildingElementModified;
+        public double BuildingElementThickness;
+        public double BuildingElementTransparent;
+        public double BuildingElementType;
+        public double gValue;
+        public double gValueShading;
+        public double LtValue;
+        public double ThermalConductivity;
+        public double UValue;
 
 
 
