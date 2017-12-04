@@ -13,11 +13,20 @@ namespace BH.oM.Environmental.Properties
     /// Ventilation System Properties
     /// </summary>
   
-    class VentilationSystem
+    class VentilationSystem : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
+        public double VentSystem_dh { get; set; } = 0.0;
+        public double VentSystem_dT { get; set; } = 0.0;
+        public double VentSystem_supplyT { get; set; } = 0.0;
+        public string VentSystemComments { get; set; } = "";
+        public double VentSystemOSA_TSA { get; set; } = 0.0;
+        public string VentSystemType { get; set; } = "";
+        public string VentSystemTypeDIN { get; set; } = "";
+
 
         /***************************************************/
         /**** Constructors                              ****/

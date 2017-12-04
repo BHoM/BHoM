@@ -12,7 +12,7 @@ namespace BH.oM.Environmental.Properties
     /// <summary>
     /// Thermostat Properties
     /// </summary>
-    class Thermostat
+    class Thermostat : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
