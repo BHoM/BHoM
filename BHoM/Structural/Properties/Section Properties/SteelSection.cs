@@ -29,23 +29,23 @@ namespace BH.oM.Structural.Properties
 
         public ShapeType Shape { get; }
 
-        public double B1 { get; }
+        public double B1 { get; } = 0;
 
-        public double B2 { get; }
+        public double B2 { get; } = 0;
 
-        public double B3 { get; }
+        public double B3 { get; } = 0;
 
-        public double Tw { get; }
+        public double Tw { get; } = 0;
 
-        public double Tf1 { get; }
+        public double Tf1 { get; } = 0;
 
-        public double Tf2 { get; }
+        public double Tf2 { get; } = 0;
 
-        public double R1 { get; }
+        public double R1 { get; } = 0;
 
-        public double R2 { get; }
+        public double R2 { get; } = 0;
 
-        public double Spacing { get; }
+        public double Spacing { get; } = 0;
 
 
 
@@ -163,10 +163,6 @@ namespace BH.oM.Structural.Properties
 
         //Main constructor setting all of the properties of the object
         public SteelSection(
-            Material material,
-            Fabrication fabrication,
-            PlateRestraint plateRestraint,
-
             IEnumerable<ICurve> edges,
 
             ShapeType shape,
@@ -203,10 +199,6 @@ namespace BH.oM.Structural.Properties
             double totalWidth)
 
         {
-            Material = material;
-            Fabrication = fabrication;
-            PlateRestraint = plateRestraint;
-
 
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
@@ -247,10 +239,6 @@ namespace BH.oM.Structural.Properties
 
         //Secondary constructor for a freeform section
         public SteelSection(
-            Material material,
-            Fabrication fabrication,
-            PlateRestraint plateRestraint,
-
 
             IEnumerable<ICurve> edges,
 
@@ -277,11 +265,6 @@ namespace BH.oM.Structural.Properties
             double totalWidth)
 
         {
-
-            Material = material;
-            Fabrication = fabrication;
-            PlateRestraint = plateRestraint;
-
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
             Shape = ShapeType.Polygon;

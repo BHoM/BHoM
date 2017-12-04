@@ -170,7 +170,6 @@ namespace BH.oM.Structural.Properties
 
         //Main constructor setting all of the properties of the object
         public ConcreteSection(
-            Material material,
             IEnumerable<Reinforcement> reinforcement,
             double minimumCover,
 
@@ -210,7 +209,6 @@ namespace BH.oM.Structural.Properties
             double totalWidth)
 
         {
-            Material = material;
             Reinforcement = new ReadOnlyCollection<Properties.Reinforcement>(reinforcement.ToList());
             MinimumCover = minimumCover;
 
@@ -253,7 +251,6 @@ namespace BH.oM.Structural.Properties
 
         //Secondary constructor for a freeform section
         public ConcreteSection(
-            Material material,
             IEnumerable<Reinforcement> reinforcement,
             double minimumCover,
 
@@ -283,8 +280,6 @@ namespace BH.oM.Structural.Properties
             double totalWidth)
 
         {
-
-            Material = material;
             Reinforcement = new ReadOnlyCollection<Properties.Reinforcement>(reinforcement.ToList());
             MinimumCover = minimumCover;
 
