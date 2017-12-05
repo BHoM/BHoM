@@ -17,12 +17,16 @@ namespace BH.oM.Environmental.Properties
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        /// SAM properties of Air Handling Units
 
         public double AHUAirLeakagePercentage { get; set; } = 0.0;
         public double AHUFrostCoilOffTemp { get; set; } = 0.0;
         public double AHUReheatCoilOffTemp { get; set; } = 0.0;
         public string AHUReference { get; set; } = "";
+
+        // Peak Hour
         public int SystemAHUSpaceSummerTotCoolingPeakHour { get; set; } = 0;
+
         public double AHUMixCoditionTemp { get; set; } = 0.0;
         public int SystemAHUSpaceWinterHeatingPeakHour { get; set; } = 0;
         public string AHURiserCooling { get; set; } = "";
@@ -42,19 +46,27 @@ namespace BH.oM.Environmental.Properties
         public double SystemAHUSpaceHeatingLoad { get; set; } = 0.0;
         public string AHUDescription { get; set; } = "";
         public double AHUReheatCoilSensLoad { get; set; } = 0.0;
+
+        // Total Load sum from spaces assigned to AHU
         public double SystemAHUSpaceSensCoolingLoad { get; set; } = 0.0;
         public double AHUCoolingCoilTotalLoad { get; set; } = 0.0;
+
+        //definition if AHU is 100% OutsideSupplyAir (OSA) or with recirculation TotalSupplyAir (TSA)
         public string AHUFreshAirType_OSAorTSA { get; set; } = "";
+
         public double AHUCoolingCoilSensLoad { get; set; } = 0.0;
         public double AHUCoolingCoilOffRH { get; set; } = 0.0;
-        public string AHUPsychrometricURL { get; set; } = "";
+        //public string AHUPsychrometricURL { get; set; } = "";
         public double AHUSummerDesignTemp { get; set; } = 0.0;
         public double AHUSummerDesignRH { get; set; } = 0.0;
         public double AHUCoolingCoilOffX { get; set; } = 0.0;
         public double AHUWinterSupplyTemp { get; set; } = 0.0;
         public double SystemAHUSpaceTotCoolingLoad { get; set; } = 0.0;
+        
+        //reference of Riser
         public string AHURiserHeating { get; set; } = "";
-        public double AHUModified { get; set; } = 0.0;
+
+        //public double AHUModified { get; set; } = 0.0;
         public double AHUCoolingCoilOnRH { get; set; } = 0.0;
         public double AHUSummerSupplyTemp { get; set; } = 0.0;
         public double SystemAHUSpaceLatCoolingLoad { get; set; } = 0.0;
