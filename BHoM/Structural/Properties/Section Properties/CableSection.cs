@@ -195,11 +195,11 @@ namespace BH.oM.Structural.Properties
             CentreZ = centreZ;
             CentreY = centreZ;
             Vz = vz;
-            Vpz = Vpz;
-            Vy = Vy;
-            Vpy = Vpy;
-            Asy = Asy;
-            Asz = Asz;
+            Vpz = vpz;
+            Vy = vy;
+            Vpy = vpy;
+            Asy = asy;
+            Asz = asz;
             TotalDepth = totalDepth;
             TotalWidth = totalWidth;
 
