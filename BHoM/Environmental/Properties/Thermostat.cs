@@ -19,7 +19,7 @@ namespace BH.oM.Environmental.Properties
         /***************************************************/
 
         public double ThermostatControlRange { get; set; } = 0; //this is Temp 0 degC as default
-        public bool ThermostatProportionalControl { get; set; } = false; //false by MD
+        public bool ThermostatProportionalControl { get; set; } = false;
 
         
         /***************************************************/

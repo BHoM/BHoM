@@ -32,22 +32,22 @@ namespace BH.oM.Environmental.Properties
         public double CFDBoundaryWallTemperature { get; set; } = 0.0;
 
         //Detail Surface Results
-        public double SurfaceApertureFlowIn { get; set; } = 0.0;
-        public double SurfaceApertureFlowOut { get; set; } = 0.0;
-        public double SurfaceApertureOpening { get; set; } = 0.0;
-        public double SurfaceExternalCondensation { get; set; } = 0.0;
-        public double SurfaceExternalConduction { get; set; } = 0.0;
-        public double SurfaceExternalConvection { get; set; } = 0.0;
-        public double SurfaceExternalLongWave { get; set; } = 0.0;
-        public double SurfaceExternalSolar { get; set; } = 0.0;
-        public double SurfaceExternalTemperature { get; set; } = 0.0;
-        public double SurfaceInternalCondensation { get; set; } = 0.0;
-        public double SurfaceInternalConduction { get; set; } = 0.0;
-        public double SurfaceInternalConvection { get; set; } = 0.0;
-        public double SurfaceInternalLongWave { get; set; } = 0.0;
-        public double SurfaceInternalSolar { get; set; } = 0.0;
-        public double SurfaceInternalTemperature { get; set; } = 0.0;
-        public double SurfaceInterstitialCondensation { get; set; } = 0.0;
+        public double ApertureFlowIn { get; set; } = 0.0;
+        public double ApertureFlowOut { get; set; } = 0.0;
+        public double ApertureOpening { get; set; } = 0.0;
+        public double ExternalCondensation { get; set; } = 0.0;
+        public double ExternalConduction { get; set; } = 0.0;
+        public double ExternalConvection { get; set; } = 0.0;
+        public double ExternalLongWave { get; set; } = 0.0;
+        public double ExternalSolar { get; set; } = 0.0;
+        public double ExternalTemperature { get; set; } = 0.0;
+        public double InternalCondensation { get; set; } = 0.0;
+        public double InternalConduction { get; set; } = 0.0;
+        public double InternalConvection { get; set; } = 0.0;
+        public double InternalLongWave { get; set; } = 0.0;
+        public double InternalSolar { get; set; } = 0.0;
+        public double InternalTemperature { get; set; } = 0.0;
+        public double InterstitialCondensation { get; set; } = 0.0;
 
         //boolean to toggle detail surface output
         public bool SurfaceOutput { get; set; } = true;

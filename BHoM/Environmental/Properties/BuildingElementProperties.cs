@@ -18,8 +18,8 @@ namespace BH.oM.Environmental.Properties
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        /// SAM properties of BuildingElements (BE) like Roof, Walls, Floor, Windows, Door and Curtain Panles
-
+        
+        /// Properties of BuildingElements (BE) like Roof, Walls, Floor, Windows, Door and Curtain Panles
         public string ApertureDescriptionDay { get; set; } = "";
         public string ApertureDescriptionNight { get; set; } = "";
         public string ApertureProfileDescriptionDay { get; set; } = "";
@@ -34,34 +34,33 @@ namespace BH.oM.Environmental.Properties
         public string ApertureScheduleNight { get; set; } = "";
 
         //setting defining if BE is Air
-        public bool BuildingElementAir { get; set; } = true;
+        public bool Air { get; set; } = true;
 
         //color define as Integer
-        public string BuildingElementColor { get; set; } = "";
+        public string Color { get; set; } = "";
 
-        public string BuildingElementDescription { get; set; } = "";
-        public double BuildingElementFrameWidth { get; set; } = 0.0;
+        public string Description { get; set; } = "";
+        public double FrameWidth { get; set; } = 0.0;
 
         //setting defining if BE is touching ground
-        public bool BuildingElementGround { get; set; } = true;
+        public bool Ground { get; set; } = true;
 
-        public string BuildingElementGUID { get; set; } = "";
-        public double BuildingElementHeight { get; set; } = 0.0;
+        public double Height { get; set; } = 0.0;
 
         //setting defining if BE should case shadows sued for transparent external BE
-        public bool BuildingElementInternalShadows { get; set; } = true;
+        public bool Shadows { get; set; } = true;
 
-        public string BuildingElementMaterial { get; set; } = "";
-        public bool BuildingElementModified { get; set; } = true;
-        public double BuildingElementThickness { get; set; } = 0.0;
+        public string Material { get; set; } = "";
+        public bool Modified { get; set; } = true;
+        public double Thickness { get; set; } = 0.0;
 
         //setting defining if BE is tranparent used for interal and external BE
-        public bool BuildingElementTransparent { get; set; } = true;
+        public bool Transparent { get; set; } = true;
 
         //definistion of BE Type recognized by simulation tools
-        public string BuildingElementType { get; set; } = "";
+        public string Type { get; set; } = "";
 
-        public double BuildingElementWidth { get; set; } = 0.0;
+        public double Width { get; set; } = 0.0;
         public double gValue { get; set; } = 0.0;
 
         //g-value for element including shading

@@ -37,7 +37,6 @@ namespace BH.oM.Environmental.Properties
         public double CoolingEmmiterRadiantProportion { get; set; } = 0.0;
         public double CoolingLoad { get; set; } = 0.0;
 
-        //prfile is text
         public string CoolingProfile { get; set; } = "";
 
         public double CoolingTypePrimary { get; set; } = 0.0;
@@ -68,13 +67,8 @@ namespace BH.oM.Environmental.Properties
         public double HTGInfiltrationACH { get; set; } = 0.0;
         public string IC_Description { get; set; } = "";
         public string IC_ThermalTemplate { get; set; } = "";
-        public string IES_ID { get; set; } = "";
-        public double InfiltrationProfileIES_ID { get; set; } = 0.0;
-        public double InfVentGainIES_ID { get; set; } = 0.0;
-        public double LightingGainIES_ID { get; set; } = 0.0;
-        public double MEPStrategyIES_ID { get; set; } = 0.0;
-        public double NCMBuildingAreaTypeIES_ID { get; set; } = 0.0;
-        public double NCMCalcAverageLuxLevelIES_ID { get; set; } = 0.0;
+                 
+        //properties from NCM
         public double NCMLightingConstantIlluminanceControls { get; set; } = 0.0;
         public double NCMLightingDaylightFactorMethod { get; set; } = 0.0;
         public double NCMLightingDaylightFactorMethodBRE { get; set; } = 0.0;
@@ -88,6 +82,7 @@ namespace BH.oM.Environmental.Properties
         public string NCMSpaceType { get; set; } = "";
         public string NCMSystemType { get; set; } = "";
         public double NCMTaskLightingEfficacy { get; set; } = 0.0;
+
         public double NoPeople { get; set; } = 0.0;
         public double NV_EqvFreeArea { get; set; } = 0.0;
         public string NV_Strategy { get; set; } = "";
@@ -130,25 +125,23 @@ namespace BH.oM.Environmental.Properties
         public double SmallPowerSensProfile { get; set; } = 0.0;
         public double SolarGain { get; set; } = 0.0;
         public double SpaceAHUCoolingCoilOffTemp { get; set; } = 0.0;
-        public double SpaceAperutreFlowIn { get; set; } = 0.0;
-        public double SpaceAperutreFlowOut { get; set; } = 0.0;
-        public string SpaceCoolingProfile { get; set; } = "";
-        public string SpaceDehumidificationProfile { get; set; } = "";
-        public string SpaceDescription { get; set; } = "";
-        public double SpaceDryBulbTemperature { get; set; } = 0.0;
-        public string SpaceGUID { get; set; } = "";
-        public string SpaceHeatingProfile { get; set; } = "";
-        public string SpaceHumidificationProfile { get; set; } = "";
-        public double SpaceHumidityRatio { get; set; } = 0.0;
-        public double Spaceies_GUID { get; set; } = 0.0;
-        public double SpaceMaxTemperature { get; set; } = 0.0;
-        public double SpaceMinTemperature { get; set; } = 0.0;
-        public double SpaceModified { get; set; } = 0.0;
-        public string SpaceName { get; set; } = "";
-        public double SpaceOutsideAirVentilation { get; set; } = 0.0;
-        public double SpacePollutant { get; set; } = 0.0;
-        public double SpaceRelativeHumidity { get; set; } = 0.0;
-        public double SpaceResultantTemperature { get; set; } = 0.0;
+
+        public double AperutreFlowIn { get; set; } = 0.0;
+        public double AperutreFlowOut { get; set; } = 0.0;
+        public string DehumidificationProfile { get; set; } = "";
+        public string Description { get; set; } = "";
+        public double DryBulbTemperature { get; set; } = 0.0;
+        public string HeatingProfile { get; set; } = "";
+        public string HumidificationProfile { get; set; } = "";
+        public double HumidityRatio { get; set; } = 0.0;
+        public double MaxTemperature { get; set; } = 0.0;
+        public double MinTemperature { get; set; } = 0.0;
+        public double Modified { get; set; } = 0.0;
+        public double OutsideAirVentilation { get; set; } = 0.0;
+        public double Pollutant { get; set; } = 0.0;
+        public double RelativeHumidity { get; set; } = 0.0;
+        public double ResultantTemperature { get; set; } = 0.0;
+
         public double SpecBuildingHeatTransferGain { get; set; } = 0.0;
         public double SpecExternal { get; set; } = 0.0;
         public double SpecFeatureLighting { get; set; } = 0.0;
@@ -164,11 +157,6 @@ namespace BH.oM.Environmental.Properties
         public double SummerDesignRH { get; set; } = 0.0;
         public double SummerDesignTemperature { get; set; } = 0.0;
         public double SummerDesignTemperatureRange { get; set; } = 0.0;
-        public double TAS_Area { get; set; } = 0.0;
-        public string TAS_GUID { get; set; } = "";
-        public double TAS_ID { get; set; } = 0.0;
-        public double TAS_Volume { get; set; } = 0.0;
-        public string TAS_ZoneDescription { get; set; } = "";
         public double TaskDesignLuxLevel { get; set; } = 0.0;
         public double TaskLightingProfile { get; set; } = 0.0;
         public double TerminalReference { get; set; } = 0.0;
@@ -176,8 +164,6 @@ namespace BH.oM.Environmental.Properties
         public double TotalZoneOutsideSupplyAirFlow { get; set; } = 0.0;
         public double TotalZoneSupplyAirFlow { get; set; } = 0.0;
         public double TrickleVent { get; set; } = 0.0;
-        //public string URL { get; set; } = "";
-        //public double URLRoomDataSheet { get; set; } = 0.0;
         public string VentType { get; set; } = "";
         public double Volume { get; set; } = 0.0;
         public double WinterDesignRH { get; set; } = 0.0;

@@ -17,71 +17,71 @@ namespace BH.oM.Environmental.Properties
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        /// SAM properties of Air Handling Units
-
-        public double AHUAirLeakagePercentage { get; set; } = 0.0;
-        public double AHUFrostCoilOffTemp { get; set; } = 0.0;
-        public double AHUReheatCoilOffTemp { get; set; } = 0.0;
-        public string AHUReference { get; set; } = "";
-
+        
+        /// Properties of Air Handling Units
+        public double AirLeakagePercentage { get; set; } = 0.0;
+        public double FrostCoilOffTemp { get; set; } = 0.0;
+        public double ReheatCoilOffTemp { get; set; } = 0.0;
+       
         // Peak Hour
         public int SystemAHUSpaceSummerTotCoolingPeakHour { get; set; } = 0;
 
-        public double AHUMixCoditionTemp { get; set; } = 0.0;
+        public double MixCoditionTemp { get; set; } = 0.0;
         public int SystemAHUSpaceWinterHeatingPeakHour { get; set; } = 0;
-        public string AHURiserCooling { get; set; } = "";
-        public double AHUFrostCoilOnTemp { get; set; } = 0.0;
-        public double AHUCoolingCoilFluidTemp { get; set; } = 0.0;
-        public double AHUSpecifiedSupplyAirflow { get; set; } = 0.0;
-        public string AHUCoolingCoilCalcMethod { get; set; } = "";
-        public double AHUSpecifiedReturnAirflow { get; set; } = 0.0;
-        public double AHUFrostCoilSensLoad { get; set; } = 0.0;
+        public string RiserCooling { get; set; } = "";
+        public double FrostCoilOnTemp { get; set; } = 0.0;
+        public double CoolingCoilFluidTemp { get; set; } = 0.0;
+        public double SpecifiedSupplyAirflow { get; set; } = 0.0;
+        public string CoolingCoilCalcMethod { get; set; } = "";
+        public double SpecifiedReturnAirflow { get; set; } = 0.0;
+        public double FrostCoilSensLoad { get; set; } = 0.0;
         public double SystemAHUSpaceLatWinterLoad { get; set; } = 0.0;
-        public double AHUCoolingCoilOnTemp { get; set; } = 0.0;
-        public double AHUWinterHeatRecoveryOnTemp { get; set; } = 0.0;
-        public double AHUHeatRecoverySensEfficiency { get; set; } = 0.0;
-        public double AHUNumberOfUnits { get; set; } = 0.0;
-        public string AHUCoolingCoilOnEnthalpy { get; set; } = "";
-        public double AHUCoolingCoilOnX { get; set; } = 0.0;
+        public double CoolingCoilOnTemp { get; set; } = 0.0;
+        public double WinterHeatRecoveryOnTemp { get; set; } = 0.0;
+        public double HeatRecoverySensEfficiency { get; set; } = 0.0;
+        public double NumberOfUnits { get; set; } = 0.0;
+        public string CoolingCoilOnEnthalpy { get; set; } = "";
+        public double CoolingCoilOnX { get; set; } = 0.0;
         public double SystemAHUSpaceHeatingLoad { get; set; } = 0.0;
-        public string AHUDescription { get; set; } = "";
-        public double AHUReheatCoilSensLoad { get; set; } = 0.0;
+        public string Description { get; set; } = "";
+        public double ReheatCoilSensLoad { get; set; } = 0.0;
 
         // Total Load sum from spaces assigned to AHU
         public double SystemAHUSpaceSensCoolingLoad { get; set; } = 0.0;
-        public double AHUCoolingCoilTotalLoad { get; set; } = 0.0;
+        public double CoolingCoilTotalLoad { get; set; } = 0.0;
 
         //definition if AHU is 100% OutsideSupplyAir (OSA) or with recirculation TotalSupplyAir (TSA)
-        public string AHUFreshAirType_OSAorTSA { get; set; } = "";
+        public string FreshAirType_OSAorTSA { get; set; } = "";
 
-        public double AHUCoolingCoilSensLoad { get; set; } = 0.0;
-        public double AHUCoolingCoilOffRH { get; set; } = 0.0;
+        public double CoolingCoilSensLoad { get; set; } = 0.0;
+        public double CoolingCoilOffRH { get; set; } = 0.0;
+
         //public string AHUPsychrometricURL { get; set; } = "";
-        public double AHUSummerDesignTemp { get; set; } = 0.0;
-        public double AHUSummerDesignRH { get; set; } = 0.0;
-        public double AHUCoolingCoilOffX { get; set; } = 0.0;
-        public double AHUWinterSupplyTemp { get; set; } = 0.0;
+        public double SummerDesignTemp { get; set; } = 0.0;
+        public double SummerDesignRH { get; set; } = 0.0;
+        public double CoolingCoilOffX { get; set; } = 0.0;
+        public double WinterSupplyTemp { get; set; } = 0.0;
         public double SystemAHUSpaceTotCoolingLoad { get; set; } = 0.0;
         
         //reference of Riser
-        public string AHURiserHeating { get; set; } = "";
+        public string RiserHeating { get; set; } = "";
 
         //public double AHUModified { get; set; } = 0.0;
-        public double AHUCoolingCoilOnRH { get; set; } = 0.0;
-        public double AHUSummerSupplyTemp { get; set; } = 0.0;
+        public double CoolingCoilOnRH { get; set; } = 0.0;
+        public double SummerSupplyTemp { get; set; } = 0.0;
         public double SystemAHUSpaceLatCoolingLoad { get; set; } = 0.0;
-        public double AHUCoolingCoilOffTemp { get; set; } = 0.0;
-        public string AHUCoolingCoilOffEnthalpy { get; set; } = "";
+        public double CoolingCoilOffTemp { get; set; } = 0.0;
+        public string CoolingCoilOffEnthalpy { get; set; } = "";
         public double SystemAHUSpaceWinterSensTotRatio { get; set; } = 0.0;
-        public double AHUHeatingCoilFluidTemp { get; set; } = 0.0;
-        public double AHUSpecifiedOutsideSupplyAirflow { get; set; } = 0.0;
-        public double AHUHeatRecoveryLatEfficiency { get; set; } = 0.0;
-        public double AHUWinterDesignTemp { get; set; } = 0.0;
-        public double AHUWinterHeatRecoveryOffTemp { get; set; } = 0.0;
-        public double AHUReheatCoilOnTemp { get; set; } = 0.0;
-        public double AHUCoolingCoilLatLoad { get; set; } = 0.0;
+        public double HeatingCoilFluidTemp { get; set; } = 0.0;
+        public double SpecifiedOutsideSupplyAirflow { get; set; } = 0.0;
+        public double HeatRecoveryLatEfficiency { get; set; } = 0.0;
+        public double WinterDesignTemp { get; set; } = 0.0;
+        public double WinterHeatRecoveryOffTemp { get; set; } = 0.0;
+        public double ReheatCoilOnTemp { get; set; } = 0.0;
+        public double CoolingCoilLatLoad { get; set; } = 0.0;
         public double SystemAHUSpaceSummerSensTotRatio { get; set; } = 0.0;
-        public double AHUSpecifiedOutsideSupplyAirRatio { get; set; } = 0.0;
+        public double SpecifiedOutsideSupplyAirRatio { get; set; } = 0.0;
 
                 
         /***************************************************/

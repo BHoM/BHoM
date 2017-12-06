@@ -20,22 +20,22 @@ namespace BH.oM.Environmental.Properties
         /***************************************************/
 
         //design properties
-        public double Emitter_circuitTemp { get; set; } = 0.0;
-        public double Emitter_dh { get; set; } = 0.0;
-        public double Emitter_dT { get; set; } = 0.0;
-        public double Emitter_supplyT { get; set; } = 0.0;
-        public string EmitterComments { get; set; } = "";
+        public double CircuitTemp { get; set; } = 0.0;
+        public double dh { get; set; } = 0.0;
+        public double dT { get; set; } = 0.0;
+        public double SupplyT { get; set; } = 0.0;
+        public string Comments { get; set; } = "";
 
         //controls for emitters
-        public double EmitterMaxOutsideTemperature { get; set; } = 0.0;
-        public double EmitterOffOutsideTemperature { get; set; } = 0.0;
+        public double MaxOutsideTemperature { get; set; } = 0.0;
+        public double OffOutsideTemperature { get; set; } = 0.0;
 
         //heat outoput properties
-        public double EmitterRadiantProportion { get; set; } = 0.0;
-        public double EmitterViewCoefficient { get; set; } = 0.0;
+        public double RadiantProportion { get; set; } = 0.0;
+        public double ViewCoefficient { get; set; } = 0.0;
 
-        public string EmitterType { get; set; } = "";
-        public string EmitterTypeDIN { get; set; } = "";
+        public string Type { get; set; } = "";
+        public string TypeDIN { get; set; } = "";
 
 
                 
