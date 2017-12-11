@@ -22,6 +22,18 @@ namespace BH.oM.Structural.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
+        public PerimeterReinforcement()
+        {
+
+        }
+
+        public PerimeterReinforcement(double diameter, int count, ReoPattern pattern)
+        {
+            Diameter = diameter;
+            BarCount = count;
+            Pattern = pattern;
+        }
+
 
         ///***************************************************/
         ///**** Override Reinforcement                    ****/

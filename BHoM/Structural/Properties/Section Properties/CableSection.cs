@@ -10,7 +10,7 @@ using BH.oM.Materials;
 
 namespace BH.oM.Structural.Properties
 {
-    public class CableSection : BHoMObject, ICrossSection, IImmutable
+    public class CableSection : BHoMObject, ISectionProperty, IImmutable
     {
 
         public Material Material { get; set; } = null;
@@ -128,16 +128,6 @@ namespace BH.oM.Structural.Properties
         public double Asz { get; } = 0;
 
 
-        /// <summary>
-        /// Total Depth of the section
-        /// </summary>
-        public double TotalDepth { get; } = 0;
-
-        /// <summary>
-        /// Total Width of the section
-        /// </summary>
-        public double TotalWidth { get; } = 0;
-
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -170,9 +160,7 @@ namespace BH.oM.Structural.Properties
             double vy,
             double vpy,
             double asy,
-            double asz,
-            double totalDepth,
-            double totalWidth)
+            double asz)
 
         {
             Material = material;
@@ -193,15 +181,13 @@ namespace BH.oM.Structural.Properties
             Sy = sy;
             Sz = sz;
             CentreZ = centreZ;
-            CentreY = centreZ;
+            CentreY = centreY;
             Vz = vz;
             Vpz = vpz;
             Vy = vy;
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
-            TotalDepth = totalDepth;
-            TotalWidth = totalWidth;
 
         }
 

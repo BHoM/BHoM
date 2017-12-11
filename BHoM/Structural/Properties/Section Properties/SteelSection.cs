@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace BH.oM.Structural.Properties
 {
 
-    public class SteelSection : BHoMObject, ICrossSection, IImmutable
+    public class SteelSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -27,25 +27,27 @@ namespace BH.oM.Structural.Properties
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
-        public ShapeType Shape { get; }
+        public ISectionDimensions SectionDimensions { get; }
 
-        public double B1 { get; } = 0;
+        //public ShapeType Shape { get; }
 
-        public double B2 { get; } = 0;
+        //public double B1 { get; } = 0;
 
-        public double B3 { get; } = 0;
+        //public double B2 { get; } = 0;
 
-        public double Tw { get; } = 0;
+        //public double B3 { get; } = 0;
 
-        public double Tf1 { get; } = 0;
+        //public double Tw { get; } = 0;
 
-        public double Tf2 { get; } = 0;
+        //public double Tf1 { get; } = 0;
 
-        public double R1 { get; } = 0;
+        //public double Tf2 { get; } = 0;
 
-        public double R2 { get; } = 0;
+        //public double R1 { get; } = 0;
 
-        public double Spacing { get; } = 0;
+        //public double R2 { get; } = 0;
+
+        //public double Spacing { get; } = 0;
 
 
 
@@ -144,17 +146,6 @@ namespace BH.oM.Structural.Properties
         /// </summary>
         public double Asz { get; } = 0;
 
-        /// <summary>
-        /// Total Depth of the section
-        /// </summary>
-        public double TotalDepth { get; } = 0;
-
-        /// <summary>
-        /// Total Width of the section
-        /// </summary>
-        public double TotalWidth { get; } = 0;
-
-
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -164,17 +155,18 @@ namespace BH.oM.Structural.Properties
         //Main constructor setting all of the properties of the object
         public SteelSection(
             IEnumerable<ICurve> edges,
+            ISectionDimensions dimensions,
 
-            ShapeType shape,
-            double b1,
-            double b2,
-            double b3,
-            double tw,
-            double tf1,
-            double tf2,
-            double r1,
-            double r2,
-            double spacing,
+            //ShapeType shape,
+            //double b1,
+            //double b2,
+            //double b3,
+            //double tw,
+            //double tf1,
+            //double tf2,
+            //double r1,
+            //double r2,
+            //double spacing,
 
             double area,
             double rgy,
@@ -194,24 +186,23 @@ namespace BH.oM.Structural.Properties
             double vy,
             double vpy,
             double asy,
-            double asz,
-            double totalDepth,
-            double totalWidth)
+            double asz)
 
         {
 
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-            Shape = shape;
-            B1 = b1;
-            B2 = b2;
-            B3 = b3;
-            Tw = tw;
-            Tf1 = tf1;
-            Tf2 = tf2;
-            R1 = r1;
-            R2 = r2;
-            Spacing = spacing;
+            SectionDimensions = dimensions;
+            //Shape = shape;
+            //B1 = b1;
+            //B2 = b2;
+            //B3 = b3;
+            //Tw = tw;
+            //Tf1 = tf1;
+            //Tf2 = tf2;
+            //R1 = r1;
+            //R2 = r2;
+            //Spacing = spacing;
 
             Area = area;
             Rgy = rgy;
@@ -225,15 +216,13 @@ namespace BH.oM.Structural.Properties
             Sy = sy;
             Sz = sz;
             CentreZ = centreZ;
-            CentreY = centreZ;
+            CentreY = centreY;
             Vz = vz;
             Vpz = vpz;
             Vy = vy;
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
-            TotalDepth = totalDepth;
-            TotalWidth = totalWidth;
 
         }
 
@@ -267,7 +256,7 @@ namespace BH.oM.Structural.Properties
         {
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-            Shape = ShapeType.Polygon;
+            SectionDimensions = new PolygonDimensions();
 
             Area = area;
             Rgy = rgy;
@@ -281,15 +270,13 @@ namespace BH.oM.Structural.Properties
             Sy = sy;
             Sz = sz;
             CentreZ = centreZ;
-            CentreY = centreZ;
+            CentreY = centreY;
             Vz = vz;
             Vpz = vpz;
             Vy = vy;
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
-            TotalDepth = totalDepth;
-            TotalWidth = totalWidth;
 
         }
     }

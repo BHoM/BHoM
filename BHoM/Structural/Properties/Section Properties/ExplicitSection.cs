@@ -8,7 +8,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    public class ExplicitSection : BHoMObject, ICrossSection
+    public class ExplicitSection : BHoMObject, ISectionProperty
     {
 
         /***************************************************/
@@ -107,16 +107,6 @@ namespace BH.oM.Structural.Properties
         /// </summary>
         public double Asz { get; set; } = 0;
 
-
-        /// <summary>
-        /// Total Depth of the section
-        /// </summary>
-        public double TotalDepth { get; set; } = 0;
-
-        /// <summary>
-        /// Total Width of the section
-        /// </summary>
-        public double TotalWidth { get; set; } = 0;
 
 
 
