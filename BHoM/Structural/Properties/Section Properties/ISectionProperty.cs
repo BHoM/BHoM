@@ -7,7 +7,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    public interface ICrossSection : IObject
+    public interface ISectionProperty : IObject
     {
         Materials.Material Material { get; set; }
 
@@ -100,17 +100,6 @@ namespace BH.oM.Structural.Properties
         /// Shear Area in the Z direction
         /// </summary>
         double Asz { get; }
-
-
-        /// <summary>
-        /// Total Depth of the section
-        /// </summary>
-        double TotalDepth { get; }
-
-        /// <summary>
-        /// Total Width of the section
-        /// </summary>
-        double TotalWidth { get; }
 
     }
 }

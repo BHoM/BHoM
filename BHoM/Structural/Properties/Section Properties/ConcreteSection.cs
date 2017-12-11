@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 namespace BH.oM.Structural.Properties
 {
 
-    public class ConcreteSection : BHoMObject, ICrossSection, IImmutable
+    public class ConcreteSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ReadOnlyCollection<Reinforcement> Reinforcement { get; }
+        public List<Reinforcement> Reinforcement { get; set; }
 
         //TODO: Do we need this property or should it be a BHoM_Engine query?
         public double MinimumCover { get; }
@@ -31,29 +31,7 @@ namespace BH.oM.Structural.Properties
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
-        //TODO: Which section dimensions make sense for a concrete section?
-
-        public ShapeType Shape { get; }
-
-        public double B1 { get; }
-
-        public double B2 { get; }
-
-        public double B3 { get; }
-
-        public double Tw { get; }
-
-        public double Tf1 { get; }
-
-        public double Tf2 { get; }
-
-        public double R1 { get; }
-
-        public double R2 { get; }
-
-        public double Spacing { get; }
-
-
+        public ISectionDimensions SectionDimension { get; }
 
         /***************************************************/
         /**** Properties - Section constants            ****/
@@ -62,105 +40,112 @@ namespace BH.oM.Structural.Properties
 
         /// <summary>
         /// Gross Area of the cross section
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Area { get; } = 0;
 
         /// <summary>
         /// Radius of Gyration about the Y-Axis
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Rgy { get; } = 0;
 
         /// <summary>
         /// Radius of Gyration about the Z-Axis
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Rgz { get; } = 0;
 
         /// <summary>
         /// Torsion Constant
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double J { get; } = 0;
 
         /// <summary>
         /// Moment of Inertia about the Y-Axis
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Iy { get; } = 0;
 
         /// <summary>
         /// Moment of Inertia about the Z-Axis
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Iz { get; } = 0;
 
         /// <summary>
         /// Warping Constant
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Iw { get; } = 0;
 
         /// <summary>
         /// Elastic Modulus of the section about the Y-Axis
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Zy { get; } = 0;
 
         /// <summary>
         /// Elastic Modulus of the section about the Z-Axis
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Zz { get; } = 0;
         /// <summary>
         /// Plastic Modulus of the section about the Y-Axis
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Sy { get; } = 0;
 
         /// <summary>
         /// Plastic Modulus of the section about the Z-Axis
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Sz { get; } = 0;
         /// <summary>
         /// Geometric centre of the section in the Z direction
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double CentreZ { get; } = 0;
         /// <summary>
         /// Geometric centre of the section in the Y direction
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double CentreY { get; } = 0;
 
         /// <summary>
         /// Z Distance from the centroid of the section to top edge of the section
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Vz { get; } = 0;
 
         /// <summary>
         /// Z Distance from the centroid of the section to bottom edge of the section
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Vpz { get; } = 0;
         /// <summary>
         /// Y Distance from the centroid of the section to right edge of the section
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Vy { get; } = 0;
         /// <summary>
         /// Y Distance from the centroid of the section to Left edge of the section
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Vpy { get; } = 0;
 
         /// <summary>
         /// Shear Area in the Y direction
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Asy { get; } = 0;
 
         /// <summary>
         /// Shear Area in the Z direction
+        /// Uncracked section disregarding the reinforcement.
         /// </summary>
         public double Asz { get; } = 0;
-
-
-        /// <summary>
-        /// Total Depth of the section
-        /// </summary>
-        public double TotalDepth { get; } = 0;
-
-        /// <summary>
-        /// Total Width of the section
-        /// </summary>
-        public double TotalWidth { get; } = 0;
-
 
 
         /***************************************************/
@@ -170,21 +155,9 @@ namespace BH.oM.Structural.Properties
 
         //Main constructor setting all of the properties of the object
         public ConcreteSection(
-            IEnumerable<Reinforcement> reinforcement,
-            double minimumCover,
-
             IEnumerable<ICurve> edges,
 
-            ShapeType shape,
-            double b1,
-            double b2,
-            double b3,
-            double tw,
-            double tf1,
-            double tf2,
-            double r1,
-            double r2,
-            double spacing,
+            ISectionDimensions dimensions,
 
             double area,
             double rgy,
@@ -204,26 +177,12 @@ namespace BH.oM.Structural.Properties
             double vy,
             double vpy,
             double asy,
-            double asz,
-            double totalDepth,
-            double totalWidth)
+            double asz)
 
         {
-            Reinforcement = new ReadOnlyCollection<Properties.Reinforcement>(reinforcement.ToList());
-            MinimumCover = minimumCover;
-
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-            Shape = shape;
-            B1 = b1;
-            B2 = b2;
-            B3 = b3;
-            Tw = tw;
-            Tf1 = tf1;
-            Tf2 = tf2;
-            R1 = r1;
-            R2 = r2;
-            Spacing = spacing;
+            SectionDimension = dimensions;
 
             Area = area;
             Rgy = rgy;
@@ -237,24 +196,18 @@ namespace BH.oM.Structural.Properties
             Sy = sy;
             Sz = sz;
             CentreZ = centreZ;
-            CentreY = centreZ;
+            CentreY = centreY;
             Vz = vz;
             Vpz = vpz;
             Vy = vy;
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
-            TotalDepth = totalDepth;
-            TotalWidth = totalWidth;
 
         }
 
         //Secondary constructor for a freeform section
         public ConcreteSection(
-            IEnumerable<Reinforcement> reinforcement,
-            double minimumCover,
-
-
             IEnumerable<ICurve> edges,
 
             double area,
@@ -275,17 +228,12 @@ namespace BH.oM.Structural.Properties
             double vy,
             double vpy,
             double asy,
-            double asz,
-            double totalDepth,
-            double totalWidth)
+            double asz)
 
         {
-            Reinforcement = new ReadOnlyCollection<Properties.Reinforcement>(reinforcement.ToList());
-            MinimumCover = minimumCover;
-
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-            Shape = ShapeType.Polygon;
+            SectionDimension = new PolygonDimensions();
 
             Area = area;
             Rgy = rgy;
@@ -299,15 +247,13 @@ namespace BH.oM.Structural.Properties
             Sy = sy;
             Sz = sz;
             CentreZ = centreZ;
-            CentreY = centreZ;
+            CentreY = centreY;
             Vz = vz;
             Vpz = vpz;
             Vy = vy;
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
-            TotalDepth = totalDepth;
-            TotalWidth = totalWidth;
 
         }
 

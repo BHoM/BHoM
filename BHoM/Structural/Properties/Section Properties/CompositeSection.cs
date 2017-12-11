@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using BH.oM.Geometry;
 using BH.oM.Materials;
 using BH.oM.Base;
+using System.Collections.ObjectModel;
 
 namespace BH.oM.Structural.Properties
 {
-    public class CompositeSection : BHoMObject, ICrossSection, IImmutable
+    public class CompositeSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
 
         public SteelSection SteelSection { get; }
@@ -22,6 +23,14 @@ namespace BH.oM.Structural.Properties
         public double StudHeight { get;  }
         public double StudSpacing { get;  }
         public int StudsPerGroup { get;  }
+
+        public ReadOnlyCollection<ICurve> Edges
+        {
+            get
+            {
+                return new ReadOnlyCollection<ICurve>(SteelSection.Edges.Concat(ConcreteSection.Edges).ToList());
+            }
+        }
 
 
 
@@ -123,17 +132,6 @@ namespace BH.oM.Structural.Properties
         public double Asz { get; } = 0;
 
 
-        /// <summary>
-        /// Total Depth of the section
-        /// </summary>
-        public double TotalDepth { get; } = 0;
-
-        /// <summary>
-        /// Total Width of the section
-        /// </summary>
-        public double TotalWidth { get; } = 0;
-
-
 
 
         //Main constructor setting all of the properties of the object
@@ -164,9 +162,7 @@ namespace BH.oM.Structural.Properties
             double vy,
             double vpy,
             double asy,
-            double asz,
-            double totalDepth,
-            double totalWidth)
+            double asz)
 
         {
             SteelSection = steelSection;
@@ -188,15 +184,13 @@ namespace BH.oM.Structural.Properties
             Sy = sy;
             Sz = sz;
             CentreZ = centreZ;
-            CentreY = centreZ;
+            CentreY = centreY;
             Vz = vz;
             Vpz = vpz;
             Vy = vy;
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
-            TotalDepth = totalDepth;
-            TotalWidth = totalWidth;
 
         }
 
