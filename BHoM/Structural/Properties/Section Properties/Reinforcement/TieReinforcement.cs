@@ -19,6 +19,14 @@ namespace BH.oM.Structural.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
+        public TieReinforcement() { }
+
+        public TieReinforcement(double diameter, double spacing, int count)
+        {
+            Diameter = diameter;
+            Spacing = spacing;
+            BarCount = count;
+        }
 
         ///***************************************************/
         ///**** Override Reinforcement                    ****/

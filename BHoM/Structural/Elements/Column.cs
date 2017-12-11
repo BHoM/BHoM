@@ -19,7 +19,7 @@ namespace BH.oM.Structural.Elements
 
         
 
-        public Properties.ICrossSection SectionProperty { get; set; } = null;
+        public Properties.ISectionProperty SectionProperty { get; set; } = null;
 
         public BarStructuralUsage StructuralUsage { get; set; } = BarStructuralUsage.Column;
 

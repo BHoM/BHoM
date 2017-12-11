@@ -17,7 +17,7 @@ namespace BH.oM.Structural.Elements
 
         public ICurve LocationCurve { get; set; } = null;
 
-        public Properties.ICrossSection SectionProperty { get; set; } = null;
+        public Properties.ISectionProperty SectionProperty { get; set; } = null;
 
         public BarStructuralUsage StructuralUsage { get; set; } = BarStructuralUsage.Beam;
 
