@@ -18,10 +18,9 @@ namespace BH.oM.Environmental.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Type { get; set; }
-
-        public ISurface Geometry { get; set; } = null;
-
+        public Polyline Edges { get; set; } = new Polyline();
+        public List<Opening> Openings { get; set; } = new List<Opening>();
+       
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -31,36 +30,6 @@ namespace BH.oM.Environmental.Elements
 
         /***************************************************/
 
-        /// <summary>
-        /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
-        /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="number"></param>
-        public Panel(ISurface surface)
-        {
-            Geometry = surface;
-        }
+               
     }
 }
-
-
-///***************************************************/
-///**** Override BHoMObject                       ****/
-///***************************************************/
-
-///// <summary></summary>
-//public override IBHoMGeometry GetGeometry()
-//{
-//    return Geometry;
-//}
-
-///***************************************************/
-
-///// <summary></summary>
-//public override void SetGeometry(IBHoMGeometry geometry)
-//{
-//    if (typeof(ISurface).IsAssignableFrom(geometry.GetType()))
-//    {
-//        Geometry = geometry as ISurface;
-//    }
-//}

@@ -19,6 +19,12 @@ namespace BH.oM.Environmental.Elements
 
         public Polyline Polyline { get; set; }
 
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Opening() { }
+             
     }
 
 }
