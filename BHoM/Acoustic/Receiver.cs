@@ -33,6 +33,7 @@ namespace BH.oM.Acoustic
         public Receiver(Point location)
         {
             Location = location;
+            ReceiverID = Interlocked.Increment(ref globalInstanceCount);
         }
 
         /***************************************************/
