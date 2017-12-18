@@ -25,26 +25,21 @@ namespace BH.oM.Acoustic
             { Frequency.Hz2000, 1 }, { Frequency.Hz4000, 1 }, { Frequency.Hz8000, 1 }, { Frequency.Hz16000, 1 },
         };
         
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Panel() { }
-
-        /***************************************************/
-
-        public Panel(Mesh geometry)
+        public Panel()
         {
-            Geometry = geometry;
+            PanelID = Interlocked.Increment(ref globalInstanceCount);
         }
 
         /***************************************************/
 
-        public Panel(Mesh geometry, Dictionary<Frequency, double> r)
+        ~Panel()
         {
-            PanelID = Interlocked.Increment(ref globalInstanceCount);
-            Geometry = geometry;
-            R = r;
+            Interlocked.Decrement(ref globalInstanceCount);
         }
 
 

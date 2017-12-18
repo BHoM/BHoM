@@ -26,25 +26,17 @@ namespace BH.oM.Acoustic
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Receiver() { }
-
-        /***************************************************/
-
-        public Receiver(Point location)
+        public Receiver()
         {
-            Location = location;
             ReceiverID = Interlocked.Increment(ref globalInstanceCount);
         }
 
         /***************************************************/
 
-        public Receiver(Point position, string category, int receiverID)
+        ~Receiver()
         {
-            Location = position;
-            Category = category;
-            ReceiverID = Interlocked.Increment(ref globalInstanceCount);
+            Interlocked.Decrement(ref globalInstanceCount);
         }
-
 
         /***************************************************/
         /**** Static shared fields                      ****/

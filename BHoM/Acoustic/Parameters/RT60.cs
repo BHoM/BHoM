@@ -1,9 +1,4 @@
 ﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
@@ -20,21 +15,5 @@ namespace BH.oM.Acoustic
         public int SpeakerID { get; set; } = 0;
 
         public Frequency Frequency { get; set; } = Frequency.Hz1000;
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public RT60() { }
-
-        /***************************************************/
-
-        public RT60(double value, int receiverID, int speakerID)
-        {
-            Value = value;
-            ReceiverID = receiverID;
-            SpeakerID = speakerID;
-        }
     }
 }
