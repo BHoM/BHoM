@@ -59,18 +59,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acoustic\Panel.cs" />
-    <Compile Include="Acoustic\Parameters\Constants.cs" />
-    <Compile Include="Acoustic\Parameters\Frequency.cs" />
+    <Compile Include="Acoustic\Constants.cs" />
+    <Compile Include="Acoustic\Elements\Panel.cs" />
+    <Compile Include="Acoustic\Elements\Ray.cs" />
+    <Compile Include="Acoustic\Elements\Receiver.cs" />
+    <Compile Include="Acoustic\Elements\Room.cs" />
+    <Compile Include="Acoustic\Elements\Speaker.cs" />
+    <Compile Include="Acoustic\Frequency.cs" />
     <Compile Include="Acoustic\Parameters\RT60.cs" />
     <Compile Include="Acoustic\Parameters\SnRatio.cs" />
-    <Compile Include="Acoustic\Ray.cs" />
-    <Compile Include="Acoustic\Receiver.cs" />
     <Compile Include="Acoustic\Parameters\IAcousticParameter.cs" />
     <Compile Include="Acoustic\Parameters\SoundLevel.cs" />
-    <Compile Include="Acoustic\Speaker.cs" />
     <Compile Include="Acoustic\Parameters\Rasti.cs" />
-    <Compile Include="Acoustic\Room.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IImmutable.cs" />
