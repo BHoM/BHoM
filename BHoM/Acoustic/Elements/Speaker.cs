@@ -28,29 +28,5 @@ namespace BH.oM.Acoustic
         public Dictionary<Frequency, double> Gains { get; set; } = new Dictionary<Frequency, double>();
 
         public Dictionary<Frequency, double[,]> Directivity { get; set; } = new Dictionary<Frequency, double[,]>();
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Speaker()
-        {
-            SpeakerID = Interlocked.Increment(ref globalInstanceCount);
-        }
-
-        /***************************************************/
-
-        ~Speaker()
-        {
-            Interlocked.Decrement(ref globalInstanceCount);
-        }
-
-
-        /***************************************************/
-        /**** Static shared fields                      ****/
-        /***************************************************/
-
-        public static int globalInstanceCount = -1;
     }
 }

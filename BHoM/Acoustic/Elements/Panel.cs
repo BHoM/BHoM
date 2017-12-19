@@ -24,29 +24,5 @@ namespace BH.oM.Acoustic
             { Frequency.Hz63, 1 }, { Frequency.Hz125, 1 }, { Frequency.Hz250, 1 }, { Frequency.Hz500, 1 }, { Frequency.Hz1000, 1 },
             { Frequency.Hz2000, 1 }, { Frequency.Hz4000, 1 }, { Frequency.Hz8000, 1 }, { Frequency.Hz16000, 1 },
         };
-        
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Panel()
-        {
-            PanelID = Interlocked.Increment(ref globalInstanceCount);
-        }
-
-        /***************************************************/
-
-        ~Panel()
-        {
-            Interlocked.Decrement(ref globalInstanceCount);
-        }
-
-
-        /***************************************************/
-        /**** Static shared fields                      ****/
-        /***************************************************/
-
-        public static int globalInstanceCount = -1;
     }
 }
