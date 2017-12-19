@@ -24,6 +24,14 @@ namespace BH.oM.Environmental.Elements
         /***************************************************/
 
         public Opening() { }
+
+        /***************************************************/
+
+        public Opening(Polyline polyline)
+        {
+            Polyline = polyline;
+
+        }
              
     }
 

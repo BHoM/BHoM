@@ -17,10 +17,13 @@ namespace BH.oM.Environmental.Elements
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
+               
         public Polyline Edges { get; set; } = new Polyline();
         public List<Opening> Openings { get; set; } = new List<Opening>();
-       
+        public double Area { get; set; } = 0.0;
+        public string Type { get; set; } = "";
+        public Point ControlPoint { get; set; } = new Point();
+                       
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -30,6 +33,15 @@ namespace BH.oM.Environmental.Elements
 
         /***************************************************/
 
-               
+        public Panel(Polyline edges, List<Opening> openings, double area, string type, Point controlpoint)
+        {
+            Edges = edges;
+            Openings = openings;
+            Area = area;
+            Type = type;
+            ControlPoint = controlpoint;
+        }
+
     }
+               
 }
