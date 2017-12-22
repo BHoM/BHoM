@@ -10,38 +10,25 @@ using System.ComponentModel;
 namespace BH.oM.Environmental.Elements
 {
     /// <summary>
-    /// PanelPlanar object for environmental models.
+    /// Internal Condition object for environmental models.
     /// </summary>
-    public class Panel : BHoMObject
+    public class InternalCondition : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-               
-        public Polyline Edges { get; set; } = new Polyline();
-        public List<Opening> Openings { get; set; } = new List<Opening>();
-        public double Area { get; set; } = 0.0;
-        public string Type { get; set; } = "";
-        
-                       
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Panel() { }
+        public InternalCondition() { }
 
         /***************************************************/
 
-        public Panel(Polyline edges, List<Opening> openings, double area, string type)
-        {
-            Edges = edges;
-            Openings = openings;
-            Area = area;
-            Type = type;
-            
-        }
+        
 
     }
-               
+
 }

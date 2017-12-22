@@ -139,7 +139,7 @@ namespace BH.oM.Environmental.Properties
         public double Modified { get; set; } = 0.0;
         public double OutsideAirVentilation { get; set; } = 0.0;
         public double Pollutant { get; set; } = 0.0;
-        public double RelativeHumidity { get; set; } = 0.0;
+        public double RelativeHumidity { get; set; } = 0.0; //output
         public double ResultantTemperature { get; set; } = 0.0;
 
         public double SpecBuildingHeatTransferGain { get; set; } = 0.0;
