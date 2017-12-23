@@ -7,7 +7,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    public class StandardChannelSectionDimensions : BHoMObject, ISectionDimensions, IImmutable
+    [Serializable] public class StandardChannelSectionDimensions : BHoMObject, ISectionDimensions, IImmutable
     {
 
         /***************************************************/

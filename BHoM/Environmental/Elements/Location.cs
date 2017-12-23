@@ -11,7 +11,7 @@ namespace BH.oM.Environmental.Elements
     /// <summary>
     /// Location objects.
     /// </summary>
-    public class Location : BHoMObject
+    [Serializable] public class Location : BHoMObject
 
     {
         /***************************************************/

@@ -9,6 +9,7 @@ using System.Threading;
 
 namespace BH.oM.Acoustic
 {
+    [Serializable]
     public class Panel : BHoMObject
     {
         /***************************************************/

@@ -8,7 +8,7 @@ using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
 {
-    public class AreaVaryingDistributedLoad
+    [Serializable] public class AreaVaryingDistributedLoad
     {
 
         //Varying loads on area based objects

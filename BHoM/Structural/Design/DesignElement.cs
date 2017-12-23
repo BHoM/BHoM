@@ -10,7 +10,7 @@ using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Design
 {
-    public class StructuralLayout : BHoMObject, IDesignable
+    [Serializable] public class StructuralLayout : BHoMObject, IDesignable
     {
         /***************************************************/
         /**** Properties                                ****/

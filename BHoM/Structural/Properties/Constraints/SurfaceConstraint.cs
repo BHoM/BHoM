@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
 {
-    public class SurfaceConstraint : BHoMObject
+    [Serializable] public class SurfaceConstraint : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BH.oM.Base;
 
 namespace BH.oM.Structural.Design
 {
-    public class DesignGroup : BHoMObject
+    [Serializable] public class DesignGroup : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

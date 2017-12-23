@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
 {   
-    public class Waffle : Property2D
+    [Serializable] public class Waffle : Property2D
     {
         public double TotalDepthX { get; set; }
         public double TotalDepthY { get; set; }

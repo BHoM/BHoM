@@ -13,7 +13,7 @@ namespace BH.oM.Materials
     /// <summary>
     /// Material class for use in all other object classes and namespaces
     /// </summary>
-    public class Material : BHoMObject
+    [Serializable] public class Material : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

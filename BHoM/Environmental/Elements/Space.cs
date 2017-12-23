@@ -12,7 +12,7 @@ namespace BH.oM.Environmental.Elements
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Space : BHoMObject
+    [Serializable] public class Space : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

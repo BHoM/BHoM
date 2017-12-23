@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
 {
-    public class ConstantThickness : Property2D
+    [Serializable] public class ConstantThickness : Property2D
     {
         public ConstantThickness() { }
         public ConstantThickness(string name) : base(name) { Type = PanelType.Undefined; }

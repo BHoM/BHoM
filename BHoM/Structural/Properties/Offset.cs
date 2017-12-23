@@ -11,7 +11,7 @@ namespace BH.oM.Structural.Properties
     /// <summary>
     /// Offsets for bars
     /// </summary>
-    public class Offset : BH.oM.Base.BHoMObject
+    [Serializable] public class Offset : BH.oM.Base.BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

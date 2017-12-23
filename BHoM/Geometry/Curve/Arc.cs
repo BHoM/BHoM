@@ -9,6 +9,7 @@ namespace BH.oM.Geometry
     /// <summary>
     /// Arc object
     /// </summary>
+    [Serializable]
     public class Arc : ICurve
     {
         /***************************************************/

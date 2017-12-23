@@ -8,7 +8,7 @@
 
 //namespace BH.oM.Structural.Properties
 //{
-//    public class FreeFormSectionProperty : BHoMObject, IGeometricalPropertyDefinition, IImmutable
+//    [Serializable] public class FreeFormSectionProperty : BHoMObject, IGeometricalPropertyDefinition, IImmutable
 //    {
 //        /***************************************************/
 //        /**** Properties                                ****/

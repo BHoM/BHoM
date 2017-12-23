@@ -8,7 +8,7 @@ using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
 {
-    public class PointAcceleration : Load<Node>
+    [Serializable] public class PointAcceleration : Load<Node>
     {
         /// <summary>TranslationalAcceleration - ax, ay, az defined as a BH.oM.Geometry.Vector</summary>
         public BH.oM.Geometry.Vector TranslationalAcceleration { get; set; }

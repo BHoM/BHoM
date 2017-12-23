@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Elements
 {
-    public class Opening : BHoMObject
+    [Serializable] public class Opening : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -1,13 +1,14 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
 using System.Collections.Generic;
+using System;
 
 namespace BH.oM.Structural.Elements
 {
     /// <summary>
     /// 
     /// </summary>
-    public class Column : BHoMObject
+    [Serializable] public class Column : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

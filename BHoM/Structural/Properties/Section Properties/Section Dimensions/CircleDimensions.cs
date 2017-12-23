@@ -7,7 +7,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    public class CircleDimensions : BHoMObject, ISectionDimensions, IImmutable
+    [Serializable] public class CircleDimensions : BHoMObject, ISectionDimensions, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

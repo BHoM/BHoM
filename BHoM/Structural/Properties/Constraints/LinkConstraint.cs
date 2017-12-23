@@ -26,7 +26,7 @@ namespace BH.oM.Structural.Properties
         Custom
     }
 
-    public class LinkConstraint : BHoMObject
+    [Serializable] public class LinkConstraint : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

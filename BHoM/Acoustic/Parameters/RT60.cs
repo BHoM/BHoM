@@ -1,8 +1,9 @@
 ﻿using BH.oM.Base;
+using System;
 
 namespace BH.oM.Acoustic
 {
-    public class RT60 : BHoMObject, IAcousticParameter
+    [Serializable] public class RT60 : BHoMObject, IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/

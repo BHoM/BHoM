@@ -9,7 +9,7 @@ namespace BH.oM.Structural.Properties
     /// <summary>
     /// Perimeter Reinforcement is aimed at columns and is only valid on rectangular and circular sections
     /// </summary>
-    public class PerimeterReinforcement : Reinforcement
+    [Serializable] public class PerimeterReinforcement : Reinforcement
     {
         /***************************************************/
         /**** Properties                                ****/

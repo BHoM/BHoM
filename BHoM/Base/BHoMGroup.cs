@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base
 {
-    public class BHoMGroup : BHoMObject
+    [Serializable]
+     public class BHoMGroup : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

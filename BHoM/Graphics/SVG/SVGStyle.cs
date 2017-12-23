@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics
 {
-    public class SVGStyle : BHoMObject
+    [Serializable] public class SVGStyle : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

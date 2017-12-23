@@ -12,7 +12,7 @@ namespace BH.oM.Environmental.Elements
     /// <summary>
     /// PanelPlanar object for environmental models.
     /// </summary>
-    public class Panel : BHoMObject
+    [Serializable] public class Panel : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

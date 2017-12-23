@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class Quaternion
+    [Serializable] public class Quaternion
     {
         /***************************************************/
         /**** Properties                                ****/

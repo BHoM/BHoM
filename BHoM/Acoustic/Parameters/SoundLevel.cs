@@ -3,7 +3,7 @@ using System;
 
 namespace BH.oM.Acoustic
 {
-    public class SoundLevel : BHoMObject, IAcousticParameter
+    [Serializable] public class SoundLevel : BHoMObject, IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/

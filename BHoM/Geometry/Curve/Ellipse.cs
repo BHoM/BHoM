@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class Ellipse : ICurve
+    [Serializable] public class Ellipse : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/

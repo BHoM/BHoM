@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Structural.Results
 {
 
-    public class SteelUtilisation : SteelUtilisation<string, string, string>
+    [Serializable] public class SteelUtilisation : SteelUtilisation<string, string, string>
     {
         public SteelUtilisation() : base()
         { }
@@ -19,7 +19,7 @@ namespace BH.oM.Structural.Results
     }
 
 
-    public class SteelUtilisation<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+    [Serializable] public class SteelUtilisation<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
          where TTimeStep : IComparable

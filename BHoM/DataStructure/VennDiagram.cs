@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.DataStructure
 {
-    public class VennDiagram<T>
+    [Serializable] public class VennDiagram<T>
     {
         /***************************************************/
         /**** Properties                                ****/

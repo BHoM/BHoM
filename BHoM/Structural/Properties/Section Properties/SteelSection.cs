@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace BH.oM.Structural.Properties
 {
 
-    public class SteelSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
+    [Serializable] public class SteelSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -11,7 +11,7 @@ namespace BH.oM.Structural.Elements
     /// <summary>
     /// Storey class to store information about building storeys for post processing of results
     /// </summary>
-    public class Storey : BHoMObject
+    [Serializable] public class Storey : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

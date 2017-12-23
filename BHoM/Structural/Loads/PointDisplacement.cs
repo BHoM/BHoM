@@ -8,7 +8,7 @@ using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
 {
-    public class PointDisplacement : Load<Node>
+    [Serializable] public class PointDisplacement : Load<Node>
     {
         /// <summary>Translation - tx, ty, tz defined as a BH.oM.Geometry.Vector</summary>
         public BH.oM.Geometry.Vector Translation { get; set; }

@@ -8,7 +8,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
-    public class Room : BHoMObject
+    [Serializable] public class Room : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

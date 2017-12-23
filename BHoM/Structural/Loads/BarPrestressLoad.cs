@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Loads
 {
-    public class BarPrestressLoad : Load<Bar>
+    [Serializable] public class BarPrestressLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BH.oM.Geometry
 {
-    public class Mesh : IBHoMGeometry
+    [Serializable] public class Mesh : IBHoMGeometry
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class NurbSurface : ISurface
+    [Serializable] public class NurbSurface : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
-    public class NodeReaction : NodeReaction<string, string, string>
+    [Serializable] public class NodeReaction : NodeReaction<string, string, string>
     {
         public NodeReaction() : base() { }
         public NodeReaction(string number, string loadcase, string timeStep, double fx, double fy, double fz, double mx, double my, double mz)
@@ -14,7 +14,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
-    public class NodeReaction<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+    [Serializable] public class NodeReaction<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
          where TTimeStep : IComparable

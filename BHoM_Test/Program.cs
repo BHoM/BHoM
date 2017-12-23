@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
-using R = Rhino.Geometry;
 using BH.oM.Geometry;
 using BH.oM.Structural.Properties;
 using BH.oM.Base;

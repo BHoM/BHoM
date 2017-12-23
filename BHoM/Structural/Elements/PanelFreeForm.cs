@@ -11,7 +11,7 @@ using BH.oM.Structural.Properties;
 
 namespace BH.oM.Structural.Elements
 {
-    public class PanelFreeForm : BHoMObject, IAreaElement
+    [Serializable] public class PanelFreeForm : BHoMObject, IAreaElement
     {
         /***************************************************/
         /**** Properties                                ****/

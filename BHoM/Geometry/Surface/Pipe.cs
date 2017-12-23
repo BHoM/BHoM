@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class Pipe : ISurface
+    [Serializable] public class Pipe : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/

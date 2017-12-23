@@ -7,7 +7,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    public class PolygonDimensions : BHoMObject, ISectionDimensions, IImmutable
+    [Serializable] public class PolygonDimensions : BHoMObject, ISectionDimensions, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

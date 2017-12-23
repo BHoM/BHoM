@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
-    public class NodeDisplacement : NodeDisplacement<string, string, string>
+    [Serializable] public class NodeDisplacement : NodeDisplacement<string, string, string>
     {
         public NodeDisplacement() : base() { }
         public NodeDisplacement(string number, string loadcase, string timeStep, double fx, double fy, double fz, double mx, double my, double mz)
@@ -14,7 +14,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
-   public class NodeDisplacement<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+   [Serializable] public class NodeDisplacement<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
         where TName : IComparable
         where TLoadcase : IComparable
         where TTimeStep : IComparable

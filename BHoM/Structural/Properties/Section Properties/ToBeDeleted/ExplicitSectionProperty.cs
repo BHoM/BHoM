@@ -8,7 +8,7 @@
 
 //namespace BH.oM.Structural.Properties
 //{
-//    public class ExplicitSectionProperty : BHoMObject, IPropertyDefinition
+//    [Serializable] public class ExplicitSectionProperty : BHoMObject, IPropertyDefinition
 //    {
 //        /***************************************************/
 //        /**** Properties                                ****/

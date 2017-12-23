@@ -10,7 +10,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human head object
     /// </summary>
-    public class Head // Sort out this collection of classes (can we generalise them?)
+    [Serializable] public class Head // Sort out this collection of classes (can we generalise them?)
     {
         /// <summary>Point at centre of head</summary>
         public Point TrackingPoint { get; private set; }
@@ -55,7 +55,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right hand object
     /// </summary>
-    public class HandRight
+    [Serializable] public class HandRight
     {
         /// <summary>hand tracking centre point</summary>
         public Point TrackingPoint { get; private set; }
@@ -131,7 +131,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left hand object
     /// </summary>
-    public class HandLeft
+    [Serializable] public class HandLeft
     {
         /// <summary>Left hand tracking centre point</summary>
         public Point TrackingPoint { get; private set; }
@@ -207,7 +207,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right thumb object
     /// </summary>
-    public class ThumbRight
+    [Serializable] public class ThumbRight
     {
         /// <summary>Right thumb tracking centre point</summary>
         public Point TrackingPoint { get; private set; }
@@ -272,7 +272,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left thumb object
     /// </summary>
-    public class ThumbLeft
+    [Serializable] public class ThumbLeft
     {
         /// <summary>Lefth thumb tracking point</summary>
         public Point TrackingPoint { get; private set; }
@@ -337,7 +337,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human neck object
     /// </summary>
-    public class Neck
+    [Serializable] public class Neck
     {
         /// <summary>
         /// The tracking centre line of a neck
@@ -373,7 +373,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right shoulder object
     /// </summary>
-    public class ShoulderRight
+    [Serializable] public class ShoulderRight
     {
         /// <summary>
         /// Tracking centre line of the shoulder
@@ -409,7 +409,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left shoulder object
     /// </summary>
-    public class ShoulderLeft
+    [Serializable] public class ShoulderLeft
     {
         /// <summary>
         /// Tracking centre line of the left shoulder
@@ -445,7 +445,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human upper right arm
     /// </summary>
-    public class UpperArmRight
+    [Serializable] public class UpperArmRight
     {
         /// <summary>
         /// Tracking centre line of the upper arm
@@ -481,7 +481,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left arm object
     /// </summary>
-    public class UpperArmLeft
+    [Serializable] public class UpperArmLeft
     {
         /// <summary>
         /// Tracking centre line of the upper left arm
@@ -517,7 +517,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human lower right arm object
     /// </summary>
-    public class LowerArmRight
+    [Serializable] public class LowerArmRight
     {
         /// <summary>
         /// Tracking centre line of the lower right arm
@@ -553,7 +553,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human lower left arm
     /// </summary>
-    public class LowerArmLeft
+    [Serializable] public class LowerArmLeft
     {
         /// <summary>
         /// Tracking centre line of the lower left arm
@@ -589,7 +589,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human spine object
     /// </summary>
-    public class Spine
+    [Serializable] public class Spine
     {
         /// <summary>
         /// Tracking centre line of the spine
@@ -625,7 +625,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right hip object
     /// </summary>
-    public class HipRight
+    [Serializable] public class HipRight
     {
         /// <summary>
         /// Tracking centre line
@@ -661,7 +661,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left hip object
     /// </summary>
-    public class HipLeft
+    [Serializable] public class HipLeft
     {
         /// <summary>
         /// Tracking centre line of left hip
@@ -697,7 +697,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM upper right leg object
     /// </summary>
-    public class UpperLegRight
+    [Serializable] public class UpperLegRight
     {
         /// <summary>
         /// Tracking centre line of upper right leg
@@ -733,7 +733,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human upper left leg
     /// </summary>
-    public class UpperLegLeft
+    [Serializable] public class UpperLegLeft
     {
         /// <summary>
         /// Tracking centre line of upper left leg
@@ -769,7 +769,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human lower right leg
     /// </summary>
-    public class LowerLegRight
+    [Serializable] public class LowerLegRight
     {
         /// <summary>
         /// Tracking centre line of lower right leg
@@ -805,7 +805,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human lower left leg object
     /// </summary>
-    public class LowerLegLeft
+    [Serializable] public class LowerLegLeft
     {
         /// <summary>
         /// Tracking centre line of the lower left leg
@@ -841,7 +841,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right foot object
     /// </summary>
-    public class FootRight
+    [Serializable] public class FootRight
     {
         /// <summary>
         /// Tracking centre line of right foot
@@ -877,7 +877,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left foot object
     /// </summary>
-    public class FootLeft
+    [Serializable] public class FootLeft
     {
         /// <summary>
         /// Tracking centre line of left foot

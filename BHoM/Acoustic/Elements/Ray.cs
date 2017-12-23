@@ -8,6 +8,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Acoustic
 {
+    [Serializable]
     public class Ray : BHoMObject
     {
         /***************************************************/

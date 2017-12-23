@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
 {
-    public class LayerReinforcement : Reinforcement
+    [Serializable] public class LayerReinforcement : Reinforcement
     {
         /***************************************************/
         /**** Properties                                ****/

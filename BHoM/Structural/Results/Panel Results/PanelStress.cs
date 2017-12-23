@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
-    public class PanelStress : PanelStress<int, int, int>
+    [Serializable] public class PanelStress : PanelStress<int, int, int>
     {
         public PanelStress() : base() { }
         public PanelStress(int number, int node, int loadcase, int timeStep, double sxTop, double syTop, double sxyTop, double sxBot, double syBot, double sxyBot, double tx, double ty)
@@ -14,7 +14,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
-    public class PanelStress<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+    [Serializable] public class PanelStress<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
          where TTimeStep : IComparable

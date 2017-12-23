@@ -11,7 +11,7 @@ namespace BH.oM.Environmental.Elements
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Opening : BHoMObject
+    [Serializable] public class Opening : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

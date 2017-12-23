@@ -7,7 +7,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    public class StandardZedSectionDimensions : BHoMObject, ISectionDimensions, IImmutable
+    [Serializable] public class StandardZedSectionDimensions : BHoMObject, ISectionDimensions, IImmutable
     {
 
         /***************************************************/

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class PolyCurve : ICurve
+    [Serializable] public class PolyCurve : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/

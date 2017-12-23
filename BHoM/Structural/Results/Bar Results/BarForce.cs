@@ -12,7 +12,7 @@ namespace BH.oM.Structural.Results
     /// and orientation information
     /// </summary>
     /// 
-    public class BarForce : BarForce<string, string, string>
+    [Serializable] public class BarForce : BarForce<string, string, string>
     {
         public BarForce() : base() { }
         public BarForce(string number, string loadcase, int position, int divisions, string timeStep, double fx, double fy, double fz, double mx, double my, double mz)
@@ -20,7 +20,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
-    public class BarForce<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+    [Serializable] public class BarForce<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
          where TTimeStep : IComparable
@@ -89,7 +89,7 @@ namespace BH.oM.Structural.Results
         //}
     }
 
-    //public class BarForce : Result
+    //[Serializable] public class BarForce : Result
     //{
     //    /// <summary>Associated bar number</summary>
     //    //public Guid Id { get; set; }

@@ -10,7 +10,7 @@ using System.Collections.ObjectModel;
 
 namespace BH.oM.Structural.Properties
 {
-    public class CompositeSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
+    [Serializable] public class CompositeSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
 
         public SteelSection SteelSection { get; }

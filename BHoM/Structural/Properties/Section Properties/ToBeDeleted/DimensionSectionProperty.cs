@@ -8,7 +8,7 @@
 
 //namespace BH.oM.Structural.Properties
 //{
-//    public class DimensionSectionProperty : IGeometricalPropertyDefinition, IImmutable
+//    [Serializable] public class DimensionSectionProperty : IGeometricalPropertyDefinition, IImmutable
 //    {
 
 //        /***************************************************/

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
 {
-    public class Ribbed : Property2D
+    [Serializable] public class Ribbed : Property2D
     {
         public PanelDirection Direction { get; set; }
         public double TotalDepth { get; set; }

@@ -5,7 +5,8 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Base
 {
-    public class BHoMObject : IObject
+    [Serializable]
+     public class BHoMObject : IObject
     {
         /***************************************************/
         /**** Properties                                ****/

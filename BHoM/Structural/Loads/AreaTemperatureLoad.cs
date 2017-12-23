@@ -8,7 +8,7 @@ using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
 {
-    public class AreaTemperatureLoad : Load<IAreaElement>
+    [Serializable] public class AreaTemperatureLoad : Load<IAreaElement>
     {
         /***************************************************/
         /**** Properties                                ****/

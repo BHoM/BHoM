@@ -8,7 +8,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Graphics
 {
-    public class SVGObject : BHoMObject
+    [Serializable] public class SVGObject : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

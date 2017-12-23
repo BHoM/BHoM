@@ -11,7 +11,7 @@ namespace BH.oM.Geometry
     /// <summary>
     /// BH.oM Vector object
     /// </summary>
-    public class Vector : IBHoMGeometry, IComparable<Vector>
+    [Serializable] public class Vector : IBHoMGeometry, IComparable<Vector>
     {
         /***************************************************/
         /**** Properties                                ****/

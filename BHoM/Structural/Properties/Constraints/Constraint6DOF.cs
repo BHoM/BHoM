@@ -9,7 +9,7 @@ namespace BH.oM.Structural.Properties
     /// <summary>
     /// Constraint object - base class for all release, restraint, support classes. 
     /// </summary>
-    public class Constraint6DOF : BHoMObject
+    [Serializable] public class Constraint6DOF : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

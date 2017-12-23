@@ -10,7 +10,7 @@ namespace BH.oM.Structural.Loads
     /// <summary>
     /// Simple Loadcase class
     /// </summary>
-    public class Loadcase : BHoMObject, ICase
+    [Serializable] public class Loadcase : BHoMObject, ICase
     {
         /***************************************************/
         /**** Properties                                ****/

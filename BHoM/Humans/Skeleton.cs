@@ -10,7 +10,7 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human skeleton class
     /// </summary>
-    public class Skeleton : BH.oM.Base.BHoMObject //TODO: Sort out this class
+    [Serializable] public class Skeleton : BH.oM.Base.BHoMObject //TODO: Sort out this class
     {
         /// <summary>
         /// Constructs an empty skeleton object

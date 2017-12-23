@@ -7,7 +7,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    public class TubeDimensions : BHoMObject, ISectionDimensions, IImmutable
+    [Serializable] public class TubeDimensions : BHoMObject, ISectionDimensions, IImmutable
     {
 
         /***************************************************/

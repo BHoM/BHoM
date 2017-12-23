@@ -11,7 +11,7 @@ namespace BH.oM.Geometry
     /// <summary>
     /// BH.oM Point object
     /// </summary>
-    public class Point : IBHoMGeometry, IComparable<Point>
+    [Serializable] public class Point : IBHoMGeometry, IComparable<Point>
     {
         /***************************************************/
         /**** Properties                                ****/

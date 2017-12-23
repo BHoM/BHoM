@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    public class NurbCurve : ICurve
+    [Serializable] public class NurbCurve : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/

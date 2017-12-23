@@ -11,8 +11,7 @@ namespace BH.oM.Structural.Loads
     /// Loadcombination, different to loadcase as combination also contains information
     /// on the combinations of loads with load factors
     /// </summary>
-    [Serializable]
-    public class LoadCombination : BHoMObject, ICase
+    [Serializable] public class LoadCombination : BHoMObject, ICase
     {
         /***************************************************/
         /**** Properties                                ****/

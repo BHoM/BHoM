@@ -7,7 +7,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Geometry
 {
-    public class Polyline : ICurve
+    [Serializable] public class Polyline : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/

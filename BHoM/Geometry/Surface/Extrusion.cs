@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Geometry
 {
 
-    public class Extrusion : ISurface
+    [Serializable] public class Extrusion : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/

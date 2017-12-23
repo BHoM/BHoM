@@ -10,7 +10,7 @@ namespace BH.oM.Structural.Properties
     /// Bar release applicable to bar objects, contains BH.oM.Structural.Constraint objects
     /// for the start and end of a bar
     /// </summary>
-    public class BarRelease : BHoMObject
+    [Serializable] public class BarRelease : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

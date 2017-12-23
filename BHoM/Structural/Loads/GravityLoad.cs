@@ -9,7 +9,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structural.Loads
 {
-    public class GravityLoad : Load<BHoMObject>
+    [Serializable] public class GravityLoad : Load<BHoMObject>
     {
         /***************************************************/
         /**** Properties                                ****/
