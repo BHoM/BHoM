@@ -3,24 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.oM.Base;
-using BH.oM.Geometry;
 
-namespace BH.oM.Acoustic
+namespace BH.oM.DataStructure
 {
-    public class Ray : BHoMObject
+    public class GraphLink<T>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Polyline Geometry { get; set; } = new Polyline();
+        public double Weight { get; set; } = 1.0;
 
-        public int SpeakerID { get; set; } = 0;
+        public GraphNode<T> StartNode { get; set; } = new GraphNode<T>();
 
-        public int ReceiverID { get; set; } = 0;
-
-        public List<int> PanelsID { get; set; } = new List<int>();
+        public GraphNode<T> EndNode { get; set; } = new GraphNode<T>();
 
 
         /***************************************************/

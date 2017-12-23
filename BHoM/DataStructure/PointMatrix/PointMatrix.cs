@@ -1,26 +1,21 @@
-﻿using System;
+﻿using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.oM.Base;
-using BH.oM.Geometry;
 
-namespace BH.oM.Acoustic
+namespace BH.oM.DataStructure
 {
-    public class Ray : BHoMObject
+    public class PointMatrix<T>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Polyline Geometry { get; set; } = new Polyline();
+        public double CellSize { get; set; } = 1.0;
 
-        public int SpeakerID { get; set; } = 0;
-
-        public int ReceiverID { get; set; } = 0;
-
-        public List<int> PanelsID { get; set; } = new List<int>();
+        public Dictionary<DiscreetPoint, List<LocalData<T>>> Data { get; set; } = new Dictionary<DiscreetPoint, List<LocalData<T>>>();
 
 
         /***************************************************/

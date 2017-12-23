@@ -21,5 +21,8 @@ namespace BH.oM.Acoustic
         public double Volume { get; set; } = 0;
 
         public List<Receiver> Samples { get; set; } = new List<Receiver>();
+
+
+        /***************************************************/
     }
 }

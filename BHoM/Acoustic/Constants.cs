@@ -15,5 +15,7 @@ namespace BH.oM.Acoustic
 
         public const double SpeedOfSound = 343;
 
+
+        /***************************************************/
     }
 }

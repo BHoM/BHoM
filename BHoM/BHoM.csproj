@@ -74,7 +74,13 @@
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IImmutable.cs" />
-    <Compile Include="Base\Interface\IObjectList.cs" />
+    <Compile Include="DataStructure\Graph\Graph.cs" />
+    <Compile Include="DataStructure\Graph\GraphLink.cs" />
+    <Compile Include="DataStructure\Graph\GraphNode.cs" />
+    <Compile Include="DataStructure\PointMatrix\PointMatrix.cs" />
+    <Compile Include="DataStructure\PointMatrix\LocalData.cs" />
+    <Compile Include="DataStructure\PointMatrix\DiscreetPoint.cs" />
+    <Compile Include="DataStructure\PriorityQueue.cs" />
     <Compile Include="DataStructure\Tree.cs" />
     <Compile Include="Geometry\Curve\Ellipse.cs" />
     <Compile Include="Geometry\Curve\ICurve.cs" />

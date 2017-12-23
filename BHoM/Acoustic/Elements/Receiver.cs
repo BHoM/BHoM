@@ -20,5 +20,8 @@ namespace BH.oM.Acoustic
         public string Category { get; set; } = "Omni";
 
         public int ReceiverID { get; set; } = 0;
+
+
+        /***************************************************/
     }
 }
