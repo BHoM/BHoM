@@ -21,5 +21,7 @@ namespace BH.oM.Acoustic
 
         Frequency Frequency { get; set; }
 
+
+        /***************************************************/
     }
 }

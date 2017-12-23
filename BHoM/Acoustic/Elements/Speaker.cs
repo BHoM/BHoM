@@ -28,5 +28,8 @@ namespace BH.oM.Acoustic
         public Dictionary<Frequency, double> Gains { get; set; } = new Dictionary<Frequency, double>();
 
         public Dictionary<Frequency, double[,]> Directivity { get; set; } = new Dictionary<Frequency, double[,]>();
+
+
+        /***************************************************/
     }
 }

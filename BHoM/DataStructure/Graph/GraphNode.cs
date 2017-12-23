@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace BH.oM.DataStructure
 {
-    public class Tree<T>
+    public class GraphNode<T>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Dictionary<string, Tree<T>> Children { get; set; } = new Dictionary<string, Tree<T>>();
-
-        public string Name { get; set; } = "";
-
         public T Value { get; set; } = default(T);
 
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static implicit operator GraphNode<T>(T value)
+        {
+            return new GraphNode<T> { Value = value };
+        }
 
         /***************************************************/
     }

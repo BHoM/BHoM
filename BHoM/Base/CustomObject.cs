@@ -12,28 +12,7 @@ namespace BH.oM.Base
         /**** Constructors                              ****/
         /***************************************************/
 
-        public CustomObject() { }
 
         /***************************************************/
-
-        public CustomObject(Dictionary<string, object> data, string name = "")
-        {
-            CustomData = new Dictionary<string, object>(data);
-            Name = name;
-        }
-
-        /***************************************************/
-
-        public CustomObject(List<string> propertyNames, List<object> propertyValues, string name = "")
-        {
-            if (propertyNames.Count == propertyValues.Count)
-            {
-                for (int i = 0; i < propertyValues.Count; i++)
-                {
-                    CustomData.Add(propertyNames[i], propertyValues[i]);
-                }
-            }
-            Name = name;
-        }
     }
 }

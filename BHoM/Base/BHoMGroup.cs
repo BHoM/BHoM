@@ -17,17 +17,6 @@ namespace BH.oM.Base
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BHoMGroup() { }
-
-        /***************************************************/
-
-        public BHoMGroup(IEnumerable<BHoMObject> elements)
-        {
-            Elements = elements.ToList();
-        }
     }
 }
 
