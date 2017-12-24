@@ -19,8 +19,7 @@ namespace BH.oM.Structural.Elements
 
         public BH.oM.Structural.Properties.Offset Offset { get; set; } = null;
 
-        //TODO: Move to future beam class??
-        public BarStructuralUsage StructuralUsage { get; set; }
+        public BarStructuralUsage StructuralUsage { get; set; } //TODO: Move to future beam class??
 
         /// <summary>
         /// Sets the type of elements that should be used in analysis software

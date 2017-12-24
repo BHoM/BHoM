@@ -14,18 +14,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public CompositeGeometry() { }
-
-        /***************************************************/
-
-        public CompositeGeometry(IEnumerable<IBHoMGeometry> elements)
-        {
-            Elements = elements.ToList();
-        }
-
     }
 }
 

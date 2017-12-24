@@ -14,27 +14,6 @@
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Circle() { }
-
-        /***************************************************/
-
-        public Circle(Point centre, double radius = 0)
-        {
-            Centre = centre;
-            Radius = radius;
-        }
-
-        /***************************************************/
-
-        public Circle(Point centre, Vector normal, double radius = 0)
-        {
-            Centre = centre;
-            Normal = normal;
-            Radius = radius;
-        }
     }
 }
         

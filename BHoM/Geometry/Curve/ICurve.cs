@@ -1,6 +1,4 @@
 ﻿namespace BH.oM.Geometry
 {
-    public interface ICurve : IBHoMGeometry
-    {
-    }
+    public interface ICurve : IBHoMGeometry {}
 }

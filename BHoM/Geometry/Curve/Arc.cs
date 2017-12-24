@@ -1,8 +1,5 @@
 ﻿namespace BH.oM.Geometry
 {
-    /// <summary>
-    /// Arc object
-    /// </summary>
     public class Arc : ICurve
     {
         /***************************************************/
@@ -17,20 +14,6 @@
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Arc() { }
-
-        /***************************************************/
-
-        public Arc(Point start, Point middle, Point end)
-        {
-            Start = start;
-            End = end;
-            Middle = middle;
-        }
-
     }
 }
 

@@ -2,9 +2,6 @@
 
 namespace BH.oM.Geometry
 {
-    /// <summary>
-    /// BH.oM Vector object
-    /// </summary>
     public class Vector : IBHoMGeometry, IComparable<Vector>
     {
         /***************************************************/

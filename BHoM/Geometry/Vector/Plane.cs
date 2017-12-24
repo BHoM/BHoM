@@ -1,8 +1,5 @@
 ﻿namespace BH.oM.Geometry
 {
-    /// <summary>
-    /// BH.oM Plane object
-    /// </summary>
     public class Plane : IBHoMGeometry
     {
         /***************************************************/

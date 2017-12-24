@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace BH.oM.Geometry
 {
@@ -13,17 +12,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Polyline() { }
-
-        /***************************************************/
-
-        public Polyline(IEnumerable<Point> points)
-        {
-            ControlPoints = points.ToList();
-        }
     }
 }
         
