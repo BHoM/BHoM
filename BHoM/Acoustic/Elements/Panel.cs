@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
-using System.Threading;
 
 namespace BH.oM.Acoustic
 {
@@ -15,7 +10,7 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public Mesh Geometry { get; set; } = new Mesh();
+        public Mesh Surface { get; set; } = new Mesh();
 
         public static int PanelID { get; set; } = 0;
 

@@ -1,7 +1,4 @@
-﻿using BH.oM.Geometry;
-using System;
-
-namespace BH.oM.Structural.Properties
+﻿namespace BH.oM.Structural.Properties
 {
     public enum ShapeType
     {

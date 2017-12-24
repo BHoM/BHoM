@@ -1,10 +1,8 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
 using BH.oM.Materials;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ComponentModel;
 
 namespace BH.oM.Structural.Properties
 {

@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Diagnostics;
-using R = Rhino.Geometry;
+﻿using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Structural.Properties;
 using BH.oM.Base;
-
-using BH.oM.Structural.Loads;
-using BH.oM.Structural.Results;
-using BH.oM.Structural.Elements;
-using System.Xml;
 
 
 
