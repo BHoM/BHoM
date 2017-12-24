@@ -1,10 +1,4 @@
-﻿using System;
-
-using System.Collections.Generic;
-using BH.oM.Base;
-
-
-namespace BH.oM.Geometry
+﻿namespace BH.oM.Geometry
 {
     /// <summary>
     /// Arc object

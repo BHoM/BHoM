@@ -1,10 +1,4 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Base;
-using System;
-using System.Reflection;
-using BH.oM.Structural.Loads;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using BH.oM.Base;
 
 namespace BH.oM.Structural.Elements
 {

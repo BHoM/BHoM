@@ -1,6 +1,4 @@
-﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace BH.oM.Geometry

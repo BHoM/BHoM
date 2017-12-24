@@ -1,12 +1,5 @@
-﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BH.oM.Structural.Properties
-{   
+﻿namespace BH.oM.Structural.Properties
+{
     public class Waffle : Property2D
     {
         public double TotalDepthX { get; set; }

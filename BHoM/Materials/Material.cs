@@ -1,11 +1,5 @@
 ﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-using BH.oM.Structural.Properties;
 
 
 namespace BH.oM.Materials
