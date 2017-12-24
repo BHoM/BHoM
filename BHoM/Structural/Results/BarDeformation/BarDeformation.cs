@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results.BarDeformation
 {
-    class BarDeformation
+    [Serializable]
+    public class BarDeformation
     {
     }
 }

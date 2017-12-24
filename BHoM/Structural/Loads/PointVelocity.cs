@@ -8,7 +8,8 @@ using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
 {
-    [Serializable] public class PointVelocity : Load<Node>
+    [Serializable]
+    public class PointVelocity : Load<Node>
     {
         /// <summary>TranslationalVelocity - vx, vy, vz defined as a BH.oM.Geometry.Vector</summary>
         public BH.oM.Geometry.Vector TranslationalVelocity { get; set; }

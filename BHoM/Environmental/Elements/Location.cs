@@ -11,7 +11,8 @@ namespace BH.oM.Environmental.Elements
     /// <summary>
     /// Location objects.
     /// </summary>
-    [Serializable] public class Location : BHoMObject
+    [Serializable]
+    public class Location : BHoMObject
 
     {
         /***************************************************/
@@ -21,12 +22,12 @@ namespace BH.oM.Environmental.Elements
         public double Latitude { get; set; } = 0.0;
         public double Longitude { get; set; } = 0.0;
         public double Elevation { get; set; } = 0.0;
-       
-                
+
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
-        
+
         public Location() { }
 
         /***************************************************/
@@ -38,7 +39,7 @@ namespace BH.oM.Environmental.Elements
             Longitude = longitude;
             Elevation = elevation;
         }
-             
+
     }
 
 }

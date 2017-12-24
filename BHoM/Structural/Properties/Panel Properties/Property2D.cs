@@ -10,6 +10,7 @@ namespace BH.oM.Structural.Properties
     /// <summary>
     /// Property2D for 2D finite element structural objects such as PanelPlanar or MeshFace
     /// </summary>
+    [Serializable]
     public abstract class Property2D : BHoMObject
     {
         /***************************************************/

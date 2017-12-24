@@ -9,7 +9,8 @@ using System.ComponentModel;
 
 namespace BH.oM.Structural.Loads
 {
-    [Serializable] public class GeometricalLineLoad : BHoMObject, ILoad
+    [Serializable]
+    public class GeometricalLineLoad : BHoMObject, ILoad
     {
         /***************************************************/
         /**** Properties                                ****/

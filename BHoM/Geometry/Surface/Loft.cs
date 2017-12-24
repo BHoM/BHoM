@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
+    [Serializable]
     public partial class Loft : ISurface
     {
         /***************************************************/

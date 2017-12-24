@@ -19,7 +19,7 @@ namespace BH.oM.Structural.Elements
 
         public List<Edge> InternalEdges = new List<Edge>();
         public List<Edge> ExternalEdges = new List<Edge>();
-        public Property2D Property { get; set; } = new ConstantThickness();      
+        public Property2D Property { get; set; } = new ConstantThickness();
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -29,9 +29,8 @@ namespace BH.oM.Structural.Elements
         /// Constructs an empty panel
         /// </summary>
         public PanelPlanar() { }
-   
-        /***************************************************/   
+
+        /***************************************************/
 
     }
 }
-       

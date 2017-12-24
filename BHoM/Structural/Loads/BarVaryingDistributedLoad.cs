@@ -7,7 +7,8 @@ using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
 {
-    [Serializable] public class BarVaryingDistributedLoad : Load<Bar>
+    [Serializable]
+    public class BarVaryingDistributedLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/

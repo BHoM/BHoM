@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    [Serializable] public class PolySurface : ISurface
+    [Serializable]
+    public class PolySurface : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -30,5 +31,5 @@ namespace BH.oM.Geometry
         }
 
     }
-} 
+}
 

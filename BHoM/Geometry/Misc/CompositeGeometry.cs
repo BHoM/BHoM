@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    [Serializable] public class CompositeGeometry : IBHoMGeometry
+    [Serializable]
+    public class CompositeGeometry : IBHoMGeometry
     {
         /***************************************************/
         /**** Properties                                ****/

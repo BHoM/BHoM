@@ -3,7 +3,8 @@ using System;
 
 namespace BH.oM.Acoustic
 {
-    [Serializable] public class Rasti : BHoMObject, IAcousticParameter
+    [Serializable]
+    public class Rasti : BHoMObject, IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/

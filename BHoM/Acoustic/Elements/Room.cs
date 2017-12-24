@@ -8,14 +8,15 @@ using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
-    [Serializable] public class Room : BHoMObject
+    [Serializable]
+    public class Room : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         public PolySurface Geometry { get; set; } = new PolySurface();
-        
+
         public double Area { get; set; } = 0;
 
         public double Volume { get; set; } = 0;

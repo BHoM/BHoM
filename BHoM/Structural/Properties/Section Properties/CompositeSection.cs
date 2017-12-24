@@ -10,7 +10,8 @@ using System.Collections.ObjectModel;
 
 namespace BH.oM.Structural.Properties
 {
-    [Serializable] public class CompositeSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
+    [Serializable]
+    public class CompositeSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
 
         public SteelSection SteelSection { get; }
@@ -20,9 +21,9 @@ namespace BH.oM.Structural.Properties
         public double SteelEmbedmentDepth { get; }
 
         public double StudDiameter { get; }
-        public double StudHeight { get;  }
-        public double StudSpacing { get;  }
-        public int StudsPerGroup { get;  }
+        public double StudHeight { get; }
+        public double StudSpacing { get; }
+        public int StudsPerGroup { get; }
 
         public ReadOnlyCollection<ICurve> Edges
         {

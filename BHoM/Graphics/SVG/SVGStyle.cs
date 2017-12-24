@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics
 {
-    [Serializable] public class SVGStyle : BHoMObject
+    [Serializable]
+    public class SVGStyle : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -16,7 +17,7 @@ namespace BH.oM.Graphics
         /// <summary>
         /// stroke-width
         /// </summary>
-        public double StrokeWidth { get; set; } = 1; 
+        public double StrokeWidth { get; set; } = 1;
 
         /// <summary>
         /// stroke
@@ -41,7 +42,7 @@ namespace BH.oM.Graphics
         /// <summary>
         /// stroke-dasharray
         /// </summary>
-        public List<double> StrokeDash { get; set; } = new List<double>() {0}; 
+        public List<double> StrokeDash { get; set; } = new List<double>() { 0 };
 
 
         /***************************************************/

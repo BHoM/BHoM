@@ -13,7 +13,8 @@ using System.Threading.Tasks;
 namespace BH.oM.Structural.Properties
 {
 
-    [Serializable] public class ConcreteSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
+    [Serializable]
+    public class ConcreteSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

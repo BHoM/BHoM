@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    [Serializable] public class BoundingBox : IBHoMGeometry
+    [Serializable]
+    public class BoundingBox : IBHoMGeometry
     {
         /***************************************************/
         /**** Properties                                ****/

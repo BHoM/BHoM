@@ -10,7 +10,8 @@ using System.ComponentModel;
 
 namespace BH.oM.Structural.Loads
 {
-    [Serializable] public class GeometricalAreaLoad : BHoMObject, ILoad  
+    [Serializable]
+    public class GeometricalAreaLoad : BHoMObject, ILoad
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -66,6 +67,6 @@ namespace BH.oM.Structural.Loads
         //        if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Add(this);
         //    }
         //}
-        
+
     }
 }

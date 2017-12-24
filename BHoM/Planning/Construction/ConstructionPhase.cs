@@ -6,7 +6,8 @@ namespace BH.oM.Planning.Construction
     /// Construction phase class for use across all BH.oM projects. By default, construction phases should be
     /// added to all objects intended for the construction site, or construction phase modelling
     /// </summary>
-    [Serializable] public class ConstructionPhase : IPhase
+    [Serializable]
+    public class ConstructionPhase : IPhase
     {
         /***************************************************/
         /**** Properties                                ****/

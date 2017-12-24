@@ -24,7 +24,7 @@ namespace BH.oM.Structural.Results
             return (IResult)this.MemberwiseClone();
         }
 
-        public Result() { }      
+        public Result() { }
 
         //public virtual int CompareTo(object obj)
         //{

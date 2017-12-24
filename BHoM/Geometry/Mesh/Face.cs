@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    [Serializable] public class Face
+    [Serializable]
+    public class Face
     {
         /***************************************************/
         /**** Properties                                ****/

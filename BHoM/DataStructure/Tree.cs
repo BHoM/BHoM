@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.DataStructure
 {
-    [Serializable] public class Tree<T>
+    [Serializable]
+    public class Tree<T>
     {
         /***************************************************/
         /**** Properties                                ****/

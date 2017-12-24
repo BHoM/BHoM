@@ -11,7 +11,8 @@ namespace BH.oM.Geometry
     /// <summary>
     /// BH.oM Line object
     /// </summary>
-    [Serializable] public class Line : ICurve
+    [Serializable]
+    public class Line : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/

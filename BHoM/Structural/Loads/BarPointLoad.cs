@@ -14,7 +14,8 @@ namespace BH.oM.Structural.Loads
     /// <summary>
     /// Point load along a bar
     /// </summary>
-    [Serializable] public class BarPointLoad : Load<Bar> // TODO: one class per file
+    [Serializable]
+    public class BarPointLoad : Load<Bar> // TODO: one class per file
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Loads
 {
-    [Serializable] public class BarUniformlyDistributedLoad : Load<Bar>
+    [Serializable]
+    public class BarUniformlyDistributedLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/

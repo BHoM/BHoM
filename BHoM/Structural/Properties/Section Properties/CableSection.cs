@@ -10,7 +10,8 @@ using BH.oM.Materials;
 
 namespace BH.oM.Structural.Properties
 {
-    [Serializable] public class CableSection : BHoMObject, ISectionProperty, IImmutable
+    [Serializable]
+    public class CableSection : BHoMObject, ISectionProperty, IImmutable
     {
 
         public Material Material { get; set; } = null;

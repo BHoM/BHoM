@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 //TODO: We should get rid of this!!!
 namespace BH.oM.Geometry
 {
-    [Serializable] public class Location
+    [Serializable]
+    public class Location
     {
-       Plane Plane { get; set; }
-       Line Line { get; set; }
+        Plane Plane { get; set; }
+        Line Line { get; set; }
     }
 }

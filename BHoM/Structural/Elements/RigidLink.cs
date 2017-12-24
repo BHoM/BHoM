@@ -8,7 +8,8 @@ using BH.oM.Structural.Properties;
 
 namespace BH.oM.Structural.Elements
 {
-    [Serializable] public class RigidLink : BHoMObject
+    [Serializable]
+    public class RigidLink : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -25,7 +26,7 @@ namespace BH.oM.Structural.Elements
         /**** Constructors                              ****/
         /***************************************************/
 
-        public RigidLink() {}
+        public RigidLink() { }
 
         /***************************************************/
 

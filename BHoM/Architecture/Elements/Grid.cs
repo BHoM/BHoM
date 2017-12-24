@@ -8,7 +8,8 @@ namespace BH.oM.Architecture.Elements
     /// <summary>
     /// 
     /// </summary>
-    [Serializable] public class Grid : BHoMObject
+    [Serializable]
+    public class Grid : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

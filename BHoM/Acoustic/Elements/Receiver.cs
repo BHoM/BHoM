@@ -9,7 +9,8 @@ using System.Threading;
 
 namespace BH.oM.Acoustic
 {
-    [Serializable] public class Receiver : BHoMObject
+    [Serializable]
+    public class Receiver : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

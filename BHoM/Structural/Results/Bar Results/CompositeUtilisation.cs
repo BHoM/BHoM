@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
-    [Serializable] public class CompositeUtilisation : CompositeUtilisation<string, string, string>
+    [Serializable]
+    public class CompositeUtilisation : CompositeUtilisation<string, string, string>
     {
         public CompositeUtilisation() : base()
         { }
@@ -16,7 +17,8 @@ namespace BH.oM.Structural.Results
     }
 
 
-    [Serializable] public class CompositeUtilisation<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+    [Serializable]
+    public class CompositeUtilisation<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
          where TTimeStep : IComparable
@@ -99,7 +101,7 @@ namespace BH.oM.Structural.Results
 
         public CompositeUtilisation()
         { }
-        
+
         public CompositeUtilisation(TName number, TLoadcase loadcase, TTimeStep timeStep) : this()
         {
             Name = number;

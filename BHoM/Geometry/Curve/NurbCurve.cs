@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
-    [Serializable] public class NurbCurve : ICurve
+    [Serializable]
+    public class NurbCurve : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -64,7 +65,7 @@ namespace BH.oM.Geometry
 
         public int GetDegree()
         {
-            return Knots.Count - ControlPoints.Count-1;
+            return Knots.Count - ControlPoints.Count - 1;
         }
     }
 }

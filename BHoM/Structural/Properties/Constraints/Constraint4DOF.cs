@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
 {
-    [Serializable] public class Constraint4DOF : BHoMObject
+    [Serializable]
+    public class Constraint4DOF : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -34,7 +35,7 @@ namespace BH.oM.Structural.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Constraint4DOF(string name = "") 
+        public Constraint4DOF(string name = "")
         {
             Name = name;
         }

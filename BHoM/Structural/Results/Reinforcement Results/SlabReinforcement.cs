@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
-    [Serializable] public class SlabReinforcement : SlabReinforcement<int, int, int>
+    [Serializable]
+    public class SlabReinforcement : SlabReinforcement<int, int, int>
     {
         public SlabReinforcement() : base() { }
         public SlabReinforcement(int number, int node, int loadcase, int timeStep, double Axp, double Axm, double Ayp, double Aym)
@@ -14,7 +15,8 @@ namespace BH.oM.Structural.Results
         { }
     }
 
-    [Serializable] public class SlabReinforcement<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+    [Serializable]
+    public class SlabReinforcement<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
          where TTimeStep : IComparable
@@ -38,13 +40,13 @@ namespace BH.oM.Structural.Results
         }
 
         public TName Node { get; set; }
-        
+
         public double AXP { get; set; }
-        
+
         public double AXM { get; set; }
-        
+
         public double AYP { get; set; }
-        
+
         public double AYM { get; set; }
 
         //public override int CompareTo(object obj)

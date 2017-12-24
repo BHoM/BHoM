@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
 {
-    [Serializable] public class TieReinforcement : Reinforcement
+    [Serializable]
+    public class TieReinforcement : Reinforcement
     {
         /***************************************************/
         /**** Properties                                ****/

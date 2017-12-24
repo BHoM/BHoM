@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
-{  
-    public enum PanelDirection 
+{
+    public enum PanelDirection
     {
         X = 0,
         Y
-    }   
+    }
 }

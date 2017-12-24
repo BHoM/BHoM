@@ -3,7 +3,8 @@ using System;
 
 namespace BH.oM.Acoustic
 {
-    [Serializable] public class SnRatio: BHoMObject, IAcousticParameter
+    [Serializable]
+    public class SnRatio : BHoMObject, IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/

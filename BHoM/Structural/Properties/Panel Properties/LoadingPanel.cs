@@ -16,7 +16,8 @@ namespace BH.oM.Structural.Properties
         Cantilever
     }
 
-    [Serializable] public class LoadingPanelProperty : Property2D
+    [Serializable]
+    public class LoadingPanelProperty : Property2D
     {
         /***************************************************/
         /**** Properties                                ****/

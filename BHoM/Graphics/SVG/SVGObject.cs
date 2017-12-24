@@ -8,7 +8,8 @@ using BH.oM.Base;
 
 namespace BH.oM.Graphics
 {
-    [Serializable] public class SVGObject : BHoMObject
+    [Serializable]
+    public class SVGObject : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -17,7 +18,7 @@ namespace BH.oM.Graphics
         public List<IBHoMGeometry> Geometry { get; set; } = null;
 
         public SVGStyle Style { get; set; } = new SVGStyle();
-        
+
 
         /***************************************************/
         /**** Constructors                              ****/

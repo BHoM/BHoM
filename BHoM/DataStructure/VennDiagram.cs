@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace BH.oM.DataStructure
 {
-    [Serializable] public class VennDiagram<T>
+    [Serializable]
+    public class VennDiagram<T>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Tuple<T,T>> Intersection { get; set; } = new List<Tuple<T,T>>();
+        public List<Tuple<T, T>> Intersection { get; set; } = new List<Tuple<T, T>>();
 
         public List<T> OnlySet1 { get; set; } = new List<T>();
 

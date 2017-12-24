@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Geometry
 {
+    [Serializable]
     public struct IntegrationSlice
     {
         public double Width;

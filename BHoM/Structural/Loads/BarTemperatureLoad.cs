@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Loads
 {
-    [Serializable] public class BarTemperatureLoad : Load<Bar>
+    [Serializable]
+    public class BarTemperatureLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace BH.oM.Structural.Design
 {
 
-    [Serializable] public class Span : BH.oM.Base.BHoMObject
+    [Serializable]
+    public class Span : BH.oM.Base.BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

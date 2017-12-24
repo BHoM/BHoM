@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics
 {
-    [Serializable] public class SVGDocument : BHoMObject
+    [Serializable]
+    public class SVGDocument : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

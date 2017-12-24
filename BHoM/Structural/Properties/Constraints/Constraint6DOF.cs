@@ -9,7 +9,8 @@ namespace BH.oM.Structural.Properties
     /// <summary>
     /// Constraint object - base class for all release, restraint, support classes. 
     /// </summary>
-    [Serializable] public class Constraint6DOF : BHoMObject
+    [Serializable]
+    public class Constraint6DOF : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -52,119 +53,119 @@ namespace BH.oM.Structural.Properties
     }
 }
 
-        //private double[] m_Values;
-        ///////////////////
-        //////Properties///
-        ///////////////////
+//private double[] m_Values;
+///////////////////
+//////Properties///
+///////////////////
 
-        //[Description("KX Direction elastic value")]
-        //[DefaultValue(0.0)]
-        //public double KX
-        //{
-        //    get
-        //    {
-        //        return m_Values[0];
-        //    }
-        //    set
-        //    {
-        //        m_Values[0] = value;
-        //    }
-        //}
+//[Description("KX Direction elastic value")]
+//[DefaultValue(0.0)]
+//public double KX
+//{
+//    get
+//    {
+//        return m_Values[0];
+//    }
+//    set
+//    {
+//        m_Values[0] = value;
+//    }
+//}
 
-        //[Description("KY Direction elastic value")]
-        //[DefaultValue(0.0)]
-        //public double KY
-        //{
-        //    get
-        //    {
-        //        return m_Values[1];
-        //    }
-        //    set
-        //    {
-        //        m_Values[1] = value;
-        //    }
-        //}
+//[Description("KY Direction elastic value")]
+//[DefaultValue(0.0)]
+//public double KY
+//{
+//    get
+//    {
+//        return m_Values[1];
+//    }
+//    set
+//    {
+//        m_Values[1] = value;
+//    }
+//}
 
-        //[Description("KZ Direction elastic value")]
-        //[DefaultValue(0.0)]
-        //public double KZ
-        //{
-        //    get
-        //    {
-        //        return m_Values[2];
-        //    }
-        //    set
-        //    {
-        //        m_Values[2] = value;
-        //    }
-        //}
+//[Description("KZ Direction elastic value")]
+//[DefaultValue(0.0)]
+//public double KZ
+//{
+//    get
+//    {
+//        return m_Values[2];
+//    }
+//    set
+//    {
+//        m_Values[2] = value;
+//    }
+//}
 
-        //[Description("HX Direction elastic value")]
-        //[DefaultValue(0.0)]
-        //public double HX
-        //{
-        //    get
-        //    {
-        //        return m_Values[3];
-        //    }
-        //    set
-        //    {
-        //        m_Values[3] = value;
-        //    }
-        //}
+//[Description("HX Direction elastic value")]
+//[DefaultValue(0.0)]
+//public double HX
+//{
+//    get
+//    {
+//        return m_Values[3];
+//    }
+//    set
+//    {
+//        m_Values[3] = value;
+//    }
+//}
 
-        //[Description("HY Direction elastic value")]
-        //[DefaultValue(0.0)]
-        //public double HY
-        //{
-        //    get
-        //    {
-        //        return m_Values[4];
-        //    }
-        //    set
-        //    {
-        //        m_Values[4] = value;
-        //    }
-        //}
+//[Description("HY Direction elastic value")]
+//[DefaultValue(0.0)]
+//public double HY
+//{
+//    get
+//    {
+//        return m_Values[4];
+//    }
+//    set
+//    {
+//        m_Values[4] = value;
+//    }
+//}
 
-        //[Description("HZ Direction elastic value")]
-        //[DefaultValue(0.0)]
-        //public double HZ
-        //{
-        //    get
-        //    {
-        //        return m_Values[5];
-        //    }
-        //    set
-        //    {
-        //        m_Values[5] = value;
-        //    }
-        //}
-
-
-        /*public new string Name
-        {
-            get
-            {
-                return base.Name == "" ? ToString() : base.Name;
-            }
-            set
-            {
-                base.Name = value;
-            }
-        }*/
+//[Description("HZ Direction elastic value")]
+//[DefaultValue(0.0)]
+//public double HZ
+//{
+//    get
+//    {
+//        return m_Values[5];
+//    }
+//    set
+//    {
+//        m_Values[5] = value;
+//    }
+//}
 
 
-        /// <summary>Constraint type</summary>
-        //public ConstraintType Type 
-        //{
-        //    get;
-        //    set;
-        //}    
+/*public new string Name
+{
+    get
+    {
+        return base.Name == "" ? ToString() : base.Name;
+    }
+    set
+    {
+        base.Name = value;
+    }
+}*/
 
-        ///////////////////
-        ////Constructors///
-        ///////////////////
+
+/// <summary>Constraint type</summary>
+//public ConstraintType Type 
+//{
+//    get;
+//    set;
+//}    
+
+///////////////////
+////Constructors///
+///////////////////
 
 //        /// <summary>
 //        /// Construct an empty constraint object

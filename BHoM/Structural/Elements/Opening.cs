@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Elements
 {
-    [Serializable] public class Opening : BHoMObject
+    [Serializable]
+    public class Opening : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -40,10 +41,10 @@ namespace BH.oM.Structural.Elements
 }
 
 
-        //public Opening(Curve edges)
-        //{
-        //    BH.oM.Geometry.Group<Curve> group = new BH.oM.Geometry.Group<Curve>();
-        //    group.Add(edges);
-        //    Edges = group;
-        //}
+//public Opening(Curve edges)
+//{
+//    BH.oM.Geometry.Group<Curve> group = new BH.oM.Geometry.Group<Curve>();
+//    group.Add(edges);
+//    Edges = group;
+//}
 

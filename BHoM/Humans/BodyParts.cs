@@ -10,11 +10,12 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human head object
     /// </summary>
-    [Serializable] public class Head // Sort out this collection of classes (can we generalise them?)
+    [Serializable]
+    public class Head // Sort out this collection of classes (can we generalise them?)
     {
         /// <summary>Point at centre of head</summary>
         public Point TrackingPoint { get; private set; }
-        
+
         /// <summary>
         /// Construct an empty head object
         /// </summary>
@@ -29,7 +30,7 @@ namespace BH.oM.HumanBody
         public Head(Point trackingPoint)
         {
             this.SetTrackingPoint(trackingPoint.X, trackingPoint.Y, trackingPoint.Z);
-        }             
+        }
 
         /// <summary>
         /// Set the tracking point of a head using a point
@@ -55,14 +56,15 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right hand object
     /// </summary>
-    [Serializable] public class HandRight
+    [Serializable]
+    public class HandRight
     {
         /// <summary>hand tracking centre point</summary>
         public Point TrackingPoint { get; private set; }
         /// <summary>hand tracking centre line</summary>
         public Line TrackingLine { get; private set; }
         /// <summary>Hand state (open/closed/tracked)</summary>
-        public HandStateName State { get; private set; }        
+        public HandStateName State { get; private set; }
 
         /// <summary>
         /// Constructs an empty right hand object
@@ -127,11 +129,12 @@ namespace BH.oM.HumanBody
             this.State = handState;
         }
     }
-   
+
     /// <summary>
     /// BH.oM Human left hand object
     /// </summary>
-    [Serializable] public class HandLeft
+    [Serializable]
+    public class HandLeft
     {
         /// <summary>Left hand tracking centre point</summary>
         public Point TrackingPoint { get; private set; }
@@ -207,7 +210,8 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right thumb object
     /// </summary>
-    [Serializable] public class ThumbRight
+    [Serializable]
+    public class ThumbRight
     {
         /// <summary>Right thumb tracking centre point</summary>
         public Point TrackingPoint { get; private set; }
@@ -272,7 +276,8 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left thumb object
     /// </summary>
-    [Serializable] public class ThumbLeft
+    [Serializable]
+    public class ThumbLeft
     {
         /// <summary>Lefth thumb tracking point</summary>
         public Point TrackingPoint { get; private set; }
@@ -337,12 +342,13 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human neck object
     /// </summary>
-    [Serializable] public class Neck
+    [Serializable]
+    public class Neck
     {
         /// <summary>
         /// The tracking centre line of a neck
         /// </summary>
-        public Line TrackingLine {get;private set;}
+        public Line TrackingLine { get; private set; }
 
         /// <summary>
         /// Constructs an empty neck object
@@ -359,7 +365,7 @@ namespace BH.oM.HumanBody
         {
             this.TrackingLine = trackingLine;
         }
-        
+
         /// <summary>
         /// Sets the tracking centre line of a neck
         /// </summary>
@@ -373,12 +379,13 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right shoulder object
     /// </summary>
-    [Serializable] public class ShoulderRight
+    [Serializable]
+    public class ShoulderRight
     {
         /// <summary>
         /// Tracking centre line of the shoulder
         /// </summary>
-        public Line TrackingLine {get;private set;}
+        public Line TrackingLine { get; private set; }
 
         /// <summary>
         /// Constructs an empty right shoulder
@@ -409,7 +416,8 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left shoulder object
     /// </summary>
-    [Serializable] public class ShoulderLeft
+    [Serializable]
+    public class ShoulderLeft
     {
         /// <summary>
         /// Tracking centre line of the left shoulder
@@ -445,13 +453,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human upper right arm
     /// </summary>
-    [Serializable] public class UpperArmRight
+    [Serializable]
+    public class UpperArmRight
     {
         /// <summary>
         /// Tracking centre line of the upper arm
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs and empty upper right arm
         /// </summary>
@@ -481,13 +490,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left arm object
     /// </summary>
-    [Serializable] public class UpperArmLeft
+    [Serializable]
+    public class UpperArmLeft
     {
         /// <summary>
         /// Tracking centre line of the upper left arm
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty upper left arm object
         /// </summary>
@@ -517,7 +527,8 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human lower right arm object
     /// </summary>
-    [Serializable] public class LowerArmRight
+    [Serializable]
+    public class LowerArmRight
     {
         /// <summary>
         /// Tracking centre line of the lower right arm
@@ -553,13 +564,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human lower left arm
     /// </summary>
-    [Serializable] public class LowerArmLeft
+    [Serializable]
+    public class LowerArmLeft
     {
         /// <summary>
         /// Tracking centre line of the lower left arm
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty lower left arm 
         /// </summary>
@@ -589,13 +601,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human spine object
     /// </summary>
-    [Serializable] public class Spine
+    [Serializable]
+    public class Spine
     {
         /// <summary>
         /// Tracking centre line of the spine
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty spine
         /// </summary>
@@ -625,13 +638,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right hip object
     /// </summary>
-    [Serializable] public class HipRight
+    [Serializable]
+    public class HipRight
     {
         /// <summary>
         /// Tracking centre line
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty right hip
         /// </summary>
@@ -661,13 +675,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left hip object
     /// </summary>
-    [Serializable] public class HipLeft
+    [Serializable]
+    public class HipLeft
     {
         /// <summary>
         /// Tracking centre line of left hip
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty left hip
         /// </summary>
@@ -697,13 +712,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM upper right leg object
     /// </summary>
-    [Serializable] public class UpperLegRight
+    [Serializable]
+    public class UpperLegRight
     {
         /// <summary>
         /// Tracking centre line of upper right leg
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty upper right leg
         /// </summary>
@@ -733,13 +749,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human upper left leg
     /// </summary>
-    [Serializable] public class UpperLegLeft
+    [Serializable]
+    public class UpperLegLeft
     {
         /// <summary>
         /// Tracking centre line of upper left leg
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty upper left leg
         /// </summary>
@@ -769,13 +786,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human lower right leg
     /// </summary>
-    [Serializable] public class LowerLegRight
+    [Serializable]
+    public class LowerLegRight
     {
         /// <summary>
         /// Tracking centre line of lower right leg
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty lower right leg
         /// </summary>
@@ -805,13 +823,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human lower left leg object
     /// </summary>
-    [Serializable] public class LowerLegLeft
+    [Serializable]
+    public class LowerLegLeft
     {
         /// <summary>
         /// Tracking centre line of the lower left leg
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty lower left leg
         /// </summary>
@@ -841,13 +860,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human right foot object
     /// </summary>
-    [Serializable] public class FootRight
+    [Serializable]
+    public class FootRight
     {
         /// <summary>
         /// Tracking centre line of right foot
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty right foot
         /// </summary>
@@ -877,13 +897,14 @@ namespace BH.oM.HumanBody
     /// <summary>
     /// BH.oM Human left foot object
     /// </summary>
-    [Serializable] public class FootLeft
+    [Serializable]
+    public class FootLeft
     {
         /// <summary>
         /// Tracking centre line of left foot
         /// </summary>
         public Line TrackingLine { get; private set; }
-        
+
         /// <summary>
         /// Constructs an empty left foot object
         /// </summary>

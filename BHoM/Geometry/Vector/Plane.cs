@@ -8,7 +8,8 @@ namespace BH.oM.Geometry
     /// <summary>
     /// BH.oM Plane object
     /// </summary>
-    [Serializable] public class Plane : IBHoMGeometry
+    [Serializable]
+    public class Plane : IBHoMGeometry
     {
         /***************************************************/
         /**** Properties                                ****/

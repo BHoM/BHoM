@@ -7,7 +7,8 @@ using System.Linq;
 
 namespace BH.oM.Structural.Results
 {
-    [Serializable] public class BarStress : BarStress<string, string, string>
+    [Serializable]
+    public class BarStress : BarStress<string, string, string>
     {
         public BarStress() : base() { }
         public BarStress(string number, string loadcase, int position, int divisions, string timeStep, double axial, double shearY, double shearZ, double bendingYTop, double bendingYBot, double bendingZTop, double bendingZBot, double combAxialBendingPos, double combAxialBendingNeg)
@@ -15,7 +16,8 @@ namespace BH.oM.Structural.Results
         { }
     }
 
-    [Serializable] public class BarStress<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
+    [Serializable]
+    public class BarStress<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
          where TTimeStep : IComparable

@@ -95,7 +95,7 @@ namespace BH.oM.Materials
         /// <summary>Elasto-plastic isotropic</summary>
         MAT_ELAS_PLAS_ISO,
         /// <summary>Fabric</summary>
-        MAT_FABRIC 
+        MAT_FABRIC
     }
-       
+
 }

@@ -8,7 +8,8 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    [Serializable] public class ExplicitSection : BHoMObject, ISectionProperty
+    [Serializable]
+    public class ExplicitSection : BHoMObject, ISectionProperty
     {
 
         /***************************************************/

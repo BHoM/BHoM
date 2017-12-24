@@ -4,7 +4,8 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Design
 {
-    [Serializable] public class DesignGroup : BHoMObject
+    [Serializable]
+    public class DesignGroup : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -28,4 +29,4 @@ namespace BH.oM.Structural.Design
 
 
 
-     
+

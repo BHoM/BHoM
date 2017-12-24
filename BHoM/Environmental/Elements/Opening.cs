@@ -1,4 +1,4 @@
-﻿using  BH.oM.Geometry;
+﻿using BH.oM.Geometry;
 using BH.oM.Base;
 using System;
 using System.Reflection;
@@ -11,7 +11,8 @@ namespace BH.oM.Environmental.Elements
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    [Serializable] public class Opening : BHoMObject
+    [Serializable]
+    public class Opening : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
