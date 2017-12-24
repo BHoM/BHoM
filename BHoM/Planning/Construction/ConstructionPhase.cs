@@ -12,29 +12,14 @@ namespace BH.oM.Planning.Construction
         /**** Properties                                ****/
         /***************************************************/
 
-        /// <summary>
-        /// Construction stage duration
-        /// </summary>
         public TimeSpan Duration { get; set; }
 
-        /// <summary>
-        /// Construction stage name
-        /// </summary>
         public string Name { get; set; }
 
-        /// <summary>
-        /// Construction stage sequential number
-        /// </summary>
         public int Number { get; set; }
 
-        /// <summary>
-        /// Construction stage start time
-        /// </summary>
         public DateTime StartTime { get; set; }
 
-        /// <summary>
-        /// Construction stage end time
-        /// </summary>
         public DateTime EndTime { get; set; }
 
     }

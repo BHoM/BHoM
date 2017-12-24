@@ -73,26 +73,26 @@ namespace BH.oM.HumanBody
         {   
             Dictionary<JointName, Point> TP = this.TrackingPoints;
             try { this.Head = new Head(TP[JointName.Head]);} catch{}
-            try { this.HandRight = new HandRight(new Line(TP[JointName.WristRight], TP[JointName.HandRight]));} catch{}
-            try { this.HandLeft = new HandLeft(new Line(TP[JointName.WristLeft], TP[JointName.HandLeft]));} catch{}
-            try { this.ThumbRight = new ThumbRight(new Line(TP[JointName.HandRight], TP[JointName.ThumbRight]));} catch{}
-            try { this.ThumbLeft = new ThumbLeft(new Line(TP[JointName.HandLeft], TP[JointName.ThumbLeft]));} catch{}
-            try { this.Neck = new Neck(new Line(TP[JointName.Head], TP[JointName.SpineShoulder]));} catch{}
-            try { this.ShoulderRight = new ShoulderRight(new Line(TP[JointName.SpineShoulder], TP[JointName.ShoulderRight]));} catch{}
-            try { this.ShoulderLeft = new ShoulderLeft(new Line(TP[JointName.SpineShoulder], TP[JointName.ShoulderLeft]));} catch{}
-            try { this.Spine = new Spine(new Line(TP[JointName.SpineShoulder], TP[JointName.SpineBase]));} catch{}
-            try { this.HipRight = new HipRight(new Line(TP[JointName.SpineBase], TP[JointName.HipRight]));} catch{}
-            try { this.HipLeft = new HipLeft(new Line(TP[JointName.SpineBase], TP[JointName.HipLeft]));} catch{}
-            try { this.UpperArmRight = new UpperArmRight(new Line(TP[JointName.ShoulderRight], TP[JointName.ElbowRight]));} catch{}
-            try { this.UpperArmLeft = new UpperArmLeft(new Line(TP[JointName.ShoulderLeft], TP[JointName.ElbowLeft]));} catch{}
-            try { this.LowerArmRight = new LowerArmRight(new Line(TP[JointName.ElbowRight], TP[JointName.WristRight]));} catch{}
-            try { this.LowerArmLeft = new LowerArmLeft(new Line(TP[JointName.ElbowLeft], TP[JointName.WristLeft]));} catch{}
-            try { this.UpperLegRight = new UpperLegRight(new Line(TP[JointName.HipRight], TP[JointName.KneeRight]));} catch{}
-            try { this.UpperLegLeft = new UpperLegLeft(new Line(TP[JointName.HipLeft], TP[JointName.KneeLeft]));} catch{}
-            try { this.LowerLegRight = new LowerLegRight(new Line(TP[JointName.KneeRight], TP[JointName.AnkleRight]));} catch{}
-            try { this.LowerLegLeft = new LowerLegLeft(new Line(TP[JointName.KneeLeft], TP[JointName.AnkleLeft]));} catch{}
-            try { this.FootRight = new FootRight(new Line(TP[JointName.AnkleRight], TP[JointName.FootRight]));} catch{}
-            try { this.FootLeft = new FootLeft(new Line(TP[JointName.AnkleLeft], TP[JointName.FootLeft]));} catch{}
+            try { this.HandRight = new HandRight(new Line { Start = TP[JointName.WristRight], End = TP[JointName.HandRight] });} catch{}
+            try { this.HandLeft = new HandLeft(new Line { Start = TP[JointName.WristLeft], End = TP[JointName.HandLeft] });} catch{}
+            try { this.ThumbRight = new ThumbRight(new Line { Start = TP[JointName.HandRight], End = TP[JointName.ThumbRight] });} catch{}
+            try { this.ThumbLeft = new ThumbLeft(new Line { Start = TP[JointName.HandLeft], End = TP[JointName.ThumbLeft] });} catch{}
+            try { this.Neck = new Neck(new Line { Start = TP[JointName.Head], End = TP[JointName.SpineShoulder] });} catch{}
+            try { this.ShoulderRight = new ShoulderRight(new Line { Start = TP[JointName.SpineShoulder], End = TP[JointName.ShoulderRight] });} catch{}
+            try { this.ShoulderLeft = new ShoulderLeft(new Line { Start = TP[JointName.SpineShoulder], End = TP[JointName.ShoulderLeft] });} catch{}
+            try { this.Spine = new Spine(new Line { Start = TP[JointName.SpineShoulder], End = TP[JointName.SpineBase] });} catch{}
+            try { this.HipRight = new HipRight(new Line { Start = TP[JointName.SpineBase], End = TP[JointName.HipRight] });} catch{}
+            try { this.HipLeft = new HipLeft(new Line { Start = TP[JointName.SpineBase], End = TP[JointName.HipLeft] });} catch{}
+            try { this.UpperArmRight = new UpperArmRight(new Line { Start = TP[JointName.ShoulderRight], End = TP[JointName.ElbowRight] });} catch{}
+            try { this.UpperArmLeft = new UpperArmLeft(new Line { Start = TP[JointName.ShoulderLeft], End = TP[JointName.ElbowLeft] });} catch{}
+            try { this.LowerArmRight = new LowerArmRight(new Line { Start = TP[JointName.ElbowRight], End = TP[JointName.WristRight] });} catch{}
+            try { this.LowerArmLeft = new LowerArmLeft(new Line { Start = TP[JointName.ElbowLeft], End = TP[JointName.WristLeft] });} catch{}
+            try { this.UpperLegRight = new UpperLegRight(new Line { Start = TP[JointName.HipRight], End = TP[JointName.KneeRight] });} catch{}
+            try { this.UpperLegLeft = new UpperLegLeft(new Line { Start = TP[JointName.HipLeft], End = TP[JointName.KneeLeft] });} catch{}
+            try { this.LowerLegRight = new LowerLegRight(new Line { Start = TP[JointName.KneeRight], End = TP[JointName.AnkleRight] });} catch{}
+            try { this.LowerLegLeft = new LowerLegLeft(new Line { Start = TP[JointName.KneeLeft], End = TP[JointName.AnkleLeft] });} catch{}
+            try { this.FootRight = new FootRight(new Line { Start = TP[JointName.AnkleRight], End = TP[JointName.FootRight] });} catch{}
+            try { this.FootLeft = new FootLeft(new Line { Start = TP[JointName.AnkleLeft], End = TP[JointName.FootLeft] });} catch{}
         }
 
         /// <summary>

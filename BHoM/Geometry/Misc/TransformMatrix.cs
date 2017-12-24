@@ -10,34 +10,23 @@
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public TransformMatrix() { }
-
-        /***************************************************/
-
-        public TransformMatrix(double[,] matrix)
-        {
-            Matrix = matrix;
-        }
-
-
-        /***************************************************/
         /**** Static special cases                      ****/
         /***************************************************/
 
-        public static readonly TransformMatrix Zero = new TransformMatrix(new double[4, 4]);
+        public static readonly TransformMatrix Zero = new TransformMatrix { Matrix = new double[4, 4] };
 
         /***************************************************/
 
-        public static readonly TransformMatrix Identify = new TransformMatrix(new double[4, 4]
+        public static readonly TransformMatrix Identify = new TransformMatrix
         {
-            { 1, 0, 0, 0 },
-            { 0, 1, 0, 0 },
-            { 0, 0, 1, 0 },
-            { 0, 0, 0, 1 }
-        });
+            Matrix = new double[4, 4]
+            {
+                { 1, 0, 0, 0 },
+                { 0, 1, 0, 0 },
+                { 0, 0, 1, 0 },
+                { 0, 0, 0, 1 }
+            }
+        };
 
 
         /***************************************************/
@@ -60,7 +49,7 @@
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
 
@@ -81,7 +70,7 @@
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
         /***************************************************/
@@ -103,7 +92,7 @@
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
         /***************************************************/
@@ -123,7 +112,7 @@
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
         /***************************************************/
@@ -143,12 +132,9 @@
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
-
         /***************************************************/
-
-
     }
 }

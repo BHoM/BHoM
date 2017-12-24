@@ -2,54 +2,33 @@
 
 namespace BH.oM.HumanBody
 {
-    /// <summary>
-    /// BH.oM Human head object
-    /// </summary>
     public class Head // Sort out this collection of classes (can we generalise them?)
     {
-        /// <summary>Point at centre of head</summary>
-        public Point TrackingPoint { get; private set; }
+        public Point TrackingPoint { get; private set; } = new Point(); // Point at centre of head
         
-        /// <summary>
-        /// Construct an empty head object
-        /// </summary>
         public Head()
         {
         }
 
-        /// <summary>
-        /// Construct a head using a point
-        /// </summary>
-        /// <param name="trackingPoint"></param>
         public Head(Point trackingPoint)
         {
             this.SetTrackingPoint(trackingPoint.X, trackingPoint.Y, trackingPoint.Z);
         }             
 
-        /// <summary>
-        /// Set the tracking point of a head using a point
-        /// </summary>
-        /// <param name="trackingPoint"></param>
+
         public void SetTrackingPoint(Point trackingPoint)
         {
             this.TrackingPoint = trackingPoint;
         }
 
-        /// <summary>
-        /// Set the tracking point of a head by coordinates
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="z"></param>
+
         public void SetTrackingPoint(double x, double y, double z)
         {
             this.TrackingPoint = new Point(x, y, z);
         }
     }
 
-    /// <summary>
-    /// BH.oM Human right hand object
-    /// </summary>
+
     public class HandRight
     {
         /// <summary>hand tracking centre point</summary>
