@@ -14,20 +14,6 @@
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Pipe() { }
-
-        /***************************************************/
-
-        public Pipe(ICurve centreline, double radius, bool capped = true)
-        {
-            Centreline = centreline;
-            Radius = radius;
-            Capped = capped;
-        }
-
     }
 }
 

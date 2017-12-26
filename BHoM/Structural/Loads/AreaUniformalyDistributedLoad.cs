@@ -26,7 +26,7 @@ namespace BH.oM.Structural.Loads
 
         public AreaUniformalyDistributedLoad(Loadcase loadcase, double px, double py, double pz)
         {
-            Pressure = new Geometry.Vector(px, py, pz);
+            Pressure = new Geometry.Vector { X = px, Y = py, Z = pz };
         }
 
 

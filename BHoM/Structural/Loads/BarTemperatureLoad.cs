@@ -22,7 +22,7 @@ namespace BH.oM.Structural.Loads
         public BarTemperatureLoad(Loadcase loadcase, double tx, double ty, double tz)
         {
             Loadcase = loadcase;
-            TemperatureChange = new Geometry.Vector(tx, ty, tz);
+            TemperatureChange = new Geometry.Vector { X = tx, Y = ty, Z = tz };
         }
 
 

@@ -13,8 +13,8 @@ namespace BHoMTest
         public List<Point> Data { get; set; }
         public TestObj()
         {
-            Point p1 = new Point(0, 0, 0);
-            Point p2 = new Point(1, 2, 4);
+            Point p1 = new Point();
+            Point p2 = new Point { X = 1, Y = 2, Z = 4 };
             Data = new List<Point>() { p1, p2 };
         }
     }

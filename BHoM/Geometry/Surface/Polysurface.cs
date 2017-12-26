@@ -13,18 +13,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public PolySurface() { }
-
-        /***************************************************/
-
-        public PolySurface(IEnumerable<ISurface> surfaces)
-        {
-            Surfaces = surfaces.ToList();
-        }
-
     }
 } 
 

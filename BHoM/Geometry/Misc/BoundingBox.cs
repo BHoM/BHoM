@@ -21,8 +21,8 @@ namespace BH.oM.Geometry
         {
             return new BoundingBox
             {
-                Min = new Point(Math.Min(a.Min.X, b.Min.X), Math.Min(a.Min.Y, b.Min.Y), Math.Min(a.Min.Z, b.Min.Z)),
-                Max = new Point(Math.Max(a.Max.X, b.Max.X), Math.Max(a.Max.Y, b.Max.Y), Math.Max(a.Max.Z, b.Max.Z))
+                Min = new Point { X = Math.Min(a.Min.X, b.Min.X), Y = Math.Min(a.Min.Y, b.Min.Y), Z = Math.Min(a.Min.Z, b.Min.Z) },
+                Max = new Point { X = Math.Max(a.Max.X, b.Max.X), Y = Math.Max(a.Max.Y, b.Max.Y), Z = Math.Max(a.Max.Z, b.Max.Z) }
             };
         }
 

@@ -24,7 +24,7 @@ namespace BH.oM.HumanBody
 
         public void SetTrackingPoint(double x, double y, double z)
         {
-            this.TrackingPoint = new Point(x, y, z);
+            this.TrackingPoint = new Point { X = x, Y = y, Z = z };
         }
     }
 
@@ -71,7 +71,7 @@ namespace BH.oM.HumanBody
         /// <param name="z"></param>
         public void SetTrackingPoint(double x, double y, double z)
         {
-            this.TrackingPoint = new Point(x, y, z);
+            this.TrackingPoint = new Point { X = x, Y = y, Z = z };
         }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace BH.oM.HumanBody
         /// <param name="z"></param>
         public void SetTrackingPoint(double x, double y, double z)
         {
-            this.TrackingPoint = new Point(x, y, z);
+            this.TrackingPoint = new Point { X = x, Y = y, Z = z };
         }
 
         /// <summary>
@@ -239,7 +239,7 @@ namespace BH.oM.HumanBody
         /// <param name="z"></param>
         public void SetTrackingPoint(double x, double y, double z)
         {
-            this.TrackingPoint = new Point(x, y, z);
+            this.TrackingPoint = new Point { X = x, Y = y, Z = z };
         }
     }
 
@@ -304,7 +304,7 @@ namespace BH.oM.HumanBody
         /// <param name="z"></param>
         public void SetTrackingPoint(double x, double y, double z)
         {
-            this.TrackingPoint = new Point(x, y, z);
+            this.TrackingPoint = new Point { X = x, Y = y, Z = z };
         }
     }
 
