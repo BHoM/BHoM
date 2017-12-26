@@ -23,21 +23,5 @@ namespace BH.oM.Graphics
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public SVGStyle() { }
-
-        /***************************************************/
-
-        public SVGStyle(double strokeWidth, string strokeColor, string fillColor, double strokeOpacity, double fillOpacity, List<double> strokeDash)
-        {
-            StrokeWidth = strokeWidth;
-            StrokeColor = strokeColor;
-            FillColor = fillColor;
-            StrokeOpacity = strokeOpacity;
-            FillOpacity = fillOpacity;
-            StrokeDash = strokeDash;
-        }
     }
 }

@@ -1,5 +1,7 @@
-﻿namespace BH.oM.Materials
+﻿namespace BH.oM.Common.Materials
 {
+    /***************************************************/
+
     public enum MaterialColumnData
     {
         Type = 1,
@@ -65,5 +67,6 @@
         MAT_ELAS_PLAS_ISO,  // Elasto-plastic isotropic
         MAT_FABRIC          // Fabric
     }
-       
+
+    /***************************************************/
 }

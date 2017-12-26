@@ -1,18 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using BH.oM.Geometry;
 
 
-namespace BH.oM.Geometry
+namespace BH.oM.Humans.BodyParts
 {
-    public class CompositeGeometry : IBHoMGeometry
+    public class RightThumb
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMGeometry> Elements = new List<IBHoMGeometry>();
+        public Point TrackingPoint { get; set; } = new Point();
+
+        public Line TrackingLine { get; set; } = new Line();
 
 
         /***************************************************/
     }
-}
 
+}

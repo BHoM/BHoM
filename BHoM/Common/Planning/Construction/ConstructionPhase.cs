@@ -1,18 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using BH.oM.Base;
+using System;
 
-
-namespace BH.oM.Geometry
+namespace BH.oM.Common.Planning
 {
-    public class CompositeGeometry : IBHoMGeometry
+    public class ConstructionPhase : BHoMObject, IPhase
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMGeometry> Elements = new List<IBHoMGeometry>();
+        public DateTime StartTime { get; set; } = new DateTime();
+
+        public DateTime EndTime { get; set; } = new DateTime();
 
 
         /***************************************************/
     }
 }
-

@@ -1,20 +1,22 @@
 ﻿using BH.oM.Geometry;
-using System.Collections.Generic;
-using BH.oM.Base;
 
-namespace BH.oM.Graphics
+
+namespace BH.oM.Humans.BodyParts
 {
-    public class SVGObject : BHoMObject
+    public class LeftHand
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMGeometry> Shapes { get; set; } = null;
+        public Point TrackingPoint { get; set; } = new Point();
 
-        public SVGStyle Style { get; set; } = new SVGStyle();
-        
+        public Line TrackingLine { get; set; } = new Line();
+
+        public HandStateName State { get; set; } = HandStateName.Unknown;
+
 
         /***************************************************/
     }
+
 }

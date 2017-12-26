@@ -1,201 +1,61 @@
-﻿using System.Collections.Generic;
-using BH.oM.Geometry;
+﻿using BH.oM.Base;
+using BH.oM.Humans.BodyParts;
 
-namespace BH.oM.HumanBody
+namespace BH.oM.Humans
 {
     /// <summary>
     /// BH.oM Human skeleton class
     /// </summary>
-    public class Skeleton : BH.oM.Base.BHoMObject //TODO: Sort out this class
+    public class Skeleton : BHoMObject 
     {
-        /// <summary>
-        /// Constructs an empty skeleton object
-        /// </summary>
-        public Skeleton()
-        {
-            this.TrackingPoints = new Dictionary<JointName, Point>();
-            this.TrackingLines = new Dictionary<string, Line>();
-        }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        /// <summary>Head</summary>
-        public Head Head { get; private set; }
-        /// <summary>Right hand</summary>
-        public HandRight HandRight { get; private set; }
-        /// <summary>Left hand</summary>
-        public HandLeft HandLeft { get; private set; }
-        /// <summary>Right thumb</summary>
-        public ThumbRight ThumbRight { get; private set; }
-        /// <summary>Left thumb</summary>
-        public ThumbLeft ThumbLeft { get; private set; }
-        /// <summary>Neck</summary>
-        public Neck Neck { get; private set; }
-        /// <summary>Right shoulder</summary>
-        public ShoulderRight ShoulderRight { get; private set; }
-        /// <summary>Left shoulder</summary>
-        public ShoulderLeft ShoulderLeft { get; private set; }
-        /// <summary>Spine</summary>
-        public Spine Spine { get; private set; }
-        /// <summary>Right hip</summary>
-        public HipRight HipRight { get; private set; }
-        /// <summary>Left hip</summary>
-        public HipLeft HipLeft { get; private set; }
-        /// <summary>Upper right arm</summary>
-        public UpperArmRight UpperArmRight { get; private set; }
-        /// <summary>Upper left arm</summary>
-        public UpperArmLeft UpperArmLeft { get; private set; }
-        /// <summary>Lower right arm</summary>
-        public LowerArmRight LowerArmRight { get; private set; }
-        /// <summary>Lower left arm</summary>
-        public LowerArmLeft LowerArmLeft { get; private set; }
-        /// <summary>Upper right leg</summary>
-        public UpperLegRight UpperLegRight { get; private set; }
-        /// <summary>Upper left leg</summary>
-        public UpperLegLeft UpperLegLeft { get; private set; }
-        /// <summary>Lower right leg</summary>
-        public LowerLegRight LowerLegRight { get; private set; }
-        /// <summary>Lower left leg</summary>
-        public LowerLegLeft LowerLegLeft { get; private set; }
-        /// <summary>Right foot</summary>
-        public FootRight FootRight { get; private set; }
-        /// <summary>Left foot</summary>
-        public FootLeft FootLeft { get; private set; }
+        public Head Head { get; set; } = new Head();
 
-        /// <summary>Dictionary of points with joint names as keys</summary>
-        public Dictionary<JointName, Point> TrackingPoints { get; set; }
-        /// <summary>Dictionary of tracking lines with string keys</summary>
-        public Dictionary<string, Line> TrackingLines { get; private set; }       
+        public RightHand RightHand { get; set; } = new RightHand();
 
-        /// <summary>
-        /// Sets the body parts using tracking points. Try loops used for all actions 
-        /// in case body part tracking points are not detected
-        /// </summary>
-        public void SetBodyPartsbyTrackingPoints()
-        {   
-            Dictionary<JointName, Point> TP = this.TrackingPoints;
-            try { this.Head = new Head(TP[JointName.Head]);} catch{}
-            try { this.HandRight = new HandRight(new Line { Start = TP[JointName.WristRight], End = TP[JointName.HandRight] });} catch{}
-            try { this.HandLeft = new HandLeft(new Line { Start = TP[JointName.WristLeft], End = TP[JointName.HandLeft] });} catch{}
-            try { this.ThumbRight = new ThumbRight(new Line { Start = TP[JointName.HandRight], End = TP[JointName.ThumbRight] });} catch{}
-            try { this.ThumbLeft = new ThumbLeft(new Line { Start = TP[JointName.HandLeft], End = TP[JointName.ThumbLeft] });} catch{}
-            try { this.Neck = new Neck(new Line { Start = TP[JointName.Head], End = TP[JointName.SpineShoulder] });} catch{}
-            try { this.ShoulderRight = new ShoulderRight(new Line { Start = TP[JointName.SpineShoulder], End = TP[JointName.ShoulderRight] });} catch{}
-            try { this.ShoulderLeft = new ShoulderLeft(new Line { Start = TP[JointName.SpineShoulder], End = TP[JointName.ShoulderLeft] });} catch{}
-            try { this.Spine = new Spine(new Line { Start = TP[JointName.SpineShoulder], End = TP[JointName.SpineBase] });} catch{}
-            try { this.HipRight = new HipRight(new Line { Start = TP[JointName.SpineBase], End = TP[JointName.HipRight] });} catch{}
-            try { this.HipLeft = new HipLeft(new Line { Start = TP[JointName.SpineBase], End = TP[JointName.HipLeft] });} catch{}
-            try { this.UpperArmRight = new UpperArmRight(new Line { Start = TP[JointName.ShoulderRight], End = TP[JointName.ElbowRight] });} catch{}
-            try { this.UpperArmLeft = new UpperArmLeft(new Line { Start = TP[JointName.ShoulderLeft], End = TP[JointName.ElbowLeft] });} catch{}
-            try { this.LowerArmRight = new LowerArmRight(new Line { Start = TP[JointName.ElbowRight], End = TP[JointName.WristRight] });} catch{}
-            try { this.LowerArmLeft = new LowerArmLeft(new Line { Start = TP[JointName.ElbowLeft], End = TP[JointName.WristLeft] });} catch{}
-            try { this.UpperLegRight = new UpperLegRight(new Line { Start = TP[JointName.HipRight], End = TP[JointName.KneeRight] });} catch{}
-            try { this.UpperLegLeft = new UpperLegLeft(new Line { Start = TP[JointName.HipLeft], End = TP[JointName.KneeLeft] });} catch{}
-            try { this.LowerLegRight = new LowerLegRight(new Line { Start = TP[JointName.KneeRight], End = TP[JointName.AnkleRight] });} catch{}
-            try { this.LowerLegLeft = new LowerLegLeft(new Line { Start = TP[JointName.KneeLeft], End = TP[JointName.AnkleLeft] });} catch{}
-            try { this.FootRight = new FootRight(new Line { Start = TP[JointName.AnkleRight], End = TP[JointName.FootRight] });} catch{}
-            try { this.FootLeft = new FootLeft(new Line { Start = TP[JointName.AnkleLeft], End = TP[JointName.FootLeft] });} catch{}
-        }
+        public LeftHand LeftHand { get; set; } = new LeftHand();
 
-        /// <summary>
-        /// Get all the tracking lines from the skeleton
-        /// </summary>
-        /// <returns></returns>
-        public Dictionary<string, Line> GetAllTrackingLines()
-        {
-            this.TrackingLines.Add("Neck", this.Neck.TrackingLine);
-            this.TrackingLines.Add("ShoulderRight", this.ShoulderRight.TrackingLine);
-            this.TrackingLines.Add("ShoulderLeft", this.ShoulderLeft.TrackingLine);
-            this.TrackingLines.Add("UppperArmRight", this.UpperArmRight.TrackingLine);
-            this.TrackingLines.Add("UpperArmLeft", this.UpperArmLeft.TrackingLine);
-            this.TrackingLines.Add("LowerArmRight", this.LowerArmRight.TrackingLine);
-            this.TrackingLines.Add("LowerArmLeft", this.LowerArmLeft.TrackingLine);
-            this.TrackingLines.Add("HandRight", this.HandRight.TrackingLine);
-            this.TrackingLines.Add("HandLeft", this.HandLeft.TrackingLine);
-            this.TrackingLines.Add("ThumbRight", this.ThumbRight.TrackingLine);
-            this.TrackingLines.Add("ThumbLeft", this.ThumbLeft.TrackingLine);
-            this.TrackingLines.Add("Spine", this.Spine.TrackingLine);
-            this.TrackingLines.Add("HipRight", this.HipRight.TrackingLine);
-            this.TrackingLines.Add("HipLeft", this.HipLeft.TrackingLine);
-            this.TrackingLines.Add("UpperLegRight", this.UpperLegRight.TrackingLine);
-            this.TrackingLines.Add("LowerLegRight", this.LowerLegRight.TrackingLine);
-            this.TrackingLines.Add("UpperLegLeft", this.UpperLegLeft.TrackingLine);
-            this.TrackingLines.Add("LowerLegLeft", this.LowerLegLeft.TrackingLine);
-            this.TrackingLines.Add("FootRight", this.FootRight.TrackingLine);
-            this.TrackingLines.Add("FootLeft", this.FootLeft.TrackingLine);
-            return this.TrackingLines;
-        }
+        public RightThumb RightThumb { get; set; } = new RightThumb();
+
+        public LeftThumb LeftThumb { get; set; } = new LeftThumb();
+
+        public Neck Neck { get; set; } = new Neck();
+
+        public RightShoulder RightShoulder { get; set; } = new RightShoulder();
+
+        public LeftShoulder LeftShoulder { get; set; } = new LeftShoulder();
+
+        public Spine Spine { get; set; } = new Spine();
+
+        public RightHip RightHip { get; set; } = new RightHip();
+
+        public LeftHip LeftHip { get; set; } = new LeftHip();
+
+        public RightUpperArm RightUpperArm { get; set; } = new RightUpperArm();
+
+        public LeftUpperArm LeftUpperArm { get; set; } = new LeftUpperArm();
+
+        public RightLowerArm RightLowerArm { get; set; } = new RightLowerArm();
+
+        public LeftLowerArm LeftLowerArm { get; set; } = new LeftLowerArm();
+
+        public RightUpperLeg RightUpperLeg { get; set; } = new RightUpperLeg();
+
+        public LeftUpperLeg LeftUpperLeg { get; set; } = new LeftUpperLeg();
+
+        public RightLowerLeg RightLowerLeg { get; set; } = new RightLowerLeg();
+
+        public LeftLowerLeg LeftLowerLeg { get; set; } = new LeftLowerLeg();
+
+        public RightFoot RightFoot { get; set; } = new RightFoot();
+
+        public LeftFoot LeftFoot { get; set; } = new LeftFoot();
+
+
+        /***************************************************/
     }
 
-    /// <summary>
-    /// Joint names
-    /// </summary>
-    public enum JointName
-    {
-        /// <summary>Head</summary>
-        Head = 0,
-        /// <summary>Upper spine</summary>
-        SpineShoulder,
-        /// <summary>Right shoulder</summary>  
-        ShoulderRight,
-        /// <summary>Left shoulder</summary>
-        ShoulderLeft,
-        /// <summary>Neck</summary>
-        Neck,
-        /// <summary>Right elbow</summary>
-        ElbowRight,
-        /// <summary>Left elbow</summary>
-        ElbowLeft,
-        /// <summary>Right hand</summary>
-        HandRight,
-        /// <summary>Left hand</summary>
-        HandLeft,
-        /// <summary>Tip of the right hand</summary>
-        HandTipRight,
-        /// <summary>Tip of the left hand</summary>
-        HandTipLeft,
-        /// <summary>Right thumb</summary>
-        ThumbRight,
-        /// <summary>Left thumb</summary>
-        ThumbLeft,
-        /// <summary>Right wrist</summary>
-        WristRight,
-        /// <summary>Left wrist</summary>
-        WristLeft,
-        /// <summary>Mid spine</summary>
-        SpineMid,
-        /// <summary>Spine base</summary>
-        SpineBase,
-        /// <summary>Right hip</summary>
-        HipRight,
-        /// <summary>Left hip</summary>
-        HipLeft,
-        /// <summary>Right knee</summary>
-        KneeRight,
-        /// <summary>Left knee</summary>
-        KneeLeft,
-        /// <summary>Right ankle</summary>
-        AnkleRight,
-        /// <summary>Left ankle</summary>
-        AnkleLeft,
-        /// <summary>Right foot</summary>
-        FootRight,
-        /// <summary>Left foot</summary>
-        FootLeft
-     }
-
-    /// <summary>
-    /// Hand state values
-    /// </summary>
-    public enum HandStateName
-    {
-        /// <summary>Close</summary>
-        Closed = 0,
-        /// <summary>Lasso</summary>
-        Lasso,
-        /// <summary>Not tracked</summary>
-        NotTracked,
-        /// <summary>Open</summary>
-        Open,
-        /// <summary>Not known</summary>
-        Unknown
-    }
 }
