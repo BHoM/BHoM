@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 namespace BH.oM.Structural.Elements
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class Beam : BHoMObject
     {
         /***************************************************/
@@ -31,17 +28,5 @@ namespace BH.oM.Structural.Elements
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Beam() { }
-
-        /***************************************************/
-
-        public Beam(ICurve locationCurve)
-        {
-            this.LocationCurve = locationCurve;
-        }
-
     }
 }

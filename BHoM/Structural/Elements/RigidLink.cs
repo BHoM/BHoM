@@ -19,19 +19,5 @@ namespace BH.oM.Structural.Elements
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public RigidLink() {}
-
-        /***************************************************/
-
-        public RigidLink(Node masterNode, IEnumerable<Node> slaveNodes, LinkConstraint constriant = null)
-        {
-            MasterNode = masterNode;
-            SlaveNodes = slaveNodes.ToList();
-        }
-
-
     }
 }

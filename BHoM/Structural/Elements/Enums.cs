@@ -108,4 +108,5 @@ namespace BH.oM.Structural.Elements
         Mesh
     }
 
+    /***************************************************/
 }

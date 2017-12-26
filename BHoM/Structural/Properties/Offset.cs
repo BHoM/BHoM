@@ -5,7 +5,7 @@ namespace BH.oM.Structural.Properties
     /// <summary>
     /// Offsets for bars
     /// </summary>
-    public class Offset : BH.oM.Base.BHoMObject
+    public class Offset : Base.BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

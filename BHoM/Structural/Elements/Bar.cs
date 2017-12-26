@@ -13,11 +13,11 @@ namespace BH.oM.Structural.Elements
 
         public Properties.ISectionProperty SectionProperty { get; set; } = null;
 
-        public BH.oM.Structural.Properties.BarRelease Release { get; set; } = null;
+        public Properties.BarRelease Release { get; set; } = null;
 
-        public BH.oM.Structural.Properties.Constraint4DOF Spring { get; set; } = null;
+        public Properties.Constraint4DOF Spring { get; set; } = null;
 
-        public BH.oM.Structural.Properties.Offset Offset { get; set; } = null;
+        public Properties.Offset Offset { get; set; } = null;
 
         public BarStructuralUsage StructuralUsage { get; set; } //TODO: Move to future beam class??
 
@@ -40,19 +40,5 @@ namespace BH.oM.Structural.Elements
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Bar() { }
-
-        /***************************************************/
-
-        public Bar(Node startNode, Node endNode, string barName = "")
-        {
-            this.StartNode = startNode;
-            this.EndNode = endNode;
-            Name = barName;
-        }
-
     }
 }

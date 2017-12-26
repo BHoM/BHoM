@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 namespace BH.oM.Structural.Elements
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class Column : BHoMObject
     {
         /***************************************************/
@@ -16,8 +13,6 @@ namespace BH.oM.Structural.Elements
         public List<Bar> AnalyticBars { get; set; } = new List<Bar>();
 
         public ICurve LocationCurve { get; set; } = null;
-
-        
 
         public Properties.ISectionProperty SectionProperty { get; set; } = null;
 
@@ -33,17 +28,5 @@ namespace BH.oM.Structural.Elements
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Column() { }
-
-        /***************************************************/
-
-        public Column(ICurve locationCurve)
-        {
-            this.LocationCurve = locationCurve;
-        }
-
     }
 }

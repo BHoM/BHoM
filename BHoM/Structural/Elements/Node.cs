@@ -5,35 +5,27 @@ using BH.oM.Structural.Properties;
 
 namespace BH.oM.Structural.Elements
 {
-    /// <summary>
-    /// Node objects
-    /// </summary>
-    [Serializable]
     public class Node : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Point { get; set; } = new Point();
+        public Point Position { get; set; } = new Point();
 
         public Constraint6DOF Constraint { get; set; } = null;
 
 
         /***************************************************/
-        /**** Constructors                              ****/
+        /**** Explicit Casting                          ****/
         /***************************************************/
 
-        public Node() { }
-
-        /***************************************************/
-
-        public Node(Point point, string name = "")
+        public static implicit operator Node(Point point)
         {
-            Point = new Point { X = point.X, Y = point.Y, Z = point.Z };
-            Name = name;
+            return new Node { Position = point };
         }
 
+        /***************************************************/
     }
 }
     
