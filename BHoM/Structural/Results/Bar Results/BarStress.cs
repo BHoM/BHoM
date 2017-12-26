@@ -1,9 +1,4 @@
-﻿using BH.oM.Base;
-
-using BH.oM.Structural.Loads;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 
 namespace BH.oM.Structural.Results
 {

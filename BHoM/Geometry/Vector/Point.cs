@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
 
 namespace BH.oM.Geometry
 {
-    /// <summary>
-    /// BH.oM Point object
-    /// </summary>
-    [Serializable]
     public class Point : IBHoMGeometry, IComparable<Point>
     {
         /***************************************************/
@@ -26,47 +16,10 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Point(double x = 0, double y = 0, double z = 0)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-        }
-
-        /***************************************************/
-
-        public Point(Vector v)
-        {
-            X = v.X;
-            Y = v.Y;
-            Z = v.Z;
-        }
-
-        /***************************************************/
         /**** Static special cases                      ****/
         /***************************************************/
 
-        public static readonly Point Origin = new Point(0, 0, 0);
-
-
-        /***************************************************/
-        /**** Local Optimisation Methods                ****/
-        /***************************************************/
-
-        public Point GetClone() // Optimisation
-        {
-            return new Point(X, Y, Z);
-        }
-
-        /***************************************************/
-
-        public bool IsValid()
-        {
-            return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
-        }
+        public static readonly Point Origin = new Point { X = 0, Y = 0, Z = 0 };
 
 
         /***************************************************/
@@ -111,56 +64,56 @@ namespace BH.oM.Geometry
 
         public static Vector operator -(Point a, Point b)
         {
-            return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+            return new Vector { X = a.X - b.X, Y = a.Y - b.Y, Z = a.Z - b.Z };
         }
 
         /***************************************************/
 
         public static Point operator +(Point a, Point b)
         {
-            return new Point(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+            return new Point { X = a.X + b.X, Y = a.Y + b.Y, Z = a.Z + b.Z };
         }
 
         /***************************************************/
 
         public static Point operator +(Point a, Vector b)
         {
-            return new Point(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+            return new Point { X = a.X + b.X, Y = a.Y + b.Y, Z = a.Z + b.Z };
         }
 
         /***************************************************/
 
         public static Point operator -(Point a, Vector b)
         {
-            return new Point(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+            return new Point { X = a.X - b.X, Y = a.Y - b.Y, Z = a.Z - b.Z };
         }
 
         /***************************************************/
 
         public static Point operator *(Point a, double b)
         {
-            return new Point(a.X * b, a.Y * b, a.Z * b);
+            return new Point { X = a.X * b, Y = a.Y * b, Z = a.Z * b };
         }
 
         /***************************************************/
 
         public static Point operator *(double a, Point b)
         {
-            return new Point(a * b.X, a * b.Y, a * b.Z);
+            return new Point { X = a * b.X, Y = a * b.Y, Z = a * b.Z };
         }
 
         /***************************************************/
 
         public static Point operator /(Point a, double b)
         {
-            return new Point(a.X / b, a.Y / b, a.Z / b);
+            return new Point { X = a.X / b, Y = a.Y / b, Z = a.Z / b };
         }
 
         /***************************************************/
 
         public static Point operator /(double a, Point b)
         {
-            return new Point(a / b.X, a / b.Y, a / b.Z);
+            return new Point { X = a / b.X, Y = a / b.Y, Z = a / b.Z };
         }
 
         /***************************************************/
@@ -177,6 +130,7 @@ namespace BH.oM.Geometry
             return a?.X != b?.X || a?.Y != b?.Y || a?.Z != b?.Z;
         }
 
+        /***************************************************/
     }
 }
 

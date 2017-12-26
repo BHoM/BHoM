@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using BH.oM.Geometry;
-using BH.oM.Materials;
 using BH.oM.Base;
 using System.Collections.ObjectModel;
+using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {
@@ -206,7 +202,7 @@ namespace BH.oM.Structural.Properties
         //    {
         //        double n = m_ConcreteSection.Material.YoungsModulus / m_SteelSection.Material.YoungsModulus;
         //        Group<Curve> concreteRectangle = m_ConcreteSection.Edges.DuplicateGroup();
-        //        concreteRectangle.Transform(Transform.Scale(Point.Origin, new Vector(n, 1, 1)));
+        //        concreteRectangle.Transform(Transform.Scale(Point.Origin, new Vector { X = n, Y = 1, Z = 1 }));
         //        Group<Curve> steelSection = m_SteelSection.Edges;
 
         //        double topSteel = steelSection.GetBounds().Max.Y;

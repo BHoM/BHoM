@@ -1,10 +1,4 @@
-﻿using BH.oM.Structural.Properties;
-using BH.oM.Structural.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace BH.oM.Structural.Results
 {

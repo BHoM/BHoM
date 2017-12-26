@@ -1,9 +1,4 @@
 ﻿using BH.oM.Structural.Elements;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Loads
 {
@@ -28,7 +23,7 @@ namespace BH.oM.Structural.Loads
         public BarTemperatureLoad(Loadcase loadcase, double tx, double ty, double tz)
         {
             Loadcase = loadcase;
-            TemperatureChange = new Geometry.Vector(tx, ty, tz);
+            TemperatureChange = new Geometry.Vector { X = tx, Y = ty, Z = tz };
         }
 
 

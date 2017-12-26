@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
-using System.Threading;
 
 namespace BH.oM.Acoustic
 {
@@ -29,5 +24,8 @@ namespace BH.oM.Acoustic
         public Dictionary<Frequency, double> Gains { get; set; } = new Dictionary<Frequency, double>();
 
         public Dictionary<Frequency, double[,]> Directivity { get; set; } = new Dictionary<Frequency, double[,]>();
+
+
+        /***************************************************/
     }
 }

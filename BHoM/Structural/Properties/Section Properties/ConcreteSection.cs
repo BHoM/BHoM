@@ -1,14 +1,9 @@
 ﻿using BH.oM.Geometry;
-using BH.oM.Materials;
 using BH.oM.Base;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {

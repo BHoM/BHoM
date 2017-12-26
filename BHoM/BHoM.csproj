@@ -74,12 +74,17 @@
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IImmutable.cs" />
-    <Compile Include="Base\Interface\IObjectList.cs" />
+    <Compile Include="DataStructure\Graph\Graph.cs" />
+    <Compile Include="DataStructure\Graph\GraphLink.cs" />
+    <Compile Include="DataStructure\Graph\GraphNode.cs" />
+    <Compile Include="DataStructure\PointMatrix\PointMatrix.cs" />
+    <Compile Include="DataStructure\PointMatrix\LocalData.cs" />
+    <Compile Include="DataStructure\PointMatrix\DiscreetPoint.cs" />
+    <Compile Include="DataStructure\PriorityQueue.cs" />
     <Compile Include="DataStructure\Tree.cs" />
     <Compile Include="Geometry\Curve\Ellipse.cs" />
     <Compile Include="Geometry\Curve\ICurve.cs" />
     <Compile Include="Geometry\Math\IntegrationSlice.cs" />
-    <Compile Include="Geometry\Misc\Location.cs" />
     <Compile Include="Geometry\Misc\BoundingBox.cs" />
     <Compile Include="Geometry\Curve\Arc.cs" />
     <Compile Include="Geometry\Curve\Circle.cs" />
@@ -113,7 +118,29 @@
     <Compile Include="Graphics\SVG\SVGDocument.cs" />
     <Compile Include="Graphics\SVG\SVGObject.cs" />
     <Compile Include="Graphics\SVG\SVGStyle.cs" />
-    <Compile Include="Humans\BodyParts.cs" />
+    <Compile Include="Humans\BodyParts\LeftFoot.cs" />
+    <Compile Include="Humans\BodyParts\LeftLowerLeg.cs" />
+    <Compile Include="Humans\BodyParts\LeftUpperLeg.cs" />
+    <Compile Include="Humans\BodyParts\LeftUpperArm.cs" />
+    <Compile Include="Humans\BodyParts\LeftLowerArm.cs" />
+    <Compile Include="Humans\BodyParts\LeftHip.cs" />
+    <Compile Include="Humans\BodyParts\RightFoot.cs" />
+    <Compile Include="Humans\BodyParts\RightHip.cs" />
+    <Compile Include="Humans\BodyParts\RightLowerLeg.cs" />
+    <Compile Include="Humans\BodyParts\RightUpperLeg.cs" />
+    <Compile Include="Humans\BodyParts\Spine.cs" />
+    <Compile Include="Humans\BodyParts\RightLowerArm.cs" />
+    <Compile Include="Humans\BodyParts\RightUpperArm.cs" />
+    <Compile Include="Humans\BodyParts\LeftShoulder.cs" />
+    <Compile Include="Humans\BodyParts\RightShoulder.cs" />
+    <Compile Include="Humans\BodyParts\Neck.cs" />
+    <Compile Include="Humans\BodyParts\RightThumb.cs" />
+    <Compile Include="Humans\BodyParts\LeftThumb.cs" />
+    <Compile Include="Humans\BodyParts\LeftHand.cs" />
+    <Compile Include="Humans\BodyParts\RightHand.cs" />
+    <Compile Include="Humans\BodyParts\Head.cs" />
+    <Compile Include="Humans\HandStateName.cs" />
+    <Compile Include="Humans\JointName.cs" />
     <Compile Include="Humans\Skeleton.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -131,8 +158,8 @@
     <Compile Include="Structural\Elements\MeshFace.cs" />
     <Compile Include="Structural\Elements\Edge.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
-    <Compile Include="Planning\Construction\ConstructionPhase.cs" />
-    <Compile Include="Planning\IPhase.cs" />
+    <Compile Include="Common\Planning\Construction\ConstructionPhase.cs" />
+    <Compile Include="Common\Planning\IPhase.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -140,8 +167,8 @@
     </Compile>
     <Compile Include="Structural\Elements\Opening.cs" />
     <Compile Include="Structural\Elements\PanelFreeForm.cs" />
-    <Compile Include="Materials\Material.cs" />
-    <Compile Include="Materials\MaterialEnums.cs" />
+    <Compile Include="Common\Materials\Material.cs" />
+    <Compile Include="Common\Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structural\Interface\ICommandAdapter.cs" />
     <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
@@ -243,10 +270,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />
-    <Folder Include="Common\" />
+    <Folder Include="Common\Physical\" />
+    <Folder Include="Common\Planning\Project\" />
     <Folder Include="MEP\" />
-    <Folder Include="Physical\" />
-    <Folder Include="Planning\Project\" />
     <Folder Include="Structural\Results\Global Results\" />
   </ItemGroup>
   <ItemGroup>

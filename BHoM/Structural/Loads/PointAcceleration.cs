@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Geometry;
+﻿using BH.oM.Geometry;
 using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
@@ -43,8 +38,8 @@ namespace BH.oM.Structural.Loads
         public PointAcceleration(BH.oM.Structural.Loads.Loadcase loadcase, double ax, double ay, double az, double arx, double ary, double arz)
         {
             this.Loadcase = loadcase;
-            this.TranslationalAcceleration = new Vector(ax, ay, az);
-            this.RotationalAcceleration = new Vector(arx, ary, arz);
+            this.TranslationalAcceleration = new Vector { X = ax, Y = ay, Z = az };
+            this.RotationalAcceleration = new Vector { X = arx, Y = ary, Z = arz };
         }
     }
 }

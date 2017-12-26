@@ -1,13 +1,5 @@
-﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BH.oM.Structural.Properties
+﻿namespace BH.oM.Structural.Properties
 {
-    [Serializable]
     public class Waffle : Property2D
     {
         public double TotalDepthX { get; set; }
@@ -19,7 +11,7 @@ namespace BH.oM.Structural.Properties
 
         internal Waffle() { }
 
-        public Waffle(string name) : base(name) { Type = PanelType.Slab; }
+        public Waffle(string name) : base (name) { Type = PanelType.Slab; }
 
         public Waffle(string name, double slabDepth, double depthX, double depthY, double stemWidthX, double stemWidthY, double spacingX, double spacingY) : this(name)
         {
@@ -31,5 +23,5 @@ namespace BH.oM.Structural.Properties
             SpacingX = spacingX;
             SpacingY = spacingY;
         }
-    }
+    }   
 }

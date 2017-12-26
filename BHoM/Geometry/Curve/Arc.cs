@@ -1,15 +1,5 @@
-﻿using System;
-
-using System.Collections.Generic;
-using BH.oM.Base;
-
-
-namespace BH.oM.Geometry
+﻿namespace BH.oM.Geometry
 {
-    /// <summary>
-    /// Arc object
-    /// </summary>
-    [Serializable]
     public class Arc : ICurve
     {
         /***************************************************/
@@ -24,20 +14,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Arc() { }
-
-        /***************************************************/
-
-        public Arc(Point start, Point middle, Point end)
-        {
-            Start = start;
-            End = end;
-            Middle = middle;
-        }
-
     }
 }
 

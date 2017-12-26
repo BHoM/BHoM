@@ -1,7 +1,4 @@
-﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
@@ -18,19 +15,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Mesh() { }
-
-        /***************************************************/
-
-        public Mesh(IEnumerable<Point> vertices, IEnumerable<Face> faces)
-        {
-            Vertices = vertices.ToList();
-            Faces = faces.ToList();
-        }
-
     }
 }
 

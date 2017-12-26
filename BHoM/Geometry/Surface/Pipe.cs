@@ -1,11 +1,4 @@
-﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BH.oM.Geometry
+﻿namespace BH.oM.Geometry
 {
     [Serializable]
     public class Pipe : ISurface
@@ -22,20 +15,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Pipe() { }
-
-        /***************************************************/
-
-        public Pipe(ICurve centreline, double radius, bool capped = true)
-        {
-            Centreline = centreline;
-            Radius = radius;
-            Capped = capped;
-        }
-
     }
 }
 

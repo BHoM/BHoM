@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection;
-using BH.oM.Base;
+﻿using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {

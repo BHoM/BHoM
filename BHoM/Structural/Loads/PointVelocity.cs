@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Geometry;
+﻿using BH.oM.Geometry;
 using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
@@ -43,8 +38,8 @@ namespace BH.oM.Structural.Loads
         public PointVelocity(BH.oM.Structural.Loads.Loadcase loadcase, double vx, double vy, double vz, double vrx, double vry, double vrz)
         {
             this.Loadcase = loadcase;
-            this.TranslationalVelocity = new Vector(vx, vy, vz);
-            this.RotationalVelocity = new Vector(vrx, vry, vrz);
+            this.TranslationalVelocity = new Vector { X = vx, Y = vy, Z = vz };
+            this.RotationalVelocity = new Vector { X = vrx, Y = vry, Z = vrz };
         }
     }
 }

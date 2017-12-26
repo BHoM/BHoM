@@ -1,10 +1,4 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Base;
-using System;
-using System.Reflection;
-using BH.oM.Structural.Loads;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using BH.oM.Base;
 
 namespace BH.oM.Structural.Elements
 {
@@ -27,8 +21,7 @@ namespace BH.oM.Structural.Elements
 
         public BH.oM.Structural.Properties.Offset Offset { get; set; } = null;
 
-        //TODO: Move to future beam class??
-        public BarStructuralUsage StructuralUsage { get; set; }
+        public BarStructuralUsage StructuralUsage { get; set; } //TODO: Move to future beam class??
 
         /// <summary>
         /// Sets the type of elements that should be used in analysis software

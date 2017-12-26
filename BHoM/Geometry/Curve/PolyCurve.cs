@@ -1,9 +1,4 @@
-﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
@@ -18,18 +13,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public PolyCurve() { }
-
-        /***************************************************/
-
-        public PolyCurve(IEnumerable<ICurve> curves)
-        {
-            Curves = curves.ToList();
-        }
-
     }
 }
 

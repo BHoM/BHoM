@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
-using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Structural.Properties;
-using BH.oM.Structural.Loads;
 
 namespace BH.oM.Structural.Elements
 {
@@ -37,7 +30,7 @@ namespace BH.oM.Structural.Elements
 
         public Node(Point point, string name = "")
         {
-            Point = new Point(point.X, point.Y, point.Z);
+            Point = new Point { X = point.X, Y = point.Y, Z = point.Z };
             Name = name;
         }
 

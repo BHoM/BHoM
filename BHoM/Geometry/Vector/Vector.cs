@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
 
 namespace BH.oM.Geometry
 {
-    /// <summary>
-    /// BH.oM Vector object
-    /// </summary>
-    [Serializable]
     public class Vector : IBHoMGeometry, IComparable<Vector>
     {
         /***************************************************/
@@ -26,55 +16,18 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Vector(double x = 0, double y = 0, double z = 0)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-        }
-
-        /***************************************************/
-
-        public Vector(Point pt)
-        {
-            X = pt.X;
-            Y = pt.Y;
-            Z = pt.Z;
-        }
-
-        /***************************************************/
         /**** Static special cases                      ****/
         /***************************************************/
 
-        public static readonly Vector XAxis = new Vector(1, 0, 0);
+        public static readonly Vector XAxis = new Vector { X = 1, Y = 0, Z = 0 };
 
         /***************************************************/
 
-        public static readonly Vector YAxis = new Vector(0, 1, 0);
+        public static readonly Vector YAxis = new Vector { X = 0, Y = 1, Z = 0 };
 
         /***************************************************/
 
-        public static readonly Vector ZAxis = new Vector(0, 0, 1);
-
-
-        /***************************************************/
-        /**** Local Optimisation Methods                ****/
-        /***************************************************/
-
-        public Vector GetClone() // Optimisation
-        {
-            return new Vector(X, Y, Z);
-        }
-
-        /***************************************************/
-
-        public bool IsValid()
-        {
-            return !(double.IsNaN(X) || double.IsNaN(Y) || double.IsNaN(Z));
-        }
+        public static readonly Vector ZAxis = new Vector { X = 0, Y = 0, Z = 1 };
 
 
         /***************************************************/
@@ -119,42 +72,42 @@ namespace BH.oM.Geometry
 
         public static Vector operator +(Vector a, Vector b)
         {
-            return new Vector(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+            return new Vector { X = a.X + b.X, Y = a.Y + b.Y, Z = a.Z + b.Z };
         }
 
         /***************************************************/
 
         public static Vector operator -(Vector a, Vector b)
         {
-            return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+            return new Vector { X = a.X - b.X, Y = a.Y - b.Y, Z = a.Z - b.Z };
         }
 
         /***************************************************/
 
         public static Vector operator -(Vector a)
         {
-            return new Vector(-a.X, -a.Y, -a.Z);
+            return new Vector { X = -a.X, Y = -a.Y, Z = -a.Z };
         }
 
         /***************************************************/
 
         public static Vector operator /(Vector a, double b)
         {
-            return new Vector(a.X / b, a.Y / b, a.Z / b);
+            return new Vector { X = a.X / b, Y = a.Y / b, Z = a.Z / b };
         }
 
         /***************************************************/
 
         public static Vector operator *(Vector a, double b)
         {
-            return new Vector(a.X * b, a.Y * b, a.Z * b);
+            return new Vector { X = a.X * b, Y = a.Y * b, Z = a.Z * b };
         }
 
         /***************************************************/
 
         public static Vector operator *(double b, Vector a)
         {
-            return new Vector(a.X * b, a.Y * b, a.Z * b);
+            return new Vector { X = a.X * b, Y = a.Y * b, Z = a.Z * b };
         }
 
         /***************************************************/

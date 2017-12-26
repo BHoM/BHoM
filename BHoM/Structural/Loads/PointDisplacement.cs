@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Geometry;
+﻿using BH.oM.Geometry;
 using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
@@ -43,8 +38,8 @@ namespace BH.oM.Structural.Loads
         public PointDisplacement(BH.oM.Structural.Loads.Loadcase loadcase, double tx, double ty, double tz, double rx, double ry, double rz)
         {
             this.Loadcase = loadcase;
-            this.Translation = new Vector(tx, ty, tz);
-            this.Rotation = new Vector(rx, ry, rz);
+            this.Translation = new Vector { X = tx, Y = ty, Z = tz };
+            this.Rotation = new Vector { X = rx, Y = ry, Z = rz };
         }
     }
 }
