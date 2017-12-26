@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BH.oM.Geometry
+﻿namespace BH.oM.Geometry
 {
+    [Serializable]
     public class TransformMatrix
     {
         /***************************************************/
@@ -16,34 +11,23 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public TransformMatrix() { }
-
-        /***************************************************/
-
-        public TransformMatrix(double[,] matrix)
-        {
-            Matrix = matrix;
-        }
-
-
-        /***************************************************/
         /**** Static special cases                      ****/
         /***************************************************/
 
-        public static readonly TransformMatrix Zero = new TransformMatrix(new double[4, 4]);
+        public static readonly TransformMatrix Zero = new TransformMatrix { Matrix = new double[4, 4] };
 
         /***************************************************/
 
-        public static readonly TransformMatrix Identify = new TransformMatrix(new double[4, 4]
+        public static readonly TransformMatrix Identify = new TransformMatrix
         {
-            { 1, 0, 0, 0 },
-            { 0, 1, 0, 0 },
-            { 0, 0, 1, 0 },
-            { 0, 0, 0, 1 }
-        });
+            Matrix = new double[4, 4]
+            {
+                { 1, 0, 0, 0 },
+                { 0, 1, 0, 0 },
+                { 0, 0, 1, 0 },
+                { 0, 0, 0, 1 }
+            }
+        };
 
 
         /***************************************************/
@@ -66,7 +50,7 @@ namespace BH.oM.Geometry
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
 
@@ -87,7 +71,7 @@ namespace BH.oM.Geometry
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
         /***************************************************/
@@ -109,7 +93,7 @@ namespace BH.oM.Geometry
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
         /***************************************************/
@@ -129,7 +113,7 @@ namespace BH.oM.Geometry
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
         /***************************************************/
@@ -149,12 +133,9 @@ namespace BH.oM.Geometry
                 }
             }
 
-            return new TransformMatrix(result);
+            return new TransformMatrix { Matrix = result };
         }
 
-
         /***************************************************/
-
-
     }
 }

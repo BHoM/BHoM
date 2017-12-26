@@ -1,10 +1,5 @@
 ﻿using BH.oM.Structural.Interface;
-using BH.oM.Structural.Results;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
@@ -24,7 +19,7 @@ namespace BH.oM.Structural.Results
             return (IResult)this.MemberwiseClone();
         }
 
-        public Result() { }      
+        public Result() { }
 
         //public virtual int CompareTo(object obj)
         //{

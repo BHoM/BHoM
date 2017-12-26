@@ -1,12 +1,8 @@
 ﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Properties
 {
+    [Serializable]
     public class Constraint4DOF : BHoMObject
     {
         /***************************************************/
@@ -34,7 +30,7 @@ namespace BH.oM.Structural.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Constraint4DOF(string name = "") 
+        public Constraint4DOF(string name = "")
         {
             Name = name;
         }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BH.oM.DataStructure
 {
+    [Serializable]
     public class Tree<T>
     {
         /***************************************************/
@@ -20,25 +17,5 @@ namespace BH.oM.DataStructure
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Tree() { }
-
-        /***************************************************/
-
-        public Tree(T value, string name = "")
-        {
-            Value = value;
-            Name = name;
-        }
-
-        /***************************************************/
-
-        public Tree(Dictionary<string, Tree<T>> children, string name = "")
-        {
-            Children = children;
-            Name = name;
-        }
     }
 }

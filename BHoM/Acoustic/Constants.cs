@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BH.oM.Acoustic
+﻿namespace BH.oM.Acoustic
 {
-   public static class Constants
+    public static class Constants
     {
         /***************************************************/
         /**** Acoustic Constants                        ****/
@@ -15,5 +12,7 @@ namespace BH.oM.Acoustic
 
         public const double SpeedOfSound = 343;
 
+
+        /***************************************************/
     }
 }

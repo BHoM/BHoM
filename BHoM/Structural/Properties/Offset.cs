@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Materials;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace BH.oM.Structural.Properties
 {
     /// <summary>
     /// Offsets for bars
     /// </summary>
+    [Serializable]
     public class Offset : BH.oM.Base.BHoMObject
     {
         /***************************************************/

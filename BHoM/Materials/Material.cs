@@ -13,6 +13,7 @@ namespace BH.oM.Materials
     /// <summary>
     /// Material class for use in all other object classes and namespaces
     /// </summary>
+    [Serializable]
     public class Material : BHoMObject
     {
         /***************************************************/
@@ -35,7 +36,7 @@ namespace BH.oM.Materials
 
         /// <summary>Dry density</summary>
         [DefaultValue(null)]
-        public double DryDensity { get;  set; }
+        public double DryDensity { get; set; }
 
         /// <summary>Coefficient of thermal expansion</summary>
         [DefaultValue(null)]
@@ -44,7 +45,7 @@ namespace BH.oM.Materials
         /// <summary>Damping ratio</summary>
         [DefaultValue(null)]
         public double DampingRatio { get; set; }
-        
+
         /// <summary>
         /// Material Density of the material in [kg/m^3] 
         /// </summary>

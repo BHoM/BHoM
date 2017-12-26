@@ -1,8 +1,10 @@
 ﻿using BH.oM.Base;
+using System;
 
 namespace BH.oM.Acoustic
 {
-    public class SnRatio: BHoMObject, IAcousticParameter
+    [Serializable]
+    public class SnRatio : BHoMObject, IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -15,5 +17,8 @@ namespace BH.oM.Acoustic
         public int SpeakerID { get; set; } = -1;
 
         public Frequency Frequency { get; set; } = Frequency.Hz1000;
+
+
+        /***************************************************/
     }
 }

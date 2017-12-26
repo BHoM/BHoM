@@ -1,14 +1,12 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace BH.oM.Structural.Elements
 {
+    [Serializable]
     public class Opening : BHoMObject
     {
         /***************************************************/
@@ -40,10 +38,10 @@ namespace BH.oM.Structural.Elements
 }
 
 
-        //public Opening(Curve edges)
-        //{
-        //    BH.oM.Geometry.Group<Curve> group = new BH.oM.Geometry.Group<Curve>();
-        //    group.Add(edges);
-        //    Edges = group;
-        //}
+//public Opening(Curve edges)
+//{
+//    BH.oM.Geometry.Group<Curve> group = new BH.oM.Geometry.Group<Curve>();
+//    group.Add(edges);
+//    Edges = group;
+//}
 

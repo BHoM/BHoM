@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
+﻿using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
@@ -26,6 +21,7 @@ namespace BH.oM.Structural.Properties
         Custom
     }
 
+    [Serializable]
     public class LinkConstraint : BHoMObject
     {
         /***************************************************/
@@ -282,133 +278,133 @@ namespace BH.oM.Structural.Properties
 }
 
 
-        //#region Properties
-        ///*********************************************/
-        ///*** Properties            *******************/
-        ///*********************************************/
+//#region Properties
+///*********************************************/
+///*** Properties            *******************/
+///*********************************************/
 
-        //public bool XtoX
-        //{
-        //    get { return m_constriants[0]; }
-        //    set { m_constriants[0] = value; }
-        //}
+//public bool XtoX
+//{
+//    get { return m_constriants[0]; }
+//    set { m_constriants[0] = value; }
+//}
 
-        //public bool XtoYY
-        //{
-        //    get { return m_constriants[1]; }
-        //    set { m_constriants[1] = value; }
-        //}
+//public bool XtoYY
+//{
+//    get { return m_constriants[1]; }
+//    set { m_constriants[1] = value; }
+//}
 
-        //public bool XtoZZ
-        //{
-        //    get { return m_constriants[2]; }
-        //    set { m_constriants[2] = value; }
-        //}
+//public bool XtoZZ
+//{
+//    get { return m_constriants[2]; }
+//    set { m_constriants[2] = value; }
+//}
 
-        //public bool YtoY
-        //{
-        //    get { return m_constriants[3]; }
-        //    set { m_constriants[3] = value; }
-        //}
+//public bool YtoY
+//{
+//    get { return m_constriants[3]; }
+//    set { m_constriants[3] = value; }
+//}
 
-        //public bool YtoXX
-        //{
-        //    get { return m_constriants[4]; }
-        //    set { m_constriants[4] = value; }
-        //}
+//public bool YtoXX
+//{
+//    get { return m_constriants[4]; }
+//    set { m_constriants[4] = value; }
+//}
 
-        //public bool YtoZZ
-        //{
-        //    get { return m_constriants[5]; }
-        //    set { m_constriants[5] = value; }
-        //}
+//public bool YtoZZ
+//{
+//    get { return m_constriants[5]; }
+//    set { m_constriants[5] = value; }
+//}
 
-        //public bool ZtoZ
-        //{
-        //    get { return m_constriants[6]; }
-        //    set { m_constriants[6] = value; }
-        //}
+//public bool ZtoZ
+//{
+//    get { return m_constriants[6]; }
+//    set { m_constriants[6] = value; }
+//}
 
-        //public bool ZtoXX
-        //{
-        //    get { return m_constriants[7]; }
-        //    set { m_constriants[7] = value; }
-        //}
+//public bool ZtoXX
+//{
+//    get { return m_constriants[7]; }
+//    set { m_constriants[7] = value; }
+//}
 
-        //public bool ZtoYY
-        //{
-        //    get { return m_constriants[8]; }
-        //    set { m_constriants[8] = value; }
-        //}
+//public bool ZtoYY
+//{
+//    get { return m_constriants[8]; }
+//    set { m_constriants[8] = value; }
+//}
 
-        //public bool XXtoXX
-        //{
-        //    get { return m_constriants[9]; }
-        //    set { m_constriants[9] = value; }
-        //}
+//public bool XXtoXX
+//{
+//    get { return m_constriants[9]; }
+//    set { m_constriants[9] = value; }
+//}
 
-        //public bool YYtoYY
-        //{
-        //    get { return m_constriants[10]; }
-        //    set { m_constriants[10] = value; }
-        //}
+//public bool YYtoYY
+//{
+//    get { return m_constriants[10]; }
+//    set { m_constriants[10] = value; }
+//}
 
-        //public bool ZZtoZZ
-        //{
-        //    get { return m_constriants[11]; }
-        //    set { m_constriants[11] = value; }
-        //}
+//public bool ZZtoZZ
+//{
+//    get { return m_constriants[11]; }
+//    set { m_constriants[11] = value; }
+//}
 
-        //#endregion
+//#endregion
 
-    //    #region Constructors
-    //    /*********************************************/
-    //    /*** Constructurs          *******************/
-    //    /*********************************************/
+//    #region Constructors
+//    /*********************************************/
+//    /*** Constructurs          *******************/
+//    /*********************************************/
 
-    //    public LinkConstraint()
-    //    {
-    //        m_constriants = new bool[12];
-    //    }
+//    public LinkConstraint()
+//    {
+//        m_constriants = new bool[12];
+//    }
 
-    //    public LinkConstraint(IEnumerable<bool> fixities)
-    //    {
-    //        m_constriants = fixities.ToArray();
-    //    }
+//    public LinkConstraint(IEnumerable<bool> fixities)
+//    {
+//        m_constriants = fixities.ToArray();
+//    }
 
 
-        
 
-    //    #endregion
 
-    //    #region Public Method
-    //    /*********************************************/
-    //    /*** Methods               *******************/
-    //    /*********************************************/
+//    #endregion
 
-    //    public bool[] GetBoolArray()
-    //    {
-    //        return m_constriants;
-    //    }
+//    #region Public Method
+//    /*********************************************/
+//    /*** Methods               *******************/
+//    /*********************************************/
 
-    //    public override string ToString()
-    //    {
-    //        if (!string.IsNullOrWhiteSpace(Name))
-    //            return Name;
+//    public bool[] GetBoolArray()
+//    {
+//        return m_constriants;
+//    }
 
-    //        return base.ToString();
-    //    }
+//    public override string ToString()
+//    {
+//        if (!string.IsNullOrWhiteSpace(Name))
+//            return Name;
 
-    //    #endregion
+//        return base.ToString();
+//    }
 
-    //    #region Private Fields
+//    #endregion
 
-    //    /*********************************************/
-    //    /*** Private fields        *******************/
-    //    /*********************************************/
+//    #region Private Fields
 
-    //    private bool[] m_constriants;
+//    /*********************************************/
+//    /*** Private fields        *******************/
+//    /*********************************************/
 
-    //    #endregion
-    //}
+//    private bool[] m_constriants;
+
+//    #endregion
+//}
 //}

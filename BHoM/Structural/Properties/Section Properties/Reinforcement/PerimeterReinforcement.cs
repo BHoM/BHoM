@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BH.oM.Structural.Properties
+﻿namespace BH.oM.Structural.Properties
 {
     /// <summary>
     /// Perimeter Reinforcement is aimed at columns and is only valid on rectangular and circular sections
     /// </summary>
+    [Serializable]
     public class PerimeterReinforcement : Reinforcement
     {
         /***************************************************/
@@ -102,7 +97,7 @@ namespace BH.oM.Structural.Properties
         //    //    {
         //    //        double x = Math.Cos(startAngle + angle * i) * radius;
         //    //        double y = Math.Sin(startAngle + angle * i) * radius;
-        //    //        location.Add(new Point(x, y, 0));
+        //    //        location.Add(new Point { X = x, Y = y, Z = 0 });
         //    //    }
 
         //    //}

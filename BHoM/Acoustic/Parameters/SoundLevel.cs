@@ -3,6 +3,7 @@ using System;
 
 namespace BH.oM.Acoustic
 {
+    [Serializable]
     public class SoundLevel : BHoMObject, IAcousticParameter
     {
         /***************************************************/
@@ -28,11 +29,11 @@ namespace BH.oM.Acoustic
             {
                 Value = 10 * Math.Log10(Math.Pow(10, a.Value / 10) + (Math.Pow(10, b.Value / 10))),
                 ReceiverID = a.ReceiverID,
-                SpeakerID = - 1,
+                SpeakerID = -1,
                 Frequency = a.Frequency
             };
         }
-        
+
         /***************************************************/
 
         public static SoundLevel operator -(SoundLevel a, SoundLevel b)

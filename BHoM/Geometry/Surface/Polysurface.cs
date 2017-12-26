@@ -1,12 +1,8 @@
-﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
+    [Serializable]
     public class PolySurface : ISurface
     {
         /***************************************************/
@@ -17,18 +13,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public PolySurface() { }
-
-        /***************************************************/
-
-        public PolySurface(IEnumerable<ISurface> surfaces)
-        {
-            Surfaces = surfaces.ToList();
-        }
-
     }
-} 
+}
 

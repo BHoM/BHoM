@@ -1,7 +1,9 @@
 ﻿using BH.oM.Base;
+using System;
 
 namespace BH.oM.Acoustic
 {
+    [Serializable]
     public class RT60 : BHoMObject, IAcousticParameter
     {
         /***************************************************/
@@ -15,5 +17,8 @@ namespace BH.oM.Acoustic
         public int SpeakerID { get; set; } = 0;
 
         public Frequency Frequency { get; set; } = Frequency.Hz1000;
+
+
+        /***************************************************/
     }
 }

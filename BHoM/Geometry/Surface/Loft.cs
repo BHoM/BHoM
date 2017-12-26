@@ -1,12 +1,8 @@
-﻿using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
+    [Serializable]
     public partial class Loft : ISurface
     {
         /***************************************************/
@@ -17,17 +13,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Loft() { }
-
-        /***************************************************/
-
-        public Loft(IEnumerable<ICurve> curves)
-        {
-            Curves = curves.ToList();
-        }
     }
 }
 

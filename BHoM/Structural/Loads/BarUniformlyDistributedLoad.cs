@@ -1,13 +1,9 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Structural.Elements;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Loads
 {
+    [Serializable]
     public class BarUniformlyDistributedLoad : Load<Bar>
     {
         /***************************************************/
@@ -30,8 +26,8 @@ namespace BH.oM.Structural.Loads
         public BarUniformlyDistributedLoad(Loadcase loadcase, double fx, double fy, double fz)
         {
             Loadcase = loadcase;
-            ForceVector = new Geometry.Vector(fx, fy, fz);
-            MomentVector = new Vector(0, 0, 0);
+            ForceVector = new Geometry.Vector { X = fx, Y = fy, Z = fz };
+            MomentVector = new Vector { X = 0, Y = 0, Z = 0 };
         }
 
 

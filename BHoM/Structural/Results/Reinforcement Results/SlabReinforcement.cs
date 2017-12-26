@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
+    [Serializable]
     public class SlabReinforcement : SlabReinforcement<int, int, int>
     {
         public SlabReinforcement() : base() { }
@@ -14,6 +11,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
+    [Serializable]
     public class SlabReinforcement<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
@@ -38,13 +36,13 @@ namespace BH.oM.Structural.Results
         }
 
         public TName Node { get; set; }
-        
+
         public double AXP { get; set; }
-        
+
         public double AXM { get; set; }
-        
+
         public double AYP { get; set; }
-        
+
         public double AYM { get; set; }
 
         //public override int CompareTo(object obj)

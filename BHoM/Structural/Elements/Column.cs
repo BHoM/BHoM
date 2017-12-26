@@ -1,12 +1,14 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
 using System.Collections.Generic;
+using System;
 
 namespace BH.oM.Structural.Elements
 {
     /// <summary>
     /// 
     /// </summary>
+    [Serializable]
     public class Column : BHoMObject
     {
         /***************************************************/
@@ -17,7 +19,7 @@ namespace BH.oM.Structural.Elements
 
         public ICurve LocationCurve { get; set; } = null;
 
-        
+
 
         public Properties.ISectionProperty SectionProperty { get; set; } = null;
 

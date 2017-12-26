@@ -1,9 +1,4 @@
 ﻿using BH.oM.Structural.Elements;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Loads
 {
@@ -14,6 +9,7 @@ namespace BH.oM.Structural.Loads
     /// <summary>
     /// Point load along a bar
     /// </summary>
+    [Serializable]
     public class BarPointLoad : Load<Bar> // TODO: one class per file
     {
         /***************************************************/

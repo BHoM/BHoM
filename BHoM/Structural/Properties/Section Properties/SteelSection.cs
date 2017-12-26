@@ -1,14 +1,13 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.Materials;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ComponentModel;
+using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {
 
+    [Serializable]
     public class SteelSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
         /***************************************************/

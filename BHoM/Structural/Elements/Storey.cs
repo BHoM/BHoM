@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
-using BH.oM.Geometry;
+﻿using BH.oM.Base;
 
 namespace BH.oM.Structural.Elements
 {
     /// <summary>
     /// Storey class to store information about building storeys for post processing of results
     /// </summary>
+    [Serializable]
     public class Storey : BHoMObject
     {
         /***************************************************/

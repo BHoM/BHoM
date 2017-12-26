@@ -1,12 +1,14 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
 using System.Collections.Generic;
+using System;
 
 namespace BH.oM.Architecture.Elements
 {
     /// <summary>
     /// 
     /// </summary>
+    [Serializable]
     public class Grid : BHoMObject
     {
         /***************************************************/

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Structural.Properties;
 
 namespace BH.oM.Structural.Elements
 {
+    [Serializable]
     public class RigidLink : BHoMObject
     {
         /***************************************************/
@@ -25,7 +23,7 @@ namespace BH.oM.Structural.Elements
         /**** Constructors                              ****/
         /***************************************************/
 
-        public RigidLink() {}
+        public RigidLink() { }
 
         /***************************************************/
 

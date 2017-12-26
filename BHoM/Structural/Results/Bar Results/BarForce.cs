@@ -1,9 +1,4 @@
-﻿using BH.oM.Base;
-
-using BH.oM.Structural.Loads;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 
 namespace BH.oM.Structural.Results
 {
@@ -12,6 +7,7 @@ namespace BH.oM.Structural.Results
     /// and orientation information
     /// </summary>
     /// 
+    [Serializable]
     public class BarForce : BarForce<string, string, string>
     {
         public BarForce() : base() { }
@@ -20,6 +16,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
+    [Serializable]
     public class BarForce<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
@@ -89,7 +86,7 @@ namespace BH.oM.Structural.Results
         //}
     }
 
-    //public class BarForce : Result
+    //[Serializable] public class BarForce : Result
     //{
     //    /// <summary>Associated bar number</summary>
     //    //public Guid Id { get; set; }

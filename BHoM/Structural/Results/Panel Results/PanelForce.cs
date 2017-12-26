@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
+    [Serializable]
     public class PanelForce : PanelForce<int, int, int>
     {
         public PanelForce() : base() { }
@@ -14,6 +11,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
+    [Serializable]
     public class PanelForce<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
@@ -41,21 +39,21 @@ namespace BH.oM.Structural.Results
         }
 
         public TName Node { get; set; }
-        
+
         public double NXX { get; set; }
-        
+
         public double NYY { get; set; }
-        
+
         public double NXY { get; set; }
-        
+
         public double MXX { get; set; }
-        
+
         public double MYY { get; set; }
-        
+
         public double MXY { get; set; }
-        
+
         public double VX { get; set; }
-        
-        public double VY { get; set; }        
+
+        public double VY { get; set; }
     }
 }

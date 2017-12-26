@@ -1,21 +1,16 @@
-﻿using System;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
+﻿using BH.oM.Base;
 using BH.oM.Geometry;
 
 namespace BH.oM.Structural.Loads
 {
+    [Serializable]
     public class GravityLoad : Load<BHoMObject>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Vector GravityDirection { get; set; } = new Vector(0, 0, -1);
+        public Vector GravityDirection { get; set; } = new Vector { X = 0, Y = 0, Z = -1 };
 
 
         /***************************************************/
@@ -28,7 +23,7 @@ namespace BH.oM.Structural.Loads
 
         public GravityLoad(Loadcase loadcase, double Gx, double gy, double gz)
         {
-            GravityDirection = new Geometry.Vector(Gx, gy, gz);
+            GravityDirection = new Geometry.Vector { X = Gx, Y = gy, Z = gz };
         }
 
 

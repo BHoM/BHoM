@@ -1,12 +1,8 @@
-﻿using BH.oM.Base;
-
-using BH.oM.Structural.Loads;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 
 namespace BH.oM.Structural.Results
 {
+    [Serializable]
     public class BarStress : BarStress<string, string, string>
     {
         public BarStress() : base() { }
@@ -15,6 +11,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
+    [Serializable]
     public class BarStress<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base
 {
+    [Serializable]
     public class CustomObject : BHoMObject
     {
         /***************************************************/

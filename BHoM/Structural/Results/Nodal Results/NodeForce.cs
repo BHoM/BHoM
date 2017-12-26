@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
+    [Serializable]
     public class NodeReaction : NodeReaction<string, string, string>
     {
         public NodeReaction() : base() { }
@@ -14,6 +11,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
+    [Serializable]
     public class NodeReaction<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
@@ -38,16 +36,16 @@ namespace BH.oM.Structural.Results
         }
 
         public double FX { get; set; }
-        
+
         public double FY { get; set; }
-        
+
         public double FZ { get; set; }
-        
+
         public double MX { get; set; }
-        
+
         public double MY { get; set; }
-        
+
         public double MZ { get; set; }
-        
+
     }
 }

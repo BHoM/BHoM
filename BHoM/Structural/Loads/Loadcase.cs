@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
+﻿using BH.oM.Base;
 
 namespace BH.oM.Structural.Loads
 {
     /// <summary>
     /// Simple Loadcase class
     /// </summary>
+    [Serializable]
     public class Loadcase : BHoMObject, ICase
     {
         /***************************************************/
@@ -42,7 +38,7 @@ namespace BH.oM.Structural.Loads
         {
             return CaseType.Simple;
         }
- 
+
     }
 
 }

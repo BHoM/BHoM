@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Structural.Results
 {
+    [Serializable]
     public class PanelStress : PanelStress<int, int, int>
     {
         public PanelStress() : base() { }
@@ -14,6 +11,7 @@ namespace BH.oM.Structural.Results
         { }
     }
 
+    [Serializable]
     public class PanelStress<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
          where TName : IComparable
          where TLoadcase : IComparable
@@ -43,19 +41,19 @@ namespace BH.oM.Structural.Results
         public TName Node { get; set; }
 
         public double SXX_Top { get; set; }
-        
+
         public double SYY_Top { get; set; }
-        
+
         public double SXY_Top { get; set; }
-        
+
         public double SXX_Bot { get; set; }
-        
+
         public double SYY_Bot { get; set; }
-        
+
         public double SXY_Bot { get; set; }
-        
+
         public double TX { get; set; }
 
-        public double TY { get; set; }      
+        public double TY { get; set; }
     }
 }

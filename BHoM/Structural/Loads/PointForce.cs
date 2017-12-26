@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
-using BH.oM.Geometry;
+﻿using BH.oM.Geometry;
 using BH.oM.Structural.Elements;
 
 namespace BH.oM.Structural.Loads
@@ -13,13 +7,14 @@ namespace BH.oM.Structural.Loads
     /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
     /// constructor allows for a default force and moment nodal load instance.
     /// </summary>
+    [Serializable]
     public class PointForce : Load<Node> //TODO: one class per file
     {
         /// <summary>Force - fx, fy, fz defined as a BH.oM.Geometry.Vector</summary>
-        public BH.oM.Geometry.Vector Force { get;  set; }
+        public BH.oM.Geometry.Vector Force { get; set; }
 
         /// <summary>Moment - mx, my, mz defined as a BH.oM.Geometry.Vector</summary>
-        public BH.oM.Geometry.Vector Moment { get;  set; }
+        public BH.oM.Geometry.Vector Moment { get; set; }
 
         public override LoadType GetLoadType()
         {
@@ -44,8 +39,8 @@ namespace BH.oM.Structural.Loads
         public PointForce(BH.oM.Structural.Loads.Loadcase loadcase, double fx, double fy, double fz, double mx, double my, double mz)
         {
             this.Loadcase = loadcase;
-            this.Force = new Vector(fx, fy, fz);
-            this.Moment = new Vector(mx, my, mz);
+            this.Force = new Vector { X = fx, Y = fy, Z = fz };
+            this.Moment = new Vector { X = mx, Y = my, Z = mz };
         }
 
         /// <summary>
@@ -56,7 +51,7 @@ namespace BH.oM.Structural.Loads
         /// <param name="fz"></param>
         public void SetForce(double fx, double fy, double fz)
         {
-            this.Force = new Vector(fx, fy, fz);
+            this.Force = new Vector { X = fx, Y = fy, Z = fz };
         }
 
         /// <summary>
@@ -67,7 +62,7 @@ namespace BH.oM.Structural.Loads
         /// <param name="mz"></param>
         public void SetMoment(double mx, double my, double mz)
         {
-            this.Moment = new Vector(mx, my, mz);
+            this.Moment = new Vector { X = mx, Y = my, Z = mz };
         }
     }
 }

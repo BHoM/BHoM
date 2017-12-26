@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BH.oM.Base;
 
 namespace BH.oM.Structural.Design
 {
+    [Serializable]
     public class DesignGroup : BHoMObject
     {
         /***************************************************/
@@ -27,4 +29,4 @@ namespace BH.oM.Structural.Design
 
 
 
-     
+

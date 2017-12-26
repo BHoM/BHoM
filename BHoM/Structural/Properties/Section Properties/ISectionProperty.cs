@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
+﻿using BH.oM.Base;
+using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {
     public interface ISectionProperty : IObject
     {
-        Materials.Material Material { get; set; }
+        Material Material { get; set; }
 
         /// <summary>
         /// Gross Area of the cross section

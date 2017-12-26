@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BH.oM.Base;
+﻿using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
@@ -10,6 +6,7 @@ namespace BH.oM.Structural.Properties
     /// Bar release applicable to bar objects, contains BH.oM.Structural.Constraint objects
     /// for the start and end of a bar
     /// </summary>
+    [Serializable]
     public class BarRelease : BHoMObject
     {
         /***************************************************/
@@ -35,5 +32,5 @@ namespace BH.oM.Structural.Properties
             EndRelease = endConstraint;
             Name = name;
         }
-    }  
+    }
 }
