@@ -30,7 +30,7 @@ namespace BH.oM.Structural.Elements
 
         public Node(Point point, string name = "")
         {
-            Point = new Point(point.X, point.Y, point.Z);
+            Point = new Point { X = point.X, Y = point.Y, Z = point.Z };
             Name = name;
         }
 

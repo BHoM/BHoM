@@ -38,8 +38,8 @@ namespace BH.oM.Structural.Loads
         public PointForce(BH.oM.Structural.Loads.Loadcase loadcase, double fx, double fy, double fz, double mx, double my, double mz)
         {
             this.Loadcase = loadcase;
-            this.Force = new Vector(fx, fy, fz);
-            this.Moment = new Vector(mx, my, mz);
+            this.Force = new Vector { X = fx, Y = fy, Z = fz };
+            this.Moment = new Vector { X = mx, Y = my, Z = mz };
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace BH.oM.Structural.Loads
         /// <param name="fz"></param>
         public void SetForce(double fx, double fy, double fz)
         {
-            this.Force = new Vector(fx, fy, fz);
+            this.Force = new Vector { X = fx, Y = fy, Z = fz };
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace BH.oM.Structural.Loads
         /// <param name="mz"></param>
         public void SetMoment(double mx, double my, double mz)
         {
-            this.Moment = new Vector(mx, my, mz);
+            this.Moment = new Vector { X = mx, Y = my, Z = mz };
         }
     }
 }

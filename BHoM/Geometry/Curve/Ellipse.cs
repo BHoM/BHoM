@@ -8,9 +8,9 @@
 
         public Point Centre { get; set; } = new Point();
 
-        public Vector Axis1 { get; set; } = new Vector(1.0, 0.0, 0.0);
+        public Vector Axis1 { get; set; } = new Vector { X = 1.0, Y = 0.0, Z = 0.0 };
 
-        public Vector Axis2 { get; set; } = new Vector(0.0, 1.0, 0.0);
+        public Vector Axis2 { get; set; } = new Vector { X = 0.0, Y = 1.0, Z = 0.0 };
 
         public double Radius1 { get; set; } = 0;
 

@@ -96,7 +96,7 @@
         //    //    {
         //    //        double x = Math.Cos(startAngle + angle * i) * radius;
         //    //        double y = Math.Sin(startAngle + angle * i) * radius;
-        //    //        location.Add(new Point(x, y, 0));
+        //    //        location.Add(new Point { X = x, Y = y, Z = 0 });
         //    //    }
 
         //    //}

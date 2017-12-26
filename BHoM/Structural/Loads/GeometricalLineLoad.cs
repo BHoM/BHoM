@@ -42,8 +42,8 @@ namespace BH.oM.Structural.Loads
             Location = line;
             ForceA = force;
             ForceB = force;
-            MomentA = moment == null ? new Vector(0, 0, 0) : moment;
-            MomentB = moment == null ? new Vector(0, 0, 0) : moment;
+            MomentA = moment == null ? new Vector { X = 0, Y = 0, Z = 0 } : moment;
+            MomentB = moment == null ? new Vector { X = 0, Y = 0, Z = 0 } : moment;
         }
 
 
@@ -53,8 +53,8 @@ namespace BH.oM.Structural.Loads
             Location = line;
             ForceA = forceA;
             ForceB = forceB;
-            MomentA = momentA == null ? new Vector(0, 0, 0) : momentA;
-            MomentB = momentB == null ? new Vector(0, 0, 0) : momentB;
+            MomentA = momentA == null ? new Vector { X = 0, Y = 0, Z = 0 } : momentA;
+            MomentB = momentB == null ? new Vector { X = 0, Y = 0, Z = 0 } : momentB;
         }
 
 

@@ -37,8 +37,8 @@ namespace BH.oM.Structural.Loads
         public PointVelocity(BH.oM.Structural.Loads.Loadcase loadcase, double vx, double vy, double vz, double vrx, double vry, double vrz)
         {
             this.Loadcase = loadcase;
-            this.TranslationalVelocity = new Vector(vx, vy, vz);
-            this.RotationalVelocity = new Vector(vrx, vry, vrz);
+            this.TranslationalVelocity = new Vector { X = vx, Y = vy, Z = vz };
+            this.RotationalVelocity = new Vector { X = vrx, Y = vry, Z = vrz };
         }
     }
 }

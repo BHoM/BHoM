@@ -13,17 +13,6 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Loft() { }
-
-        /***************************************************/
-
-        public Loft(IEnumerable<ICurve> curves)
-        {
-            Curves = curves.ToList();
-        }
     }
 }
 
