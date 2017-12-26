@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using BH.oM.Geometry;
 
 
-namespace BH.oM.Geometry
+namespace BH.oM.Humans.BodyParts
 {
-    public class CompositeGeometry : IBHoMGeometry
+    public class Head
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMGeometry> Elements = new List<IBHoMGeometry>();
+        public Point TrackingPoint { get; set; } = new Point(); // Point at centre of head
 
 
         /***************************************************/
     }
 }
-

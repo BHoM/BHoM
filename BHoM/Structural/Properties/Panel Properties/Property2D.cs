@@ -1,4 +1,5 @@
 ﻿using BH.oM.Base;
+using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {
@@ -14,7 +15,7 @@ namespace BH.oM.Structural.Properties
         public double[] Modifiers { get; set; }
         public PanelType Type { get; set; }
         public double Thickness { get; set; }
-        public Materials.Material Material { get; set; }
+        public Material Material { get; set; }
         public Property2D()
         {
             Modifiers = new double[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };

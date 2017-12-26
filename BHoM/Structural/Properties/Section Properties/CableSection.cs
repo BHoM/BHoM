@@ -1,7 +1,7 @@
 ﻿
 
 using BH.oM.Base;
-using BH.oM.Materials;
+using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {

@@ -16,17 +16,5 @@ namespace BH.oM.Graphics
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public SVGDocument() { }
-
-        /***************************************************/
-
-        public SVGDocument(List<SVGObject> svgObjects, BoundingBox canvas)
-        {
-            SVGObjects = svgObjects;
-            Canvas = canvas;
-        }
     }
 }
