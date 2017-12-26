@@ -6,7 +6,6 @@ namespace BH.oM.Structural.Loads
     /// <summary>
     /// Uniformly distributed area load
     /// </summary>
-    [Serializable]
     public class AreaUniformalyDistributedLoad : Load<IAreaElement>  //TODO: one class per file
     {
         /***************************************************/

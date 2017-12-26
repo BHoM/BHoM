@@ -16,12 +16,6 @@ namespace BH.oM.Structural.Design
         public List<int> MemberIds { get; set; } = new List<int>();
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public DesignGroup() { }
-
-        /***************************************************/
     }
 }
 

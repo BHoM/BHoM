@@ -11,34 +11,12 @@ namespace BH.oM.Structural.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        /// <summary>Storey level (in metres)</summary>
-        public double Elevation { get; set; }
+        public double Elevation { get; set; } = 0.0;  // in meters
 
-        /// <summary>Storey height</summary>
-        public double Height { get; set; }
+        public double Height { get; set; } = 0.0;  // in meters
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Storey() { }
-
-        /***************************************************/
-
-        /// <summary>
-        /// Constructs a storey object using number and name. If number and/or name are not known, use 0 and "" respectively.
-        /// </summary>
-        /// <param name="number"></param>
-        /// <param name="name"></param>
-        public Storey(string name, double elevation, double height)
-            : this()
-        {
-            Name = name;
-            Elevation = elevation;
-            Height = height;
-        }
-
     }
 }
 
