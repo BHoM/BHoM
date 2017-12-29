@@ -10,17 +10,12 @@ namespace BH.oM.Structural.Properties
         /***************************************************/
         public ShapeType Shape { get; } = ShapeType.Rectangle;
 
-        /***************************************************/
-
         public double Height { get; }
-
-        /***************************************************/
 
         public double Width { get; }
 
-        /***************************************************/
-
         public double CornerRadius { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -33,5 +28,7 @@ namespace BH.oM.Structural.Properties
             CornerRadius = cornerRadius;
         }
 
+
+        /***************************************************/
     }
 }

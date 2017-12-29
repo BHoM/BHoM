@@ -9,9 +9,8 @@ namespace BH.oM.Structural.Properties
         /***************************************************/
         public ShapeType Shape { get; } = ShapeType.Circle;
 
-        /***************************************************/
-
         public double Diameter { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -22,5 +21,7 @@ namespace BH.oM.Structural.Properties
             Diameter = diameter;
         }
 
+
+        /***************************************************/
     }
 }

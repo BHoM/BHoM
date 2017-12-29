@@ -1,5 +1,4 @@
-﻿using System;
-using BH.oM.Base;
+﻿using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Structural.Properties;
 

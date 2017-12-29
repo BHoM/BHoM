@@ -1,27 +1,24 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
-using System.ComponentModel;
 
 namespace BH.oM.Structural.Loads
 {
-    public class GeometricalLineLoad : BHoMObject, ILoad
+    public class GeometricalLineLoad : BHoMObject, ILoad //TODO: Why is it not inheriting from Load ?
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Line Location { get; set; }
+        public Line Location { get; set; }  //TODO: Provide default values
 
-        /// <summary>Force - fx, fy, fz defined as a BH.oM.Geometry.Vector</summary>
-        public Geometry.Vector ForceA { get; set; }
+        public Vector ForceA { get; set; }
 
-        public Geometry.Vector ForceB { get; set; }
+        public Vector ForceB { get; set; }
 
-        public Geometry.Vector MomentA { get; set; }
+        public Vector MomentA { get; set; }
 
-        public Geometry.Vector MomentB { get; set; }
+        public Vector MomentB { get; set; }
 
-        [DefaultValue(LoadAxis.Global)]
         public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
         public bool Projected { get; set; } = false;
@@ -30,60 +27,5 @@ namespace BH.oM.Structural.Loads
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public GeometricalLineLoad() { }
-
-        /***************************************************/
-
-        public GeometricalLineLoad(BH.oM.Geometry.Line line, Geometry.Vector force, Geometry.Vector moment = null)
-        {
-            Location = line;
-            ForceA = force;
-            ForceB = force;
-            MomentA = moment == null ? new Vector { X = 0, Y = 0, Z = 0 } : moment;
-            MomentB = moment == null ? new Vector { X = 0, Y = 0, Z = 0 } : moment;
-        }
-
-
-        /***************************************************/
-        public GeometricalLineLoad(BH.oM.Geometry.Line line, Vector forceA, Vector forceB, Vector momentA = null, Vector momentB = null)
-        {
-            Location = line;
-            ForceA = forceA;
-            ForceB = forceB;
-            MomentA = momentA == null ? new Vector { X = 0, Y = 0, Z = 0 } : momentA;
-            MomentB = momentB == null ? new Vector { X = 0, Y = 0, Z = 0 } : momentB;
-        }
-
-
-        /***************************************************/
-        /**** ILoad Interface                           ****/
-        /***************************************************/
-
-        public LoadType GetLoadType()
-        {
-            return LoadType.Geometrical;
-        }
-
-
-
-        //public Loadcase Loadcase
-        //{
-        //    get
-        //    {
-        //        return m_Loadcase;
-        //    }
-        //    set
-        //    {
-        //        if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Remove(this);
-        //        m_Loadcase = value;
-        //        if (m_Loadcase != null && m_Loadcase.LoadRecords != null) m_Loadcase.LoadRecords.Add(this);
-        //    }
-        //}
-
-
-
     }
 }

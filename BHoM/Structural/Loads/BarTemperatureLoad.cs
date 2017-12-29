@@ -8,31 +8,9 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public Geometry.Vector TemperatureChange { get; set; }
+        public Geometry.Vector TemperatureChange { get; set; }  //TODO: Provide default values
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BarTemperatureLoad() { }
-
-        /***************************************************/
-
-        public BarTemperatureLoad(Loadcase loadcase, double tx, double ty, double tz)
-        {
-            Loadcase = loadcase;
-            TemperatureChange = new Geometry.Vector { X = tx, Y = ty, Z = tz };
-        }
-
-
-        /***************************************************/
-        /**** ILoad Interface                           ****/
-        /***************************************************/
-
-        public override LoadType GetLoadType()
-        {
-            return LoadType.BarTemperature;
-        }
     }
 }

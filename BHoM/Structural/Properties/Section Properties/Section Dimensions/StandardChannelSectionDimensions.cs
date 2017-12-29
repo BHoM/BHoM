@@ -10,29 +10,18 @@ namespace BH.oM.Structural.Properties
         /***************************************************/
         public ShapeType Shape { get; } = ShapeType.Channel;
 
-        /***************************************************/
-
         public double Height { get; }
-
-        /***************************************************/
 
         public double FlangeWidth { get; }
 
-        /***************************************************/
-
         public double WebThickness { get; }
-
-        /***************************************************/
 
         public double FlangeThickness { get; }
 
-        /***************************************************/
-
         public double RootRadius { get; }
 
-        /***************************************************/
-
         public double ToeRadius { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -48,5 +37,7 @@ namespace BH.oM.Structural.Properties
             ToeRadius = toeRadius;
         }
 
+
+        /***************************************************/
     }
 }

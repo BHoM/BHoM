@@ -9,35 +9,11 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public Geometry.Vector ForceVector { get; set; }
+        public Vector Force { get; set; } = new Vector();
 
-        public Geometry.Vector MomentVector { get; set; }
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BarUniformlyDistributedLoad() { }
-
-        /***************************************************/
-
-        public BarUniformlyDistributedLoad(Loadcase loadcase, double fx, double fy, double fz)
-        {
-            Loadcase = loadcase;
-            ForceVector = new Geometry.Vector { X = fx, Y = fy, Z = fz };
-            MomentVector = new Vector { X = 0, Y = 0, Z = 0 };
-        }
+        public Vector Moment { get; set; } = new Vector();
 
 
         /***************************************************/
-        /**** ILoad Interface                           ****/
-        /***************************************************/
-
-        public override LoadType GetLoadType()
-        {
-            return LoadType.BarUniformLoad;
-        }
-
     }
 }

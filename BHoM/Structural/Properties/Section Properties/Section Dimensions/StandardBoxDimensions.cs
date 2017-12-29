@@ -10,25 +10,17 @@ namespace BH.oM.Structural.Properties
         /***************************************************/
         public ShapeType Shape { get; } = ShapeType.Box;
 
-        /***************************************************/
-
         public double Height { get; }
 
-        /***************************************************/
 
         public double Width { get; }
 
-        /***************************************************/
-
         public double Thickness { get; }
-
-        /***************************************************/
 
         public double OuterRadius { get; }
 
-        /***************************************************/
-
         public double InnerRadius { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -43,5 +35,7 @@ namespace BH.oM.Structural.Properties
             InnerRadius = innerRadius;
         }
 
+
+        /***************************************************/
     }
 }

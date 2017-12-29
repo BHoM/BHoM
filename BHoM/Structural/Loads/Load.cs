@@ -24,38 +24,10 @@ namespace BH.oM.Structural.Loads
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-
-        /***************************************************/
-        /**** ILoad Interface                           ****/
-        /***************************************************/
-
-        public abstract LoadType GetLoadType();
-
-
     }
 }
 
 
-        //internal Load() { m_Objects = new BHoMList<T>(); }
-
-
-        ///// <summary>Loadcase as BH.oM object</summary>
-        //public BH.oM.Structural.Loads.Loadcase Loadcase
-        //{
-        //    get
-        //    {
-        //        return m_Loadcase;
-        //    }
-        //    set
-        //    {            
-        //        if (m_Loadcase != null && m_Loadcase.LoadRecords!= null) m_Loadcase.LoadRecords.Remove(this);                
-        //        m_Loadcase = value;
-        //        if (m_Loadcase != null && m_Loadcase.LoadRecords != null && !m_Loadcase.LoadRecords.Contains(this)) m_Loadcase.LoadRecords.Add(this);
-        //    }
-        //}
 
 
 

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BH.oM.Structural.Interface
+﻿namespace BH.oM.Structural.Interface
 {
     public interface IResultSet // TODO: Where does this go?
     {

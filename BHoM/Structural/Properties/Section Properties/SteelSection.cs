@@ -21,6 +21,7 @@ namespace BH.oM.Structural.Properties
 
         public System.Collections.ObjectModel.ReadOnlyCollection<ICurve> Edges { get; }
 
+
         /***************************************************/
         /**** Properties - Section dimensions           ****/
         /***************************************************/
@@ -149,7 +150,6 @@ namespace BH.oM.Structural.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
-
         //Main constructor setting all of the properties of the object
         public SteelSection(
             IEnumerable<ICurve> edges,
@@ -224,6 +224,8 @@ namespace BH.oM.Structural.Properties
 
         }
 
+        /***************************************************/
+
         //Secondary constructor for a freeform section
         public SteelSection(
 
@@ -275,8 +277,9 @@ namespace BH.oM.Structural.Properties
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
-
         }
+
+        /***************************************************/
     }
 }
 

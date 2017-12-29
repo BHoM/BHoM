@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using BH.oM.Base;
 using BH.oM.Structural.Elements;
 
@@ -19,7 +18,7 @@ namespace BH.oM.Structural.Design
 
         public List<Span> LateralTorsionalSpans { get; set; } = new List<Span>();
 
-        public BarStructuralUsage StructuralUsage { get; set; }
+        public BarStructuralUsage StructuralUsage { get; set; } = new BarStructuralUsage();
 
 
         /***************************************************/

@@ -1,5 +1,4 @@
-﻿using System;
-using BH.oM.Structural.Properties;
+﻿using BH.oM.Structural.Properties;
 using BH.oM.Geometry;
 
 namespace BH.oM.Structural.Elements

@@ -103,9 +103,6 @@ namespace BH.oM.Structural.Properties
         public double Asz { get; set; } = 0;
 
 
-
-
-
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/

@@ -1,7 +1,6 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
 using System.Collections.Generic;
-using System.Linq;
 
 
 namespace BH.oM.Structural.Elements

@@ -18,18 +18,5 @@ namespace BH.oM.Structural.Properties
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BarRelease() { }
-
-        /***************************************************/
-
-        public BarRelease(Constraint6DOF startConstraint, Constraint6DOF endConstraint, string name = "")
-        {
-            StartRelease = startConstraint;
-            EndRelease = endConstraint;
-            Name = name;
-        }
     }  
 }

@@ -16,11 +16,12 @@ namespace BH.oM.Structural.Properties
 
         public List<Reinforcement> Reinforcement { get; set; }
 
-        //TODO: Do we need this property or should it be a BHoM_Engine query?
-        public double MinimumCover { get; }
+        public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
+
         public Material Material { get; set; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
+
 
         /***************************************************/
         /**** Properties - Section dimensions           ****/
@@ -28,10 +29,10 @@ namespace BH.oM.Structural.Properties
 
         public ISectionDimensions SectionDimension { get; }
 
+
         /***************************************************/
         /**** Properties - Section constants            ****/
         /***************************************************/
-
 
         /// <summary>
         /// Gross Area of the cross section
@@ -147,9 +148,7 @@ namespace BH.oM.Structural.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
-
-        //Main constructor setting all of the properties of the object
-        public ConcreteSection(
+        public ConcreteSection(             //Main constructor setting all of the properties of the object
             IEnumerable<ICurve> edges,
 
             ISectionDimensions dimensions,
@@ -201,8 +200,9 @@ namespace BH.oM.Structural.Properties
 
         }
 
-        //Secondary constructor for a freeform section
-        public ConcreteSection(
+        /***************************************************/
+        
+        public ConcreteSection(         //Secondary constructor for a freeform section
             IEnumerable<ICurve> edges,
 
             double area,
@@ -253,7 +253,7 @@ namespace BH.oM.Structural.Properties
         }
 
 
-
+        /***************************************************/
     }
 }
 

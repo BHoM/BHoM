@@ -9,7 +9,7 @@ namespace BH.oM.Structural.Loads
     /// <summary>
     /// Point load along a bar
     /// </summary>
-    public class BarPointLoad : Load<Bar> // TODO: one class per file
+    public class BarPointLoad : Load<Bar>  //Bar point load object - different to nodal or point load as it needs a 'position' variable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -17,27 +17,11 @@ namespace BH.oM.Structural.Loads
 
         public double DistanceFromA { get; set; }   //TODO: define default values
 
-        public Geometry.Vector ForceVector { get; set; }
+        public Geometry.Vector Force { get; set; }
 
-        public Geometry.Vector MomentVector { get; set; }
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BarPointLoad() { }
+        public Geometry.Vector Moment { get; set; }
 
 
         /***************************************************/
-        /**** ILoad Interface                           ****/
-        /***************************************************/
-
-        public override LoadType GetLoadType()
-        {
-            return LoadType.BarPointLoad;
-        }
-
-        //Bar point load object - different to nodal or point load as it needs a 'position' variable
     }
 }
