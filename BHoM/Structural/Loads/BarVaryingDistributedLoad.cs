@@ -2,41 +2,25 @@
 
 namespace BH.oM.Structural.Loads
 {
-    public class BarVaryingDistributedLoad : Load<Bar>
+    public class BarVaryingDistributedLoad : Load<Bar>  //TODO: patch load for bars. Should include patch moments. 
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double DistanceFromA { get; set; }
+        public double DistanceFromA { get; set; }  //TODO: Provide default values
 
-        public Geometry.Vector ForceVectorA { get; set; }
+        public Geometry.Vector ForceA { get; set; }
 
-        public Geometry.Vector MomentVectorA { get; set; }
+        public Geometry.Vector MomentA { get; set; }
 
         public double DistanceFromB { get; set; }
 
-        public Geometry.Vector ForceVectorB { get; set; }
+        public Geometry.Vector ForceB { get; set; }
 
-        public Geometry.Vector MomentVectorB { get; set; }
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BarVaryingDistributedLoad() { }
+        public Geometry.Vector MomentB { get; set; }
 
 
-        /***************************************************/
-        /**** ILoad Interface                           ****/
-        /***************************************************/
-
-        public override LoadType GetLoadType()
-        {
-            return LoadType.BarVaryingLoad;
-        }
-
-        //patch load for bars. Should include patch moments. 
+        /***************************************************/ 
     }
 }

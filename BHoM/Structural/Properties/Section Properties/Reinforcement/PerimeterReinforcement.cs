@@ -13,30 +13,11 @@
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public PerimeterReinforcement()
-        {
-
-        }
-
-        public PerimeterReinforcement(double diameter, int count, ReoPattern pattern)
-        {
-            Diameter = diameter;
-            BarCount = count;
-            Pattern = pattern;
-        }
+    }
+}
 
 
-        ///***************************************************/
-        ///**** Override Reinforcement                    ****/
-        ///***************************************************/
 
-        //public override bool IsLongitudinal()
-        //{
-        //    return true;
-        //}
 
         ///***************************************************/
 
@@ -102,7 +83,3 @@
         //    //}
         //    return location;
         //}
-    }
-
-
-}

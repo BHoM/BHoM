@@ -4,8 +4,13 @@ namespace BH.oM.Structural.Loads
 {
     public interface ICase : IObject
     {
-        int Number { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        CaseType GetCaseType();
+        int Number { get; set; }  //TODO: Do we still need this ? Should we not use name or Guid ??
+
+
+        /***************************************************/
     }
 }

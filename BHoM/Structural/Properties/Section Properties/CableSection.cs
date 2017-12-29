@@ -7,8 +7,12 @@ namespace BH.oM.Structural.Properties
 {
     public class CableSection : BHoMObject, ISectionProperty, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public Material Material { get; set; } = null;
+
 
         /***************************************************/
         /**** Properties - Section dimensions           ****/
@@ -186,6 +190,10 @@ namespace BH.oM.Structural.Properties
 
         }
 
+        /***************************************************/
+    }
+}
+
 
 
 
@@ -332,5 +340,3 @@ namespace BH.oM.Structural.Properties
         //        return -1;
         //    }
         //}
-    }
-}

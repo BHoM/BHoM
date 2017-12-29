@@ -8,6 +8,9 @@ namespace BH.oM.Structural.Properties
 {
     public class CompositeSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public SteelSection SteelSection { get; }
 
@@ -16,9 +19,12 @@ namespace BH.oM.Structural.Properties
         public double SteelEmbedmentDepth { get; }
 
         public double StudDiameter { get; }
-        public double StudHeight { get;  }
-        public double StudSpacing { get;  }
-        public int StudsPerGroup { get;  }
+
+        public double StudHeight { get; }
+
+        public double StudSpacing { get; }
+
+        public int StudsPerGroup { get; }
 
         public ReadOnlyCollection<ICurve> Edges
         {
@@ -28,14 +34,12 @@ namespace BH.oM.Structural.Properties
             }
         }
 
-
-
         public Material Material { get; set; }
+
 
         /***************************************************/
         /**** Properties - Section constants            ****/
         /***************************************************/
-
 
         /// <summary>
         /// Gross Area of the cross section
@@ -128,7 +132,9 @@ namespace BH.oM.Structural.Properties
         public double Asz { get; } = 0;
 
 
-
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         //Main constructor setting all of the properties of the object
         public CompositeSection(
@@ -187,8 +193,14 @@ namespace BH.oM.Structural.Properties
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
-
         }
+
+
+        /***************************************************/
+    }
+}
+
+
 
         //public override string ToString()
         //{
@@ -237,5 +249,3 @@ namespace BH.oM.Structural.Properties
         //        Edges = concreteRectangle;
         //    }
         //}
-    }
-}

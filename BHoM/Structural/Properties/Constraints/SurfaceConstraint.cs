@@ -22,12 +22,5 @@ namespace BH.oM.Structural.Properties
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public SurfaceConstraint(string name = "") 
-        {
-            Name = name;
-        }
     }
 }

@@ -8,32 +8,9 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public double TemperatureChange { get; set; }
+        public double TemperatureChange { get; set; }  //TODO: Provide default values
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public AreaTemperatureLoad() { }
-
-        /***************************************************/
-
-        public AreaTemperatureLoad(Loadcase loadcase, double t)
-        {
-            Loadcase = loadcase;
-            TemperatureChange = t;
-        }
-
-
-        /***************************************************/
-        /**** ILoad Interface                           ****/
-        /***************************************************/
-
-        public override LoadType GetLoadType()
-        {
-            return LoadType.BarTemperature;
-        }
-
     }
 }

@@ -10,7 +10,7 @@ namespace BH.oM.Structural.Design
 
         public List<int> BarIndices { get; set; } = new List<int>();
 
-        public double EffectiveLength { get; set; }
+        public double EffectiveLength { get; set; } = 0.0;
 
 
         /***************************************************/

@@ -5,6 +5,13 @@ namespace BH.oM.Structural.Elements
 {
     public interface IAreaElement : IObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         Property2D Property { get; set; }
+
+
+        /***************************************************/
     }
 }

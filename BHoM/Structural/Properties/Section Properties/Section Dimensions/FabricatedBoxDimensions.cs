@@ -10,27 +10,15 @@ namespace BH.oM.Structural.Properties
         /***************************************************/
         public ShapeType Shape { get; } = ShapeType.Box;
 
-        /***************************************************/
-
         public double Height { get; }
-
-        /***************************************************/
 
         public double Width { get; }
 
-        /***************************************************/
-
         public double WebThickness { get; }
-
-        /***************************************************/
 
         public double TopFlangeThickness { get; }
 
-        /***************************************************/
-
         public double BotFlangeThickness { get; }
-
-        /***************************************************/
 
         public double WeldSize { get; }
 
@@ -49,5 +37,7 @@ namespace BH.oM.Structural.Properties
             WeldSize = weldSize;
         }
 
+
+        /***************************************************/
     }
 }

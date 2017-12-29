@@ -8,24 +8,9 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public double PrestressValue { get; set; }
+        public double Prestress { get; set; }  //TODO: Provide default values
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BarPrestressLoad() { }
-
-
-        /***************************************************/
-        /**** ILoad Interface                           ****/
-        /***************************************************/
-
-        public override LoadType GetLoadType()
-        {
-            return LoadType.Pressure;
-        }
-
     }
 }

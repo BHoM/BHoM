@@ -188,6 +188,7 @@
     <Compile Include="Structural\Loads\PointDisplacement.cs" />
     <Compile Include="Structural\Loads\PointVelocity.cs" />
     <Compile Include="Structural\Properties\Constraints\Constraint4DOF.cs" />
+    <Compile Include="Structural\Properties\Constraints\LinkageType.cs" />
     <Compile Include="Structural\Properties\Constraints\LinkConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\Constraint6DOF.cs" />
     <Compile Include="Structural\Elements\Storey.cs" />
@@ -272,6 +273,9 @@
     <Folder Include="Cities\" />
     <Folder Include="Common\Physical\" />
     <Folder Include="Common\Planning\Project\" />
+    <Folder Include="MachineLearning\Sound\" />
+    <Folder Include="MachineLearning\Text\" />
+    <Folder Include="MachineLearning\Video\" />
     <Folder Include="MEP\" />
     <Folder Include="Structural\Results\Global Results\" />
   </ItemGroup>

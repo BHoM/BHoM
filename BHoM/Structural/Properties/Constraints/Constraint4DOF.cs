@@ -26,13 +26,6 @@ namespace BH.oM.Structural.Properties
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Constraint4DOF(string name = "") 
-        {
-            Name = name;
-        }
     }
 
 }

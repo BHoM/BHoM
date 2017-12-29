@@ -12,24 +12,14 @@ namespace BH.oM.Structural.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        public double[] Modifiers { get; set; }
+        public double[] Modifiers { get; set; } = new double[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+
         public PanelType Type { get; set; }
+
         public double Thickness { get; set; }
+
         public Material Material { get; set; }
-        public Property2D()
-        {
-            Modifiers = new double[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-        }
 
-        public Property2D(string name) : this(){ Name = name; }
-
-        public bool HasModifiers()
-        {
-            for (int i = 0; i < Modifiers.Length; i++)
-            {
-                if (Modifiers[i] != 1) return true;
-            }
-            return false;
-        }
+        /***************************************************/
     }    
 }

@@ -16,32 +16,9 @@ namespace BH.oM.Structural.Loads
 
         public List<Tuple<double, ICase>> LoadCases { get; set; } = new List<Tuple<double, ICase>>();
 
-        public int Number { get; set; } = 0;
+        public int Number { get; set; } = 0;  // TODO: Do we still need this? Why not use Name or Guid ?
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public LoadCombination() { }
-
-        /***************************************************/
-
-        public LoadCombination(string name, List<Tuple<double, ICase>> loadCases)
-        {
-            LoadCases = loadCases;
-            Name = name;
-        }
-
-
-        /***************************************************/
-        /**** ICase Interface                           ****/
-        /***************************************************/
-
-        public CaseType GetCaseType()
-        {
-            return CaseType.Combination;
-        }
-
     }
 }

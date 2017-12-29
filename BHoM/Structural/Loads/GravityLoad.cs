@@ -13,26 +13,5 @@ namespace BH.oM.Structural.Loads
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public GravityLoad() { }
-
-        /***************************************************/
-
-        public GravityLoad(Loadcase loadcase, double Gx, double gy, double gz)
-        {
-            GravityDirection = new Geometry.Vector { X = Gx, Y = gy, Z = gz };
-        }
-
-
-        /***************************************************/
-        /**** ILoad Interface                           ****/
-        /***************************************************/
-
-        public override LoadType GetLoadType()
-        {
-            return LoadType.Selfweight;
-        }
     }
 }

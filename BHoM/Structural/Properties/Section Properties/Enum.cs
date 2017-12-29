@@ -1,5 +1,7 @@
 ﻿namespace BH.oM.Structural.Properties
 {
+    /***************************************************/
+
     public enum ShapeType
     {
         Rectangle = 0,
@@ -21,6 +23,8 @@
         Cable = 30,
     }
 
+    /***************************************************/
+
     /// <summary>
     /// Fabrication type for steel sections
     /// </summary>
@@ -31,6 +35,8 @@
         HotFormed,
         ColdFormed
     }
+
+    /***************************************************/
 
     /// <summary>
     /// Restraint types for steel sections
@@ -44,6 +50,8 @@
         FullRestraint
     }
 
+    /***************************************************/
+
     public enum CableType
     {
         FullLockedCoil,
@@ -53,4 +61,5 @@
 
     }
 
+    /***************************************************/
 }

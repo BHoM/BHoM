@@ -1,5 +1,6 @@
 ﻿namespace BH.oM.Structural.Properties
 {
+    /***************************************************/
 
     /// <summary>Section classification</summary>
     public enum SectionClass
@@ -15,6 +16,8 @@
         /// <summary>Not known</summary>
         unknown,
     }
+
+    /***************************************************/
 
     /// <summary>Axis direction for any application (loads, results, geometry
     /// all cartesian coordinate systems follow the right hand rule</summary>
@@ -33,6 +36,8 @@
         /// <summary>Clockwise rotation about Z-Axis looking in positive Z direction</summary>
         ZZ = 5
     }
+
+    /***************************************************/
 
     /// <summary>
     /// Enumerator of types of degrees of freedom
@@ -69,6 +74,8 @@
         Gap = 13
     }
 
+    /***************************************************/
+
     /// <summary>Constraint type</summary>
     public enum ConstraintType
     {
@@ -81,4 +88,6 @@
         /// <summary>Compatibility (e.g. compatible nodes)</summary>
         Compatibility
     }
+
+    /***************************************************/
 }

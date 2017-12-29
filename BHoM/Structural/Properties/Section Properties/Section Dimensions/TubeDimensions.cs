@@ -10,13 +10,10 @@ namespace BH.oM.Structural.Properties
         /***************************************************/
         public ShapeType Shape { get; } = ShapeType.Tube;
 
-        /***************************************************/
-
         public double Diameter { get; }
 
-        /***************************************************/
-
         public double Thickness { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -28,5 +25,7 @@ namespace BH.oM.Structural.Properties
             Thickness = thickness;
         }
 
+
+        /***************************************************/
     }
 }

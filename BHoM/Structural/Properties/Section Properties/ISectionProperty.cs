@@ -5,6 +5,10 @@ namespace BH.oM.Structural.Properties
 {
     public interface ISectionProperty : IObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         Material Material { get; set; }
 
         /// <summary>
@@ -97,5 +101,6 @@ namespace BH.oM.Structural.Properties
         /// </summary>
         double Asz { get; }
 
+        /***************************************************/
     }
 }
