@@ -21,22 +21,5 @@ namespace BH.oM.Acoustic
         public int ReceiverID { get; set; } = 0;
 
         public List<int> PanelsID { get; set; } = new List<int>();
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Ray() { }
-
-        /***************************************************/
-
-        public Ray(Polyline path, int source, int target, List<int> bouncingPattern = null)
-        {
-            Geometry = path;
-            SpeakerID = source;
-            ReceiverID = target;
-            PanelsID = bouncingPattern;
-        }
     }
 }

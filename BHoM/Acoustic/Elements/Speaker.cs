@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using System.Threading;
 
 namespace BH.oM.Acoustic
 {
@@ -18,6 +19,8 @@ namespace BH.oM.Acoustic
 
         public Vector Direction { get; set; } = new Vector();
 
+        public double EmissiveLevel { get; set; } = 100;
+
         public string Category { get; set; } = "Omni";
 
         public int SpeakerID { get; set; } = 0;
@@ -25,24 +28,5 @@ namespace BH.oM.Acoustic
         public Dictionary<Frequency, double> Gains { get; set; } = new Dictionary<Frequency, double>();
 
         public Dictionary<Frequency, double[,]> Directivity { get; set; } = new Dictionary<Frequency, double[,]>();
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Speaker() { }
-
-        /***************************************************/
-
-        public Speaker(Point location, Vector direction = null, string category = "Omni",
-                       int speakerID = 0, Dictionary<Frequency, double> gains = null)
-        {
-            Location = location;
-            Direction = direction;
-            Category = category;
-            SpeakerID = speakerID;
-            Gains = gains;
-        }
     }
 }

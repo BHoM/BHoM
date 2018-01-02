@@ -1,9 +1,5 @@
 ﻿using BH.oM.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Acoustic
 {
@@ -23,38 +19,31 @@ namespace BH.oM.Acoustic
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public SoundLevel() { }
-
-        /***************************************************/
-
-        public SoundLevel(double value, int receiverID, int speakerID, Frequency frequency)
-        {
-            Value = value;
-            ReceiverID = receiverID;
-            SpeakerID = speakerID;
-            Frequency = frequency;
-        }
-
-
-        /***************************************************/
         /**** Static Operators Override                 ****/
         /***************************************************/
 
         public static SoundLevel operator +(SoundLevel a, SoundLevel b)
         {
-            return new SoundLevel((10 * Math.Log10(Math.Pow(10, a.Value / 10))) + (10 * Math.Log10(Math.Pow(10, b.Value / 10))),
-                            a.ReceiverID, -1, a.Frequency);
+            return new SoundLevel()
+            {
+                Value = 10 * Math.Log10(Math.Pow(10, a.Value / 10) + (Math.Pow(10, b.Value / 10))),
+                ReceiverID = a.ReceiverID,
+                SpeakerID = - 1,
+                Frequency = a.Frequency
+            };
         }
         
         /***************************************************/
 
         public static SoundLevel operator -(SoundLevel a, SoundLevel b)
         {
-            return new SoundLevel((10 * Math.Log10(Math.Pow(10, a.Value / 10))) - (10 * Math.Log10(Math.Pow(10, b.Value / 10))),
-                            a.ReceiverID, -1, a.Frequency);
+            return new SoundLevel()
+            {
+                Value = 10 * Math.Log10(Math.Pow(10, a.Value / 10) - (Math.Pow(10, b.Value / 10))),
+                ReceiverID = a.ReceiverID,
+                SpeakerID = -1,
+                Frequency = a.Frequency
+            };
         }
     }
 }

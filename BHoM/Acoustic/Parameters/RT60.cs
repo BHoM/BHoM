@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
-    public class RT60 : IAcousticParameter
+    public class RT60 : BHoMObject, IAcousticParameter
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -19,21 +15,5 @@ namespace BH.oM.Acoustic
         public int SpeakerID { get; set; } = 0;
 
         public Frequency Frequency { get; set; } = Frequency.Hz1000;
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public RT60() { }
-
-        /***************************************************/
-
-        public RT60(double value, int receiverID, int speakerID)
-        {
-            Value = value;
-            ReceiverID = receiverID;
-            SpeakerID = speakerID;
-        }
     }
 }
