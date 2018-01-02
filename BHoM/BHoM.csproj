@@ -72,6 +72,7 @@
     <Compile Include="Acoustic\Parameters\SoundLevel.cs" />
     <Compile Include="Acoustic\Parameters\Rasti.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
+    <Compile Include="Architecture\Elements\Level.cs" />
     <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IImmutable.cs" />
     <Compile Include="DataStructure\Graph\Graph.cs" />
