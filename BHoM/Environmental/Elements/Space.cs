@@ -16,13 +16,20 @@ namespace BH.oM.Environmental.Elements
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        
+
+        public Panel Panels { get; set; } = new Panel();
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
         public Space() { }
+
+        public Space(Panel panels)
+        {
+            Panels = panels;
+        }
     }
 
 }

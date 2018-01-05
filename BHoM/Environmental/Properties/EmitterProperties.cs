@@ -21,8 +21,8 @@ namespace BH.oM.Environmental.Properties
 
         //design properties
         public double CircuitTemp { get; set; } = 0.0;
-        public double dh { get; set; } = 0.0;
-        public double dT { get; set; } = 0.0;
+        public double EntalpyDifference { get; set; } = 0.0;
+        public double TemperatureDifference { get; set; } = 0.0;
         public double SupplyT { get; set; } = 0.0;
         public string Comments { get; set; } = "";
 
