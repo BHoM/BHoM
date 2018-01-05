@@ -17,7 +17,7 @@
 
         /***************************************************/
 
-        public static readonly TransformMatrix Identify = new TransformMatrix
+        public static readonly TransformMatrix Identity = new TransformMatrix
         {
             Matrix = new double[4, 4]
             {
