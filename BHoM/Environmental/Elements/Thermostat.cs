@@ -10,38 +10,37 @@ using System.ComponentModel;
 namespace BH.oM.Environmental.Elements
 {
     /// <summary>
-    /// PanelPlanar object for environmental models.
+    /// Thermostat object for environmental models.
     /// </summary>
-    public class Panel : BHoMObject
+    public class Thermostat : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-               
-        public Polyline Edges { get; set; } = new Polyline();
-        public List<Opening> Openings { get; set; } = new List<Opening>();
-        public double Area { get; set; } = 0.0;
-        public string Type { get; set; } = "";
-        
-                       
+
+        public double UpperLimit { get; set; } = 0.0;
+        public double LoweLimit { get; set; } = 0.0;
+        public double HumidityUpperLimit { get; set; } = 0.0;
+        public double HumidityLowerLimit { get; set; } = 0.0;
+
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Panel() { }
+        public Thermostat() { }
 
         /***************************************************/
 
-        public Panel(Polyline edges, List<Opening> openings, double area, string type)
+        public Thermostat(double upperlimit, double lowerlimit, double humidityupperlimit, double humiditylowerlimit)
         {
-            Edges = edges;
-            Openings = openings;
-            Area = area;
-            Type = type;
-            
+            UpperLimit = upperlimit;
+            LoweLimit = lowerlimit;
+            HumidityUpperLimit = humidityupperlimit;
+            HumidityLowerLimit = humiditylowerlimit;
         }
 
     }
-               
+
 }

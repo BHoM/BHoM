@@ -76,6 +76,15 @@
     <Compile Include="Base\Interface\IImmutable.cs" />
     <Compile Include="Base\Interface\IObjectList.cs" />
     <Compile Include="DataStructure\Tree.cs" />
+    <Compile Include="Environmental\Elements\AirHandlingUnit.cs" />
+    <Compile Include="Environmental\Properties\AirHandlingUnitProperties.cs" />
+    <Compile Include="Environmental\Properties\BuildingElementProperties.cs" />
+    <Compile Include="Environmental\Properties\BuildingProperties.cs" />
+    <Compile Include="Environmental\Properties\EmitterProperties.cs" />
+    <Compile Include="Environmental\Properties\SpaceProperties.cs" />
+    <Compile Include="Environmental\Properties\SurfaceDataProperties.cs" />
+    <Compile Include="Environmental\Properties\Thermostat.cs" />
+    <Compile Include="Environmental\Properties\VentilationSystem.cs" />
     <Compile Include="Geometry\Curve\Ellipse.cs" />
     <Compile Include="Geometry\Curve\ICurve.cs" />
     <Compile Include="Geometry\Math\IntegrationSlice.cs" />

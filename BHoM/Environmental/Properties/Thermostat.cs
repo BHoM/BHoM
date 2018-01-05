@@ -6,30 +6,26 @@ using System.Reflection;
 using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
-namespace BH.oM.Environmental.Elements
+
+namespace BH.oM.Environmental.Properties
 {
     /// <summary>
-    /// Space Objects
+    /// Thermostat Properties
     /// </summary>
-    public class Space : BHoMObject
+    class Thermostat : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Panel Panels { get; set; } = new Panel();
+        public double ThermostatControlRange { get; set; } = 0; //this is Temp 0 degC as default
+        public bool ThermostatProportionalControl { get; set; } = false;
 
-
+        
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Space() { }
-
-        public Space(Panel panels)
-        {
-            Panels = panels;
-        }
+        public Thermostat() { }
     }
-
 }

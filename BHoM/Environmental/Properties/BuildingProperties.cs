@@ -6,30 +6,31 @@ using System.Reflection;
 using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
-namespace BH.oM.Environmental.Elements
+
+namespace BH.oM.Environmental.Properties
 {
     /// <summary>
-    /// Space Objects
+    /// Building Properties
     /// </summary>
-    public class Space : BHoMObject
+    
+    class BuildingProperties : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Panel Panels { get; set; } = new Panel();
-
+        public double AirPermeability { get; set; } = 0.0;
+        public string Country { get; set; } = "";
+        public bool IsMainsGasAvailable { get; set; } = false;
+        public double PowerFactorCorrection { get; set; } = 0;
+        public double NorthAngle { get; set; } = 0.0;
+        
+              
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Space() { }
-
-        public Space(Panel panels)
-        {
-            Panels = panels;
-        }
+        public BuildingProperties() { }
     }
-
 }

@@ -10,38 +10,39 @@ using System.ComponentModel;
 namespace BH.oM.Environmental.Elements
 {
     /// <summary>
-    /// PanelPlanar object for environmental models.
+    /// BuildingElement object for environmental models.
     /// </summary>
-    public class Panel : BHoMObject
+    public class BuildingElement : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-               
-        public Polyline Edges { get; set; } = new Polyline();
-        public List<Opening> Openings { get; set; } = new List<Opening>();
-        public double Area { get; set; } = 0.0;
-        public string Type { get; set; } = "";
-        
-                       
+
+        public int BEType { get; set; } = 0;
+        public int Ghost { get; set; } = 0;
+        public int Ground { get; set; } = 0;
+        public int MarkDelete { get; set; } = 0;
+        public double Width { get; set; } = 0.0;
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Panel() { }
+        public BuildingElement() { }
 
         /***************************************************/
 
-        public Panel(Polyline edges, List<Opening> openings, double area, string type)
+        public BuildingElement(int beType, int ghost, int ground, int markDelete, double width)
         {
-            Edges = edges;
-            Openings = openings;
-            Area = area;
-            Type = type;
-            
+            BEType = beType;
+            Ghost = ghost;
+            Ground = ground;
+            MarkDelete = markDelete;
+            Width = width;
+
         }
 
     }
-               
+
 }
