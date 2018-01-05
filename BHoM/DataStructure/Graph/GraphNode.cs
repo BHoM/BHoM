@@ -13,7 +13,7 @@
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-        public static implicit operator GraphNode<T>(T value)
+        public static explicit operator GraphNode<T>(T value)
         {
             return new GraphNode<T> { Value = value };
         }

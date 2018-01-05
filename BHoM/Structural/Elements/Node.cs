@@ -19,7 +19,7 @@ namespace BH.oM.Structural.Elements
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-        public static implicit operator Node(Point point)
+        public static explicit operator Node(Point point)
         {
             return new Node { Position = point };
         }
