@@ -13,23 +13,12 @@ namespace BH.oM.Environmental.Properties
     /// Thermostat Properties
     /// </summary>
     
-    class SurfaceDataProperties : BHoMObject
+    public class SurfaceDataProperties : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         // surface properies of each invidual Building Element
-
-        //CFD
-        public bool CFDBoundaryInlet { get; set; } = true;
-        public double CFDBoundaryInletTemperature { get; set; } = 0.0;
-        public double CFDBoundaryInletVelocityVec { get; set; } = 0.0;
-        public double CFDBoundaryInletVolFlowRate { get; set; } = 0.0;
-        public bool CFDBoundaryOutlet { get; set; } = true;
-        public double CFDBoundaryOutletPressure { get; set; } = 0.0;
-        public double CFDBoundaryOutletTemperature { get; set; } = 0.0;
-        public bool CFDBoundaryWall { get; set; } = true;
-        public double CFDBoundaryWallTemperature { get; set; } = 0.0;
 
         //Detail Surface Results
         public double ApertureFlowIn { get; set; } = 0.0;

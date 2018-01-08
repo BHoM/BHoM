@@ -6,6 +6,7 @@ using System.Reflection;
 using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BHEP = BH.oM.Environmental.Properties;
 
 namespace BH.oM.Environmental.Elements
 {
@@ -20,8 +21,9 @@ namespace BH.oM.Environmental.Elements
                
         public Polyline Edges { get; set; } = new Polyline();
         public List<Opening> Openings { get; set; } = new List<Opening>();
-        public double Area { get; set; } = 0.0;
-        public string Type { get; set; } = "";
+        public BHEP.SurfaceDataProperties SurfaceData { get; set; } = new BHEP.SurfaceDataProperties();
+        public BHEP.BuildingElementProperties BuildingElements { get; set; } = new BHEP.BuildingElementProperties();
+        public BHEP.CFDProperties CDFProperties { get; set; } = new BHEP.CFDProperties();
         
                        
 
@@ -33,12 +35,13 @@ namespace BH.oM.Environmental.Elements
 
         /***************************************************/
 
-        public Panel(Polyline edges, List<Opening> openings, double area, string type)
+        public Panel(Polyline edges, List<Opening> openings, string type, BHEP.SurfaceDataProperties surfaceData, BHEP.BuildingElementProperties buildingElements, BHEP.CFDProperties cdfProperties)
         {
             Edges = edges;
             Openings = openings;
-            Area = area;
-            Type = type;
+            SurfaceData = surfaceData;
+            BuildingElements = buildingElements;
+            CDFProperties = cdfProperties;
             
         }
 

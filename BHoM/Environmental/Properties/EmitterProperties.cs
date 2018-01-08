@@ -13,7 +13,7 @@ namespace BH.oM.Environmental.Properties
     /// Building Properties
     /// </summary>
 
-    class EmitterProperties : BHoMObject
+    public class EmitterProperties : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -13,7 +13,7 @@ namespace BH.oM.Environmental.Properties
     /// Space Properties
     /// </summary>
 
-    class SpaceProperties : BHoMObject
+    public class SpaceProperties : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
