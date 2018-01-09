@@ -137,7 +137,7 @@ namespace BH.oM.Structural.Properties
         public CableSection(
             Material material,
             int numberOfCables,
-            double diameter,
+            double cableDiameter,
             CableType cableType,
             double breakingLoad,
 
@@ -163,7 +163,7 @@ namespace BH.oM.Structural.Properties
 
         {
             Material = material;
-            CableDiameter = diameter;
+            CableDiameter = cableDiameter;
             NumberOfCables = numberOfCables;
             CableType = cableType;
             BreakingLoad = breakingLoad;
