@@ -151,7 +151,7 @@ namespace BH.oM.Structural.Properties
         public ConcreteSection(             //Main constructor setting all of the properties of the object
             IEnumerable<ICurve> edges,
 
-            ISectionDimensions dimensions,
+            ISectionDimensions sectionDimension,
 
             double area,
             double rgy,
@@ -176,7 +176,7 @@ namespace BH.oM.Structural.Properties
         {
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-            SectionDimension = dimensions;
+            SectionDimension = sectionDimension;
 
             Area = area;
             Rgy = rgy;

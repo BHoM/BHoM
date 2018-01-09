@@ -153,7 +153,7 @@ namespace BH.oM.Structural.Properties
         //Main constructor setting all of the properties of the object
         public SteelSection(
             IEnumerable<ICurve> edges,
-            ISectionDimensions dimensions,
+            ISectionDimensions sectionDimensions,
 
             //ShapeType shape,
             //double b1,
@@ -190,7 +190,7 @@ namespace BH.oM.Structural.Properties
 
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-            SectionDimensions = dimensions;
+            SectionDimensions = sectionDimensions;
             //Shape = shape;
             //B1 = b1;
             //B2 = b2;
@@ -227,57 +227,57 @@ namespace BH.oM.Structural.Properties
         /***************************************************/
 
         //Secondary constructor for a freeform section
-        public SteelSection(
+        //public SteelSection(      // TODO: This is not ok: the constructor needs to match exactly the properties. Anything else goes to the engine
 
-            IEnumerable<ICurve> edges,
+        //    IEnumerable<ICurve> edges,
 
-            double area,
-            double rgy,
-            double rgz,
-            double j,
-            double iy,
-            double iz,
-            double iw,
-            double zy,
-            double zz,
-            double sy,
-            double sz,
-            double centreZ,
-            double centreY,
-            double vz,
-            double vpz,
-            double vy,
-            double vpy,
-            double asy,
-            double asz,
-            double totalDepth,
-            double totalWidth)
+        //    double area,
+        //    double rgy,
+        //    double rgz,
+        //    double j,
+        //    double iy,
+        //    double iz,
+        //    double iw,
+        //    double zy,
+        //    double zz,
+        //    double sy,
+        //    double sz,
+        //    double centreZ,
+        //    double centreY,
+        //    double vz,
+        //    double vpz,
+        //    double vy,
+        //    double vpy,
+        //    double asy,
+        //    double asz,
+        //    double totalDepth,
+        //    double totalWidth)
 
-        {
-            Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
+        //{
+        //    Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-            SectionDimensions = new PolygonDimensions();
+        //    SectionDimensions = new PolygonDimensions();
 
-            Area = area;
-            Rgy = rgy;
-            Rgz = rgz;
-            J = j;
-            Iy = iy;
-            Iz = iz;
-            Iw = iw;
-            Zy = zy;
-            Zz = zz;
-            Sy = sy;
-            Sz = sz;
-            CentreZ = centreZ;
-            CentreY = centreY;
-            Vz = vz;
-            Vpz = vpz;
-            Vy = vy;
-            Vpy = vpy;
-            Asy = asy;
-            Asz = asz;
-        }
+        //    Area = area;
+        //    Rgy = rgy;
+        //    Rgz = rgz;
+        //    J = j;
+        //    Iy = iy;
+        //    Iz = iz;
+        //    Iw = iw;
+        //    Zy = zy;
+        //    Zz = zz;
+        //    Sy = sy;
+        //    Sz = sz;
+        //    CentreZ = centreZ;
+        //    CentreY = centreY;
+        //    Vz = vz;
+        //    Vpz = vpz;
+        //    Vy = vy;
+        //    Vpy = vpy;
+        //    Asy = asy;
+        //    Asz = asz;
+        //}
 
         /***************************************************/
     }
