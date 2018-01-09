@@ -43,7 +43,6 @@ namespace BH.oM.Environmental.Elements
             MarkDelete = markDelete;
             Width = width;
             BEProperties = beProperties;
-
         }
 
     }
