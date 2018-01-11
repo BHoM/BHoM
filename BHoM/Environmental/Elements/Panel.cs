@@ -19,14 +19,35 @@ namespace BH.oM.Environmental.Elements
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-               
+
+        public string Type { get; set; } = "";
+        public ISurface Surface { get; set; } = null;
+
         public Polyline Edges { get; set; } = new Polyline();
         public List<Opening> Openings { get; set; } = new List<Opening>();
         public BHEP.SurfaceDataProperties SurfaceData { get; set; } = new BHEP.SurfaceDataProperties();
         public BHE.Elements.BuildingElement BuildingElements { get; set; } = new BHE.Elements.BuildingElement();
         public BHEP.CFDProperties CDFProperties { get; set; } = new BHEP.CFDProperties();
         
+                       
 
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Panel() { }
+
+        /***************************************************/
+
+        public Panel(Polyline edges, List<Opening> openings, string type, BHEP.SurfaceDataProperties surfaceData, BHE.Elements.BuildingElement buildingElements, BHEP.CFDProperties cdfProperties)
+        {
+            Edges = edges;
+            Openings = openings;
+            SurfaceData = surfaceData;
+            BuildingElements = buildingElements;
+            CDFProperties = cdfProperties;
+            
+        }
 
     }
                

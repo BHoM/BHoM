@@ -9,7 +9,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Properties
 {
-
+    /// <summary>
+    /// Thermostat Properties
+    /// </summary>
     class Thermostat : BHoMObject
     {
         /***************************************************/
@@ -19,5 +21,11 @@ namespace BH.oM.Environmental.Properties
         public double ThermostatControlRange { get; set; } = 0; //this is Temp 0 degC as default
         public bool ThermostatProportionalControl { get; set; } = false;
 
+        
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Thermostat() { }
     }
 }

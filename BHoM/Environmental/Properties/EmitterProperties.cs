@@ -9,6 +9,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Properties
 {
+    /// <summary>
+    /// Building Properties
+    /// </summary>
 
     public class EmitterProperties : BHoMObject
     {
@@ -34,5 +37,12 @@ namespace BH.oM.Environmental.Properties
         public string Type { get; set; } = "";
         public string TypeDIN { get; set; } = "";
 
+
+                
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public EmitterProperties() { }
     }
 }

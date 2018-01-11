@@ -9,7 +9,10 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Properties
 {
-
+    /// <summary>
+    /// Ventilation System Properties
+    /// </summary>
+  
     class VentilationSystem : BHoMObject
     {
         /***************************************************/
@@ -23,6 +26,13 @@ namespace BH.oM.Environmental.Properties
         public double VentSystemOSA_TSA { get; set; } = 0.0;
         public string VentSystemType { get; set; } = "";
         public string VentSystemTypeDIN { get; set; } = "";
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public VentilationSystem() { }
  
     }
 }

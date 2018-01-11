@@ -8,7 +8,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Elements
 {
-
+    /// <summary>
+    /// AirHandlingUnit Object (AHU)
+    /// </summary>
     public class AirHandlingUnit : BHoMObject
 
     {
@@ -16,7 +18,11 @@ namespace BH.oM.Environmental.Elements
         /**** Properties                                ****/
         /***************************************************/
 
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
+        public AirHandlingUnit() { }
     }
 
 }

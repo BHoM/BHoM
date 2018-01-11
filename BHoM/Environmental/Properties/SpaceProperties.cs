@@ -9,6 +9,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Properties
 {
+    /// <summary>
+    /// Space Properties
+    /// </summary>
 
     public class SpaceProperties : BHoMObject
     {
@@ -167,6 +170,13 @@ namespace BH.oM.Environmental.Properties
         public double WinterDesignTemperature { get; set; } = 0.0;
         public double WinterDesignTemperatureRange { get; set; } = 0.0;
         public double ZoneFreshAirACH { get; set; } = 0.0;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public SpaceProperties() { }
 
     }
 }

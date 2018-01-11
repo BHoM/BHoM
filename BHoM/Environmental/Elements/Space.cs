@@ -17,8 +17,21 @@ namespace BH.oM.Environmental.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public Panel Panels { get; set; } = new Panel();
+        public List<Polyline> Contours { get; set; } = new List<Polyline>();
 
+        public Panel Panels { get; set; } = new Panel();
+       
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Space() { }
+
+        public Space(Panel panels)
+        {
+            Panels = panels;
+        }
     }
 
 }
