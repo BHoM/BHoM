@@ -9,7 +9,10 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Properties
 {
-
+    /// <summary>
+    /// Building Properties
+    /// </summary>
+    
     public class BuildingProperties : BHoMObject
     {
         /***************************************************/
@@ -21,6 +24,13 @@ namespace BH.oM.Environmental.Properties
         public bool IsMainsGasAvailable { get; set; } = false;
         public double PowerFactorCorrection { get; set; } = 0;
         public double NorthAngle { get; set; } = 0.0;
+        
+              
 
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BuildingProperties() { }
     }
 }

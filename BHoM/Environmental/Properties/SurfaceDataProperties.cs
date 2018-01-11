@@ -9,7 +9,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Properties
 {
-
+    /// <summary>
+    /// Thermostat Properties
+    /// </summary>
     
     public class SurfaceDataProperties : BHoMObject
     {
@@ -38,6 +40,12 @@ namespace BH.oM.Environmental.Properties
 
         //boolean to toggle detail surface output
         public bool SurfaceOutput { get; set; } = true;
+        
 
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public SurfaceDataProperties() { }
     }
 }

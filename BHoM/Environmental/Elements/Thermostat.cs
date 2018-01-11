@@ -24,6 +24,23 @@ namespace BH.oM.Environmental.Elements
         public double HumidityLowerLimit { get; set; } = 0.0;
 
 
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Thermostat() { }
+
+        /***************************************************/
+
+        public Thermostat(double upperlimit, double lowerlimit, double humidityupperlimit, double humiditylowerlimit)
+        {
+            UpperLimit = upperlimit;
+            LoweLimit = lowerlimit;
+            HumidityUpperLimit = humidityupperlimit;
+            HumidityLowerLimit = humiditylowerlimit;
+        }
+
     }
 
 }

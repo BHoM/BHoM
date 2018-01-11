@@ -9,6 +9,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Properties
 {
+    /// <summary>
+    /// Thermostat Properties
+    /// </summary>
 
     public class CFDProperties : BHoMObject
     {
@@ -28,5 +31,11 @@ namespace BH.oM.Environmental.Properties
         public bool BoundaryWall { get; set; } = true;
         public double BoundaryWallTemperature { get; set; } = 0.0;
 
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public CFDProperties() { }
     }
 }

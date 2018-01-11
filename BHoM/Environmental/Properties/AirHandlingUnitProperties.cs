@@ -9,7 +9,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Properties
 {
-
+    /// <summary>
+    /// AHU Properties (before HVAC)
+    /// </summary>
     public class AirHandlingUnitProperties : BHoMObject
     {
         /***************************************************/
@@ -81,6 +83,12 @@ namespace BH.oM.Environmental.Properties
         public double SystemAHUSpaceSummerSensTotRatio { get; set; } = 0.0;
         public double SpecifiedOutsideSupplyAirRatio { get; set; } = 0.0;
 
+                
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public AirHandlingUnitProperties() { }
     }
 
 }

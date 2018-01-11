@@ -9,7 +9,10 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Properties
 {
-
+    /// <summary>
+    /// BUildingElement Properties
+    /// </summary>
+    
     public class BuildingElementProperties : BHoMObject
     {
         /***************************************************/
@@ -66,6 +69,12 @@ namespace BH.oM.Environmental.Properties
         public double LtValue { get; set; } = 0.0;
         public double ThermalConductivity { get; set; } = 0.0;
         public double UValue { get; set; } = 0.0;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BuildingElementProperties() { }
 
     }
 }

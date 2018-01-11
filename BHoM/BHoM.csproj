@@ -89,6 +89,10 @@
     <Compile Include="Environmental\Elements\HeatingEmitter.cs" />
     <Compile Include="Environmental\Elements\InternalCondition.cs" />
     <Compile Include="Environmental\Elements\InternalGain.cs" />
+    <Compile Include="Environmental\Elements\Location.cs" />
+    <Compile Include="Environmental\Elements\Opening.cs" />
+    <Compile Include="Environmental\Elements\Panel.cs" />
+    <Compile Include="Environmental\Elements\Space.cs" />
     <Compile Include="Environmental\Elements\Thermostat.cs" />
     <Compile Include="Environmental\Properties\AirHandlingUnitProperties.cs" />
     <Compile Include="Environmental\Properties\BuildingElementProperties.cs" />
@@ -128,10 +132,6 @@
     <Compile Include="Base\BHoMObject.cs" />
     <Compile Include="Geometry\IBHoMGeometry.cs" />
     <Compile Include="Base\BHoMGroup.cs" />
-    <Compile Include="Environmental\Elements\Location.cs" />
-    <Compile Include="Environmental\Elements\Panel.cs" />
-    <Compile Include="Environmental\Elements\Opening.cs" />
-    <Compile Include="Environmental\Elements\Space.cs" />
     <Compile Include="Graphics\SVG\SVGDocument.cs" />
     <Compile Include="Graphics\SVG\SVGObject.cs" />
     <Compile Include="Graphics\SVG\SVGStyle.cs" />
