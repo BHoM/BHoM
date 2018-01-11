@@ -8,21 +8,15 @@ using System.ComponentModel;
 
 namespace BH.oM.Environmental.Elements
 {
-    /// <summary>
-    /// Location objects.
-    /// </summary>
-    public class Location : BHoMObject
+
+    public class AirHandlingUnit : BHoMObject
 
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Latitude { get; set; } = 0.0;
-        public double Longitude { get; set; } = 0.0;
-        public double Elevation { get; set; } = 0.0;
-       
-             
+
     }
 
 }

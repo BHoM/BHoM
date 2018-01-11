@@ -1,5 +1,6 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Environmental.Elements;
 using System;
 using System.Reflection;
 using BH.oM.Structural.Loads;
@@ -9,20 +10,20 @@ using System.ComponentModel;
 namespace BH.oM.Environmental.Elements
 {
     /// <summary>
-    /// Location objects.
+    /// Thermostat object for environmental models.
     /// </summary>
-    public class Location : BHoMObject
-
+    public class Thermostat : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Latitude { get; set; } = 0.0;
-        public double Longitude { get; set; } = 0.0;
-        public double Elevation { get; set; } = 0.0;
-       
-             
+        public double UpperLimit { get; set; } = 0.0;
+        public double LoweLimit { get; set; } = 0.0;
+        public double HumidityUpperLimit { get; set; } = 0.0;
+        public double HumidityLowerLimit { get; set; } = 0.0;
+
+
     }
 
 }

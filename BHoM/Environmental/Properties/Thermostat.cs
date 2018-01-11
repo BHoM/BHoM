@@ -1,28 +1,23 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
+using BHE = BH.oM.Environmental.Elements;
 using System;
 using System.Reflection;
 using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environmental.Properties
 {
-    /// <summary>
-    /// Location objects.
-    /// </summary>
-    public class Location : BHoMObject
 
+    class Thermostat : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Latitude { get; set; } = 0.0;
-        public double Longitude { get; set; } = 0.0;
-        public double Elevation { get; set; } = 0.0;
-       
-             
-    }
+        public double ThermostatControlRange { get; set; } = 0; //this is Temp 0 degC as default
+        public bool ThermostatProportionalControl { get; set; } = false;
 
+    }
 }
