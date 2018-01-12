@@ -10,7 +10,7 @@ namespace BH.oM.Architecture.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ICurve> Curves { get; set; } = new List<ICurve>();
+        public ICurve Curve { get; set; } = null;
 
 
         /***************************************************/
