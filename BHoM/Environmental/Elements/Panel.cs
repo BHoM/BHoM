@@ -1,115 +1,54 @@
-﻿using BHoM.Geometry;
-using BHB = BHoM.Base;
-using BHE = BHoM.Environmental.Elements;
+﻿using BH.oM.Geometry;
+using BH.oM.Base;
+using BH.oM.Environmental.Elements;
 using System;
 using System.Reflection;
-using BHoM.Structural.Loads;
+using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BHE = BH.oM.Environmental;
+using BHEP = BH.oM.Environmental.Properties;
 
-namespace BHoM.Environmental.Elements
+namespace BH.oM.Environmental.Elements
 {
     /// <summary>
-    /// Panel object for environmental models.
+    /// PanelPlanar object for environmental models.
     /// </summary>
-    public class Panel : BHB.BHoMObject
+    public class Panel : BHoMObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        /////////////////
-        ////Properties///
-        /////////////////
+        public string Type { get; set; } = "";
+        public ISurface Surface { get; set; } = null;
 
-        private BHoM.Geometry.Group<Curve> m_ExteriorEdges;
+        public Polyline Edges { get; set; } = new Polyline();
+        public List<Opening> Openings { get; set; } = new List<Opening>();
+        public BHEP.SurfaceDataProperties SurfaceData { get; set; } = new BHEP.SurfaceDataProperties();
+        public BHE.Elements.BuildingElement BuildingElements { get; set; } = new BHE.Elements.BuildingElement();
+        public BHEP.CFDProperties CDFProperties { get; set; } = new BHEP.CFDProperties();
+        
+                       
 
-        public string Type { get; set; }
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        public List<BHE.Space> adjSpaces { get; set; }
+        public Panel() { }
 
-        private void SetEdges(BHoM.Geometry.Group<Curve> curves)
+        /***************************************************/
+
+        public Panel(Polyline edges, List<Opening> openings, string type, BHEP.SurfaceDataProperties surfaceData, BHE.Elements.BuildingElement buildingElements, BHEP.CFDProperties cdfProperties)
         {
-            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
-            List<Curve> crvs = Curve.Join(curves);
-            for (int i = 0; i < crvs.Count; i++)
-            {
-                if (crvs[i].IsClosed())
-                {
-                    m_ExteriorEdges.Add(crvs[i]);
-                }
-            }
+            Edges = edges;
+            Openings = openings;
+            SurfaceData = surfaceData;
+            BuildingElements = buildingElements;
+            CDFProperties = cdfProperties;
+            
         }
 
-
-
-        public BHoM.Geometry.Group<Curve> External_Contours
-        {
-            set
-            {
-                m_ExteriorEdges = value;
-            }
-            get
-            {
-                return m_ExteriorEdges;
-            }
-        }
-
-        public bool IsValid() { return m_ExteriorEdges != null; }
-
-
-        ////////////////////
-        ////CONSTRUCTORS////
-        ////////////////////
-
-        public Panel()
-        {
-            m_ExteriorEdges = new BHoM.Geometry.Group<Curve>();
-        }
-
-        /// <summary>
-        /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
-        /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="number"></param>
-        public Panel(BHoM.Geometry.Group<Curve> edges)
-        {
-            SetEdges(edges);
-        }
-
-        /// <summary>
-        /// Creates a panel object from a group of curve objects. Note: Curves must be able to join together to form a single closed curve or panel will be invalid
-        /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="number"></param>
-        public Panel(List<Curve> edges)
-        {
-            SetEdges(new BHoM.Geometry.Group<Curve>(edges));
-        }
-
-        ///////////////
-        ////METHODS////
-        ///////////////
-
-        /// <summary></summary>
-        public override BHoM.Geometry.GeometryBase GetGeometry()
-        {
-            BHoM.Geometry.Group<Curve> edges = new BHoM.Geometry.Group<Curve>();
-            edges.AddRange(m_ExteriorEdges);
-            return edges;
-        }
-
-        /// <summary></summary>
-        public override void SetGeometry(GeometryBase geometry)
-        {
-            if (geometry is Curve)
-            {
-                Curve curve = geometry as Curve;
-                BHoM.Geometry.Group<Curve> group = new BHoM.Geometry.Group<Curve>();
-                group.Add(curve);
-                SetEdges(group);
-            }
-            else if (geometry is BHoM.Geometry.Group<Curve>)
-            {
-                SetEdges(geometry as BHoM.Geometry.Group<Curve>);
-            }
-        }
     }
+               
 }

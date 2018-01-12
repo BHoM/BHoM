@@ -1,51 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BHoM.Base;
-namespace BHoM.Structural.Elements
+﻿using BH.oM.Base;
+
+namespace BH.oM.Structural.Elements
 {
     /// <summary>
     /// Storey class to store information about building storeys for post processing of results
     /// </summary>
     public class Storey : BHoMObject
     {
-        /// <summary>Storey level (in metres)</summary>
-        public double Elevation { get; set; }
-        
-        /// <summary>Storey height</summary>
-        public double Height { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public Geometry.Plane Plane
-        {
-            get
-            {
-                return new Geometry.Plane(new Geometry.Point(0, 0, Elevation), Geometry.Vector.ZAxis());
-            }
-        }
-        /// <summary>
-        /// Constructs and empty storey object
-        /// </summary>
-        public Storey()
-        {
-        }
+        public double Elevation { get; set; } = 0.0;  // in meters
 
-        /// <summary>
-        /// Constructs a storey object using number and name. If number and/or name are not known, use 0 and "" respectively.
-        /// </summary>
-        /// <param name="number"></param>
-        /// <param name="name"></param>
-        public Storey(string name, double elevation, double height)
-            : this()
-        {
-            Name = name;
-            Elevation = elevation;
-            Height = height;
-        }
+        public double Height { get; set; } = 0.0;  // in meters
 
+
+        /***************************************************/
     }
 }
+
+
+

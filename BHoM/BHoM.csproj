@@ -7,7 +7,7 @@
     <ProjectGuid>{94D88927-62A2-48FC-8EFE-D139B67A3373}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BHoM</RootNamespace>
+    <RootNamespace>BH.oM</RootNamespace>
     <AssemblyName>BHoM</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -35,7 +35,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\Build\BHoM.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,10 +50,6 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -62,174 +59,246 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Acoustic\AcousticParameters.cs" />
-    <Compile Include="Acoustic\AcousticRASTIParameters.cs" />
-    <Compile Include="Acoustic\Speaker.cs" />
-    <Compile Include="Acoustic\STIResult.cs" />
-    <Compile Include="Acoustic\Zone.cs" />
-    <Compile Include="Base\Cipher.cs" />
-    <Compile Include="Base\Compress.cs" />
-    <Compile Include="Base\Data\Enum.cs" />
-    <Compile Include="Base\Data\IDataAdapter.cs" />
-    <Compile Include="Base\Data\IDataRow.cs" />
-    <Compile Include="Base\Data\JsonDB.cs" />
-    <Compile Include="Base\Group.cs" />
-    <Compile Include="Base\JsonReader.cs" />
-    <Compile Include="Base\JsonWriter.cs" />
-    <Compile Include="Base\Results\Enums.cs" />
-    <Compile Include="Base\Results\Envelope.cs" />
-    <Compile Include="Base\Results\Result.cs" />
-    <Compile Include="Base\Results\ResultSet.cs" />
-    <Compile Include="Base\Tolerance.cs" />
-    <Compile Include="Base\TypeDictionary.cs" />
-    <Compile Include="Databases\IDatabaseAdapter.cs" />
-    <Compile Include="Databases\IDatabaseCollectionAdapter.cs" />
-    <Compile Include="Databases\IDatabaseQuery.cs" />
-    <Compile Include="Databases\MapReduceQuery.cs" />
+    <Compile Include="Acoustic\Constants.cs" />
+    <Compile Include="Acoustic\Elements\Panel.cs" />
+    <Compile Include="Acoustic\Elements\Ray.cs" />
+    <Compile Include="Acoustic\Elements\Receiver.cs" />
+    <Compile Include="Acoustic\Elements\Room.cs" />
+    <Compile Include="Acoustic\Elements\Speaker.cs" />
+    <Compile Include="Acoustic\Frequency.cs" />
+    <Compile Include="Acoustic\Parameters\RT60.cs" />
+    <Compile Include="Acoustic\Parameters\SnRatio.cs" />
+    <Compile Include="Acoustic\Parameters\IAcousticParameter.cs" />
+    <Compile Include="Acoustic\Parameters\SoundLevel.cs" />
+    <Compile Include="Acoustic\Parameters\Rasti.cs" />
+    <Compile Include="Architecture\Elements\Grid.cs" />
+    <Compile Include="Architecture\Elements\Level.cs" />
+    <Compile Include="Base\CustomObject.cs" />
+    <Compile Include="Base\Interface\IImmutable.cs" />
+    <Compile Include="DataStructure\Graph\Graph.cs" />
+    <Compile Include="DataStructure\Graph\GraphLink.cs" />
+    <Compile Include="DataStructure\Graph\GraphNode.cs" />
+    <Compile Include="DataStructure\PointMatrix\PointMatrix.cs" />
+    <Compile Include="DataStructure\PointMatrix\LocalData.cs" />
+    <Compile Include="DataStructure\PointMatrix\DiscreetPoint.cs" />
+    <Compile Include="DataStructure\PriorityQueue.cs" />
+    <Compile Include="DataStructure\Tree.cs" />
+    <Compile Include="Environmental\Elements\AirHandlingUnit.cs" />
+    <Compile Include="Environmental\Elements\BuildingElement.cs" />
+    <Compile Include="Environmental\Elements\CoolingEmitter.cs" />
+    <Compile Include="Environmental\Elements\HeatingEmitter.cs" />
+    <Compile Include="Environmental\Elements\InternalCondition.cs" />
+    <Compile Include="Environmental\Elements\InternalGain.cs" />
     <Compile Include="Environmental\Elements\Location.cs" />
-    <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Opening.cs" />
+    <Compile Include="Environmental\Elements\Panel.cs" />
     <Compile Include="Environmental\Elements\Space.cs" />
+    <Compile Include="Environmental\Elements\Thermostat.cs" />
+    <Compile Include="Environmental\Properties\AirHandlingUnitProperties.cs" />
+    <Compile Include="Environmental\Properties\BuildingElementProperties.cs" />
+    <Compile Include="Environmental\Properties\BuildingProperties.cs" />
+    <Compile Include="Environmental\Properties\CFDProperties.cs" />
+    <Compile Include="Environmental\Properties\EmitterProperties.cs" />
+    <Compile Include="Environmental\Properties\SpaceProperties.cs" />
+    <Compile Include="Environmental\Properties\SurfaceDataProperties.cs" />
+    <Compile Include="Environmental\Properties\Thermostat.cs" />
+    <Compile Include="Environmental\Properties\VentilationSystem.cs" />
+    <Compile Include="Geometry\Curve\Ellipse.cs" />
+    <Compile Include="Geometry\Curve\ICurve.cs" />
+    <Compile Include="Geometry\Math\IntegrationSlice.cs" />
+    <Compile Include="Geometry\Misc\BoundingBox.cs" />
+    <Compile Include="Geometry\Curve\Arc.cs" />
+    <Compile Include="Geometry\Curve\Circle.cs" />
+    <Compile Include="Geometry\Curve\Line.cs" />
+    <Compile Include="Geometry\Curve\NurbCurve.cs" />
+    <Compile Include="Geometry\Curve\PolyCurve.cs" />
+    <Compile Include="Geometry\Curve\Polyline.cs" />
+    <Compile Include="Geometry\Misc\CompositeGeometry.cs" />
+    <Compile Include="Geometry\Mesh\Face.cs" />
+    <Compile Include="Geometry\Mesh\Mesh.cs" />
+    <Compile Include="Geometry\Misc\Quaternion.cs" />
+    <Compile Include="Geometry\Misc\TransformMatrix.cs" />
+    <Compile Include="Geometry\Surface\Extrusion.cs" />
+    <Compile Include="Geometry\Surface\ISurface.cs" />
+    <Compile Include="Geometry\Surface\Loft.cs" />
+    <Compile Include="Geometry\Surface\Pipe.cs" />
+    <Compile Include="Geometry\Surface\Polysurface.cs" />
+    <Compile Include="Geometry\Surface\NurbSurface.cs" />
+    <Compile Include="Geometry\Misc\Tolerance.cs" />
+    <Compile Include="Geometry\Vector\Plane.cs" />
+    <Compile Include="Geometry\Vector\Point.cs" />
+    <Compile Include="Geometry\Vector\Vector.cs" />
+    <Compile Include="Base\Interface\IObject.cs" />
+    <Compile Include="Base\BHoMObject.cs" />
+    <Compile Include="Geometry\IBHoMGeometry.cs" />
+    <Compile Include="Base\BHoMGroup.cs" />
+    <Compile Include="Graphics\SVG\SVGDocument.cs" />
+    <Compile Include="Graphics\SVG\SVGObject.cs" />
+    <Compile Include="Graphics\SVG\SVGStyle.cs" />
+    <Compile Include="Humans\BodyParts\LeftFoot.cs" />
+    <Compile Include="Humans\BodyParts\LeftLowerLeg.cs" />
+    <Compile Include="Humans\BodyParts\LeftUpperLeg.cs" />
+    <Compile Include="Humans\BodyParts\LeftUpperArm.cs" />
+    <Compile Include="Humans\BodyParts\LeftLowerArm.cs" />
+    <Compile Include="Humans\BodyParts\LeftHip.cs" />
+    <Compile Include="Humans\BodyParts\RightFoot.cs" />
+    <Compile Include="Humans\BodyParts\RightHip.cs" />
+    <Compile Include="Humans\BodyParts\RightLowerLeg.cs" />
+    <Compile Include="Humans\BodyParts\RightUpperLeg.cs" />
+    <Compile Include="Humans\BodyParts\Spine.cs" />
+    <Compile Include="Humans\BodyParts\RightLowerArm.cs" />
+    <Compile Include="Humans\BodyParts\RightUpperArm.cs" />
+    <Compile Include="Humans\BodyParts\LeftShoulder.cs" />
+    <Compile Include="Humans\BodyParts\RightShoulder.cs" />
+    <Compile Include="Humans\BodyParts\Neck.cs" />
+    <Compile Include="Humans\BodyParts\RightThumb.cs" />
+    <Compile Include="Humans\BodyParts\LeftThumb.cs" />
+    <Compile Include="Humans\BodyParts\LeftHand.cs" />
+    <Compile Include="Humans\BodyParts\RightHand.cs" />
+    <Compile Include="Humans\BodyParts\Head.cs" />
+    <Compile Include="Humans\HandStateName.cs" />
+    <Compile Include="Humans\JointName.cs" />
+    <Compile Include="Humans\Skeleton.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Structural\Databases\CableSectionRow.cs" />
-    <Compile Include="Structural\Databases\MaterialRow.cs" />
-    <Compile Include="Structural\Databases\SteelSectionRow.cs" />
-    <Compile Include="Structural\Elements\Design\DesignElement.cs" />
-    <Compile Include="Structural\Elements\Design\Span.cs" />
-    <Compile Include="Structural\FileIO.cs" />
-    <Compile Include="Generic\Graph.cs" />
-    <Compile Include="Generic\GraphLink.cs" />
-    <Compile Include="Generic\GraphNode.cs" />
-    <Compile Include="Generic\PriorityQueue.cs" />
-    <Compile Include="Geometry\BoundingBox.cs" />
-    <Compile Include="Geometry\Curve\NurbCurve.cs" />
-    <Compile Include="Geometry\Group.cs" />
-    <Compile Include="Geometry\GeometryBase.cs" />
-    <Compile Include="Geometry\Intersect.cs" />
-    <Compile Include="Geometry\Quarternion.cs" />
-    <Compile Include="Geometry\Surface\Extrusion.cs" />
-    <Compile Include="Geometry\Surface\Loft.cs" />
-    <Compile Include="Geometry\Surface\Pipe.cs" />
-    <Compile Include="Geometry\Transform.cs" />
-    <Compile Include="Geometry\Utils.cs" />
-    <Compile Include="Geometry\Curve\Arc.cs" />
-    <Compile Include="Geometry\Curve\Circle.cs" />
-    <Compile Include="Geometry\Curve\Curve.cs" />
-    <Compile Include="Geometry\Curve\Line.cs" />
-    <Compile Include="Geometry\Curve\PolyCurve.cs" />
-    <Compile Include="Geometry\Curve\Polyline.cs" />
-    <Compile Include="Geometry\Mesh\Face.cs" />
-    <Compile Include="Geometry\Mesh\Mesh.cs" />
-    <Compile Include="Geometry\Surface\Brep.cs" />
-    <Compile Include="Geometry\Surface\PolySurface.cs" />
-    <Compile Include="Geometry\Surface\Surface.cs" />
-    <Compile Include="Geometry\Vector\Plane.cs" />
-    <Compile Include="Geometry\Vector\Point.cs" />
-    <Compile Include="Generic\PointMatrix.cs" />
-    <Compile Include="Geometry\Vector\Vector.cs" />
-    <Compile Include="Geometry\Vector\VectorUtils.cs" />
-    <Compile Include="Base\JSON.cs" />
-    <Compile Include="Global\Config\Config.cs" />
-    <Compile Include="Global\Config\MEPConfig.cs" />
-    <Compile Include="Global\Config\StructureConfig.cs" />
-    <Compile Include="Structural\Databases\Enums.cs" />
-    <Compile Include="Structural\Elements\FEFace.cs" />
-    <Compile Include="Structural\Elements\FEMesh.cs" />
+    <Compile Include="Queries\BatchQuery.cs" />
+    <Compile Include="Queries\CustomQuery.cs" />
+    <Compile Include="Queries\FilterQuery.cs" />
+    <Compile Include="Queries\IQuery.cs" />
+    <Compile Include="Structural\Design\DesignGroup.cs" />
+    <Compile Include="Structural\Design\StructuralLayout.cs" />
+    <Compile Include="Structural\Design\IDesignable.cs" />
+    <Compile Include="Structural\Design\Span.cs" />
+    <Compile Include="Structural\Design\SpanDirection.cs" />
+    <Compile Include="Structural\Elements\Column.cs" />
+    <Compile Include="Structural\Elements\Beam.cs" />
     <Compile Include="Structural\Elements\IAreaElement.cs" />
+    <Compile Include="Structural\Elements\MeshFace.cs" />
+    <Compile Include="Structural\Elements\Edge.cs" />
     <Compile Include="Structural\Elements\RigidLink.cs" />
-    <Compile Include="Structural\Application.cs" />
-    <Compile Include="Structural\Interface\ICommandAdapter.cs" />
-    <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
-    <Compile Include="Structural\Interface\IElementAdapter.cs" />
-    <Compile Include="Base\Object.cs" />
-    <Compile Include="Base\ObjectFilter.cs" />
-    <Compile Include="Base\ObjectManager.cs" />
-    <Compile Include="Global\Project.cs" />
-    <Compile Include="Base\Utils.cs" />
-    <Compile Include="Planning\Construction\ConstructionPhase.cs" />
-    <Compile Include="Planning\IPhase.cs" />
+    <Compile Include="Common\Planning\Construction\ConstructionPhase.cs" />
+    <Compile Include="Common\Planning\IPhase.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Structural\Elements\Grid.cs" />
     <Compile Include="Structural\Elements\Opening.cs" />
-    <Compile Include="Structural\Elements\Panel.cs" />
-    <Compile Include="Structural\Elements\SuperBar.cs" />
-    <Compile Include="HumanBody\BodyParts.cs" />
-    <Compile Include="HumanBody\Skeleton.cs" />
-    <Compile Include="Materials\Material.cs" />
-    <Compile Include="Materials\MaterialEnums.cs" />
+    <Compile Include="Structural\Elements\PanelFreeForm.cs" />
+    <Compile Include="Common\Materials\Material.cs" />
+    <Compile Include="Common\Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structural\Interface\ICommandAdapter.cs" />
+    <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
+    <Compile Include="Structural\Interface\IElementAdapter.cs" />
+    <Compile Include="Structural\Interface\IResultAdapter.cs" />
+    <Compile Include="Structural\Loads\AreaTemperatureLoad.cs" />
+    <Compile Include="Structural\Loads\AreaUniformalyDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\BarPrestressLoad.cs" />
+    <Compile Include="Structural\Loads\BarTemperatureLoad.cs" />
+    <Compile Include="Structural\Loads\BarUniformlyDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\BarVaryingDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\GeometricalLineLoad.cs" />
     <Compile Include="Structural\Loads\GravityLoad.cs" />
-    <Compile Include="Structural\ModelTracker\BarTracker.cs" />
-    <Compile Include="Structural\Properties\Constraints\BarConstraint.cs" />
-    <Compile Include="Structural\Properties\Constraints\DegreeOfFreedom.cs" />
+    <Compile Include="Structural\Loads\ICase.cs" />
+    <Compile Include="Structural\Loads\ILoad.cs" />
+    <Compile Include="Structural\Loads\PointAcceleration.cs" />
+    <Compile Include="Structural\Loads\PointDisplacement.cs" />
+    <Compile Include="Structural\Loads\PointVelocity.cs" />
+    <Compile Include="Structural\Properties\Constraints\Constraint4DOF.cs" />
+    <Compile Include="Structural\Properties\Constraints\LinkageType.cs" />
     <Compile Include="Structural\Properties\Constraints\LinkConstraint.cs" />
-    <Compile Include="Structural\Properties\Constraints\NodeConstraint.cs" />
+    <Compile Include="Structural\Properties\Constraints\Constraint6DOF.cs" />
     <Compile Include="Structural\Elements\Storey.cs" />
     <Compile Include="Structural\Elements\Bar.cs" />
-    <Compile Include="Structural\Elements\Face.cs" />
+    <Compile Include="Structural\Elements\PanelPlanar.cs" />
     <Compile Include="Structural\Elements\Node.cs" />
     <Compile Include="Structural\Properties\Constraints\BarRelease.cs" />
     <Compile Include="Structural\Properties\Constraints\SurfaceConstraint.cs" />
     <Compile Include="Structural\Properties\Enums.cs" />
     <Compile Include="Structural\Properties\Offset.cs" />
     <Compile Include="Structural\Elements\Enums.cs" />
-    <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCBeam.cs" />
-    <Compile Include="Structural\DesignCodes\Eurocode\ElementDesign\Structural_RCColumn.cs" />
-    <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_EquivalentStatic.cs" />
-    <Compile Include="Structural\DesignCodes\Eurocode\Seismic\Structural_ResponseSpectrum.cs" />
-    <Compile Include="Structural\Loads\AreaLoads.cs" />
-    <Compile Include="Structural\Loads\BarLoad.cs" />
-    <Compile Include="Structural\Loads\GeometryLoad.cs" />
+    <Compile Include="Structural\Loads\AreaVaryingDistributedLoad.cs" />
+    <Compile Include="Structural\Loads\BarPointLoad.cs" />
+    <Compile Include="Structural\Loads\GeometricalAreaLoad.cs" />
     <Compile Include="Structural\Loads\Load.cs" />
     <Compile Include="Structural\Loads\Loadcase.cs" />
     <Compile Include="Structural\Loads\Loadcombination.cs" />
     <Compile Include="Structural\Loads\LoadEnums.cs" />
-    <Compile Include="Structural\Loads\NodeLoad.cs" />
+    <Compile Include="Structural\Loads\PointForce.cs" />
     <Compile Include="Structural\Properties\Panel Properties\LoadingPanel.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\ConstantThickness.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\ConcreteRibbed.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\ConcreteWaffle.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\PanelDirection.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\PanelType.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\PanelModifier.cs" />
     <Compile Include="Structural\Properties\Section Properties\CableSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\CompositeSection.cs" />
     <Compile Include="Structural\Properties\Section Properties\ConcreteSection.cs" />
-    <Compile Include="Structural\Properties\Section Properties\ExplicitSectionProperty.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ExplicitSection.cs" />
+    <Compile Include="Structural\Properties\Section Properties\IGeometricalSection.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\PolygonDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\StandardAngleSectionDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\FabricatedBoxDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\FabricatedISectionDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\RectangleSectionDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\StandardBoxDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\ISectionDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\CircleDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\StandardChannelSectionDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\StandardISectionDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\StandardTeeSectionDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\StandardZedSectionDimensions.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ToBeDeleted\DimensionSectionProperty.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ToBeDeleted\ExplicitSectionProperty.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ToBeDeleted\FreeFormSectionProperty.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ISectionProperty.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ToBeDeleted\IGeometricalPropertyDefinition.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ToBeDeleted\IPropertyDefinition.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Reinforcement\LayerReinforcement.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Reinforcement\PerimeterReinforcement.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Reinforcement\Reinforcement.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Reinforcement\ReinforcementEnums.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Reinforcement\TieReinforcement.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ToBeDeleted\SectionConstants.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ToBeDeleted\SectionDimensions.cs" />
     <Compile Include="Structural\Properties\Section Properties\SteelSection.cs" />
-    <Compile Include="Structural\Results\Bar Forces\BarForceEnvelope.cs" />
-    <Compile Include="Structural\Results\Bar Forces\BarForce.cs" />
-    <Compile Include="Structural\Interface\IResultAdapter.cs" />
-    <Compile Include="Base\Results\ResultServer.cs" />
-    <Compile Include="Structural\Results\Bar Forces\BarStress.cs" />
-    <Compile Include="Structural\Results\Bar Forces\CompositeUtilisation.cs" />
-    <Compile Include="Structural\Results\Bar Forces\SteelUtilisation.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Section Dimensions\TubeDimensions.cs" />
+    <Compile Include="Structural\Results\Bar Results\BarForce.cs" />
+    <Compile Include="Structural\Results\Bar Results\BarStress.cs" />
+    <Compile Include="Structural\Results\Bar Results\CompositeUtilisation.cs" />
+    <Compile Include="Structural\Results\Bar Results\SteelUtilisation.cs" />
     <Compile Include="Structural\Results\BarDeformation\BarDeformation.cs" />
     <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
-    <Compile Include="Structural\Results\Geometry\BarCoordinates.cs" />
-    <Compile Include="Structural\Results\Geometry\NodeCoordinates.cs" />
-    <Compile Include="Structural\Results\Global Results\GlobalResult.cs" />
-    <Compile Include="Structural\Results\Nodal Results\NodalResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeAcceleration.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeDisplacement.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeForce.cs" />
-    <Compile Include="Structural\Properties\Section Properties\SectionCalculator.cs" />
-    <Compile Include="Base\Data\SQLAccessor.cs" />
-    <Compile Include="Structural\Properties\Section Properties\ShapeBuilder.cs" />
-    <Compile Include="Structural\Properties\Section Properties\SectionProperty.cs" />
-    <Compile Include="Structural\Properties\Panel Properties\PanelProperty.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Enum.cs" />
+    <Compile Include="Structural\Properties\Section Properties\ToBeDeleted\SectionProperty.cs" />
+    <Compile Include="Structural\Properties\Panel Properties\Property2D.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeVelocity.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelForce.cs" />
     <Compile Include="Structural\Results\Panel Results\PanelStress.cs" />
     <Compile Include="Structural\Results\Reinforcement Results\SlabReinforcement.cs" />
     <Compile Include="Structural\Results\Result.cs" />
-    <Compile Include="Structural\Results\StructuralResultServer.cs" />
+    <Compile Include="Structural\Results\Enums.cs" />
+    <Compile Include="Structural\Interface\IResult.cs" />
+    <Compile Include="Structural\Interface\IResultSet.cs" />
+    <Compile Include="DataStructure\VennDiagram.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cities\" />
-    <Folder Include="Structural\DesignCodes\Eurocode\Wind\" />
+    <Folder Include="Common\Physical\" />
+    <Folder Include="Common\Planning\Project\" />
+    <Folder Include="MachineLearning\Sound\" />
+    <Folder Include="MachineLearning\Text\" />
+    <Folder Include="MachineLearning\Video\" />
+    <Folder Include="MEP\" />
+    <Folder Include="Structural\Results\Global Results\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -245,36 +314,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SteelSectionDB.txt" />
-    <None Include="Resources\MaterialDb.txt" />
-    <Content Include="Structural\Databases\Cables.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Structural\Databases\Cables_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Cables.mdf</DependentUpon>
-    </Content>
-    <Content Include="Structural\Databases\Materials.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Structural\Databases\Materials_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Materials.mdf</DependentUpon>
-    </Content>
-    <Content Include="Structural\Databases\SteelSections.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Structural\Databases\SteelSections_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SteelSections.mdf</DependentUpon>
-    </Content>
     <None Include="Structural\Properties\Section Properties\Bar.json" />
   </ItemGroup>
   <ItemGroup>
@@ -285,8 +330,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>MKDir "C:\Users\$(Username)\AppData\Roaming\BHoM\Structural\Databases"
-Copy "$(TargetDir)Structural\Databases" "C:\Users\$(Username)\AppData\Roaming\BHoM\Structural\Databases"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

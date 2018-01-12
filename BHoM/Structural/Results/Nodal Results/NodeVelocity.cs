@@ -1,11 +1,6 @@
-﻿using BHoM.Base.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace BHoM.Structural.Results
+namespace BH.oM.Structural.Results
 {
     public class NodeVelocity : NodeVelocity<int, int, int>
     {
@@ -19,21 +14,6 @@ namespace BHoM.Structural.Results
          where TName : IComparable
          where TLoadcase : IComparable
          where TTimeStep : IComparable
-    {
-        public override string[] ColumnHeaders
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override ResultType ResultType
-        {
-            get
-            {
-                return ResultType.NodeVelocity;
-            }
-        }
-    }
+    { }
+    
 }

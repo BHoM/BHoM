@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BHoM.Structural.Properties
+﻿namespace BH.oM.Structural.Properties
 {
+    /***************************************************/
 
     /// <summary>Section classification</summary>
     public enum SectionClass
@@ -21,6 +16,8 @@ namespace BHoM.Structural.Properties
         /// <summary>Not known</summary>
         unknown,
     }
+
+    /***************************************************/
 
     /// <summary>Axis direction for any application (loads, results, geometry
     /// all cartesian coordinate systems follow the right hand rule</summary>
@@ -39,6 +36,8 @@ namespace BHoM.Structural.Properties
         /// <summary>Clockwise rotation about Z-Axis looking in positive Z direction</summary>
         ZZ = 5
     }
+
+    /***************************************************/
 
     /// <summary>
     /// Enumerator of types of degrees of freedom
@@ -75,6 +74,8 @@ namespace BHoM.Structural.Properties
         Gap = 13
     }
 
+    /***************************************************/
+
     /// <summary>Constraint type</summary>
     public enum ConstraintType
     {
@@ -87,4 +88,6 @@ namespace BHoM.Structural.Properties
         /// <summary>Compatibility (e.g. compatible nodes)</summary>
         Compatibility
     }
+
+    /***************************************************/
 }

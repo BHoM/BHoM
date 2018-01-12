@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BHoM.Structural.Loads
+﻿namespace BH.oM.Structural.Loads
 {
+    /***************************************************/
+
     public enum CaseType
     {
         Simple = 0,
@@ -13,6 +9,8 @@ namespace BHoM.Structural.Loads
         Combination,
         Envelope
     }
+
+    /***************************************************/
 
     public enum LoadNature
     {
@@ -27,6 +25,8 @@ namespace BHoM.Structural.Loads
         Prestress,
         Other
     }
+
+    /***************************************************/
 
     public enum LoadType
     {
@@ -46,4 +46,14 @@ namespace BHoM.Structural.Loads
         Pressure,
         Geometrical
     }
+
+    /***************************************************/
+
+    public enum LoadAxis 
+    {
+        Global,
+        Local,
+    }
+
+    /***************************************************/
 }
