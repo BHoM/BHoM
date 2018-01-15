@@ -2,11 +2,8 @@
 
 namespace BH.oM.Structural.Results
 {
-
-
-    public class BarForce : BarResult
+    public class NodeReaction : NodeResult
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/

@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Base;
 
 namespace BH.oM.Structural.Results
 {
-
-
-    public class BarForce : BarResult
+    public class GlobalReactions : StructuralGlobalResult
     {
 
         /***************************************************/
@@ -17,11 +20,16 @@ namespace BH.oM.Structural.Results
 
         public double FZ { get; set; } = 0.0;
 
+        public double FTot { get; set; } = 0.0;
+
         public double MX { get; set; } = 0.0;
 
         public double MY { get; set; } = 0.0;
 
         public double MZ { get; set; } = 0.0;
+
+        public double MTot { get; set; } = 0.0;
+
 
     }
 }
