@@ -7,7 +7,7 @@ using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environmental.Elements_Legacy
 {
     /// <summary>
     /// Thermostat object for environmental models.

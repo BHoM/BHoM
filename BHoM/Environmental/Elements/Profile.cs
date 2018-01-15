@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environmental.Interface;
 
-namespace BH.oM.Environmental.Properties
+namespace BH.oM.Environmental.Elements
 {
-    public class EmitterProperties : BHoMObject, IEquipmentProperties
+    public class Profile : BHoMObject
     {
     }
 }

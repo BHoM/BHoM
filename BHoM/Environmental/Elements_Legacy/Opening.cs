@@ -1,7 +1,7 @@
 ﻿using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environmental.Elements_Legacy
 {
     public class Opening : BHoMObject
     {

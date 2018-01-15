@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Environmental.Interface;
-using BH.oM.Environmental.Properties;
 using BH.oM.Structural.Elements;
 
 namespace BH.oM.Environmental.Elements
 {
-    public class BuildingElement : BHoMObject, IBuildingObject
+    public abstract class Equipment : BHoMObject, IBuildingObject
     {
         public Storey Storey;
-        public BuildingElementProperties BuildingElementProperties { get; set; } = new BuildingElementProperties();
-        public IBuildingElementGeometry BuildingElementGeometry;
+        public abstract IEquipmentProperties EquipmentProperties { get; set; }
     }
 }

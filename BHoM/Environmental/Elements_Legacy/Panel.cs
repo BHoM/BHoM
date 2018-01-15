@@ -7,9 +7,9 @@ using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 using BHE = BH.oM.Environmental;
-using BHEP = BH.oM.Environmental.Properties;
+using BHEP = BH.oM.Environmental.Properties_Legacy;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environmental.Elements_Legacy
 {
     /// <summary>
     /// PanelPlanar object for environmental models.
@@ -26,7 +26,7 @@ namespace BH.oM.Environmental.Elements
         public Polyline Edges { get; set; } = new Polyline();
         public List<Opening> Openings { get; set; } = new List<Opening>();
         public BHEP.SurfaceDataProperties SurfaceData { get; set; } = new BHEP.SurfaceDataProperties();
-        public BHE.Elements.BuildingElement BuildingElements { get; set; } = new BHE.Elements.BuildingElement();
+        public BHE.Elements_Legacy.BuildingElement BuildingElements { get; set; } = new BHE.Elements_Legacy.BuildingElement();
         public BHEP.CFDProperties CDFProperties { get; set; } = new BHEP.CFDProperties();
         
                        
@@ -39,7 +39,7 @@ namespace BH.oM.Environmental.Elements
 
         /***************************************************/
 
-        public Panel(Polyline edges, List<Opening> openings, string type, BHEP.SurfaceDataProperties surfaceData, BHE.Elements.BuildingElement buildingElements, BHEP.CFDProperties cdfProperties)
+        public Panel(Polyline edges, List<Opening> openings, string type, BHEP.SurfaceDataProperties surfaceData, BHE.Elements_Legacy.BuildingElement buildingElements, BHEP.CFDProperties cdfProperties)
         {
             Edges = edges;
             Openings = openings;
