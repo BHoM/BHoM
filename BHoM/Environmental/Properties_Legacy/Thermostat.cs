@@ -7,32 +7,25 @@ using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.Environmental.Properties
+namespace BH.oM.Environmental.Properties_Legacy
 {
     /// <summary>
-    /// Ventilation System Properties
+    /// Thermostat Properties
     /// </summary>
-  
-    class VentilationSystem : BHoMObject
+    class Thermostat : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double VentSystem_dh { get; set; } = 0.0;
-        public double VentSystem_dT { get; set; } = 0.0;
-        public double VentSystem_supplyT { get; set; } = 0.0;
-        public string VentSystemComments { get; set; } = "";
-        public double VentSystemOSA_TSA { get; set; } = 0.0;
-        public string VentSystemType { get; set; } = "";
-        public string VentSystemTypeDIN { get; set; } = "";
+        public double ThermostatControlRange { get; set; } = 0; //this is Temp 0 degC as default
+        public bool ThermostatProportionalControl { get; set; } = false;
 
-
+        
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public VentilationSystem() { }
- 
+        public Thermostat() { }
     }
 }

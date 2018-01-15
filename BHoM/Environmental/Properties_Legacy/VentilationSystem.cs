@@ -7,30 +7,32 @@ using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.Environmental.Properties
+namespace BH.oM.Environmental.Properties_Legacy
 {
     /// <summary>
-    /// Building Properties
+    /// Ventilation System Properties
     /// </summary>
-    
-    public class BuildingProperties : BHoMObject
+  
+    class VentilationSystem : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double AirPermeability { get; set; } = 0.0;
-        public string Country { get; set; } = "";
-        public bool IsMainsGasAvailable { get; set; } = false;
-        public double PowerFactorCorrection { get; set; } = 0;
-        public double NorthAngle { get; set; } = 0.0;
-        
-              
+        public double VentSystem_dh { get; set; } = 0.0;
+        public double VentSystem_dT { get; set; } = 0.0;
+        public double VentSystem_supplyT { get; set; } = 0.0;
+        public string VentSystemComments { get; set; } = "";
+        public double VentSystemOSA_TSA { get; set; } = 0.0;
+        public string VentSystemType { get; set; } = "";
+        public string VentSystemTypeDIN { get; set; } = "";
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BuildingProperties() { }
+        public VentilationSystem() { }
+ 
     }
 }

@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using BH.oM.Environmental.Interface;
 
-namespace BH.oM.Environmental.Properties
+namespace BH.oM.Environmental.Elements
 {
-    public class EmitterProperties : BHoMObject, IEquipmentProperties
+    public class BuildingElementCurve : BHoMObject, IBuildingElementGeometry
     {
+        public ICurve ICurve;
     }
 }

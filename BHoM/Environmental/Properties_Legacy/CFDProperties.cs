@@ -7,7 +7,7 @@ using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.Environmental.Properties
+namespace BH.oM.Environmental.Properties_Legacy
 {
     /// <summary>
     /// Thermostat Properties

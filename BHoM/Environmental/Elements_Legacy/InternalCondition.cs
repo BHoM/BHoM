@@ -7,24 +7,27 @@ using BH.oM.Structural.Loads;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environmental.Elements_Legacy
 {
     /// <summary>
-    /// HeatingEmitter object for environmental models.
+    /// Internal Condition object for environmental models.
     /// </summary>
-    public class HeatingEmitter : BHoMObject
+    public class InternalCondition : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public HeatingEmitter() { }
+        public InternalCondition() { }
 
         /***************************************************/
+
+        
 
     }
 

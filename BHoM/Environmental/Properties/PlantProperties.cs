@@ -9,7 +9,7 @@ using BH.oM.Environmental.Interface;
 
 namespace BH.oM.Environmental.Properties
 {
-    public class EmitterProperties : BHoMObject, IEquipmentProperties
+    public class PlantProperties : BHoMObject, IEquipmentProperties
     {
     }
 }
