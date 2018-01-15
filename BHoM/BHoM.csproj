@@ -294,7 +294,6 @@
     <Compile Include="Structural\Results\Panel Results\PanelStress.cs" />
     <Compile Include="Structural\Results\Panel Results\SlabReinforcement.cs" />
     <Compile Include="Structural\Results\Global Results\StructuralGlobalResult.cs" />
-    <Compile Include="Structural\Results\StructuralObjectResult.cs" />
     <Compile Include="Structural\Results\Enums.cs" />
     <Compile Include="DataStructure\VennDiagram.cs" />
   </ItemGroup>
