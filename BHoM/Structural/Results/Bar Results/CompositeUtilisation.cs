@@ -2,27 +2,11 @@
 
 namespace BH.oM.Structural.Results
 {
-    public class CompositeUtilisation : CompositeUtilisation<string, string, string>
-    {
-        public CompositeUtilisation() : base()
-        { }
-
-        public CompositeUtilisation(string number, string loadcase, string timeStep) : base(number, loadcase, timeStep)
-        { }
-    }
-
-
-    public class CompositeUtilisation<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
-         where TName : IComparable
-         where TLoadcase : IComparable
-         where TTimeStep : IComparable
-    {
-
+    public class CompositeUtilisation : BarResult
+    { 
         public string MinorEffectiveLength { get; set; }
 
         public string MajorEffectiveLength { get; set; }
-
-        public int ForcePosition { get; set; }
 
         public int SteelClass { get; set; }
 
@@ -93,15 +77,6 @@ namespace BH.oM.Structural.Results
         /// </summary>
         public double BendingCompressionBucklingRatio { get; set; }
 
-        public CompositeUtilisation()
-        { }
-        
-        public CompositeUtilisation(TName number, TLoadcase loadcase, TTimeStep timeStep) : this()
-        {
-            Name = number;
-            Loadcase = loadcase;
-            TimeStep = timeStep;
-            Id = number + ":" + loadcase + ":" + timeStep;
-        }
+
     }
 }

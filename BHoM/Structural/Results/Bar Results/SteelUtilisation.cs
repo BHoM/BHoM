@@ -3,32 +3,14 @@
 namespace BH.oM.Structural.Results
 {
 
-    public class SteelUtilisation : SteelUtilisation<string, string, string>
-    {
-        public SteelUtilisation() : base()
-        { }
+    public class SteelUtilisation : BarResult
+    { 
 
-        public SteelUtilisation(string number, string loadcase, string timeStep) : base(number, loadcase, timeStep)
-        { }
-    }
-
-
-    public class SteelUtilisation<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
-         where TName : IComparable
-         where TLoadcase : IComparable
-         where TTimeStep : IComparable
-    {
         public string MajorEffectiveLength { get; set; }
 
         public string MinorEffectiveLength { get; set; }
 
 
-        /// <summary>
-        /// Buckling resistance.
-        /// EC:  EN1993-1-1: 6.3.3
-        /// </summary>
-        public int ForcePosition { get; set; }
-        
         public int Class { get; set; }
 
         /// <summary>
@@ -115,18 +97,7 @@ namespace BH.oM.Structural.Results
         /// EC:  EN1993-1-1: 6.3.3
         /// </summary>
         public double MinorUniformBendingCompressionRatio { get; set; }
-        
 
-        public SteelUtilisation()
-        { }
-
-        public SteelUtilisation(TName number, TLoadcase loadcase, TTimeStep timeStep) : this()
-        {
-            Name = number;
-            Loadcase = loadcase;
-            TimeStep = timeStep;
-            Id = number + ":" + loadcase + ":" + timeStep;
-        }
     }
 
 }

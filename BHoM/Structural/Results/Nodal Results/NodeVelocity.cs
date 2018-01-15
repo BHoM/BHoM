@@ -2,18 +2,23 @@
 
 namespace BH.oM.Structural.Results
 {
-    public class NodeVelocity : NodeVelocity<int, int, int>
+    public class NodeVelocity : NodeResult
     {
-        public NodeVelocity() : base() { }
-        public NodeVelocity(int number, int loadcase, int timeStep, double fx, double fy, double fz, double mx, double my, double mz)
-            //: base(number, loadcase, timeStep, fx, fy, fz, mx, my, mz)
-        { }
-    }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-    public class NodeVelocity<TName, TLoadcase, TTimeStep> : Result<TName, TLoadcase, TTimeStep>
-         where TName : IComparable
-         where TLoadcase : IComparable
-         where TTimeStep : IComparable
-    { }
-    
+        public double UX { get; set; } = 0.0;
+
+        public double UY { get; set; } = 0.0;
+
+        public double UZ { get; set; } = 0.0;
+
+        public double RX { get; set; } = 0.0;
+
+        public double RY { get; set; } = 0.0;
+
+        public double RZ { get; set; } = 0.0;
+
+    }
 }
