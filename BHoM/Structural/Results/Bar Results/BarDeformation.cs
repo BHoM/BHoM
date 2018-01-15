@@ -16,14 +16,11 @@ namespace BH.oM.Structural.Results
 
         public double UZ { get; set; } = 0.0;
 
-        public double UTot { get; set; } = 0.0;
-
         public double RX { get; set; } = 0.0;
 
         public double RY { get; set; } = 0.0;
 
         public double RZ { get; set; } = 0.0;
 
-        public double RTot { get; set; } = 0.0;
     }
 }
