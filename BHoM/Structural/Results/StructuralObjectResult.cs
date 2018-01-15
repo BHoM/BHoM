@@ -3,6 +3,7 @@
 
 //namespace BH.oM.Structural.Results
 //{
+//    public abstract class StructuralObjectResult : IObjectResult, IStructuralResult
 //    {
 
 //        /***************************************************/
