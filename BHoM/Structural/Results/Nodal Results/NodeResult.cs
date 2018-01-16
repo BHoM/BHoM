@@ -7,7 +7,7 @@ using BH.oM.Common;
 
 namespace BH.oM.Structural.Results
 {
-    public class NodeResult :  IStructuralResult
+    public abstract class NodeResult :  IStructuralResult
     {
         /***************************************************/
         /**** Properties                                ****/
