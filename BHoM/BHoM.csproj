@@ -304,7 +304,6 @@
     <Folder Include="MachineLearning\Text\" />
     <Folder Include="MachineLearning\Video\" />
     <Folder Include="MEP\" />
-    <Folder Include="Structural\Results\Reinforcement Results\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
