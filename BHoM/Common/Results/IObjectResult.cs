@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Base
+namespace BH.oM.Common
 {
-    public interface IResult
+    public interface IObjectResult : IResult
     {
-        string ModelDescription { get; set; }
+        string ObjectId { get; set; }
     }
 }
