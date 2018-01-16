@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Base
+namespace BH.oM.Common
 {
-    public interface IObjectResult : IResult
+    public interface IResult : IComparable<IResult>
     {
-        string ObjectId { get; set; }
+        string ModelDescription { get; set; }
     }
 }
