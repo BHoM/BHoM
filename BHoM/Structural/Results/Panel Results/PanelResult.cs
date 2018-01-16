@@ -40,8 +40,8 @@ namespace BH.oM.Structural.Results
                 int l = this.LoadCase.CompareTo(otherRes.LoadCase);
                 if (l == 0)
                 {
-                    int f = this.NodeId.CompareTo(otherRes.NodeId);
-                    return f == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : f;
+                    int t = this.TimeStep.CompareTo(otherRes.TimeStep);
+                    return t == 0 ? this.NodeId.CompareTo(otherRes.NodeId) : t;
                 }
                 else
                 {

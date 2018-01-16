@@ -33,10 +33,16 @@ namespace BH.oM.Structural.Results
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
 
-
-            int l = this.LoadCase.CompareTo(otherRes.LoadCase);
-            return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
-
+            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
+            if (n == 0)
+            {
+                int l = this.LoadCase.CompareTo(otherRes.LoadCase);
+                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+            }
+            else
+            {
+                return n;
+            }
 
         }
     }
