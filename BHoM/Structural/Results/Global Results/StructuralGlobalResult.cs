@@ -16,6 +16,8 @@ namespace BH.oM.Structural.Results
 
         public string ModelDescription { get; set; } = "";
 
+        public string ObjectId { get; set; } = "";
+
         public string LoadCase { get; set; } = "";
 
         public double TimeStep { get; set; } = 0.0;
