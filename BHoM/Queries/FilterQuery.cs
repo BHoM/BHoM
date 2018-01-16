@@ -35,9 +35,9 @@ namespace BH.oM.Queries
 
         /***************************************************/
 
-        public IEnumerable<BHoMObject> Filter(IEnumerable<BHoMObject> objects)
+        public IEnumerable<IObject> Filter(IEnumerable<IObject> objects)
         {
-            IEnumerable<BHoMObject> result = objects;
+            IEnumerable<IObject> result = objects;
 
             if (Tag != "")
                 result = objects.Where(x => x.Tags.Contains(Tag));
