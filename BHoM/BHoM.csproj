@@ -75,7 +75,6 @@
     <Compile Include="Architecture\Elements\Level.cs" />
     <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IImmutable.cs" />
-    <Compile Include="Common\Results\IObjectResult.cs" />
     <Compile Include="Common\Results\IResult.cs" />
     <Compile Include="DataStructure\Graph\Graph.cs" />
     <Compile Include="DataStructure\Graph\GraphLink.cs" />
