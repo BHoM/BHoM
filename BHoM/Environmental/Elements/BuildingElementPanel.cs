@@ -19,7 +19,7 @@ namespace BH.oM.Environmental.Elements
         // surface properies of each invidual Building Element
 
         //Geometry
-        public PolyCurve PolyCurve;
+        public PolyCurve PolyCurve { get; set; } = new PolyCurve();
 
         //Detail Surface Results
         public double ApertureFlowIn { get; set; } = 0.0;

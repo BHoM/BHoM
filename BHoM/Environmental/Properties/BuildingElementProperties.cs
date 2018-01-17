@@ -12,11 +12,11 @@ namespace BH.oM.Environmental.Properties
     public class BuildingElementProperties : BHoMObject
     {
         public BuidingElementType BuildingElementType;
-        public double Thickness;
-        public double gValue;
-        public double gValueShading;
-        public double LtValue;
-        public double ThermalConductivity;
-        public double UValue;
+        public double Thickness { get; set; } = 0.0;
+        public double gValue { get; set; } = 0.0;
+        public double gValueShading { get; set; } = 0.0;
+        public double LtValue { get; set; } = 0.0;
+        public double ThermalConductivity { get; set; } = 0.0;
+        public double UValue { get; set; } = 0.0;
     }
 }
