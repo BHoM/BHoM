@@ -6,24 +6,15 @@ using System.Threading.Tasks;
 
 using BH.oM.Environmental.Interface;
 using BH.oM.Environmental.Properties;
+using BH.oM.Base;
+using BH.oM.Structural.Elements;
 
 namespace BH.oM.Environmental.Elements
 {
-    public class AirHandlingUnit : Equipment
+    public class AirHandlingUnit : BHoMObject, IEquipment
     {
-        public AirHandlingUnitProperties AHUProperties;
+        public AirHandlingUnitProperties AirHandlingUnitProperties;
 
-        public override IEquipmentProperties EquipmentProperties
-        {
-            get
-            {
-                return AHUProperties;
-            }
-
-            set
-            {
-                AHUProperties = value as AirHandlingUnitProperties;
-            }
-        }
+        public Storey Storey { get; set; } = new Storey();
     }
 }

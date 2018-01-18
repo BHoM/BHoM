@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Environmental.Interface;
-using BH.oM.Structural.Elements;
 
 namespace BH.oM.Environmental.Elements
 {
-    public abstract class Equipment : BHoMObject, IBuildingObject
+    public class ConstructionLayer: BHoMObject
     {
-        public Storey Storey;
-        public abstract IEquipmentProperties EquipmentProperties { get; set; }
+        public IMaterial Material { get; set; }
+        public double Thickness { get; set; } = 0.0;
     }
 }
