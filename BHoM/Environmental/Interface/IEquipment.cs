@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Geometry;
+using BH.oM.Environmental.Interface;
+using BH.oM.Structural.Elements;
 
 namespace BH.oM.Environmental.Interface
 {
-    public interface IBuildingElementGeometry : IObject
+    public interface IEquipment : IBuildingObject
     {
-        ICurve Curve { get; }
+        Storey Storey { get; set; }
     }
 }

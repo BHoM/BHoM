@@ -10,5 +10,6 @@ namespace BH.oM.Environmental.Elements
 {
     public class Profile : BHoMObject
     {
+
     }
 }

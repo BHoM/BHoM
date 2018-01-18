@@ -13,4 +13,11 @@ namespace BH.oM.Environmental.Elements
         Floor,
         Ceiling
     }
+
+    public enum MaterialType
+    {
+        Gas,
+        Transparent,
+        Opaque
+    }
 }

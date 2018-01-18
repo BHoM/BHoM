@@ -18,7 +18,7 @@ namespace BH.oM.Environmental.Elements
         public double Elevation { get; set; } = 0.0;
 
         public Point Location { get; set; } = new Point();
-        public List<Equipment> Equipments { get; set; } = new List<Equipment>();
+        public List<IEquipment> Equipments { get; set; } = new List<IEquipment>();
         public List<Space> Spaces { get; set; } = new List<Space>();
         public List<Storey> Storeys { get; set; } = new List<Storey>();
         public List<Profile> Profiles { get; set; } = new List<Profile>();

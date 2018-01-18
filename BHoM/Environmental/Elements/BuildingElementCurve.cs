@@ -12,6 +12,6 @@ namespace BH.oM.Environmental.Elements
 {
     public class BuildingElementCurve : BHoMObject, IBuildingElementGeometry
     {
-        public ICurve ICurve;
+        public ICurve Curve { get; set; } = new Line();
     }
 }
