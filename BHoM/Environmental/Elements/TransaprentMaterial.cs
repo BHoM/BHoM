@@ -9,7 +9,7 @@ using BH.oM.Environmental.Interface;
 
 namespace BH.oM.Environmental.Elements
 {
-    public class TransaprentMaterial : BHoMObject, IMaterial
+    public class TransparentMaterial : BHoMObject, IMaterial
     {
         public MaterialType MaterialType { get; set; }
         public string Description { get; set; }
