@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Environmental.Interface;
 using BH.oM.Environmental.Properties;
+using BH.oM.Environmental.Interface;
 using BH.oM.Base;
 using BH.oM.Structural.Elements;
 
 namespace BH.oM.Environmental.Elements
 {
-    public class AirHandlingUnit : BHoMObject, IEquipment
+    public class Emitter : BHoMObject, IEquipment
     {
-        public AirHandlingUnitProperties AirHandlingUnitProperties;
-
+        public EmitterProperties EmitterProperties { get; set; } = new EmitterProperties();
         public Storey Storey { get; set; } = new Storey();
     }
 }

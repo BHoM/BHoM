@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Environmental.Interface;
+using BH.oM.Structural.Elements;
 
-namespace BH.oM.Environmental.Properties
+namespace BH.oM.Environmental.Interface
 {
-    public class EmitterProperties : BHoMObject, IEquipmentProperties
+    public interface IEquipment : IBuildingObject
     {
+        Storey Storey { get; set; }
     }
 }

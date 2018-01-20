@@ -1,24 +1,25 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Base;
-using BHE = BH.oM.Environmental.Elements;
-using System;
-using System.Reflection;
-using BH.oM.Structural.Loads;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Environmental.Properties
+using BH.oM.Environmental.Properties;
+using BH.oM.Geometry;
+using BH.oM.Base;
+using BH.oM.Environmental.Interface;
+
+namespace BH.oM.Environmental.Elements
 {
-    /// <summary>
-    /// Thermostat Properties
-    /// </summary>
-    
-    public class SurfaceDataProperties : BHoMObject
+    public class BuildingElementPanel : BHoMObject, IBuildingElementGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         // surface properies of each invidual Building Element
+
+        //Geometry
+        public PolyCurve PolyCurve { get; set; } = new PolyCurve();
 
         //Detail Surface Results
         public double ApertureFlowIn { get; set; } = 0.0;
@@ -40,12 +41,13 @@ namespace BH.oM.Environmental.Properties
 
         //boolean to toggle detail surface output
         public bool SurfaceOutput { get; set; } = true;
-        
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public SurfaceDataProperties() { }
+        public ICurve Curve
+        {
+            get
+            {
+                return PolyCurve;
+            }
+        }
     }
 }
