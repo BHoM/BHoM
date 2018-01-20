@@ -22,7 +22,7 @@ namespace BH.oM.Base
         /**** Public Local Methods                      ****/
         /***************************************************/
 
-        public BHoMObject GetShallowClone(bool newGuid = false)
+        public IObject GetShallowClone(bool newGuid = false)
         {
             BHoMObject obj = (BHoMObject)this.MemberwiseClone();
             obj.CustomData = new Dictionary<string, object>(CustomData);

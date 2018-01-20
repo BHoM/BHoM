@@ -12,5 +12,7 @@ namespace BH.oM.Base
         HashSet<string> Tags { get; set; }
 
         Dictionary<string, object> CustomData { get; set; }
+
+        IObject GetShallowClone(bool newGuid = false);
     }
 }
