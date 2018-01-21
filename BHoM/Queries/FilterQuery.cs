@@ -27,7 +27,7 @@ namespace BH.oM.Queries
 
         /***************************************************/
 
-        public FilterQuery(Type type, string tag = "")
+        public FilterQuery(Type type = null, string tag = "")
         {
             Type = type;
             Tag = tag;
