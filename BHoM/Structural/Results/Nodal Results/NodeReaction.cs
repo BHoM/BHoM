@@ -20,5 +20,6 @@ namespace BH.oM.Structural.Results
 
         public double MZ { get; set; } = 0.0;
 
+        /***************************************************/
     }
 }

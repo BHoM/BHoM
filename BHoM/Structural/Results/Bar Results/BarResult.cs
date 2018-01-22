@@ -23,7 +23,6 @@ namespace BH.oM.Structural.Results
 
         public int Divisions { get; set; } = 1;
 
-
         /***************************************************/
         /**** IComparable Interface                     ****/
         /***************************************************/
@@ -55,6 +54,8 @@ namespace BH.oM.Structural.Results
             }
 
         }
+
+        /***************************************************/
 
     }
 }

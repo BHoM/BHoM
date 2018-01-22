@@ -23,5 +23,7 @@ namespace BH.oM.Structural.Results
         public double VX { get; set; } = 0.0;
 
         public double VY { get; set; } = 0.0;
+
+        /***************************************************/
     }
 }

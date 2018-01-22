@@ -8,10 +8,16 @@ namespace BH.oM.Common
 {
     public interface IResult : IComparable<IResult>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         string ObjectId { get; set; }
 
         string Case { get; set; }
 
         double TimeStep { get; set; }
+
+        /***************************************************/
     }
 }

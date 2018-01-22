@@ -1,9 +1,7 @@
 ﻿using System;
 
-
 namespace BH.oM.Structural.Results
 {
-
     public class BarStress : BarResult
     {
         /***************************************************/
@@ -28,5 +26,6 @@ namespace BH.oM.Structural.Results
 
         public double CombAxialBendingNeg { get; set; } = 0.0;
 
+        /***************************************************/
     }
 }

@@ -9,10 +9,10 @@ namespace BH.oM.Structural.Results
 {
     public abstract class StructuralGlobalResult : IResult
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         public string ObjectId { get; set; } = "";
 
         public string Case { get; set; } = "";
@@ -42,5 +42,7 @@ namespace BH.oM.Structural.Results
             }
 
         }
+
+        /***************************************************/
     }
 }
