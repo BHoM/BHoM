@@ -280,10 +280,8 @@
     <Compile Include="Structural\Results\Bar Results\CompositeUtilisation.cs" />
     <Compile Include="Structural\Results\Bar Results\SteelUtilisation.cs" />
     <Compile Include="Structural\Results\Bar Results\BarDeformation.cs" />
-    <Compile Include="Structural\Results\Building Results\StoreyResult.cs" />
     <Compile Include="Structural\Results\Global Results\ModalDynamics.cs" />
     <Compile Include="Structural\Results\Global Results\GlobalReactions.cs" />
-    <Compile Include="Structural\Results\IStructuralResult.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeAcceleration.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeDisplacement.cs" />
     <Compile Include="Structural\Results\Nodal Results\NodeReaction.cs" />
@@ -308,6 +306,7 @@
     <Folder Include="MachineLearning\Text\" />
     <Folder Include="MachineLearning\Video\" />
     <Folder Include="MEP\" />
+    <Folder Include="Structural\Results\Building Results\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
