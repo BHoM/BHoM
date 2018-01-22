@@ -14,5 +14,7 @@ namespace BH.oM.Structural.Results
         public double Axial { get; set; }
 
         //TODO: Complete class with additional strains
+
+        /***************************************************/
     }
 }

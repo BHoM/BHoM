@@ -19,5 +19,7 @@ namespace BH.oM.Structural.Results
         public double RY { get; set; } = 0.0;
 
         public double RZ { get; set; } = 0.0;
+
+        /***************************************************/
     }
 }

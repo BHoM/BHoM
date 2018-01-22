@@ -16,7 +16,7 @@ namespace BH.oM.Structural.Results
 
         public double AYM { get; set; } = 0.0;
 
-
+        /***************************************************/
     }
 }
 

@@ -9,7 +9,6 @@ namespace BH.oM.Structural.Results
 {
     public class GlobalReactions : StructuralGlobalResult
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
@@ -30,6 +29,6 @@ namespace BH.oM.Structural.Results
 
         public double MTot { get; set; } = 0.0;
 
-
+        /***************************************************/
     }
 }

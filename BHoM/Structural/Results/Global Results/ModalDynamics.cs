@@ -34,5 +34,6 @@ namespace BH.oM.Structural.Results
 
         public double InertiaRatioZ { get; set; } = 0.0;
 
+        /***************************************************/
     }
 }

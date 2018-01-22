@@ -2,10 +2,8 @@
 
 namespace BH.oM.Structural.Results
 {
-
     public class BarDeformation : BarResult
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
@@ -22,5 +20,6 @@ namespace BH.oM.Structural.Results
 
         public double RZ { get; set; } = 0.0;
 
+        /***************************************************/
     }
 }
