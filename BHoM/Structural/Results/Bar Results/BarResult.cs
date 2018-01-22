@@ -7,17 +7,15 @@ using BH.oM.Common;
 
 namespace BH.oM.Structural.Results
 {
-    public abstract class BarResult : IStructuralResult
+    public abstract class BarResult : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public string ModelDescription { get; set; } = "";
-
         public string ObjectId { get; set; } = "";
 
-        public string LoadCase { get; set; } = "";
+        public string Case { get; set; } = "";
 
         public double TimeStep { get; set; } = 0.0;
 
@@ -40,7 +38,7 @@ namespace BH.oM.Structural.Results
             int n = this.ObjectId.CompareTo(otherRes.ObjectId);
             if (n == 0)
             {
-                int l = this.LoadCase.CompareTo(otherRes.LoadCase);
+                int l = this.Case.CompareTo(otherRes.Case);
                 if (l == 0)
                 {
                     int t = this.TimeStep.CompareTo(otherRes.TimeStep);
