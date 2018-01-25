@@ -12,9 +12,9 @@ namespace BH.oM.Structural.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Edge> ExternalEdges = new List<Edge>();
+        public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
 
-        public List<Opening> Openings = new List<Opening>();
+        public List<Opening> Openings { get; set; } = new List<Opening>();
 
         public Property2D Property { get; set; } = new ConstantThickness();      
 
