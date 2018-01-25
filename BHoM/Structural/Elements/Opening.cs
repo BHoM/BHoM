@@ -11,7 +11,7 @@ namespace BH.oM.Structural.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ICurve> Edges { get; set; } = new List<ICurve>();
+        public List<Edge> Edges { get; set; } = new List<Edge>();
 
 
         /***************************************************/
