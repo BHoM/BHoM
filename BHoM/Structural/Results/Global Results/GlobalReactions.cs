@@ -19,15 +19,11 @@ namespace BH.oM.Structural.Results
 
         public double FZ { get; set; } = 0.0;
 
-        public double FTot { get; set; } = 0.0;
-
         public double MX { get; set; } = 0.0;
 
         public double MY { get; set; } = 0.0;
 
         public double MZ { get; set; } = 0.0;
-
-        public double MTot { get; set; } = 0.0;
 
         /***************************************************/
     }
