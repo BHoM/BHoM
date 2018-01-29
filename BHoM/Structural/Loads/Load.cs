@@ -16,7 +16,7 @@ namespace BH.oM.Structural.Loads
 
         public Loadcase Loadcase { get; set; }
 
-        public List<T> Objects { get; set; } = new List<T>();
+        public BHoMGroup<T> Objects { get; set; } = new BHoMGroup<T>();
 
         public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
