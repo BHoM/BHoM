@@ -2,13 +2,13 @@
 
 namespace BH.oM.Base
 {
-    public class BHoMGroup : BHoMObject
+    public class BHoMGroup<T> : BHoMObject where T:IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<BHoMObject> Elements { get; set; } = new List<BHoMObject>();
+        public List<T> Elements { get; set; } = new List<T>();
 
 
         /***************************************************/
