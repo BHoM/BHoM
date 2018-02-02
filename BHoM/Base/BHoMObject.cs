@@ -26,6 +26,7 @@ namespace BH.oM.Base
         {
             BHoMObject obj = (BHoMObject)this.MemberwiseClone();
             obj.CustomData = new Dictionary<string, object>(CustomData);
+            obj.Tags = new HashSet<string>(obj.Tags);
             if (newGuid)
                 obj.BHoM_Guid = Guid.NewGuid();
             return obj;
