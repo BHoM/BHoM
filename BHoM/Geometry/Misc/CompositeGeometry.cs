@@ -9,7 +9,7 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMGeometry> Elements = new List<IBHoMGeometry>();
+        public List<IBHoMGeometry> Elements { get; set; } = new List<IBHoMGeometry>();
 
 
         /***************************************************/
