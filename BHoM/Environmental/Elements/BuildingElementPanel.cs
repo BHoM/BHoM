@@ -20,6 +20,7 @@ namespace BH.oM.Environmental.Elements
 
         //Geometry
         public PolyCurve PolyCurve { get; set; } = new PolyCurve();
+        public string Type { get; set; } = "";
 
         //Detail Surface Results
         public double ApertureFlowIn { get; set; } = 0.0;
