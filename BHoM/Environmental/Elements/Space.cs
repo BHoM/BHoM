@@ -20,7 +20,6 @@ namespace BH.oM.Environmental.Elements
         public Storey Storey;
         public Point Location { get; set; } = new Point();
         public List<BuildingElement> BuildingElements { get; set; } = new List<BuildingElement>();
-        public List<BuildingElementPanel> BuildingElementPanel { get; set; } = new List<BuildingElementPanel>();
         public List<IBuildingObject> BuildingObjects { get; set; } = new List<IBuildingObject>();
         public List<InternalCondition> InternalConditions { get; set; } = new List<InternalCondition>();
         public List<IEquipmentProperties> EquipmentProperties { get; set; } = new List<IEquipmentProperties>();

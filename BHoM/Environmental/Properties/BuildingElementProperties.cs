@@ -11,7 +11,7 @@ namespace BH.oM.Environmental.Properties
 {
     public class BuildingElementProperties : BHoMObject
     {
-        public BuidingElementType BuildingElementType;
+        public BuildingElementType BuildingElementType;
         public List<ConstructionLayer> ConstructionLayers { get; set; } = new List<ConstructionLayer>();
         public double Thickness { get; set; } = 0.0;
         public double gValue { get; set; } = 0.0;

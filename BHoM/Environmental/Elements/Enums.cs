@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Environmental.Elements
 {
-    public enum BuidingElementType
+    public enum BuildingElementType
     {
         Wall,
         Roof,

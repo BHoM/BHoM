@@ -8,11 +8,16 @@ using BH.oM.Geometry;
 using BH.oM.Base;
 using BH.oM.Structural.Elements;
 using BH.oM.Environmental.Interface;
+using BH.oM.Environmental.Properties;
 
 namespace BH.oM.Environmental.Elements
 {
     public class Building : BHoMObject, IBuilidng
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public double Latitude { get; set; } = 0.0;
         public double Longitude { get; set; } = 0.0;
         public double Elevation { get; set; } = 0.0;
@@ -24,5 +29,8 @@ namespace BH.oM.Environmental.Elements
         public List<Profile> Profiles { get; set; } = new List<Profile>();
         public List<InternalCondition> InternalConditions { get; set; } = new List<InternalCondition>();
         public List<IEquipmentProperties> EquipmentProperties { get; set; } = new List<IEquipmentProperties>();
+        public List<BuildingElementProperties> BuildingElementProperties { get; set; } = new List<BuildingElementProperties>();
+
+        /***************************************************/
     }
 }
