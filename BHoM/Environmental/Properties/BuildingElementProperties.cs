@@ -11,7 +11,11 @@ namespace BH.oM.Environmental.Properties
 {
     public class BuildingElementProperties : BHoMObject
     {
-        public BuildingElementType BuildingElementType;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public BuildingElementType BuildingElementType = BuildingElementType.Wall;
         public List<ConstructionLayer> ConstructionLayers { get; set; } = new List<ConstructionLayer>();
         public double Thickness { get; set; } = 0.0;
         public double gValue { get; set; } = 0.0;
@@ -19,5 +23,7 @@ namespace BH.oM.Environmental.Properties
         public double LtValue { get; set; } = 0.0;
         public double ThermalConductivity { get; set; } = 0.0;
         public double UValue { get; set; } = 0.0;
+
+        /***************************************************/
     }
 }

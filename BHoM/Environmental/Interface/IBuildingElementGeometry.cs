@@ -11,6 +11,12 @@ namespace BH.oM.Environmental.Interface
 {
     public interface IBuildingElementGeometry : IObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         ICurve Curve { get; }
+
+        /***************************************************/
     }
 }

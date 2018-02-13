@@ -13,8 +13,14 @@ namespace BH.oM.Environmental.Elements
 {
     public class BuildingElement : BHoMObject, IBuildingObject
     {
-        public Storey Storey;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public Storey Storey { get; set; } = new Storey();
         public BuildingElementProperties BuildingElementProperties { get; set; } = new BuildingElementProperties();
-        public IBuildingElementGeometry BuildingElementGeometry;
+        public IBuildingElementGeometry BuildingElementGeometry { get; set; } = new BuildingElementPanel();
+
+        /***************************************************/
     }
 }

@@ -13,7 +13,13 @@ namespace BH.oM.Environmental.Elements
 {
     public class Emitter : BHoMObject, IEquipment
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public EmitterProperties EmitterProperties { get; set; } = new EmitterProperties();
         public Storey Storey { get; set; } = new Storey();
+
+        /***************************************************/
     }
 }

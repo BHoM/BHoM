@@ -50,5 +50,7 @@ namespace BH.oM.Environmental.Elements
                 return PolyCurve;
             }
         }
+
+        /***************************************************/
     }
 }
