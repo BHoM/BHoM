@@ -11,18 +11,31 @@ namespace BH.oM.Environmental.Elements
 {
     public class TransparentMaterial : BHoMObject, IMaterial
     {
-        public MaterialType MaterialType { get; set; }
-        public string Description { get; set; }
-        public double Thickness { get; set; }
-        public double Conductivity { get; set; }
-        public double VapourDiffusionFactor { get; set; }
-        public double SolarTransmittance { get; set; }
-        public double SolarReflectanceExternal { get; set; }
-        public double SolarReflectanceInternal { get; set; }
-        public double LightTransmittance { get; set; }
-        public double LightReflectanceExternal { get; set; }
-        public double LightReflectanceInternal { get; set; }
-        public double EmissivityInternal { get; set; }
-        public double EmissivityExternal { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public MaterialType MaterialType
+        {
+            get
+            {
+                return MaterialType.Opaque;
+            }
+        }
+
+        public string Description { get; set; } = string.Empty;
+        public double Thickness { get; set; } = 0.0;
+        public double Conductivity { get; set; } = 0.0;
+        public double VapourDiffusionFactor { get; set; } = 0.0;
+        public double SolarTransmittance { get; set; } = 0.0;
+        public double SolarReflectanceExternal { get; set; } = 0.0;
+        public double SolarReflectanceInternal { get; set; } = 0.0;
+        public double LightTransmittance { get; set; } = 0.0;
+        public double LightReflectanceExternal { get; set; } = 0.0;
+        public double LightReflectanceInternal { get; set; } = 0.0;
+        public double EmissivityInternal { get; set; } = 0.0;
+        public double EmissivityExternal { get; set; } = 0.0;
+
+        /***************************************************/
     }
 }

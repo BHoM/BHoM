@@ -13,8 +13,14 @@ namespace BH.oM.Environmental.Elements
 {
     public class AirHandlingUnit : BHoMObject, IEquipment
     {
-        public AirHandlingUnitProperties AirHandlingUnitProperties;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public AirHandlingUnitProperties AirHandlingUnitProperties { get; set; } = new AirHandlingUnitProperties();
 
         public Storey Storey { get; set; } = new Storey();
+
+        /***************************************************/
     }
 }

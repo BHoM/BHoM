@@ -11,7 +11,13 @@ namespace BH.oM.Environmental.Elements
 {
     public class ConstructionLayer: BHoMObject
     {
-        public IMaterial Material { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public IMaterial Material { get; set; } = new OpaqueMaterial();
         public double Thickness { get; set; } = 0.0;
+
+        /***************************************************/
     }
 }

@@ -11,7 +11,13 @@ namespace BH.oM.Environmental.Elements
 {
     public class InternalCondition : BHoMObject
     {
-        public EmitterProperties EmitterProperties;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public EmitterProperties EmitterProperties = new EmitterProperties();
         public List<Profile> Profiles { get; set; } = new List<Profile>();
+
+        /***************************************************/
     }
 }

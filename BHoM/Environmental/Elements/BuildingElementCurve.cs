@@ -12,6 +12,12 @@ namespace BH.oM.Environmental.Elements
 {
     public class BuildingElementCurve : BHoMObject, IBuildingElementGeometry
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         public ICurve Curve { get; set; } = new Line();
+
+        /***************************************************/
     }
 }
