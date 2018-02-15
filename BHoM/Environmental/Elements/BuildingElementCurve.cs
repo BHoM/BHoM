@@ -18,6 +18,5 @@ namespace BH.oM.Environmental.Elements
 
         public ICurve Curve { get; set; } = new Line();
 
-        /***************************************************/
     }
 }
