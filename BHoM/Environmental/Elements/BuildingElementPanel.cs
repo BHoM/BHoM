@@ -43,14 +43,6 @@ namespace BH.oM.Environmental.Elements
         //boolean to toggle detail surface output
         public bool SurfaceOutput { get; set; } = true;
 
-        public ICurve Curve
-        {
-            get
-            {
-                return PolyCurve;
-            }
-        }
-
         /***************************************************/
     }
 }

@@ -15,14 +15,6 @@ namespace BH.oM.Environmental.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public MaterialType MaterialType
-        {
-            get
-            {
-                return MaterialType.Gas;
-            }
-        }
-
         public double Thickness { get; set; } = 0.0;
         public string Description { get; set; } = string.Empty;
         public double ConvectionCoefficient { get; set; } = 0.0;
