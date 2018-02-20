@@ -17,7 +17,7 @@ namespace BH.oM.Environmental.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public Storey Storey;
+        public Storey Storey { get; set; } = new Storey();
         public Point Location { get; set; } = new Point();
         public List<BuildingElement> BuildingElements { get; set; } = new List<BuildingElement>();
         public List<IBuildingObject> BuildingObjects { get; set; } = new List<IBuildingObject>();

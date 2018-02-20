@@ -12,6 +12,6 @@ namespace BH.oM.Environmental.Interface
 {
     public interface IEquipment : IBuildingObject
     {
-        Storey Storey { get; set; }
+
     }
 }

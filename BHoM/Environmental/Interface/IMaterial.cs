@@ -15,7 +15,6 @@ namespace BH.oM.Environmental.Interface
         /**** Properties                                ****/
         /***************************************************/
 
-        MaterialType MaterialType { get; }
         double Thickness { get; set; }
         string Description { get; set; }
 

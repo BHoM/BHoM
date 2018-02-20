@@ -15,7 +15,7 @@ namespace BH.oM.Environmental.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public EmitterProperties EmitterProperties = new EmitterProperties();
+        public EmitterProperties EmitterProperties { get; set; } = new EmitterProperties();
         public List<Profile> Profiles { get; set; } = new List<Profile>();
 
         /***************************************************/

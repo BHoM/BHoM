@@ -15,7 +15,7 @@ namespace BH.oM.Environmental.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        public BuildingElementType BuildingElementType = BuildingElementType.Wall;
+        public BuildingElementType BuildingElementType { get; set; } = BuildingElementType.Wall;
         public List<ConstructionLayer> ConstructionLayers { get; set; } = new List<ConstructionLayer>();
         public double Thickness { get; set; } = 0.0;
         public double gValue { get; set; } = 0.0;
