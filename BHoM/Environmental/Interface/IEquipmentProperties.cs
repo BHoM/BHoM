@@ -8,7 +8,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environmental.Interface
 {
-    public interface IEquipmentProperties : IObject
+    public interface IEquipmentProperties : IBHoMObject
     {
     }
 }

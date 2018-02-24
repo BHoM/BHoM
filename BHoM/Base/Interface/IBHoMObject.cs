@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Base
 {
-    public interface IObject 
+    public interface IBHoMObject 
     {
         Guid BHoM_Guid { get; set; }
 
@@ -13,6 +13,6 @@ namespace BH.oM.Base
 
         Dictionary<string, object> CustomData { get; set; }
 
-        IObject GetShallowClone(bool newGuid = false);
+        IBHoMObject GetShallowClone(bool newGuid = false);
     }
 }

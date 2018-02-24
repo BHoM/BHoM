@@ -9,7 +9,7 @@ using BH.oM.Environmental.Elements;
 
 namespace BH.oM.Environmental.Interface
 {
-    public interface IMaterial: IObject
+    public interface IMaterial: IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -9,7 +9,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Environmental.Interface
 {
-    public interface IBuildingElementGeometry : IObject
+    public interface IBuildingElementGeometry : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

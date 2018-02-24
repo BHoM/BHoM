@@ -3,7 +3,7 @@ using System;
 
 namespace BH.oM.Common.Planning
 {
-    public interface IPhase : IObject
+    public interface IPhase : IBHoMObject
     {
         DateTime StartTime { get; set; }
 

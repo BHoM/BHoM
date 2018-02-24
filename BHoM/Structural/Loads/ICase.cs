@@ -2,7 +2,7 @@
 
 namespace BH.oM.Structural.Loads
 {
-    public interface ICase : IObject
+    public interface ICase : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

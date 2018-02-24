@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Base
 {
-    public class BHoMObject : IObject
+    public class BHoMObject : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -22,7 +22,7 @@ namespace BH.oM.Base
         /**** Public Local Methods                      ****/
         /***************************************************/
 
-        public IObject GetShallowClone(bool newGuid = false)
+        public IBHoMObject GetShallowClone(bool newGuid = false)
         {
             BHoMObject obj = (BHoMObject)this.MemberwiseClone();
             obj.CustomData = new Dictionary<string, object>(CustomData);

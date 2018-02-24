@@ -3,7 +3,7 @@ using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {
-    public interface ISectionProperty : IObject
+    public interface ISectionProperty : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

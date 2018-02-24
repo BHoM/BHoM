@@ -9,7 +9,7 @@ using BH.oM.Structural.Elements;
 
 namespace BH.oM.Environmental.Interface
 {
-    public interface IBuildingObject : IObject
+    public interface IBuildingObject : IBHoMObject
     {
 
     }

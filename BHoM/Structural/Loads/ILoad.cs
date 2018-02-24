@@ -5,7 +5,7 @@ namespace BH.oM.Structural.Loads
     /// <summary>
     /// Interface implemented by all loading related classes
     /// </summary>
-    public interface ILoad : IObject        
+    public interface ILoad : IBHoMObject        
     {
         /***************************************************/
         /**** Properties                                ****/

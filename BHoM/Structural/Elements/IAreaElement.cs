@@ -3,7 +3,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Elements
 {
-    public interface IAreaElement : IObject
+    public interface IAreaElement : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
