@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.Geometry
 {
-    public class Quaternion
+    public class Quaternion : IBHoMGeometry
     {
         /***************************************************/
         /**** Properties                                ****/

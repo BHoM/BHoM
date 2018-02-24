@@ -1,9 +1,9 @@
 ﻿using BH.oM.Geometry;
-
+using BH.oM.Humans.Interfaces;
 
 namespace BH.oM.Humans.BodyParts
 {
-    public class LeftUpperArm
+    public class LeftUpperArm : ILineBodyPart
     {
         /***************************************************/
         /**** Properties                                ****/

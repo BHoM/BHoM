@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.DataStructure
 {
-    public class PriorityQueue<T> where T : IComparable<T>
+    public class PriorityQueue<T> : IDataStructure where T : IComparable<T>
     {
         /***************************************************/
         /**** Properties                                ****/

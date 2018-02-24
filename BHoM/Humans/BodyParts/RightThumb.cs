@@ -1,9 +1,9 @@
 ﻿using BH.oM.Geometry;
-
+using BH.oM.Humans.Interfaces;
 
 namespace BH.oM.Humans.BodyParts
 {
-    public class RightThumb
+    public class RightThumb : ILineBodyPart, IPointBodyPart
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -2,7 +2,7 @@
 
 namespace BH.oM.DataStructure
 {
-    public class Graph<T>
+    public class Graph<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.DataStructure
 {
-    public class VennDiagram<T>
+    public class VennDiagram<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/

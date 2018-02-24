@@ -2,7 +2,7 @@
 
 namespace BH.oM.DataStructure
 {
-    public class DiscreetPoint : IComparable<DiscreetPoint>
+    public class DiscreetPoint : IDataStructure, IComparable<DiscreetPoint>
     {
         /***************************************************/
         /**** Properties                                ****/

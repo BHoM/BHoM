@@ -2,7 +2,7 @@
 
 namespace BH.oM.DataStructure
 {
-    public class PointMatrix<T>
+    public class PointMatrix<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.DataStructure
 {
-    public class GraphNode<T>
+    public class GraphNode<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/

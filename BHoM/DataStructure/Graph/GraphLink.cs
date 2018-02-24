@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.DataStructure
 {
-    public class GraphLink<T>
+    public class GraphLink<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/

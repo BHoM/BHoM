@@ -2,7 +2,7 @@
 
 namespace BH.oM.DataStructure
 {
-    public class Tree<T>
+    public class Tree<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/

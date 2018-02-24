@@ -80,6 +80,7 @@
     <Compile Include="DataStructure\Graph\Graph.cs" />
     <Compile Include="DataStructure\Graph\GraphLink.cs" />
     <Compile Include="DataStructure\Graph\GraphNode.cs" />
+    <Compile Include="DataStructure\IDataStructure.cs" />
     <Compile Include="DataStructure\PointMatrix\PointMatrix.cs" />
     <Compile Include="DataStructure\PointMatrix\LocalData.cs" />
     <Compile Include="DataStructure\PointMatrix\DiscreetPoint.cs" />
@@ -163,6 +164,8 @@
     <Compile Include="Humans\BodyParts\RightHand.cs" />
     <Compile Include="Humans\BodyParts\Head.cs" />
     <Compile Include="Humans\HandStateName.cs" />
+    <Compile Include="Humans\Interfaces\IPointBodyPart.cs" />
+    <Compile Include="Humans\Interfaces\ILineBodyPart.cs" />
     <Compile Include="Humans\JointName.cs" />
     <Compile Include="Humans\Skeleton.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

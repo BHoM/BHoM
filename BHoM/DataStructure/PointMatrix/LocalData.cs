@@ -2,7 +2,7 @@
 
 namespace BH.oM.DataStructure
 {
-    public class LocalData<T> 
+    public class LocalData<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
