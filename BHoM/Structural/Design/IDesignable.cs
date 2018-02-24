@@ -1,6 +1,8 @@
-﻿namespace BH.oM.Structural.Design
+﻿using BH.oM.Base;
+
+namespace BH.oM.Structural.Design
 {
-    public interface IDesignable //TODO: Do we still need this?
+    public interface IDesignable : IObject //TODO: Do we still need this?
     {
     }
 }

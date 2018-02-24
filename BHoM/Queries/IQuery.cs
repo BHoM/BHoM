@@ -1,6 +1,8 @@
-﻿namespace BH.oM.Queries
+﻿using BH.oM.Base;
+
+namespace BH.oM.Queries
 {
-    public interface IQuery
+    public interface IQuery : IObject
     {
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.Base
 {
-    public interface IImmutable
+    public interface IImmutable : IObject
     {
 
     }

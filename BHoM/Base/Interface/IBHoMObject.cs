@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Base
 {
-    public interface IBHoMObject 
+    public interface IBHoMObject : IObject
     {
         Guid BHoM_Guid { get; set; }
 

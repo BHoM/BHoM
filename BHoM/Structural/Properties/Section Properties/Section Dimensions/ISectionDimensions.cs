@@ -1,6 +1,8 @@
-﻿namespace BH.oM.Structural.Properties
+﻿using BH.oM.Base;
+
+namespace BH.oM.Structural.Properties
 {
-    public interface ISectionDimensions
+    public interface ISectionDimensions  : IObject
     {
         ShapeType Shape { get; }
     }

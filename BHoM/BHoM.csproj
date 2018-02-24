@@ -74,6 +74,7 @@
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
     <Compile Include="Base\CustomObject.cs" />
+    <Compile Include="Base\Interface\IObject.cs" />
     <Compile Include="Base\Interface\IImmutable.cs" />
     <Compile Include="Common\Results\IResult.cs" />
     <Compile Include="DataStructure\Graph\Graph.cs" />
@@ -196,10 +197,6 @@
     <Compile Include="Common\Materials\Material.cs" />
     <Compile Include="Common\Materials\MaterialEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Structural\Interface\ICommandAdapter.cs" />
-    <Compile Include="Structural\Interface\IDesignMemberAdapter.cs" />
-    <Compile Include="Structural\Interface\IElementAdapter.cs" />
-    <Compile Include="Structural\Interface\IResultAdapter.cs" />
     <Compile Include="Structural\Loads\AreaTemperatureLoad.cs" />
     <Compile Include="Structural\Loads\AreaUniformalyDistributedLoad.cs" />
     <Compile Include="Structural\Loads\BarPrestressLoad.cs" />

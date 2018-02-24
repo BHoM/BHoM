@@ -1,6 +1,8 @@
-﻿namespace BH.oM.Acoustic
+﻿using BH.oM.Base;
+
+namespace BH.oM.Acoustic
 {
-    public interface IAcousticParameter
+    public interface IAcousticParameter : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
