@@ -173,10 +173,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Queries\BatchQuery.cs" />
-    <Compile Include="Queries\CustomQuery.cs" />
-    <Compile Include="Queries\FilterQuery.cs" />
-    <Compile Include="Queries\IQuery.cs" />
+    <Compile Include="DataManipulation\Queries\BatchQuery.cs" />
+    <Compile Include="DataManipulation\Queries\CustomQuery.cs" />
+    <Compile Include="DataManipulation\Queries\FilterQuery.cs" />
+    <Compile Include="DataManipulation\Queries\IQuery.cs" />
     <Compile Include="Structural\Design\DesignGroup.cs" />
     <Compile Include="Structural\Design\StructuralLayout.cs" />
     <Compile Include="Structural\Design\IDesignable.cs" />

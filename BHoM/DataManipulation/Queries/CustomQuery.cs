@@ -1,4 +1,4 @@
-﻿namespace BH.oM.Queries
+﻿namespace BH.oM.DataManipulation.Queries
 {
     public class CustomQuery : IQuery
     {
@@ -10,12 +10,5 @@
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public CustomQuery(string query = "")
-        {
-            Query = query;
-        }
     }
 }

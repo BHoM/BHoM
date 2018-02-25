@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Queries
+namespace BH.oM.DataManipulation.Queries
 {
     public class BatchQuery : IQuery
     {
@@ -13,18 +13,5 @@ namespace BH.oM.Queries
 
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BatchQuery() { }
-
-        /***************************************************/
-
-        public BatchQuery(IEnumerable<IQuery> queries)
-        {
-            Queries = queries.ToList();
-        }
-
-        
     }
 }

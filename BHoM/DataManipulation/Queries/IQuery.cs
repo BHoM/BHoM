@@ -1,6 +1,6 @@
 ﻿using BH.oM.Base;
 
-namespace BH.oM.Queries
+namespace BH.oM.DataManipulation.Queries
 {
     public interface IQuery : IObject
     {
