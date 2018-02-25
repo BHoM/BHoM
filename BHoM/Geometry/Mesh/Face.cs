@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.Geometry
 {
-    public class Face : IBHoMGeometry
+    public class Face : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/

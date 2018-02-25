@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.Geometry
 {
-    public class Plane : IBHoMGeometry
+    public class Plane : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.Geometry
 {
-    public class TransformMatrix : IBHoMGeometry
+    public class TransformMatrix : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/

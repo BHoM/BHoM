@@ -2,7 +2,7 @@
 
 namespace BH.oM.Geometry
 {
-    public interface IBHoMGeometry : IObject
+    public interface IGeometry : IObject
     {
     }
 }

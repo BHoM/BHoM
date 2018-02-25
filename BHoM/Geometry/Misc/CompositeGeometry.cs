@@ -3,13 +3,13 @@
 
 namespace BH.oM.Geometry
 {
-    public class CompositeGeometry : IBHoMGeometry
+    public class CompositeGeometry : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMGeometry> Elements { get; set; } = new List<IBHoMGeometry>();
+        public List<IGeometry> Elements { get; set; } = new List<IGeometry>();
 
 
         /***************************************************/

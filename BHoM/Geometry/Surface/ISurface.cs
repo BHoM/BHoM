@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.Geometry
 {
-    public interface ISurface : IBHoMGeometry
+    public interface ISurface : IGeometry
     {
     }
 }

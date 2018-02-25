@@ -2,7 +2,7 @@
 
 namespace BH.oM.Geometry
 {
-    public class Mesh : IBHoMGeometry
+    public class Mesh : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/

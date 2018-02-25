@@ -10,7 +10,7 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMGeometry> Shapes { get; set; } = null;
+        public List<IGeometry> Shapes { get; set; } = null;
 
         public SVGStyle Style { get; set; } = new SVGStyle();
         

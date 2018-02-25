@@ -137,7 +137,7 @@
     <Compile Include="Geometry\Vector\Vector.cs" />
     <Compile Include="Base\Interface\IBHoMObject.cs" />
     <Compile Include="Base\BHoMObject.cs" />
-    <Compile Include="Geometry\IBHoMGeometry.cs" />
+    <Compile Include="Geometry\IGeometry.cs" />
     <Compile Include="Base\BHoMGroup.cs" />
     <Compile Include="Graphics\SVG\SVGDocument.cs" />
     <Compile Include="Graphics\SVG\SVGObject.cs" />

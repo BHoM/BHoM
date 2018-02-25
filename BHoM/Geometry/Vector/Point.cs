@@ -2,7 +2,7 @@
 
 namespace BH.oM.Geometry
 {
-    public class Point : IBHoMGeometry, IComparable<Point>
+    public class Point : IGeometry, IComparable<Point>
     {
         /***************************************************/
         /**** Properties                                ****/

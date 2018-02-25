@@ -2,7 +2,7 @@
 
 namespace BH.oM.Geometry
 {
-    public class BoundingBox : IBHoMGeometry
+    public class BoundingBox : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
