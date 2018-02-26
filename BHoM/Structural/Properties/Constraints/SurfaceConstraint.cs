@@ -1,17 +1,12 @@
-﻿using BHoM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BH.oM.Base;
 
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {
     public class SurfaceConstraint : BHoMObject
     {
-        /////////////////
-        ////Properties///
-        /////////////////
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public DOFType UX { get; set; }
 
@@ -19,30 +14,13 @@ namespace BHoM.Structural.Properties
 
         public DOFType Normal { get; set; }
 
-        public double KX { get; set; }
+        public double KX { get; set; } = 0;
 
-        public double KY { get; set; }
+        public double KY { get; set; } = 0;
 
-        public double KNorm { get; set; }
+        public double KNorm { get; set; } = 0;
 
 
-        ///////////////////
-        ////Constructors///
-        ///////////////////
-
-        /// <summary>
-        /// Construct an empty constraint object
-        /// </summary>
-        internal SurfaceConstraint()
-        {           
-        }
-
-        /// <summary>
-        /// Construct an empty constraint object with a name
-        /// </summary>
-        public SurfaceConstraint(string name) : this()
-        {
-            this.Name = name;
-        }
+        /***************************************************/
     }
 }

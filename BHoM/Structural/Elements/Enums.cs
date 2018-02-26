@@ -1,8 +1,9 @@
 ﻿
-namespace BHoM.Structural.Elements
+namespace BH.oM.Structural.Elements
 {
+    //TODO:Where does this go? Does it actually fit within the structural elements folder???
     /// <summary>Usage of the bar for downstream implementations</summary>
-    public enum BarStructuralUsage
+    public enum BarStructuralUsage //TODO: Need to better organise those enums into relevant groups per file
     {
         /// <summary>Undefined</summary>
         Undefined = 0,
@@ -17,6 +18,8 @@ namespace BHoM.Structural.Elements
         /// <summary>Pile</summary>
         Pile
     }
+
+    /***************************************************/
 
     /// <summary>Manufacture type for steel</summary>
     public enum ManufactureType
@@ -35,6 +38,8 @@ namespace BHoM.Structural.Elements
         unknown,
     }
 
+    /***************************************************/
+
     /// <summary>Steel strut buckling curves</summary>
     public enum BucklingCurve
     {
@@ -51,6 +56,8 @@ namespace BHoM.Structural.Elements
         /// <summary>Not Known</summary>
         unknown,
     }
+
+    /***************************************************/
 
     /// <summary>Shear type</summary>
     public enum ShearType
@@ -75,6 +82,8 @@ namespace BHoM.Structural.Elements
         g,
     }
 
+    /***************************************************/
+
     /// <summary>
     /// Sets the type of FE element model to use for bars in analysis software
     /// </summary>
@@ -91,4 +100,13 @@ namespace BHoM.Structural.Elements
         //Cable
     }
 
+    /***************************************************/
+
+    public enum AreaElementType
+    {
+        Panel,
+        Mesh
+    }
+
+    /***************************************************/
 }

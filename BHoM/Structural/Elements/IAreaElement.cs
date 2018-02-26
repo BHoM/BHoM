@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BHoM.Structural.Properties;
-using BHoM.Base;
+﻿using BH.oM.Structural.Properties;
+using BH.oM.Base;
 
-namespace BHoM.Structural.Elements
+namespace BH.oM.Structural.Elements
 {
-
-    public enum AreaElementType
+    public interface IAreaElement : IBHoMObject
     {
-        Panel,
-        Mesh
-    }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-    public interface IAreaElement : IBase
-    {
-        PanelProperty PanelProperty { get; set; }
-        AreaElementType ElementType { get; }
+        Property2D Property { get; set; }
+
+
+        /***************************************************/
     }
 }

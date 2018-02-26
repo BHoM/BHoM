@@ -1,134 +1,290 @@
-﻿using BHoM.Geometry;
-using BHoM.Base;
-using BHoM.Materials;
-using System;
+﻿using BH.oM.Geometry;
+using BH.oM.Base;
 using System.Collections.Generic;
-using System.ComponentModel;
-using BHoM.Global;
-using BHoM.Structural.Databases;
+using System.Linq;
+using BH.oM.Common.Materials;
 
-namespace BHoM.Structural.Properties
+namespace BH.oM.Structural.Properties
 {
-    public enum Fabrication
-    {
-        Welded,
-        HotRolled,
-        HotFormed, 
-        ColdFormed
-    }
 
-    public enum PlateRestraint
+    public class SteelSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
     {
-        NoRestraint,
-        TopFlangeRestraint,
-        BottomFlangeRestraint,
-        WebRestraint,
-        FullRestraint
-    }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-    public class SteelSection : SectionProperty
-    {
+        public Fabrication Fabrication { get; set; } = Fabrication.Welded;
 
-        public SteelSection()
-        {
-            Material = BHoM.Materials.Material.Default(MaterialType.Steel);
-        }
+        public PlateRestraint PlateRestraint { get; set; } = PlateRestraint.NoRestraint;
+
+        public Material Material { get; set; } = null;
+
+        public System.Collections.ObjectModel.ReadOnlyCollection<ICurve> Edges { get; }
+
+
+        /***************************************************/
+        /**** Properties - Section dimensions           ****/
+        /***************************************************/
+
+        public ISectionDimensions SectionDimensions { get; }
+
+        //public ShapeType Shape { get; }
+
+        //public double B1 { get; } = 0;
+
+        //public double B2 { get; } = 0;
+
+        //public double B3 { get; } = 0;
+
+        //public double Tw { get; } = 0;
+
+        //public double Tf1 { get; } = 0;
+
+        //public double Tf2 { get; } = 0;
+
+        //public double R1 { get; } = 0;
+
+        //public double R2 { get; } = 0;
+
+        //public double Spacing { get; } = 0;
+
+
+
+        /***************************************************/
+        /**** Properties - Section constants            ****/
+        /***************************************************/
+
 
         /// <summary>
-        /// Create a section property from standard input values
+        /// Gross Area of the cross section
         /// </summary>
-        /// <param name="sType">Shape type</param>
-        /// <param name="mType">Material type</param>
-        /// <param name="height">Total Height</param>
-        /// <param name="width">Total width</param>
-        /// <param name="t1">Flange Thickness</param>
-        /// <param name="t2">Web Thickness</param>
-        /// <param name="r1">Radius 1</param>
-        /// <param name="r2">Radius 2</param>
-        /// <param name="mass">Mass per metre</param>
-        public SteelSection(ShapeType sType, double height, double width, double t1, double t2, double r1, double r2, double mass = 0, double b1 = 0, double b2 = 0, double t3 = 0, double b3 = 0):this()
-        {
-            SectionData = CreateSectionData(height, width, t1, t2, r1, r2, mass, b1, b2, t3, b3);
-            Edges = CreateGeometry(sType, height, width, t1, t2, r1, r2, b1, b2, t3, b3);
-            Shape = sType;
-            //SectionMaterial = mType;
-        }
+        public double Area { get; } = 0;
 
         /// <summary>
-        /// Create a section property from a list of edges, shape type and material
+        /// Radius of Gyration about the Y-Axis
         /// </summary>
-        /// <param name="edges"></param>
-        /// <param name="sType"></param>
-        /// <param name="mType"></param>
-        public SteelSection(BHoM.Geometry.Group<Curve> edges, ShapeType sType) : this()
-        {
-            Edges = edges;
-            Shape = sType;
-            //SectionMaterial = mType;
-        }     
+        public double Rgy { get; } = 0;
 
-        public double GetGrade()
-        {
-            return Material.TensileYieldStrength / 1000000;         
-        }   
+        /// <summary>
+        /// Radius of Gyration about the Z-Axis
+        /// </summary>
+        public double Rgz { get; } = 0;
 
-        public Fabrication Fabrication
+        /// <summary>
+        /// Torsion Constant
+        /// </summary>
+        public double J { get; } = 0;
+
+        /// <summary>
+        /// Moment of Inertia about the Y-Axis
+        /// </summary>
+        public double Iy { get; } = 0;
+
+        /// <summary>
+        /// Moment of Inertia about the Z-Axis
+        /// </summary>
+        public double Iz { get; } = 0;
+
+        /// <summary>
+        /// Warping Constant
+        /// </summary>
+        public double Iw { get; } = 0;
+
+        /// <summary>
+        /// Elastic Modulus of the section about the Y-Axis
+        /// </summary>
+        public double Zy { get; } = 0;
+
+        /// <summary>
+        /// Elastic Modulus of the section about the Z-Axis
+        /// </summary>
+        public double Zz { get; } = 0;
+        /// <summary>
+        /// Plastic Modulus of the section about the Y-Axis
+        /// </summary>
+        public double Sy { get; } = 0;
+
+        /// <summary>
+        /// Plastic Modulus of the section about the Z-Axis
+        /// </summary>
+        public double Sz { get; } = 0;
+        /// <summary>
+        /// Geometric centre of the section in the Z direction
+        /// </summary>
+        public double CentreZ { get; } = 0;
+        /// <summary>
+        /// Geometric centre of the section in the Y direction
+        /// </summary>
+        public double CentreY { get; } = 0;
+
+        /// <summary>
+        /// Z Distance from the centroid of the section to top edge of the section
+        /// </summary>
+        public double Vz { get; } = 0;
+
+        /// <summary>
+        /// Z Distance from the centroid of the section to bottom edge of the section
+        /// </summary>
+        public double Vpz { get; } = 0;
+        /// <summary>
+        /// Y Distance from the centroid of the section to right edge of the section
+        /// </summary>
+        public double Vy { get; } = 0;
+        /// <summary>
+        /// Y Distance from the centroid of the section to Left edge of the section
+        /// </summary>
+        public double Vpy { get; } = 0;
+
+        /// <summary>
+        /// Shear Area in the Y direction
+        /// </summary>
+        public double Asy { get; } = 0;
+
+        /// <summary>
+        /// Shear Area in the Z direction
+        /// </summary>
+        public double Asz { get; } = 0;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        //Main constructor setting all of the properties of the object
+        public SteelSection(
+            IEnumerable<ICurve> edges,
+            ISectionDimensions sectionDimensions,
+
+            //ShapeType shape,
+            //double b1,
+            //double b2,
+            //double b3,
+            //double tw,
+            //double tf1,
+            //double tf2,
+            //double r1,
+            //double r2,
+            //double spacing,
+
+            double area,
+            double rgy,
+            double rgz,
+            double j,
+            double iy,
+            double iz,
+            double iw,
+            double zy,
+            double zz,
+            double sy,
+            double sz,
+            double centreZ,
+            double centreY,
+            double vz,
+            double vpz,
+            double vy,
+            double vpy,
+            double asy,
+            double asz)
+
         {
-            get; set;
+
+            Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
+
+            SectionDimensions = sectionDimensions;
+            //Shape = shape;
+            //B1 = b1;
+            //B2 = b2;
+            //B3 = b3;
+            //Tw = tw;
+            //Tf1 = tf1;
+            //Tf2 = tf2;
+            //R1 = r1;
+            //R2 = r2;
+            //Spacing = spacing;
+
+            Area = area;
+            Rgy = rgy;
+            Rgz = rgz;
+            J = j;
+            Iy = iy;
+            Iz = iz;
+            Iw = iw;
+            Zy = zy;
+            Zz = zz;
+            Sy = sy;
+            Sz = sz;
+            CentreZ = centreZ;
+            CentreY = centreY;
+            Vz = vz;
+            Vpz = vpz;
+            Vy = vy;
+            Vpy = vpy;
+            Asy = asy;
+            Asz = asz;
+
         }
 
-        public PlateRestraint PlateRestraint
-        {
-            get;
-            set;
-        }
+        /***************************************************/
 
-        public double B1
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.B1];
-            }
-        }
+        //Secondary constructor for a freeform section
+        //public SteelSection(      // TODO: This is not ok: the constructor needs to match exactly the properties. Anything else goes to the engine
 
-        public double B2
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.B2];
-            }
-        }
+        //    IEnumerable<ICurve> edges,
 
-        public double Tw
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.TW];
-            }
-        }
+        //    double area,
+        //    double rgy,
+        //    double rgz,
+        //    double j,
+        //    double iy,
+        //    double iz,
+        //    double iw,
+        //    double zy,
+        //    double zz,
+        //    double sy,
+        //    double sz,
+        //    double centreZ,
+        //    double centreY,
+        //    double vz,
+        //    double vpz,
+        //    double vy,
+        //    double vpy,
+        //    double asy,
+        //    double asz,
+        //    double totalDepth,
+        //    double totalWidth)
 
-        public double Tf1
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.TF1];
-            }
-        }
+        //{
+        //    Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-        public double Tf2
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.TF2];
-            }
-        }
+        //    SectionDimensions = new PolygonDimensions();
 
-        public double r1
-        {
-            get
-            {
-                return SectionData[(int)SteelSectionData.r1];
-            }
-        }
+        //    Area = area;
+        //    Rgy = rgy;
+        //    Rgz = rgz;
+        //    J = j;
+        //    Iy = iy;
+        //    Iz = iz;
+        //    Iw = iw;
+        //    Zy = zy;
+        //    Zz = zz;
+        //    Sy = sy;
+        //    Sz = sz;
+        //    CentreZ = centreZ;
+        //    CentreY = centreY;
+        //    Vz = vz;
+        //    Vpz = vpz;
+        //    Vy = vy;
+        //    Vpy = vpy;
+        //    Asy = asy;
+        //    Asz = asz;
+        //}
+
+        /***************************************************/
     }
 }
+
+
+//public double GetGrade()
+//{
+//    return Material.TensileYieldStrength / 1000000;
+//}

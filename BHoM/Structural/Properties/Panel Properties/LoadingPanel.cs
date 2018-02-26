@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BHoM.Structural.Properties
+﻿namespace BH.oM.Structural.Properties
 {
     public enum LoadPanelSupportConditions
     {
@@ -16,12 +10,17 @@ namespace BHoM.Structural.Properties
         Cantilever
     }
 
-    public class LoadingPanelProperty : PanelProperty
+    public class LoadingPanelProperty : Property2D
     {
-        public LoadingPanelProperty()
-        { }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
         public LoadPanelSupportConditions LoadApplication { get; set; }
+
         public int ReferenceEdge { get; set; } = 1;
+
+
+        /***************************************************/
     }
 }
