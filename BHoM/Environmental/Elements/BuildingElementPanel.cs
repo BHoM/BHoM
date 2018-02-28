@@ -20,6 +20,7 @@ namespace BH.oM.Environmental.Elements
 
         //Geometry
         public PolyCurve PolyCurve { get; set; } = new PolyCurve();
+        public List<ElementOpening> Openings { get; set; } = new List<ElementOpening>();
         public string ElementType { get; set; } = "";
 
         //Detail Surface Results
