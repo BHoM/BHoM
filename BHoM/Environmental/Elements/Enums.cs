@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Environmental.Elements
 {
+    /***************************************************/
+    /**** BuildingElementType                       ****/
+    /***************************************************/
+
     public enum BuildingElementType
     {
         Wall,
@@ -14,10 +18,16 @@ namespace BH.oM.Environmental.Elements
         Ceiling
     }
 
+    /***************************************************/
+    /**** MaterialType                              ****/
+    /***************************************************/
+
     public enum MaterialType
     {
         Gas,
         Transparent,
         Opaque
     }
+
+    /***************************************************/
 }
