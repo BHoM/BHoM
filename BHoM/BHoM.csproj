@@ -90,6 +90,7 @@
     <Compile Include="Environmental\Elements\Building.cs" />
     <Compile Include="Environmental\Elements\BuildingElement.cs" />
     <Compile Include="Environmental\Elements\BuildingElementCurve.cs" />
+    <Compile Include="Environmental\Elements\BuildingElementOpening.cs" />
     <Compile Include="Environmental\Elements\BuildingElementPanel.cs" />
     <Compile Include="Environmental\Elements\ConstructionLayer.cs" />
     <Compile Include="Environmental\Elements\Emitter.cs" />
