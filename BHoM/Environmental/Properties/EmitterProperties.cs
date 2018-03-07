@@ -11,5 +11,12 @@ namespace BH.oM.Environmental.Properties
 {
     public class EmitterProperties : BHoMObject, IEquipmentProperties
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+
+
+        /***************************************************/
     }
 }

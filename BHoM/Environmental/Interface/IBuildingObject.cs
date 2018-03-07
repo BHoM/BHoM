@@ -11,6 +11,12 @@ namespace BH.oM.Environmental.Interface
 {
     public interface IBuildingObject : IBHoMObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
+
+
+        /***************************************************/
     }
 }

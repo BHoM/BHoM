@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-using BH.oM.Environmental.Properties;
 using BH.oM.Geometry;
 using BH.oM.Base;
 using BH.oM.Environmental.Interface;
@@ -20,6 +15,7 @@ namespace BH.oM.Environmental.Elements
 
         //Geometry
         public PolyCurve PolyCurve { get; set; } = new PolyCurve();
+        public List<BuildingElementOpening> Openings { get; set; } = new List<BuildingElementOpening>();
         public string ElementType { get; set; } = "";
 
         //Detail Surface Results

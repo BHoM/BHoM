@@ -10,5 +10,12 @@ namespace BH.oM.Environmental.Interface
 {
     public interface IEquipmentProperties : IBHoMObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+
+
+        /***************************************************/
     }
 }
