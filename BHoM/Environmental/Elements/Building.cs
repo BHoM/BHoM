@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.Structural.Elements;
 using BH.oM.Environmental.Interface;
 using BH.oM.Environmental.Properties;
+using BH.oM.Architecture.Elements;
 
 namespace BH.oM.Environmental.Elements
 {
@@ -25,7 +21,7 @@ namespace BH.oM.Environmental.Elements
         public Point Location { get; set; } = new Point();
         public List<IEquipment> Equipments { get; set; } = new List<IEquipment>();
         public List<Space> Spaces { get; set; } = new List<Space>();
-        public List<Storey> Storeys { get; set; } = new List<Storey>();
+        public List<Level> Levels { get; set; } = new List<Level>();
         public List<Profile> Profiles { get; set; } = new List<Profile>();
         public List<InternalCondition> InternalConditions { get; set; } = new List<InternalCondition>();
         public List<IEquipmentProperties> EquipmentProperties { get; set; } = new List<IEquipmentProperties>();

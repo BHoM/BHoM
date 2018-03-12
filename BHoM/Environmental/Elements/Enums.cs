@@ -15,7 +15,9 @@ namespace BH.oM.Environmental.Elements
         Wall,
         Roof,
         Floor,
-        Ceiling
+        Ceiling,
+        Window,
+        Door
     }
 
     /***************************************************/

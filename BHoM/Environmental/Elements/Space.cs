@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.Structural.Elements;
 using BH.oM.Environmental.Interface;
+using BH.oM.Architecture.Elements;
 
 namespace BH.oM.Environmental.Elements
 {
@@ -17,7 +13,7 @@ namespace BH.oM.Environmental.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public Storey Storey { get; set; } = new Storey();
+        public Level Level { get; set; } = new Level();
         public Point Location { get; set; } = new Point();
         public List<BuildingElement> BuildingElements { get; set; } = new List<BuildingElement>();
         public List<IBuildingObject> BuildingObjects { get; set; } = new List<IBuildingObject>();
