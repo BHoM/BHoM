@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Environmental.Interface;
+﻿using BH.oM.Environmental.Interface;
 using BH.oM.Environmental.Properties;
 using BH.oM.Base;
-using BH.oM.Structural.Elements;
+using BH.oM.Architecture.Elements;
 
 namespace BH.oM.Environmental.Elements
 {
@@ -19,7 +13,7 @@ namespace BH.oM.Environmental.Elements
 
         public AirHandlingUnitProperties AirHandlingUnitProperties { get; set; } = new AirHandlingUnitProperties();
 
-        public Storey Storey { get; set; } = new Storey();
+        public Level Level { get; set; } = new Level();
 
         /***************************************************/
     }
