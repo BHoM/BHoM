@@ -8,8 +8,7 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public Geometry.Vector TemperatureChange { get; set; }  //TODO: Provide default values
-
+        public double TemperatureChange { get; set; } = 0;
 
         /***************************************************/
     }
