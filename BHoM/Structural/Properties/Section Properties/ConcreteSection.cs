@@ -27,7 +27,7 @@ namespace BH.oM.Structural.Properties
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
-        public ISectionDimensions SectionDimension { get; }
+        public ISectionDimensions SectionDimensions { get; }
 
 
         /***************************************************/
