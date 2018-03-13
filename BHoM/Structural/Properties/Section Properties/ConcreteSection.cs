@@ -176,7 +176,7 @@ namespace BH.oM.Structural.Properties
         {
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-            SectionDimension = sectionDimension;
+            SectionDimensions = sectionDimension;
 
             Area = area;
             Rgy = rgy;
@@ -228,7 +228,7 @@ namespace BH.oM.Structural.Properties
         {
             Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
 
-            SectionDimension = new PolygonDimensions();
+            SectionDimensions = new PolygonDimensions();
 
             Area = area;
             Rgy = rgy;
