@@ -12,13 +12,11 @@ namespace BH.oM.Common.Materials
         /**** Properties                                ****/
         /***************************************************/
 
-        public MaterialType Type { get; set; } = MaterialType.Aluminium; // TODO: Check the default values for this class
+        public MaterialType Type { get; set; } = MaterialType.Steel;
 
-        public double YoungsModulus { get; set; } = 0.0; // in (MPa)
+        public double YoungsModulus { get; set; } = 0.0;
 
         public double PoissonsRatio { get; set; } = 0.0;
-
-        public double ShearModulus { get; set; } = 0.0; // in (MPa)
 
         public double DryDensity { get;  set; } = 0.0;
 
