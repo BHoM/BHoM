@@ -8,7 +8,7 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Prestress { get; set; }  //TODO: Provide default values
+        public double Prestress { get; set; } = 0;
 
 
         /***************************************************/

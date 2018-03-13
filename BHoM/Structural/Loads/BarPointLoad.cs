@@ -1,11 +1,8 @@
 ﻿using BH.oM.Structural.Elements;
+using BH.oM.Geometry;
 
 namespace BH.oM.Structural.Loads
 {
-    /// <summary>
-    /// Gravity load
-    /// </summary>   
-
     /// <summary>
     /// Point load along a bar
     /// </summary>
@@ -15,11 +12,11 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public double DistanceFromA { get; set; }   //TODO: define default values
+        public double DistanceFromA { get; set; } = 0;
 
-        public Geometry.Vector Force { get; set; }
+        public Vector Force { get; set; } = new Vector();
 
-        public Geometry.Vector Moment { get; set; }
+        public Vector Moment { get; set; } = new Vector();
 
 
         /***************************************************/

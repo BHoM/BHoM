@@ -1,26 +1,27 @@
 ﻿using BH.oM.Structural.Elements;
+using BH.oM.Geometry;
 
 namespace BH.oM.Structural.Loads
 {
-    public class BarVaryingDistributedLoad : Load<Bar>  //TODO: patch load for bars. Should include patch moments. 
+    public class BarVaryingDistributedLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double DistanceFromA { get; set; }  //TODO: Provide default values
+        public double DistanceFromA { get; set; } = 0;
 
-        public Geometry.Vector ForceA { get; set; }
+        public Vector ForceA { get; set; } = new Vector();
 
-        public Geometry.Vector MomentA { get; set; }
+        public Vector MomentA { get; set; } = new Vector();
 
-        public double DistanceFromB { get; set; }
+        public double DistanceFromB { get; set; } = 0;
 
-        public Geometry.Vector ForceB { get; set; }
+        public Vector ForceB { get; set; } = new Vector();
 
-        public Geometry.Vector MomentB { get; set; }
+        public Vector MomentB { get; set; } = new Vector();
 
 
-        /***************************************************/ 
+        /***************************************************/
     }
 }

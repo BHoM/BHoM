@@ -10,11 +10,11 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve Contour { get; set; }  //TODO: Provide default values
+        public ICurve Contour { get; set; } = null; //TODO: Provide default values
 
         public Loadcase Loadcase { get; set; } = new Loadcase();
 
-        public Vector Force { get; set; }
+        public Vector Force { get; set; } = new Vector();
 
         public LoadAxis Axis { get; set; } = LoadAxis.Global;
 

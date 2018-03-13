@@ -13,9 +13,9 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public Vector Force { get;  set; }
+        public Vector Force { get;  set; } = new Vector();
 
-        public Vector Moment { get;  set; }
+        public Vector Moment { get;  set; } = new Vector();
 
 
         /***************************************************/
