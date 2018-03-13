@@ -16,7 +16,7 @@
         /**** Properties                                ****/
         /***************************************************/
 
-        public LoadPanelSupportConditions LoadApplication { get; set; }
+        public LoadPanelSupportConditions LoadApplication { get; set; } = LoadPanelSupportConditions.AllSides;
 
         public int ReferenceEdge { get; set; } = 1;
 
