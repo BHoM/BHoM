@@ -8,21 +8,21 @@ namespace BH.oM.Structural.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        public DOFType TranslationX { get; set; }
+        public DOFType TranslationX { get; set; } = DOFType.Free;
 
-        public DOFType TranslationY { get; set; }
+        public DOFType TranslationY { get; set; } = DOFType.Free;
 
-        public DOFType TranslationZ { get; set; }
+        public DOFType TranslationZ { get; set; } = DOFType.Free;
 
-        public DOFType RotationX { get; set; }
+        public DOFType RotationX { get; set; } = DOFType.Free;
 
-        public double TranslationalStiffnessX { get; set; }
+        public double TranslationalStiffnessX { get; set; } = 0;
 
-        public double TranslationalStiffnessY { get; set; }
+        public double TranslationalStiffnessY { get; set; } = 0;
 
-        public double TranslationalStiffnessZ { get; set; }
+        public double TranslationalStiffnessZ { get; set; } = 0;
 
-        public double RotationalStiffnessX { get; set; }
+        public double RotationalStiffnessX { get; set; } = 0;
 
 
         /***************************************************/
