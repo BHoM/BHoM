@@ -35,7 +35,6 @@
         PointDisplacement,
         PointVelocity,
         PointAcceleration,
-        PointMass,
         BarPointLoad,
         BarUniformLoad,
         BarVaryingLoad,
