@@ -13,9 +13,6 @@ namespace BH.oM.Structural.Loads
 
         public Vector Rotation { get; set; }
 
-        public int RobotLoadRecordNumber { get; private set; }  //TODO: Remove this
-
-
         /***************************************************/
     }
 }
