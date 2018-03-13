@@ -227,7 +227,6 @@
     <Compile Include="Structural\Properties\Enums.cs" />
     <Compile Include="Structural\Properties\Offset.cs" />
     <Compile Include="Structural\Elements\Enums.cs" />
-    <Compile Include="Structural\Loads\AreaVaryingDistributedLoad.cs" />
     <Compile Include="Structural\Loads\BarPointLoad.cs" />
     <Compile Include="Structural\Loads\GeometricalAreaLoad.cs" />
     <Compile Include="Structural\Loads\Load.cs" />
