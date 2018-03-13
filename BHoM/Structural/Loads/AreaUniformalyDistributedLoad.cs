@@ -1,4 +1,5 @@
 ﻿using BH.oM.Structural.Elements;
+using BH.oM.Geometry;
 
 namespace BH.oM.Structural.Loads
 {
@@ -11,7 +12,7 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public BH.oM.Geometry.Vector Pressure { get; set; }  //TODO: Provide default values
+        public Vector Pressure { get; set; } = new Vector();
 
 
         /***************************************************/

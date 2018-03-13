@@ -41,7 +41,7 @@ namespace BH.oM.Structural.Elements
     /***************************************************/
 
     /// <summary>Steel strut buckling curves</summary>
-    public enum BucklingCurve
+    public enum BucklingCurve //TODO: EC3 specific. Should sit in structural design toolkit
     {
         /// <summary>a0</summary>
         a0 = 0,

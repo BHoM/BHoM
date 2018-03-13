@@ -8,7 +8,7 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public double TemperatureChange { get; set; }  //TODO: Provide default values
+        public double TemperatureChange { get; set; } = 0;
 
 
         /***************************************************/

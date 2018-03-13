@@ -9,9 +9,9 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public Vector TranslationalVelocity { get; set; }
+        public Vector TranslationalVelocity { get; set; } = new Vector();
 
-        public Vector RotationalVelocity { get; set; }
+        public Vector RotationalVelocity { get; set; } = new Vector();
 
 
         /***************************************************/

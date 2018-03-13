@@ -9,15 +9,15 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public Line Location { get; set; }  //TODO: Provide default values
+        public Line Location { get; set; } = null; //TODO: Provide default values
 
-        public Vector ForceA { get; set; }
+        public Vector ForceA { get; set; } = new Vector();
 
-        public Vector ForceB { get; set; }
+        public Vector ForceB { get; set; } = new Vector();
 
-        public Vector MomentA { get; set; }
+        public Vector MomentA { get; set; } = new Vector();
 
-        public Vector MomentB { get; set; }
+        public Vector MomentB { get; set; } = new Vector();
 
         public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
