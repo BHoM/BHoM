@@ -13,8 +13,6 @@ namespace BH.oM.Structural.Loads
 
         public Vector RotationalVelocity { get; set; }
 
-        public int RobotLoadRecordNumber { get; private set; }  //TODO: Remove this
-
 
         /***************************************************/
     }

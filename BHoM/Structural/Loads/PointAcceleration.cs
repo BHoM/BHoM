@@ -13,8 +13,6 @@ namespace BH.oM.Structural.Loads
 
         public Vector RotationalAcceleration { get; set; }
 
-        public int RobotLoadRecordNumber { get; private set; }
-
 
         /***************************************************/
     }
