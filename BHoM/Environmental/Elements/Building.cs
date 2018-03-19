@@ -26,6 +26,7 @@ namespace BH.oM.Environmental.Elements
         public List<InternalCondition> InternalConditions { get; set; } = new List<InternalCondition>();
         public List<IEquipmentProperties> EquipmentProperties { get; set; } = new List<IEquipmentProperties>();
         public List<BuildingElementProperties> BuildingElementProperties { get; set; } = new List<BuildingElementProperties>();
+        public List<BuildingElement> BuildingElements { get; set; } = new List<BuildingElement>();
 
         /***************************************************/
     }
