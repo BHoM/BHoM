@@ -12,6 +12,7 @@ namespace BH.oM.Environmental.Elements
 
     public enum BuildingElementType
     {
+        Undefined,
         Wall,
         Roof,
         Floor,
@@ -26,6 +27,7 @@ namespace BH.oM.Environmental.Elements
 
     public enum MaterialType
     {
+        Undefined,
         Gas,
         Transparent,
         Opaque
