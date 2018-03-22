@@ -7,7 +7,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structural.Properties
 {
-    public class ConstantBeamProperty : BHoMObject, IBeamProperty
+    public class ConstantFramingElementProperty : BHoMObject, IFramingElementProperty
     {
         public ISectionProperty SectionProperty { get; set; }
 

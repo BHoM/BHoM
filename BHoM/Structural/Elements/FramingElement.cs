@@ -12,7 +12,7 @@ namespace BH.oM.Structural.Elements
 
         public Line LocationCurve { get; set; } = null;
 
-        public Properties.IBeamProperty Property { get; set; } = null;
+        public Properties.IFramingElementProperty Property { get; set; } = null;
 
         public StructuralUsage1D StructuralUsage { get; set; } = StructuralUsage1D.Beam;
 

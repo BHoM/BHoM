@@ -218,8 +218,8 @@
     <Compile Include="Structural\Loads\PointAcceleration.cs" />
     <Compile Include="Structural\Loads\PointDisplacement.cs" />
     <Compile Include="Structural\Loads\PointVelocity.cs" />
-    <Compile Include="Structural\Properties\BeamProperties\ConstantBeamProperty.cs" />
-    <Compile Include="Structural\Properties\BeamProperties\IBeamProperty.cs" />
+    <Compile Include="Structural\Properties\FramingElementProperty\ConstantBeamProperty.cs" />
+    <Compile Include="Structural\Properties\FramingElementProperty\IBeamProperty.cs" />
     <Compile Include="Structural\Properties\Constraints\Constraint4DOF.cs" />
     <Compile Include="Structural\Properties\Constraints\LinkConstraint.cs" />
     <Compile Include="Structural\Properties\Constraints\Constraint6DOF.cs" />
