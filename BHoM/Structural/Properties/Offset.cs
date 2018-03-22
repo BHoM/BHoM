@@ -11,9 +11,9 @@ namespace BH.oM.Structural.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        public Vector Start = new Vector();
+        public Vector Start { get; set; } = new Vector();
 
-        public Vector End = new Vector();
+        public Vector End { get; set; } = new Vector();
 
         /***************************************************/
     }
