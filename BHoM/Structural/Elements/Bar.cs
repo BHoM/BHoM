@@ -11,24 +11,11 @@ namespace BH.oM.Structural.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public Properties.ISectionProperty SectionProperty { get; set; } = null;
-
-        public Properties.BarRelease Release { get; set; } = null;
-
-        public Properties.Constraint4DOF Spring { get; set; } = null;
-
-        public Properties.Offset Offset { get; set; } = null;
-
-        public BarStructuralUsage StructuralUsage { get; set; } //TODO: Move to future beam class??
-
-        /// <summary>
-        /// Sets the type of elements that should be used in analysis software
-        /// </summary>
-        public BarFEAType FEAType { get; set; }
-
         public Node StartNode { get; set; }
 
         public Node EndNode { get; set; }
+
+        public Properties.ISectionProperty SectionProperty { get; set; } = null;
 
         /// <summary>
         /// Bar orientation angle in radians. For non-vertical bars, angle is measured in the bar YZ plane
@@ -37,6 +24,14 @@ namespace BH.oM.Structural.Elements
         /// vertical if the distance between end points projected to a horizontal plane is less than 0.0001
         /// </summary>
         public double OrientationAngle { get; set; } = 0;
+
+        public Properties.BarRelease Release { get; set; } = null;
+
+        public BarFEAType FEAType { get; set; } = BarFEAType.Flexural;
+
+        public Properties.Constraint4DOF Spring { get; set; } = null;
+
+        public Properties.Offset Offset { get; set; } = null;
 
 
         /***************************************************/

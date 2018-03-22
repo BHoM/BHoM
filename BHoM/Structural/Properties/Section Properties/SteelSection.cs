@@ -7,47 +7,24 @@ using BH.oM.Common.Materials;
 namespace BH.oM.Structural.Properties
 {
 
-    public class SteelSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
+    public class SteelSection : BHoMObject, ISectionProperty, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Fabrication Fabrication { get; set; } = Fabrication.Welded;
+        public SteelFabrication Fabrication { get; set; } = SteelFabrication.Welded;
 
-        public PlateRestraint PlateRestraint { get; set; } = PlateRestraint.NoRestraint;
+        public SteelPlateRestraint PlateRestraint { get; set; } = SteelPlateRestraint.NoRestraint;
 
         public Material Material { get; set; } = null;
 
-        public System.Collections.ObjectModel.ReadOnlyCollection<ICurve> Edges { get; }
-
 
         /***************************************************/
-        /**** Properties - Section dimensions           ****/
+        /**** Properties - Section profile              ****/
         /***************************************************/
 
-        public ISectionDimensions SectionDimensions { get; }
-
-        //public ShapeType Shape { get; }
-
-        //public double B1 { get; } = 0;
-
-        //public double B2 { get; } = 0;
-
-        //public double B3 { get; } = 0;
-
-        //public double Tw { get; } = 0;
-
-        //public double Tf1 { get; } = 0;
-
-        //public double Tf2 { get; } = 0;
-
-        //public double R1 { get; } = 0;
-
-        //public double R2 { get; } = 0;
-
-        //public double Spacing { get; } = 0;
-
+        public IProfile SectionProfile { get; }
 
 
         /***************************************************/
@@ -152,19 +129,7 @@ namespace BH.oM.Structural.Properties
 
         //Main constructor setting all of the properties of the object
         public SteelSection(
-            IEnumerable<ICurve> edges,
-            ISectionDimensions sectionDimensions,
-
-            //ShapeType shape,
-            //double b1,
-            //double b2,
-            //double b3,
-            //double tw,
-            //double tf1,
-            //double tf2,
-            //double r1,
-            //double r2,
-            //double spacing,
+            IProfile sectionDimensions,
 
             double area,
             double rgy,
@@ -188,19 +153,7 @@ namespace BH.oM.Structural.Properties
 
         {
 
-            Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
-
-            SectionDimensions = sectionDimensions;
-            //Shape = shape;
-            //B1 = b1;
-            //B2 = b2;
-            //B3 = b3;
-            //Tw = tw;
-            //Tf1 = tf1;
-            //Tf2 = tf2;
-            //R1 = r1;
-            //R2 = r2;
-            //Spacing = spacing;
+            SectionProfile = sectionDimensions;
 
             Area = area;
             Rgy = rgy;
@@ -224,67 +177,7 @@ namespace BH.oM.Structural.Properties
 
         }
 
-        /***************************************************/
-
-        //Secondary constructor for a freeform section
-        //public SteelSection(      // TODO: This is not ok: the constructor needs to match exactly the properties. Anything else goes to the engine
-
-        //    IEnumerable<ICurve> edges,
-
-        //    double area,
-        //    double rgy,
-        //    double rgz,
-        //    double j,
-        //    double iy,
-        //    double iz,
-        //    double iw,
-        //    double zy,
-        //    double zz,
-        //    double sy,
-        //    double sz,
-        //    double centreZ,
-        //    double centreY,
-        //    double vz,
-        //    double vpz,
-        //    double vy,
-        //    double vpy,
-        //    double asy,
-        //    double asz,
-        //    double totalDepth,
-        //    double totalWidth)
-
-        //{
-        //    Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
-
-        //    SectionDimensions = new PolygonDimensions();
-
-        //    Area = area;
-        //    Rgy = rgy;
-        //    Rgz = rgz;
-        //    J = j;
-        //    Iy = iy;
-        //    Iz = iz;
-        //    Iw = iw;
-        //    Zy = zy;
-        //    Zz = zz;
-        //    Sy = sy;
-        //    Sz = sz;
-        //    CentreZ = centreZ;
-        //    CentreY = centreY;
-        //    Vz = vz;
-        //    Vpz = vpz;
-        //    Vy = vy;
-        //    Vpy = vpy;
-        //    Asy = asy;
-        //    Asz = asz;
-        //}
-
-        /***************************************************/
+     
     }
 }
 
-
-//public double GetGrade()
-//{
-//    return Material.TensileYieldStrength / 1000000;
-//}

@@ -8,7 +8,7 @@ using BH.oM.Common.Materials;
 namespace BH.oM.Structural.Properties
 {
 
-    public class ConcreteSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
+    public class ConcreteSection : BHoMObject, ISectionProperty, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -20,14 +20,12 @@ namespace BH.oM.Structural.Properties
 
         public Material Material { get; set; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
-
 
         /***************************************************/
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
-        public ISectionDimensions SectionDimensions { get; }
+        public IProfile SectionDimensions { get; }
 
 
         /***************************************************/
@@ -149,9 +147,8 @@ namespace BH.oM.Structural.Properties
         /***************************************************/
 
         public ConcreteSection(             //Main constructor setting all of the properties of the object
-            IEnumerable<ICurve> edges,
 
-            ISectionDimensions sectionDimensions,
+            IProfile sectionDimensions,
 
             double area,
             double rgy,
@@ -174,8 +171,6 @@ namespace BH.oM.Structural.Properties
             double asz)
 
         {
-            Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
-
             SectionDimensions = sectionDimensions;
 
             Area = area;
@@ -201,103 +196,8 @@ namespace BH.oM.Structural.Properties
         }
 
         /***************************************************/
-        
-        public ConcreteSection(         //Secondary constructor for a freeform section
-            IEnumerable<ICurve> edges,
-
-            double area,
-            double rgy,
-            double rgz,
-            double j,
-            double iy,
-            double iz,
-            double iw,
-            double zy,
-            double zz,
-            double sy,
-            double sz,
-            double centreZ,
-            double centreY,
-            double vz,
-            double vpz,
-            double vy,
-            double vpy,
-            double asy,
-            double asz)
-
-        {
-            Edges = new System.Collections.ObjectModel.ReadOnlyCollection<ICurve>(edges.ToList());
-
-            SectionDimensions = new PolygonDimensions();
-
-            Area = area;
-            Rgy = rgy;
-            Rgz = rgz;
-            J = j;
-            Iy = iy;
-            Iz = iz;
-            Iw = iw;
-            Zy = zy;
-            Zz = zz;
-            Sy = sy;
-            Sz = sz;
-            CentreZ = centreZ;
-            CentreY = centreY;
-            Vz = vz;
-            Vpz = vpz;
-            Vy = vy;
-            Vpy = vpy;
-            Asy = asy;
-            Asz = asz;
-
-        }
-
-
-        /***************************************************/
+       
     }
 }
 
 
-
-
-//public double GetTieDiameter()
-//{
-//    foreach (Reinforcement reo in Reinforcement)
-//    {
-//        if (reo is TieReinforcement)
-//        {
-//            return reo.Diameter;
-//        }
-//    }
-//    return 0;
-//}
-
-///***************************************************/
-
-//public IBHoMGeometry GetReinforcementLayout(double xStart = 0, double xEnd = 1)
-//{
-//    GeometryGroup<IBHoMGeometry> geometry = new GeometryGroup<IBHoMGeometry>();
-//    //foreach (Reinforcement reo in Reinforcement)
-//    //{
-//    //    IBHoMGeometry layout = reo.GetLayout(this);
-//    //    if (typeof(IGroup).IsAssignableFrom(layout.GetType()))
-//    //    {
-//    //        foreach (IBHoMGeometry obj in ((IGroup)layout).Objects)
-//    //        {
-//    //            if (obj is Point)
-//    //            {
-//    //                geometry.Add(new Circle(reo.Diameter / 2, new Plane(obj as Point, Vector.ZAxis())));
-//    //            }
-//    //            else
-//    //            {
-//    //                geometry.Add(obj);
-//    //            }                       
-//    //        }
-//    //    }
-//    //    else
-//    //    {
-//    //        geometry.Add(layout);
-//    //    }
-//    //}
-//    return geometry;
-//}

@@ -6,7 +6,7 @@ using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {
-    public class CompositeSection : BHoMObject, ISectionProperty, IGeometricalSection, IImmutable
+    public class CompositeSection : BHoMObject, ISectionProperty, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -26,13 +26,6 @@ namespace BH.oM.Structural.Properties
 
         public int StudsPerGroup { get; }
 
-        public ReadOnlyCollection<ICurve> Edges
-        {
-            get
-            {
-                return new ReadOnlyCollection<ICurve>(SteelSection.Edges.Concat(ConcreteSection.Edges).ToList());
-            }
-        }
 
         public Material Material { get; set; }
 
@@ -200,52 +193,3 @@ namespace BH.oM.Structural.Properties
     }
 }
 
-
-
-        //public override string ToString()
-        //{
-        //    //return GetType().Name + ": " + SteelSection.Name + " - " + ConcreteSection.Name;
-        //}
-
-        //private void SetEdges()
-        //{
-        //    if (m_ConcreteSection != null && m_SteelSection != null)
-        //    {
-        //        double n = m_ConcreteSection.Material.YoungsModulus / m_SteelSection.Material.YoungsModulus;
-        //        Group<Curve> concreteRectangle = m_ConcreteSection.Edges.DuplicateGroup();
-        //        concreteRectangle.Transform(Transform.Scale(Point.Origin, new Vector { X = n, Y = 1, Z = 1 }));
-        //        Group<Curve> steelSection = m_SteelSection.Edges;
-
-        //        double topSteel = steelSection.GetBounds().Max.Y;
-        //        double botConcrete = concreteRectangle.GetBounds().Min.Y;
-        //        double steelOffset = topSteel - botConcrete - SteelEmbedmentDepth;
-
-        //        //TEMP UNDO steelSection.Translate(Vector.YAxis(-steelOffset));
-        //        m_SteelSection.Edges = steelSection;
-
-        //        if (SteelEmbedmentDepth > 0)
-        //        {
-        //            Curve perimeter = Curve.Join(steelSection)[0];
-        //            if (perimeter != null)
-        //            {
-        //                List<Curve> curves = perimeter.Split(Plane.YZ(botConcrete), true);
-        //                if (curves.Count == 2)
-        //                {
-        //                    if (curves[0].GetBounds().Centre.Y < botConcrete)
-        //                    {
-        //                        concreteRectangle.Add(curves[0]);
-        //                    }
-        //                    else
-        //                    {
-        //                        concreteRectangle.Add(curves[1]);
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            concreteRectangle.AddRange(steelSection);
-        //        }
-        //        Edges = concreteRectangle;
-        //    }
-        //}

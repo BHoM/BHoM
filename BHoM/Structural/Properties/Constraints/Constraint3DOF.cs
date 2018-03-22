@@ -1,19 +1,26 @@
 ﻿using BH.oM.Base;
-using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {
-    /// <summary>
-    /// Property2D for 2D finite element structural objects such as PanelPlanar or MeshFace
-    /// </summary>
-    public interface IProperty2D : IBHoMObject
+    public class Constraint3DOF : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        public DOFType UX { get; set; }
+
+        public DOFType UY { get; set; }
+
+        public DOFType Normal { get; set; }
+
+        public double KX { get; set; } = 0;
+
+        public double KY { get; set; } = 0;
+
+        public double KNorm { get; set; } = 0;
 
 
         /***************************************************/
-    }    
+    }
 }

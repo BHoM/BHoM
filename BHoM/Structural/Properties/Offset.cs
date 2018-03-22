@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using BH.oM.Geometry;
 
 namespace BH.oM.Structural.Properties
 {
@@ -11,24 +11,9 @@ namespace BH.oM.Structural.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Axial Offset from start node")]
-        public double StartX { get; set; } = 0;
+        public Vector Start = new Vector();
 
-        [Description("Minor axis offset from start node")]
-        public double StartY { get; set; } = 0;
-
-        [Description("Major axis offset from start node")]
-        public double StartZ { get; set; } = 0;
-
-        [Description("Axial Offset from end node")]
-        public double EndX { get; set; } = 0;
-
-        [Description("Minor axis offset from end node")]
-        public double EndY { get; set; } = 0;
-
-        [Description("Major axis offset from end node")]
-        public double EndZ { get; set; } = 0;
-
+        public Vector End = new Vector();
 
         /***************************************************/
     }
