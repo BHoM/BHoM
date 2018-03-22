@@ -8,7 +8,7 @@ namespace BH.oM.Structural.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        int Number { get; set; }  //TODO: Do we still need this ? Should we not use name or Guid ??
+        int Number { get; set; }
 
 
         /***************************************************/

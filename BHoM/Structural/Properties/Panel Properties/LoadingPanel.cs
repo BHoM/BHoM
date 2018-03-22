@@ -1,16 +1,8 @@
-﻿namespace BH.oM.Structural.Properties
-{
-    public enum LoadPanelSupportConditions
-    {
-        AllSides,
-        ThreeSides,
-        TwoSides,
-        TwoAdjacentSides,
-        OneSide,
-        Cantilever
-    }
+﻿using BH.oM.Base;
 
-    public class LoadingPanelProperty : Property2D
+namespace BH.oM.Structural.Properties
+{
+    public class LoadingPanelProperty : BHoMObject, IProperty2D
     {
         /***************************************************/
         /**** Properties                                ****/

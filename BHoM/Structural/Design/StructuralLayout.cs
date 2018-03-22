@@ -18,7 +18,7 @@ namespace BH.oM.Structural.Design
 
         public List<Span> LateralTorsionalSpans { get; set; } = new List<Span>();
 
-        public BarStructuralUsage StructuralUsage { get; set; } = new BarStructuralUsage();
+        public StructuralUsage1D StructuralUsage { get; set; } = new StructuralUsage1D();
 
 
         /***************************************************/

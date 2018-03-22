@@ -238,12 +238,6 @@ namespace BH.oM.Structural.Properties
         //    }
         //}
 
-        //private void CreateEdgeCurves(double diameter, int numberOfCables)
-        //{
-        //    //TODO: Add something for creation of multiple cables
-        //    Edges = CreateGeometry(ShapeType.Circle, diameter, diameter, 0, 0, 0, 0);
-
-        //}
 
 
         //public override ShapeType Shape

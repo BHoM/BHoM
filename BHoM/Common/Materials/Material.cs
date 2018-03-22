@@ -30,7 +30,7 @@ namespace BH.oM.Common.Materials
 
         public double TensileYieldStrength { get; set; } = 0.0;
 
-        public double StainAtYield { get; set; } = 0.0;
+        public double StrainAtYield { get; set; } = 0.0;
 
 
         /***************************************************/

@@ -23,35 +23,3 @@ namespace BH.oM.Structural.Properties
         /***************************************************/
     }
 }
-
-
-
-//public abstract bool IsLongitudinal();
-
-///***************************************************/
-
-//public abstract IBHoMGeometry GetLayout(ConcreteSection property, bool extrude = false);
-
-///***************************************************/
-
-//public virtual List<double> Location(ConcreteSection property, double location, double axis)
-//{
-//    List<double> result = new List<double>();
-//    if (location >= StartLocation && location <= EndLocation)
-//    {
-//        GeometryGroup<Point> geom = GetLayout(property, false) as GeometryGroup<Point>;
-//        foreach (Point p in geom.Elements)
-//        {
-//            if (axis == 0)
-//            {
-//                result.Add(p.X);
-//            }
-//            else
-//            {
-//                result.Add(p.Y);
-//            }
-//        }
-//    }
-//    return result;
-//}
-
