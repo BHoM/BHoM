@@ -25,7 +25,7 @@ namespace BH.oM.Structural.Properties
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
-        public IProfile SectionDimensions { get; }
+        public IProfile SectionProfile { get; }
 
 
         /***************************************************/
@@ -148,7 +148,7 @@ namespace BH.oM.Structural.Properties
 
         public ConcreteSection(             //Main constructor setting all of the properties of the object
 
-            IProfile sectionDimensions,
+            IProfile sectionProfile,
 
             double area,
             double rgy,
@@ -171,7 +171,7 @@ namespace BH.oM.Structural.Properties
             double asz)
 
         {
-            SectionDimensions = sectionDimensions;
+            SectionProfile = sectionProfile;
 
             Area = area;
             Rgy = rgy;
