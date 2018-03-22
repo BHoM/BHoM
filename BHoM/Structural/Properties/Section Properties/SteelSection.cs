@@ -129,7 +129,7 @@ namespace BH.oM.Structural.Properties
 
         //Main constructor setting all of the properties of the object
         public SteelSection(
-            IProfile sectionDimensions,
+            IProfile sectionProfile,
 
             double area,
             double rgy,
@@ -153,7 +153,7 @@ namespace BH.oM.Structural.Properties
 
         {
 
-            SectionProfile = sectionDimensions;
+            SectionProfile = sectionProfile;
 
             Area = area;
             Rgy = rgy;
