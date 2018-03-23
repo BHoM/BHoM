@@ -12,7 +12,7 @@ namespace BH.oM.Structural.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-
+        Material Material { get; set; }
 
         /***************************************************/
     }    

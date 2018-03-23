@@ -10,8 +10,6 @@ namespace BH.oM.Structural.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        public double[] Modifiers { get; set; } = new double[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-
         public double Thickness { get; set; }
 
         public Material Material { get; set; }
@@ -27,6 +25,8 @@ namespace BH.oM.Structural.Properties
         public double SpacingX { get; set; }
 
         public double SpacingY { get; set; }
+
+        public PanelType PanelType { get; set; } = PanelType.Slab;
 
 
         /***************************************************/
