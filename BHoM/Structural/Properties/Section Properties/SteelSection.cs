@@ -70,21 +70,21 @@ namespace BH.oM.Structural.Properties
         /// <summary>
         /// Elastic Modulus of the section about the Y-Axis
         /// </summary>
-        public double Zy { get; } = 0;
+        public double Wely { get; } = 0;
 
         /// <summary>
         /// Elastic Modulus of the section about the Z-Axis
         /// </summary>
-        public double Zz { get; } = 0;
+        public double Welz { get; } = 0;
         /// <summary>
         /// Plastic Modulus of the section about the Y-Axis
         /// </summary>
-        public double Sy { get; } = 0;
+        public double Wply { get; } = 0;
 
         /// <summary>
         /// Plastic Modulus of the section about the Z-Axis
         /// </summary>
-        public double Sz { get; } = 0;
+        public double Wplz { get; } = 0;
         /// <summary>
         /// Geometric centre of the section in the Z direction
         /// </summary>
@@ -138,10 +138,10 @@ namespace BH.oM.Structural.Properties
             double iy,
             double iz,
             double iw,
-            double zy,
-            double zz,
-            double sy,
-            double sz,
+            double wely,
+            double welz,
+            double wply,
+            double wplz,
             double centreZ,
             double centreY,
             double vz,
@@ -162,10 +162,10 @@ namespace BH.oM.Structural.Properties
             Iy = iy;
             Iz = iz;
             Iw = iw;
-            Zy = zy;
-            Zz = zz;
-            Sy = sy;
-            Sz = sz;
+            Wely = wely;
+            Welz = welz;
+            Wply = wply;
+            Wplz = wplz;
             CentreZ = centreZ;
             CentreY = centreY;
             Vz = vz;

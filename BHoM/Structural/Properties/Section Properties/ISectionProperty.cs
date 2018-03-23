@@ -49,21 +49,21 @@ namespace BH.oM.Structural.Properties
         /// <summary>
         /// Elastic Modulus of the section about the Y-Axis
         /// </summary>
-        double Zy { get; }
+        double Wely { get; }
 
         /// <summary>
         /// Elastic Modulus of the section about the Z-Axis
         /// </summary>
-        double Zz { get; }
+        double Welz { get; }
         /// <summary>
         /// Plastic Modulus of the section about the Y-Axis
         /// </summary>
-        double Sy { get; }
+        double Wply { get; }
 
         /// <summary>
         /// Plastic Modulus of the section about the Z-Axis
         /// </summary>
-        double Sz { get; }
+        double Wplz { get; }
         /// <summary>
         /// Geometric centre of the section in the Z direction
         /// </summary>
