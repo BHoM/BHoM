@@ -26,7 +26,7 @@ namespace BH.oM.Structural.Properties
 
         public double SpacingY { get; set; }
 
-        public PanelType PanelType { get; set; } = PanelType.Slab;
+        public PanelType PanelType { get; set; } = PanelType.Slab;   //TODO: Required to get Etabs working. To be moved to physical objects
 
 
         /***************************************************/
