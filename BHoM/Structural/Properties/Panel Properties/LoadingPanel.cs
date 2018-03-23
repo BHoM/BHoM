@@ -1,4 +1,5 @@
 ﻿using BH.oM.Base;
+using BH.oM.Common.Materials;
 
 namespace BH.oM.Structural.Properties
 {
@@ -12,6 +13,7 @@ namespace BH.oM.Structural.Properties
 
         public int ReferenceEdge { get; set; } = 1;
 
+        public Material Material { get; set; }
 
         /***************************************************/
     }
