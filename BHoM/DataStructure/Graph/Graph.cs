@@ -8,9 +8,9 @@ namespace BH.oM.DataStructure
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<GraphNode<T>> Nodes = new List<GraphNode<T>>();
+        public List<GraphNode<T>> Nodes { get; set; } = new List<GraphNode<T>>();
 
-        public List<GraphLink<T>> Links = new List<GraphLink<T>>();
+        public List<GraphLink<T>> Links { get; set; } = new List<GraphLink<T>>();
 
 
         /***************************************************/
