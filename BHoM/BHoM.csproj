@@ -74,6 +74,7 @@
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
     <Compile Include="Base\CustomObject.cs" />
+    <Compile Include="Base\Interface\IBHoMGroup.cs" />
     <Compile Include="Base\Interface\IObject.cs" />
     <Compile Include="Base\Interface\IImmutable.cs" />
     <Compile Include="Common\Results\IResult.cs" />
