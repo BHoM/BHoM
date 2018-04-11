@@ -25,7 +25,7 @@ namespace BH.oM.Structural.Results
 
         public int CompareTo(IResult other)
         {
-            NodeResult otherRes = other as NodeResult;
+            StructuralGlobalResult otherRes = other as StructuralGlobalResult;
 
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
