@@ -73,8 +73,8 @@
     <Compile Include="Acoustic\Parameters\Rasti.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
-    <Compile Include="Base\Attributes\Output.cs" />
-    <Compile Include="Base\Attributes\Input.cs" />
+    <Compile Include="Reflection\Attributes\Output.cs" />
+    <Compile Include="Reflection\Attributes\Input.cs" />
     <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IBHoMGroup.cs" />
     <Compile Include="Base\Interface\IObject.cs" />
