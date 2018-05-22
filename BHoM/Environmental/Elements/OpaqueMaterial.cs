@@ -18,6 +18,8 @@ namespace BH.oM.Environmental.Elements
         public string Description { get; set; } = string.Empty;
         public double Thickness { get; set; } = 0.0;
         public double Conductivity { get; set; } = 0.0;
+        public double SpecificHeat { get; set; } = 0.0;
+        public double Density { get; set; } = 0.0;
         public double VapourDiffusionFactor { get; set; } = 0.0;
         public double SolarReflectanceExternal { get; set; } = 0.0;
         public double SolarReflectanceInternal { get; set; } = 0.0;
