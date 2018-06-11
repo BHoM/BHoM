@@ -1,17 +1,20 @@
-﻿namespace BH.oM.Geometry
+﻿using System.ComponentModel;
+
+namespace BH.oM.Geometry
 {
+    [Description("Arc starting from the local x, rotating Angle number of radians counter clockwise")]
     public class Arc : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Start { get; set; } = new Point();
+        public CoordinateSystem CoordinateSystem { get; set; } = null;
 
-        public Point End { get; set; } = new Point();
+        public double Radius { get; set; } = 0;
 
-        public Point Middle { get; set; } = new Point();
-
+        [Description("Angle in radians")]
+        public double Angle { get; set; } = 0;
 
         /***************************************************/
     }
