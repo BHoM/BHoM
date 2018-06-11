@@ -73,6 +73,7 @@
     <Compile Include="Acoustic\Parameters\Rasti.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
+    <Compile Include="Geometry\Vector\CoordinateSystem.cs" />
     <Compile Include="Reflection\Attributes\Output.cs" />
     <Compile Include="Reflection\Attributes\Input.cs" />
     <Compile Include="Base\CustomObject.cs" />
