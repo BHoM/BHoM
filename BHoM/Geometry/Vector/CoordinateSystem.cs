@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
-
+    [Description("Cartesian coordinate system. All vectors to be orthogonal unit vectors")]
     public class CoordinateSystem : IGeometry, IImmutable
     {
         /***************************************************/
@@ -33,5 +34,16 @@ namespace BH.oM.Geometry
             Z = z;
             Orgin = orgin;
         }
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator Plane(CoordinateSystem coordinateSystem)
+        {
+            return new Plane { Origin = coordinateSystem.Orgin, Normal = coordinateSystem.Z };
+        }
+
+        /***************************************************/
     }
 }
