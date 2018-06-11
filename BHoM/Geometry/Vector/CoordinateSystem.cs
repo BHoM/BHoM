@@ -16,7 +16,7 @@ namespace BH.oM.Geometry
 
         public Vector Z { get;} = Vector.ZAxis;
 
-        public Point Orgin { get; set; } = Point.Origin;
+        public Point Origin { get; set; } = Point.Origin;
 
         /***************************************************/
         /**** Constructor                               ****/
@@ -27,7 +27,7 @@ namespace BH.oM.Geometry
             X = x;
             Y = y;
             Z = z;
-            Orgin = orgin;
+            Origin = orgin;
         }
 
         /***************************************************/
@@ -36,7 +36,7 @@ namespace BH.oM.Geometry
 
         public static explicit operator Plane(CoordinateSystem coordinateSystem)
         {
-            return new Plane { Origin = coordinateSystem.Orgin, Normal = coordinateSystem.Z };
+            return new Plane { Origin = coordinateSystem.Origin, Normal = coordinateSystem.Z };
         }
 
         /***************************************************/
