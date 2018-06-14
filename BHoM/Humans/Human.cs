@@ -1,5 +1,4 @@
 ﻿using BH.oM.Base;
-using BH.oM.Humans;
 
 namespace BH.oM.Humans
 {
@@ -23,7 +22,7 @@ namespace BH.oM.Humans
 
         public string YammerLogin { get; set; }
 
-        public string GithubLogin { get; set; }
+        public string GitHubLogin { get; set; }
 
         public Skeleton Skeleton { get; set; }
 
