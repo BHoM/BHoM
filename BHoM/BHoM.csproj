@@ -73,6 +73,15 @@
     <Compile Include="Acoustic\Parameters\Rasti.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
+    <Compile Include="Planning\Branch.cs" />
+    <Compile Include="Planning\CodeAssembly.cs" />
+    <Compile Include="Planning\Commit.cs" />
+    <Compile Include="Planning\Enums\ItemState.cs" />
+    <Compile Include="Planning\Issue.cs" />
+    <Compile Include="Planning\Label.cs" />
+    <Compile Include="Planning\Milestone.cs" />
+    <Compile Include="Planning\PullRequest.cs" />
+    <Compile Include="Planning\Repository.cs" />
     <Compile Include="Reflection\Attributes\Output.cs" />
     <Compile Include="Reflection\Attributes\Input.cs" />
     <Compile Include="Base\CustomObject.cs" />
