@@ -195,6 +195,7 @@
     <Compile Include="Reflection\Debuging\Log.cs" />
     <Compile Include="Reflection\Debuging\Event.cs" />
     <Compile Include="Reflection\Testing\TestData.cs" />
+    <Compile Include="Reflection\Testing\TestResult.cs" />
     <Compile Include="Reflection\Testing\UnitTest.cs" />
     <Compile Include="Structural\Design\DesignGroup.cs" />
     <Compile Include="Structural\Design\StructuralLayout.cs" />
