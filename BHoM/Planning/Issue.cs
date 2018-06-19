@@ -28,6 +28,8 @@ namespace BH.oM.Planning
 
         public List<string> Labels { get; set; } = new List<string>();
 
+        public string Url { get; set; } = "";
+
 
         /***************************************************/
     }
