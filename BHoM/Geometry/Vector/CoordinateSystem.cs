@@ -4,31 +4,20 @@ using System.ComponentModel;
 namespace BH.oM.Geometry
 {
     [Description("Cartesian coordinate system. All vectors to be orthogonal unit vectors")]
-    public class CoordinateSystem : IGeometry, IImmutable
+    public class CoordinateSystem : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Vector X { get; } = Vector.XAxis;
+        public Vector X { get; set; } = Vector.XAxis;
 
-        public Vector Y { get;} = Vector.YAxis;
+        public Vector Y { get; set; } = Vector.YAxis;
 
-        public Vector Z { get;} = Vector.ZAxis;
+        public Vector Z { get; set; } = Vector.ZAxis;
 
         public Point Origin { get; set; } = Point.Origin;
 
-        /***************************************************/
-        /**** Constructor                               ****/
-        /***************************************************/
-
-        public CoordinateSystem(Vector x, Vector y, Vector z, Point orgin)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-            Origin = orgin;
-        }
 
         /***************************************************/
         /**** Explicit Casting                          ****/
