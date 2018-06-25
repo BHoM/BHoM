@@ -17,6 +17,15 @@ namespace BH.oM.Geometry
         public double Angle { get; set; } = 0;
 
         /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator Circle(Arc arc)
+        {
+            return new Circle { Centre = arc.CoordinateSystem.Origin, Normal = arc.CoordinateSystem.Z, Radius = arc.Radius };
+        }
+
+        /***************************************************/
     }
 }
 
