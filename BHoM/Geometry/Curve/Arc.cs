@@ -13,8 +13,11 @@ namespace BH.oM.Geometry
 
         public double Radius { get; set; } = 0;
 
-        [Description("Angle in radians")]
-        public double Angle { get; set; } = 0;
+        [Description("Angle in radians to the start point from the local X-axis, counter clowise around the local Z-axis")]
+        public double StartAngle { get; set; } = 0;
+
+        [Description("Angle in radians to the end point from the local X-axis, counter clowise around the local Z-axis")]
+        public double EndAngle { get; set; } = 0;
 
         /***************************************************/
         /**** Explicit Casting                          ****/
