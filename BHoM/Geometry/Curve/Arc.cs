@@ -9,7 +9,7 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        public CoordinateSystem CoordinateSystem { get; set; } = null;
+        public CoordinateSystem CoordinateSystem { get; set; } = new CoordinateSystem();
 
         public double Radius { get; set; } = 0;
 
