@@ -20,14 +20,5 @@ namespace BH.oM.Geometry
 
 
         /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator Plane(CoordinateSystem coordinateSystem)
-        {
-            return new Plane { Origin = coordinateSystem.Origin, Normal = coordinateSystem.Z };
-        }
-
-        /***************************************************/
     }
 }
