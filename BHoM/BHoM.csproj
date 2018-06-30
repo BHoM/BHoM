@@ -73,6 +73,7 @@
     <Compile Include="Acoustic\Parameters\Rasti.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
+    <Compile Include="Geometry\Vector\CoordinateSystem.cs" />
     <Compile Include="Humans\Human.cs" />
     <Compile Include="Planning\Branch.cs" />
     <Compile Include="Planning\CodeAssembly.cs" />
