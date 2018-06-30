@@ -25,6 +25,16 @@
 
         public static readonly Plane XZ = new Plane { Origin = new Point { X = 0, Y = 0, Z = 0 }, Normal = Vector.YAxis };
 
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator Plane(CoordinateSystem coordinateSystem)
+        {
+            return new Plane { Origin = coordinateSystem.Origin, Normal = coordinateSystem.Z };
+        }
+
         /***************************************************/
     }
 }
