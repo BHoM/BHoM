@@ -1,14 +1,15 @@
-﻿using BH.oM.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
+using BH.oM.Planning;
+using BH.oM.Base;
 
-namespace BH.oM.Reflection.Testing
+namespace BH.oM.Testing
 {
-    public class UnitTest : BHoMObject
+    public class TestResult : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -16,8 +17,9 @@ namespace BH.oM.Reflection.Testing
 
         public MethodBase Method { get; set; } = null;
 
-        public List<TestData> Data { get; set; } = new List<TestData>();
+        public List<bool> Results { get; set; } = new List<bool>();
 
+        public Issue Issue { get; set; } = null;
 
         /***************************************************/
     }
