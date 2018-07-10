@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Testing
+namespace BH.oM.Testing
 {
     public class TestData : BHoMObject
     {
