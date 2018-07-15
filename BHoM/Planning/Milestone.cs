@@ -9,7 +9,7 @@ namespace BH.oM.Planning
         /**** Properties                                ****/
         /***************************************************/
 
-        public DateTimeOffset DueOn { get; set; }
+        public DateTimeOffset? DueOn { get; set; }
 
         public ItemState State { get; set; }
 
