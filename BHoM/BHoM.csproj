@@ -195,6 +195,8 @@
     <Compile Include="Reflection\Debuging\EventType.cs" />
     <Compile Include="Reflection\Debuging\Log.cs" />
     <Compile Include="Reflection\Debuging\Event.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Profiles\GeneralisedFabricatedBoxProfile.cs" />
+    <Compile Include="Structural\Properties\Section Properties\Profiles\KiteProfile.cs" />
     <Compile Include="Testing\TestData.cs" />
     <Compile Include="Testing\TestResult.cs" />
     <Compile Include="Testing\UnitTest.cs" />
