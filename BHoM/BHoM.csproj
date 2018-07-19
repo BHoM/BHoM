@@ -195,6 +195,7 @@
     <Compile Include="Reflection\Debuging\EventType.cs" />
     <Compile Include="Reflection\Debuging\Log.cs" />
     <Compile Include="Reflection\Debuging\Event.cs" />
+    <Compile Include="SecurityTechnology\Elements\Security\DataDevice.cs" />
     <Compile Include="Structural\Properties\Section Properties\Profiles\GeneralisedFabricatedBoxProfile.cs" />
     <Compile Include="Structural\Properties\Section Properties\Profiles\KiteProfile.cs" />
     <Compile Include="Testing\TestData.cs" />
@@ -325,6 +326,7 @@
     <Folder Include="MachineLearning\Text\" />
     <Folder Include="MachineLearning\Video\" />
     <Folder Include="MEP\" />
+    <Folder Include="SecurityTechnology\Elements\Technology\" />
     <Folder Include="Structural\Results\Building Results\" />
   </ItemGroup>
   <ItemGroup>
