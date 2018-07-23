@@ -25,10 +25,20 @@ namespace BH.oM.Base
         public IBHoMObject GetShallowClone(bool newGuid = false)
         {
             BHoMObject obj = (BHoMObject)this.MemberwiseClone();
-            obj.CustomData = new Dictionary<string, object>(CustomData);
-            obj.Tags = new HashSet<string>(obj.Tags);
+
+            if (CustomData != null)
+                obj.CustomData = new Dictionary<string, object>(CustomData);
+            else
+                obj.CustomData = new Dictionary<string, object>();
+
+            if (Tags != null)
+                obj.Tags = new HashSet<string>(Tags);
+            else
+                obj.Tags = new HashSet<string>();
+
             if (newGuid)
                 obj.BHoM_Guid = Guid.NewGuid();
+
             return obj;
         }
 
