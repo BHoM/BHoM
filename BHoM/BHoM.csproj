@@ -84,6 +84,9 @@
     <Compile Include="Planning\Milestone.cs" />
     <Compile Include="Planning\PullRequest.cs" />
     <Compile Include="Planning\Repository.cs" />
+    <Compile Include="Reflection\Attributes\Deprecated.cs" />
+    <Compile Include="Reflection\Attributes\NotImplemented.cs" />
+    <Compile Include="Reflection\Attributes\Released.cs" />
     <Compile Include="Reflection\Attributes\Output.cs" />
     <Compile Include="Reflection\Attributes\Input.cs" />
     <Compile Include="Base\CustomObject.cs" />
