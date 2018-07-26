@@ -5,18 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environmental.Properties;
+using BH.oM.Environment.Interface;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environment.Elements
 {
-    public class InternalCondition : BHoMObject
+    public class GasMaterial : BHoMObject, IMaterial
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public EmitterProperties EmitterProperties { get; set; } = new EmitterProperties();
-        public List<Profile> Profiles { get; set; } = new List<Profile>();
+        public double Thickness { get; set; } = 0.0;
+        public string Description { get; set; } = string.Empty;
+        public double ConvectionCoefficient { get; set; } = 0.0;
+        public double VapourDiffusionFactor { get; set; } = 0.0;
 
         /***************************************************/
     }

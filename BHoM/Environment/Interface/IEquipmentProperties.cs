@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environment.Interface
 {
-    public class Profile : BHoMObject
+    public interface IEquipmentProperties : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
