@@ -2,9 +2,9 @@
 
 using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.Environmental.Interface;
+using BH.oM.Environment.Interface;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environment.Elements
 {
     public class BuildingElementPanel : BHoMObject, IBuildingElementGeometry
     {

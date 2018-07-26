@@ -2,10 +2,10 @@
 
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.Environmental.Interface;
+using BH.oM.Environment.Interface;
 using BH.oM.Architecture.Elements;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environment.Elements
 {
     public class Space : BHoMObject
     {

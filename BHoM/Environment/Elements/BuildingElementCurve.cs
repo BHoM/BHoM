@@ -5,20 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environmental.Interface;
+using BH.oM.Geometry;
+using BH.oM.Environment.Interface;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environment.Elements
 {
-    public class GasMaterial : BHoMObject, IMaterial
+    public class BuildingElementCurve : BHoMObject, IBuildingElementGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Thickness { get; set; } = 0.0;
-        public string Description { get; set; } = string.Empty;
-        public double ConvectionCoefficient { get; set; } = 0.0;
-        public double VapourDiffusionFactor { get; set; } = 0.0;
+        public ICurve Curve { get; set; } = new Line();
 
         /***************************************************/
     }

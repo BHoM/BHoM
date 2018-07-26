@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environment.Elements
 {
     /***************************************************/
     /**** BuildingElementType                       ****/

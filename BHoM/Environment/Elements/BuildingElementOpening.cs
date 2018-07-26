@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Base;
 
-namespace BH.oM.Environmental.Interface
+namespace BH.oM.Environment.Elements
 {
-    public interface IBuildingElementGeometry : IBHoMObject
+    public class BuildingElementOpening : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        public PolyCurve PolyCurve { get; set; } = new PolyCurve();
 
 
         /***************************************************/
