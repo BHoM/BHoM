@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environmental.Interface;
+using BH.oM.Environment.Interface;
 
-namespace BH.oM.Environmental.Properties
+namespace BH.oM.Environment.Properties
 {
     public class PlantProperties : BHoMObject, IEquipmentProperties
     {

@@ -5,16 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Environment.Elements;
 
-namespace BH.oM.Environmental.Interface
+namespace BH.oM.Environment.Interface
 {
-    public interface IEquipmentProperties : IBHoMObject
+    public interface IMaterial: IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-
+        double Thickness { get; set; }
+        string Description { get; set; }
 
         /***************************************************/
     }

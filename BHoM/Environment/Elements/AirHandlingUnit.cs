@@ -1,9 +1,9 @@
-﻿using BH.oM.Environmental.Interface;
-using BH.oM.Environmental.Properties;
+﻿using BH.oM.Environment.Interface;
+using BH.oM.Environment.Properties;
 using BH.oM.Base;
 using BH.oM.Architecture.Elements;
 
-namespace BH.oM.Environmental.Elements
+namespace BH.oM.Environment.Elements
 {
     public class AirHandlingUnit : BHoMObject, IEquipment
     {

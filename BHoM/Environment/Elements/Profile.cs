@@ -5,12 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environmental.Interface;
-using BH.oM.Structural.Elements;
 
-namespace BH.oM.Environmental.Interface
+namespace BH.oM.Environment.Elements
 {
-    public interface IEquipment : IBuildingObject
+    public class Profile : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

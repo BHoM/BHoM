@@ -5,18 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environmental.Elements;
+using BH.oM.Structural.Elements;
 
-namespace BH.oM.Environmental.Interface
+namespace BH.oM.Environment.Interface
 {
-    public interface IMaterial: IBHoMObject
+    public interface IBuildingObject : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        double Thickness { get; set; }
-        string Description { get; set; }
+
 
         /***************************************************/
     }

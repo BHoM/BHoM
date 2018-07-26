@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environmental.Interface;
+using BH.oM.Geometry;
 
-namespace BH.oM.Environmental.Properties
+namespace BH.oM.Environment.Interface
 {
-    public class EmitterProperties : BHoMObject, IEquipmentProperties
+    public interface IBuildingElementGeometry : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
