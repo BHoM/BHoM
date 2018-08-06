@@ -16,10 +16,12 @@ namespace BH.oM.Structural.Elements
 
         public List<Opening> Openings { get; set; } = new List<Opening>();
 
-        public IProperty2D Property { get; set; } = new ConstantThickness();      
+        public IProperty2D Property { get; set; } = new ConstantThickness();
+
+        public Constraint6DOF Constraint { get; set; } = null;
 
 
-        /***************************************************/ 
+        /***************************************************/
     }
 }
        
