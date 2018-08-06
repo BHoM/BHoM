@@ -1,4 +1,5 @@
 ﻿using BH.oM.Base;
+using BH.oM.Structural.Properties;
 
 namespace BH.oM.Structural.Elements
 {
@@ -32,6 +33,8 @@ namespace BH.oM.Structural.Elements
         public Properties.Constraint4DOF Spring { get; set; } = null;
 
         public Properties.Offset Offset { get; set; } = null;
+
+        public Constraint6DOF Constraint { get; set; } = null;
 
 
         /***************************************************/
