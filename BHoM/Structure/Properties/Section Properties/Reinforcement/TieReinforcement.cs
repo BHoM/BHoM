@@ -1,4 +1,4 @@
-﻿namespace BH.oM.Structural.Properties
+﻿namespace BH.oM.Structure.Properties
 {
     public class TieReinforcement : Reinforcement
     {

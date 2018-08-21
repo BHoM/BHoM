@@ -1,6 +1,6 @@
 ﻿using BH.oM.Base;
 
-namespace BH.oM.Structural.Loads
+namespace BH.oM.Structure.Loads
 {
     /// <summary>
     /// Simple Loadcase class

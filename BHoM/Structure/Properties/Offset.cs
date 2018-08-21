@@ -1,6 +1,6 @@
 ﻿using BH.oM.Geometry;
 
-namespace BH.oM.Structural.Properties
+namespace BH.oM.Structure.Properties
 {
     /// <summary>
     /// Offsets for bars

@@ -1,4 +1,4 @@
-﻿namespace BH.oM.Structural.Elements
+﻿namespace BH.oM.Structure.Elements
 {
     /***************************************************/
     public enum StructuralUsage1D

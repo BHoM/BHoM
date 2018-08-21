@@ -1,7 +1,7 @@
-﻿using BH.oM.Structural.Properties;
+﻿using BH.oM.Structure.Properties;
 using BH.oM.Base;
 
-namespace BH.oM.Structural.Elements
+namespace BH.oM.Structure.Elements
 {
     public interface IAreaElement : IBHoMObject
     {

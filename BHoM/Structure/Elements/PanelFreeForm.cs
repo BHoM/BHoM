@@ -1,9 +1,9 @@
 ﻿using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.Structural.Properties;
+using BH.oM.Structure.Properties;
 
 
-namespace BH.oM.Structural.Elements
+namespace BH.oM.Structure.Elements
 {
     public class PanelFreeForm : BHoMObject, IAreaElement
     {

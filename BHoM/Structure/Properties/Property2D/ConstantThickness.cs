@@ -2,7 +2,7 @@
 using BH.oM.Common.Materials;
 
 
-namespace BH.oM.Structural.Properties
+namespace BH.oM.Structure.Properties
 {
     public class ConstantThickness : BHoMObject, IProperty2D
     {

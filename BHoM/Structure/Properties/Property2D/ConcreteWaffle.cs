@@ -2,7 +2,7 @@
 using BH.oM.Common.Materials;
 
 
-namespace BH.oM.Structural.Properties
+namespace BH.oM.Structure.Properties
 {
     public class Waffle : BHoMObject, IProperty2D
     {

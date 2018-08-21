@@ -1,4 +1,4 @@
-﻿namespace BH.oM.Structural.Loads
+﻿namespace BH.oM.Structure.Loads
 {
     /***************************************************/
     public enum LoadType

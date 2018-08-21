@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structural.Properties
+namespace BH.oM.Structure.Properties
 {
     public class AngleProfile : BHoMObject, IProfile, IImmutable
     {

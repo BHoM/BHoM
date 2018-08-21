@@ -1,7 +1,7 @@
-﻿using BH.oM.Structural.Elements;
+﻿using BH.oM.Structure.Elements;
 using BH.oM.Geometry;
 
-namespace BH.oM.Structural.Loads
+namespace BH.oM.Structure.Loads
 {
     /// <summary>
     /// Uniformly distributed area load
