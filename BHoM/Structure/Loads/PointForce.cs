@@ -1,7 +1,7 @@
 ﻿using BH.oM.Geometry;
-using BH.oM.Structural.Elements;
+using BH.oM.Structure.Elements;
 
-namespace BH.oM.Structural.Loads
+namespace BH.oM.Structure.Loads
 {
     /// <summary>
     /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second

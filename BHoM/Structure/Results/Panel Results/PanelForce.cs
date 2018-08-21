@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BH.oM.Structural.Results
+namespace BH.oM.Structure.Results
 {
     public class PanelForce : PanelResult
     {

@@ -1,6 +1,6 @@
-﻿using BH.oM.Structural.Elements;
+﻿using BH.oM.Structure.Elements;
 
-namespace BH.oM.Structural.Loads
+namespace BH.oM.Structure.Loads
 {
     public class AreaTemperatureLoad : Load<IAreaElement>
     {

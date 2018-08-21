@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Structural.Elements
+namespace BH.oM.Structure.Elements
 {
     interface IPhysical
     {

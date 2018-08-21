@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
 
-namespace BH.oM.Structural.Properties
+namespace BH.oM.Structure.Properties
 {
     public interface IFramingElementProperty : IBHoMObject
     {

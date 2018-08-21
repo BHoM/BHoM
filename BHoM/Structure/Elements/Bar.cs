@@ -1,6 +1,6 @@
 ﻿using BH.oM.Base;
 
-namespace BH.oM.Structural.Elements
+namespace BH.oM.Structure.Elements
 {
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.

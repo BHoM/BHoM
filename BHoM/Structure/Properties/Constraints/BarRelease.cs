@@ -1,9 +1,9 @@
 ﻿using BH.oM.Base;
 
-namespace BH.oM.Structural.Properties
+namespace BH.oM.Structure.Properties
 {
     /// <summary>
-    /// Bar release applicable to bar objects, contains BH.oM.Structural.Constraint objects
+    /// Bar release applicable to bar objects, contains BH.oM.Structure.Constraint objects
     /// for the start and end of a bar
     /// </summary>
     public class BarRelease : BHoMObject

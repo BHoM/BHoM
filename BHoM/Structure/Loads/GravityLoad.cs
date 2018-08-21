@@ -1,7 +1,7 @@
 ﻿using BH.oM.Base;
 using BH.oM.Geometry;
 
-namespace BH.oM.Structural.Loads
+namespace BH.oM.Structure.Loads
 {
     public class GravityLoad : Load<BHoMObject>
     {

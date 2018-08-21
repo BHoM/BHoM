@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BH.oM.Structural.Loads
+namespace BH.oM.Structure.Loads
 {
     /// <summary>
     /// Loadcombination, different to loadcase as combination also contains information

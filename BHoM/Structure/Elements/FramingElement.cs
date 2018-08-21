@@ -2,7 +2,7 @@
 using BH.oM.Base;
 using System.Collections.Generic;
 
-namespace BH.oM.Structural.Elements
+namespace BH.oM.Structure.Elements
 {
     public class FramingElement : BHoMObject, IPhysical
     {

@@ -2,7 +2,7 @@
 using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 
-namespace BH.oM.Structural.Properties
+namespace BH.oM.Structure.Properties
 {
     public interface IProfile  : IBHoMObject
     {

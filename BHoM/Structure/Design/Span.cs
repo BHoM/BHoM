@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BH.oM.Structural.Design
+namespace BH.oM.Structure.Design
 {
     public class Span : Base.BHoMObject
     {

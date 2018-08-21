@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
 
-namespace BH.oM.Structural.Results
+namespace BH.oM.Structure.Results
 {
     public class GlobalReactions : StructuralGlobalResult
     {

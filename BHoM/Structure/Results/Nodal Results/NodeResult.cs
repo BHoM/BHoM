@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Common;
 
-namespace BH.oM.Structural.Results
+namespace BH.oM.Structure.Results
 {
     public abstract class NodeResult :  IResult
     {

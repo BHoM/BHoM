@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Structural.Elements;
+using BH.oM.Structure.Elements;
 
-namespace BH.oM.Structural.Design
+namespace BH.oM.Structure.Design
 {
     public class StructuralLayout : BHoMObject, IDesignable
     {

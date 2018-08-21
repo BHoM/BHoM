@@ -1,7 +1,7 @@
 ﻿using BH.oM.Base;
 using BH.oM.Common.Materials;
 
-namespace BH.oM.Structural.Properties
+namespace BH.oM.Structure.Properties
 {
     public class LoadingPanelProperty : BHoMObject, IProperty2D
     {
