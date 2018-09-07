@@ -73,6 +73,8 @@
     <Compile Include="Acoustic\Parameters\Rasti.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
+    <Compile Include="Reflection\Interface\IOutput.cs" />
+    <Compile Include="Reflection\Output.cs" />
     <Compile Include="Geometry\Vector\CoordinateSystem.cs" />
     <Compile Include="Humans\Human.cs" />
     <Compile Include="Planning\Branch.cs" />
@@ -84,11 +86,12 @@
     <Compile Include="Planning\Milestone.cs" />
     <Compile Include="Planning\PullRequest.cs" />
     <Compile Include="Planning\Repository.cs" />
-    <Compile Include="Reflection\Attributes\Deprecated.cs" />
-    <Compile Include="Reflection\Attributes\NotImplemented.cs" />
-    <Compile Include="Reflection\Attributes\Released.cs" />
-    <Compile Include="Reflection\Attributes\Output.cs" />
-    <Compile Include="Reflection\Attributes\Input.cs" />
+    <Compile Include="Reflection\Attributes\DeprecatedAttribute.cs" />
+    <Compile Include="Reflection\Attributes\MultiOutputAttribute.cs" />
+    <Compile Include="Reflection\Attributes\NotImplementedAttribute.cs" />
+    <Compile Include="Reflection\Attributes\ReleasedAttribute.cs" />
+    <Compile Include="Reflection\Attributes\OutputAttribute.cs" />
+    <Compile Include="Reflection\Attributes\InputAttribute.cs" />
     <Compile Include="Base\CustomObject.cs" />
     <Compile Include="Base\Interface\IBHoMGroup.cs" />
     <Compile Include="Base\Interface\IObject.cs" />
@@ -198,6 +201,7 @@
     <Compile Include="Reflection\Debuging\EventType.cs" />
     <Compile Include="Reflection\Debuging\Log.cs" />
     <Compile Include="Reflection\Debuging\Event.cs" />
+    <Compile Include="Reflection\UnderlyingType.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\GeneralisedFabricatedBoxProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\KiteProfile.cs" />
     <Compile Include="Testing\TestData.cs" />

@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Reflection.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class Input : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+    public class ReleasedAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Name { get; private set; } = "";
-
         public string Description { get; private set; } = "";
+
+        public string FromVersion { get; private set; } = "1.0.0.0";
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Input(string name, string description)
+        public ReleasedAttribute(string fromVersion, string description = "")
         {
-            Name = name;
             Description = description;
+            FromVersion = fromVersion;
         }
 
 

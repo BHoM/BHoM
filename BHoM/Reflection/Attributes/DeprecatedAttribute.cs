@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Reflection.Attributes
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
-    public class Deprecated : Attribute, IImmutable
+    public class DeprecatedAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -28,7 +28,7 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Deprecated(string fromVersion, string description = "", Type newType = null, string newMethod = "")
+        public DeprecatedAttribute(string fromVersion, string description = "", Type newType = null, string newMethod = "")
         {
             Description = description;
             FromVersion = fromVersion;

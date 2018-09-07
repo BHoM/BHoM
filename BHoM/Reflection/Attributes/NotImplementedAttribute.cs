@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Reflection.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method)]
-    public class Output : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+    public class NotImplementedAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -21,7 +21,7 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Output(string description)
+        public NotImplementedAttribute(string description = "")
         {
             Description = description;
         }
