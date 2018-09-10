@@ -204,6 +204,8 @@
     <Compile Include="Reflection\UnderlyingType.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\GeneralisedFabricatedBoxProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\KiteProfile.cs" />
+    <Compile Include="Structure\Results\Panel Results\Enums\PanelResultSmoothingType.cs" />
+    <Compile Include="Structure\Results\Panel Results\Enums\PanelResultLayer.cs" />
     <Compile Include="Testing\TestData.cs" />
     <Compile Include="Testing\TestResult.cs" />
     <Compile Include="Testing\UnitTest.cs" />

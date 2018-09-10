@@ -21,6 +21,10 @@ namespace BH.oM.Structure.Results
 
         public string NodeId { get; set; } = "";
 
+        public PanelResultLayer PanelResultLayer { get; set; } = PanelResultLayer.AbsoluteMaximum;
+
+        public PanelResultSmoothingType PanelResultSmoothingType { get; set; } = PanelResultSmoothingType.None;
+
         /***************************************************/
         /**** IComparable Interface                     ****/
         /***************************************************/
