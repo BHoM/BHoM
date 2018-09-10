@@ -5,10 +5,10 @@
     public enum PanelResultSmoothingType
     {
         None = 0,
-        WithinPanel = 1,
-        FiniteElementCentres = 2,
-        Global = 3,
-        BySelection = 4
+        ByPanel = 1,
+        ByFiniteElementCentres = 2,
+        BySelection = 3,
+        Global = 4
     }
 
     /***************************************************/
