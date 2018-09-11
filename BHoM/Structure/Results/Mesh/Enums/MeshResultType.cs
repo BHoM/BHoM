@@ -4,8 +4,8 @@ namespace BH.oM.Structure.Results
 {
     /***************************************************/
 
-    [Description("The layer from which the results have been extracted")]
-    public enum PanelResultLayer
+    [Description("Specifies which layer the results are extracted from or if it is a maxima/minima of the layers")]
+    public enum MeshResultType
     {
         [Description("Lower surface/extreme fibre of the panel/mesh element")]
         Lower = -1,
@@ -23,7 +23,10 @@ namespace BH.oM.Structure.Results
         Maximum = 3,
 
         [Description("The absolute maximum value of all layers in the panel/mesh element")]
-        AbsoluteMaximum = 4
+        AbsoluteMaximum = 4,
+
+        [Description("An arbitrary position within the thickness of the element")]
+        Arbitrary = 5
     }
 
     /***************************************************/

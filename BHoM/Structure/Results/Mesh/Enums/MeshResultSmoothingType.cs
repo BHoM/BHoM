@@ -2,7 +2,7 @@
 {
     /***************************************************/
 
-    public enum PanelResultSmoothingType
+    public enum MeshResultSmoothingType
     {
         None = 0,
         ByPanel = 1,
