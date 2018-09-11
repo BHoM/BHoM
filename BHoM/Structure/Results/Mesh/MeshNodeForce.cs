@@ -2,7 +2,7 @@
 
 namespace BH.oM.Structure.Results
 {
-    public class PanelForce : PanelResult
+    public class MeshNodeForce : MeshNodeResult
     {
         /***************************************************/
         /**** Properties                                ****/

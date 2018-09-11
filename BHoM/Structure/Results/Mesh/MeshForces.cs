@@ -1,22 +1,16 @@
-﻿using System;
+﻿using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace BH.oM.Structure.Results
 {
-    public class SlabReinforcement : PanelResult
+    public class MeshForces : MeshResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double AXP { get; set; } = 0.0;
-        
-        public double AXM { get; set; } = 0.0;
-
-        public double AYP { get; set; } = 0.0;
-
-        public double AYM { get; set; } = 0.0;
+        public List<MeshNodeForce> MeshNodeForces { get; set; } 
 
         /***************************************************/
     }
 }
-

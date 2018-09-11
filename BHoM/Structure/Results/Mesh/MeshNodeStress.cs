@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
-    public class PanelStress : PanelResult
+    public class MeshNodeStress: MeshNodeResult
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -20,7 +21,7 @@ namespace BH.oM.Structure.Results
         [Description("Shear stress in X direction in N/m2")]
         public double TXX { get; set; } = 0.0;
 
-        [Description("Shear stress in X direction in N/m2")]
+        [Description("Shear stress in Y direction in N/m2")]
         public double TYY { get; set; } = 0.0;
 
         /***************************************************/
