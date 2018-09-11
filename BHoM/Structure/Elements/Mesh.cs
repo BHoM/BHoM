@@ -1,19 +1,15 @@
 ﻿using System.Collections.Generic;
-using BH.oM.Structure.Properties;
 
 namespace BH.oM.Structure.Elements
 {
-    public class MeshFace : Base.BHoMObject, IAreaElement
+    public class Mesh : Base.BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Node> Nodes { get; set; } = new List<Node>();
-
-        public IProperty2D Property { get; set; } = new ConstantThickness();
-        
-
+        public List<MeshFace> MeshFaces { get; set; } = new List<MeshFace>();
+              
         /***************************************************/
     }
 }
