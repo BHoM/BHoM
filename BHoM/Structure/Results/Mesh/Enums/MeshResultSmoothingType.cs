@@ -6,9 +6,8 @@
     {
         None = 0,
         ByPanel = 1,
-        ByFiniteElementCentres = 2,
-        BySelection = 3,
-        Global = 4
+        BySelection = 2,
+        Global = 3
     }
 
     /***************************************************/
