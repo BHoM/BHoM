@@ -1,22 +1,19 @@
-﻿using BH.oM.Common;
+﻿using System;
+using BH.oM.Common;
 using BH.oM.Geometry;
+using System.Collections.Generic;
 
 namespace BH.oM.Structure.Results
 {
-    public abstract class MeshResult 
+    public class MeshResults : IResultCollection
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         public string ObjectId { get; set; } = "";
-        
-        public CoordinateSystem CoordinateSystem { get; set; } = null;
 
-        public MeshResultType PanelResultLayer { get; set; } = MeshResultType.AbsoluteMaximum;
+        public List<NodeResult> NodeResults { get; set; } = new List<NodeResult>();
 
-        public MeshResultSmoothingType PanelResultSmoothingType { get; set; } = MeshResultSmoothingType.None;
-       
-        /***************************************************/
     }
 }

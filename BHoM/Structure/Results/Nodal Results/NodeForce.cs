@@ -2,7 +2,7 @@
 
 namespace BH.oM.Structure.Results
 {
-    public class MeshNodeForce : MeshNodeResult
+    public class NodeForce : NodeResult
     {
         /***************************************************/
         /**** Properties                                ****/
