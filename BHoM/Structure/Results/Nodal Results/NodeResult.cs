@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Common;
+﻿using BH.oM.Common;
+using BH.oM.Geometry;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
@@ -18,6 +15,9 @@ namespace BH.oM.Structure.Results
         public string Case { get; set; } = "";
 
         public double TimeStep { get; set; } = 0.0;
+
+        [Description("CoordinateSystem required in order to report results in a particular direction, for example, for anisotropic materials")]
+        public CoordinateSystem CoordinateSystem { get; set; } = new CoordinateSystem();
 
         /***************************************************/
         /**** IComparable Interface                     ****/
