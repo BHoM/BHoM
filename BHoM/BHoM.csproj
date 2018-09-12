@@ -208,7 +208,7 @@
     <Compile Include="Structure\Results\Mesh\Legacy\MeshStresses.cs" />
     <Compile Include="Structure\Results\Mesh\Legacy\MeshForces.cs" />
     <Compile Include="Structure\Results\Mesh\Enums\MeshResultSmoothingType.cs" />
-    <Compile Include="Structure\Results\Mesh\Enums\MeshResultType.cs" />
+    <Compile Include="Structure\Results\Mesh\Enums\MeshResultLayer.cs" />
     <Compile Include="Structure\Results\Nodal Results\NodeStress.cs" />
     <Compile Include="Structure\Results\Mesh\MeshResult.cs" />
     <Compile Include="Testing\TestData.cs" />

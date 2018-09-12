@@ -5,7 +5,7 @@ namespace BH.oM.Structure.Results
     /***************************************************/
 
     [Description("Specifies which layer the results are extracted from or if it is a maxima/minima of the layers")]
-    public enum MeshResultType
+    public enum MeshResultLayer
     {
         [Description("Lower surface/extreme fibre of the panel/mesh element")]
         Lower = -1,
