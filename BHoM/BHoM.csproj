@@ -73,6 +73,7 @@
     <Compile Include="Acoustic\Parameters\Rasti.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
+    <Compile Include="Common\Results\IResultCollection.cs" />
     <Compile Include="Reflection\Interface\IOutput.cs" />
     <Compile Include="Reflection\Output.cs" />
     <Compile Include="Geometry\Vector\CoordinateSystem.cs" />
@@ -205,11 +206,11 @@
     <Compile Include="Structure\Elements\Mesh.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\GeneralisedFabricatedBoxProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\KiteProfile.cs" />
-    <Compile Include="Structure\Results\Mesh\MeshStresses.cs" />
-    <Compile Include="Structure\Results\Mesh\MeshForces.cs" />
+    <Compile Include="Structure\Results\Mesh\Legacy\MeshStresses.cs" />
+    <Compile Include="Structure\Results\Mesh\Legacy\MeshForces.cs" />
     <Compile Include="Structure\Results\Mesh\Enums\MeshResultSmoothingType.cs" />
     <Compile Include="Structure\Results\Mesh\Enums\MeshResultType.cs" />
-    <Compile Include="Structure\Results\Mesh\MeshNodeStress.cs" />
+    <Compile Include="Structure\Results\Nodal Results\NodeStress.cs" />
     <Compile Include="Structure\Results\Mesh\MeshResult.cs" />
     <Compile Include="Testing\TestData.cs" />
     <Compile Include="Testing\TestResult.cs" />
@@ -324,8 +325,8 @@
     <Compile Include="Structure\Properties\Property2D\IProperty2D.cs" />
     <Compile Include="Structure\Results\Nodal Results\NodeResult.cs" />
     <Compile Include="Structure\Results\Nodal Results\NodeVelocity.cs" />
-    <Compile Include="Structure\Results\Mesh\MeshNodeForce.cs" />
-    <Compile Include="Structure\Results\Mesh\MeshNodeResult.cs" />
+    <Compile Include="Structure\Results\Nodal Results\NodeForce.cs" />
+    <Compile Include="Structure\Results\Mesh\Legacy\MeshNodeResult.cs" />
     <Compile Include="Structure\Results\Global Results\StructuralGlobalResult.cs" />
     <Compile Include="DataStructure\VennDiagram.cs" />
   </ItemGroup>

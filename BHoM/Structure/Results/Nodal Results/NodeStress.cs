@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
-    public class MeshNodeStress: MeshNodeResult
+    public class NodeStress: NodeResult
     {
         /***************************************************/
         /**** Properties                                ****/

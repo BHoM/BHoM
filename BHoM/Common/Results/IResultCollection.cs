@@ -1,16 +1,20 @@
-﻿using System.ComponentModel;
+﻿using BH.oM.Base;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Structure.Results
+namespace BH.oM.Common
 {
-    public class MeshForces : MeshResult
+    public interface IResultCollection : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<MeshNodeForce> MeshNodeForces { get; set; } 
-
+        string ObjectId { get; set; }
+        
         /***************************************************/
     }
 }

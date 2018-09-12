@@ -9,7 +9,7 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         public List<MeshFace> MeshFaces { get; set; } = new List<MeshFace>();
-              
+
         /***************************************************/
     }
 }

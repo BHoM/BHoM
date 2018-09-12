@@ -10,7 +10,7 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         public List<Node> Nodes { get; set; } = new List<Node>();
-
+        
         public IProperty2D Property { get; set; } = new ConstantThickness();
         
 
