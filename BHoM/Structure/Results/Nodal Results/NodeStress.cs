@@ -24,6 +24,18 @@ namespace BH.oM.Structure.Results
         [Description("Shear stress in Y direction in N/m2")]
         public double TYY { get; set; } = 0.0;
 
+        [Description("Principal stress in first principal direction in N/m2")]
+        public double Principal_1 { get; set; } = 0.0;
+
+        [Description("Principal stress in second principal direction in N/m2")]
+        public double Principal_2 { get; set; } = 0.0;
+
+        [Description("Principal stress in middle principal direction in N/m2")]
+        public double Principal_1_2 { get; set; } = 0.0;
+
+        [Description("Directionless absolute maximum Von Mises stress in N/m2")]
+        public double VonMises { get; set; } = 0.0;
+
         /***************************************************/
     }
 }

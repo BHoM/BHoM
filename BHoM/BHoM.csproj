@@ -205,6 +205,7 @@
     <Compile Include="Reflection\UnderlyingType.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\GeneralisedFabricatedBoxProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\KiteProfile.cs" />
+    <Compile Include="Structure\Results\Mesh\Enums\MeshResultType.cs" />
     <Compile Include="Structure\Results\Mesh\Legacy\MeshStresses.cs" />
     <Compile Include="Structure\Results\Mesh\Legacy\MeshForces.cs" />
     <Compile Include="Structure\Results\Mesh\Enums\MeshResultSmoothingType.cs" />
