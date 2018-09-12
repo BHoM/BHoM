@@ -203,7 +203,6 @@
     <Compile Include="Reflection\Debuging\Log.cs" />
     <Compile Include="Reflection\Debuging\Event.cs" />
     <Compile Include="Reflection\UnderlyingType.cs" />
-    <Compile Include="Structure\Elements\Mesh.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\GeneralisedFabricatedBoxProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\KiteProfile.cs" />
     <Compile Include="Structure\Results\Mesh\Legacy\MeshStresses.cs" />
