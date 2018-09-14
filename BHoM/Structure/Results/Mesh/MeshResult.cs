@@ -1,26 +1,84 @@
-﻿using System.ComponentModel;
-using BH.oM.Common;
+﻿using BH.oM.Common;
 using BH.oM.Geometry;
-using System.Collections.Generic;
+using System.ComponentModel;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
-    public class MeshResults : IResultCollection
+    public abstract class MeshResult :  IResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public string ObjectId { get; set; } = "";
+        public string ObjectId { get; } = "";
 
-        public MeshResultLayer ResultLayer { get; set; } 
+        public string NodeId { get; } = "";
 
-        [Description("Position within the element thickness that result is extracted from, normalised to 1. 0 = lower surface, 0.5 = middle, 1 = top surface")]
+        public string MeshFaceId { get; } = "";
+
+        public string ResultCase { get; set; } = "";
+
+        public double TimeStep { get; set; } = 0.0;
+
+        public MeshResultLayer MeshResultLayer { get; set; }
+
         public double LayerPosition { get; set; }
 
         public MeshResultSmoothingType Smoothing { get; set; }
 
-        public List<NodeResult> NodeResults { get; set; } = new List<NodeResult>();
+        [Description("CoordinateSystem required in order to report results in a particular direction, for example, for anisotropic materials")]
+        public CoordinateSystem CoordinateSystem { get; set; } = new CoordinateSystem();
 
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        protected MeshResult(   string objectId, 
+                                string nodeId,
+                                string meshFaceId,
+                                string resultCase, 
+                                double timeStep, 
+                                MeshResultLayer meshResultLayer, 
+                                double layerPosition, 
+                                MeshResultSmoothingType smoothing,
+                                CoordinateSystem coordinateSystem)
+        {
+            ObjectId = objectId;
+            NodeId = nodeId;
+            MeshFaceId = MeshFaceId;
+            ResultCase = resultCase;
+            TimeStep = timeStep;
+            MeshResultLayer = meshResultLayer;
+            LayerPosition = layerPosition;
+            Smoothing = smoothing;
+            CoordinateSystem = coordinateSystem;
+        }
+
+        /***************************************************/
+        /**** IComparable Interface                     ****/
+        /***************************************************/
+
+        public int CompareTo(IResult other)
+        {
+            NodeResult otherRes = other as NodeResult;
+
+            if (otherRes == null)
+                return this.GetType().Name.CompareTo(other.GetType().Name);
+
+            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
+            if (n == 0)
+            {
+                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
+                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+            }
+            else
+            {
+                return n;
+            }
+
+        }
+
+        /***************************************************/
     }
 }
