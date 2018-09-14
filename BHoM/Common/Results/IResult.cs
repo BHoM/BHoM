@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Common
 {
-    public interface IResult : IObject, IComparable<IResult>
+    public interface IResult : IObject, IComparable<IResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        string ObjectId { get; set; }
+        string ObjectId { get; }
 
-        string Case { get; set; }
+        string ResultCase { get; }
 
-        double TimeStep { get; set; }
+        double TimeStep { get; }
 
         /***************************************************/
     }

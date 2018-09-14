@@ -1,15 +1,16 @@
-﻿using BH.oM.Base;
+﻿using System.Collections.Generic;
+using BH.oM.Structure.Properties;
 
-namespace BH.oM.Common
+namespace BH.oM.Structure.Elements
 {
-    public interface IResultCollection : IObject, IImmutable
+    public class Mesh : Base.BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        string ObjectId { get;  }
-        
+        public List<MeshFace> MeshFaces { get; set; } = new List<MeshFace>();
+
         /***************************************************/
     }
 }

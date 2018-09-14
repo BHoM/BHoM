@@ -15,7 +15,7 @@ namespace BH.oM.Structure.Results
 
         public string ObjectId { get; set; } = "";
 
-        public string Case { get; set; } = "";
+        public string ResultCase { get; set; } = "";
 
         public double TimeStep { get; set; } = 0.0;
 
@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Results
             int n = this.ObjectId.CompareTo(otherRes.ObjectId);
             if (n == 0)
             {
-                int l = this.Case.CompareTo(otherRes.Case);
+                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
                 if (l == 0)
                 {
                     int t = this.TimeStep.CompareTo(otherRes.TimeStep);
