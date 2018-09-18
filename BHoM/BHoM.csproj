@@ -110,7 +110,6 @@
     <Compile Include="Environment\Elements\AirHandlingUnit.cs" />
     <Compile Include="Environment\Elements\Building.cs" />
     <Compile Include="Environment\Elements\BuildingElement.cs" />
-    <Compile Include="Environment\Elements\BuildingElementCurve.cs" />
     <Compile Include="Environment\Elements\BuildingElementOpening.cs" />
     <Compile Include="Environment\Elements\BuildingElementPanel.cs" />
     <Compile Include="Environment\Elements\ConstructionLayer.cs" />
