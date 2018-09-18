@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Environment.Interface
 {
-    public interface IBuilidng : IObject
+    public interface IBuilding : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
