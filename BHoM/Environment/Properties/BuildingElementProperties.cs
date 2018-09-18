@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Environment.Elements;
-using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Properties
 {
@@ -17,7 +16,7 @@ namespace BH.oM.Environment.Properties
         /***************************************************/
 
         public BuildingElementType BuildingElementType { get; set; } = BuildingElementType.Undefined;
-        public List<IMaterial> ConstructionLayers { get; set; } = new List<IMaterial>();
+        public List<ConstructionLayer> ConstructionLayers { get; set; } = new List<ConstructionLayer>();
 
         /***************************************************/
     }
