@@ -128,7 +128,7 @@
     <Compile Include="Environment\Interface\IBuildingObject.cs" />
     <Compile Include="Environment\Elements\Profile.cs" />
     <Compile Include="Environment\Elements\Space.cs" />
-    <Compile Include="Environment\Interface\IBuilidng.cs" />
+    <Compile Include="Environment\Interface\IBuilding.cs" />
     <Compile Include="Environment\Interface\IEquipmentProperties.cs" />
     <Compile Include="Environment\Properties\EmitterProperties.cs" />
     <Compile Include="Environment\Properties\PlantProperties.cs" />
