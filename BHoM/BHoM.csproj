@@ -74,6 +74,10 @@
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
     <Compile Include="Common\Results\IResultCollection.cs" />
+    <Compile Include="Environment\Interface\IMaterialProperties.cs" />
+    <Compile Include="Environment\Properties\DefaultMaterialProperties.cs" />
+    <Compile Include="Environment\Properties\GlazingMaterialProperties.cs" />
+    <Compile Include="Environment\Properties\ThicknessProperties.cs" />
     <Compile Include="Reflection\Interface\IOutput.cs" />
     <Compile Include="Reflection\Output.cs" />
     <Compile Include="Geometry\Vector\CoordinateSystem.cs" />
@@ -115,9 +119,9 @@
     <Compile Include="Environment\Elements\ConstructionLayer.cs" />
     <Compile Include="Environment\Elements\Emitter.cs" />
     <Compile Include="Environment\Elements\Enums.cs" />
-    <Compile Include="Environment\Elements\GasMaterial.cs" />
-    <Compile Include="Environment\Elements\OpaqueMaterial.cs" />
-    <Compile Include="Environment\Elements\TransaprentMaterial.cs" />
+    <Compile Include="Environment\Materials\GasMaterial.cs" />
+    <Compile Include="Environment\Materials\OpaqueMaterial.cs" />
+    <Compile Include="Environment\Materials\TransparentMaterial.cs" />
     <Compile Include="Environment\Interface\IEquipment.cs" />
     <Compile Include="Environment\Elements\InternalCondition.cs" />
     <Compile Include="Environment\Interface\IBuildingElementGeometry.cs" />
