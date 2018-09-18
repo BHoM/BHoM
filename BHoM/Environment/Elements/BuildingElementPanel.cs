@@ -6,17 +6,12 @@ using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Elements
 {
-    public class BuildingElementPanel : BHoMObject, IBuildingElementGeometry
+    public class BuildingElementPanel : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        // surface properies of each invidual Building Element
-
-        //Geometry
-        public PolyCurve PolyCurve { get; set; } = new PolyCurve();
-        public List<BuildingElementOpening> Openings { get; set; } = new List<BuildingElementOpening>();
-        public string ElementType { get; set; } = "";
+        //THIS IS THE ANALYTICAL REPRESENTATION OF THE BUILDING ELEMENT
 
         //Detail Surface Results
         public double ApertureFlowIn { get; set; } = 0.0;
