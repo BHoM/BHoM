@@ -8,7 +8,7 @@ using BH.oM.Architecture.Elements;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Building : BHoMObject, IBuilidng
+    public class Building : BHoMObject, IBuilding
     {
         /***************************************************/
         /**** Properties                                ****/
