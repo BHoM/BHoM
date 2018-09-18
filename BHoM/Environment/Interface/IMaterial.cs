@@ -17,6 +17,7 @@ namespace BH.oM.Environment.Interface
 
         double Thickness { get; set; }
         string Description { get; set; }
+        IMaterialProperties MaterialProperties { get; set; }
 
         /***************************************************/
     }

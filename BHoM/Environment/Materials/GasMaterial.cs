@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Environment.Interface;
+using BH.oM.Environment.Properties;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.Materials
 {
     public class GasMaterial : BHoMObject, IMaterial
     {
@@ -19,6 +20,8 @@ namespace BH.oM.Environment.Elements
         public string Description { get; set; } = string.Empty;
         public double ConvectionCoefficient { get; set; } = 0.0;
         public double VapourDiffusionFactor { get; set; } = 0.0;
+
+        public IMaterialProperties MaterialProperties { get; set; } = new DefaultMaterialProperties();
 
         /***************************************************/
     }

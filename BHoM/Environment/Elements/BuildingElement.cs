@@ -15,8 +15,6 @@ namespace BH.oM.Environment.Elements
 
         public BuildingElementProperties BuildingElementProperties { get; set; } = new BuildingElementProperties();
         public IBuildingElementGeometry BuildingElementGeometry { get; set; } = new BuildingElementPanel();
-        //public List<Guid> AdjacentSpaces { get; set; } = new List<Guid>();
-        //public Level Level { get; set; } = new Level();
 
         /***************************************************/
     }

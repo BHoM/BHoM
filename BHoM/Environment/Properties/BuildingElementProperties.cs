@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Environment.Elements;
+using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Properties
 {
@@ -16,13 +17,7 @@ namespace BH.oM.Environment.Properties
         /***************************************************/
 
         public BuildingElementType BuildingElementType { get; set; } = BuildingElementType.Undefined;
-        public List<ConstructionLayer> ConstructionLayers { get; set; } = new List<ConstructionLayer>();
-        public double Thickness { get; set; } = 0.0;
-        public double gValue { get; set; } = 0.0;
-        public double gValueShading { get; set; } = 0.0;
-        public double LtValue { get; set; } = 0.0;
-        public double ThermalConductivity { get; set; } = 0.0;
-        public double UValue { get; set; } = 0.0;
+        public List<IMaterial> ConstructionLayers { get; set; } = new List<IMaterial>();
 
         /***************************************************/
     }
