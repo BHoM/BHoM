@@ -5,6 +5,8 @@ using BH.oM.Architecture.Elements;
 using System.Collections.Generic;
 using System;
 
+using BH.oM.Geometry;
+
 namespace BH.oM.Environment.Elements
 {
     public class BuildingElement : BHoMObject, IBuildingObject
@@ -14,7 +16,11 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public BuildingElementProperties BuildingElementProperties { get; set; } = new BuildingElementProperties();
-        public IBuildingElementGeometry BuildingElementGeometry { get; set; } = new BuildingElementPanel();
+
+        public ICurve PanelCurve { get; set; } = new PolyCurve();
+        public List<BuildingElementOpening> Openings { get; set; } = new List<BuildingElementOpening>();
+
+        public BuildingElementPanel AnalyticalBuildingElementPanel { get; set; } = new BuildingElementPanel();
 
         /***************************************************/
     }
