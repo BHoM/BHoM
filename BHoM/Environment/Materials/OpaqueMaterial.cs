@@ -17,7 +17,6 @@ namespace BH.oM.Environment.Materials
         /***************************************************/
 
         public string Description { get; set; } = string.Empty;
-        public double Thickness { get; set; } = 0.0;
         public double Conductivity { get; set; } = 0.0;
         public double SpecificHeat { get; set; } = 0.0;
         public double Density { get; set; } = 0.0;
