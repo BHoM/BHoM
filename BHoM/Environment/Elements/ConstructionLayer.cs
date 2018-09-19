@@ -18,7 +18,7 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public IMaterial Material { get; set; } = new OpaqueMaterial();
-        public ThicknessProperties Thickness { get; set; } = new ThicknessProperties();
+        public double Thickness { get; set; } = 0.0;
 
         /***************************************************/
     }
