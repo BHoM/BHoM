@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Environment.Interface;
-using BH.oM.Structure.Elements;
 
 namespace BH.oM.Environment.Interface
 {
