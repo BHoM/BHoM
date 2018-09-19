@@ -6,7 +6,7 @@ using BH.oM.Environment.Properties;
 
 namespace BH.oM.Environment.Elements
 {
-    public class BuildingElementPanel : BHoMObject
+    public class Panel : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -117,7 +117,7 @@
     <Compile Include="Environment\Elements\Building.cs" />
     <Compile Include="Environment\Elements\BuildingElement.cs" />
     <Compile Include="Environment\Elements\BuildingElementOpening.cs" />
-    <Compile Include="Environment\Elements\BuildingElementPanel.cs" />
+    <Compile Include="Environment\Elements\Panel.cs" />
     <Compile Include="Environment\Elements\ConstructionLayer.cs" />
     <Compile Include="Environment\Elements\Emitter.cs" />
     <Compile Include="Environment\Materials\GasMaterial.cs" />
