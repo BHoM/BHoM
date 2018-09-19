@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Environment.Interface;
 using BH.oM.Environment.Materials;
+using BH.oM.Environment.Properties;
 
 namespace BH.oM.Environment.Elements
 {
@@ -17,7 +18,7 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public IMaterial Material { get; set; } = new OpaqueMaterial();
-        public double Thickness { get; set; } = 0.0;
+        public ThicknessProperties Thickness { get; set; } = new ThicknessProperties();
 
         /***************************************************/
     }
