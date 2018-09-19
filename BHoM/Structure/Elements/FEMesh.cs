@@ -13,6 +13,8 @@ namespace BH.oM.Structure.Elements
 
         public List<FEMeshFace> MeshFaces { get; set; } = new List<FEMeshFace>();
 
+        public IProperty2D Property { get; set; } = new ConstantThickness();
+
         /***************************************************/
     }
 }
