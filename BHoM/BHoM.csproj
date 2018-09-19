@@ -76,11 +76,9 @@
     <Compile Include="Common\Results\IResultCollection.cs" />
     <Compile Include="Environment\Elements\Enums\BuildingElementType.cs" />
     <Compile Include="Environment\Elements\Enums\MaterialType.cs" />
-    <Compile Include="Environment\Elements\Enums\UnitType.cs" />
     <Compile Include="Environment\Interface\IMaterialProperties.cs" />
     <Compile Include="Environment\Properties\DefaultMaterialProperties.cs" />
     <Compile Include="Environment\Properties\GlazingMaterialProperties.cs" />
-    <Compile Include="Environment\Properties\ThicknessProperties.cs" />
     <Compile Include="Reflection\Interface\IOutput.cs" />
     <Compile Include="Reflection\Output.cs" />
     <Compile Include="Geometry\Vector\CoordinateSystem.cs" />
