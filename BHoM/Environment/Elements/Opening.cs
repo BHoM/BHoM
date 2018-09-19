@@ -9,13 +9,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Elements
 {
-    public class BuildingElementOpening : BHoMObject
+    public class Opening : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve Opening { get; set; } = new PolyCurve();
+        public ICurve OpeningCurve { get; set; } = new PolyCurve();
 
         /***************************************************/
     }

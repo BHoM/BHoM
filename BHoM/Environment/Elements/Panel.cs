@@ -13,9 +13,9 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public ICurve PanelCurve { get; set; } = new PolyCurve();
-        public List<BuildingElementOpening> Openings { get; set; } = new List<BuildingElementOpening>();
+        public List<Opening> Openings { get; set; } = new List<Opening>();
 
-        public BuildingPanelProperties PanelProperties { get; set; } = new BuildingPanelProperties();
+        public PanelProperties PanelProperties { get; set; } = new PanelProperties();
 
         /***************************************************/
     }
