@@ -14,7 +14,6 @@ namespace BH.oM.Environment.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Name { get; set; } = string.Empty;
         public double Latitude { get; set; } = 0.0;
         public double Longitude { get; set; } = 0.0;
         public double Elevation { get; set; } = 0.0;
