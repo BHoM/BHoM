@@ -64,7 +64,7 @@ namespace BH.oM.Structure.Results
 
         public int CompareTo(IResult other)
         {
-            NodeResult otherRes = other as NodeResult;
+            MeshResult otherRes = other as MeshResult;
 
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
