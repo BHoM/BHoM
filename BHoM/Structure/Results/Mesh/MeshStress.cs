@@ -12,32 +12,29 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Description("Normal stress in X direction in N/m2")]
-        public double SXX { get; } = 0.0;
+        public double SXX { get; }
 
         [Description("Normal stress in Y direction in N/m2")]
-        public double SYY { get; } = 0.0;
+        public double SYY { get; }
 
         [Description("Normal stress in XY direction in N/m2")]
-        public double SXY { get; } = 0.0;
+        public double SXY { get; }
 
         [Description("Shear stress in X direction in N/m2")]
-        public double TXX { get; } = 0.0;
+        public double TXX { get; }
 
         [Description("Shear stress in Y direction in N/m2")]
-        public double TYY { get;  } = 0.0;
+        public double TYY { get;  }
 
         [Description("Principal stress in first principal direction in N/m2")]
-        public double Principal_1 { get; } = 0.0;
+        public double Principal_1 { get; }
 
         [Description("Principal stress in second principal direction in N/m2")]
-        public double Principal_2 { get; } = 0.0;
+        public double Principal_2 { get; }
 
         [Description("Principal stress in middle principal direction in N/m2")]
-        public double Principal_1_2 { get; } = 0.0;
-
-        [Description("Directionless absolute maximum Von Mises stress in N/m2")]
-        public double VonMises { get;  } = 0.0;
-
+        public double Principal_1_2 { get; }
+        
         /***************************************************/
 
         /***************************************************/
@@ -60,8 +57,7 @@ namespace BH.oM.Structure.Results
                             double tYY,
                             double principal_1,
                             double principal_2,
-                            double principal_1_2,
-                            double vonMises) : base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, coordinateSystem)
+                            double principal_1_2): base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, coordinateSystem)
         {           
             SXX = sXX;
             SYY = sYY;
