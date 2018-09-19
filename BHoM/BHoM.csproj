@@ -77,7 +77,7 @@
     <Compile Include="Environment\Elements\Enums\BuildingElementType.cs" />
     <Compile Include="Environment\Elements\Enums\MaterialType.cs" />
     <Compile Include="Environment\Interface\IMaterialProperties.cs" />
-    <Compile Include="Environment\Properties\BuildingPanelProperties.cs" />
+    <Compile Include="Environment\Properties\PanelProperties.cs" />
     <Compile Include="Environment\Properties\DefaultMaterialProperties.cs" />
     <Compile Include="Environment\Properties\GlazingMaterialProperties.cs" />
     <Compile Include="Reflection\Interface\IOutput.cs" />
@@ -116,7 +116,7 @@
     <Compile Include="Environment\Elements\AirHandlingUnit.cs" />
     <Compile Include="Environment\Elements\Building.cs" />
     <Compile Include="Environment\Elements\BuildingElement.cs" />
-    <Compile Include="Environment\Elements\BuildingElementOpening.cs" />
+    <Compile Include="Environment\Elements\Opening.cs" />
     <Compile Include="Environment\Elements\Panel.cs" />
     <Compile Include="Environment\Elements\ConstructionLayer.cs" />
     <Compile Include="Environment\Elements\Emitter.cs" />

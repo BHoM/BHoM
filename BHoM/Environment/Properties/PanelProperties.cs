@@ -9,7 +9,7 @@ using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Properties
 {
-    public class BuildingPanelProperties : BHoMObject
+    public class PanelProperties : BHoMObject
     {
         //Detail Surface Results
         public double ApertureFlowIn { get; set; } = 0.0;
