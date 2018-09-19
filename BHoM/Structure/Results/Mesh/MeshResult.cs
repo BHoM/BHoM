@@ -2,6 +2,7 @@
 using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Base;
+using System.Collections.Generic;
 
 namespace BH.oM.Structure.Results
 {
@@ -29,6 +30,8 @@ namespace BH.oM.Structure.Results
 
         [Description("CoordinateSystem required in order to report results in a particular direction, for example, for anisotropic materials")]
         public CoordinateSystem CoordinateSystem { get; set; } = new CoordinateSystem();
+
+        public Dictionary<string, object> CustomData { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/

@@ -15,6 +15,10 @@ namespace BH.oM.Structure.Results
 
         [Description("Displacements of the mesh/element nodes")]
         Displacements = 2,
+
+        [Description("Von Mises stresses and forces")]
+        VonMises = 3,
+
     }
 
     /***************************************************/
