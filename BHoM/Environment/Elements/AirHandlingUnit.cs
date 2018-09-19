@@ -13,8 +13,6 @@ namespace BH.oM.Environment.Elements
 
         public AirHandlingUnitProperties AirHandlingUnitProperties { get; set; } = new AirHandlingUnitProperties();
 
-        public Level Level { get; set; } = new Level();
-
         /***************************************************/
     }
 }

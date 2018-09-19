@@ -17,6 +17,8 @@ namespace BH.oM.Environment.Materials
         /***************************************************/
 
         public string Description { get; set; } = string.Empty;
+        public IMaterialProperties MaterialProperties { get; set; } = new DefaultMaterialProperties();
+
         public double Conductivity { get; set; } = 0.0;
         public double VapourDiffusionFactor { get; set; } = 0.0;
         public double SolarTransmittance { get; set; } = 0.0;
@@ -27,8 +29,6 @@ namespace BH.oM.Environment.Materials
         public double LightReflectanceInternal { get; set; } = 0.0;
         public double EmissivityInternal { get; set; } = 0.0;
         public double EmissivityExternal { get; set; } = 0.0;
-
-        public IMaterialProperties MaterialProperties { get; set; } = new DefaultMaterialProperties();
 
         /***************************************************/
     }

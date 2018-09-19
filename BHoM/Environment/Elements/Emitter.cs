@@ -12,7 +12,6 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public EmitterProperties EmitterProperties { get; set; } = new EmitterProperties();
-        public Level Level { get; set; } = new Level();
 
         /***************************************************/
     }

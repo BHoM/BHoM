@@ -15,7 +15,7 @@ namespace BH.oM.Environment.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve OpeningCurve { get; set; } = new PolyCurve();
+        public ICurve Opening { get; set; } = new PolyCurve();
 
         /***************************************************/
     }
