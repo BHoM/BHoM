@@ -3,10 +3,11 @@
 using BH.oM.Geometry;
 using BH.oM.Base;
 using BH.oM.Environment.Properties;
+using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Panel : BHoMObject
+    public class Panel : BHoMObject, IBuildingObject
     {
         /***************************************************/
         /**** Properties                                ****/

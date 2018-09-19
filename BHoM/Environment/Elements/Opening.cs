@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Opening : BHoMObject
+    public class Opening : BHoMObject, IBuildingObject
     {
         /***************************************************/
         /**** Properties                                ****/
