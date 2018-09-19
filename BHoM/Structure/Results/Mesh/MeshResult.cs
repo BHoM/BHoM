@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Structure.Results
 {
-    public abstract class MeshResult :  IResult, IImmutable
+    public abstract class MeshResult : IResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -37,13 +37,13 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        protected MeshResult(   string objectId, 
+        protected MeshResult(string objectId,
                                 string nodeId,
                                 string meshFaceId,
-                                string resultCase, 
-                                double timeStep, 
-                                MeshResultLayer meshResultLayer, 
-                                double layerPosition, 
+                                string resultCase,
+                                double timeStep,
+                                MeshResultLayer meshResultLayer,
+                                double layerPosition,
                                 MeshResultSmoothingType smoothing,
                                 CoordinateSystem coordinateSystem)
         {
@@ -69,19 +69,26 @@ namespace BH.oM.Structure.Results
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
 
-            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
-            if (n == 0)
+            int objectId = this.ObjectId.CompareTo(otherRes.ObjectId);
+            if (objectId == 0)
             {
-                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
-                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+                int loadcase = this.ResultCase.CompareTo(otherRes.ResultCase);
+                if (loadcase == 0)
+                {
+                    int meshFaceId = this.MeshFaceId.CompareTo(otherRes.MeshFaceId);
+                    if (meshFaceId == 0)
+                    {
+                        int nodeId = this.NodeId.CompareTo(otherRes.NodeId);
+                        return nodeId == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : nodeId;
+                    }
+                    else {return meshFaceId;}
+                }
+                else {return loadcase;}
             }
-            else
-            {
-                return n;
-            }
-
+            else {return objectId;}
         }
 
         /***************************************************/
     }
 }
+
