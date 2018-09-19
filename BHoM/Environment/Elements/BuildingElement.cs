@@ -20,8 +20,6 @@ namespace BH.oM.Environment.Elements
         public ICurve PanelCurve { get; set; } = new PolyCurve();
         public List<BuildingElementOpening> Openings { get; set; } = new List<BuildingElementOpening>();
 
-        public BuildingElementPanel AnalyticalBuildingElementPanel { get; set; } = new BuildingElementPanel();
-
         /***************************************************/
     }
 }
