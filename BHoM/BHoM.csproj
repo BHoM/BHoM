@@ -76,6 +76,7 @@
     <Compile Include="Common\Results\IResultCollection.cs" />
     <Compile Include="Environment\Elements\Enums\BuildingElementType.cs" />
     <Compile Include="Environment\Elements\Enums\MaterialType.cs" />
+    <Compile Include="Environment\Elements\Enums\UnitType.cs" />
     <Compile Include="Environment\Interface\IMaterialProperties.cs" />
     <Compile Include="Environment\Properties\DefaultMaterialProperties.cs" />
     <Compile Include="Environment\Properties\GlazingMaterialProperties.cs" />
