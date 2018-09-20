@@ -14,6 +14,7 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public string Number { get; set; } = "";
+        public Point Location { get; set; } = new Point();        
 
         /***************************************************/
     }
