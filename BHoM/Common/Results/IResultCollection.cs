@@ -1,4 +1,5 @@
 ﻿using BH.oM.Base;
+using System;
 
 namespace BH.oM.Common
 {
@@ -8,7 +9,7 @@ namespace BH.oM.Common
         /**** Properties                                ****/
         /***************************************************/
 
-        string ObjectId { get;  }
+        IComparable ObjectId { get;  }
         
         /***************************************************/
     }

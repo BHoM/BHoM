@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System;
 
 namespace BH.oM.Structure.Results
 {
@@ -40,10 +41,10 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshForce(   string objectId,
-                            string nodeId,
-                            string meshFaceId,
-                            string resultCase,
+        public MeshForce(   IComparable objectId,
+                            IComparable nodeId,
+                            IComparable meshFaceId,
+                            IComparable resultCase,
                             double timeStep,
                             MeshResultLayer meshResultLayer,
                             double layerPosition,

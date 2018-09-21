@@ -4,6 +4,7 @@ using BH.oM.Geometry;
 using System.Collections.Generic;
 using BH.oM.Base;
 using System.Collections.ObjectModel;
+using System;
 
 namespace BH.oM.Structure.Results
 {
@@ -13,7 +14,7 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        public string ObjectId { get; } = "";
+        public IComparable ObjectId { get; } = "";
 
         public MeshResultLayer Layer { get;} 
 
@@ -28,7 +29,7 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshResults(string objectId, MeshResultLayer resultLayer, MeshResultSmoothingType smoothing, ReadOnlyCollection<MeshResult> meshResultCollection)
+        public MeshResults(IComparable objectId, MeshResultLayer resultLayer, MeshResultSmoothingType smoothing, ReadOnlyCollection<MeshResult> meshResultCollection)
         {
             Layer = resultLayer;
             LayerPosition = LayerPosition;

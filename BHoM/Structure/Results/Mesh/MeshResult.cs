@@ -3,6 +3,7 @@ using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Base;
 using System.Collections.Generic;
+using System;
 
 namespace BH.oM.Structure.Results
 {
@@ -12,13 +13,13 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        public string ObjectId { get; } = "";
+        public IComparable ObjectId { get; } = "";
 
-        public string NodeId { get; } = "";
+        public IComparable NodeId { get; } = "";
 
-        public string MeshFaceId { get; } = "";
+        public IComparable MeshFaceId { get; } = "";
 
-        public string ResultCase { get; set; } = "";
+        public IComparable ResultCase { get; set; } = "";
 
         public double TimeStep { get; set; } = 0.0;
 
@@ -37,10 +38,10 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        protected MeshResult(string objectId,
-                                string nodeId,
-                                string meshFaceId,
-                                string resultCase,
+        protected MeshResult(   IComparable objectId,
+                                IComparable nodeId,
+                                IComparable meshFaceId,
+                                IComparable resultCase,
                                 double timeStep,
                                 MeshResultLayer meshResultLayer,
                                 double layerPosition,

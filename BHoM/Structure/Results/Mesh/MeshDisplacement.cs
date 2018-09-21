@@ -35,10 +35,10 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshDisplacement(string objectId,
-                                string nodeId,
-                                string meshFaceId,
-                                string resultCase,
+        public MeshDisplacement(IComparable objectId,
+                                IComparable nodeId,
+                                IComparable meshFaceId,
+                                IComparable resultCase,
                                 double timeStep,
                                 MeshResultLayer meshResultLayer,
                                 double layerPosition,

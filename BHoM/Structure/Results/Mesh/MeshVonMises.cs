@@ -26,10 +26,10 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshVonMises(string objectId,
-                            string nodeId,
-                            string meshFaceId,
-                            string resultCase,
+        public MeshVonMises(IComparable objectId,
+                            IComparable nodeId,
+                            IComparable meshFaceId,
+                            IComparable resultCase,
                             double timeStep,
                             MeshResultLayer meshResultLayer,
                             double layerPosition,
