@@ -9,7 +9,7 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<int> NodeListPositions { get; set; } = new List<int>();      
+        public List<int> NodeListIndices { get; set; } = new List<int>();      
 
         /***************************************************/
     }
