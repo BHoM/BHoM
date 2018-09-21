@@ -1,6 +1,7 @@
 ﻿using BH.oM.Common;
 using BH.oM.Geometry;
 using System.ComponentModel;
+using System;
 
 namespace BH.oM.Structure.Results
 {
@@ -10,9 +11,9 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        public string ObjectId { get; set; } = "";
+        public IComparable ObjectId { get; set; } = "";
 
-        public string ResultCase { get; set; } = "";
+        public IComparable ResultCase { get; set; } = "";
 
         public double TimeStep { get; set; } = 0.0;
 

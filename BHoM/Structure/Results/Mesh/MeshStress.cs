@@ -41,10 +41,10 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshStress(  string objectId,
-                            string nodeId,
-                            string meshFaceId,
-                            string resultCase,
+        public MeshStress(  IComparable objectId,
+                            IComparable nodeId,
+                            IComparable meshFaceId,
+                            IComparable resultCase,
                             double timeStep,
                             MeshResultLayer meshResultLayer,
                             double layerPosition,
