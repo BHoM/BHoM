@@ -31,6 +31,7 @@ namespace BH.oM.Structure.Results
 
         public MeshResults(IComparable objectId, MeshResultLayer resultLayer, MeshResultSmoothingType smoothing, ReadOnlyCollection<MeshResult> meshResultCollection)
         {
+            ObjectId = objectId;
             Layer = resultLayer;
             LayerPosition = LayerPosition;
             Smoothing = smoothing;
