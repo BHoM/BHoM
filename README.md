@@ -25,4 +25,4 @@ New features
 
 ## License ##
 
-BHoM is licensed under the Apache License. BHoM also uses a number of third party libraries, some with different licenses.
+BHoM is licensed under the GNU Lesser General Public License (LGPL). BHoM also uses a number of third party libraries, some with different licenses.
