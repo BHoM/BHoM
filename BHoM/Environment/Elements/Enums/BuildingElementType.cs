@@ -8,6 +8,7 @@
         Floor,
         Ceiling,
         Window,
-        Door
+        Door,
+        CurtainWall,
     }
 }
