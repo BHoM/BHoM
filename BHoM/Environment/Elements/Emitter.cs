@@ -12,6 +12,7 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public EmitterProperties EmitterProperties { get; set; } = new EmitterProperties();
+        public EmitterType EmitterType { get; set; } = EmitterType.Heating;
 
         /***************************************************/
     }
