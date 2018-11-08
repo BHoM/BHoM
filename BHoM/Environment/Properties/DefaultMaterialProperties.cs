@@ -12,5 +12,6 @@ namespace BH.oM.Environment.Properties
     public class DefaultMaterialProperties : BHoMObject, IMaterialProperties
     {
         public double ThermalConductivity { get; set; } = 0.0;
+        public double Thickness { get; set; } = 0.0;
     }
 }
