@@ -15,7 +15,6 @@ namespace BH.oM.Environment.Interface
         /**** Properties                                ****/
         /***************************************************/
 
-        string Description { get; set; }
         IMaterialProperties MaterialProperties { get; set; }
 
         /***************************************************/
