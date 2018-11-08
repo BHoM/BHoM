@@ -14,7 +14,11 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public string Number { get; set; } = "";
-        public Point Location { get; set; } = new Point();        
+        public Point Location { get; set; } = new Point();
+
+        public List<InternalCondition> InternalConditions { get; set; } = new List<InternalCondition>();
+        public double HeatingLoad { get; set; } = 0.0;
+        public double CoolingLoad { get; set; } = 0.0;
 
         /***************************************************/
     }
