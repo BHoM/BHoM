@@ -9,22 +9,21 @@ using BH.oM.Environment.Properties;
 
 namespace BH.oM.Environment.Elements
 {
-    public class InternalCondition : BHoMObject
+    public class InternalGain : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public Emitter Emitter { get; set; } = new Emitter();
         public List<Profile> Profiles { get; set; } = new List<Profile>();
 
-        public bool IncludeSolarInMeanRadiantTemp { get; set; } = true;
+        public IGCoefficientProperties CoefficientProperties { get; set; } = new IGCoefficientProperties();
+        public IGRadiationProperties RadiationProperties { get; set; } = new IGRadiationProperties();
 
-        public List<SimulationDayType> DayTypes { get; set; } = new List<SimulationDayType>();
+        public double PersonGain { get; set; } = 0;
+        public double Illuminance { get; set; } = 0;
 
-        public InternalGain InternalGain { get; set; } = new InternalGain();
+        public double OutsideAirRatePerPerson { get; set; } = 0;
 
-        public Thermostat Thermostat { get; set; } = new Thermostat();
         /***************************************************/
     }
 }
