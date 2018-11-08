@@ -74,7 +74,14 @@
     <Compile Include="Common\Results\IResultCollection.cs" />
     <Compile Include="Environment\Elements\Enums\BuildingElementType.cs" />
     <Compile Include="Environment\Elements\Enums\MaterialType.cs" />
+    <Compile Include="Environment\Elements\Enums\ProfileCategory.cs" />
+    <Compile Include="Environment\Elements\Enums\ProfileType.cs" />
+    <Compile Include="Environment\Elements\Enums\SimulationDayType.cs" />
+    <Compile Include="Environment\Elements\InternalGain.cs" />
+    <Compile Include="Environment\Elements\Thermostat.cs" />
     <Compile Include="Environment\Interface\IMaterialProperties.cs" />
+    <Compile Include="Environment\Properties\IGCoefficientProperties.cs" />
+    <Compile Include="Environment\Properties\IGRadiationProperties.cs" />
     <Compile Include="Environment\Properties\PanelProperties.cs" />
     <Compile Include="Environment\Properties\DefaultMaterialProperties.cs" />
     <Compile Include="Environment\Properties\GlazingMaterialProperties.cs" />
