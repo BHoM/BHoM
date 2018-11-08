@@ -19,6 +19,10 @@ namespace BH.oM.Environment.Elements
 
         public IMaterial Material { get; set; } = new OpaqueMaterial();
         public double Thickness { get; set; } = 0.0;
+        public List<double> UValues { get; set; } = new List<double>();
+        public ConstructionType ConstructionType { get; set; } = ConstructionType.Opaque;
+        public double AdditionalHeatTransfer { get; set; } = 0.0;
+        public double FFactor { get; set; } = 0.0; //Watts per Meter per Degrees Celsius (w/m degC)
 
         /***************************************************/
     }

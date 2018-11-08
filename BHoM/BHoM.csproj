@@ -73,6 +73,7 @@
     <Compile Include="Architecture\Elements\Level.cs" />
     <Compile Include="Common\Results\IResultCollection.cs" />
     <Compile Include="Environment\Elements\Enums\BuildingElementType.cs" />
+    <Compile Include="Environment\Elements\Enums\ConstructionType.cs" />
     <Compile Include="Environment\Elements\Enums\MaterialType.cs" />
     <Compile Include="Environment\Elements\Enums\ProfileCategory.cs" />
     <Compile Include="Environment\Elements\Enums\ProfileType.cs" />
