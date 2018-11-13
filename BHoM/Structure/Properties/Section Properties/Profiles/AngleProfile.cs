@@ -26,6 +26,10 @@ namespace BH.oM.Structure.Properties
 
         public double ToeRadius { get; }
 
+        public bool MirrorAboutLocalZ { get; }
+
+        public bool MirrorAboutLocalY { get; }
+
         public ReadOnlyCollection<ICurve> Edges { get; }
 
 
@@ -33,7 +37,7 @@ namespace BH.oM.Structure.Properties
         /**** Constructors                              ****/
         /***************************************************/
 
-        public AngleProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
+        public AngleProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
@@ -41,9 +45,10 @@ namespace BH.oM.Structure.Properties
             FlangeThickness = flangeThickness;
             RootRadius = rootRadius;
             ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
+            MirrorAboutLocalY = mirrorAboutLocalY;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
-
 
         /***************************************************/
     }
