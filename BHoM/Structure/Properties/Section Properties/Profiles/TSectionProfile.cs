@@ -26,13 +26,15 @@ namespace BH.oM.Structure.Properties
 
         public double ToeRadius { get; }
 
+        public bool MirrorAboutLocalY { get; }
+
         public ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TSectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
+        public TSectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
@@ -40,6 +42,7 @@ namespace BH.oM.Structure.Properties
             FlangeThickness = flangeThickness;
             RootRadius = rootRadius;
             ToeRadius = toeRadius;
+            MirrorAboutLocalY = mirrorAboutLocalY;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

@@ -26,13 +26,15 @@ namespace BH.oM.Structure.Properties
 
         public double ToeRadius { get; }
 
+        public bool MirrorAboutLocalZ { get; }
+
         public ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ZSectionProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
+        public ZSectionProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
         {
             Height = height;
             FlangeWidth = flangeWidth;
@@ -40,6 +42,7 @@ namespace BH.oM.Structure.Properties
             FlangeThickness = flangeThickness;
             RootRadius = rootRadius;
             ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
