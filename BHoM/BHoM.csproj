@@ -71,6 +71,9 @@
     <Compile Include="Acoustic\Parameters\Rasti.cs" />
     <Compile Include="Architecture\Elements\Grid.cs" />
     <Compile Include="Architecture\Elements\Level.cs" />
+    <Compile Include="Base\Interface\IElement0D.cs" />
+    <Compile Include="Base\Interface\IElement1D.cs" />
+    <Compile Include="Base\Interface\IElement2D.cs" />
     <Compile Include="Common\Results\IResultCollection.cs" />
     <Compile Include="Environment\Elements\Enums\BuildingElementType.cs" />
     <Compile Include="Environment\Elements\Enums\ConstructionType.cs" />

@@ -5,7 +5,7 @@ namespace BH.oM.Structure.Elements
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Bar : BHoMObject
+    public class Bar : BHoMObject, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
