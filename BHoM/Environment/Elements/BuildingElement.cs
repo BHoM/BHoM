@@ -1,11 +1,8 @@
 ﻿using BH.oM.Base;
 using BH.oM.Environment.Interface;
 using BH.oM.Environment.Properties;
-using BH.oM.Architecture.Elements;
-using System.Collections.Generic;
-using System;
-
 using BH.oM.Geometry;
+using System.Collections.Generic;
 
 namespace BH.oM.Environment.Elements
 {
