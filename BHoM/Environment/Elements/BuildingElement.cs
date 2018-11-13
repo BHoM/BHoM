@@ -9,7 +9,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Environment.Elements
 {
-    public class BuildingElement : BHoMObject, IBuildingObject
+    public class BuildingElement : BHoMObject, IBuildingObject, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/

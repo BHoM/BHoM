@@ -10,7 +10,7 @@ using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Opening : BHoMObject, IBuildingObject
+    public class Opening : BHoMObject, IBuildingObject, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/

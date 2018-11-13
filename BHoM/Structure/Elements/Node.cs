@@ -4,7 +4,7 @@ using BH.oM.Structure.Properties;
 
 namespace BH.oM.Structure.Elements
 {
-    public class Node : BHoMObject
+    public class Node : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
