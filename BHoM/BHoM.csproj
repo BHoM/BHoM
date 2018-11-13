@@ -310,6 +310,7 @@
     <Compile Include="Structure\Properties\Section Properties\Profiles\AngleProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\FabricatedBoxProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\FabricatedISectionProfile.cs" />
+	<Compile Include="Structure\Properties\Section Properties\Profiles\GeneralisedTSectionProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\RectangleProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\BoxProfile.cs" />
     <Compile Include="Structure\Properties\Section Properties\Profiles\IProfile.cs" />
