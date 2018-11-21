@@ -14,7 +14,13 @@ namespace BH.oM.Planning
 
         public string Title { get; set; }
 
+        public string Body { get; set; }
+
+        public string HtmlUrl { get; set; }
+
         public string RepoName { get; set; }
+
+        public string BranchName { get; set; }
 
         public int Number { get; set; }
 
