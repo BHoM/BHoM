@@ -1,18 +1,18 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+﻿//using BH.oM.Geometry;
+//using BH.oM.Humans.Interfaces;
 
-namespace BH.oM.Humans.BodyParts
-{
-    public class Neck : ILineBodyPart
-    {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+//namespace BH.oM.Humans.BodyParts
+//{
+//    public class Neck : ILineBodyPart
+//    {
+//        /***************************************************/
+//        /**** Properties                                ****/
+//        /***************************************************/
 
-        public Line TrackingLine { get; set; } = new Line();
+//        public Line TrackingLine { get; set; } = new Line();
 
 
-        /***************************************************/
-    }
+//        /***************************************************/
+//    }
 
-}
+//}
