@@ -1,6 +1,7 @@
-﻿using BH.oM.Structure.Properties;
+﻿using BH.oM.Base;
+using BH.oM.Common;
 using BH.oM.Geometry;
-using BH.oM.Base;
+using BH.oM.Structure.Properties;
 
 namespace BH.oM.Structure.Elements
 {

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using BH.oM.Common;
 using BH.oM.Structure.Properties;
-using BH.oM.Base;
+using System.Collections.Generic;
 
 namespace BH.oM.Structure.Elements
 {

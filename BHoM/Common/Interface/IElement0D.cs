@@ -1,6 +1,4 @@
-﻿using BH.oM.Geometry;
-
-namespace BH.oM.Base
+﻿namespace BH.oM.Common
 {
     public interface IElement0D
     {
