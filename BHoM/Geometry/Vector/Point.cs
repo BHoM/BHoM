@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BH.oM.Common;
+using System;
 
 namespace BH.oM.Geometry
 {
-    public class Point : IGeometry, IComparable<Point>
+    public class Point : IGeometry, IComparable<Point>, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/

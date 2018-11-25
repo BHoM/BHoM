@@ -1,10 +1,10 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Base;
-using System.Collections.Generic;
+﻿using BH.oM.Base;
+using BH.oM.Common;
+using BH.oM.Geometry;
 
 namespace BH.oM.Architecture.Elements
 {
-    public class Grid : BHoMObject
+    public class Grid : BHoMObject, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
