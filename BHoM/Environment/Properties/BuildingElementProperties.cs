@@ -16,7 +16,7 @@ namespace BH.oM.Environment.Properties
         /***************************************************/
 
         public BuildingElementType BuildingElementType { get; set; } = BuildingElementType.Undefined;
-        public List<ConstructionLayer> ConstructionLayers { get; set; } = new List<ConstructionLayer>();
+        public List<Construction> Construction { get; set; } = new List<Construction>();
 
         /***************************************************/
     }

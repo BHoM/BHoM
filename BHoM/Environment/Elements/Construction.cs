@@ -11,13 +11,13 @@ using BH.oM.Environment.Properties;
 
 namespace BH.oM.Environment.Elements
 {
-    public class ConstructionLayer: BHoMObject
+    public class Construction : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public IMaterial Material { get; set; } = new OpaqueMaterial();
+        public List<IMaterial> Materials { get; set; } = new List<IMaterial>();
         public double Thickness { get; set; } = 0.0;
         public List<double> UValues { get; set; } = new List<double>();
         public ConstructionType ConstructionType { get; set; } = ConstructionType.Opaque;
