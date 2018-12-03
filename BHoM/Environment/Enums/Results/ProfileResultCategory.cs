@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.Environment.Results
 {
-    public enum ProfileResultsCategory
+    public enum ProfileResultCategory
     {
         Undefined,
         Building, //Building level results
