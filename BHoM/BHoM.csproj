@@ -129,7 +129,7 @@
     <Compile Include="Environment\Elements\BuildingElement.cs" />
     <Compile Include="Environment\Elements\Opening.cs" />
     <Compile Include="Environment\Elements\Panel.cs" />
-    <Compile Include="Environment\Elements\ConstructionLayer.cs" />
+    <Compile Include="Environment\Elements\Construction.cs" />
     <Compile Include="Environment\Elements\Emitter.cs" />
     <Compile Include="Environment\Materials\GasMaterial.cs" />
     <Compile Include="Environment\Materials\OpaqueMaterial.cs" />
