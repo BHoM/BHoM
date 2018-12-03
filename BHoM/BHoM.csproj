@@ -93,8 +93,10 @@
     <Compile Include="Environment\Properties\PanelProperties.cs" />
     <Compile Include="Environment\Properties\DefaultMaterialProperties.cs" />
     <Compile Include="Environment\Properties\GlazingMaterialProperties.cs" />
+    <Compile Include="Environment\Results\BuildingElementResult.cs" />
     <Compile Include="Environment\Results\BuildingResult.cs" />
     <Compile Include="Environment\Results\ProfileResult.cs" />
+    <Compile Include="Environment\Results\SpaceResult.cs" />
     <Compile Include="Reflection\Attributes\AbbreviationAttribute.cs" />
     <Compile Include="Reflection\Interface\IOutput.cs" />
     <Compile Include="Reflection\Output.cs" />
