@@ -8,14 +8,14 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Results
 {
-    public class ProfileResults : BHoMObject
+    public class ProfileResult : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         public ProfileResultUnits ResultUnit { get; set; } = ProfileResultUnits.Undefined;
-        public ProfileResultsCategory ResultCategory { get; set; } = ProfileResultsCategory.Undefined;
+        public ProfileResultCategory ResultCategory { get; set; } = ProfileResultCategory.Undefined;
         public ProfileResultType ResultType { get; set; } = ProfileResultType.Undefined;
         public List<double> Results { get; set; } = new List<double>();
     }
