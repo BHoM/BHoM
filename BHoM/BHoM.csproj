@@ -240,6 +240,7 @@
     <Compile Include="Structure\Results\Mesh\MeshResults.cs" />
     <Compile Include="Structure\Results\Mesh\MeshForce.cs" />
     <Compile Include="Structure\Results\Mesh\MeshDisplacement.cs" />
+    <Compile Include="Testing\IsEqualConfig.cs" />
     <Compile Include="Testing\TestData.cs" />
     <Compile Include="Testing\TestResult.cs" />
     <Compile Include="Testing\UnitTest.cs" />
