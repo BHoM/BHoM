@@ -89,12 +89,12 @@
     <Compile Include="Environment\Enums\Results\SimulationResultType.cs" />
     <Compile Include="Environment\Interface\IMaterialProperties.cs" />
     <Compile Include="Environment\Materials\Material.cs" />
-    <Compile Include="Environment\Properties\GasMaterialProperties.cs" />
+    <Compile Include="Environment\Properties\MaterialPropertiesGas.cs" />
     <Compile Include="Environment\Properties\IGCoefficientProperties.cs" />
     <Compile Include="Environment\Properties\IGRadiationProperties.cs" />
     <Compile Include="Environment\Properties\PanelProperties.cs" />
-    <Compile Include="Environment\Properties\OpaqueMaterialProperties.cs" />
-    <Compile Include="Environment\Properties\TransparentMaterialProperties.cs" />
+    <Compile Include="Environment\Properties\MaterialPropertiesOpaque.cs" />
+    <Compile Include="Environment\Properties\MaterialPropertiesTransparent.cs" />
     <Compile Include="Environment\Results\ProfileResult.cs" />
     <Compile Include="Environment\Results\SimulationResult.cs" />
     <Compile Include="Reflection\Attributes\AbbreviationAttribute.cs" />

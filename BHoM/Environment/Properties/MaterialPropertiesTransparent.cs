@@ -9,7 +9,7 @@ using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Properties
 {
-    public class TransparentMaterialProperties : BHoMObject, IMaterialProperties
+    public class MaterialPropertiesTransparent : BHoMObject, IMaterialProperties
     {
         public double ThermalConductivity { get; set; } = 0;
         public string Description { get; set; } = string.Empty;
