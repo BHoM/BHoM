@@ -15,7 +15,6 @@ namespace BH.oM.Environment.Results
         /***************************************************/
 
         public ProfileResultUnits ResultUnit { get; set; } = ProfileResultUnits.Undefined;
-        public ProfileResultCategory ResultCategory { get; set; } = ProfileResultCategory.Undefined;
         public ProfileResultType ResultType { get; set; } = ProfileResultType.Undefined;
         public List<double> Results { get; set; } = new List<double>();
     }
