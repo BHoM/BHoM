@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Environment.Elements;
 using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Materials

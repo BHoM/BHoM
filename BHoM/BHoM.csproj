@@ -80,7 +80,6 @@
     <Compile Include="Environment\Enums\Elements\EmitterType.cs" />
     <Compile Include="Environment\Enums\Elements\MaterialType.cs" />
     <Compile Include="Environment\Enums\Elements\ProfileCategory.cs" />
-    <Compile Include="Environment\Enums\Materials\MaterialType.cs" />
     <Compile Include="Environment\Enums\Results\ProfileResultType.cs" />
     <Compile Include="Environment\Enums\Results\ProfileResultUnits.cs" />
     <Compile Include="Environment\Enums\Elements\ProfileType.cs" />
@@ -360,6 +359,7 @@
     <Folder Include="Cities\" />
     <Folder Include="Common\Physical\" />
     <Folder Include="Common\Planning\Project\" />
+    <Folder Include="Environment\Enums\Materials\" />
     <Folder Include="MachineLearning\Sound\" />
     <Folder Include="MachineLearning\Text\" />
     <Folder Include="MachineLearning\Video\" />
