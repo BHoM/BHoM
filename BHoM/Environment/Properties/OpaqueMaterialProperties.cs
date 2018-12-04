@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Environment.Interface;
-using BH.oM.Environment.Properties;
 
-namespace BH.oM.Environment.Materials
+namespace BH.oM.Environment.Properties
 {
-    public class OpaqueMaterial : BHoMObject, IMaterial
+    public class OpaqueMaterialProperties : BHoMObject, IMaterialProperties
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
+        public double ThermalConductivity { get; set; } = 0;
         public string Description { get; set; } = string.Empty;
-        public IMaterialProperties MaterialProperties { get; set; } = new DefaultMaterialProperties();
-
         public double Conductivity { get; set; } = 0.0;
         public double SpecificHeat { get; set; } = 0.0;
         public double Density { get; set; } = 0.0;
@@ -29,7 +23,5 @@ namespace BH.oM.Environment.Materials
         public double LightReflectanceInternal { get; set; } = 0.0;
         public double EmissivityInternal { get; set; } = 0.0;
         public double EmissivityExternal { get; set; } = 0.0;
-
-        /***************************************************/
     }
 }
