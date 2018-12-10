@@ -10,5 +10,6 @@
         Window,
         Door,
         CurtainWall,
+        Rooflight,
     }
 }
