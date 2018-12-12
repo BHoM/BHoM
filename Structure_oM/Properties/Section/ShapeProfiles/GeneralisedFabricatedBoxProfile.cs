@@ -4,7 +4,7 @@ using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
-namespace BH.oM.Structure.Properties.Section.Profiles
+namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 {
     public class GeneralisedFabricatedBoxProfile : BHoMObject, IProfile, IImmutable
     {

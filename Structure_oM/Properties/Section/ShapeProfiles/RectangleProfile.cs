@@ -4,19 +4,21 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.Profiles
+namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 {
-    public class TubeProfile : BHoMObject, IProfile, IImmutable
+    public class RectangleProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Tube;
+        public ShapeType Shape { get; } = ShapeType.Rectangle;
 
-        public double Diameter { get; }
+        public double Height { get; }
 
-        public double Thickness { get; }
+        public double Width { get; }
+
+        public double CornerRadius { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -24,10 +26,11 @@ namespace BH.oM.Structure.Properties.Section.Profiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TubeProfile(double diameter, double thickness, IEnumerable<ICurve> edges)
+        public RectangleProfile(double height, double width, double cornerRadius, IEnumerable<ICurve> edges)
         {
-            Diameter = diameter;
-            Thickness = thickness;
+            Height = height;
+            Width = width;
+            CornerRadius = cornerRadius;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

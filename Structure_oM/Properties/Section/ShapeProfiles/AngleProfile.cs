@@ -4,15 +4,15 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.Profiles
+namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 {
-    public class ISectionProfile : BHoMObject, IProfile, IImmutable
+    public class AngleProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.ISection;
+        public ShapeType Shape { get; } = ShapeType.Angle;
 
         public double Height { get; }
 
@@ -26,13 +26,18 @@ namespace BH.oM.Structure.Properties.Section.Profiles
 
         public double ToeRadius { get; }
 
+        public bool MirrorAboutLocalZ { get; }
+
+        public bool MirrorAboutLocalY { get; }
+
         public ReadOnlyCollection<ICurve> Edges { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ISectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
+        public AngleProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
@@ -40,6 +45,8 @@ namespace BH.oM.Structure.Properties.Section.Profiles
             FlangeThickness = flangeThickness;
             RootRadius = rootRadius;
             ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
+            MirrorAboutLocalY = mirrorAboutLocalY;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

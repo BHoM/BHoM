@@ -4,29 +4,25 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.Profiles
+namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 {
-    public class TSectionProfile : BHoMObject, IProfile, IImmutable
+    public class BoxProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Tee;
+        public ShapeType Shape { get; } = ShapeType.Box;
 
         public double Height { get; }
 
         public double Width { get; }
 
-        public double WebThickness { get; }
+        public double Thickness { get; }
 
-        public double FlangeThickness { get; }
+        public double OuterRadius { get; }
 
-        public double RootRadius { get; }
-
-        public double ToeRadius { get; }
-
-        public bool MirrorAboutLocalY { get; }
+        public double InnerRadius { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -34,17 +30,16 @@ namespace BH.oM.Structure.Properties.Section.Profiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TSectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
+        public BoxProfile(double height, double width, double thickness, double outerRadius, double innerRadius, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalY = mirrorAboutLocalY;
+            Thickness = thickness;
+            OuterRadius = outerRadius;
+            InnerRadius = innerRadius;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
+
 
         /***************************************************/
     }
