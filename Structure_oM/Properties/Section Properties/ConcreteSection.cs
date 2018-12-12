@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using BH.oM.Common.Materials;
+using BH.oM.Structure.Properties.Section.Profiles;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Section
 {
 
     public class ConcreteSection : BHoMObject, ISectionProperty, IImmutable
@@ -14,7 +15,7 @@ namespace BH.oM.Structure.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Reinforcement> Reinforcement { get; set; }
+        public List<Reinforcement.Reinforcement> Reinforcement { get; set; }
 
         public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
 

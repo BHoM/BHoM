@@ -1,6 +1,6 @@
 ﻿using BH.oM.Base;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Constraint
 {
     /// <summary>
     /// Constraint object - base class for all release, restraint, support classes. 

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Section.Profiles
 {
     public class KiteProfile : BHoMObject, IProfile, IImmutable
     {

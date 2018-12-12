@@ -1,5 +1,8 @@
 ﻿using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Structure.Properties.Section;
+using BH.oM.Structure.Properties.Constraint;
+using BH.oM.Structure.Properties;
 
 namespace BH.oM.Structure.Elements
 {
@@ -16,7 +19,7 @@ namespace BH.oM.Structure.Elements
 
         public Node EndNode { get; set; }
 
-        public Properties.ISectionProperty SectionProperty { get; set; } = null;
+        public ISectionProperty SectionProperty { get; set; } = null;
 
         /// <summary>
         /// Bar orientation angle in radians. For non-vertical bars, angle is measured in the bar YZ plane
@@ -26,13 +29,13 @@ namespace BH.oM.Structure.Elements
         /// </summary>
         public double OrientationAngle { get; set; } = 0;
 
-        public Properties.BarRelease Release { get; set; } = null;
+        public BarRelease Release { get; set; } = null;
 
         public BarFEAType FEAType { get; set; } = BarFEAType.Flexural;
 
-        public Properties.Constraint4DOF Spring { get; set; } = null;
+        public Constraint4DOF Spring { get; set; } = null;
 
-        public Properties.Offset Offset { get; set; } = null;
+        public Offset Offset { get; set; } = null;
 
 
         /***************************************************/

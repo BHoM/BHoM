@@ -4,7 +4,7 @@ using BH.oM.Base;
 using System.Collections.ObjectModel;
 using BH.oM.Common.Materials;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Section
 {
     public class CompositeSection : BHoMObject, ISectionProperty, IImmutable
     {
