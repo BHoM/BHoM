@@ -4,29 +4,28 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.Profiles
+namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 {
-    public class FabricatedISectionProfile : BHoMObject, IProfile, IImmutable
+    public class ISectionProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         public ShapeType Shape { get; } = ShapeType.ISection;
 
         public double Height { get; }
 
-        public double TopFlangeWidth { get; }
-
-        public double BotFlangeWidth { get; }
+        public double Width { get; }
 
         public double WebThickness { get; }
 
-        public double TopFlangeThickness { get; }
+        public double FlangeThickness { get; }
 
-        public double BotFlangeThickness { get; }
+        public double RootRadius { get; }
 
-        public double WeldSize { get; }
+        public double ToeRadius { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -34,18 +33,16 @@ namespace BH.oM.Structure.Properties.Section.Profiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public FabricatedISectionProfile(double height, double topFlangeWidth, double botFlangeWidth, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
+        public ISectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
         {
             Height = height;
-            TopFlangeWidth = topFlangeWidth;
-            BotFlangeWidth = botFlangeWidth;
-            WebThickness = webThickness;
-            BotFlangeThickness = botFlangeThickness;
-            TopFlangeThickness = topFlangeThickness;
-            WeldSize = weldSize;
+            Width = width;
+            WebThickness = webthickness;
+            FlangeThickness = flangeThickness;
+            RootRadius = rootRadius;
+            ToeRadius = toeRadius;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
-
 
         /***************************************************/
     }

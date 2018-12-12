@@ -4,25 +4,14 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.Profiles
+namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 {
-    public class BoxProfile : BHoMObject, IProfile, IImmutable
+    public class FreeFormProfile : BHoMObject, IProfile, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Box;
-
-        public double Height { get; }
-
-        public double Width { get; }
-
-        public double Thickness { get; }
-
-        public double OuterRadius { get; }
-
-        public double InnerRadius { get; }
+        public ShapeType Shape { get; } = ShapeType.FreeForm;
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -30,13 +19,8 @@ namespace BH.oM.Structure.Properties.Section.Profiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BoxProfile(double height, double width, double thickness, double outerRadius, double innerRadius, IEnumerable<ICurve> edges)
+        public FreeFormProfile(IEnumerable<ICurve> edges)
         {
-            Height = height;
-            Width = width;
-            Thickness = thickness;
-            OuterRadius = outerRadius;
-            InnerRadius = innerRadius;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

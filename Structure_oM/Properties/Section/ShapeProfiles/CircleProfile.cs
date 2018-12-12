@@ -4,21 +4,16 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.Profiles
+namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 {
-    public class RectangleProfile : BHoMObject, IProfile, IImmutable
+    public class CircleProfile : BHoMObject, IProfile, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Rectangle;
+        public ShapeType Shape { get; } = ShapeType.Circle;
 
-        public double Height { get; }
-
-        public double Width { get; }
-
-        public double CornerRadius { get; }
+        public double Diameter { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -26,11 +21,9 @@ namespace BH.oM.Structure.Properties.Section.Profiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public RectangleProfile(double height, double width, double cornerRadius, IEnumerable<ICurve> edges)
+        public CircleProfile(double diameter, IEnumerable<ICurve> edges)
         {
-            Height = height;
-            Width = width;
-            CornerRadius = cornerRadius;
+            Diameter = diameter;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
