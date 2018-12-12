@@ -1,6 +1,6 @@
 ﻿using BH.oM.Base;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Constraint
 {
     /// <summary>
     /// Bar release applicable to bar objects, contains BH.oM.Structure.Constraint objects

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
+﻿using BH.oM.Base;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Framing
 {
     public interface IFramingElementProperty : IBHoMObject
     {

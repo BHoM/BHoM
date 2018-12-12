@@ -1,7 +1,7 @@
 ﻿using BH.oM.Base;
 using BH.oM.Common.Materials;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Section.Reinforcement
 {
     public abstract class Reinforcement : BHoMObject
     {

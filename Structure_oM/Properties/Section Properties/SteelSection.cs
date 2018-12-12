@@ -1,10 +1,8 @@
-﻿using BH.oM.Geometry;
-using BH.oM.Base;
-using System.Collections.Generic;
-using System.Linq;
+﻿using BH.oM.Base;
 using BH.oM.Common.Materials;
+using BH.oM.Structure.Properties.Section.Profiles;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Section
 {
 
     public class SteelSection : BHoMObject, ISectionProperty, IImmutable

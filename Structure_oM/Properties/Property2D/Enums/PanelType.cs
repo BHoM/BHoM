@@ -1,4 +1,4 @@
-﻿namespace BH.oM.Structure.Properties
+﻿namespace BH.oM.Structure.Properties.Surface
 {
     /***************************************************/
     public enum PanelType

@@ -1,5 +1,5 @@
 ﻿using BH.oM.Geometry;
-using BH.oM.Structure.Properties;
+using BH.oM.Structure.Properties.Surface;
 using System.Collections.Generic;
 
 namespace BH.oM.Structure.Elements

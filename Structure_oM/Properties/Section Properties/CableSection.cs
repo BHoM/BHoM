@@ -3,7 +3,7 @@
 using BH.oM.Base;
 using BH.oM.Common.Materials;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Section
 {
     public class CableSection : BHoMObject, ISectionProperty, IImmutable
     {

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Section.Profiles
 {
     public class RectangleProfile : BHoMObject, IProfile, IImmutable
     {

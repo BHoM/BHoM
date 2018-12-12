@@ -1,6 +1,6 @@
 ﻿using BH.oM.Base;
 
-namespace BH.oM.Structure.Properties
+namespace BH.oM.Structure.Properties.Constraint
 {
     public class Constraint4DOF : BHoMObject
     {
