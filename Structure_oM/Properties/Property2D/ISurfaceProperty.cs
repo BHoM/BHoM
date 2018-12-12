@@ -6,7 +6,7 @@ namespace BH.oM.Structure.Properties.Surface
     /// <summary>
     /// Property2D for 2D finite element structural objects such as PanelPlanar or MeshFace
     /// </summary>
-    public interface IProperty2D : IBHoMObject
+    public interface ISurfaceProperty : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -3,7 +3,7 @@ using BH.oM.Common.Materials;
 
 namespace BH.oM.Structure.Properties.Surface
 {
-    public class LoadingPanelProperty : BHoMObject, IProperty2D
+    public class LoadingPanelProperty : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/

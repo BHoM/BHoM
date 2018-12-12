@@ -9,7 +9,7 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        IProperty2D Property { get; set; }
+        ISurfaceProperty Property { get; set; }
 
         /***************************************************/
     }

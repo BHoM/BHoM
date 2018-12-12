@@ -4,7 +4,7 @@ using BH.oM.Common.Materials;
 
 namespace BH.oM.Structure.Properties.Surface
 {
-    public class ConstantThickness : BHoMObject, IProperty2D
+    public class ConstantThickness : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/
