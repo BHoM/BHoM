@@ -1,4 +1,4 @@
-﻿namespace BH.oM.Structure.Properties.Section
+﻿namespace BH.oM.Structure.Properties.Section.Reinforcement
 {
     /***************************************************/
     public enum ReinforcementPattern
