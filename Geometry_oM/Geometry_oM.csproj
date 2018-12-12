@@ -41,7 +41,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Curve\Arc.cs" />
+    <Compile Include="Curve\Circle.cs" />
+    <Compile Include="Curve\Ellipse.cs" />
+    <Compile Include="Curve\ICurve.cs" />
+    <Compile Include="Curve\Line.cs" />
+    <Compile Include="Curve\NurbCurve.cs" />
+    <Compile Include="Curve\PolyCurve.cs" />
+    <Compile Include="Curve\Polyline.cs" />
+    <Compile Include="IGeometry.cs" />
+    <Compile Include="Interface\IElement0D.cs" />
+    <Compile Include="Interface\IElement1D.cs" />
+    <Compile Include="Interface\IElement2D.cs" />
+    <Compile Include="Math\IntegrationSlice.cs" />
+    <Compile Include="Mesh\Face.cs" />
+    <Compile Include="Mesh\Mesh.cs" />
+    <Compile Include="Misc\BoundingBox.cs" />
+    <Compile Include="Misc\CompositeGeometry.cs" />
+    <Compile Include="Misc\Quaternion.cs" />
+    <Compile Include="Misc\Tolerance.cs" />
+    <Compile Include="Misc\TransformMatrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Surface\Extrusion.cs" />
+    <Compile Include="Surface\ISurface.cs" />
+    <Compile Include="Surface\Loft.cs" />
+    <Compile Include="Surface\NurbSurface.cs" />
+    <Compile Include="Surface\Pipe.cs" />
+    <Compile Include="Surface\Polysurface.cs" />
+    <Compile Include="Vector\CoordinateSystem.cs" />
+    <Compile Include="Vector\Plane.cs" />
+    <Compile Include="Vector\Point.cs" />
+    <Compile Include="Vector\Vector.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
