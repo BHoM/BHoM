@@ -17,7 +17,7 @@ namespace BH.oM.Structure.Elements
 
         public List<Opening> Openings { get; set; } = new List<Opening>();
 
-        public IProperty2D Property { get; set; } = new ConstantThickness();      
+        public ISurfaceProperty Property { get; set; } = new ConstantThickness();      
 
 
         /***************************************************/ 

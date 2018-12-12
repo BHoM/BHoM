@@ -3,7 +3,7 @@ using BH.oM.Common.Materials;
 
 namespace BH.oM.Structure.Properties.Surface
 {
-    public class Ribbed : BHoMObject, IProperty2D
+    public class Ribbed : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/

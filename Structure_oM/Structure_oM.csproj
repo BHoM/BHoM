@@ -104,7 +104,7 @@
     <Compile Include="Properties\Property2D\ConcreteRibbed.cs" />
     <Compile Include="Properties\Property2D\ConcreteWaffle.cs" />
     <Compile Include="Properties\Property2D\ConstantThickness.cs" />
-    <Compile Include="Properties\Property2D\IProperty2D.cs" />
+    <Compile Include="Properties\Property2D\ISurfaceProperty.cs" />
     <Compile Include="Properties\Property2D\LoadingPanel.cs" />
     <Compile Include="Properties\Section Properties\CableSection.cs" />
     <Compile Include="Properties\Section Properties\CompositeSection.cs" />
