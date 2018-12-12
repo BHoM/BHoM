@@ -1,5 +1,6 @@
-﻿
-namespace BH.oM.Geometry
+﻿namespace BH.oM.Geometry
 {
-    public interface ICurve : IGeometry, IElement1D { }
+    public interface ICurve : IGeometry, IElement1D
+    {
+    }
 }

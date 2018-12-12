@@ -15,8 +15,7 @@
         public double Radius1 { get; set; } = 0;
 
         public double Radius2 { get; set; } = 0;
-
-
+        
         /***************************************************/
     }
 }

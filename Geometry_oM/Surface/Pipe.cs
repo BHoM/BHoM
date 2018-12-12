@@ -11,9 +11,7 @@
         public double Radius { get; set; } = 0;
 
         public bool Capped { get; set; } = true;
-
-
+        
         /***************************************************/
     }
 }
-

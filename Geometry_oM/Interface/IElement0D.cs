@@ -4,6 +4,5 @@ namespace BH.oM.Geometry
 {
     public interface IElement0D : IObject
     {
-
     }
 }

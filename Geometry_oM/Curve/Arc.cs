@@ -21,7 +21,7 @@ namespace BH.oM.Geometry
         public double EndAngle { get; set; } = 0;
 
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Explicit Casting - Special Case           ****/
         /***************************************************/
 
         public static explicit operator Arc(Circle circle)
@@ -61,6 +61,3 @@ namespace BH.oM.Geometry
         /***************************************************/
     }
 }
-
-
-
