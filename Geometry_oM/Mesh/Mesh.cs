@@ -11,9 +11,7 @@ namespace BH.oM.Geometry
         public List<Point> Vertices { get; set; } = new List<Point>();
 
         public List<Face> Faces { get; set; } = new List<Face>();
-
-
+        
         /***************************************************/
     }
 }
-

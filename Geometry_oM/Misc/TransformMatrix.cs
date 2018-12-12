@@ -10,7 +10,7 @@
 
 
         /***************************************************/
-        /**** Static special cases                      ****/
+        /**** Static Special Cases                      ****/
         /***************************************************/
 
         public static readonly TransformMatrix Zero = new TransformMatrix { Matrix = new double[4, 4] };
@@ -51,8 +51,7 @@
 
             return new TransformMatrix { Matrix = result };
         }
-
-
+        
         /***************************************************/
 
         public static TransformMatrix operator +(TransformMatrix t1, double d)

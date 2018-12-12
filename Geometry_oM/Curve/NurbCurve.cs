@@ -13,11 +13,7 @@ namespace BH.oM.Geometry
         public List<double> Weights { get; set; } = new List<double>();
 
         public List<double> Knots { get; set; } = new List<double>();
-
-
+        
         /***************************************************/
     }
 }
-
-
-

@@ -9,9 +9,7 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         public List<ISurface> Surfaces { get; set; } = new List<ISurface>();
-
-
+        
         /***************************************************/
     }
 } 
-

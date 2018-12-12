@@ -9,10 +9,7 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         public List<Point> ControlPoints { get; set; } = new List<Point>();
-
-
+        
         /***************************************************/
     }
 }
-        
-

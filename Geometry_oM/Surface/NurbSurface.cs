@@ -15,9 +15,7 @@ namespace BH.oM.Geometry
         public List<double> UKnots { get; set; } = new List<double>();
 
         public List<double> VKnots { get; set; } = new List<double>();
-
-
+        
         /***************************************************/
     }
 }
-

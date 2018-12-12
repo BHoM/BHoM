@@ -11,10 +11,7 @@
         public Point End { get; set; } = new Point();
 
         public bool Infinite { get; set; } = false;
-
-
+        
         /***************************************************/
     }
 }
-
-

@@ -9,10 +9,7 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         public List<ICurve> Curves { get; set; } = new List<ICurve>();
-
-
+        
         /***************************************************/
     }
 }
-
-

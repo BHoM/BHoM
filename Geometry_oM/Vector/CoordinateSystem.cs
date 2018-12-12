@@ -1,5 +1,4 @@
-﻿using BH.oM.Base;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
@@ -17,8 +16,7 @@ namespace BH.oM.Geometry
         public Vector Z { get; set; } = Vector.ZAxis;
 
         public Point Origin { get; set; } = Point.Origin;
-
-
+        
         /***************************************************/
     }
 }
