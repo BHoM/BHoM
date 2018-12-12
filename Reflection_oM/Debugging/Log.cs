@@ -5,21 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Debuging
+namespace BH.oM.Reflection.Debugging
 {
-    public class Event : BHoMObject
+    public class Log : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public DateTime Time { get; set; } = DateTime.Now;
+        public List<Event> AllEvents { get; set; } = new List<Event>();
 
-        public string StackTrace { get; set; } = "";
-
-        public string Message { get; set; } = "";
-
-        public EventType Type { get; set; } = EventType.Unknown;
+        public List<Event> CurrentEvents { get; set; } = new List<Event>();
 
 
         /***************************************************/
