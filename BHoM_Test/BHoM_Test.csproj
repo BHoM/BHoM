@@ -60,6 +60,10 @@
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
+      <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
+      <Name>Geometry_oM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

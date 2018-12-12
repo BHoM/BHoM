@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\BatchQuery.cs" />
+    <Compile Include="Queries\CustomQuery.cs" />
+    <Compile Include="Queries\FilterQuery.cs" />
+    <Compile Include="Queries\IQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">

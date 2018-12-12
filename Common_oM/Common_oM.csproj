@@ -41,13 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Materials\Material.cs" />
+    <Compile Include="Materials\MaterialEnums.cs" />
+    <Compile Include="Planning\Construction\ConstructionPhase.cs" />
+    <Compile Include="Planning\IPhase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\IResult.cs" />
+    <Compile Include="Results\IResultCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Physical\" />
+    <Folder Include="Planning\Project\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
