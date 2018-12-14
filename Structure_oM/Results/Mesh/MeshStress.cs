@@ -49,7 +49,7 @@ namespace BH.oM.Structure.Results
                             MeshResultLayer meshResultLayer,
                             double layerPosition,
                             MeshResultSmoothingType smoothing,
-                            CoordinateSystem coordinateSystem,
+                            Geometry.CoordinateSystem.Cartesian coordinateSystem,
                             double sXX,
                             double sYY,
                             double sXY,

@@ -30,9 +30,9 @@
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-        public static explicit operator Plane(CoordinateSystem coordinateSystem)
+        public static explicit operator Plane(CoordinateSystem.Cartesian cartesian)
         {
-            return new Plane { Origin = coordinateSystem.Origin, Normal = coordinateSystem.Z };
+            return new Plane { Origin = cartesian.Origin, Normal = cartesian.Z };
         }
 
         /***************************************************/

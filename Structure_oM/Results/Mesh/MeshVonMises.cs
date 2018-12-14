@@ -34,7 +34,7 @@ namespace BH.oM.Structure.Results
                             MeshResultLayer meshResultLayer,
                             double layerPosition,
                             MeshResultSmoothingType smoothing,
-                            CoordinateSystem coordinateSystem,
+                            Geometry.CoordinateSystem.Cartesian coordinateSystem,
                             double s,
                             double n,
                             double m): base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, coordinateSystem)

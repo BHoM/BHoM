@@ -30,7 +30,7 @@ namespace BH.oM.Structure.Results
         public MeshResultSmoothingType Smoothing { get; set; }
 
         [Description("CoordinateSystem required in order to report results in a particular direction, for example, for anisotropic materials")]
-        public CoordinateSystem CoordinateSystem { get; set; } = new CoordinateSystem();
+        public Geometry.CoordinateSystem.Cartesian CoordinateSystem { get; set; } = new Geometry.CoordinateSystem.Cartesian();
 
         public Dictionary<string, object> CustomData { get; set; }
 
@@ -46,7 +46,7 @@ namespace BH.oM.Structure.Results
                                 MeshResultLayer meshResultLayer,
                                 double layerPosition,
                                 MeshResultSmoothingType smoothing,
-                                CoordinateSystem coordinateSystem)
+                                Geometry.CoordinateSystem.Cartesian coordinateSystem)
         {
             ObjectId = objectId;
             NodeId = nodeId;
