@@ -13,6 +13,8 @@ namespace BH.oM.Environment.Properties
     {
         public double Conductivity { get; set; } = 0.0;
         public string Description { get; set; } = string.Empty;
+        public double SpecificHeat { get; set; } = 0.0;
+        public double Density { get; set; } = 0.0;
         public double ConvectionCoefficient { get; set; } = 0.0;
         public double VapourDiffusionFactor { get; set; } = 0.0;
     }
