@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.Environment.Elements
 {
-    public enum AbsortanceType
+    public enum AbsorptanceType
     {
         Undefined,
         IntIR,

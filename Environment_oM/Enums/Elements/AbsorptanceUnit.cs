@@ -1,6 +1,6 @@
 ﻿namespace BH.oM.Environment.Elements
 {
-    public enum AbsortanceUnit
+    public enum AbsorptanceUnit
     {
         Undefined,
         Percent,
