@@ -22,7 +22,12 @@ namespace BH.oM.Environment.Elements
         public List<double> UValues { get; set; } = new List<double>();
         public ConstructionType ConstructionType { get; set; } = ConstructionType.Opaque;
         public double AdditionalHeatTransfer { get; set; } = 0.0;
-        public double FFactor { get; set; } = 0.0; //Watts per Meter per Degrees Celsius (w/m degC)
+        public double FFactor { get; set; } = 0.0; //Watts per Meter per Degrees Celsius (w/m degC) - conduction only for floor elements (14.12.2018)
+        public ConstructionRoughness Roughness { get; set; } = ConstructionRoughness.Undefined;
+
+        public double AbsortanceValue { get; set; } = 0.0;
+        public AbsortanceUnit AbsortanceUnit { get; set; } = AbsortanceUnit.Undefined;
+        public AbsortanceType AbsortanceType { get; set; } = AbsortanceType.Undefined;
 
         /***************************************************/
     }
