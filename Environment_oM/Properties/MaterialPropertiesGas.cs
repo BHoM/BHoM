@@ -11,7 +11,7 @@ namespace BH.oM.Environment.Properties
 {
     public class MaterialPropertiesGas : BHoMObject, IMaterialProperties
     {
-        public double ThermalConductivity { get; set; } = 0;
+        public double Conductivity { get; set; } = 0.0;
         public string Description { get; set; } = string.Empty;
         public double ConvectionCoefficient { get; set; } = 0.0;
         public double VapourDiffusionFactor { get; set; } = 0.0;
