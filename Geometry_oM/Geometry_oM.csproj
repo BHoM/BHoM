@@ -68,7 +68,7 @@
     <Compile Include="Surface\NurbSurface.cs" />
     <Compile Include="Surface\Pipe.cs" />
     <Compile Include="Surface\Polysurface.cs" />
-    <Compile Include="Vector\CoordinateSystem.cs" />
+    <Compile Include="CoordinateSystem\Cartesian.cs" />
     <Compile Include="Vector\Plane.cs" />
     <Compile Include="Vector\Point.cs" />
     <Compile Include="Vector\Vector.cs" />
@@ -79,5 +79,6 @@
       <Name>BHoM</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

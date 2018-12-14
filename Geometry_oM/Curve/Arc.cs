@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System;
 
+
 namespace BH.oM.Geometry
 {
     [Description("Arc starting from the local x, rotating Angle number of radians counter clockwise")]
@@ -10,7 +11,7 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        public CoordinateSystem CoordinateSystem { get; set; } = new CoordinateSystem();
+        public CoordinateSystem.Cartesian CoordinateSystem { get; set; } = new CoordinateSystem.Cartesian();
 
         public double Radius { get; set; } = 0;
 
@@ -51,7 +52,7 @@ namespace BH.oM.Geometry
 
             return new Arc
             {
-                CoordinateSystem = new CoordinateSystem { X = x, Y = y, Z = z, Origin = circle.Centre },
+                CoordinateSystem = new CoordinateSystem.Cartesian(circle.Centre, x, y, z),
                 Radius = circle.Radius,
                 StartAngle = 0,
                 EndAngle = Math.PI * 2
