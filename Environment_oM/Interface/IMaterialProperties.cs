@@ -11,5 +11,7 @@ namespace BH.oM.Environment.Interface
     public interface IMaterialProperties : IBHoMObject
     {
         double Conductivity { get; set; } //Watts per Meter Kelvin
+        double SpecificHeat { get; set; }
+        double Density { get; set; }
     }
 }
