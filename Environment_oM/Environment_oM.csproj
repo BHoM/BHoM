@@ -53,7 +53,10 @@
     <Compile Include="Elements\Profile.cs" />
     <Compile Include="Elements\Space.cs" />
     <Compile Include="Elements\Thermostat.cs" />
+    <Compile Include="Enums\Elements\AbsortanceType.cs" />
+    <Compile Include="Enums\Elements\AbsortanceUnitcs.cs" />
     <Compile Include="Enums\Elements\BuildingElementType.cs" />
+    <Compile Include="Enums\Elements\ConstructionRoughness.cs" />
     <Compile Include="Enums\Elements\ConstructionType.cs" />
     <Compile Include="Enums\Elements\EmitterType.cs" />
     <Compile Include="Enums\Elements\MaterialType.cs" />
