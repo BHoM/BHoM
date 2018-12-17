@@ -11,5 +11,7 @@
         Door,
         CurtainWall,
         Rooflight,
+        WindowWithFrame,
+        RooflightWithFrame,
     }
 }
