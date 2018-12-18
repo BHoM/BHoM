@@ -19,10 +19,9 @@ namespace BH.oM.Environment.Elements
         public double MultiplicationFactor { get; set; } = 1.0;
         public double SetBackValue { get; set; } = 0.0; //Value for those outside the schedule
 
-        public string Function { get; set; } //Function built query defined as a string within simulation
+        public string Function { get; set; } = ""; //Function built query defined as a string within simulation
 
-        public double Value { get; set; } = 0.0; //Value for a single value profile type
-        public List<double> Values { get; set; } //List of values for each hour of simulation under hourly profile or hours in a year for yearly profile
+        public List<double> Values { get; set; } = new List<double>(); //List of values for each hour of simulation under hourly profile or hours in a year for yearly profile
 
         public ProfileCategory Category { get; set; } = ProfileCategory.Gain;
 
