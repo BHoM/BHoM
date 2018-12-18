@@ -4,7 +4,8 @@
     {
         Undefined,
         Value, //Single item of data
-        Hourly, //24 hours of hourly by each hour
+        Hourly, //Single hour
+        Daily, //24 hours of data - 1 single day
         Yearly, //8760 hours
     }
 }
