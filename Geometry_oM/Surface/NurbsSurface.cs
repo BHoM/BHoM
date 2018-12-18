@@ -2,7 +2,7 @@
 
 namespace BH.oM.Geometry
 {
-    public class NurbSurface : ISurface
+    public class NurbsSurface : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/

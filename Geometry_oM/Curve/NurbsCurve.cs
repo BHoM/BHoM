@@ -2,7 +2,7 @@
 
 namespace BH.oM.Geometry
 {
-    public class NurbCurve : ICurve
+    public class NurbsCurve : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/

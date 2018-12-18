@@ -46,7 +46,7 @@
     <Compile Include="Curve\Ellipse.cs" />
     <Compile Include="Curve\ICurve.cs" />
     <Compile Include="Curve\Line.cs" />
-    <Compile Include="Curve\NurbCurve.cs" />
+    <Compile Include="Curve\NurbsCurve.cs" />
     <Compile Include="Curve\PolyCurve.cs" />
     <Compile Include="Curve\Polyline.cs" />
     <Compile Include="Interface\IGeometry.cs" />
@@ -65,7 +65,7 @@
     <Compile Include="Surface\Extrusion.cs" />
     <Compile Include="Surface\ISurface.cs" />
     <Compile Include="Surface\Loft.cs" />
-    <Compile Include="Surface\NurbSurface.cs" />
+    <Compile Include="Surface\NurbsSurface.cs" />
     <Compile Include="Surface\Pipe.cs" />
     <Compile Include="Surface\Polysurface.cs" />
     <Compile Include="CoordinateSystem\Cartesian.cs" />
