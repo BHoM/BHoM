@@ -12,7 +12,7 @@ namespace BH.oM.Base.CRUD
         /**** Properties                                ****/
         /***************************************************/
 
-        public PushActionType ActionType { get; set; } = PushActionType.Replace;
+        public PushActionType PushActionType { get; set; } = PushActionType.Replace;
 
         /***************************************************/
     }
