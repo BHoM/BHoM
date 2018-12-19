@@ -1,3 +1,4 @@
+[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 # BHoM
 Buildings and urban Habitats common Object Model
 
@@ -23,6 +24,3 @@ Bug fixes
 
 New features
 
-## License ##
-
-BHoM is licensed under the GNU Lesser General Public License (LGPL). BHoM also uses a number of third party libraries, some with different licenses.
