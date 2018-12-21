@@ -22,7 +22,7 @@ Check out our [wiki](https://github.com/BHoM/documentation/wiki) too for more in
 
   Even if you do not have code to contribute, a feature to request or an issue
   to report you can still get involved. Join the discussion on existing issues
-  and pull requests. Visit our [slack](https://bhom-workspace.slack.com/) or send us an [email](hello@bhom.xyz) to give us feedback or tell us what you use the BHoM for.
+  and pull requests. Visit our [slack](https://bhom-workspace.slack.com/) or send us an [email](mailto:hello@bhom.xyz) to give us feedback or tell us what you use the BHoM for.
 
 
 - Help with an issue
@@ -73,8 +73,8 @@ the BHoM. If you are interested in becoming a Core Contributor please [Contact u
 
 - [BHoM organisation](https://github.com/BHoM)
 - [BHoM Repo](https://github.com/BHoM/BHoM)
-- [Structure of the BHoM](https://github.com/BHoM/BHoM/wiki/Structure-of-the-BHoM)
-- [Technical philosophy of the BHoM](https://github.com/BHoM/BHoM/wiki/Technical-philosophy-of-the-BHoM)
+- [Structure of the BHoM](https://github.com/BHoM/documentation/wiki/Structure-of-the-BHoM)
+- [Technical philosophy of the BHoM](https://github.com/BHoM/documentation/wiki/Technical-philosophy-of-the-BHoM)
 
 
 
