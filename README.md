@@ -1,7 +1,7 @@
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 # BHoM
 
-A great place to start is reading our Wiki [here](https://github.com/BHoM/documentation/wiki) including pages like the [Structure of the BHoM](https://github.com/BHoM/documentation/wiki/Structure-of-the-BHoM) and [using the BHoM] (https://github.com/BHoM/documentation/wiki/Using-the-BHoM).
+A great place to start is reading our Wiki [here](https://github.com/BHoM/documentation/wiki) including pages like the [Structure of the BHoM](https://github.com/BHoM/documentation/wiki/Structure-of-the-BHoM) and [Using the BHoM](https://github.com/BHoM/documentation/wiki/Using-the-BHoM).
 
 ## Quick start ##
 
@@ -33,6 +33,7 @@ Build as many as you like of your chosen Interop Toolkits:
 - [Revit_Toolkit](https://github.com/BHoM/Revit_Toolkit)
 - [Robot_Toolkit](https://github.com/BHoM/Robot_Toolkit)
 - [ETABS_Toolkit](https://github.com/BHoM/ETABS_Toolkit)
+- [Lusas_Toolkit](https://github.com/BHoM/Lusas_Toolkit)
 - [GSA_Toolkit](https://github.com/BHoM/GSA_Toolkit)
 - [TAS_Toolkit](https://github.com/BHoM/TAS_Toolkit)
 - [XML_Toolkit](https://github.com/BHoM/XML_Toolkit)
@@ -49,7 +50,7 @@ You are good to go!
 
 ## Want to contribute? ##
 
-BHoM is an open-source project and would be nothing without its community. Take a look at our contributing guidelines and tips (here)[https://github.com/BHoM/BHoM/blob/master/CONTRIBUTING.md]
+BHoM is an open-source project and would be nothing without its community. Take a look at our contributing guidelines and tips [here](https://github.com/BHoM/BHoM/blob/master/CONTRIBUTING.md).
 
 
 ## Licence ##
