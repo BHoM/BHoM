@@ -29,7 +29,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("BH.oM")]
 [assembly: AssemblyDescription("Buildings and Habitats Object Model")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("BuroHappold")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("BH.oM")]
 [assembly: AssemblyCopyright("Copyright © https://github.com/BHoM")]
 [assembly: AssemblyTrademark("")]
