@@ -26,7 +26,7 @@ namespace BH.oM.Environment.Elements
     {
         Undefined,
         Gain,
-        Thermostat,
         Humidistat,
+        Thermostat,
     }
 }
