@@ -26,10 +26,10 @@ namespace BH.oM.Environment.Elements
     {
         Undefined,
         Function,
-        HourlyFunction,
         Hourly, //24 hours of hourly by each hour
+        HourlyFunction,
         Value,
+        Yearly, //8760 hours
         YearlyFunction,
-        Yearly, //87600 hours
     }
 }

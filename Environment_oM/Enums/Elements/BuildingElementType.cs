@@ -25,15 +25,15 @@ namespace BH.oM.Environment.Elements
     public enum BuildingElementType
     {
         Undefined,
-        Wall,
-        Roof,
-        Floor,
         Ceiling,
-        Window,
-        Door,
         CurtainWall,
+        Door,
+        Floor,
+        Roof,
         Rooflight,
-        WindowWithFrame,
         RooflightWithFrame,
+        Wall,
+        Window,
+        WindowWithFrame,
     }
 }

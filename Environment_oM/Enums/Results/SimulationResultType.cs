@@ -25,8 +25,8 @@ namespace BH.oM.Environment.Results
     public enum SimulationResultType
     {
         Undefined,
+        BuildingElementResult,
         BuildingResult,
         SpaceResult,
-        BuildingElementResult,
     }
 }
