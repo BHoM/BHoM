@@ -37,7 +37,7 @@ namespace BH.oM.Environment.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public Emitter Emitter { get; set; } = new Emitter();
+        public List<Emitter> Emitters { get; set; } = new List<Emitter>();
 
         public bool IncludeSolarInMeanRadiantTemp { get; set; } = true;
 
