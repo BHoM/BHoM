@@ -39,6 +39,8 @@ namespace BH.oM.Environment.Elements
         public ICurve PanelCurve { get; set; } = new PolyCurve();
         public List<Opening> Openings { get; set; } = new List<Opening>();
 
+        public string ElementID { get; set; } = ""; //ElementID to reference original CAD geometry
+
         /***************************************************/
     }
 }
