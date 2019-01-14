@@ -33,7 +33,7 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Position { get; set; } = new Point();
+        public Geometry.CoordinateSystem.Cartesian Coordinates { get; set; } = new Geometry.CoordinateSystem.Cartesian();
 
         public Constraint6DOF Constraint { get; set; } = null;
 
@@ -44,7 +44,14 @@ namespace BH.oM.Structure.Elements
 
         public static explicit operator Node(Point point)
         {
-            return new Node { Position = point };
+            return new Node { Coordinates = new Geometry.CoordinateSystem.Cartesian() { Origin = point } };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Node(Geometry.CoordinateSystem.Cartesian coordinateSystem)
+        {
+            return new Node { Coordinates = coordinateSystem };
         }
 
         /***************************************************/
