@@ -32,14 +32,14 @@ namespace BH.oM.Reflection
 {
     /***************************************************/
 
-    public class Output<T> : BHoMObject, IOutput
+    public class Output<T> : IObject, IOutput
     {
         public T Item1 { get; set; }
     }
 
     /***************************************************/
 
-    public class Output<T1, T2> : BHoMObject, IOutput
+    public class Output<T1, T2> : IObject, IOutput
     {
         public T1 Item1 { get; set; }
 
@@ -48,7 +48,7 @@ namespace BH.oM.Reflection
 
     /***************************************************/
 
-    public class Output<T1, T2, T3> : BHoMObject, IOutput
+    public class Output<T1, T2, T3> : IObject, IOutput
     {
         public T1 Item1 { get; set; }
 
@@ -59,7 +59,7 @@ namespace BH.oM.Reflection
 
     /***************************************************/
 
-    public class Output<T1, T2, T3, T4> : BHoMObject, IOutput
+    public class Output<T1, T2, T3, T4> : IObject, IOutput
     {
         public T1 Item1 { get; set; }
 
@@ -72,7 +72,7 @@ namespace BH.oM.Reflection
 
     /***************************************************/
 
-    public class Output<T1, T2, T3, T4, T5> : BHoMObject, IOutput
+    public class Output<T1, T2, T3, T4, T5> : IObject, IOutput
     {
         public T1 Item1 { get; set; }
 
