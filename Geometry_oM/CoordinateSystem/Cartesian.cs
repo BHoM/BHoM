@@ -58,5 +58,14 @@ namespace BH.oM.Geometry.CoordinateSystem
         { }
 
         /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator Cartesian(Point point)
+        {
+            return new Cartesian() { Origin = point };
+        }
+
+        /***************************************************/
     }
 }
