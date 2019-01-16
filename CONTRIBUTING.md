@@ -22,7 +22,7 @@ Check out our [wiki](https://github.com/BHoM/documentation/wiki) too for more in
 
   Even if you do not have code to contribute, a feature to request or an issue
   to report you can still get involved. Join the discussion on existing issues
-  and pull requests. Visit our [slack](https://bhom.slack.com/) or send us an [email](mailto:hello@bhom.xyz) to give us feedback or tell us what you use the BHoM for.
+  and pull requests. Visit our [Slack](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) or send us an [email](mailto:hello@bhom.xyz) to give us feedback or tell us what you use the BHoM for.
 
 
 - Help with an issue
@@ -69,7 +69,7 @@ the BHoM. If you are interested in becoming a Core Contributor please [Contact u
 ## Contact us
 
 - Email: [hello@bhom.xyz](mailto:hello@bhom.xyz)
-- Slack: https://bhom.slack.com/  
+- Slack: [https://bhom.slack.com/](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg)  
 
 ## Further links
 
