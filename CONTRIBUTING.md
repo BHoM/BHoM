@@ -71,8 +71,11 @@ the BHoM. If you are interested in becoming a Core Contributor please [Contact u
 - Email: [hello@bhom.xyz](mailto:hello@bhom.xyz)
 - Slack: https://bhom.slack.com/  
 
+## Further links
+
 - [BHoM organisation](https://github.com/BHoM)
 - [BHoM Repo](https://github.com/BHoM/BHoM)
+- [Wiki home](https://github.com/BHoM/documentation/wiki)
 - [Structure of the BHoM](https://github.com/BHoM/documentation/wiki/Structure-of-the-BHoM)
 - [Technical philosophy of the BHoM](https://github.com/BHoM/documentation/wiki/Technical-philosophy-of-the-BHoM)
 
