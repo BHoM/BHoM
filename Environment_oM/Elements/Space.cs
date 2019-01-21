@@ -39,6 +39,8 @@ namespace BH.oM.Environment.Elements
         public double HeatingLoad { get; set; } = 0.0;
         public double CoolingLoad { get; set; } = 0.0;
 
+        public string ElementID { get; set; } = "";
+
         /***************************************************/
     }
 }

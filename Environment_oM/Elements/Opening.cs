@@ -34,6 +34,8 @@ namespace BH.oM.Environment.Elements
 
         public ICurve OpeningCurve { get; set; } = new PolyCurve();
 
+        public string ElementID { get; set; } = "";
+
         /***************************************************/
     }
 }
