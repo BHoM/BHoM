@@ -57,10 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BHoMExtendedProperties.cs" />
     <Compile Include="CRUD\IExecuteParams.cs" />
     <Compile Include="CustomObject.cs" />
     <Compile Include="CRUD\CrudConfig.cs" />
     <Compile Include="CRUD\Enums\PushActionType.cs" />
+    <Compile Include="Interface\IBHoMExtendedProperties.cs" />
     <Compile Include="Interface\IBHoMGroup.cs" />
     <Compile Include="Interface\IObject.cs" />
     <Compile Include="Interface\IImmutable.cs" />

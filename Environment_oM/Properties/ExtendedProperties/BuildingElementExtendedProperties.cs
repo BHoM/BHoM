@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -22,21 +22,24 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Base
+using BH.oM.Base;
+using BH.oM.Environment.Interface;
+
+namespace BH.oM.Environment.Properties
 {
-    public interface IBHoMObject : IObject
+    public class BuildingElementExtendedProperties : BHoMExtendedProperties
     {
-        Guid BHoM_Guid { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        string Name { get; set; }
+        public string Description { get; set; } = "";
+        public bool IsAir { get; set; } = false;
 
-        List<IBHoMExtendedProperties> ExtendedProperties { get; set; }
-
-        HashSet<string> Tags { get; set; }
-
-        Dictionary<string, object> CustomData { get; set; }
-
-        IBHoMObject GetShallowClone(bool newGuid = false);
+        /***************************************************/
     }
 }

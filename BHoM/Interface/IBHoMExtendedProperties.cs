@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -25,18 +25,8 @@ using System.Collections.Generic;
 
 namespace BH.oM.Base
 {
-    public interface IBHoMObject : IObject
+    public interface IBHoMExtendedProperties : IObject
     {
-        Guid BHoM_Guid { get; set; }
-
-        string Name { get; set; }
-
-        List<IBHoMExtendedProperties> ExtendedProperties { get; set; }
-
-        HashSet<string> Tags { get; set; }
-
-        Dictionary<string, object> CustomData { get; set; }
-
-        IBHoMObject GetShallowClone(bool newGuid = false);
+        string ElementID { get; set; }
     }
 }
