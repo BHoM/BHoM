@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BHoMExtendedProperties.cs" />
     <Compile Include="CRUD\IExecuteParams.cs" />
     <Compile Include="CustomObject.cs" />
     <Compile Include="CRUD\CrudConfig.cs" />

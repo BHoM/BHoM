@@ -31,12 +31,13 @@ using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment.Properties
 {
-    public class BuildingElementExtendedProperties : BHoMExtendedProperties
+    public class BuildingElementExtendedProperties : IBHoMExtendedProperties
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        public string ElementID { get; set; } = "";
         public string Description { get; set; } = "";
         public bool IsAir { get; set; } = false;
 

@@ -27,6 +27,6 @@ namespace BH.oM.Base
 {
     public interface IBHoMExtendedProperties : IObject
     {
-        string ElementID { get; set; }
+
     }
 }
