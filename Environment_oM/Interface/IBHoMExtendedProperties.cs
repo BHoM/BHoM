@@ -23,7 +23,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace BH.oM.Base
+using BH.oM.Base;
+
+namespace BH.oM.Environment.Interface
 {
     public interface IBHoMExtendedProperties : IObject
     {
