@@ -1,0 +1,22 @@
+# BHoM REPO CODEOWNERS
+
+# default global
+* @al-fisher @rwemay
+
+
+# project owners 
+
+#NEED OWNER: /Acoustic_oM
+#NEED OWNER: /Architecture_oM
+/BHoM @adecler
+/BHoM_Test @adecler
+/Common_oM @al-fisher @rwemay
+/DataManipulation_oM @adecler
+/DataStructure_oM @adecler
+/Environment_oM @michaldengusiak @FraserGreenroyd
+/Geometry_oM @pawelbaran
+#NEED OWNER: /Graphics_oM
+/Humans_oM @al-fisher
+/Planning_oM @rwemay
+/Reflection_oM @adecler
+/Structure_oM @IsakNaslundBh
