@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,26 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-using BH.oM.Environment.Interface;
-using BH.oM.Environment.Materials;
-
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Materials
 {
-    public class MaterialPropertiesGas : BHoMObject, IMaterialProperties
+    public enum GasType
     {
-        public GasType GasType { get; set; } = GasType.Undefined;
-        public double Conductivity { get; set; } = 0.0;
-        public string Description { get; set; } = string.Empty;
-        public double SpecificHeat { get; set; } = 0.0;
-        public double Density { get; set; } = 0.0;
-        public double ConvectionCoefficient { get; set; } = 0.0;
-        public double VapourDiffusionFactor { get; set; } = 0.0;
+        Undefined,
+        Air,
+        Argon,
+        Krypton,
+        Xenon,
     }
 }
