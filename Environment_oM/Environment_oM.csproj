@@ -45,9 +45,11 @@
     <Compile Include="Elements\Building.cs" />
     <Compile Include="Elements\BuildingElement.cs" />
     <Compile Include="Elements\Construction.cs" />
+    <Compile Include="Elements\Duct.cs" />
     <Compile Include="Elements\Emitter.cs" />
     <Compile Include="Elements\InternalCondition.cs" />
     <Compile Include="Elements\InternalGain.cs" />
+    <Compile Include="Elements\Node.cs" />
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\Profile.cs" />
