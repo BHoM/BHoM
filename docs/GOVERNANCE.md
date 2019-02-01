@@ -8,7 +8,7 @@ Contributions are very welcome and warmly encouraged either from outside of the 
 The current core maintainers are listed below, however we are actively interested in other members joining to expand and support further at every level. If interested please do reach out. You can do this through contacting individual maintainers or emailing hello@bhom.xyz or simply raising issues or submitting code. 
 
 
-If you should you have any queries around best practices in contributing or commenting on code, issues, PRs etc. please see our Code of Conduct document [here](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT.md).
+If you should have any queries around best practices in contributing or commenting on code, issues, PRs etc. please see our Code of Conduct document [here](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT.md).
 
 ## Organisation Maintainers 
 
