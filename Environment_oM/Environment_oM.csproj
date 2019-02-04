@@ -76,8 +76,13 @@
     <Compile Include="Interface\IMaterialProperties.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Properties\AirHandlingUnitProperties.cs" />
+    <Compile Include="Properties\BuildingAnalyticalProperties.cs" />
+    <Compile Include="Properties\BuildingElementMetaProperties.cs" />
     <Compile Include="Properties\BuildingElementProperties.cs" />
+    <Compile Include="Properties\BuildingMetaProperties.cs" />
+    <Compile Include="Properties\BuildingResultsProperties.cs" />
     <Compile Include="Properties\EmitterProperties.cs" />
+    <Compile Include="Properties\IBHoMExtendedProperties.cs" />
     <Compile Include="Properties\IGCoefficientProperties.cs" />
     <Compile Include="Properties\IGRadiationProperties.cs" />
     <Compile Include="Properties\MaterialPropertiesGas.cs" />

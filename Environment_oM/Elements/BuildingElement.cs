@@ -41,6 +41,8 @@ namespace BH.oM.Environment.Elements
 
         public string ElementID { get; set; } = "";
 
+        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
+
         /***************************************************/
     }
 }

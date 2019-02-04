@@ -24,6 +24,8 @@ using BH.oM.Environment.Properties;
 using BH.oM.Environment.Interface;
 using BH.oM.Base;
 
+using System.Collections.Generic;
+
 namespace BH.oM.Environment.Elements
 {
     public class Emitter : BHoMObject, IEquipment
@@ -34,6 +36,8 @@ namespace BH.oM.Environment.Elements
 
         public EmitterProperties EmitterProperties { get; set; } = new EmitterProperties();
         public EmitterType EmitterType { get; set; } = EmitterType.Heating;
+
+        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
 
         /***************************************************/
     }

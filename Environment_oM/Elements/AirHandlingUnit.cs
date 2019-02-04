@@ -24,6 +24,8 @@ using BH.oM.Environment.Interface;
 using BH.oM.Environment.Properties;
 using BH.oM.Base;
 
+using System.Collections.Generic;
+
 namespace BH.oM.Environment.Elements
 {
     public class AirHandlingUnit : BHoMObject, IEquipment
@@ -33,6 +35,8 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public AirHandlingUnitProperties AirHandlingUnitProperties { get; set; } = new AirHandlingUnitProperties();
+
+        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
 
         /***************************************************/
     }

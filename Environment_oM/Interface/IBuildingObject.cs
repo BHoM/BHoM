@@ -36,7 +36,7 @@ namespace BH.oM.Environment.Interface
         /**** Properties                                ****/
         /***************************************************/
 
-
+        List<IBHoMExtendedProperties> ExtendedProperties { get; set; }
 
         /***************************************************/
     }

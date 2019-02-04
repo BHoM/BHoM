@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,27 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Environment.Interface;
-using BH.oM.Environment.Properties;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Environment.Elements
+using BH.oM.Environment.Interface;
+
+namespace BH.oM.Environment
 {
-    public class Panel : BHoMObject, IBuildingObject, IElement2D
+    public class BuildingElementAnalyticalProperties : IBHoMExtendedProperties
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public ICurve PanelCurve { get; set; } = new PolyCurve();
-        public List<Opening> Openings { get; set; } = new List<Opening>();
-
-        public PanelProperties PanelProperties { get; set; } = new PanelProperties();
-
-        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
-
-        /***************************************************/
+        public double Altitude { get; set; } = 0;
+        public double AnltitudeRange { get; set; } = 0;
+        public double Inclination { get; set; } = 0;
+        public double InclinationRange { get; set; } = 0;
+        public double Orientation { get; set; } = 0;
+        public double GValue { get; set; } = 0;
+        public double LTValue { get; set; } = 0;
+        public double UValue { get; set; } = 0;
     }
 }
