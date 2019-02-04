@@ -24,6 +24,8 @@ using BH.oM.Base;
 using BH.oM.Environment.Interface;
 using BH.oM.Geometry;
 
+using System.Collections.Generic;
+
 namespace BH.oM.Environment.Elements
 {
     public class Opening : BHoMObject, IBuildingObject, IElement2D
@@ -33,6 +35,8 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         public ICurve OpeningCurve { get; set; } = new PolyCurve();
+
+        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
 
         /***************************************************/
     }

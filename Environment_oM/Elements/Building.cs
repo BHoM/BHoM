@@ -29,7 +29,7 @@ using BH.oM.Environment.Properties;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Building : BHoMObject, IBuilding
+    public class Building : BHoMObject, IBuildingObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -40,6 +40,8 @@ namespace BH.oM.Environment.Elements
         public double Elevation { get; set; } = 0.0;
 
         public Point Location { get; set; } = new Point();
+
+        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
 
         /***************************************************/
     }
