@@ -77,12 +77,12 @@
     <Compile Include="Properties\AirHandlingUnitProperties.cs" />
     <Compile Include="Properties\BuildingAnalyticalProperties.cs" />
     <Compile Include="Properties\BuildingElementAnalyticalProperties.cs" />
-    <Compile Include="Properties\BuildingElementMetaProperties.cs" />
+    <Compile Include="Properties\BuildingElementContextProperties.cs" />
     <Compile Include="Properties\BuildingElementProperties.cs" />
-    <Compile Include="Properties\BuildingMetaProperties.cs" />
+    <Compile Include="Properties\BuildingContextProperties.cs" />
     <Compile Include="Properties\BuildingResultsProperties.cs" />
     <Compile Include="Properties\EmitterProperties.cs" />
-    <Compile Include="Properties\EnvironmentMetaProperties.cs" />
+    <Compile Include="Properties\EnvironmentContextProperties.cs" />
     <Compile Include="Properties\IBHoMExtendedProperties.cs" />
     <Compile Include="Properties\IGCoefficientProperties.cs" />
     <Compile Include="Properties\IGRadiationProperties.cs" />
