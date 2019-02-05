@@ -30,9 +30,13 @@ using BH.oM.Environment.Interface;
 
 namespace BH.oM.Environment
 {
-    public class BuildingMetaProperties : IBHoMExtendedProperties
+    public class BuildingElementContextProperties : IBHoMExtendedProperties
     {
-        public string PlaceName { get; set; } = "";
-        public string WeatherStation { get; set; } = "";
+        public List<string> ConnectedSpaces { get; set; } = new List<string>();
+        public bool IsAir { get; set; } = false;
+        public bool IsGround { get; set; } = false;
+        public string Colour { get; set; } = "";
+        public bool Reversed { get; set; } = false;
+        public string FamilyName { get; set; } = "";
     }
 }
