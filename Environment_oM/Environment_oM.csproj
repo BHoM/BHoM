@@ -81,6 +81,7 @@
     <Compile Include="Properties\BuildingElementProperties.cs" />
     <Compile Include="Properties\BuildingContextProperties.cs" />
     <Compile Include="Properties\BuildingResultsProperties.cs" />
+    <Compile Include="Properties\ElementProperties.cs" />
     <Compile Include="Properties\EmitterProperties.cs" />
     <Compile Include="Properties\EnvironmentContextProperties.cs" />
     <Compile Include="Properties\IBHoMExtendedProperties.cs" />
