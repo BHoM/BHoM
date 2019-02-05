@@ -26,6 +26,8 @@ using BH.oM.Environment.Properties;
 using BH.oM.Geometry;
 using System.Collections.Generic;
 
+using BH.oM.Reflection.Attributes;
+
 namespace BH.oM.Environment.Elements
 {
     public class BuildingElement : BHoMObject, IBuildingObject, IElement2D
@@ -34,6 +36,7 @@ namespace BH.oM.Environment.Elements
         /**** Properties                                ****/
         /***************************************************/
 
+        [Deprecated("2.2", "BuildingElementProperties is being deprecated to make use of ExtendedProperties and allow both BuildingElement and Opening to make use of Construction data")]
         public BuildingElementProperties BuildingElementProperties { get; set; } = new BuildingElementProperties();
 
         public ICurve PanelCurve { get; set; } = new PolyCurve();
