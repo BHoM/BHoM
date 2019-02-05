@@ -67,7 +67,6 @@
     <Compile Include="Enums\Results\ProfileResultType.cs" />
     <Compile Include="Enums\Results\ProfileResultUnits.cs" />
     <Compile Include="Enums\Results\SimulationResultType.cs" />
-    <Compile Include="Interface\IBuilding.cs" />
     <Compile Include="Interface\IBuildingElementGeometry.cs" />
     <Compile Include="Interface\IBuildingObject.cs" />
     <Compile Include="Interface\IEquipment.cs" />
@@ -77,11 +76,13 @@
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Properties\AirHandlingUnitProperties.cs" />
     <Compile Include="Properties\BuildingAnalyticalProperties.cs" />
+    <Compile Include="Properties\BuildingElementAnalyticalProperties.cs" />
     <Compile Include="Properties\BuildingElementMetaProperties.cs" />
     <Compile Include="Properties\BuildingElementProperties.cs" />
     <Compile Include="Properties\BuildingMetaProperties.cs" />
     <Compile Include="Properties\BuildingResultsProperties.cs" />
     <Compile Include="Properties\EmitterProperties.cs" />
+    <Compile Include="Properties\EnvironmentMetaProperties.cs" />
     <Compile Include="Properties\IBHoMExtendedProperties.cs" />
     <Compile Include="Properties\IGCoefficientProperties.cs" />
     <Compile Include="Properties\IGRadiationProperties.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Properties\MaterialPropertiesTransparent.cs" />
     <Compile Include="Properties\PanelProperties.cs" />
     <Compile Include="Properties\PlantProperties.cs" />
+    <Compile Include="Properties\SpaceAnalyticalProperties.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
     <Compile Include="Results\ProfileResult.cs" />
     <Compile Include="Results\SimulationResult.cs" />
