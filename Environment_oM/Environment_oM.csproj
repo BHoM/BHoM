@@ -84,7 +84,7 @@
     <Compile Include="Properties\ElementProperties.cs" />
     <Compile Include="Properties\EmitterProperties.cs" />
     <Compile Include="Properties\EnvironmentContextProperties.cs" />
-    <Compile Include="Properties\IBHoMExtendedProperties.cs" />
+    <Compile Include="Interface\IBHoMExtendedProperties.cs" />
     <Compile Include="Properties\IGCoefficientProperties.cs" />
     <Compile Include="Properties\IGRadiationProperties.cs" />
     <Compile Include="Properties\MaterialPropertiesGas.cs" />
