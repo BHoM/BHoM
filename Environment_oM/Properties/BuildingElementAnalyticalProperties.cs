@@ -33,7 +33,7 @@ namespace BH.oM.Environment.Properties
     public class BuildingElementAnalyticalProperties : IBHoMExtendedProperties
     {
         public double Altitude { get; set; } = 0;
-        public double AnltitudeRange { get; set; } = 0;
+        public double AltitudeRange { get; set; } = 0;
         public double Inclination { get; set; } = 0;
         public double InclinationRange { get; set; } = 0;
         public double Orientation { get; set; } = 0;
