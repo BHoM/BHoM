@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Reflection.Attributes
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class Input : Attribute, IImmutable
+    public class InputAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -45,7 +45,7 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Input(string name, string description)
+        public InputAttribute(string name, string description)
         {
             Name = name;
             Description = description;
