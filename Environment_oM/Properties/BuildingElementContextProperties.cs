@@ -37,6 +37,5 @@ namespace BH.oM.Environment.Properties
         public bool IsGround { get; set; } = false;
         public string Colour { get; set; } = "";
         public bool Reversed { get; set; } = false;
-        public string FamilyName { get; set; } = "";
     }
 }

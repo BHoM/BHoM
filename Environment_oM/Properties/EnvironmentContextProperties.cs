@@ -34,5 +34,6 @@ namespace BH.oM.Environment.Properties
     {
         public string ElementID { get; set; } = "";
         public string Description { get; set; } = "";
+        public string FamilyName { get; set; } = "";
     }
 }
