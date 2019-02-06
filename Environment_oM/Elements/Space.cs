@@ -24,9 +24,11 @@ using System.Collections.Generic;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
+using BH.oM.Environment.Interface;
+
 namespace BH.oM.Environment.Elements
 {
-    public class Space : BHoMObject
+    public class Space : BHoMObject, IBuildingObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -38,6 +40,8 @@ namespace BH.oM.Environment.Elements
         public List<InternalCondition> InternalConditions { get; set; } = new List<InternalCondition>();
         public double HeatingLoad { get; set; } = 0.0;
         public double CoolingLoad { get; set; } = 0.0;
+
+        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
 
         /***************************************************/
     }
