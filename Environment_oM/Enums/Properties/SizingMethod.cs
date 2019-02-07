@@ -20,24 +20,15 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Environment.Interface;
-
 namespace BH.oM.Environment.Properties
 {
-    public class SpaceAnalyticalProperties : IBHoMExtendedProperties
+    public enum SizingMethod
     {
-        public double InternalDomesticHotWater { get; set; } = 0;
-        public double DaylightFactor { get; set; } = 0;
-        public double FacadeLength { get; set; } = 0;
-        public double FixedConvectionCoefficient { get; set; } = 0;
-        public SizingMethod SizeCooling { get; set; } = SizingMethod.Sizing;
-        public SizingMethod SizeHeating { get; set; } = SizingMethod.Sizing;
-        public double RadiantProportion { get; set; } = 0;
+        Undefined,
+        DesignSizingOnly,
+        LoadPerArea,
+        Mixed,
+        NoSizing,
+        Sizing,
     }
 }
