@@ -64,6 +64,7 @@
     <Compile Include="Enums\Elements\ProfileType.cs" />
     <Compile Include="Enums\Elements\SimulationDayType.cs" />
     <Compile Include="Enums\Materials\GasType.cs" />
+    <Compile Include="Enums\Properties\SizingMethod.cs" />
     <Compile Include="Enums\Results\ProfileResultType.cs" />
     <Compile Include="Enums\Results\ProfileResultUnits.cs" />
     <Compile Include="Enums\Results\SimulationResultType.cs" />
