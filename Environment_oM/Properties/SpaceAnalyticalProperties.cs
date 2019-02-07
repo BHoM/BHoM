@@ -36,8 +36,8 @@ namespace BH.oM.Environment.Properties
         public double DaylightFactor { get; set; } = 0;
         public double FacadeLength { get; set; } = 0;
         public double FixedConvectionCoefficient { get; set; } = 0;
-        public SizingMethod SizeCooling { get; set; } = SizingMethod.Sizing;
-        public SizingMethod SizeHeating { get; set; } = SizingMethod.Sizing;
+        public SizingMethod SizeCoolingMethod { get; set; } = SizingMethod.Sizing;
+        public SizingMethod SizeHeatingMethod { get; set; } = SizingMethod.Sizing;
         public double RadiantProportion { get; set; } = 0;
     }
 }
