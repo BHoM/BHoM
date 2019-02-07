@@ -38,6 +38,5 @@ namespace BH.oM.Environment.Properties
         public double FixedConvectionCoefficient { get; set; } = 0;
         public int SizeCooling { get; set; } = 0;
         public int SizeHeating { get; set; } = 0;
-        public double RadiantProportion { get; set; } = 0;
     }
 }
