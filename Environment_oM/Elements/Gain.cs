@@ -27,17 +27,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Interface;
+using BH.oM.Environment.Properties;
 using BH.oM.Environment.Elements;
+using BH.oM.Environment.Interface;
 
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Gains
 {
-    public class InternalGainPropertiesPeople : BHoMObject, IInternalGainProperties
+    public class Gain : BHoMObject, IGain
     {
-        public Profile ActivityProfile { get; set; } = new Profile();
-        public Profile Profile { get; set; }
-        public InternalGainMetric InternalGainMetric { get; set; }
-        public double RadiantFraction { get; set; }
-        public double Value { get; set; } = 0.0;
+        public GainType GainType { get; set; } = GainType.Undefined;
+        public IGainProperties GainProperties { get; set; } = null;
+
     }
 }

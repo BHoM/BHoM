@@ -29,16 +29,15 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Environment.Interface;
 using BH.oM.Environment.Elements;
+using BH.oM.Environment.Gains;
 
 namespace BH.oM.Environment.Properties
 {
-    public class InternalGainPropertiesLighting : BHoMObject, IInternalGainProperties
+    public class GainPropertiesInfiltration : BHoMObject, IGainProperties
     {
-        public Profile Profile { get; set; }
-        public InternalGainMetric InternalGainMetric { get; set; }
-        public double RadiantFraction { get; set; }
-        public double Illuminance { get; set; } = 0.0;
-        public double LuminousEfficacy { get; set; } = 0.0;
+        public Profile Profile { get; set; } = new Profile();
+        public GainUnit GainUnit { get; set; } = GainUnit.Undefined;
+        public GainType GainType { get; set; } = GainType.Infiltration;
         public double Value { get; set; } = 0.0;
     }
 }
