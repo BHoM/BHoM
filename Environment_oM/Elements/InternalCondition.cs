@@ -44,7 +44,7 @@ namespace BH.oM.Environment.Elements
 
         public List<SimulationDayType> DayTypes { get; set; } = new List<SimulationDayType>();
 
-        public Gain InternalGain { get; set; } = new Gain();
+        public Gain Gain { get; set; } = new Gain();
 
         public Thermostat Thermostat { get; set; } = new Thermostat();
         /***************************************************/
