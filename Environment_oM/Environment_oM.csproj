@@ -63,6 +63,8 @@
     <Compile Include="Enums\Elements\ProfileCategory.cs" />
     <Compile Include="Enums\Elements\ProfileType.cs" />
     <Compile Include="Enums\Elements\SimulationDayType.cs" />
+    <Compile Include="Enums\InternalGainType.cs" />
+    <Compile Include="Enums\InternalGainMetric.cs" />
     <Compile Include="Enums\Materials\GasType.cs" />
     <Compile Include="Enums\Properties\SizingMethod.cs" />
     <Compile Include="Enums\Results\ProfileResultType.cs" />
@@ -72,6 +74,8 @@
     <Compile Include="Interface\IBuildingObject.cs" />
     <Compile Include="Interface\IEquipment.cs" />
     <Compile Include="Interface\IEquipmentProperties.cs" />
+    <Compile Include="Interface\IInternalGainProperties.cs" />
+    <Compile Include="Interface\IInternalGain.cs" />
     <Compile Include="Interface\IMaterial.cs" />
     <Compile Include="Interface\IMaterialProperties.cs" />
     <Compile Include="Materials\Material.cs" />
@@ -89,6 +93,9 @@
     <Compile Include="Properties\FrameProperties.cs" />
     <Compile Include="Properties\IGCoefficientProperties.cs" />
     <Compile Include="Properties\IGRadiationProperties.cs" />
+    <Compile Include="Properties\InternalGainPropertiesLighting.cs" />
+    <Compile Include="Properties\InternalGainPropertiesEquipment.cs" />
+    <Compile Include="Properties\InternalGainPropertiesPeople.cs" />
     <Compile Include="Properties\MaterialPropertiesGas.cs" />
     <Compile Include="Properties\MaterialPropertiesOpaque.cs" />
     <Compile Include="Properties\MaterialPropertiesTransparent.cs" />

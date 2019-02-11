@@ -20,33 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-using BH.oM.Environment.Properties;
-using BH.oM.Environment.InternalGains;
-
 namespace BH.oM.Environment.Elements
 {
-    public class InternalCondition : BHoMObject
+    public enum InternalGainType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public List<Emitter> Emitters { get; set; } = new List<Emitter>();
-
-        public bool IncludeSolarInMeanRadiantTemp { get; set; } = true;
-
-        public List<SimulationDayType> DayTypes { get; set; } = new List<SimulationDayType>();
-
-        public InternalGain InternalGain { get; set; } = new InternalGain();
-
-        public Thermostat Thermostat { get; set; } = new Thermostat();
-        /***************************************************/
+        Undefined,
+        Equipment,
+        Lighting,
+        People,
     }
 }

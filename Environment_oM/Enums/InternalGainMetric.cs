@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,33 +20,15 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-using BH.oM.Environment.Properties;
-using BH.oM.Environment.InternalGains;
-
 namespace BH.oM.Environment.Elements
 {
-    public class InternalCondition : BHoMObject
+    public enum InternalGainMetric
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public List<Emitter> Emitters { get; set; } = new List<Emitter>();
-
-        public bool IncludeSolarInMeanRadiantTemp { get; set; } = true;
-
-        public List<SimulationDayType> DayTypes { get; set; } = new List<SimulationDayType>();
-
-        public InternalGain InternalGain { get; set; } = new InternalGain();
-
-        public Thermostat Thermostat { get; set; } = new Thermostat();
-        /***************************************************/
+        Undefined,
+        NumberOfPeople,
+        PeoplePerSquareMetre,
+        Watts,
+        WattsPerPerson,
+        WattsPerSquareMetre,
     }
 }
