@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,22 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-using BH.oM.Environment.Elements;
-
-namespace BH.oM.Environment.Interface
+namespace BH.oM.Environment.Gains
 {
-    public interface IInternalGainProperties : IBHoMObject
+    public enum GainUnit
     {
-        Profile Profile { get; set; }
-        InternalGainMetric InternalGainMetric { get; set; }
-        double RadiantFraction { get; set; }
-        double Value { get; set; }
+        Undefined,
+        AirChangesPerHour,
+        CubicMetrePerSecond,
+        CubicMetrePerSecondPerPerson,
+        CubicMetrePerSecondSquareMetreExternal,
+        GramsPerHourPerSquareMetre,
+        Illuminance,
+        LitresPerHourPerSquareMetre,
+        NumberOfPeople,
+        PeoplePerSquareMetre,
+        Watts,
+        WattsPerPerson,
+        WattsPerSquareMetre,
     }
 }

@@ -20,23 +20,15 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-using BH.oM.Environment.Interface;
-using BH.oM.Environment.Elements;
-
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Gains
 {
-    public class InternalGainPropertiesEquipment : BHoMObject, IInternalGainProperties
+    public enum GainType
     {
-        public Profile Profile { get; set; } = new Profile();
-        public InternalGainMetric InternalGainMetric { get; set; }
-        public double RadiantFraction { get; set; }
-        public double Value { get; set; } = 0.0;
+        Undefined,
+        Equipment,
+        Infiltration,
+        Lighting,
+        People,
+        Pollutant,
     }
 }
