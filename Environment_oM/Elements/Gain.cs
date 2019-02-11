@@ -37,6 +37,5 @@ namespace BH.oM.Environment.Gains
     {
         public GainType GainType { get; set; } = GainType.Undefined;
         public IGainProperties GainProperties { get; set; } = null;
-
     }
 }
