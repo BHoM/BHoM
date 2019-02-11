@@ -28,24 +28,15 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Environment.Properties;
+using BH.oM.Environment.Elements;
+using BH.oM.Environment.Interface;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.InternalGains
 {
-    public class InternalGain : BHoMObject
+    public class InternalGain : BHoMObject, IInternalGain
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        public List<Profile> Profiles { get; set; } = new List<Profile>();
+        public InternalGainType InternalGainType { get; set; } = InternalGainType.Undefined;
+        public IInternalGainProperties InternalGainProperties { get; set; } = null;
 
-        public IGCoefficientProperties CoefficientProperties { get; set; } = new IGCoefficientProperties();
-        public IGRadiationProperties RadiationProperties { get; set; } = new IGRadiationProperties();
-
-        public double PersonGain { get; set; } = 0;
-        public double Illuminance { get; set; } = 0;
-
-        public double OutsideAirRatePerPerson { get; set; } = 0;
-
-        /***************************************************/
     }
 }

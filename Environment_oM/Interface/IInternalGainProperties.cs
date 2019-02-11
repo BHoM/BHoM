@@ -27,26 +27,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Properties;
-using BH.oM.Environment.InternalGains;
+using BH.oM.Environment.Elements;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.Interface
 {
-    public class InternalCondition : BHoMObject
+    public interface IInternalGainProperties : IBHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public List<Emitter> Emitters { get; set; } = new List<Emitter>();
-
-        public bool IncludeSolarInMeanRadiantTemp { get; set; } = true;
-
-        public List<SimulationDayType> DayTypes { get; set; } = new List<SimulationDayType>();
-
-        public InternalGain InternalGain { get; set; } = new InternalGain();
-
-        public Thermostat Thermostat { get; set; } = new Thermostat();
-        /***************************************************/
+        Profile Profile { get; set; }
+        InternalGainMetric InternalGainMetric { get; set; }
+        double RadiantFraction { get; set; }
+        double Value { get; set; }
     }
 }
