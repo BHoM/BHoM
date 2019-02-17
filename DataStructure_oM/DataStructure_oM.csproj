@@ -45,7 +45,7 @@
     <Compile Include="Graph\GraphLink.cs" />
     <Compile Include="Graph\GraphNode.cs" />
     <Compile Include="IDataStructure.cs" />
-    <Compile Include="PointMatrix\DiscreetPoint.cs" />
+    <Compile Include="PointMatrix\DiscretePoint.cs" />
     <Compile Include="PointMatrix\LocalData.cs" />
     <Compile Include="PointMatrix\PointMatrix.cs" />
     <Compile Include="PriorityQueue.cs" />

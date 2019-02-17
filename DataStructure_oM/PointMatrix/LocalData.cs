@@ -33,8 +33,7 @@ namespace BH.oM.DataStructure
         public Point Position { get; set; } = new Point();
 
         public T Data { get; set; } = default(T);
-
-
+        
         /***************************************************/
     }
 }

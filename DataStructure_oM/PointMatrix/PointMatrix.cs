@@ -32,9 +32,8 @@ namespace BH.oM.DataStructure
 
         public double CellSize { get; set; } = 1.0;
 
-        public Dictionary<DiscreetPoint, List<LocalData<T>>> Data { get; set; } = new Dictionary<DiscreetPoint, List<LocalData<T>>>();
-
-
+        public Dictionary<DiscretePoint, List<LocalData<T>>> Data { get; set; } = new Dictionary<DiscretePoint, List<LocalData<T>>>();
+        
         /***************************************************/
     }
 }
