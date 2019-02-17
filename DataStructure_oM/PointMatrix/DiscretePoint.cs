@@ -24,7 +24,7 @@ using System;
 
 namespace BH.oM.DataStructure
 {
-    public class DiscreetPoint : IDataStructure, IComparable<DiscreetPoint>
+    public class DiscretePoint : IDataStructure, IComparable<DiscretePoint>
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -39,7 +39,7 @@ namespace BH.oM.DataStructure
         /**** IComparable Interface                     ****/
         /***************************************************/
 
-        public int CompareTo(DiscreetPoint other)
+        public int CompareTo(DiscretePoint other)
         {
             if (X != other.X)
                 return X.CompareTo(other.X);
@@ -60,9 +60,9 @@ namespace BH.oM.DataStructure
 
         public override bool Equals(object obj)
         {
-            if (obj is DiscreetPoint)
+            if (obj is DiscretePoint)
             {
-                DiscreetPoint other = (DiscreetPoint)obj;
+                DiscretePoint other = (DiscretePoint)obj;
                 return ((this.X == other.X) && (this.Y == other.Y) && (this.Z == other.Z));
             }
             return false;
