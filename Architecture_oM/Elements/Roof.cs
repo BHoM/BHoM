@@ -49,16 +49,6 @@ namespace BH.oM.Architecture.Elements
             return aRoof
         }
 
-        public static Roof Roof(ICurve location, double height, HostedObjectProperties hostedObjectProperties)
-        {
-            //Add checks
-
-            //To implement GetProfile method from Location curve and height
-            PolyCurve aProfile = GetProfile(location, height)
-
-            return Create.Roof(aProfile, hostedObjectProperties);
-        }
-
         */
     }
 }
