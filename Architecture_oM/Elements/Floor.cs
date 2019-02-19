@@ -52,22 +52,6 @@ namespace BH.oM.Architecture.Elements
             return aFloor
         }
 
-        public static Wall Wall(ICurve location, double height, HostedObjectProperties hostedObjectProperties)
-        {
-            //Add checks
-
-            //To implement GetProfile method from Location curve and height
-            PolyCurve aProfile = GetProfile(location, height)
-
-            Floor aFloor = new Floor()
-            {
-                Profile = aProfile,
-                HostedObjectProperties = hostedObjectProperties
-            };
-
-            return aFloor
-        }
-
         */
     }
 }
