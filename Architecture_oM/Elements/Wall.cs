@@ -6,7 +6,7 @@ namespace BH.oM.Architecture.Elements
 {
     public class Wall : BHoMObject, IHostObject
     {
-        public HostedObjectProperties HostedObjectProperties { get; set; } = new HostedObjectProperties();
+        public HostObjectProperties HostObjectProperties { get; set; } = new HostObjectProperties();
         public PolyCurve Profile { get; set; } = new PolyCurve();
 
         /*
@@ -19,7 +19,7 @@ namespace BH.oM.Architecture.Elements
             //Add checks
 
             Wall aWall = new Wall();
-            aWall.HostedObjectProperties.AddCompoundLayer(material, thickness);
+            aWall.HostObjectProperties.AddCompoundLayer(material, thickness);
 
             return aWall;
         }
@@ -30,25 +30,25 @@ namespace BH.oM.Architecture.Elements
 
             Wall aWall = new Wall();
             aWall.Profile = profile
-            aWall.HostedObjectProperties.AddCompoundLayer(material, thickness);
+            aWall.HostObjectProperties.AddCompoundLayer(material, thickness);
 
             return aWall
         }
 
-        public static Wall Wall(PolyCurve profile, HostedObjectProperties hostedObjectProperties)
+        public static Wall Wall(PolyCurve profile, HostObjectProperties hostObjectProperties)
         {
             //Add checks
 
             Wall aWall = new Wall()
             {
                 Profile = profile,
-                HostedObjectProperties = hostedObjectProperties
+                HostObjectProperties = hostObjectProperties
             };
 
             return aWall
         }
 
-        public static Wall Wall(ICurve location, double height, HostedObjectProperties hostedObjectProperties)
+        public static Wall Wall(ICurve location, double height, HostedObjectProperties hostObjectProperties)
         {
             //Add checks
 
@@ -58,7 +58,7 @@ namespace BH.oM.Architecture.Elements
             Wall aWall = new Wall()
             {
                 Profile = aProfile,
-                HostedObjectProperties = hostedObjectProperties
+                HostObjectProperties = hostObjectProperties
             };
 
             return aWall

@@ -8,7 +8,7 @@ namespace BH.oM.Architecture.Elements
 {
     public class Floor : BHoMObject, IHostObject
     {
-        public HostedObjectProperties HostedObjectProperties { get; set; } = new HostedObjectProperties();
+        public HostObjectProperties HostObjectProperties { get; set; } = new HostObjectProperties();
         public PolyCurve Profile { get; set; } = new PolyCurve();
 
         /*
@@ -23,7 +23,7 @@ namespace BH.oM.Architecture.Elements
 
             Floor aFloor = new Floor();
             aFloor.Profile = profile;
-            aFloor.HostedObjectProperties.AddCompoundLayer(material, thickness);
+            aFloor.HostObjectProperties.AddCompoundLayer(material, thickness);
 
             return aFloor;
         }
@@ -34,19 +34,19 @@ namespace BH.oM.Architecture.Elements
 
             Floor aFloor = new Floor();
             aFloor.Profile = profile
-            aFloor.HostedObjectProperties.AddCompoundLayer(material, thickness);
+            aFloor.HostObjectProperties.AddCompoundLayer(material, thickness);
 
             return aFloor
         }
 
-        public static Floor Floor(PolyCurve profile, HostedObjectProperties hostedObjectProperties)
+        public static Floor Floor(PolyCurve profile, HostedObjectProperties hostObjectProperties)
         {
             //Add checks
 
             Floor aFloor = new Floor()
             {
                 Profile = profile,
-                HostedObjectProperties = hostedObjectProperties
+                HostedObjectProperties = hostObjectProperties
             };
 
             return aFloor
