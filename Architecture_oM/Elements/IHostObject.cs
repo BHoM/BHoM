@@ -24,7 +24,7 @@ namespace BH.oM.Architecture.Elements
         //  2. Top surface for Floor
         //  3. Mid surface for Wall
         PolyCurve Profile { get; set; }
-        HostedObjectProperties HostedObjectProperties { get; set; }
+        HostObjectProperties HostObjectProperties { get; set; }
 
         //Move IBHoMExtendedProperties to Common_oM and implement ExtendedProperties
         //public List<IBHoMExtendedProperties> ExtendedProperties { get; set; };
@@ -40,7 +40,7 @@ namespace BH.oM.Architecture.Elements
         {
             //Add checks
         
-            return HostedObjectProperties.Thickness
+            return HostObjectProperties.Thickness
         }
         
         public static Plane Plane(this IHostObject iHostObject)

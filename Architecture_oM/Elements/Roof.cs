@@ -6,7 +6,7 @@ namespace BH.oM.Architecture.Elements
 {
     public class Roof : BHoMObject, IHostObject
     {
-        public HostedObjectProperties HostedObjectProperties { get; set; } = new HostedObjectProperties();
+        public HostObjectProperties HostObjectProperties { get; set; } = new HostObjectProperties();
         public PolyCurve Profile { get; set; } = new PolyCurve();
 
         /*
@@ -20,7 +20,7 @@ namespace BH.oM.Architecture.Elements
 
             Roof aRoof = new Roof();
             aRoof.Profile = profile;
-            aRoof.HostedObjectProperties.AddCompoundLayer(material, thickness);
+            aRoof.HostObjectProperties.AddCompoundLayer(material, thickness);
 
             return aRoof;
         }
@@ -31,19 +31,19 @@ namespace BH.oM.Architecture.Elements
 
             Roof aRoof = new Roof();
             aRoof.Profile = profile
-            aRoof.HostedObjectProperties.AddCompoundLayer(material, thickness);
+            aRoof.HostObjectProperties.AddCompoundLayer(material, thickness);
 
             return aRoof
         }
 
-        public static Roof Roof(PolyCurve profile, HostedObjectProperties hostedObjectProperties)
+        public static Roof Roof(PolyCurve profile, HostObjectProperties hostObjectProperties)
         {
             //Add checks
 
             Roof aRoof = new Roof()
             {
                 Profile = profile,
-                HostedObjectProperties = hostedObjectProperties
+                HostObjectProperties = hostObjectProperties
             };
 
             return aRoof

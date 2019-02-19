@@ -10,7 +10,7 @@ using BH.oM.Architecture.Elements;
 namespace BH.oM.Architecture.Properties
 {
     //HostedObject prefix taken from Revit but could be named IArchitecturalObjectProperties, IPhysicalObjectProperties, IPhysicalProperties
-    public class HostedObjectProperties : BHoMObject
+    public class HostObjectProperties : BHoMObject
     {
         public List<CompoundLayer> CompoundLayers { get; set; } = new List<CompoundLayer>();
 
