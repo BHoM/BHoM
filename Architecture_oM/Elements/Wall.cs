@@ -4,61 +4,51 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Architecture.Elements
 {
-    public class Wall : BHoMObject, IHostObject
+    public class Wall : BHoMObject, IObject2D
     {
-        public HostObjectProperties HostObjectProperties { get; set; } = new HostObjectProperties();
-        public PolyCurve Profile { get; set; } = new PolyCurve();
+        public Object2DProperties Properties { get; set; } = new Object2DProperties();
+        public ISurface Surface { get; set; } = new NurbsSurface();
 
         /*
         Methods to implement in BHoM_Engine
 
         //Create
 
-        public static Wall Wall(PolyCurve polyCurve, Material material, double thickness)
-        {
-            //Add checks
-
-            Wall aWall = new Wall();
-            aWall.HostObjectProperties.AddCompoundLayer(material, thickness);
-
-            return aWall;
-        }
-
         public static Wall Wall(PolyCurve profile, Material material, double thickness)
         {
             //Add checks
 
             Wall aWall = new Wall();
-            aWall.Profile = profile
-            aWall.HostObjectProperties.AddCompoundLayer(material, thickness);
+            aWall.Surface = Create.NurbsSurface(Query.IControlPoints(profile));
+            aWall.Properties.AddCompoundLayer(material, thickness);
 
             return aWall
         }
 
-        public static Wall Wall(PolyCurve profile, HostObjectProperties hostObjectProperties)
+        public static Wall Wall(PolyCurve profile, Object2DProperties properties)
         {
             //Add checks
 
             Wall aWall = new Wall()
             {
                 Profile = profile,
-                HostObjectProperties = hostObjectProperties
+                Properties = properties
             };
 
             return aWall
         }
 
-        public static Wall Wall(ICurve location, double height, HostedObjectProperties hostObjectProperties)
+        public static Wall Wall(ICurve location, double height, Object2DProperties properties)
         {
             //Add checks
 
             //To implement GetProfile method from Location curve and height
-            PolyCurve aProfile = GetProfile(location, height)
+            ISurface aSurface = GetSurface(location, height)
 
             Wall aWall = new Wall()
             {
-                Profile = aProfile,
-                HostObjectProperties = hostObjectProperties
+                Surface = aSurface,
+                Properties = properties
             };
 
             return aWall
