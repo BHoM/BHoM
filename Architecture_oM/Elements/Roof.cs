@@ -4,10 +4,10 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Architecture.Elements
 {
-    public class Roof : BHoMObject, IHostObject
+    public class Roof : BHoMObject, IObject2D
     {
-        public HostObjectProperties HostObjectProperties { get; set; } = new HostObjectProperties();
-        public PolyCurve Profile { get; set; } = new PolyCurve();
+        public Object2DProperties Properties { get; set; } = new Object2DProperties();
+        public ISurface Surface { get; set; } = new NurbsSurface();
 
         /*
         Methods to implement in BHoM_Engine
@@ -19,31 +19,20 @@ namespace BH.oM.Architecture.Elements
             //Add checks
 
             Roof aRoof = new Roof();
-            aRoof.Profile = profile;
-            aRoof.HostObjectProperties.AddCompoundLayer(material, thickness);
+            aRoof.Surface = Create.NurbsSurface(Query.IControlPoints(profile));;
+            aRoof.Properties.AddCompoundLayer(material, thickness);
 
             return aRoof;
         }
 
-        public static Roof Roof(PolyCurve profile, Material material, double thickness)
-        {
-            //Add checks
-
-            Roof aRoof = new Roof();
-            aRoof.Profile = profile
-            aRoof.HostObjectProperties.AddCompoundLayer(material, thickness);
-
-            return aRoof
-        }
-
-        public static Roof Roof(PolyCurve profile, HostObjectProperties hostObjectProperties)
+        public static Roof Roof(PolyCurve profile, Object2DProperties properties)
         {
             //Add checks
 
             Roof aRoof = new Roof()
             {
-                Profile = profile,
-                HostObjectProperties = hostObjectProperties
+                Surface = Create.NurbsSurface(Query.IControlPoints(profile)),
+                Properties = properties
             };
 
             return aRoof

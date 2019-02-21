@@ -44,9 +44,9 @@
     <Compile Include="Elements\CompoundLayer.cs" />
     <Compile Include="Elements\Grid.cs" />
     <Compile Include="Elements\Roof.cs" />
-    <Compile Include="Properties\HostObjectProperties.cs" />
+    <Compile Include="Properties\Object2DProperties.cs" />
     <Compile Include="Elements\Wall.cs" />
-    <Compile Include="Elements\IHostObject.cs" />
+    <Compile Include="Elements\IObject2D.cs" />
     <Compile Include="Elements\Level.cs" />
     <Compile Include="Elements\Floor.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />

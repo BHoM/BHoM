@@ -15,7 +15,7 @@ namespace BH.oM.Architecture.Elements
         /***************************************************/
 
         public Material Material { get; set; } = new Material();
-        public double Thickness { get; set; } = double.NaN;
+        public double Thickness { get; set; } = 0;
 
         /***************************************************/
 
