@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBSCAN\DBSCANAlgorithm.cs" />
+    <Compile Include="DBSCAN\DBSCANObject.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\GraphLink.cs" />
     <Compile Include="Graph\GraphNode.cs" />
