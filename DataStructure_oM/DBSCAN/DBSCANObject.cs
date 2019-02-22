@@ -30,11 +30,11 @@ namespace BH.oM.DataStructure
         /**** Properties                                ****/
         /***************************************************/
 
-        public bool IsVisited { get; set; } = false;
-
         public T ClusterItem { get; set; }
 
-        public int ClusterId { get; set; }
+        public int ClusterId { get; set; } = 0;
+
+        public bool IsVisited { get; set; } = false;
 
         /***************************************************/
     }
