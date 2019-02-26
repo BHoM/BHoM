@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.Architecture.Properties;
+using BH.oM.Common.Properties;
 
 //using BH.oM.Environment.Interface;
 
-namespace BH.oM.Architecture.Elements
+namespace BH.oM.Common.Interface
 {
-    interface IObject2D : IBHoMObject
+    public interface IObject2D : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Common.Materials;
 
-namespace BH.oM.Architecture.Elements
+namespace BH.oM.Common.Properties
 {
     public class CompoundLayer
     {

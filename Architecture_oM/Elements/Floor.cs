@@ -1,8 +1,10 @@
-﻿using BH.oM.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using BH.oM.Architecture.Properties;
+
+using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Common.Properties;
+using BH.oM.Common.Interface;
 
 namespace BH.oM.Architecture.Elements
 {
