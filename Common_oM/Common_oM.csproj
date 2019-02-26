@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{44F6C3BC-D321-4673-8F54-674AE7B33F18}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AppDesignerFolder>_Properties</AppDesignerFolder>
     <RootNamespace>BH.oM.Common</RootNamespace>
     <AssemblyName>Common_oM</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -41,11 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inteface\IObject2D.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Planning\Construction\ConstructionPhase.cs" />
     <Compile Include="Planning\IPhase.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\CompoundLayer.cs" />
+    <Compile Include="Properties\Object2DProperties.cs" />
+    <Compile Include="_Properties\AssemblyInfo.cs" />
     <Compile Include="Results\IResult.cs" />
     <Compile Include="Results\IResultCollection.cs" />
   </ItemGroup>
@@ -53,6 +56,10 @@
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
+      <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
+      <Name>Geometry_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

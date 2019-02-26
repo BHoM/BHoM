@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 using BH.oM.Base;
-using BH.oM.Architecture.Elements;
 
-namespace BH.oM.Architecture.Properties
+namespace BH.oM.Common.Properties
 {
     public class Object2DProperties : BHoMObject
     {
