@@ -40,23 +40,5 @@ namespace BH.oM.Common.Properties
         public double Thickness { get; set; } = 0;
 
         /***************************************************/
-
-        /*
-        Methods to implement in BHoM_Engine
-
-        //Create
-        
-        public static CompoundLayer CompoundLayer(Material material, double thickness)
-        {
-            //Add checks
-        
-            return new CompoundLayer() 
-            {
-                Material = material,
-                Thickness = thickness 
-            };
-        }
-        
-        */
     }
 }
