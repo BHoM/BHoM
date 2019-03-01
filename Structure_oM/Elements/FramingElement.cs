@@ -32,7 +32,7 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public Line LocationCurve { get; set; } = null;
+        public ICurve LocationCurve { get; set; } = null;
 
         public IFramingElementProperty Property { get; set; } = null;
 
