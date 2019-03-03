@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Inteface\IObject2D.cs" />
+    <Compile Include="Interface\IObject2D.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\MaterialEnums.cs" />
     <Compile Include="Planning\Construction\ConstructionPhase.cs" />
