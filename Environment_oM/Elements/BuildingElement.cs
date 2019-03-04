@@ -34,12 +34,8 @@ namespace BH.oM.Environment.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public BuildingElementProperties BuildingElementProperties { get; set; } = new BuildingElementProperties();
-
         public ICurve PanelCurve { get; set; } = new PolyCurve();
         public List<Opening> Openings { get; set; } = new List<Opening>();
-
-        public string ElementID { get; set; } = "";
 
         public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
 

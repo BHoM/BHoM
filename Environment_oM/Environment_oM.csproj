@@ -83,7 +83,6 @@
     <Compile Include="Properties\BuildingAnalyticalProperties.cs" />
     <Compile Include="Properties\BuildingElementAnalyticalProperties.cs" />
     <Compile Include="Properties\BuildingElementContextProperties.cs" />
-    <Compile Include="Properties\BuildingElementProperties.cs" />
     <Compile Include="Properties\BuildingContextProperties.cs" />
     <Compile Include="Properties\BuildingResultsProperties.cs" />
     <Compile Include="Properties\ElementProperties.cs" />
