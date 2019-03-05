@@ -36,6 +36,7 @@ namespace BH.oM.Environment.Materials
     {
         public MaterialType MaterialType { get; set; } = MaterialType.Undefined;
         public MaterialFunction MaterialFunction { get; set; } = MaterialFunction.Undefined;
+        public MaterialRoughness Roughness { get; set; } = MaterialRoughness.Undefined;
         public double Thickness { get; set; } = 0;
         public IMaterialProperties MaterialProperties { get; set; } = null;
     }
