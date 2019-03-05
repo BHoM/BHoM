@@ -44,5 +44,6 @@ namespace BH.oM.Environment.Properties
         public double LightReflectanceInternal { get; set; } = 0.0;
         public double EmissivityInternal { get; set; } = 0.0;
         public double EmissivityExternal { get; set; } = 0.0;
+        public bool IgnoreInUValueCalculation { get; set; } = false;
     }
 }
