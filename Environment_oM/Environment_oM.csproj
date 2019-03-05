@@ -66,6 +66,7 @@
     <Compile Include="Enums\Gains\GainType.cs" />
     <Compile Include="Enums\Gains\GainUnit.cs" />
     <Compile Include="Enums\Materials\GasType.cs" />
+    <Compile Include="Enums\Materials\MaterialFunction.cs" />
     <Compile Include="Enums\Properties\SizingMethod.cs" />
     <Compile Include="Enums\Results\ProfileResultType.cs" />
     <Compile Include="Enums\Results\ProfileResultUnits.cs" />
