@@ -67,6 +67,7 @@
     <Compile Include="Surface\Loft.cs" />
     <Compile Include="Surface\NurbsSurface.cs" />
     <Compile Include="Surface\Pipe.cs" />
+    <Compile Include="Surface\PlanarSurface.cs" />
     <Compile Include="Surface\Polysurface.cs" />
     <Compile Include="CoordinateSystem\Cartesian.cs" />
     <Compile Include="Vector\Plane.cs" />
