@@ -35,7 +35,7 @@ namespace BH.oM.Geometry
         public ICurve ExternalBoundary { get; set; } = null;
 
         [Description("List of closed (co)planar curves defining any internal openings in the surface")]
-        public List<ICurve> InternalBoundaries { get; set; } = null;
+        public List<ICurve> InternalBoundaries { get; set; } = new List<ICurve>();
 
         /***************************************************/
     }
