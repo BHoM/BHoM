@@ -32,10 +32,10 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Closed planar curve defining the outer boundary of the surface")]   
-        public ICurve ExternalEdge { get; set; } = null;
+        public ICurve ExternalBoundary { get; set; } = null;
 
         [Description("List of closed (co)planar curves defining any internal openings in the surface")]
-        public List<ICurve> InternalEdges { get; set; } = null;
+        public List<ICurve> InternalBoundaries { get; set; } = null;
 
         /***************************************************/
     }
