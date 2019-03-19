@@ -37,6 +37,7 @@ Build as many as you like of your chosen Interop Toolkits:
 - [GSA_Toolkit](https://github.com/BHoM/GSA_Toolkit)
 - [TAS_Toolkit](https://github.com/BHoM/TAS_Toolkit)
 - [XML_Toolkit](https://github.com/BHoM/XML_Toolkit)
+- [RAM_Toolkit](https://github.com/BHoM/RAM_Toolkit)
 
 Then build as many User Interface Repositories as you like:
 - [Rhinoceros_Toolkit](https://github.com/BHoM/Rhinoceros_Toolkit) & [Grasshopper_Toolkit](https://github.com/BHoM/Grasshopper_Toolkit) (you need both)
