@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Physical_oM</RootNamespace>
     <AssemblyName>Physical_oM</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\Door.cs" />
+    <Compile Include="Elements\Void.cs" />
+    <Compile Include="Elements\Window.cs" />
+    <Compile Include="Interface\IConstruction.cs" />
+    <Compile Include="Interface\IMaterialProperties.cs" />
+    <Compile Include="Interface\IOpening.cs" />
+    <Compile Include="Interface\IPhysical.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BHoM\BHoM.csproj">
+      <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
+      <Name>BHoM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
+      <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
+      <Name>Geometry_oM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
