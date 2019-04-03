@@ -45,7 +45,7 @@
     <Compile Include="Elements\Door.cs" />
     <Compile Include="Elements\FramingElement.cs" />
     <Compile Include="Properties\Construction\Layer.cs" />
-    <Compile Include="Properties\Construction\Material.cs" />
+    <Compile Include="Properties\Material.cs" />
     <Compile Include="Elements\Surface.cs" />
     <Compile Include="Elements\Void.cs" />
     <Compile Include="Elements\Window.cs" />
