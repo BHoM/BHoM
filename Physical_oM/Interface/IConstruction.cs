@@ -26,9 +26,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using BH.oM.Base;
+
 namespace BH.oM.Physical.Interface
 {
-    public interface IConstruction
+    public interface IConstruction : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

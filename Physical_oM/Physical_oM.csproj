@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FB790AB1-5914-4797-886F-C4CB469EC168}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AppDesignerFolder>_Properties</AppDesignerFolder>
     <RootNamespace>Physical_oM</RootNamespace>
     <AssemblyName>Physical_oM</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elements\Construction.cs" />
+    <Compile Include="Properties\Construction\Construction.cs" />
     <Compile Include="Elements\Door.cs" />
     <Compile Include="Elements\FramingElement.cs" />
-    <Compile Include="Elements\Layer.cs" />
-    <Compile Include="Elements\Material.cs" />
+    <Compile Include="Properties\Construction\Layer.cs" />
+    <Compile Include="Properties\Construction\Material.cs" />
     <Compile Include="Elements\Surface.cs" />
     <Compile Include="Elements\Void.cs" />
     <Compile Include="Elements\Window.cs" />
@@ -55,7 +55,7 @@
     <Compile Include="Interface\IMaterialProperties.cs" />
     <Compile Include="Interface\IOpening.cs" />
     <Compile Include="Interface\IPhysical.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

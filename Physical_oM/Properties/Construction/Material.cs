@@ -30,16 +30,15 @@ using BH.oM.Physical.Interface;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Physical.Properties.Construction
 {
-    public class Layer : BHoMObject, IPhysical
+    public class Material : BHoMObject, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Material Material { get; set; } = new Material();
-        public double Thickness { get; set; } = 0;
+        public IMaterialProperties Properties { get; set; } = null;
 
         /***************************************************/
     }
