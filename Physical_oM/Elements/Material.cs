@@ -28,16 +28,17 @@ using System.Threading.Tasks;
 
 using BH.oM.Physical.Interface;
 using BH.oM.Base;
+using BH.oM.Geometry;
 
 namespace BH.oM.Physical.Elements
 {
-    public class Construction : BHoMObject, IConstruction, IPhysical
+    public class Material : BHoMObject, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Layer> Layers { get; set; } = new List<Layer>();
+        public IMaterialProperties Properties { get; set; } = null;
 
         /***************************************************/
     }
