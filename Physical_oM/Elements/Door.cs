@@ -32,7 +32,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Physical.Elements
 {
-    public class Door : BHoMObject, IOpening, IPhysical
+    public class Door : BHoMObject, IOpening
     {
         /***************************************************/
         /**** Properties                                ****/
