@@ -41,10 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\Construction.cs" />
     <Compile Include="Elements\Door.cs" />
+    <Compile Include="Elements\FramingElement.cs" />
+    <Compile Include="Elements\Surface.cs" />
     <Compile Include="Elements\Void.cs" />
     <Compile Include="Elements\Window.cs" />
+    <Compile Include="Enums\Offset.cs" />
     <Compile Include="Interface\IConstruction.cs" />
+    <Compile Include="Interface\IFramingElementProperty.cs" />
     <Compile Include="Interface\IMaterialProperties.cs" />
     <Compile Include="Interface\IOpening.cs" />
     <Compile Include="Interface\IPhysical.cs" />

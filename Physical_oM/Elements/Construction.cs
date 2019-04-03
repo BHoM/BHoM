@@ -28,17 +28,15 @@ using System.Threading.Tasks;
 
 using BH.oM.Physical.Interface;
 using BH.oM.Base;
-using BH.oM.Geometry;
 
 namespace BH.oM.Physical.Elements
 {
-    public class Window : BHoMObject, IOpening, IPhysical
+    public class Construction : BHoMObject, IConstruction, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ISurface OuterBoundary { get; set; } = new PlanarSurface();
 
         /***************************************************/
     }

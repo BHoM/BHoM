@@ -32,14 +32,23 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Physical.Elements
 {
-    public class Window : BHoMObject, IOpening, IPhysical
+    public abstract class Surface : BHoMObject, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         public ISurface OuterBoundary { get; set; } = new PlanarSurface();
+        public IConstruction Construction { get; set; } = new Construction();
+        public List<IOpening> Openings { get; set; } = new List<IOpening>();
+        public Offset Offset { get; set; } = Offset.Centre;
 
         /***************************************************/
     }
+
+    public class Wall : Surface { }
+
+    public class Roof : Surface { }
+
+    public class Floor : Surface { }
 }

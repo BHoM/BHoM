@@ -32,14 +32,25 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Physical.Elements
 {
-    public class Window : BHoMObject, IOpening, IPhysical
+    public abstract class FramingElement : BHoMObject, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ISurface OuterBoundary { get; set; } = new PlanarSurface();
+        public ICurve LocationCurve { get; set; }
+        public IFramingElementProperty Property { get; set; }
 
         /***************************************************/
     }
+
+    public class Beam : FramingElement { }
+
+    public class Bracing : FramingElement { }
+
+    public class Cable : FramingElement { }
+
+    public class Column : FramingElement { }
+
+    public class Pile : FramingElement { }
 }

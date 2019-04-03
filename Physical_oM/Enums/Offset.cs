@@ -26,20 +26,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Physical.Interface;
-using BH.oM.Base;
-using BH.oM.Geometry;
-
 namespace BH.oM.Physical.Elements
 {
-    public class Window : BHoMObject, IOpening, IPhysical
+    public enum Offset
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public ISurface OuterBoundary { get; set; } = new PlanarSurface();
-
-        /***************************************************/
+        Undefined,
+        Centre,
+        InnerEdge,
+        OuterEdge,
     }
 }
