@@ -18,6 +18,20 @@ namespace BH.Engine.Analytical
             return 5;
         }
 
+        //public static double ExternalCircumference(this Panel panel)
+        //{
+        //    //return panel.ExternalEdges.Sum(x => x.Curve.Length());
+        //    return 5;
+        //}
+
+        /***************************************************/
+
+        public static double ExternalCircumference<TNode>(this ILink<TNode> link) where TNode : INode
+        {
+            //return panel.ExternalEdges.Sum(x => x.Curve.Length());
+            return 5;
+        }
+
         /***************************************************/
 
 

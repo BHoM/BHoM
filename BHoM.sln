@@ -37,8 +37,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analytical_oM", "Analytical
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physical_oM", "Physical_oM\Physical_oM.csproj", "{FB790AB1-5914-4797-886F-C4CB469EC168}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ALFolders", "ALFolders", "{223AABDE-E0BA-4583-BC32-238A92157B79}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,10 +114,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{C91F1981-1148-4A03-B67E-C0BB42D862F4} = {223AABDE-E0BA-4583-BC32-238A92157B79}
-		{FB790AB1-5914-4797-886F-C4CB469EC168} = {223AABDE-E0BA-4583-BC32-238A92157B79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D08CC392-ECC6-41BE-AF91-86CE4D454E9E}
