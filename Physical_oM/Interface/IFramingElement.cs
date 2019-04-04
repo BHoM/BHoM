@@ -26,19 +26,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Physical.Interface;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Physical.Properties.Construction;
+using BH.oM.Physical.Elements;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Physical.Interface
 {
-    public class Window : BHoMObject, IOpening
+    public interface IFramingElement : IBHoMObject, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public BH.oM.Geometry.ISurface OuterBoundary { get; set; } = new PlanarSurface();
+        ICurve LocationCurve { get; set; }
+        IFramingElementProperty Property { get; set; }
 
         /***************************************************/
     }

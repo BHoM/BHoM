@@ -32,7 +32,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Physical.Elements
 {
-    public abstract class FramingElement : BHoMObject, IPhysical
+    public class Cable : BHoMObject, IFramingElement
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -43,14 +43,4 @@ namespace BH.oM.Physical.Elements
 
         /***************************************************/
     }
-
-    public class Beam : FramingElement { }
-
-    public class Bracing : FramingElement { }
-
-    public class Cable : FramingElement { }
-
-    public class Column : FramingElement { }
-
-    public class Pile : FramingElement { }
 }
