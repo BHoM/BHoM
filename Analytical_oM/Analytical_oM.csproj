@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements_Empty\IEdge.cs" />
+    <Compile Include="Elements_Empty\IFace.cs" />
+    <Compile Include="Elements_Empty\ILink.cs" />
+    <Compile Include="Elements_Empty\IMesh.cs" />
+    <Compile Include="Elements_Empty\INode.cs" />
+    <Compile Include="Elements_Empty\IOpening.cs" />
+    <Compile Include="Elements_Empty\IPanel.cs" />
+    <Compile Include="Elements_Empty\ISurface.cs" />
     <Compile Include="Elements_NoGenerics\IEdge.cs" />
     <Compile Include="Elements_NoGenerics\IFace.cs" />
     <Compile Include="Elements_NoGenerics\ILink.cs" />
@@ -57,18 +65,24 @@
     <Compile Include="Elements_Generics\IOpening.cs" />
     <Compile Include="Elements_Generics\IPanel.cs" />
     <Compile Include="Elements_Generics\ISurface.cs" />
-    <Compile Include="ExampleNoGenerics\Bar.cs" />
-    <Compile Include="ExampleNoGenerics\Edge.cs" />
-    <Compile Include="ExampleNoGenerics\Node.cs" />
-    <Compile Include="ExampleNoGenerics\Opening.cs" />
-    <Compile Include="ExampleNoGenerics\Panel.cs" />
-    <Compile Include="ExampleNoGenerics\QueryExamples.cs" />
-    <Compile Include="ExampleGenerics\Bar.cs" />
-    <Compile Include="ExampleGenerics\Edge.cs" />
-    <Compile Include="ExampleGenerics\Node.cs" />
-    <Compile Include="ExampleGenerics\Opening.cs" />
-    <Compile Include="ExampleGenerics\Panel.cs" />
-    <Compile Include="ExampleGenerics\QueryExamples.cs" />
+    <Compile Include="Example_Empty\Bar.cs" />
+    <Compile Include="Example_Empty\Edge.cs" />
+    <Compile Include="Example_Empty\Node.cs" />
+    <Compile Include="Example_Empty\Opening.cs" />
+    <Compile Include="Example_Empty\Panel.cs" />
+    <Compile Include="Example_Empty\QueryExamples.cs" />
+    <Compile Include="Example_NoGenerics\Bar.cs" />
+    <Compile Include="Example_NoGenerics\Edge.cs" />
+    <Compile Include="Example_NoGenerics\Node.cs" />
+    <Compile Include="Example_NoGenerics\Opening.cs" />
+    <Compile Include="Example_NoGenerics\Panel.cs" />
+    <Compile Include="Example_NoGenerics\QueryExamples.cs" />
+    <Compile Include="Example_Generics\Bar.cs" />
+    <Compile Include="Example_Generics\Edge.cs" />
+    <Compile Include="Example_Generics\Node.cs" />
+    <Compile Include="Example_Generics\Opening.cs" />
+    <Compile Include="Example_Generics\Panel.cs" />
+    <Compile Include="Example_Generics\QueryExamples.cs" />
     <Compile Include="IAnalytical.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
