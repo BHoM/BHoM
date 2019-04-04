@@ -20,15 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
+using BH.oM.Geometry;
+using BH.oM.Structure.Properties.Surface;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
-    interface IPhysical
+    /// <summary>
+    /// BH.oM panel class - a planar surface object with a list of 'edges' (curves with properties) for both external and internal edges (openings)
+    /// </summary>
+    public class Panel : Base.BHoMObject, IAreaElement, IElement2D, IPanel<Edge,Opening>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+
+        public List<Opening> Openings { get; set; } = new List<Opening>();
+
+        public ISurfaceProperty Property { get; set; } = new ConstantThickness();      
+
+
+        /***************************************************/ 
     }
 }
+       

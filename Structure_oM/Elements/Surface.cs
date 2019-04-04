@@ -20,29 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Geometry;
+using BH.oM.Base;
 using BH.oM.Structure.Properties.Surface;
-using System.Collections.Generic;
+using BH.oM.Structure.Properties.Constraint;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
-    /// <summary>
-    /// BH.oM panel class - a planar surface object with a list of 'edges' (curves with properties) for both external and internal edges (openings)
-    /// </summary>
-    public class PanelPlanar : Base.BHoMObject, IAreaElement, IElement2D
+    public class Surface : BHoMObject, IAreaElement, ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+        public BH.oM.Geometry.ISurface Extents { get; set; } = null;
 
-        public List<Opening> Openings { get; set; } = new List<Opening>();
+        public ISurfaceProperty Property { get; set; } = null;
 
-        public ISurfaceProperty Property { get; set; } = new ConstantThickness();      
+        public Constraint3DOF PlanarSpring { get; set; } = null;
 
 
-        /***************************************************/ 
+        /***************************************************/
     }
 }
-       

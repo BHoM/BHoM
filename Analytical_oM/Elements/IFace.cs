@@ -35,7 +35,7 @@ namespace BH.oM.Analytical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        List<int> NodeIndecies { get; set; }
+        List<int> NodeListIndices { get; set; }
 
         /***************************************************/
     }

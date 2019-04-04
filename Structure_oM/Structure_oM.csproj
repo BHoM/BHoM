@@ -55,12 +55,11 @@
     <Compile Include="Elements\FEMeshFace.cs" />
     <Compile Include="Elements\FramingElement.cs" />
     <Compile Include="Elements\IAreaElement.cs" />
-    <Compile Include="Elements\IPhysical.cs" />
     <Compile Include="Elements\MeshFace.cs" />
     <Compile Include="Elements\Node.cs" />
     <Compile Include="Elements\Opening.cs" />
-    <Compile Include="Elements\PanelFreeForm.cs" />
-    <Compile Include="Elements\PanelPlanar.cs" />
+    <Compile Include="Elements\Surface.cs" />
+    <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\RigidLink.cs" />
     <Compile Include="Loads\AreaTemperatureLoad.cs" />
     <Compile Include="Loads\AreaUniformalyDistributedLoad.cs" />
@@ -162,6 +161,10 @@
     <Compile Include="_Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
+      <Project>{c91f1981-1148-4a03-b67e-c0bb42d862f4}</Project>
+      <Name>Analytical_oM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>

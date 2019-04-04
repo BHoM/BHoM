@@ -22,10 +22,11 @@
 
 using System.Collections.Generic;
 using BH.oM.Structure.Properties;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
-    public class FEMeshFace : Base.BHoMObject
+    public class FEMeshFace : Base.BHoMObject, IFace
     {
         /***************************************************/
         /**** Properties                                ****/

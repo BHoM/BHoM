@@ -24,13 +24,14 @@ using BH.oM.Base;
 using BH.oM.Common;
 using BH.oM.Geometry;
 using BH.oM.Structure.Properties.Constraint;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
     /// <summary>
     /// BH.oM edge class to describe the edges of panels (or other objects) by a curve plus properties
     /// </summary>
-    public class Edge : BHoMObject, IElement1D
+    public class Edge : BHoMObject, IElement1D, IEdge
     {
         /***************************************************/
         /**** Properties                                ****/

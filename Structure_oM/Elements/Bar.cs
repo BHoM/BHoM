@@ -25,13 +25,14 @@ using BH.oM.Geometry;
 using BH.oM.Structure.Properties.Section;
 using BH.oM.Structure.Properties.Constraint;
 using BH.oM.Structure.Properties;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
     /// <summary>
     /// Bar objects for 1D finite element bars. Note, cable elements separate.
     /// </summary>
-    public class Bar : BHoMObject, IElement1D
+    public class Bar : BHoMObject, IElement1D, ILink<Node>
     {
         /***************************************************/
         /**** Properties                                ****/

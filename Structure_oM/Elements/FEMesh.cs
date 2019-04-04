@@ -22,10 +22,11 @@
 
 using System.Collections.Generic;
 using BH.oM.Structure.Properties.Surface;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
-    public class FEMesh : Base.BHoMObject
+    public class FEMesh : Base.BHoMObject, IMesh<Node, FEMeshFace>, IAreaElement
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -33,7 +34,7 @@ namespace BH.oM.Structure.Elements
 
         public List<Node> Nodes { get; set; } = new List<Node>();
 
-        public List<FEMeshFace> MeshFaces { get; set; } = new List<FEMeshFace>();
+        public List<FEMeshFace> Faces { get; set; } = new List<FEMeshFace>();
 
         public ISurfaceProperty Property { get; set; } = new ConstantThickness();
 

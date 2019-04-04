@@ -36,7 +36,7 @@ namespace BH.oM.Analytical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        ISurface Surface { get; set; }
+        BH.oM.Geometry.ISurface Extents { get; set; }
 
         /***************************************************/
     }

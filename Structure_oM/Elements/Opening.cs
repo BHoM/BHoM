@@ -23,10 +23,11 @@
 using BH.oM.Geometry;
 using System.Collections.Generic;
 using BH.oM.Base;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
-    public class Opening : BHoMObject, IElement2D
+    public class Opening : BHoMObject, IElement2D, IOpening<Edge>
     {
         /***************************************************/
         /**** Properties                                ****/
