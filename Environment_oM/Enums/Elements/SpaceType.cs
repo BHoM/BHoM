@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,23 +20,65 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-/*using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-using BH.oM.Environment.Elements;
-using BH.oM.Environment.Interface;
-
-namespace BH.oM.Environment.Materials
+namespace BH.oM.Environment.Elements
 {
-    public class Material : BHoMObject, IMaterial
+    public enum SpaceType
     {
-        public MaterialType MaterialType { get; set; } = MaterialType.Undefined;
-        public double Thickness { get; set; } = 0;
-        public IMaterialProperties MaterialProperties { get; set; } = null;
+        Undefined,
+        External,
+        Unconditioned,
+        Auditorium,
+        Bathroom,
+        Bedroom,
+        Breakout,
+        CarPark,
+        ChangingDry,
+        ChangingWet,
+        Circulation,
+        ClassHighLoad,
+        ClassRoom,
+        CommonRoom,
+        Comms,
+        Copier,
+        DataCentre,
+        DomBath,
+        DomBed,
+        DomCirculation,
+        DomDining,
+        DomKitchen,
+        DomLiving,
+        DomStore,
+        DomToilet,
+        DrySptHall,
+        EatingDrinking,
+        ElecPlant,
+        Exhibition,
+        FirstAid,
+        FitGym,
+        Foyer,
+        IndustProcess,
+        Kitchen,
+        Kitchenette,
+        Lab,
+        Laundry,
+        MechPlant,
+        Meeting,
+        OfficeCell,
+        OfficeHighLoad,
+        OfficeOpen,
+        Prayer,
+        Reception,
+        Retail,
+        RetailChill,
+        RetailElectric,
+        RetailWarehouse,
+        Servery,
+        StairsEscape,
+        Store,
+        Swim,
+        Toilet,
+        Waiting,
+        Waste,
+        Workshop,
     }
 }
-*/

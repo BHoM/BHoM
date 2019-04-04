@@ -34,6 +34,10 @@ namespace BH.oM.Environment.Elements
         /**** Properties                                ****/
         /***************************************************/
 
+        public List<string> Zones { get; set; } = new List<string>();
+        public List<IGain> Gains { get; set; } = new List<IGain>();
+        public SpaceType Type { get; set; } = SpaceType.Undefined;
+
         public string Number { get; set; } = "";
         public Point Location { get; set; } = new Point();
 

@@ -32,14 +32,15 @@ using BH.oM.Environment.Materials;
 
 namespace BH.oM.Environment.Properties
 {
-    public class MaterialPropertiesGas : BHoMObject, IMaterialProperties
+    public class MaterialPropertiesGas : BHoMObject, IEnvironmentalMaterial
     {
         public GasType GasType { get; set; } = GasType.Undefined;
         public double Conductivity { get; set; } = 0.0;
         public string Description { get; set; } = string.Empty;
         public double SpecificHeat { get; set; } = 0.0;
-        public double Density { get; set; } = 0.0;
-        public double ConvectionCoefficient { get; set; } = 0.0;
         public double VapourDiffusionFactor { get; set; } = 0.0;
+        public double AdditionalHeatTransfer { get; set; } = 0.0;
+
+        public double ConvectionCoefficient { get; set; } = 0.0;
     }
 }

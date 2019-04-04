@@ -39,6 +39,8 @@ namespace BH.oM.Environment.Elements
         public double Longitude { get; set; } = 0.0;
         public double Elevation { get; set; } = 0.0;
 
+        public BuildingType Type { get; set; } = BuildingType.Undefined;
+
         public Point Location { get; set; } = new Point();
 
         public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();

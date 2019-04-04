@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
+ /*
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,3 +48,4 @@ namespace BH.oM.Environment.Properties
         public double EmissivityExternal { get; set; } = 0.0;
     }
 }
+*/

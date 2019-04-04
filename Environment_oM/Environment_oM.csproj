@@ -57,6 +57,7 @@
     <Compile Include="Enums\Elements\AbsorptanceType.cs" />
     <Compile Include="Enums\Elements\AbsorptanceUnit.cs" />
     <Compile Include="Enums\Elements\BuildingElementType.cs" />
+    <Compile Include="Enums\Elements\BuildingType.cs" />
     <Compile Include="Enums\Elements\ConstructionRoughness.cs" />
     <Compile Include="Enums\Elements\ConstructionType.cs" />
     <Compile Include="Enums\Elements\EmitterType.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Enums\Elements\ProfileCategory.cs" />
     <Compile Include="Enums\Elements\ProfileType.cs" />
     <Compile Include="Enums\Elements\SimulationDayType.cs" />
+    <Compile Include="Enums\Elements\SpaceType.cs" />
     <Compile Include="Enums\Gains\GainType.cs" />
     <Compile Include="Enums\Gains\GainUnit.cs" />
     <Compile Include="Enums\Materials\GasType.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Enums\Results\SimulationResultType.cs" />
     <Compile Include="Interface\IBuildingElementGeometry.cs" />
     <Compile Include="Interface\IBuildingObject.cs" />
+    <Compile Include="Interface\IEnvironmentalMaterial.cs" />
     <Compile Include="Interface\IEquipment.cs" />
     <Compile Include="Interface\IEquipmentProperties.cs" />
     <Compile Include="Interface\IGainProperties.cs" />
