@@ -28,28 +28,21 @@ using System.Threading.Tasks;
 
 using BH.oM.Physical.Interface;
 using BH.oM.Base;
-using BH.oM.Geometry;
 using BH.oM.Physical.Properties.Construction;
 
 namespace BH.oM.Physical.Elements
 {
-    public abstract class Surface : BHoMObject, IPhysical
+    public class Roof : BHoMObject, ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ISurface OuterBoundary { get; set; } = new PlanarSurface();
+        public BH.oM.Geometry.ISurface OuterBoundary { get; set; } = new BH.oM.Geometry.PlanarSurface();
         public IConstruction Construction { get; set; } = new Construction();
         public List<IOpening> Openings { get; set; } = new List<IOpening>();
         public Offset Offset { get; set; } = Offset.Centre;
 
         /***************************************************/
     }
-
-    public class Wall : Surface { }
-
-    public class Roof : Surface { }
-
-    public class Floor : Surface { }
 }

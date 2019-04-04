@@ -37,7 +37,7 @@ namespace BH.oM.Physical.Interface
         /**** Properties                                ****/
         /***************************************************/
 
-        ISurface OuterBoundary { get; set; }
+        BH.oM.Geometry.ISurface OuterBoundary { get; set; }
 
         /***************************************************/
     }

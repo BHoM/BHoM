@@ -26,19 +26,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Physical.Interface;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Physical.Properties.Construction;
+using BH.oM.Physical.Elements;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Physical.Interface
 {
-    public class Window : BHoMObject, IOpening
+    public interface ISurface : IBHoMObject, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public BH.oM.Geometry.ISurface OuterBoundary { get; set; } = new PlanarSurface();
+        BH.oM.Geometry.ISurface OuterBoundary { get; set; }
+        IConstruction Construction { get; set; }
+        List<IOpening> Openings { get; set; }
+        Offset Offset { get; set; }
 
         /***************************************************/
     }
