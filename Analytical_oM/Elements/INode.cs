@@ -26,11 +26,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
+using BH.oM.Geometry;
 
 
 namespace BH.oM.Analytical.Elements
 {
     public interface INode : IBHoMObject, IAnalytical
     {
+        Point Position { get; set; }
     }
 }
