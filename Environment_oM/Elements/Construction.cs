@@ -20,7 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
+/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,10 +35,7 @@ namespace BH.oM.Environment.Elements
 {
     public class Construction : BHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
+        
         public List<IMaterial> Materials { get; set; } = new List<IMaterial>();
         public double Thickness { get; set; } = 0.0;
         public List<double> UValues { get; set; } = new List<double>();
@@ -50,7 +47,7 @@ namespace BH.oM.Environment.Elements
         public double AbsorptanceValue { get; set; } = 0.0;
         public AbsorptanceUnit AbsorptanceUnit { get; set; } = AbsorptanceUnit.Fraction;
         public AbsorptanceType AbsorptanceType { get; set; } = AbsorptanceType.ExtIR;
-
-        /***************************************************/
+        
     }
 }
+*/

@@ -29,9 +29,9 @@ using BH.oM.Base;
 
 namespace BH.oM.Analytical.Elements
 {
-    public interface IPanel<TEdge, TOpeing> : IBHoMObject, IAnalytical
+    public interface IPanel<TEdge, TOpening> : IBHoMObject, IAnalytical
         where TEdge : IEdge
-        where TOpeing : IOpening<TEdge>
+        where TOpening : IOpening<TEdge>
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -39,7 +39,7 @@ namespace BH.oM.Analytical.Elements
 
         List<TEdge> ExternalEdges { get; set; }
 
-        List<TOpeing> Openings { get; set; }
+        List<TOpening> Openings { get; set; }
 
         /***************************************************/
     }

@@ -35,7 +35,7 @@ namespace BH.oM.Environment.Properties
     public class FrameProperties : IBHoMExtendedProperties
     {
         public ICurve PaneCurve { get; set; } = new PolyCurve();
-        public Construction Construction { get; set; } = new Construction();
+        //public Construction Construction { get; set; } = new Construction();
         public double FramePercentage { get; set; } = 0.0;
     }
 }

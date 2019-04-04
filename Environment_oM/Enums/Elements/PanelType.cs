@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,33 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Environment.Interface;
-using BH.oM.Geometry;
-
-using System.Collections.Generic;
-
-using BH.oM.Analytical.Elements;
-using BH.oM.Physical.Properties.Construction;
-
 namespace BH.oM.Environment.Elements
 {
-    public class Opening : BHoMObject, IOpening<Edge>, IElement2D
+    public enum PanelType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public List<Edge> Edges { get; set; } = new List<Edge>();
-
-        public OpeningType Type { get; set; } = OpeningType.Undefined;
-
-        public List<Edge> InnerEdges { get; set; } = new List<Edge>();
-
-        public Construction OuterConstruction { get; set; } = new Construction();
-
-        public Construction InnerConstruction { get; set; } = new Construction();
-
-        /***************************************************/
+        Undefined,
+        Ceiling,
+        CurtainWall,
+        Floor,
+        FloorExposed,
+        FloorInternal,
+        FloorRaised,
+        Roof,
+        Shade,
+        SlabOnGrade,
+        SolarPanel,
+        UndergroundCeiling,
+        UndergroundSlab,
+        UndergroundWall,
+        Wall,
+        WallExternal,
+        WallInternal,
+        VehicleDoor,
     }
 }

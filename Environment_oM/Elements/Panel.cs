@@ -26,20 +26,27 @@ using BH.oM.Environment.Properties;
 using BH.oM.Geometry;
 using System.Collections.Generic;
 
+using BH.oM.Analytical.Elements;
+
+using BH.oM.Physical.Properties.Construction;
+
 namespace BH.oM.Environment.Elements
 {
-    public class Panel : BHoMObject, IBuildingObject, IElement2D
+    public class Panel : BHoMObject, IPanel<Edge, Opening>, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve PanelCurve { get; set; } = new PolyCurve();
+        public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+
         public List<Opening> Openings { get; set; } = new List<Opening>();
 
-        public PanelProperties PanelProperties { get; set; } = new PanelProperties();
+        public Construction Construction { get; set; } = new Construction();
 
-        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
+        public PanelType Type { get; set; } = PanelType.Undefined;
+
+        public List<string> ConnectedSpaces { get; set; } = new List<string>();
 
         /***************************************************/
     }

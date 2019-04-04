@@ -39,7 +39,7 @@ namespace BH.oM.Environment.Properties
         /***************************************************/
 
         public BuildingElementType BuildingElementType { get; set; } = BuildingElementType.Undefined;
-        public Construction Construction { get; set; } = new Construction();
+        //public Construction Construction { get; set; } = new Construction();
 
         /***************************************************/
     }
