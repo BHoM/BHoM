@@ -43,8 +43,6 @@ namespace BH.oM.Structure.Properties.Materials
 
         public double CubeStrength { get; set; }
 
-        public double TensileStrength { get; set; }
-
         public List<IConcreteModel> Models { get; set; }
 
         /***************************************************/
