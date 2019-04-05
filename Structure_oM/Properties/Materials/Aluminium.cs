@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Properties.Materials
 
         public double ThermalExpansionCoeff { get; set; }
 
-        public double YoungsModolus { get; set; }
+        public double YoungsModulus { get; set; }
 
         public List<IAluminiumModel> Models { get; set; }
 

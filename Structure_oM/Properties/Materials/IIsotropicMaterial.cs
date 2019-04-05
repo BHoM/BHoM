@@ -35,7 +35,7 @@ namespace BH.oM.Structure.Properties.Materials
         /**** Properties                                ****/
         /***************************************************/
 
-        double YoungsModolus { get; set; }
+        double YoungsModulus { get; set; }
         double PoissonsRatio { get; set; }
         double ThermalExpansionCoeff { get; set; }
 

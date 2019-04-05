@@ -38,7 +38,7 @@ namespace BH.oM.Structure.Properties.Materials
 
         public Vector ThermalExpansionCoeff { get; set; }
 
-        public Vector YoungsModolus { get; set; }
+        public Vector YoungsModulus { get; set; }
 
         public List<ITimberModel> Models { get; set; }
 

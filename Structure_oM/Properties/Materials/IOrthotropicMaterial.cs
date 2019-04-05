@@ -36,9 +36,10 @@ namespace BH.oM.Structure.Properties.Materials
         /**** Properties                                ****/
         /***************************************************/
 
-        Vector YoungsModolus { get; set; }
+        Vector YoungsModulus { get; set; }
         Vector PoissonsRatio { get; set; }
         Vector ThermalExpansionCoeff { get; set; }
+        Vector ShearModulus { get; set; }
 
         /***************************************************/
     }
