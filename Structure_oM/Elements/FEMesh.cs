@@ -25,7 +25,7 @@ using BH.oM.Structure.Properties.Surface;
 
 namespace BH.oM.Structure.Elements
 {
-    public class FEMesh : Base.BHoMObject
+    public class FEMesh : Base.BHoMObject, IAreaElement
     {
         /***************************************************/
         /**** Properties                                ****/
