@@ -87,6 +87,17 @@
     <Compile Include="Properties\Constraints\Constraint4DOF.cs" />
     <Compile Include="Properties\Constraints\Constraint6DOF.cs" />
     <Compile Include="Properties\Constraints\LinkConstraint.cs" />
+    <Compile Include="Properties\Materials\IAluminiumModel.cs" />
+    <Compile Include="Properties\Materials\IConcreteModel.cs" />
+    <Compile Include="Properties\Materials\IOrthotropicMaterial.cs" />
+    <Compile Include="Properties\Materials\IIsotropicMaterial.cs" />
+    <Compile Include="Properties\Materials\ISteelModel.cs" />
+    <Compile Include="Properties\Materials\IStructuralMaterial.cs" />
+    <Compile Include="Properties\Materials\ITimberModel.cs" />
+    <Compile Include="Properties\Materials\Aluminium.cs" />
+    <Compile Include="Properties\Materials\Concrete.cs" />
+    <Compile Include="Properties\Materials\Steel.cs" />
+    <Compile Include="Properties\Materials\Timber.cs" />
     <Compile Include="Properties\Section\Enums\CableType.cs" />
     <Compile Include="Properties\Constraints\Enums\DOFType.cs" />
     <Compile Include="Properties\Surface\Enums\LoadPanelSupportConditions.cs" />
@@ -176,6 +187,10 @@
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5B09A2E5-CBF5-43E2-8D98-B5035391DB7B}</Project>
       <Name>Geometry_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
+      <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>
+      <Name>Physical_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
       <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
