@@ -89,8 +89,8 @@
     <Compile Include="Properties\Constraints\LinkConstraint.cs" />
     <Compile Include="Properties\Materials\IAluminiumModel.cs" />
     <Compile Include="Properties\Materials\IConcreteModel.cs" />
-    <Compile Include="Properties\Materials\IOrthotropicMaterial.cs" />
-    <Compile Include="Properties\Materials\IIsotropicMaterial.cs" />
+    <Compile Include="Properties\Materials\IOrthotropic.cs" />
+    <Compile Include="Properties\Materials\IIsotropic.cs" />
     <Compile Include="Properties\Materials\ISteelModel.cs" />
     <Compile Include="Properties\Materials\IStructuralMaterial.cs" />
     <Compile Include="Properties\Materials\ITimberModel.cs" />

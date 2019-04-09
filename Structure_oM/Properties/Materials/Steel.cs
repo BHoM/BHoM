@@ -25,7 +25,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structure.Properties.Materials
 {
-    public class Steel : BHoMObject, IIsotropicMaterial
+    public class Steel : BHoMObject, IIsotropic
     {
         /***************************************************/
         /**** Properties                                ****/

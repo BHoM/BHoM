@@ -26,7 +26,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Physical.Interface;
 using BH.oM.Base;
 using BH.oM.Physical.Properties.Construction;
 

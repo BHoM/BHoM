@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Environment.Elements;
 
-using BH.oM.Physical.Interface;
+using BH.oM.Physical.Properties;
 
 namespace BH.oM.Environment.Interface
 {

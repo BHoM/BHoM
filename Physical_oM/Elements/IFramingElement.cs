@@ -28,10 +28,10 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.Physical.Properties.Construction;
+using BH.oM.Physical.Properties;
 using BH.oM.Physical.Elements;
 
-namespace BH.oM.Physical.Interface
+namespace BH.oM.Physical.Elements
 {
     public interface IFramingElement : IBHoMObject, IPhysical
     {

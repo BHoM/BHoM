@@ -47,8 +47,8 @@
     <Compile Include="Elements\Cable.cs" />
     <Compile Include="Elements\Roof.cs" />
     <Compile Include="Elements\Floor.cs" />
-    <Compile Include="Interface\IFramingElement.cs" />
-    <Compile Include="Interface\ISurface.cs" />
+    <Compile Include="Elements\IFramingElement.cs" />
+    <Compile Include="Elements\ISurface.cs" />
     <Compile Include="Properties\Construction\Construction.cs" />
     <Compile Include="Elements\Door.cs" />
     <Compile Include="Elements\Beam.cs" />
@@ -58,11 +58,11 @@
     <Compile Include="Elements\Void.cs" />
     <Compile Include="Elements\Window.cs" />
     <Compile Include="Enums\Offset.cs" />
-    <Compile Include="Interface\IConstruction.cs" />
-    <Compile Include="Interface\IFramingElementProperty.cs" />
-    <Compile Include="Interface\IMaterialProperties.cs" />
-    <Compile Include="Interface\IOpening.cs" />
-    <Compile Include="Interface\IPhysical.cs" />
+    <Compile Include="Properties\Construction\IConstruction.cs" />
+    <Compile Include="Properties\IFramingElementProperty.cs" />
+    <Compile Include="Properties\IMaterialProperties.cs" />
+    <Compile Include="Elements\IOpening.cs" />
+    <Compile Include="IPhysical.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

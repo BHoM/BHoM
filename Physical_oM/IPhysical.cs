@@ -28,7 +28,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Physical.Interface
+namespace BH.oM.Physical
 {
     public interface IPhysical : IBHoMObject
     {

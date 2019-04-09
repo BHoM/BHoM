@@ -21,7 +21,7 @@
  */
 
 
-using BH.oM.Physical.Interface;
+using BH.oM.Physical.Properties;
 
 namespace BH.oM.Structure.Properties.Materials
 {

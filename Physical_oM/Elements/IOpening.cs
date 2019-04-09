@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Physical.Interface
+namespace BH.oM.Physical.Elements
 {
     public interface IOpening : IBHoMObject, IPhysical
     {

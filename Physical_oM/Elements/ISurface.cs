@@ -27,16 +27,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Geometry;
+using BH.oM.Physical.Properties.Construction;
+using BH.oM.Physical.Elements;
 
-namespace BH.oM.Physical.Interface
+namespace BH.oM.Physical.Elements
 {
-    public interface IFramingElementProperty : IBHoMObject
+    public interface ISurface : IBHoMObject, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-
+        BH.oM.Geometry.ISurface OuterBoundary { get; set; }
+        IConstruction Construction { get; set; }
+        List<IOpening> Openings { get; set; }
+        Offset Offset { get; set; }
 
         /***************************************************/
     }

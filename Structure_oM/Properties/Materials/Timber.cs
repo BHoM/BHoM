@@ -27,7 +27,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Properties.Materials
 {
-    public class Timber : BHoMObject, IOrthotropicMaterial
+    public class Timber : BHoMObject, IOrthotropic
     {
         /***************************************************/
         /**** Properties                                ****/

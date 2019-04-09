@@ -33,7 +33,7 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public BH.oM.Geometry.ISurface Extents { get; set; } = null;
+        public Geometry.ISurface Extents { get; set; } = null;
 
         public ISurfaceProperty Property { get; set; } = null;
 

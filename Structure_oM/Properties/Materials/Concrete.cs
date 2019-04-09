@@ -25,7 +25,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structure.Properties.Materials
 {
-    public class Concrete : BHoMObject, IIsotropicMaterial
+    public class Concrete : BHoMObject, IIsotropic
     {
         /***************************************************/
         /**** Properties                                ****/
