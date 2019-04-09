@@ -6,6 +6,7 @@
 
 # project owners 
 
+/Analytical_oM @al-fisher @adecler @IsakNaslundBh @FraserGreenroyd
 #NEED OWNER: /Acoustic_oM
 #NEED OWNER: /Architecture_oM
 /BHoM @adecler
@@ -13,10 +14,11 @@
 /Common_oM @al-fisher @rwemay
 /DataManipulation_oM @adecler
 /DataStructure_oM @adecler
-/Environment_oM @michaldengusiak @FraserGreenroyd
+/Environment_oM @FraserGreenroyd
 /Geometry_oM @pawelbaran
 #NEED OWNER: /Graphics_oM
 /Humans_oM @al-fisher
+/Physical_oM @al-fisher @adecler @IsakNaslundBh @FraserGreenroyd
 /Planning_oM @rwemay
 /Reflection_oM @adecler
 /Structure_oM @IsakNaslundBh
