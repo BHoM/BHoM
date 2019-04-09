@@ -6,15 +6,15 @@
 
 # project owners 
 
-/Analytical_oM @al-fisher @adecler @IsakNaslundBh @FraserGreenroyd
 #NEED OWNER: /Acoustic_oM
+/Analytical_oM @al-fisher @adecler @IsakNaslundBh @FraserGreenroyd
 #NEED OWNER: /Architecture_oM
 /BHoM @adecler
 /BHoM_Test @adecler
 /Common_oM @al-fisher @rwemay
 /DataManipulation_oM @adecler
 /DataStructure_oM @adecler
-/Environment_oM @FraserGreenroyd
+/Environment_oM @michaldengusiak @FraserGreenroyd
 /Geometry_oM @pawelbaran
 #NEED OWNER: /Graphics_oM
 /Humans_oM @al-fisher
