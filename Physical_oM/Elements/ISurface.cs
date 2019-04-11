@@ -39,7 +39,7 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        BH.oM.Geometry.ISurface OuterBoundary { get; set; }
+        BH.oM.Geometry.ISurface Location { get; set; }
         IConstruction Construction { get; set; }
         List<IOpening> Openings { get; set; }
         Offset Offset { get; set; }
