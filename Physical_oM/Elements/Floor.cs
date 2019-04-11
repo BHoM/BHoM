@@ -37,7 +37,7 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public BH.oM.Geometry.ISurface OuterBoundary { get; set; } = new BH.oM.Geometry.PlanarSurface();
+        public BH.oM.Geometry.ISurface Location { get; set; } = new BH.oM.Geometry.PlanarSurface();
         public IConstruction Construction { get; set; } = new Construction();
         public List<IOpening> Openings { get; set; } = new List<IOpening>();
         public Offset Offset { get; set; } = Offset.Centre;

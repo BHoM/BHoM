@@ -39,7 +39,7 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        ICurve LocationCurve { get; set; }
+        ICurve Location { get; set; }
         IFramingElementProperty Property { get; set; }
 
         /***************************************************/

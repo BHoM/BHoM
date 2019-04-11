@@ -38,7 +38,7 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve LocationCurve { get; set; } = new Polyline();
+        public ICurve Location { get; set; } = new Polyline();
         public IFramingElementProperty Property { get; set; } = null;
 
         /***************************************************/

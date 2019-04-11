@@ -37,7 +37,7 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public BH.oM.Geometry.ISurface OuterBoundary { get; set; } = new PlanarSurface();
+        public BH.oM.Geometry.ISurface Location { get; set; } = new PlanarSurface();
 
         /***************************************************/
     }
