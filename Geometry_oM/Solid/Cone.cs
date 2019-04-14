@@ -31,6 +31,7 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Point defining the centre of the circular base")]
         public Point Centre { get; set; } = new Point();
 
         public Vector Axis { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
