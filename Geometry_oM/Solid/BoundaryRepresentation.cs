@@ -28,7 +28,7 @@ using System.Linq;
 
 namespace BH.oM.Geometry
 {
-    [Description("Solid representation through a collection of connected surfaces forming a closed volume")]
+    [Description("Solid representation defined by a collection of connected surfaces forming a closed volume")]
     public class BoundaryRepresentation : ISolid, IImmutable
     {
         /***************************************************/

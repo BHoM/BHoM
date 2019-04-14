@@ -20,14 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Geometry
 {
+    [Description("A solid circular right angled cylinder")]
     public class Cylinder : ISolid
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Point defining the centre of the circular base")]
         public Point Centre { get; set; } = new Point();
 
         public Vector Axis { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
