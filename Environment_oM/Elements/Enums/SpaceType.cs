@@ -20,25 +20,65 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-
-using BH.oM.Environment.Properties;
-using BH.oM.Environment.Gains;
-
 namespace BH.oM.Environment.Elements
 {
-    public class Space : BHoMObject, IEnvironmentObject
+    public enum SpaceType
     {
-        public List<string> Zones { get; set; } = new List<string>();
-        public List<IGain> Gains { get; set; } = new List<IGain>();
-        public SpaceType Type { get; set; } = SpaceType.Undefined;
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
+        Undefined,
+        Auditorium,
+        Bathroom,
+        Bedroom,
+        Breakout,
+        CarPark,
+        ChangingDry,
+        ChangingWet,
+        Circulation,
+        ClassHighLoad,
+        ClassRoom,
+        CommonRoom,
+        Comms,
+        Copier,
+        DataCentre,
+        DomesticBath,
+        DomesticBed,
+        DomesticCirculation,
+        DomesticDining,
+        DomesticKitchen,
+        DomesticLiving,
+        DomesticStore,
+        DomesticToilet,
+        DrySptHall,
+        EatingDrinking,
+        ElectricPlant,
+        Exhibition,
+        External,
+        FirstAid,
+        FitGym,
+        Foyer,
+        IndustProcess,
+        Kitchen,
+        Kitchenette,
+        Lab,
+        Laundry,
+        MechanicalPlant,
+        Meeting,
+        OfficeCell,
+        OfficeHighLoad,
+        OfficeOpen,
+        Prayer,
+        Reception,
+        Retail,
+        RetailChill,
+        RetailElectric,
+        RetailWarehouse,
+        Servery,
+        StairsEscape,
+        Store,
+        Swim,
+        Toilet,
+        Waiting,
+        Waste,
+        Workshop,
+        Unconditioned,
     }
 }

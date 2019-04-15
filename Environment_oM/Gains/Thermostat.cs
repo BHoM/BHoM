@@ -27,18 +27,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-
 using BH.oM.Environment.Properties;
-using BH.oM.Environment.Gains;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.Gains
 {
-    public class Space : BHoMObject, IEnvironmentObject
+    public class Thermostat : BHoMObject
     {
-        public List<string> Zones { get; set; } = new List<string>();
-        public List<IGain> Gains { get; set; } = new List<IGain>();
-        public SpaceType Type { get; set; } = SpaceType.Undefined;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
+        public bool ProportionalControl { get; set; } = false;
+
+        public double ControlRange { get; set; } = 0.0; //Degrees Celcius contorl range
+
+        public List<Profile> Profiles { get; set; } = new List<Profile>();
+
+        /***************************************************/
     }
 }

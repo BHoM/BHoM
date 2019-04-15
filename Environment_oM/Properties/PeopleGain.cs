@@ -27,18 +27,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-
-using BH.oM.Environment.Properties;
 using BH.oM.Environment.Gains;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.Properties
 {
-    public class Space : BHoMObject, IEnvironmentObject
+    public class GainPropertiesPeople : BHoMObject, IGainProperties
     {
-        public List<string> Zones { get; set; } = new List<string>();
-        public List<IGain> Gains { get; set; } = new List<IGain>();
-        public SpaceType Type { get; set; } = SpaceType.Undefined;
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
+        public double SensibleGain { get; set; } = 0.0;
+        public double LatentGain { get; set; } = 0.0;
+        public Profile Profile { get; set; } = new Profile();
+        public GainUnit Unit { get; set; } = GainUnit.Undefined;
+        public double RadiantFraction { get; set; } = 0.0;
+        public double ViewCoefficient { get; set; } = 0.0;
+        public double Value { get; set; } = 0.0;
     }
 }
