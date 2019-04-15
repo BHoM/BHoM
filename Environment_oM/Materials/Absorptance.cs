@@ -27,17 +27,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-
 using BH.oM.Environment.Properties;
-using BH.oM.Environment.Gains;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.Materials
 {
-    public class Space : BHoMObject, IEnvironmentObject
+    public class Absorptance : BHoMObject, IEnvironmentObject
     {
-        public List<string> Zones { get; set; } = new List<string>();
-        public List<IGain> Gains { get; set; } = new List<IGain>();
-        public SpaceType Type { get; set; } = SpaceType.Undefined;
+        public double Value { get; set; } = 0.0;
+        public AbsorptanceUnit AbsorptanceUnit { get; set; } = AbsorptanceUnit.Undefined;
+        public AbsorptanceType AbsorptanceType { get; set; } = AbsorptanceType.Undefined;
 
         public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
     }

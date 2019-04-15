@@ -22,23 +22,23 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using BH.oM.Geometry;
 using BH.oM.Base;
-
+using BH.oM.Analytical.Elements;
 using BH.oM.Environment.Properties;
-using BH.oM.Environment.Gains;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Space : BHoMObject, IEnvironmentObject
+    public class Edge : BHoMObject, IEnvironmentObject, IEdge
     {
-        public List<string> Zones { get; set; } = new List<string>();
-        public List<IGain> Gains { get; set; } = new List<IGain>();
-        public SpaceType Type { get; set; } = SpaceType.Undefined;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public ICurve Curve { get; set; } = new Polyline();
 
         public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
+
+        /***************************************************/
     }
 }

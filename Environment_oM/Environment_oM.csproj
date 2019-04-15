@@ -41,75 +41,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elements\AirHandlingUnit.cs" />
     <Compile Include="Elements\Building.cs" />
-    <Compile Include="Elements\BuildingElement.cs" />
-    <Compile Include="Elements\Construction.cs" />
-    <Compile Include="Elements\Emitter.cs" />
-    <Compile Include="Elements\InternalCondition.cs" />
-    <Compile Include="Elements\Gain.cs" />
+    <Compile Include="Elements\Edge.cs" />
+    <Compile Include="Elements\Enums\BuildingType.cs" />
+    <Compile Include="Elements\Enums\OpeningType.cs" />
+    <Compile Include="Elements\Enums\PanelType.cs" />
+    <Compile Include="Elements\Enums\SpaceType.cs" />
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
-    <Compile Include="Elements\Profile.cs" />
     <Compile Include="Elements\Space.cs" />
-    <Compile Include="Elements\Thermostat.cs" />
-    <Compile Include="Enums\Elements\AbsorptanceType.cs" />
-    <Compile Include="Enums\Elements\AbsorptanceUnit.cs" />
-    <Compile Include="Enums\Elements\BuildingElementType.cs" />
-    <Compile Include="Enums\Elements\ConstructionRoughness.cs" />
-    <Compile Include="Enums\Elements\ConstructionType.cs" />
-    <Compile Include="Enums\Elements\EmitterType.cs" />
-    <Compile Include="Enums\Elements\MaterialType.cs" />
-    <Compile Include="Enums\Elements\ProfileCategory.cs" />
-    <Compile Include="Enums\Elements\ProfileType.cs" />
-    <Compile Include="Enums\Elements\SimulationDayType.cs" />
-    <Compile Include="Enums\Gains\GainType.cs" />
-    <Compile Include="Enums\Gains\GainUnit.cs" />
-    <Compile Include="Enums\Materials\GasType.cs" />
-    <Compile Include="Enums\Properties\SizingMethod.cs" />
-    <Compile Include="Enums\Results\ProfileResultType.cs" />
-    <Compile Include="Enums\Results\ProfileResultUnits.cs" />
-    <Compile Include="Enums\Results\SimulationResultType.cs" />
-    <Compile Include="Interface\IBuildingElementGeometry.cs" />
-    <Compile Include="Interface\IBuildingObject.cs" />
-    <Compile Include="Interface\IEquipment.cs" />
-    <Compile Include="Interface\IEquipmentProperties.cs" />
-    <Compile Include="Interface\IGainProperties.cs" />
-    <Compile Include="Interface\IGain.cs" />
-    <Compile Include="Interface\IMaterial.cs" />
-    <Compile Include="Interface\IMaterialProperties.cs" />
-    <Compile Include="Materials\Material.cs" />
-    <Compile Include="Properties\AirHandlingUnitProperties.cs" />
-    <Compile Include="Properties\BuildingAnalyticalProperties.cs" />
-    <Compile Include="Properties\BuildingElementAnalyticalProperties.cs" />
-    <Compile Include="Properties\BuildingElementContextProperties.cs" />
-    <Compile Include="Properties\BuildingContextProperties.cs" />
-    <Compile Include="Properties\BuildingResultsProperties.cs" />
-    <Compile Include="Properties\ElementProperties.cs" />
-    <Compile Include="Properties\EmitterProperties.cs" />
-    <Compile Include="Properties\EnvironmentContextProperties.cs" />
-    <Compile Include="Interface\IBHoMExtendedProperties.cs" />
-    <Compile Include="Properties\FrameProperties.cs" />
-    <Compile Include="Properties\GainPropertiesEquipmentLatent.cs" />
-    <Compile Include="Properties\GainPropertiesInfiltration.cs" />
-    <Compile Include="Properties\GainPropertiesPollutant.cs" />
-    <Compile Include="Properties\IGCoefficientProperties.cs" />
-    <Compile Include="Properties\IGRadiationProperties.cs" />
-    <Compile Include="Properties\GainPropertiesLighting.cs" />
-    <Compile Include="Properties\GainPropertiesEquipmentSensible.cs" />
-    <Compile Include="Properties\GainPropertiesPeople.cs" />
-    <Compile Include="Properties\MaterialPropertiesGas.cs" />
-    <Compile Include="Properties\MaterialPropertiesOpaque.cs" />
-    <Compile Include="Properties\MaterialPropertiesTransparent.cs" />
-    <Compile Include="Properties\PanelProperties.cs" />
-    <Compile Include="Properties\PlantProperties.cs" />
-    <Compile Include="Properties\SpaceAnalyticalProperties.cs" />
-    <Compile Include="Properties\SpaceContextProperties.cs" />
+    <Compile Include="Equipment\AitHandlingUnit.cs" />
+    <Compile Include="Equipment\IEquipment.cs" />
+    <Compile Include="Gains\Emitter.cs" />
+    <Compile Include="Gains\Enums\EmitterType.cs" />
+    <Compile Include="Gains\Enums\GainType.cs" />
+    <Compile Include="Gains\Enums\GainUnit.cs" />
+    <Compile Include="Gains\Enums\ProfileCategory.cs" />
+    <Compile Include="Gains\Enums\ProfileType.cs" />
+    <Compile Include="Gains\Enums\SimulationDayType.cs" />
+    <Compile Include="Gains\Gain.cs" />
+    <Compile Include="Gains\IGain.cs" />
+    <Compile Include="Properties\IGainProperties.cs" />
+    <Compile Include="Gains\InternalCondition.cs" />
+    <Compile Include="Properties\InfiltrationGain.cs" />
+    <Compile Include="Properties\LatentEquipmentGain.cs" />
+    <Compile Include="Gains\Profile.cs" />
+    <Compile Include="Gains\Thermostat.cs" />
+    <Compile Include="IEnvironmentObject.cs" />
+    <Compile Include="Materials\Absorptance.cs" />
+    <Compile Include="Materials\Enums\AbsorptanceType.cs" />
+    <Compile Include="Materials\Enums\AbsorptanceUnit.cs" />
+    <Compile Include="Materials\Enums\Gas.cs" />
+    <Compile Include="Materials\Enums\Roughness.cs" />
+    <Compile Include="Materials\GasMaterial.cs" />
+    <Compile Include="Materials\IEnvironmentMaterial.cs" />
+    <Compile Include="Materials\SolidMaterial.cs" />
+    <Compile Include="Properties\IBHoMFragment.cs" />
+    <Compile Include="Properties\LightingGain.cs" />
+    <Compile Include="Properties\PeopleGain.cs" />
+    <Compile Include="Properties\PollutantGain.cs" />
+    <Compile Include="Properties\SensibleEquipmentGain.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
-    <Compile Include="Results\ProfileResult.cs" />
-    <Compile Include="Results\SimulationResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
+      <Project>{c91f1981-1148-4a03-b67e-c0bb42d862f4}</Project>
+      <Name>Analytical_oM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
@@ -118,7 +96,13 @@
       <Project>{5B09A2E5-CBF5-43E2-8D98-B5035391DB7B}</Project>
       <Name>Geometry_oM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
+      <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>
+      <Name>Physical_oM</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Results\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

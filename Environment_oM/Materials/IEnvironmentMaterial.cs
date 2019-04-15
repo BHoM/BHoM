@@ -27,18 +27,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Physical.Properties;
 
-using BH.oM.Environment.Properties;
-using BH.oM.Environment.Gains;
-
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.Materials
 {
-    public class Space : BHoMObject, IEnvironmentObject
+    public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties
     {
-        public List<string> Zones { get; set; } = new List<string>();
-        public List<IGain> Gains { get; set; } = new List<IGain>();
-        public SpaceType Type { get; set; } = SpaceType.Undefined;
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
+        double Conductivity { get; set; }
+        double SpecificHeat { get; set; }
+        double AdditionalHeatTransfer { get; set; }
+        double VapourDiffusionFactor { get; set; }
+        string Description { get; set; }
+        Absorptance Absorptance { get; set; }
     }
 }

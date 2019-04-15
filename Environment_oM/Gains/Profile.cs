@@ -27,18 +27,29 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-
 using BH.oM.Environment.Properties;
-using BH.oM.Environment.Gains;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.Gains
 {
-    public class Space : BHoMObject, IEnvironmentObject
+    public class Profile : BHoMObject, IEnvironmentObject
     {
-        public List<string> Zones { get; set; } = new List<string>();
-        public List<IGain> Gains { get; set; } = new List<IGain>();
-        public SpaceType Type { get; set; } = SpaceType.Undefined;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public ProfileType ProfileType { get; set; } = ProfileType.Undefined;
+
+        public double MultiplicationFactor { get; set; } = 1.0;
+        public double SetBackValue { get; set; } = 0.0; //Value for those outside the schedule
+
+        public string Function { get; set; } = ""; //Function built query defined as a string within simulation
+
+        public List<double> Values { get; set; } = new List<double>(); //List of values for each hour of simulation under hourly profile or hours in a year for yearly profile
+
+        public ProfileCategory Category { get; set; } = ProfileCategory.Undefined;
 
         public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
+
+        /***************************************************/
     }
 }

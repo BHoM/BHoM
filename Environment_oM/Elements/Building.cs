@@ -1,6 +1,6 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -22,27 +22,23 @@
 
 using System;
 using System.Collections.Generic;
-using BH.oM.Geometry;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using BH.oM.Base;
-using BH.oM.Environment.Interface;
+
 using BH.oM.Environment.Properties;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Building : BHoMObject, IBuildingObject
+    public class Building : BHoMObject, IEnvironmentObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
         public double Latitude { get; set; } = 0.0;
         public double Longitude { get; set; } = 0.0;
         public double Elevation { get; set; } = 0.0;
+        public BuildingType Type { get; set; } = BuildingType.Undefined;
 
-        public Point Location { get; set; } = new Point();
-
-        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
-
-        /***************************************************/
+        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
     }
 }

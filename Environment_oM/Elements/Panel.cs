@@ -1,6 +1,6 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,27 +20,29 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Environment.Interface;
-using BH.oM.Environment.Properties;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+
+using BH.oM.Environment.Properties;
+using BH.oM.Environment.Gains;
+using BH.oM.Analytical.Elements;
+using BH.oM.Physical.Properties.Construction;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Panel : BHoMObject, IBuildingObject, IElement2D
+    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public ICurve PanelCurve { get; set; } = new PolyCurve();
+        public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
         public List<Opening> Openings { get; set; } = new List<Opening>();
+        public IConstruction Construction { get; set; } = new Construction();
+        public PanelType Type { get; set; } = PanelType.Undefined;
+        public List<string> ConnectedSpaces { get; set; } = new List<string>();
 
-        public PanelProperties PanelProperties { get; set; } = new PanelProperties();
-
-        public List<IBHoMExtendedProperties> ExtendedProperties { get; set; } = new List<IBHoMExtendedProperties>();
-
-        /***************************************************/
+        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
     }
 }
