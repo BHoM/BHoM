@@ -31,7 +31,7 @@ using BH.oM.Environment.Properties;
 
 namespace BH.oM.Environment.Gains
 {
-    public class Thermostat : BHoMObject
+    public class Thermostat : BHoMObject, IEnvironmentObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -42,6 +42,8 @@ namespace BH.oM.Environment.Gains
         public double ControlRange { get; set; } = 0.0; //Degrees Celcius contorl range
 
         public List<Profile> Profiles { get; set; } = new List<Profile>();
+
+        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
 
         /***************************************************/
     }

@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Equipment
 {
-    public interface IEquipment : IEnvironmentObject
+    public interface IEquipment : IEnvironmentObject, IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

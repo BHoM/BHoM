@@ -50,7 +50,7 @@
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\Space.cs" />
-    <Compile Include="Equipment\AitHandlingUnit.cs" />
+    <Compile Include="Equipment\AirHandlingUnit.cs" />
     <Compile Include="Equipment\IEquipment.cs" />
     <Compile Include="Gains\Emitter.cs" />
     <Compile Include="Gains\Enums\EmitterType.cs" />
