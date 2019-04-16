@@ -61,6 +61,18 @@
     <Compile Include="Gains\Enums\SimulationDayType.cs" />
     <Compile Include="Gains\Gain.cs" />
     <Compile Include="Gains\IGain.cs" />
+    <Compile Include="Properties\Fragment\BuildingAnalyticalFragment.cs" />
+    <Compile Include="Properties\Fragment\BuildingContextFragment.cs" />
+    <Compile Include="Properties\Fragment\BuildingResultFragment.cs" />
+    <Compile Include="Properties\Fragment\CoefficientFragment.cs" />
+    <Compile Include="Properties\Fragment\Enums\SizingMethod.cs" />
+    <Compile Include="Properties\Fragment\EnvironmentConstructionFragment.cs" />
+    <Compile Include="Properties\Fragment\OriginContextFragment.cs" />
+    <Compile Include="Properties\Fragment\PanelAnalyticalFragment.cs" />
+    <Compile Include="Properties\Fragment\PanelContextFragment.cs" />
+    <Compile Include="Properties\Fragment\RadiationFragment.cs" />
+    <Compile Include="Properties\Fragment\SpaceAnalyticalFragment.cs" />
+    <Compile Include="Properties\Fragment\SpaceContextFragment.cs" />
     <Compile Include="Properties\IGainProperties.cs" />
     <Compile Include="Gains\InternalCondition.cs" />
     <Compile Include="Properties\InfiltrationGain.cs" />
@@ -76,11 +88,16 @@
     <Compile Include="Materials\GasMaterial.cs" />
     <Compile Include="Materials\IEnvironmentMaterial.cs" />
     <Compile Include="Materials\SolidMaterial.cs" />
-    <Compile Include="Properties\IBHoMFragment.cs" />
+    <Compile Include="Properties\Fragment\IBHoMFragment.cs" />
     <Compile Include="Properties\LightingGain.cs" />
     <Compile Include="Properties\PeopleGain.cs" />
     <Compile Include="Properties\PollutantGain.cs" />
     <Compile Include="Properties\SensibleEquipmentGain.cs" />
+    <Compile Include="Results\Enums\ProfileResultType.cs" />
+    <Compile Include="Results\Enums\ProfileResultUnit.cs" />
+    <Compile Include="Results\Enums\SimulationResultType.cs" />
+    <Compile Include="Results\ProfileResult.cs" />
+    <Compile Include="Results\SimulationResult.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,8 +118,6 @@
       <Name>Physical_oM</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Results\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
