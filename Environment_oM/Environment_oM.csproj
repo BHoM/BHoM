@@ -61,6 +61,7 @@
     <Compile Include="Gains\Enums\SimulationDayType.cs" />
     <Compile Include="Gains\Gain.cs" />
     <Compile Include="Gains\IGain.cs" />
+    <Compile Include="Materials\Enums\Function.cs" />
     <Compile Include="Properties\Fragment\BuildingAnalyticalFragment.cs" />
     <Compile Include="Properties\Fragment\BuildingContextFragment.cs" />
     <Compile Include="Properties\Fragment\BuildingResultFragment.cs" />
