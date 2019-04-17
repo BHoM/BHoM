@@ -35,8 +35,8 @@ namespace BH.oM.Environment.Gains
 
         public double RadiantProportion { get; set; } = 0.0;
         public double ViewCoefficient { get; set; } = 0.0;
-        public double MaxOutsideTemp { get; set; } = 0.0;
-        public double SwitchOffOutsideTemp { get; set; } = 0.0;
+        public double MaximumOutsideTemperature { get; set; } = 0.0;
+        public double SwitchOffOutsideTemperature { get; set; } = 0.0;
         public EmitterType Type { get; set; } = EmitterType.Undefined;
 
         public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
