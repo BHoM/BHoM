@@ -31,7 +31,7 @@ using BH.oM.Environment.Gains;
 
 namespace BH.oM.Environment.Properties
 {
-    public class GainPropertiesPeople : BHoMObject, IGainProperties
+    public class PeopleGain : BHoMObject, IGainProperties
     {
         public double SensibleGain { get; set; } = 0.0;
         public double LatentGain { get; set; } = 0.0;

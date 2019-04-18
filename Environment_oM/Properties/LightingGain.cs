@@ -31,7 +31,7 @@ using BH.oM.Environment.Gains;
 
 namespace BH.oM.Environment.Properties
 {
-    public class GainPropertiesLighting : BHoMObject, IGainProperties
+    public class LightingGain : BHoMObject, IGainProperties
     {
         public Profile Profile { get; set; } = new Profile();
         public GainUnit Unit { get; set; } = GainUnit.Undefined;

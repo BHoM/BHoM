@@ -24,13 +24,14 @@ using System;
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Geometry;
 using BH.oM.Analytical.Elements;
 using BH.oM.Environment.Properties;
 using BH.oM.Physical.Properties.Construction;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>
+    public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
