@@ -27,15 +27,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 
 using BH.oM.Environment.Properties;
-using BH.oM.Environment.Gains;
 using BH.oM.Analytical.Elements;
 using BH.oM.Physical.Properties.Construction;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>
+    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D
     {
         public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
         public List<Opening> Openings { get; set; } = new List<Opening>();
