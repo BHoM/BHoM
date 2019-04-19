@@ -25,6 +25,7 @@ namespace BH.oM.Environment.Elements
     public enum OpeningType
     {
         Undefined,
+        CurtainWall,
         Door,
         Frame,
         Glazing,
