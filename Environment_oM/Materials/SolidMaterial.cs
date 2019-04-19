@@ -38,6 +38,7 @@ namespace BH.oM.Environment.Materials
         public double VapourDiffusionFactor { get; set; } = 0.0;
         public string Description { get; set; } = "";
         public Absorptance Absorptance { get; set; } = new Absorptance();
+        public Roughness Roughness { get; set; } = Roughness.Undefined;
 
         public double SolarReflectanceExternal { get; set; } = 0.0;
         public double SolarReflectanceInternal { get; set; } = 0.0;

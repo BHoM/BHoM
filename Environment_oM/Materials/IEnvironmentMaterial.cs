@@ -39,5 +39,6 @@ namespace BH.oM.Environment.Materials
         double VapourDiffusionFactor { get; set; }
         string Description { get; set; }
         Absorptance Absorptance { get; set; }
+        Roughness Roughness { get; set; }
     }
 }
