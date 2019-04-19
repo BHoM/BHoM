@@ -68,6 +68,7 @@
     <Compile Include="Properties\Fragment\CoefficientFragment.cs" />
     <Compile Include="Properties\Fragment\Enums\SizingMethod.cs" />
     <Compile Include="Properties\Fragment\EnvironmentConstructionFragment.cs" />
+    <Compile Include="Properties\Fragment\LoadFragment.cs" />
     <Compile Include="Properties\Fragment\OriginContextFragment.cs" />
     <Compile Include="Properties\Fragment\PanelAnalyticalFragment.cs" />
     <Compile Include="Properties\Fragment\PanelContextFragment.cs" />
