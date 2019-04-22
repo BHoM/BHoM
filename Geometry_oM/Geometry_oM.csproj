@@ -68,6 +68,7 @@
     <Compile Include="Solid\Cylinder.cs" />
     <Compile Include="Solid\ISolid.cs" />
     <Compile Include="Solid\Sphere.cs" />
+    <Compile Include="Solid\Torus.cs" />
     <Compile Include="Surface\Extrusion.cs" />
     <Compile Include="Surface\ISurface.cs" />
     <Compile Include="Surface\Loft.cs" />
