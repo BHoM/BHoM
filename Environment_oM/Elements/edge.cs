@@ -29,7 +29,7 @@ using BH.oM.Environment.Properties;
 
 namespace BH.oM.Environment.Elements
 {
-    public class Edge : BHoMObject, IEnvironmentObject, IEdge
+    public class Edge : BHoMObject, IEnvironmentObject, IEdge, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
