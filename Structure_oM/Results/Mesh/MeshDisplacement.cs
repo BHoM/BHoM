@@ -65,13 +65,13 @@ namespace BH.oM.Structure.Results
                                 MeshResultLayer meshResultLayer,
                                 double layerPosition,
                                 MeshResultSmoothingType smoothing,
-                                Geometry.CoordinateSystem.Cartesian coordinateSystem,
+                                Basis orientation,
                                 double uXX,
                                 double uYY,
                                 double uZZ,
                                 double rXX,
                                 double rYY, 
-                                double rZZ) : base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, coordinateSystem)
+                                double rZZ) : base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
         {            
             UXX = uXX;
             UYY = uYY;
