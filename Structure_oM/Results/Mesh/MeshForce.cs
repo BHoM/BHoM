@@ -71,7 +71,7 @@ namespace BH.oM.Structure.Results
                             MeshResultLayer meshResultLayer,
                             double layerPosition,
                             MeshResultSmoothingType smoothing,
-                            Geometry.CoordinateSystem.Cartesian coordinateSystem,
+                            Basis orientation,
                             double nXX,
                             double nYY,
                             double nXY,
@@ -79,7 +79,7 @@ namespace BH.oM.Structure.Results
                             double mYY,
                             double mXY,
                             double vX,
-                            double vY) : base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, coordinateSystem)
+                            double vY) : base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
         {            
             NXX = nXX;
             NYY = nYY;

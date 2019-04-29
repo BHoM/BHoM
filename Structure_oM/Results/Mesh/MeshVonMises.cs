@@ -56,10 +56,10 @@ namespace BH.oM.Structure.Results
                             MeshResultLayer meshResultLayer,
                             double layerPosition,
                             MeshResultSmoothingType smoothing,
-                            Geometry.CoordinateSystem.Cartesian coordinateSystem,
+                            Basis orientation,
                             double s,
                             double n,
-                            double m): base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, coordinateSystem)
+                            double m): base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
         {
             S = s;
             N = n;
