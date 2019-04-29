@@ -55,7 +55,6 @@
     <Compile Include="Elements\FEMeshFace.cs" />
     <Compile Include="Elements\FramingElement.cs" />
     <Compile Include="Elements\IAreaElement.cs" />
-    <Compile Include="Elements\IPhysical.cs" />
     <Compile Include="Elements\MeshFace.cs" />
     <Compile Include="Elements\Node.cs" />
     <Compile Include="Elements\Opening.cs" />
