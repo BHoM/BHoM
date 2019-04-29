@@ -39,7 +39,7 @@ namespace BH.oM.Structure.Results
 
         public double TimeStep { get; set; } = 0.0;
 
-        [Description("CoordinateSystem required in order to report results in a particular direction, for example, for anisotropic materials")]
+        [Description("Basis required in order to report results in a particular direction")]
         public Basis Orientation { get; set; } = Basis.XY;
 
         /***************************************************/
