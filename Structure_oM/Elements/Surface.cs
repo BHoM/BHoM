@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,19 +21,18 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
 using BH.oM.Structure.Properties.Surface;
 using BH.oM.Structure.Properties.Constraint;
 
 namespace BH.oM.Structure.Elements
 {
-    public class PanelFreeForm : BHoMObject, IAreaElement
+    public class Surface : BHoMObject, IAreaElement, Analytical.Elements.ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ISurface Surface { get; set; } = null;
+        public Geometry.ISurface Extents { get; set; } = null;
 
         public ISurfaceProperty Property { get; set; } = null;
 

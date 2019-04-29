@@ -59,8 +59,8 @@
     <Compile Include="Elements\MeshFace.cs" />
     <Compile Include="Elements\Node.cs" />
     <Compile Include="Elements\Opening.cs" />
-    <Compile Include="Elements\PanelFreeForm.cs" />
-    <Compile Include="Elements\PanelPlanar.cs" />
+    <Compile Include="Elements\Surface.cs" />
+    <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\RigidLink.cs" />
     <Compile Include="Loads\AreaTemperatureLoad.cs" />
     <Compile Include="Loads\AreaUniformalyDistributedLoad.cs" />
