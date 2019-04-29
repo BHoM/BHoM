@@ -26,7 +26,7 @@ using BH.oM.Structure.Properties.Framing;
 
 namespace BH.oM.Structure.Elements
 {
-    public class FramingElement : BHoMObject, IPhysical
+    public class FramingElement : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
