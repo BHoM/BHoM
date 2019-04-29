@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -23,13 +23,14 @@
 using BH.oM.Geometry;
 using BH.oM.Structure.Properties.Surface;
 using System.Collections.Generic;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
     /// <summary>
     /// BH.oM panel class - a planar surface object with a list of 'edges' (curves with properties) for both external and internal edges (openings)
     /// </summary>
-    public class PanelPlanar : Base.BHoMObject, IAreaElement, IElement2D
+    public class Panel : Base.BHoMObject, IAreaElement, IElement2D, IPanel<Edge,Opening>
     {
         /***************************************************/
         /**** Properties                                ****/
