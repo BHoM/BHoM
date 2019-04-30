@@ -28,7 +28,7 @@ namespace BH.oM.Structure.Loads
     /// <summary>
     /// Uniformly distributed area load
     /// </summary>
-    public class AreaUniformalyDistributedLoad : Load<IAreaElement>  
+    public class AreaUniformlyDistributedLoad : Load<IAreaElement>  
     {
         /***************************************************/
         /**** Properties                                ****/

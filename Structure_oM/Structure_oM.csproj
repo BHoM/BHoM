@@ -62,7 +62,7 @@
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\RigidLink.cs" />
     <Compile Include="Loads\AreaTemperatureLoad.cs" />
-    <Compile Include="Loads\AreaUniformalyDistributedLoad.cs" />
+    <Compile Include="Loads\AreaUniformlyDistributedLoad.cs" />
     <Compile Include="Loads\BarPointLoad.cs" />
     <Compile Include="Loads\BarPrestressLoad.cs" />
     <Compile Include="Loads\BarTemperatureLoad.cs" />
