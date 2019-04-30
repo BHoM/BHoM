@@ -80,7 +80,7 @@
     <Compile Include="Loads\Loadcombination.cs" />
     <Compile Include="Loads\PointAcceleration.cs" />
     <Compile Include="Loads\PointDisplacement.cs" />
-    <Compile Include="Loads\PointForce.cs" />
+    <Compile Include="Loads\PointLoad.cs" />
     <Compile Include="Loads\PointVelocity.cs" />
     <Compile Include="Properties\Constraints\BarRelease.cs" />
     <Compile Include="Properties\Constraints\Constraint3DOF.cs" />
