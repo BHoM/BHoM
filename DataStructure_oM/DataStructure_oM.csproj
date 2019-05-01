@@ -51,6 +51,7 @@
     <Compile Include="PointMatrix\PointMatrix.cs" />
     <Compile Include="PriorityQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Table.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="VennDiagram.cs" />
   </ItemGroup>
