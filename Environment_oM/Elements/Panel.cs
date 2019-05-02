@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
-using BH.oM.Environment.Properties;
+using BH.oM.Environment.Fragments;
 using BH.oM.Analytical.Elements;
 using BH.oM.Physical.Constructions;
 

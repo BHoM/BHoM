@@ -14,27 +14,21 @@
  * The BHoM is distributed in the hope that it will be useful,              
  * but WITHOUT ANY WARRANTY; without even the implied warranty of               
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
- * GNU Lesser General Public License for more details.
+ * GNU Lesser General Public License for more details.                          
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Fragments
 {
-    public class PanelContextFragment : BHoMObject, IBHoMFragment
+    public enum SizingMethod
     {
-        public bool IsAir { get; set; } = false;
-        public bool IsGround { get; set; } = false;
-        public string Colour { get; set; } = "";
-        public bool Reversed { get; set; } = false;
+        Undefined,
+        DesignSizingOnly,
+        LoadPerArea,
+        Mixed,
+        NoSizing,
+        Sizing,
     }
 }

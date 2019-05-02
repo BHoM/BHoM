@@ -27,14 +27,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Gains;
 
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Fragments
 {
-    public class LatentEquipmentGain : BHoMObject, IGainProperties
+    public class BuildingAnalyticalFragment : BHoMObject, IBHoMFragment
     {
-        public Profile Profile { get; set; } = new Profile();
-        public GainUnit Unit { get; set; } = GainUnit.Undefined;
-        public double Value { get; set; } = 0.0;
+        public double NorthAngle { get; set; } = 0;
+        public double GMTOffset { get; set; } = 0;
+        public int Year { get; set; } = 0;
     }
 }

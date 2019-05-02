@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 using BH.oM.Analytical.Elements;
-using BH.oM.Environment.Properties;
+using BH.oM.Environment.Fragments;
 
 namespace BH.oM.Environment.Elements
 {

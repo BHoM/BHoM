@@ -28,7 +28,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-using BH.oM.Environment.Properties;
+using BH.oM.Environment.Fragments;
 
 namespace BH.oM.Environment.Elements
 {
