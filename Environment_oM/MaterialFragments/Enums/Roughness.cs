@@ -20,12 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Materials
+namespace BH.oM.Environment.MaterialFragments
 {
-    public enum AbsorptanceUnit
+    public enum Roughness
     {
         Undefined,
-        Fraction,
-        Percent,
+        VeryRough,
+        MediumRough,
+        Rough,
+        Smooth,
+        MediumSmooth,
+        VerySmooth,
     }
 }

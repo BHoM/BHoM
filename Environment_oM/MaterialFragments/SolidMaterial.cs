@@ -27,18 +27,29 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
 
-namespace BH.oM.Environment.Materials
+namespace BH.oM.Environment.MaterialFragments
 {
-    public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties
+    public class SolidMaterial : BHoMObject, IEnvironmentMaterial
     {
-        double Conductivity { get; set; }
-        double SpecificHeat { get; set; }
-        double AdditionalHeatTransfer { get; set; }
-        double VapourDiffusionFactor { get; set; }
-        string Description { get; set; }
-        Absorptance Absorptance { get; set; }
-        Roughness Roughness { get; set; }
+        public double Conductivity { get; set; } = 0.0;
+        public double SpecificHeat { get; set; } = 0.0;
+        public double AdditionalHeatTransfer { get; set; } = 0.0;
+        public double VapourDiffusionFactor { get; set; } = 0.0;
+        public string Description { get; set; } = "";
+        public Absorptance Absorptance { get; set; } = new Absorptance();
+        public Roughness Roughness { get; set; } = Roughness.Undefined;
+
+        public double SolarReflectanceExternal { get; set; } = 0.0;
+        public double SolarReflectanceInternal { get; set; } = 0.0;
+        public double SolarTransmittance { get; set; } = 0.0;
+        public double LightReflectanceExternal { get; set; } = 0.0;
+        public double LightReflectanceInternal { get; set; } = 0.0;
+        public double LightTransmittance { get; set; } = 0.0;
+        public double EmissivityExternal { get; set; } = 0.0;
+        public double EmissivityInternal { get; set; } = 0.0;
+        public double Transparency { get; set; } = 0.0;
+
+        public bool IgnoreInUValueCalculation { get; set; } = false;
     }
 }

@@ -27,20 +27,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Environment.Properties;
 
-namespace BH.oM.Environment.Materials
+namespace BH.oM.Environment.MaterialFragments
 {
-    public class GasMaterial : BHoMObject, IEnvironmentMaterial
+    public class Absorptance : BHoMObject, IEnvironmentObject
     {
-        public double Conductivity { get; set; } = 0.0;
-        public double SpecificHeat { get; set; } = 0.0;
-        public double AdditionalHeatTransfer { get; set; } = 0.0;
-        public double VapourDiffusionFactor { get; set; } = 0.0;
-        public string Description { get; set; } = "";
-        public Absorptance Absorptance { get; set; } = new Absorptance();
-        public Roughness Roughness { get; set; } = Roughness.Undefined;
+        public double Value { get; set; } = 0.0;
+        public AbsorptanceUnit AbsorptanceUnit { get; set; } = AbsorptanceUnit.Undefined;
+        public AbsorptanceType AbsorptanceType { get; set; } = AbsorptanceType.Undefined;
 
-        public double ConvectionCoefficient { get; set; } = 0.0;
-        public Gas Gas { get; set; } = Gas.Undefined;
+        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
     }
 }
