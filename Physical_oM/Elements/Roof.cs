@@ -27,7 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Physical.Properties.Construction;
+using BH.oM.Physical.Constructions;
 
 namespace BH.oM.Physical.Elements
 {

@@ -28,7 +28,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.Physical.Properties.Construction;
+using BH.oM.Physical.Constructions;
 using BH.oM.Physical.Elements;
 
 namespace BH.oM.Physical.Elements

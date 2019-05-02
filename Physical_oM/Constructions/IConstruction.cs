@@ -28,9 +28,9 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Physical.Properties
+namespace BH.oM.Physical.Constructions
 {
-    public interface IMaterialProperties : IBHoMObject
+    public interface IConstruction : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

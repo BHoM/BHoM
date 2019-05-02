@@ -28,15 +28,15 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Physical.Properties.Construction
+namespace BH.oM.Physical.Constructions
 {
-    public interface IConstruction : IBHoMObject
+    public class Construction : BHoMObject, IConstruction, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-
+        public List<Layer> Layers { get; set; } = new List<Layer>();
 
         /***************************************************/
     }
