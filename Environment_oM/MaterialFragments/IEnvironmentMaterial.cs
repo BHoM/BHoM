@@ -27,16 +27,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Properties;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.Environment.Materials
+namespace BH.oM.Environment.MaterialFragments
 {
-    public class Absorptance : BHoMObject, IEnvironmentObject
+    public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties
     {
-        public double Value { get; set; } = 0.0;
-        public AbsorptanceUnit AbsorptanceUnit { get; set; } = AbsorptanceUnit.Undefined;
-        public AbsorptanceType AbsorptanceType { get; set; } = AbsorptanceType.Undefined;
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
+        double Conductivity { get; set; }
+        double SpecificHeat { get; set; }
+        double AdditionalHeatTransfer { get; set; }
+        double VapourDiffusionFactor { get; set; }
+        string Description { get; set; }
+        Absorptance Absorptance { get; set; }
+        Roughness Roughness { get; set; }
     }
 }

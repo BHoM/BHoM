@@ -20,36 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-
-namespace BH.oM.Environment.Materials
+namespace BH.oM.Environment.MaterialFragments
 {
-    public class SolidMaterial : BHoMObject, IEnvironmentMaterial
+    public enum Function
     {
-        public double Conductivity { get; set; } = 0.0;
-        public double SpecificHeat { get; set; } = 0.0;
-        public double AdditionalHeatTransfer { get; set; } = 0.0;
-        public double VapourDiffusionFactor { get; set; } = 0.0;
-        public string Description { get; set; } = "";
-        public Absorptance Absorptance { get; set; } = new Absorptance();
-        public Roughness Roughness { get; set; } = Roughness.Undefined;
-
-        public double SolarReflectanceExternal { get; set; } = 0.0;
-        public double SolarReflectanceInternal { get; set; } = 0.0;
-        public double SolarTransmittance { get; set; } = 0.0;
-        public double LightReflectanceExternal { get; set; } = 0.0;
-        public double LightReflectanceInternal { get; set; } = 0.0;
-        public double LightTransmittance { get; set; } = 0.0;
-        public double EmissivityExternal { get; set; } = 0.0;
-        public double EmissivityInternal { get; set; } = 0.0;
-        public double Transparency { get; set; } = 0.0;
-
-        public bool IgnoreInUValueCalculation { get; set; } = false;
+        Undefined,
+        Aggregate,
+        AirGap,
+        Asphalt,
+        Blind,
+        Board,
+        Brick,
+        Carpet,
+        Concrete,
+        Glass,
+        Insulation,
+        Metal,
+        Plaster,
+        Screed,
+        Tile,
+        Timber,
     }
 }

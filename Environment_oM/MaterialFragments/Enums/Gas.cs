@@ -20,18 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Materials
+namespace BH.oM.Environment.MaterialFragments
 {
-    public enum AbsorptanceType
+    public enum Gas
     {
         Undefined,
-        InfraredExternal,
-        InfraredInternal,
-        TotalExternal,
-        TotalInternal,
-        SolarExternal,
-        SolarInternal,
-        VisibleExternal,
-        VisibleInternal,
+        Air,
+        Argon,
+        Krypton,
+        Xenon,
     }
 }

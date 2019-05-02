@@ -20,25 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Materials
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+
+namespace BH.oM.Environment.MaterialFragments
 {
-    public enum Function
+    public class GasMaterial : BHoMObject, IEnvironmentMaterial
     {
-        Undefined,
-        Aggregate,
-        AirGap,
-        Asphalt,
-        Blind,
-        Board,
-        Brick,
-        Carpet,
-        Concrete,
-        Glass,
-        Insulation,
-        Metal,
-        Plaster,
-        Screed,
-        Tile,
-        Timber,
+        public double Conductivity { get; set; } = 0.0;
+        public double SpecificHeat { get; set; } = 0.0;
+        public double AdditionalHeatTransfer { get; set; } = 0.0;
+        public double VapourDiffusionFactor { get; set; } = 0.0;
+        public string Description { get; set; } = "";
+        public Absorptance Absorptance { get; set; } = new Absorptance();
+        public Roughness Roughness { get; set; } = Roughness.Undefined;
+
+        public double ConvectionCoefficient { get; set; } = 0.0;
+        public Gas Gas { get; set; } = Gas.Undefined;
     }
 }
