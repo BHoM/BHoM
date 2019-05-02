@@ -27,19 +27,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Properties;
 
-namespace BH.oM.Physical.Properties.Construction
+namespace BH.oM.Physical.Materials
 {
-    public class Layer : BHoMObject, IPhysical
+    public interface IMaterialProperties : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Material Material { get; set; } = new Material();
-        public double Thickness { get; set; } = 0;
+
 
         /***************************************************/
     }

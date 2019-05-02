@@ -49,23 +49,25 @@
     <Compile Include="Elements\Floor.cs" />
     <Compile Include="Elements\IFramingElement.cs" />
     <Compile Include="Elements\ISurface.cs" />
-    <Compile Include="Properties\Construction\Construction.cs" />
+    <Compile Include="Constructions\Construction.cs" />
     <Compile Include="Elements\Door.cs" />
     <Compile Include="Elements\Beam.cs" />
-    <Compile Include="Properties\Construction\Layer.cs" />
-    <Compile Include="Properties\Material.cs" />
+    <Compile Include="Constructions\Layer.cs" />
+    <Compile Include="Materials\Material.cs" />
     <Compile Include="Elements\Wall.cs" />
     <Compile Include="Elements\Void.cs" />
     <Compile Include="Elements\Window.cs" />
     <Compile Include="Enums\Offset.cs" />
-    <Compile Include="Properties\Construction\IConstruction.cs" />
-    <Compile Include="Properties\IFramingElementProperty.cs" />
-    <Compile Include="Properties\IMaterialProperties.cs" />
+    <Compile Include="Constructions\IConstruction.cs" />
+    <Compile Include="Elements\IFramingElementProperty.cs" />
+    <Compile Include="Materials\IMaterialProperties.cs" />
     <Compile Include="Elements\IOpening.cs" />
     <Compile Include="IPhysical.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Fragments\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
