@@ -27,7 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Physical.Properties;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.Environment.Materials
 {
