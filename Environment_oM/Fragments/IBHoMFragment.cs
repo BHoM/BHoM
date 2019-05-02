@@ -28,7 +28,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Fragments
 {
     public interface IBHoMFragment : IBHoMObject
     {

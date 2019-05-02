@@ -14,7 +14,7 @@
  * The BHoM is distributed in the hope that it will be useful,              
  * but WITHOUT ANY WARRANTY; without even the implied warranty of               
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
- * GNU Lesser General Public License for more details.                          
+ * GNU Lesser General Public License for more details.
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
@@ -27,14 +27,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Gains;
 
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Fragments
 {
-    public class InfiltrationGain : BHoMObject, IGainProperties
+    public class SpaceContextFragment : BHoMObject, IBHoMFragment
     {
-        public Profile Profile { get; set; } = new Profile();
-        public GainUnit Unit { get; set; } = GainUnit.Undefined;
-        public double Value { get; set; } = 0.0;
+        public bool IsExternal { get; set; } = false;
+        public string Colour { get; set; } = "";
+        public List<string> ConnectedElements { get; set; } = new List<string>();
     }
 }

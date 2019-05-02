@@ -28,16 +28,12 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Fragments
 {
-    public class SpaceAnalyticalFragment : BHoMObject, IBHoMFragment
+    public class CoefficientFragment : BHoMObject, IBHoMFragment
     {
-        public double InternalDomesticHotWater { get; set; } = 0;
-        public double DaylightFactor { get; set; } = 0;
-        public double FacadeLength { get; set; } = 0;
-        public double FixedConvectionCoefficient { get; set; } = 0;
-        public SizingMethod SizeCoolingMethod { get; set; } = SizingMethod.Sizing;
-        public SizingMethod SizeHeatingMethod { get; set; } = SizingMethod.Sizing;
-        public double RadiantProportion { get; set; } = 0;
+        public double LightingViewCoefficient { get; set; } = 0.49;
+        public double OccupantViewCoefficient { get; set; } = 0.227;
+        public double EquipmentViewCoefficient { get; set; } = 0.372;
     }
 }

@@ -27,14 +27,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Gains;
 
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Fragments
 {
-    public class PollutantGain : BHoMObject, IGainProperties
+    public class BuildingContextFragment : BHoMObject, IBHoMFragment
     {
-        public Profile Profile { get; set; } = new Profile();
-        public GainUnit Unit { get; set; } = GainUnit.Undefined;
-        public double Value { get; set; } = 0.0;
+        public string PlaceName { get; set; } = "";
+        public string WeatherStation { get; set; } = "";
     }
 }

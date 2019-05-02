@@ -27,17 +27,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Gains;
 
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Fragments
 {
-    public class LightingGain : BHoMObject, IGainProperties
+    public class EnvironmentConstructionFragment : BHoMObject, IBHoMFragment
     {
-        public Profile Profile { get; set; } = new Profile();
-        public GainUnit Unit { get; set; } = GainUnit.Undefined;
-        public double RadiantFraction { get; set; } = 0.0;
-        public double ViewCoefficient { get; set; } = 0.0;
-        public double LuminousEfficacy { get; set; } = 0.0;
-        public double Value { get; set; } = 0.0;
+        public double FFactor { get; set; } = 0.0;
     }
 }

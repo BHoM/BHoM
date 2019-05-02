@@ -27,9 +27,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Gains;
 
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Gains
 {
     public class SensibleEquipmentGain : BHoMObject, IGainProperties
     {

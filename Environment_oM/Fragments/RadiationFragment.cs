@@ -14,7 +14,7 @@
  * The BHoM is distributed in the hope that it will be useful,              
  * but WITHOUT ANY WARRANTY; without even the implied warranty of               
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
- * GNU Lesser General Public License for more details.                          
+ * GNU Lesser General Public License for more details.
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
@@ -28,11 +28,12 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Environment.Properties
+namespace BH.oM.Environment.Fragments
 {
-    public class BuildingContextFragment : BHoMObject, IBHoMFragment
+    public class RadiationFragment : BHoMObject, IBHoMFragment
     {
-        public string PlaceName { get; set; } = "";
-        public string WeatherStation { get; set; } = "";
+        public double LightingRadiation { get; set; } = 0.3;
+        public double OccupantRadiation { get; set; } = 0.2;
+        public double EquipmentRadiation { get; set; } = 0.1;
     }
 }
