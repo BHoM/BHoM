@@ -21,26 +21,38 @@
  */
 
 using System.Collections.Generic;
-using System.Linq;
 using System.Collections.ObjectModel;
+using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    public class KiteProfile : BHoMObject, IProfile, IImmutable
+    public class GeneralisedFabricatedBoxProfile : BHoMObject, IProfile, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ShapeType Shape { get; } = ShapeType.DoubleAngle;
+        public ShapeType Shape { get; } = ShapeType.Box;
 
-        public double Width1 { get; }
+        public double Height { get; }
 
-        public double Angle1 { get; } 
+        public double Width { get; }
 
-        public double Thickness { get; }
+        public double WebThickness { get; }
+
+        public double TopFlangeThickness { get; }
+
+        public double BotFlangeThickness { get; }
+
+        public double TopLeftCorbelWidth { get; }
+
+        public double TopRightCorbelWidth { get; }
+
+        public double BotLeftCorbelWidth { get; }
+
+        public double BotRightCorbelWidth { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -48,11 +60,17 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public KiteProfile(double width1, double angle1, double thickness, IEnumerable<ICurve> edges)
+        public GeneralisedFabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double topLeftCorbelWidth, double topRightCorbelWidth, double botLeftCorbelWidth, double botRightCorbelWidth, IEnumerable<ICurve> edges)
         {
-            Width1 = width1;
-            Angle1 = angle1;
-            Thickness = thickness;
+            Height = height;
+            Width = width;
+            WebThickness = webThickness;
+            TopFlangeThickness = topFlangeThickness;
+            BotFlangeThickness = botFlangeThickness;
+            TopLeftCorbelWidth = topLeftCorbelWidth;
+            TopRightCorbelWidth = topRightCorbelWidth;
+            BotLeftCorbelWidth = botLeftCorbelWidth;
+            BotRightCorbelWidth = botRightCorbelWidth;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

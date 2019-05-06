@@ -20,35 +20,35 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    public class GeneralisedTSectionProfile : BHoMObject, IProfile, IImmutable
+    public class ZSectionProfile : BHoMObject, IProfile, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ShapeType Shape { get; } = ShapeType.Tee;
+        public ShapeType Shape { get; } = ShapeType.Zed;
 
         public double Height { get; }
 
+        public double FlangeWidth { get; }
+
         public double WebThickness { get; }
 
-        public double LeftOutstandWidth { get; }
+        public double FlangeThickness { get; }
 
-        public double LeftOutstandThickness { get; }
+        public double RootRadius { get; }
 
-        public double RightOutstandWidth { get; }
+        public double ToeRadius { get; }
 
-        public double RightOutstandThickness { get; }
-
-        public bool MirrorAboutLocalY { get; }
+        public bool MirrorAboutLocalZ { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -56,18 +56,19 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public GeneralisedTSectionProfile(double height, double webThickness, double leftOutstandWidth, double leftOutstandThickness, double rightOutstandWidth, double rightOutstandThickness, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
+        public ZSectionProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
         {
             Height = height;
-            WebThickness = webThickness;
-            LeftOutstandWidth = leftOutstandWidth;
-            LeftOutstandThickness = leftOutstandThickness;
-            RightOutstandWidth = rightOutstandWidth;
-            RightOutstandThickness = rightOutstandThickness;
-            MirrorAboutLocalY = mirrorAboutLocalY;
+            FlangeWidth = flangeWidth;
+            WebThickness = webthickness;
+            FlangeThickness = flangeThickness;
+            RootRadius = rootRadius;
+            ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
+
         /***************************************************/
     }
-}                                                   
+}

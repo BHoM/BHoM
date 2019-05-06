@@ -26,9 +26,9 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    public class FabricatedBoxProfile : BHoMObject, IProfile, IImmutable
+    public class BoxProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
@@ -40,13 +40,11 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 
         public double Width { get; }
 
-        public double WebThickness { get; }
+        public double Thickness { get; }
 
-        public double TopFlangeThickness { get; }
+        public double OuterRadius { get; }
 
-        public double BotFlangeThickness { get; }
-
-        public double WeldSize { get; }
+        public double InnerRadius { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -54,14 +52,13 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public FabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
+        public BoxProfile(double height, double width, double thickness, double outerRadius, double innerRadius, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
-            WebThickness = webThickness;
-            BotFlangeThickness = botFlangeThickness;
-            TopFlangeThickness = topFlangeThickness;
-            WeldSize = weldSize;
+            Thickness = thickness;
+            OuterRadius = outerRadius;
+            InnerRadius = innerRadius;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

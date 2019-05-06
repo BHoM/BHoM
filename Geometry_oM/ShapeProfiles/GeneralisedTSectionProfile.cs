@@ -20,33 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    public class TSectionProfile : BHoMObject, IProfile, IImmutable
+    public class GeneralisedTSectionProfile : BHoMObject, IProfile, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         public ShapeType Shape { get; } = ShapeType.Tee;
 
         public double Height { get; }
 
-        public double Width { get; }
-
         public double WebThickness { get; }
 
-        public double FlangeThickness { get; }
+        public double LeftOutstandWidth { get; }
 
-        public double RootRadius { get; }
+        public double LeftOutstandThickness { get; }
 
-        public double ToeRadius { get; }
+        public double RightOutstandWidth { get; }
+
+        public double RightOutstandThickness { get; }
 
         public bool MirrorAboutLocalY { get; }
 
@@ -56,18 +56,18 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TSectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
+        public GeneralisedTSectionProfile(double height, double webThickness, double leftOutstandWidth, double leftOutstandThickness, double rightOutstandWidth, double rightOutstandThickness, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
         {
             Height = height;
-            Width = width;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
+            WebThickness = webThickness;
+            LeftOutstandWidth = leftOutstandWidth;
+            LeftOutstandThickness = leftOutstandThickness;
+            RightOutstandWidth = rightOutstandWidth;
+            RightOutstandThickness = rightOutstandThickness;
             MirrorAboutLocalY = mirrorAboutLocalY;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
         /***************************************************/
     }
-}
+}                                                   

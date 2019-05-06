@@ -26,29 +26,21 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    public class ZSectionProfile : BHoMObject, IProfile, IImmutable
+    public class RectangleProfile : BHoMObject, IProfile, IImmutable
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public ShapeType Shape { get; } = ShapeType.Zed;
+        public ShapeType Shape { get; } = ShapeType.Rectangle;
 
         public double Height { get; }
 
-        public double FlangeWidth { get; }
+        public double Width { get; }
 
-        public double WebThickness { get; }
-
-        public double FlangeThickness { get; }
-
-        public double RootRadius { get; }
-
-        public double ToeRadius { get; }
-
-        public bool MirrorAboutLocalZ { get; }
+        public double CornerRadius { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -56,15 +48,11 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ZSectionProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
+        public RectangleProfile(double height, double width, double cornerRadius, IEnumerable<ICurve> edges)
         {
             Height = height;
-            FlangeWidth = flangeWidth;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalZ = mirrorAboutLocalZ;
+            Width = width;
+            CornerRadius = cornerRadius;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

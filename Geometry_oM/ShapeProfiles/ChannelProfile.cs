@@ -26,25 +26,29 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    public class BoxProfile : BHoMObject, IProfile, IImmutable
+    public class ChannelProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Box;
+        public ShapeType Shape { get; } = ShapeType.Channel;
 
         public double Height { get; }
 
-        public double Width { get; }
+        public double FlangeWidth { get; }
 
-        public double Thickness { get; }
+        public double WebThickness { get; }
 
-        public double OuterRadius { get; }
+        public double FlangeThickness { get; }
 
-        public double InnerRadius { get; }
+        public double RootRadius { get; }
+
+        public double ToeRadius { get; }
+
+        public bool MirrorAboutLocalZ { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -52,13 +56,15 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BoxProfile(double height, double width, double thickness, double outerRadius, double innerRadius, IEnumerable<ICurve> edges)
+        public ChannelProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
         {
             Height = height;
-            Width = width;
-            Thickness = thickness;
-            OuterRadius = outerRadius;
-            InnerRadius = innerRadius;
+            FlangeWidth = flangeWidth;
+            WebThickness = webthickness;
+            FlangeThickness = flangeThickness;
+            RootRadius = rootRadius;
+            ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

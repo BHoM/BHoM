@@ -26,15 +26,15 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    public class AngleProfile : BHoMObject, IProfile, IImmutable
+    public class FabricatedBoxProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Angle;
+        public ShapeType Shape { get; } = ShapeType.Box;
 
         public double Height { get; }
 
@@ -42,35 +42,29 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 
         public double WebThickness { get; }
 
-        public double FlangeThickness { get; }
+        public double TopFlangeThickness { get; }
 
-        public double RootRadius { get; }
+        public double BotFlangeThickness { get; }
 
-        public double ToeRadius { get; }
-
-        public bool MirrorAboutLocalZ { get; }
-
-        public bool MirrorAboutLocalY { get; }
+        public double WeldSize { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
-
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public AngleProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
+        public FabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalZ = mirrorAboutLocalZ;
-            MirrorAboutLocalY = mirrorAboutLocalY;
+            WebThickness = webThickness;
+            BotFlangeThickness = botFlangeThickness;
+            TopFlangeThickness = topFlangeThickness;
+            WeldSize = weldSize;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
+
 
         /***************************************************/
     }

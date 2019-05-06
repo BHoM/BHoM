@@ -26,7 +26,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
     public class TubeProfile : BHoMObject, IProfile, IImmutable
     {

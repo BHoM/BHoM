@@ -20,21 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    public class GeneralisedFabricatedBoxProfile : BHoMObject, IProfile, IImmutable
+    public class AngleProfile : BHoMObject, IProfile, IImmutable
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public ShapeType Shape { get; } = ShapeType.Box;
+        public ShapeType Shape { get; } = ShapeType.Angle;
 
         public double Height { get; }
 
@@ -42,35 +42,33 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
 
         public double WebThickness { get; }
 
-        public double TopFlangeThickness { get; }
+        public double FlangeThickness { get; }
 
-        public double BotFlangeThickness { get; }
+        public double RootRadius { get; }
 
-        public double TopLeftCorbelWidth { get; }
+        public double ToeRadius { get; }
 
-        public double TopRightCorbelWidth { get; }
+        public bool MirrorAboutLocalZ { get; }
 
-        public double BotLeftCorbelWidth { get; }
-
-        public double BotRightCorbelWidth { get; }
+        public bool MirrorAboutLocalY { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public GeneralisedFabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double topLeftCorbelWidth, double topRightCorbelWidth, double botLeftCorbelWidth, double botRightCorbelWidth, IEnumerable<ICurve> edges)
+        public AngleProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
-            WebThickness = webThickness;
-            TopFlangeThickness = topFlangeThickness;
-            BotFlangeThickness = botFlangeThickness;
-            TopLeftCorbelWidth = topLeftCorbelWidth;
-            TopRightCorbelWidth = topRightCorbelWidth;
-            BotLeftCorbelWidth = botLeftCorbelWidth;
-            BotRightCorbelWidth = botRightCorbelWidth;
+            WebThickness = webthickness;
+            FlangeThickness = flangeThickness;
+            RootRadius = rootRadius;
+            ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
+            MirrorAboutLocalY = mirrorAboutLocalY;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

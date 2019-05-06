@@ -20,35 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections.ObjectModel;
+using BH.oM.Base;
+using BH.oM.Geometry;
 
-namespace BH.oM.Structure.Properties.Section.ShapeProfiles
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    public class ChannelProfile : BHoMObject, IProfile, IImmutable
+    public class KiteProfile : BHoMObject, IProfile, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Channel;
 
-        public double Height { get; }
+        public ShapeType Shape { get; } = ShapeType.DoubleAngle;
 
-        public double FlangeWidth { get; }
+        public double Width1 { get; }
 
-        public double WebThickness { get; }
+        public double Angle1 { get; } 
 
-        public double FlangeThickness { get; }
-
-        public double RootRadius { get; }
-
-        public double ToeRadius { get; }
-
-        public bool MirrorAboutLocalZ { get; }
+        public double Thickness { get; }
 
         public ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -56,18 +48,13 @@ namespace BH.oM.Structure.Properties.Section.ShapeProfiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ChannelProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
+        public KiteProfile(double width1, double angle1, double thickness, IEnumerable<ICurve> edges)
         {
-            Height = height;
-            FlangeWidth = flangeWidth;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalZ = mirrorAboutLocalZ;
+            Width1 = width1;
+            Angle1 = angle1;
+            Thickness = thickness;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
-
 
         /***************************************************/
     }

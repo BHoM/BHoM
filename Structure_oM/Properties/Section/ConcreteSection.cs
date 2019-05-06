@@ -26,7 +26,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using BH.oM.Physical.Materials;
-using BH.oM.Structure.Properties.Section.ShapeProfiles;
+using BH.oM.Geometry.ShapeProfiles;
 
 namespace BH.oM.Structure.Properties.Section
 {
