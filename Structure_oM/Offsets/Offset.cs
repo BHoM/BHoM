@@ -20,24 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Base;
-using BH.oM.Structure.Constraints;
+using BH.oM.Geometry;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Structure.Offsets
 {
-    public class RigidLink : BHoMObject
+    /// <summary>
+    /// Offsets for bars
+    /// </summary>
+    public class Offset : Base.BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Node MasterNode { get; set; } = new Node();
+        public Vector Start { get; set; } = new Vector();
 
-        public List<Node> SlaveNodes { get; set; } = new List<Node>();
-
-        public LinkConstraint Constraint { get; set; } = null;
-
+        public Vector End { get; set; } = new Vector();
 
         /***************************************************/
     }

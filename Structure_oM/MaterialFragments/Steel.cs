@@ -1,6 +1,6 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -22,23 +22,30 @@
 
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Structure.Constraints;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Structure.MaterialFragments
 {
-    public class RigidLink : BHoMObject
+    public class Steel : BHoMObject, IIsotropic
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Node MasterNode { get; set; } = new Node();
+        public double DampingRatio { get; set; }
 
-        public List<Node> SlaveNodes { get; set; } = new List<Node>();
+        public double PoissonsRatio { get; set; }
 
-        public LinkConstraint Constraint { get; set; } = null;
+        public double ThermalExpansionCoeff { get; set; }
 
+        public double YoungsModulus { get; set; }
+
+        public double YieldStress { get; set; }
+
+        public double UltimateStress { get; set; }
+
+        public List<ISteelModel> Models { get; set; }
 
         /***************************************************/
+
     }
 }

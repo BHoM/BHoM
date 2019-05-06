@@ -20,25 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Base;
-using BH.oM.Structure.Constraints;
-
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Structure.SurfaceProperties
 {
-    public class RigidLink : BHoMObject
+    /***************************************************/
+    public enum PanelModifier
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public Node MasterNode { get; set; } = new Node();
-
-        public List<Node> SlaveNodes { get; set; } = new List<Node>();
-
-        public LinkConstraint Constraint { get; set; } = null;
-
-
-        /***************************************************/
+        //In plane axial stiffness in the local X direction
+        f11 = 0,
+        //In plane axial stiffness in the local XY direction
+        f12,
+        //In plane axial stiffness in the local Y direction
+        f22,
+        //In plane flexural stiffness in the local X direction
+        m11,
+        //In plane flexural stiffness in the local XY direction
+        m12,
+        //In plane flexural stiffness in the local Y direction
+        m22,
+        //Shear stiffness in the X - normal direction
+        v13,
+        //Shear stiffness in the Y - normal direction
+        v23,
+        //Mass modifier
+        Mass,
+        //weight modifier
+        Weight
     }
+    /***************************************************/
 }

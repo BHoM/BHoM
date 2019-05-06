@@ -20,24 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Structure.Constraints;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.Structure.Elements
+
+namespace BH.oM.Structure.SurfaceProperties
 {
-    public class RigidLink : BHoMObject
+    public class ConstantThickness : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Node MasterNode { get; set; } = new Node();
+        public double Thickness { get; set; }
 
-        public List<Node> SlaveNodes { get; set; } = new List<Node>();
+        public Material Material { get; set; }
 
-        public LinkConstraint Constraint { get; set; } = null;
-
+        public PanelType PanelType { get; set; } = PanelType.Slab;  //TODO: Required to get Etabs working. To be moved to physical objects
 
         /***************************************************/
     }

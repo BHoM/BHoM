@@ -22,7 +22,7 @@
 
 using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.Structure.Properties.Framing;
+using BH.oM.Structure.FramingProperties;
 
 namespace BH.oM.Structure.Elements
 {

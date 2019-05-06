@@ -20,24 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Structure.Constraints;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Structure.SurfaceProperties
 {
-    public class RigidLink : BHoMObject
+    public class LoadingPanelProperty : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Node MasterNode { get; set; } = new Node();
+        public LoadPanelSupportConditions LoadApplication { get; set; } = LoadPanelSupportConditions.AllSides;
 
-        public List<Node> SlaveNodes { get; set; } = new List<Node>();
+        public int ReferenceEdge { get; set; } = 1;
 
-        public LinkConstraint Constraint { get; set; } = null;
-
+        public Material Material { get; set; }
 
         /***************************************************/
     }

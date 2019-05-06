@@ -21,7 +21,7 @@
  */
 
 using System.Collections.Generic;
-using BH.oM.Structure.Properties.Surface;
+using BH.oM.Structure.SurfaceProperties;
 using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements

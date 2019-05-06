@@ -1,6 +1,7 @@
+﻿
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,25 +21,32 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Structure.Constraints;
+using BH.oM.Geometry;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Structure.MaterialFragments
 {
-    public class RigidLink : BHoMObject
+    public class Timber : BHoMObject, IOrthotropic
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Node MasterNode { get; set; } = new Node();
+        public double DampingRatio { get; set; }
 
-        public List<Node> SlaveNodes { get; set; } = new List<Node>();
+        public Vector PoissonsRatio { get; set; }
 
-        public LinkConstraint Constraint { get; set; } = null;
+        public Vector ThermalExpansionCoeff { get; set; }
 
+        public Vector YoungsModulus { get; set; }
+
+        public Vector ShearModulus { get; set; }
+
+        public List<ITimberModel> Models { get; set; }
 
         /***************************************************/
+
     }
 }

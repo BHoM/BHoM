@@ -22,7 +22,7 @@
 
 using BH.oM.Base;
 
-namespace BH.oM.Structure.Properties.Constraint
+namespace BH.oM.Structure.Constraints
 {
     /// <summary>
     /// Constraint object - base class for all release, restraint, support classes. 

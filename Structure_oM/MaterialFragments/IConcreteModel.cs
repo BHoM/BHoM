@@ -1,6 +1,6 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,25 +20,10 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Base;
-using BH.oM.Structure.Constraints;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Structure.MaterialFragments
 {
-    public class RigidLink : BHoMObject
+    public interface IConcreteModel
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public Node MasterNode { get; set; } = new Node();
-
-        public List<Node> SlaveNodes { get; set; } = new List<Node>();
-
-        public LinkConstraint Constraint { get; set; } = null;
-
-
-        /***************************************************/
     }
 }
