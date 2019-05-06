@@ -23,7 +23,7 @@
 using BH.oM.Base;
 using BH.oM.Common;
 using BH.oM.Geometry;
-using BH.oM.Structure.Properties.Constraint;
+using BH.oM.Structure.Constraints;
 using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements

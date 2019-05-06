@@ -20,25 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Base;
-using BH.oM.Structure.Constraints;
-
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Structure.SectionProperties
 {
-    public class RigidLink : BHoMObject
+
+    /***************************************************/
+    /// <summary>
+    /// Restraint types for steel sections
+    /// </summary>
+    public enum SteelPlateRestraint
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public Node MasterNode { get; set; } = new Node();
-
-        public List<Node> SlaveNodes { get; set; } = new List<Node>();
-
-        public LinkConstraint Constraint { get; set; } = null;
-
-
-        /***************************************************/
+        NoRestraint,
+        TopFlangeRestraint,
+        BottomFlangeRestraint,
+        WebRestraint,
+        FullRestraint
     }
+
+    /***************************************************/
 }
