@@ -22,7 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Physical.Materials;
-using BH.oM.Structure.Properties.Section.ShapeProfiles;
+using BH.oM.Geometry.ShapeProfiles;
 
 namespace BH.oM.Structure.Properties.Section
 {
