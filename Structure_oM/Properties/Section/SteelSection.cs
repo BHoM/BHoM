@@ -21,7 +21,7 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Physical.Properties;
+using BH.oM.Physical.Materials;
 using BH.oM.Structure.Properties.Section.ShapeProfiles;
 
 namespace BH.oM.Structure.Properties.Section
