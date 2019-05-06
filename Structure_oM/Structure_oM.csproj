@@ -88,6 +88,7 @@
     <Compile Include="Constraints\LinkConstraint.cs" />
     <Compile Include="MaterialFragments\Aluminium.cs" />
     <Compile Include="MaterialFragments\Concrete.cs" />
+    <Compile Include="MaterialFragments\Enums\MaterialType.cs" />
     <Compile Include="MaterialFragments\IAluminiumModel.cs" />
     <Compile Include="MaterialFragments\IConcreteModel.cs" />
     <Compile Include="MaterialFragments\IIsotropic.cs" />
