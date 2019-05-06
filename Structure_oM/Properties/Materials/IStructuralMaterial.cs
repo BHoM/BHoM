@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.oM.Physical.Properties;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.Structure.Properties.Materials
 {

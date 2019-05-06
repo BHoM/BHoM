@@ -21,7 +21,7 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Physical.Properties;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.Structure.Properties.Section.Reinforcement
 {
