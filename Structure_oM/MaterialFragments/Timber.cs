@@ -34,6 +34,8 @@ namespace BH.oM.Structure.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
+        public double Density { get; set; }
+
         public double DampingRatio { get; set; }
 
         public Vector PoissonsRatio { get; set; }

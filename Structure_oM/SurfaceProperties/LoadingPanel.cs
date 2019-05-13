@@ -21,7 +21,7 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
+using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
@@ -35,7 +35,7 @@ namespace BH.oM.Structure.SurfaceProperties
 
         public int ReferenceEdge { get; set; } = 1;
 
-        public Material Material { get; set; }
+        public IStructuralMaterial Material { get; set; }
 
         /***************************************************/
     }

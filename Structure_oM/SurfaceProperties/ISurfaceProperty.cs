@@ -21,7 +21,7 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
+using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
@@ -34,7 +34,7 @@ namespace BH.oM.Structure.SurfaceProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        Material Material { get; set; }
+        IStructuralMaterial Material { get; set; }
 
         /***************************************************/
     }    

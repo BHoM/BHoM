@@ -21,7 +21,7 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
+using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.SectionProperties
 {
@@ -31,7 +31,7 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        Material Material { get; set; }
+        IStructuralMaterial Material { get; set; }
 
         /// <summary>
         /// Gross Area of the cross section
