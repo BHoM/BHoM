@@ -23,7 +23,7 @@
 
 
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
+using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.SectionProperties
 {
@@ -33,7 +33,7 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        public Material Material { get; set; } = null;
+        public IStructuralMaterial Material { get; set; } = null;
 
 
         /***************************************************/
@@ -157,7 +157,7 @@ namespace BH.oM.Structure.SectionProperties
 
         //Main constructor setting all of the properties of the object
         public CableSection(
-            Material material,
+            IStructuralMaterial material,
             int numberOfCables,
             double cableDiameter,
             CableType cableType,

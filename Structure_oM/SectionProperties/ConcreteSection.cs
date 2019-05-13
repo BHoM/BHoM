@@ -25,7 +25,7 @@ using BH.oM.Base;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using BH.oM.Physical.Materials;
+using BH.oM.Structure.MaterialFragments;
 using BH.oM.Geometry.ShapeProfiles;
 
 namespace BH.oM.Structure.SectionProperties
@@ -41,7 +41,7 @@ namespace BH.oM.Structure.SectionProperties
 
         public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
 
-        public Material Material { get; set; }
+        public IStructuralMaterial Material { get; set; }
 
 
         /***************************************************/

@@ -24,7 +24,7 @@ using System.Linq;
 using BH.oM.Geometry;
 using BH.oM.Base;
 using System.Collections.ObjectModel;
-using BH.oM.Physical.Materials;
+using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.SectionProperties
 {
@@ -49,7 +49,7 @@ namespace BH.oM.Structure.SectionProperties
         public int StudsPerGroup { get; }
 
 
-        public Material Material { get; set; }
+        public IStructuralMaterial Material { get; set; }
 
 
         /***************************************************/

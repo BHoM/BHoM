@@ -13,6 +13,7 @@ namespace BH.oM.Structure.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
+        double Density { get; set; }
         double DampingRatio { get; set; }
 
         /***************************************************/

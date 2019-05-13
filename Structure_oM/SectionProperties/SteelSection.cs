@@ -21,7 +21,7 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
+using BH.oM.Structure.MaterialFragments;
 using BH.oM.Geometry.ShapeProfiles;
 
 namespace BH.oM.Structure.SectionProperties
@@ -37,7 +37,7 @@ namespace BH.oM.Structure.SectionProperties
 
         public SteelPlateRestraint PlateRestraint { get; set; } = SteelPlateRestraint.NoRestraint;
 
-        public Material Material { get; set; } = null;
+        public IStructuralMaterial Material { get; set; } = null;
 
 
         /***************************************************/
