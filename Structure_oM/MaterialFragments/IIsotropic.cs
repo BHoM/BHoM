@@ -23,7 +23,7 @@
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    public interface IIsotropic : IStructuralMaterial
+    public interface IIsotropic : IMaterialFragment
     {
         /***************************************************/
         /**** Properties                                ****/

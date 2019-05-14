@@ -34,7 +34,7 @@ namespace BH.oM.Structure.SurfaceProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        IStructuralMaterial Material { get; set; }
+        IMaterialFragment Material { get; set; }
 
         /***************************************************/
     }    

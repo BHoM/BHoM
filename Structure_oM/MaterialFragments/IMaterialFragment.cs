@@ -7,7 +7,7 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    public interface IStructuralMaterial : IMaterialProperties
+    public interface IMaterialFragment : IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/

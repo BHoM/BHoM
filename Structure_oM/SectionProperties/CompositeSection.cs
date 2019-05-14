@@ -49,7 +49,7 @@ namespace BH.oM.Structure.SectionProperties
         public int StudsPerGroup { get; }
 
 
-        public IStructuralMaterial Material { get; set; }
+        public IMaterialFragment Material { get; set; }
 
 
         /***************************************************/

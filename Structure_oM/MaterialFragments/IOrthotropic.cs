@@ -30,7 +30,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    public interface IOrthotropic : IStructuralMaterial
+    public interface IOrthotropic : IMaterialFragment
     {
         /***************************************************/
         /**** Properties                                ****/

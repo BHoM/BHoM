@@ -37,8 +37,7 @@ namespace BH.oM.Structure.SectionProperties
 
         public SteelPlateRestraint PlateRestraint { get; set; } = SteelPlateRestraint.NoRestraint;
 
-        public IStructuralMaterial Material { get; set; } = null;
-
+        public IMaterialFragment Material { get; set; } = null;
 
         /***************************************************/
         /**** Properties - Section profile              ****/
