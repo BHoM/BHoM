@@ -53,13 +53,14 @@
     <Compile Include="Elements\Door.cs" />
     <Compile Include="Elements\Beam.cs" />
     <Compile Include="Constructions\Layer.cs" />
+    <Compile Include="FramingProperties\ConstantFramingProperty.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Elements\Wall.cs" />
     <Compile Include="Elements\Void.cs" />
     <Compile Include="Elements\Window.cs" />
     <Compile Include="Enums\Offset.cs" />
     <Compile Include="Constructions\IConstruction.cs" />
-    <Compile Include="Elements\IFramingElementProperty.cs" />
+    <Compile Include="FramingProperties\IFramingElementProperty.cs" />
     <Compile Include="Materials\IMaterialProperties.cs" />
     <Compile Include="Elements\IOpening.cs" />
     <Compile Include="IPhysical.cs" />

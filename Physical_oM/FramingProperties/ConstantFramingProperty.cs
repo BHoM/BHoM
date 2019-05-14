@@ -1,6 +1,6 @@
 ﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -27,15 +27,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Geometry.ShapeProfiles;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Physical.FramingProperties
 {
-    public interface IFramingElementProperty : IBHoMObject
+    public class ConstantFramingProperty : BHoMObject, IFramingElementProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        public IProfile Profile { get; set; }
+
+        public Material Material { get; set; }
+
+        public double OrientationAngle { get; set; }
 
 
         /***************************************************/
