@@ -46,8 +46,6 @@ namespace BH.oM.Structure.MaterialFragments
 
         public Vector ShearModulus { get; set; }
 
-        public List<ITimberModel> Models { get; set; }
-
         /***************************************************/
 
     }

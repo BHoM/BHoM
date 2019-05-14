@@ -41,8 +41,6 @@ namespace BH.oM.Structure.MaterialFragments
 
         public double YoungsModulus { get; set; }
 
-        public List<IAluminiumModel> Models { get; set; }
-
         /***************************************************/
 
     }

@@ -45,8 +45,6 @@ namespace BH.oM.Structure.MaterialFragments
 
         public double UltimateStress { get; set; }
 
-        public List<ISteelModel> Models { get; set; }
-
         /***************************************************/
 
     }

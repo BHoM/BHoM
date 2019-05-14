@@ -46,8 +46,6 @@ namespace BH.oM.Structure.MaterialFragments
 
         public double CubeStrength { get; set; }
 
-        public List<IConcreteModel> Models { get; set; }
-
         /***************************************************/
 
     }
