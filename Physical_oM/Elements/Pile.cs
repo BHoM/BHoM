@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Physical.FramingProperties;
 
 namespace BH.oM.Physical.Elements
 {
