@@ -33,7 +33,7 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        public IStructuralMaterial Material { get; set; } = null;
+        public IMaterialFragment Material { get; set; } = null;
 
 
         /***************************************************/
@@ -157,7 +157,7 @@ namespace BH.oM.Structure.SectionProperties
 
         //Main constructor setting all of the properties of the object
         public CableSection(
-            IStructuralMaterial material,
+            IMaterialFragment material,
             int numberOfCables,
             double cableDiameter,
             CableType cableType,

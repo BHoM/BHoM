@@ -33,7 +33,7 @@ namespace BH.oM.Structure.SurfaceProperties
 
         public double Thickness { get; set; }
 
-        public IStructuralMaterial Material { get; set; }
+        public IMaterialFragment Material { get; set; }
 
         public PanelDirection Direction { get; set; } // TODO: Define default values
 

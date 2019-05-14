@@ -41,7 +41,7 @@ namespace BH.oM.Structure.SectionProperties
 
         public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
 
-        public IStructuralMaterial Material { get; set; }
+        public IMaterialFragment Material { get; set; }
 
 
         /***************************************************/

@@ -94,7 +94,7 @@
     <Compile Include="MaterialFragments\IIsotropic.cs" />
     <Compile Include="MaterialFragments\IOrthotropic.cs" />
     <Compile Include="MaterialFragments\ISteelModel.cs" />
-    <Compile Include="MaterialFragments\IStructuralMaterial.cs" />
+    <Compile Include="MaterialFragments\IMaterialFragment.cs" />
     <Compile Include="MaterialFragments\ITimberModel.cs" />
     <Compile Include="MaterialFragments\Steel.cs" />
     <Compile Include="MaterialFragments\Timber.cs" />

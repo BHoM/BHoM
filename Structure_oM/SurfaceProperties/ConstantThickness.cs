@@ -34,7 +34,7 @@ namespace BH.oM.Structure.SurfaceProperties
 
         public double Thickness { get; set; }
 
-        public IStructuralMaterial Material { get; set; }
+        public IMaterialFragment Material { get; set; }
 
         public PanelType PanelType { get; set; } = PanelType.Slab;  //TODO: Required to get Etabs working. To be moved to physical objects
 
