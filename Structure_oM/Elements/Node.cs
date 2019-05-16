@@ -38,7 +38,7 @@ namespace BH.oM.Structure.Elements
 
         public Basis Orientation { get; set; } = Basis.XY;
 
-        public Constraint6DOF Constraint { get; set; } = null;
+        public Constraint6DOF Support { get; set; } = null;
 
 
         /***************************************************/
