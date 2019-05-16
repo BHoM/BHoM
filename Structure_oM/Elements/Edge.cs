@@ -37,7 +37,8 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
                 
         public ICurve Curve { get; set; }
-        public Constraint4DOF Constraint { get; set; } = null;
+        public Constraint4DOF Release { get; set; } = null;
+        public Constraint6DOF Support { get; set; } = null;
 
         
         /***************************************************/
