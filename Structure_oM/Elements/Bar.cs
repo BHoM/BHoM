@@ -56,7 +56,7 @@ namespace BH.oM.Structure.Elements
 
         public BarFEAType FEAType { get; set; } = BarFEAType.Flexural;
 
-        public Constraint4DOF Spring { get; set; } = null;
+        public Constraint4DOF Support { get; set; } = null;
 
         public Offset Offset { get; set; } = null;
 
