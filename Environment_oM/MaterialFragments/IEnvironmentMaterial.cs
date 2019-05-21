@@ -39,5 +39,6 @@ namespace BH.oM.Environment.MaterialFragments
         double VapourDiffusionFactor { get; set; }
         string Description { get; set; }
         Roughness Roughness { get; set; }
+        double Refraction { get; set; }
     }
 }

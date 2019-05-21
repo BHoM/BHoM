@@ -14,7 +14,7 @@
  * The BHoM is distributed in the hope that it will be useful,              
  * but WITHOUT ANY WARRANTY; without even the implied warranty of               
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
- * GNU Lesser General Public License for more details.                          
+ * GNU Lesser General Public License for more details.
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
@@ -28,31 +28,12 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Environment.MaterialFragments
+namespace BH.oM.Environment.Fragments
 {
-    public class SolidMaterial : BHoMObject, IEnvironmentMaterial
+    public class LightReflectanceFragment : BHoMObject, IBHoMFragment
     {
-        public double Density { get; set; } = 0.0;
-        public double Conductivity { get; set; } = 0.0;
-        public double SpecificHeat { get; set; } = 0.0;
-        public double VapourDiffusionFactor { get; set; } = 0.0;
-        public string Description { get; set; } = "";
-        public Roughness Roughness { get; set; } = Roughness.Undefined;
-        public double Refraction { get; set; } = 0.0;
-
-        public double SolarReflectanceExternal { get; set; } = 0.0;
-        public double SolarReflectanceInternal { get; set; } = 0.0;
-        public double SolarTransmittance { get; set; } = 0.0;
-        public double LightReflectanceExternal { get; set; } = 0.0;
-        public double LightReflectanceInternal { get; set; } = 0.0;
-        public double LightTransmittance { get; set; } = 0.0;
-        public double EmissivityExternal { get; set; } = 0.0;
-        public double EmissivityInternal { get; set; } = 0.0;
-
-        public double Specularity { get; set; } = 0.0;
-        public double TransmittedDiffusivity { get; set; } = 0.0;
-        public double TransmittedSpecularity { get; set; } = 0.0;
-
-        public bool IgnoreInUValueCalculation { get; set; } = false;
+        public double RedReflectance { get; set; } = 0.0;
+        public double GreenReflectance { get; set; } = 0.0;
+        public double BlueReflectance { get; set; } = 0.0;
     }
 }
