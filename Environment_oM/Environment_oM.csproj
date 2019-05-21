@@ -52,6 +52,7 @@
     <Compile Include="Elements\Space.cs" />
     <Compile Include="Equipment\AirHandlingUnit.cs" />
     <Compile Include="Equipment\IEquipment.cs" />
+    <Compile Include="Fragments\LightReflectanceFragment.cs" />
     <Compile Include="Gains\Emitter.cs" />
     <Compile Include="Gains\Enums\EmitterType.cs" />
     <Compile Include="Gains\Enums\GainType.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="MaterialFragments\Enums\Roughness.cs" />
     <Compile Include="MaterialFragments\GasMaterial.cs" />
     <Compile Include="MaterialFragments\IEnvironmentMaterial.cs" />
+    <Compile Include="Fragments\LightTransmittanceFragment.cs" />
     <Compile Include="MaterialFragments\SolidMaterial.cs" />
     <Compile Include="Fragments\IBHoMFragment.cs" />
     <Compile Include="Gains\LightingGain.cs" />

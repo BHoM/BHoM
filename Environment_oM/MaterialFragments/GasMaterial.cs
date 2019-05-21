@@ -38,6 +38,7 @@ namespace BH.oM.Environment.MaterialFragments
         public double VapourDiffusionFactor { get; set; } = 0.0;
         public string Description { get; set; } = "";
         public Roughness Roughness { get; set; } = Roughness.Undefined;
+        public double Refraction { get; set; } = 0.0;
 
         public double ConvectionCoefficient { get; set; } = 0.0;
         public Gas Gas { get; set; } = Gas.Undefined;
