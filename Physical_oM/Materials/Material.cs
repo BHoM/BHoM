@@ -37,7 +37,6 @@ namespace BH.oM.Physical.Materials
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Density { get; set; } = 0;
         public List<IMaterialProperties> Properties { get; set; } = new List<IMaterialProperties>();
 
         /***************************************************/

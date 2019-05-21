@@ -33,12 +33,11 @@ namespace BH.oM.Environment.MaterialFragments
 {
     public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties
     {
+        double Density { get; set; }
         double Conductivity { get; set; }
         double SpecificHeat { get; set; }
-        double AdditionalHeatTransfer { get; set; }
         double VapourDiffusionFactor { get; set; }
         string Description { get; set; }
-        Absorptance Absorptance { get; set; }
         Roughness Roughness { get; set; }
     }
 }

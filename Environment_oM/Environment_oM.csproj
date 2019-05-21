@@ -82,9 +82,6 @@
     <Compile Include="Gains\Profile.cs" />
     <Compile Include="Gains\Thermostat.cs" />
     <Compile Include="IEnvironmentObject.cs" />
-    <Compile Include="MaterialFragments\Absorptance.cs" />
-    <Compile Include="MaterialFragments\Enums\AbsorptanceType.cs" />
-    <Compile Include="MaterialFragments\Enums\AbsorptanceUnit.cs" />
     <Compile Include="MaterialFragments\Enums\Gas.cs" />
     <Compile Include="MaterialFragments\Enums\Roughness.cs" />
     <Compile Include="MaterialFragments\GasMaterial.cs" />

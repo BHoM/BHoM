@@ -32,12 +32,11 @@ namespace BH.oM.Environment.MaterialFragments
 {
     public class GasMaterial : BHoMObject, IEnvironmentMaterial
     {
+        public double Density { get; set; } = 0.0;
         public double Conductivity { get; set; } = 0.0;
         public double SpecificHeat { get; set; } = 0.0;
-        public double AdditionalHeatTransfer { get; set; } = 0.0;
         public double VapourDiffusionFactor { get; set; } = 0.0;
         public string Description { get; set; } = "";
-        public Absorptance Absorptance { get; set; } = new Absorptance();
         public Roughness Roughness { get; set; } = Roughness.Undefined;
 
         public double ConvectionCoefficient { get; set; } = 0.0;
