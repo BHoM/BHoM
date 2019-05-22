@@ -36,7 +36,7 @@ namespace BH.oM.Environment.MaterialFragments
         double Density { get; set; }
         double Conductivity { get; set; }
         double SpecificHeat { get; set; }
-        double VapourDiffusionFactor { get; set; }
+        double VapourResistivity { get; set; }
         string Description { get; set; }
         Roughness Roughness { get; set; }
         double Refraction { get; set; }
