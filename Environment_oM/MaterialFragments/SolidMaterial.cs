@@ -35,7 +35,7 @@ namespace BH.oM.Environment.MaterialFragments
         public double Density { get; set; } = 0.0;
         public double Conductivity { get; set; } = 0.0;
         public double SpecificHeat { get; set; } = 0.0;
-        public double VapourDiffusionFactor { get; set; } = 0.0;
+        public double VapourResistivity { get; set; } = 0.0;
         public string Description { get; set; } = "";
         public Roughness Roughness { get; set; } = Roughness.Undefined;
         public double Refraction { get; set; } = 0.0;
