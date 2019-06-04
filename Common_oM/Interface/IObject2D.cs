@@ -30,9 +30,11 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Common.Properties;
 
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Common.Interface
 {
+    [Deprecated("2.3", "Replaced by ISurface interface in Phsyical_oM")]
     public interface IObject2D : IBHoMObject
     {
         /***************************************************/
