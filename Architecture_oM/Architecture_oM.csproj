@@ -61,9 +61,11 @@
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
+      <Project>{29e6dcd7-270a-45cc-ac0b-6c024287645e}</Project>
+      <Name>Reflection_oM</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

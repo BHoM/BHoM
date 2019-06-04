@@ -28,8 +28,11 @@ using BH.oM.Geometry;
 using BH.oM.Common.Properties;
 using BH.oM.Common.Interface;
 
+using BH.oM.Reflection.Attributes;
+
 namespace BH.oM.Architecture.Elements
 {
+    [Deprecated("2.3", "Replaced by BH.oM.Physical.Elements.Floor as part of migration to combined physical namespace")]
     public class Floor : BHoMObject, IObject2D
     {
         /***************************************************/
