@@ -21,13 +21,12 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 
 
 namespace BH.oM.Common.Materials
 {
-    /// <summary>
-    /// Material class for use in all other object classes and namespaces
-    /// </summary>
+    [Deprecated("2.3", "Replaced by physical material in Phsyical_oM as well as material fragements in Discipline namespaces")]
     public class Material : BHoMObject
     {
         /***************************************************/

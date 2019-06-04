@@ -20,10 +20,12 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Reflection.Attributes;
+
 namespace BH.oM.Common.Materials
 {
     /***************************************************/
-
+    [Deprecated("2.3", "Deprecated as part of material depraction in Common_oM")]
     public enum MaterialType
     {
         Aluminium,
