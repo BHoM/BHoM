@@ -20,12 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Reflection.Attributes;
 using BH.oM.Geometry;
 using BH.oM.Base;
 using BH.oM.Structure.FramingProperties;
 
 namespace BH.oM.Structure.Elements
 {
+    [Deprecated("2.3","Replaced by IFramingelement with subclasses in Phsyical_oM",typeof(Physical.Elements.IFramingElement))]
     public class FramingElement : BHoMObject
     {
         /***************************************************/
