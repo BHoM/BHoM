@@ -24,8 +24,11 @@ using System.Collections.Generic;
 
 using BH.oM.Base;
 
+using BH.oM.Reflection.Attributes;
+
 namespace BH.oM.Common.Properties
 {
+    [Deprecated("2.3", "Replaced by Construction class in Phsyical_oM")]
     public class Object2DProperties : BHoMObject
     {
         /***************************************************/
