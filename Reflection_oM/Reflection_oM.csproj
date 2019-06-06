@@ -49,6 +49,7 @@
     <Compile Include="Attributes\OutputAttribute.cs" />
     <Compile Include="Attributes\ReleasedAttribute.cs" />
     <Compile Include="Attributes\AssemblyUrlAttribute.cs" />
+    <Compile Include="Attributes\UIHiddenAttribute.cs" />
     <Compile Include="Debugging\Event.cs" />
     <Compile Include="Debugging\EventType.cs" />
     <Compile Include="Debugging\Log.cs" />
