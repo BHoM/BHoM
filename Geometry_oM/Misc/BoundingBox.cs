@@ -41,6 +41,9 @@ namespace BH.oM.Geometry
 
         public static BoundingBox operator +(BoundingBox a, BoundingBox b)
         {
+            if (a == null || b == null)
+                return null;
+
             return new BoundingBox
             {
                 Min = new Point { X = Math.Min(a.Min.X, b.Min.X), Y = Math.Min(a.Min.Y, b.Min.Y), Z = Math.Min(a.Min.Z, b.Min.Z) },
@@ -52,6 +55,9 @@ namespace BH.oM.Geometry
 
         public static BoundingBox operator +(BoundingBox box, Vector v)
         {
+            if (box == null || v == null)
+                return null;
+
             return new BoundingBox { Min = box.Min + v, Max = box.Max + v };
         }
 
