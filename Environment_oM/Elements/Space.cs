@@ -31,6 +31,8 @@ using BH.oM.Base;
 using BH.oM.Environment.Fragments;
 using BH.oM.Environment.Gains;
 
+using BH.oM.Geometry;
+
 namespace BH.oM.Environment.Elements
 {
     public class Space : BHoMObject, IEnvironmentObject
@@ -38,6 +40,7 @@ namespace BH.oM.Environment.Elements
         public List<string> Zones { get; set; } = new List<string>();
         public List<IGain> Gains { get; set; } = new List<IGain>();
         public SpaceType Type { get; set; } = SpaceType.Undefined;
+        public Point Location { get; set; } = new Point();
 
         public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
     }
