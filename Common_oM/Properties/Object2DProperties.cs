@@ -28,7 +28,7 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Common.Properties
 {
-    [Deprecated("2.3", "Replaced by Construction class in Phsyical_oM")]
+    [Deprecated("2.3", "Replaced by BH.oM.Physical.Constructions.Construction class in Physical_oM")]
     public class Object2DProperties : BHoMObject
     {
         /***************************************************/

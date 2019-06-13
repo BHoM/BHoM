@@ -34,7 +34,7 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Common.Properties
 {
-    [Deprecated("2.3", "Replaced by Layer class in Phsyical_oM")]
+    [Deprecated("2.3", "Replaced by BH.oM.Physical.Constructions.Layer class in Physical_oM")]
     public class CompoundLayer
     {
         /***************************************************/
