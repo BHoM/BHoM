@@ -49,6 +49,7 @@
     <Compile Include="Curve\NurbsCurve.cs" />
     <Compile Include="Curve\PolyCurve.cs" />
     <Compile Include="Curve\Polyline.cs" />
+    <Compile Include="Interface\IElement.cs" />
     <Compile Include="Interface\IGeometry.cs" />
     <Compile Include="Interface\IElement0D.cs" />
     <Compile Include="Interface\IElement1D.cs" />

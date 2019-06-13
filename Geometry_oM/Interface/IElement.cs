@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
@@ -24,7 +24,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Geometry
 {
-    public interface IElement1D : IElement
+    public interface IElement : IObject
     {
     }
 }
