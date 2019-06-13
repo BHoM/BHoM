@@ -26,7 +26,7 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.FramingProperties
 {
-    [Deprecated("2.3", "Replaced by ConstantFramingProperty in Phsyical_oM", typeof(Physical.FramingProperties.ConstantFramingProperty))]
+    [Deprecated("2.3", "Replaced by BH.oM.Physical.FramingProperties.ConstantFramingProperty in Physical_oM", typeof(Physical.FramingProperties.ConstantFramingProperty))]
     public class ConstantFramingElementProperty : BHoMObject, IFramingElementProperty
     {
         public ISectionProperty SectionProperty { get; set; }

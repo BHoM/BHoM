@@ -26,7 +26,7 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Common.Materials
 {
-    [Deprecated("2.3", "Replaced by physical material in Phsyical_oM as well as material fragements in Discipline namespaces")]
+    [Deprecated("2.3", "Replaced by BH.oM.Physical.Materials.Material in Physical_oM as well as material fragments in Discipline namespaces")]
     public class Material : BHoMObject
     {
         /***************************************************/
