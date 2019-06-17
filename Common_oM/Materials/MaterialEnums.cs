@@ -25,7 +25,7 @@ using BH.oM.Reflection.Attributes;
 namespace BH.oM.Common.Materials
 {
     /***************************************************/
-    [Deprecated("2.3", "Deprecated as part of material deprecation in Common_oM. Types now handled by material fragments in disciplin namespaces")]
+    [Deprecated("2.3", "Deprecated as part of material deprecation in Common_oM. Types now handled by material fragments in discipline namespaces")]
     public enum MaterialType
     {
         Aluminium,
