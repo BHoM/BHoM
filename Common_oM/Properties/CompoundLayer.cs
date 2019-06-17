@@ -27,10 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Common.Materials;
-
 using BH.oM.Reflection.Attributes;
-
-
 
 namespace BH.oM.Common.Properties
 {
