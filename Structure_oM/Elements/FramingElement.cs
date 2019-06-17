@@ -27,7 +27,7 @@ using BH.oM.Structure.FramingProperties;
 
 namespace BH.oM.Structure.Elements
 {
-    [Deprecated("2.3", "Replaced by BH.oM.Physical.Elements.IFramingelement with subclasses in Physical_oM", typeof(Physical.Elements.IFramingElement))]
+    [Deprecated("2.3", "Replaced by BH.oM.Physical.Elements.IFramingElement with subclasses in Physical_oM", typeof(Physical.Elements.IFramingElement))]
     public class FramingElement : BHoMObject
     {
         /***************************************************/
