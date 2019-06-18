@@ -27,7 +27,7 @@ using BH.oM.Base;
 
 namespace BH.oM.DataManipulation.Queries
 {
-    public class FilterQuery : IQuery
+    public class FilterRequest : IRequest
     {
         /***************************************************/
         /**** Properties                                ****/

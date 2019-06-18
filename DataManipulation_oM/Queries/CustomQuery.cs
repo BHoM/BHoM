@@ -22,7 +22,7 @@
 
 namespace BH.oM.DataManipulation.Queries
 {
-    public class CustomQuery : IQuery
+    public class CustomRequest : IRequest
     {
         /***************************************************/
         /**** Properties                                ****/
