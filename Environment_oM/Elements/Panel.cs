@@ -42,7 +42,5 @@ namespace BH.oM.Environment.Elements
         public IConstruction Construction { get; set; } = new Construction();
         public PanelType Type { get; set; } = PanelType.Undefined;
         public List<string> ConnectedSpaces { get; set; } = new List<string>();
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
     }
 }

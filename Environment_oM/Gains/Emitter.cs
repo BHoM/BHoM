@@ -39,8 +39,6 @@ namespace BH.oM.Environment.Gains
         public double SwitchOffOutsideTemperature { get; set; } = 0.0;
         public EmitterType Type { get; set; } = EmitterType.Undefined;
 
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
-
         /***************************************************/
     }
 }

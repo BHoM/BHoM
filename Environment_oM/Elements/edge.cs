@@ -37,8 +37,6 @@ namespace BH.oM.Environment.Elements
 
         public ICurve Curve { get; set; } = new Polyline();
 
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
-
         /***************************************************/
     }
 }

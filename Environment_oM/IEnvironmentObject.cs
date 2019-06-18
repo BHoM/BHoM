@@ -38,7 +38,6 @@ namespace BH.oM.Environment
         /**** Properties                                ****/
         /***************************************************/
 
-        List<IBHoMFragment> FragmentProperties { get; set; }
 
         /***************************************************/
     }

@@ -31,6 +31,8 @@ namespace BH.oM.Base
 
         string Name { get; set; }
 
+        List<IBHoMFragment> FragmentProperties { get; set; }
+
         HashSet<string> Tags { get; set; }
 
         Dictionary<string, object> CustomData { get; set; }

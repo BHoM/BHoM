@@ -24,7 +24,6 @@ using System;
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.Geometry;
 using BH.oM.Analytical.Elements;
 using BH.oM.Environment.Fragments;
 using BH.oM.Physical.Constructions;
@@ -44,8 +43,6 @@ namespace BH.oM.Environment.Elements
         public IConstruction OpeningConstruction { get; set; } = new Construction();
 
         public OpeningType Type { get; set; } = OpeningType.Undefined;
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
 
         /***************************************************/
     }
