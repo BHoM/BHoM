@@ -25,13 +25,13 @@ using System.Linq;
 
 namespace BH.oM.DataManipulation.Queries
 {
-    public class BatchQuery : IQuery
+    public class BatchRequest : IRequest
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IQuery> Queries { get; set; } = new List<IQuery>();
+        public List<IRequest> Queries { get; set; } = new List<IRequest>();
 
 
         /***************************************************/
