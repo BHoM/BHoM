@@ -38,7 +38,5 @@ namespace BH.oM.Environment.Elements
         public double Longitude { get; set; } = 0.0;
         public double Elevation { get; set; } = 0.0;
         public BuildingType Type { get; set; } = BuildingType.Undefined;
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
     }
 }

@@ -32,7 +32,6 @@ namespace BH.oM.Environment.Equipment
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
 
         //Properties of Air Handling Units
         public double AirLeakagePercentage { get; set; } = 0.0;

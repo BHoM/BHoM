@@ -35,7 +35,5 @@ namespace BH.oM.Environment.Gains
     {
         public GainType Type { get; set; } = GainType.Undefined;
         public IGainProperties Properties { get; set; } = null;
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
     }
 }

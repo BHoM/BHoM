@@ -43,8 +43,6 @@ namespace BH.oM.Environment.Gains
 
         public List<Profile> Profiles { get; set; } = new List<Profile>();
 
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
-
         /***************************************************/
     }
 }

@@ -46,8 +46,6 @@ namespace BH.oM.Environment.Gains
         public List<Gain> Gains { get; set; } = new List<Gain>();
 
         public Thermostat Thermostat { get; set; } = new Thermostat();
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
         /***************************************************/
     }
 }

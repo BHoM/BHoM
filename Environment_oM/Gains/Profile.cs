@@ -48,8 +48,6 @@ namespace BH.oM.Environment.Gains
 
         public ProfileCategory Category { get; set; } = ProfileCategory.Undefined;
 
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
-
         /***************************************************/
     }
 }

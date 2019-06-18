@@ -41,7 +41,5 @@ namespace BH.oM.Environment.Elements
         public List<IGain> Gains { get; set; } = new List<IGain>();
         public SpaceType Type { get; set; } = SpaceType.Undefined;
         public Point Location { get; set; } = new Point();
-
-        public List<IBHoMFragment> FragmentProperties { get; set; } = new List<IBHoMFragment>();
     }
 }
