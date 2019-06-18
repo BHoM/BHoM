@@ -89,7 +89,6 @@
     <Compile Include="MaterialFragments\IEnvironmentMaterial.cs" />
     <Compile Include="Fragments\LightTransmittanceFragment.cs" />
     <Compile Include="MaterialFragments\SolidMaterial.cs" />
-    <Compile Include="Fragments\IBHoMFragment.cs" />
     <Compile Include="Gains\LightingGain.cs" />
     <Compile Include="Gains\PeopleGain.cs" />
     <Compile Include="Gains\PollutantGain.cs" />
