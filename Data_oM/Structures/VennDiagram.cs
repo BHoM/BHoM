@@ -20,25 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.DataStructure
+using System;
+using System.Collections.Generic;
+
+namespace BH.oM.Data.Structures
 {
-    public class GraphNode<T> : IDataStructure
+    public class VennDiagram<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public T Value { get; set; } = default(T);
+        public List<Tuple<T,T>> Intersection { get; set; } = new List<Tuple<T,T>>();
 
+        public List<T> OnlySet1 { get; set; } = new List<T>();
 
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
+        public List<T> OnlySet2 { get; set; } = new List<T>();
 
-        public static explicit operator GraphNode<T>(T value)
-        {
-            return new GraphNode<T> { Value = value };
-        }
 
         /***************************************************/
     }

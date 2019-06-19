@@ -20,21 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
+using BH.oM.Geometry;
 
-namespace BH.oM.DataStructure
+namespace BH.oM.Data.Structures
 {
-    public class PriorityQueue<T> : IDataStructure where T : IComparable<T>
+    public class LocalData<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<T> Data { get; set; } = new List<T>();
+        public Point Position { get; set; } = new Point();
 
+        public T Data { get; set; } = default(T);
+        
         /***************************************************/
     }
-
 }
-

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,21 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-
-namespace BH.oM.DataStructure
+namespace BH.oM.Data.Structures
 {
-    public class DBSCANObject<T>
+    public class GraphNode<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public T ClusterItem { get; set; }
+        public T Value { get; set; } = default(T);
 
-        public int ClusterId { get; set; } = 0;
 
-        public bool IsVisited { get; set; } = false;
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator GraphNode<T>(T value)
+        {
+            return new GraphNode<T> { Value = value };
+        }
 
         /***************************************************/
     }

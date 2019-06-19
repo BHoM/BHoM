@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHoM", "BHoM\BHoM.csproj", "{94D88927-62A2-48FC-8EFE-D139B67A3373}"
 EndProject
@@ -12,10 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Architecture_oM", "Architecture_oM\Architecture_oM.csproj", "{0297C5B2-5EBF-4539-9011-AFDE4366BFEF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common_oM", "Common_oM\Common_oM.csproj", "{44F6C3BC-D321-4673-8F54-674AE7B33F18}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManipulation_oM", "DataManipulation_oM\DataManipulation_oM.csproj", "{9ABA7EFB-1B0C-422D-B9B9-191E8AFB7FA8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure_oM", "DataStructure_oM\DataStructure_oM.csproj", "{239C5F01-F82E-4CCE-8598-5134B7756247}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Environment_oM", "Environment_oM\Environment_oM.csproj", "{923A6B8B-4E31-40F3-9CBF-CEBB9A190143}"
 EndProject
@@ -36,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analytical_oM", "Analytical_oM\Analytical_oM.csproj", "{C91F1981-1148-4A03-B67E-C0BB42D862F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physical_oM", "Physical_oM\Physical_oM.csproj", "{FB790AB1-5914-4797-886F-C4CB469EC168}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_oM", "Data_oM\Data_oM.csproj", "{239C5F01-F82E-4CCE-8598-5134B7756247}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,14 +61,6 @@ Global
 		{44F6C3BC-D321-4673-8F54-674AE7B33F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44F6C3BC-D321-4673-8F54-674AE7B33F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44F6C3BC-D321-4673-8F54-674AE7B33F18}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9ABA7EFB-1B0C-422D-B9B9-191E8AFB7FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9ABA7EFB-1B0C-422D-B9B9-191E8AFB7FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9ABA7EFB-1B0C-422D-B9B9-191E8AFB7FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9ABA7EFB-1B0C-422D-B9B9-191E8AFB7FA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{239C5F01-F82E-4CCE-8598-5134B7756247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{239C5F01-F82E-4CCE-8598-5134B7756247}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{239C5F01-F82E-4CCE-8598-5134B7756247}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{239C5F01-F82E-4CCE-8598-5134B7756247}.Release|Any CPU.Build.0 = Release|Any CPU
 		{923A6B8B-4E31-40F3-9CBF-CEBB9A190143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{923A6B8B-4E31-40F3-9CBF-CEBB9A190143}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{923A6B8B-4E31-40F3-9CBF-CEBB9A190143}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -111,6 +101,10 @@ Global
 		{FB790AB1-5914-4797-886F-C4CB469EC168}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB790AB1-5914-4797-886F-C4CB469EC168}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB790AB1-5914-4797-886F-C4CB469EC168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{239C5F01-F82E-4CCE-8598-5134B7756247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239C5F01-F82E-4CCE-8598-5134B7756247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239C5F01-F82E-4CCE-8598-5134B7756247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239C5F01-F82E-4CCE-8598-5134B7756247}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

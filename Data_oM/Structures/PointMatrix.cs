@@ -20,24 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
 using System.Collections.Generic;
 
-namespace BH.oM.DataStructure
+namespace BH.oM.Data.Structures
 {
-    public class VennDiagram<T> : IDataStructure
+    public class PointMatrix<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Tuple<T,T>> Intersection { get; set; } = new List<Tuple<T,T>>();
+        public double CellSize { get; set; } = 1.0;
 
-        public List<T> OnlySet1 { get; set; } = new List<T>();
-
-        public List<T> OnlySet2 { get; set; } = new List<T>();
-
-
+        public Dictionary<DiscretePoint, List<LocalData<T>>> Data { get; set; } = new Dictionary<DiscretePoint, List<LocalData<T>>>();
+        
         /***************************************************/
     }
 }
