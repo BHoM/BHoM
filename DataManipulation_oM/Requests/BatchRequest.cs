@@ -21,9 +21,8 @@
  */
 
 using System.Collections.Generic;
-using System.Linq;
 
-namespace BH.oM.DataManipulation.Queries
+namespace BH.oM.Data.Requests
 {
     public class BatchRequest : IRequest
     {

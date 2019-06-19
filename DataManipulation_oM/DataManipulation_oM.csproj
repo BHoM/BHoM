@@ -42,10 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\BatchQuery.cs" />
-    <Compile Include="Queries\CustomQuery.cs" />
-    <Compile Include="Queries\FilterQuery.cs" />
-    <Compile Include="Queries\IQuery.cs" />
+    <Compile Include="Requests\BatchRequest.cs" />
+    <Compile Include="Requests\CustomRequest.cs" />
+    <Compile Include="Requests\FilterRequest.cs" />
+    <Compile Include="Requests\IRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">

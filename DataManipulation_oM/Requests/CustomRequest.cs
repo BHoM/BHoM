@@ -20,24 +20,15 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using BH.oM.Base;
-
-namespace BH.oM.DataManipulation.Queries
+namespace BH.oM.Data.Requests
 {
-    public class FilterRequest : IRequest
+    public class CustomRequest : IRequest
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Tag { get; set; } = "";
-
-        public Type Type { get; set; } = null;
-
-        public Dictionary<string, object> Equalities { get; set; } = new Dictionary<string, object>();
+        public string Query { get; set; }
 
 
         /***************************************************/

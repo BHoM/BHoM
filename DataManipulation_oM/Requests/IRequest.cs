@@ -22,7 +22,7 @@
 
 using BH.oM.Base;
 
-namespace BH.oM.DataManipulation.Queries
+namespace BH.oM.Data.Requests
 {
     public interface IRequest : IObject
     {
