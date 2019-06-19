@@ -20,20 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Geometry;
+using System.Collections.Generic;
 
-namespace BH.oM.DataStructure
+namespace BH.oM.Data.Structures
 {
-    public class LocalData<T> : IDataStructure
+    public class Tree<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Position { get; set; } = new Point();
+        public Dictionary<string, Tree<T>> Children { get; set; } = new Dictionary<string, Tree<T>>();
 
-        public T Data { get; set; } = default(T);
-        
+        public string Name { get; set; } = "";
+
+        public T Value { get; set; } = default(T);
+
+
         /***************************************************/
     }
 }

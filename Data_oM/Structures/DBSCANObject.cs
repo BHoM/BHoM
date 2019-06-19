@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,16 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.DataStructure
+namespace BH.oM.Data.Structures
 {
-    interface IDataStructure  :IObject
+    public class DBSCANObject<T>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public T ClusterItem { get; set; }
+
+        public int ClusterId { get; set; } = 0;
+
+        public bool IsVisited { get; set; } = false;
+
+        /***************************************************/
     }
 }

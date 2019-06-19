@@ -20,23 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
+using BH.oM.Base;
 
-namespace BH.oM.DataStructure
+namespace BH.oM.Data.Structures
 {
-    public class Tree<T> : IDataStructure
+    interface IDataStructure  :IObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public Dictionary<string, Tree<T>> Children { get; set; } = new Dictionary<string, Tree<T>>();
-
-        public string Name { get; set; } = "";
-
-        public T Value { get; set; } = default(T);
-
-
-        /***************************************************/
     }
 }

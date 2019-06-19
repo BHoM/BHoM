@@ -21,53 +21,20 @@
  */
 
 using System;
+using System.Collections.Generic;
 
-namespace BH.oM.DataStructure
+namespace BH.oM.Data.Structures
 {
-    public class DiscretePoint : IDataStructure, IComparable<DiscretePoint>
+    public class PriorityQueue<T> : IDataStructure where T : IComparable<T>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public int X { get; set; } = 0;
-        public int Y { get; set; } = 0;
-        public int Z { get; set; } = 0;
-
-
-        /***************************************************/
-        /**** IComparable Interface                     ****/
-        /***************************************************/
-
-        public int CompareTo(DiscretePoint other)
-        {
-            if (X != other.X)
-                return X.CompareTo(other.X);
-            else if (Y != other.Y)
-                return Y.CompareTo(other.Y);
-            else
-                return Z.CompareTo(other.Z);
-        }
-
-        /***************************************************/
-
-        public override int GetHashCode()
-        {
-            return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode();
-        }
-
-        /***************************************************/
-
-        public override bool Equals(object obj)
-        {
-            if (obj is DiscretePoint)
-            {
-                DiscretePoint other = (DiscretePoint)obj;
-                return ((this.X == other.X) && (this.Y == other.Y) && (this.Z == other.Z));
-            }
-            return false;
-        }
+        public List<T> Data { get; set; } = new List<T>();
 
         /***************************************************/
     }
+
 }
+
