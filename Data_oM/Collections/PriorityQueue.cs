@@ -20,11 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using System;
+using System.Collections.Generic;
 
-namespace BH.oM.Data.Structures
+namespace BH.oM.Data.Collections
 {
-    interface IDataStructure  :IObject
+    public class PriorityQueue<T> : IDataStructure where T : IComparable<T>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public List<T> Data { get; set; } = new List<T>();
+
+        /***************************************************/
     }
+
 }
+

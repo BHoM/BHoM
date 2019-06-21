@@ -41,22 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Structures\DBSCANObject.cs" />
-    <Compile Include="Structures\Graph.cs" />
-    <Compile Include="Structures\GraphLink.cs" />
-    <Compile Include="Structures\GraphNode.cs" />
-    <Compile Include="Structures\IDataStructure.cs" />
-    <Compile Include="Structures\DiscretePoint.cs" />
-    <Compile Include="Structures\LocalData.cs" />
-    <Compile Include="Structures\PointMatrix.cs" />
-    <Compile Include="Structures\PriorityQueue.cs" />
+    <Compile Include="Collections\DBSCANObject.cs" />
+    <Compile Include="Collections\Graph.cs" />
+    <Compile Include="Collections\GraphLink.cs" />
+    <Compile Include="Collections\GraphNode.cs" />
+    <Compile Include="Collections\IDataStructure.cs" />
+    <Compile Include="Collections\DiscretePoint.cs" />
+    <Compile Include="Collections\LocalData.cs" />
+    <Compile Include="Collections\PointMatrix.cs" />
+    <Compile Include="Collections\PriorityQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\BatchRequest.cs" />
     <Compile Include="Requests\CustomRequest.cs" />
     <Compile Include="Requests\FilterRequest.cs" />
     <Compile Include="Requests\IRequest.cs" />
-    <Compile Include="Structures\Tree.cs" />
-    <Compile Include="Structures\VennDiagram.cs" />
+    <Compile Include="Collections\Tree.cs" />
+    <Compile Include="Collections\VennDiagram.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">

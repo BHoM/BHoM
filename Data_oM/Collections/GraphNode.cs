@@ -20,20 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-
-namespace BH.oM.Data.Structures
+namespace BH.oM.Data.Collections
 {
-    public class PointMatrix<T> : IDataStructure
+    public class GraphNode<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double CellSize { get; set; } = 1.0;
+        public T Value { get; set; } = default(T);
 
-        public Dictionary<DiscretePoint, List<LocalData<T>>> Data { get; set; } = new Dictionary<DiscretePoint, List<LocalData<T>>>();
-        
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator GraphNode<T>(T value)
+        {
+            return new GraphNode<T> { Value = value };
+        }
+
         /***************************************************/
     }
 }
