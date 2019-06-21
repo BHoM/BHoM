@@ -20,21 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
+using BH.oM.Base;
 
-namespace BH.oM.Data.Structures
+namespace BH.oM.Data.Collections
 {
-    public class Graph<T> : IDataStructure
+    interface IDataStructure  :IObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public List<GraphNode<T>> Nodes { get; set; } = new List<GraphNode<T>>();
-
-        public List<GraphLink<T>> Links { get; set; } = new List<GraphLink<T>>();
-
-
-        /***************************************************/
     }
 }

@@ -20,25 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Data.Structures
+using System.Collections.Generic;
+
+namespace BH.oM.Data.Collections
 {
-    public class GraphNode<T> : IDataStructure
+    public class Tree<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        public Dictionary<string, Tree<T>> Children { get; set; } = new Dictionary<string, Tree<T>>();
+
+        public string Name { get; set; } = "";
+
         public T Value { get; set; } = default(T);
 
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator GraphNode<T>(T value)
-        {
-            return new GraphNode<T> { Value = value };
-        }
 
         /***************************************************/
     }

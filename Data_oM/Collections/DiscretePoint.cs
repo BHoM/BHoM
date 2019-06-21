@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,21 +20,53 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
+using System;
 
-namespace BH.oM.Data.Structures
+namespace BH.oM.Data.Collections
 {
-    public class DBSCANObject<T>
+    public class DiscretePoint : IDataStructure, IComparable<DiscretePoint>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public T ClusterItem { get; set; }
+        public int X { get; set; } = 0;
+        public int Y { get; set; } = 0;
+        public int Z { get; set; } = 0;
 
-        public int ClusterId { get; set; } = 0;
 
-        public bool IsVisited { get; set; } = false;
+        /***************************************************/
+        /**** IComparable Interface                     ****/
+        /***************************************************/
+
+        public int CompareTo(DiscretePoint other)
+        {
+            if (X != other.X)
+                return X.CompareTo(other.X);
+            else if (Y != other.Y)
+                return Y.CompareTo(other.Y);
+            else
+                return Z.CompareTo(other.Z);
+        }
+
+        /***************************************************/
+
+        public override int GetHashCode()
+        {
+            return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode();
+        }
+
+        /***************************************************/
+
+        public override bool Equals(object obj)
+        {
+            if (obj is DiscretePoint)
+            {
+                DiscretePoint other = (DiscretePoint)obj;
+                return ((this.X == other.X) && (this.Y == other.Y) && (this.Z == other.Z));
+            }
+            return false;
+        }
 
         /***************************************************/
     }

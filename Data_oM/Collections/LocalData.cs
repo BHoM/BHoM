@@ -22,7 +22,7 @@
 
 using BH.oM.Geometry;
 
-namespace BH.oM.Data.Structures
+namespace BH.oM.Data.Collections
 {
     public class LocalData<T> : IDataStructure
     {

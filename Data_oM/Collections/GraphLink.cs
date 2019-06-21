@@ -20,21 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-
-namespace BH.oM.Data.Structures
+namespace BH.oM.Data.Collections
 {
-    public class PriorityQueue<T> : IDataStructure where T : IComparable<T>
+    public class GraphLink<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<T> Data { get; set; } = new List<T>();
+        public double Weight { get; set; } = 1.0;
+
+        public GraphNode<T> StartNode { get; set; } = new GraphNode<T>();
+
+        public GraphNode<T> EndNode { get; set; } = new GraphNode<T>();
+
 
         /***************************************************/
     }
-
 }
-

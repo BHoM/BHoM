@@ -20,21 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
 
-namespace BH.oM.Data.Structures
+namespace BH.oM.Data.Collections
 {
-    public class Tree<T> : IDataStructure
+    public class VennDiagram<T> : IDataStructure
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Dictionary<string, Tree<T>> Children { get; set; } = new Dictionary<string, Tree<T>>();
+        public List<Tuple<T,T>> Intersection { get; set; } = new List<Tuple<T,T>>();
 
-        public string Name { get; set; } = "";
+        public List<T> OnlySet1 { get; set; } = new List<T>();
 
-        public T Value { get; set; } = default(T);
+        public List<T> OnlySet2 { get; set; } = new List<T>();
 
 
         /***************************************************/

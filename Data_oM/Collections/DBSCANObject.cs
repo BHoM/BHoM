@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Data.Structures
+using System.Collections.Generic;
+
+namespace BH.oM.Data.Collections
 {
-    public class GraphLink<T> : IDataStructure
+    public class DBSCANObject<T>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Weight { get; set; } = 1.0;
+        public T ClusterItem { get; set; }
 
-        public GraphNode<T> StartNode { get; set; } = new GraphNode<T>();
+        public int ClusterId { get; set; } = 0;
 
-        public GraphNode<T> EndNode { get; set; } = new GraphNode<T>();
-
+        public bool IsVisited { get; set; } = false;
 
         /***************************************************/
     }
