@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Reflection.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
     public class InputAttribute : Attribute, IImmutable
     {
         /***************************************************/
