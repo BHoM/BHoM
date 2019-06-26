@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Reflection.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
     public class OutputAttribute : Attribute, IImmutable
     {
         /***************************************************/
