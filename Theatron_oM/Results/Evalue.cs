@@ -24,23 +24,23 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Results
+namespace BH.oM.Theatron_oM.Results
 {
-    class Evalue : BHoMObject
+    public class Evalue : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double torsion { get; set; } = 0.0;
+        public double Torsion { get; set; } = 0.0;
 
-        public double horizViewAng { get; set; } = 0.0;
+        public double HorizViewAng { get; set; } = 0.0;
 
-        public Polyline horizViewVect { get; set; } = new Polyline();
+        public Polyline HorizViewVect { get; set; } = new Polyline();
 
-        public Polyline vertViewVect { get; set; } = new Polyline();
+        public Polyline VertViewVect { get; set; } = new Polyline();
 
-        public double vertViewAng { get; set; }
+        public double VertViewAng { get; set; }
 
         /***************************************************/
     }

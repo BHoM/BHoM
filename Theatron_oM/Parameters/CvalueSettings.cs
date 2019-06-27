@@ -24,19 +24,19 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Parameters
+namespace BH.oM.Theatron_oM.Parameters
 {
-    class CvalueSettings : BHoMObject
+    public class CvalueSettings : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public int focalMethod { get; set; } =  0;
+        public int FocalMethod { get; set; } =  0;
 
-        public double defaultC { get; set; } =  0;
+        public double DefaultC { get; set; } =  0;
 
-        public double rowTol  { get; set; } =  0;
+        public double RowTol  { get; set; } =  0;
 
         /***************************************************/
     }

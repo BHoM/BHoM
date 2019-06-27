@@ -24,19 +24,19 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Elements
+namespace BH.oM.Theatron_oM.Elements
 {
-    class Theatron : BHoMObject
+    public class Theatron : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public int totalTiers { get; set; } = 0;
+        public int TotalTiers { get; set; } = 0;
 
-        public List<Tier> tiers3d = new List<Tier>();
+        public List<Tier> Tiers3d = new List<Tier>();
 
-        public Crowd spectators { get; set; } = new Crowd();
+        public Crowd Spectators { get; set; } = new Crowd();
 
         /***************************************************/
     }

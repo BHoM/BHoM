@@ -79,7 +79,12 @@
     <Compile Include="Elements\Tier.cs" />
     <Compile Include="Elements\ProfileGeometry.cs" />
     <Compile Include="Enums\BayType.cs" />
+    <Compile Include="Enums\BowlType.cs" />
+    <Compile Include="Enums\CvalueType.cs" />
+    <Compile Include="Enums\EvalueViewType.cs" />
     <Compile Include="Enums\FocalMethod.cs" />
+    <Compile Include="Enums\SeatingBlockType.cs" />
+    <Compile Include="Enums\ViewClippingType.cs" />
     <Compile Include="Parameters\AvalueSettings.cs" />
     <Compile Include="Parameters\CvalueSettings.cs" />
     <Compile Include="Parameters\EvalueSettings.cs" />
@@ -89,9 +94,6 @@
     <Compile Include="Results\Avalue.cs" />
     <Compile Include="Results\Cvalue.cs" />
     <Compile Include="Results\Evalue.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

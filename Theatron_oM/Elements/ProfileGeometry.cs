@@ -24,27 +24,27 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Elements
+namespace BH.oM.Theatron_oM.Elements
 {
-    class ProfileGeometry : BHoMObject
+    public class ProfileGeometry : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public int totalPoints { get; set; }=0;
+        public int TotalPoints { get; set; }=0;
 
-        public List<Point> surfPoints = new List<Point>();
+        public List<Point> FloorPoints = new List<Point>();
 
-        public List<Point> eyePoints = new List<Point>();
+        public List<Point> EyePoints = new List<Point>();
 
-        public List<Vector> focalPoint = new List<Vector>();
+        public List<Vector> FocalPoint = new List<Vector>();
 
-        public List<Line> sightlines = new List<Line>();
+        public List<Line> Sightlines = new List<Line>();
 
-        public Polyline profile { get; set; } =new Polyline();
+        public Polyline Profile { get; set; } =new Polyline();
         
-        public double mappingAngle { get; set; } = 0;
+        public double MappingAngle { get; set; } = 0;
 
         /***************************************************/
     }

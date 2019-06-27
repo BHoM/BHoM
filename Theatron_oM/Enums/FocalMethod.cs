@@ -24,14 +24,13 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Enums
+namespace BH.oM.Theatron_oM.Elements
 {
-    class FocalMethod : BHoMObject
+    public enum FocalMethod 
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        /***************************************************/
+        OffsetThroughCorners=0,
+        Closest =1,
+        Perpendicular=2,
+        Undefined =3,
     }
 }

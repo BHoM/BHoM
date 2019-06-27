@@ -24,10 +24,16 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Enums
+namespace BH.oM.Theatron_oM.Elements
 {
-    class BayType : BHoMObject
+    /***************************************************/
+    public enum BayType
     {
-
+        Side = 0,
+        End = 1,
+        Corner =2,
+        Undefined = 3,
     }
+
+    /***************************************************/
 }

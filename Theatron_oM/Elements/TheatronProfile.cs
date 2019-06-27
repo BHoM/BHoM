@@ -24,23 +24,23 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Elements
+namespace BH.oM.Theatron_oM.Elements
 {
-    class TheatronProfile : BHoMObject
+    public class TheatronProfile : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ProfileGeometry> tierProfiles = new List<ProfileGeometry>();
+        public List<ProfileGeometry> TierProfiles = new List<ProfileGeometry>();
 
-        public double bowlPitchMin { get; set; } = 0.0;
+        public double TheatronPitchMin { get; set; } = 0.0;
 
-        public double round { get; set; } = 0.0;
+        public double Round { get; set; } = 0.0;
 
-        public Plane sectionPlane { get; set; } =new Plane();//the plane at the first surface point
+        public Plane SectionPlane { get; set; } =new Plane();//the plane at the first surface point
 
-        public Point focalPoint { get; set; } = new Point();
+        public Point FocalPoint { get; set; } = new Point();
 
         /***************************************************/
     }

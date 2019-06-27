@@ -24,16 +24,15 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Elements
+namespace BH.oM.Theatron_oM.Elements
 {
-    class Crowd : BHoMObject
-
+    public class Crowd : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Spectator> unsorted = new List<Spectator>();
+        public List<Spectator> Spectators = new List<Spectator>();
 
         /***************************************************/
     }

@@ -24,25 +24,25 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Results
+namespace BH.oM.Theatron_oM.Results
 {
-    class Cvalue : BHoMObject
+    public class Cvalue : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double cVal { get; set; } = 0.0;
+        public double CValue { get; set; } = 0.0;
 
-        public double horizDist { get; set; } = 0.0;
+        public double HorizDist { get; set; } = 0.0;
 
-        public double heightAbovePitch { get; set; } = 0.0;
+        public double HeightAbovePitch { get; set; } = 0.0;
 
-        public double absoluteDist { get; set; } = 0.0;
+        public double AbsoluteDist { get; set; } = 0.0;
 
-        public Point focalpoint { get; set; } = new Point();
+        public Point Focalpoint { get; set; } = new Point();
 
-        public int cType { get; set; } = 0;
+        public int CType { get; set; } = 0;
 
         /***************************************************/
     }

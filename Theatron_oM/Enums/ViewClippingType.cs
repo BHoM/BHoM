@@ -20,30 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
-using BH.oM.Base;
-
-namespace BH.oM.Theatron_oM.Results
+namespace BH.oM.Theatron_oM.Elements
 {
-    public class Avalue : BHoMObject
+    public enum ViewClippingType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public double Occulsion { get; set; } = 0.0;
-
-        public double AValue { get; set; } = 0.0;
-
-        public NurbsCurve FullPitch { get; set; } = new NurbsCurve();
-
-        public NurbsCurve ClipPitch { get; set; } = new NurbsCurve();
-
-        public NurbsCurve ViewCone { get; set; } = new NurbsCurve();
-
-        public List<NurbsCurve> Heads = new List<NurbsCurve>();
-
-        /***************************************************/
+        StaticConeArea = 0,
+        DynamicConeArea=1,
+        ViewFrameArea=2,
+        Undefined=3,
     }
 }
