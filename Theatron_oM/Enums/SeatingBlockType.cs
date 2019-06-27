@@ -19,9 +19,8 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-namespace BH.oM.Theatron_oM.Elements
+namespace BH.oM.Theatron.Elements
 {
-    /***************************************************/
     public enum SeatingBlockType
     {
         
@@ -35,6 +34,4 @@ namespace BH.oM.Theatron_oM.Elements
         Transition2mirrored=7,
         Undefined =8,
     }
-
-    /***************************************************/
 }

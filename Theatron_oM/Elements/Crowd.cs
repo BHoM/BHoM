@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron_oM.Elements
+namespace BH.oM.Theatron.Elements
 {
     public class Crowd : BHoMObject
     {
@@ -32,7 +32,7 @@ namespace BH.oM.Theatron_oM.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Spectator> Spectators = new List<Spectator>();
+        public List<Spectator> Spectators { get; set; } = new List<Spectator>();
 
         /***************************************************/
     }

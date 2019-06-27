@@ -20,11 +20,10 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Theatron.Elements;
 
-namespace BH.oM.Theatron_oM.Parameters
+namespace BH.oM.Theatron.Parameters
 {
     public class AvalueSettings : BHoMObject
     {
@@ -61,7 +60,7 @@ namespace BH.oM.Theatron_oM.Parameters
 
         public double NearHeadRange { get; set; } =  100;//dist from viewplane centre for nearest heads
 
-        public int ClipType { get; set; } =  0;
+        public ViewClippingType ClippingType { get; set; } = ViewClippingType.Undefined;
 
         public bool Occlusion { get; set; } =  false;
 

@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron_oM.Elements
+namespace BH.oM.Theatron.Elements
 {
     public class TheatronPlanGeometry : BHoMObject
     {
@@ -36,7 +36,7 @@ namespace BH.oM.Theatron_oM.Elements
 
         public List<Point> SectionOrigins { get; set; } =  new List<Point>();
 
-        public Polyline Pitch { get; set; } =  new Polyline();
+        public ActivityArea ActivityArea { get; set; } = new ActivityArea();
 
         public Point FocalPoint { get; set; } =  new Point();
 
@@ -44,7 +44,7 @@ namespace BH.oM.Theatron_oM.Elements
 
         public Polyline BowlFront { get; set; } =  new Polyline();
 
-        public  BowlType Type { get; set; } = BowlType.Undefined;
+        public  BowlType TypeOfBowl { get; set; } = BowlType.Undefined;
 
         public List<Plane> VomitoryPlanes { get; set; } =  new List<Plane>();
 

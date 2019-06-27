@@ -24,25 +24,17 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron.Results
+namespace BH.oM.Theatron.Elements
 {
-    public class Avalue : TheatronResult
+    public class ActivityArea : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Occulsion { get; set; } = 0.0;
+        public ICurve PlayingArea { get; set; } = new Polyline();
 
-        public double AValue { get; set; } = 0.0;
-
-        public NurbsCurve FullPitch { get; set; } = new NurbsCurve();
-
-        public NurbsCurve ClipPitch { get; set; } = new NurbsCurve();
-
-        public NurbsCurve ViewCone { get; set; } = new NurbsCurve();
-
-        public List<NurbsCurve> Heads = new List<NurbsCurve>();
+        public Point FocalPoint { get; set; } = new Point();
 
         /***************************************************/
     }

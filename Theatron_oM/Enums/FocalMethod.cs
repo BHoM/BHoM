@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron_oM.Elements
+namespace BH.oM.Theatron.Elements
 {
     public enum FocalMethod 
     {

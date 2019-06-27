@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron_oM.Elements
+namespace BH.oM.Theatron.Elements
 {
     public class Tier : BHoMObject
     {
@@ -34,9 +34,9 @@ namespace BH.oM.Theatron_oM.Elements
 
         public int TotalSections { get; set; }= 0;
 
-        public List<ProfileGeometry> Sections = new List<ProfileGeometry>();
+        public List<ProfileGeometry> Sections { get; set; } = new List<ProfileGeometry>();
 
-        public List<SeatingBlock> Generatorblocks = new List<SeatingBlock>();
+        public List<SeatingBlock> Generatorblocks { get; set; } = new List<SeatingBlock>();
 
         /***************************************************/
     }

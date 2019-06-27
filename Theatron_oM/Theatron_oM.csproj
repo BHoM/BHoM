@@ -56,6 +56,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Build\BHoM.dll</HintPath>
     </Reference>
+    <Reference Include="Common_oM, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Common_oM.dll</HintPath>
+    </Reference>
     <Reference Include="Geometry_oM, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Build\Geometry_oM.dll</HintPath>
@@ -71,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elements\Crowd.cs" />
+    <Compile Include="Elements\ActivityArea.cs" />
     <Compile Include="Elements\SeatingBlock.cs" />
     <Compile Include="Elements\Spectator.cs" />
     <Compile Include="Elements\Theatron.cs" />
@@ -94,6 +99,7 @@
     <Compile Include="Results\Avalue.cs" />
     <Compile Include="Results\Cvalue.cs" />
     <Compile Include="Results\Evalue.cs" />
+    <Compile Include="Results\TheatronResult.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

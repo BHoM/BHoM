@@ -24,9 +24,9 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron_oM.Results
+namespace BH.oM.Theatron.Results
 {
-    public class Evalue : BHoMObject
+    public class Evalue : TheatronResult
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -36,9 +36,9 @@ namespace BH.oM.Theatron_oM.Results
 
         public double HorizViewAng { get; set; } = 0.0;
 
-        public Polyline HorizViewVect { get; set; } = new Polyline();
+        public Polyline HorizViewChevron { get; set; } = new Polyline();
 
-        public Polyline VertViewVect { get; set; } = new Polyline();
+        public Polyline VertViewChevron { get; set; } = new Polyline();
 
         public double VertViewAng { get; set; }
 
