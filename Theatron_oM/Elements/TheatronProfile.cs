@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron_oM.Elements
+namespace BH.oM.Theatron.Elements
 {
     public class TheatronProfile : BHoMObject
     {
@@ -32,13 +32,13 @@ namespace BH.oM.Theatron_oM.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ProfileGeometry> TierProfiles = new List<ProfileGeometry>();
+        public List<ProfileGeometry> TierProfiles { get; set; } = new List<ProfileGeometry>();
 
         public double TheatronPitchMin { get; set; } = 0.0;
 
-        public double Round { get; set; } = 0.0;
+        public double Rounding { get; set; } = 0.0;
 
-        public Plane SectionPlane { get; set; } =new Plane();//the plane at the first surface point
+        public Plane SectionPlane { get; set; } = new Plane();//the plane at the first surface point
 
         public Point FocalPoint { get; set; } = new Point();
 

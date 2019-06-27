@@ -24,9 +24,9 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron_oM.Results
+namespace BH.oM.Theatron.Results
 {
-    public class Cvalue : BHoMObject
+    public class Cvalue : TheatronResult
     {
         /***************************************************/
         /**** Properties                                ****/

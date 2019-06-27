@@ -20,11 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
+
+using BH.oM.Theatron.Elements;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron_oM.Parameters
+namespace BH.oM.Theatron.Parameters
 {
     public class CvalueSettings : BHoMObject
     {
@@ -32,11 +32,11 @@ namespace BH.oM.Theatron_oM.Parameters
         /**** Properties                                ****/
         /***************************************************/
 
-        public int FocalMethod { get; set; } =  0;
+        public FocalMethod FocalMethod { get; set; } = FocalMethod.Undefined;
 
-        public double DefaultC { get; set; } =  0;
+        public double DefaultCValue { get; set; } =  0;
 
-        public double RowTol  { get; set; } =  0;
+        public double RowTolerance  { get; set; } =  0;
 
         /***************************************************/
     }

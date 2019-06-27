@@ -23,7 +23,8 @@
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
-namespace BH.oM.Theatron_oM.Parameters
+using BH.oM.Theatron.Elements;
+namespace BH.oM.Theatron.Parameters
 {
     public class TheatronParameters : BHoMObject
     {
@@ -47,13 +48,9 @@ namespace BH.oM.Theatron_oM.Parameters
 
         public int NumCornerBays { get; set; } = 0;
 
-        public int BowlType { get; set; } = 0;
+        public BowlType TypeOfBowl { get; set; } = BowlType.Undefined;
 
         public double CornerFraction { get; set; } = 0.0;
-
-        public double PitchWidth { get; set; } = 0.0;
-
-        public double PitchLength { get; set; } = 0.0;
 
         /***************************************************/
     }

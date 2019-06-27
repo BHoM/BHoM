@@ -25,7 +25,7 @@ using BH.oM.Geometry;
 using BH.oM.Base;
 
 
-namespace BH.oM.Theatron_oM.Elements
+namespace BH.oM.Theatron.Elements
 {
     public class SeatingBlock : BHoMObject
     {
@@ -39,13 +39,13 @@ namespace BH.oM.Theatron_oM.Elements
 
         public Plane EndPlane { get; set; } = new Plane();
 
-        public List<ProfileGeometry> Sections = new List<ProfileGeometry>();
+        public List<ProfileGeometry> Sections { get; set; } = new List<ProfileGeometry>();
 
-        public Mesh Floor = new Mesh();
+        public Mesh Floor { get; set; } = new Mesh();
 
-        public List<Point> Eyes = new List<Point>();
+        public List<Point> Eyes { get; set; } = new List<Point>();
 
-        public List<Vector> ViewDirections = new List<Vector>();
+        public List<Vector> ViewDirections { get; set; } = new List<Vector>();
 
         public Line FrontRow { get; set; }=new Line();
 
@@ -53,7 +53,7 @@ namespace BH.oM.Theatron_oM.Elements
 
         public double AisleWidth { get; set; } =0.0;
 
-        public SeatingBlockType TypeOfSeatignBlock { get; set; }=SeatingBlockType.Undefined;
+        public SeatingBlockType TypeOfSeatignBlock { get; set; } = SeatingBlockType.Undefined;
 
         /***************************************************/
     }

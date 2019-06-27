@@ -20,13 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.Theatron_oM.Elements;
+using BH.oM.Theatron.Elements;
 
 
-namespace BH.oM.Theatron_oM.Parameters
+namespace BH.oM.Theatron.Parameters
 {
     public class EvalueSettings : BHoMObject
     {

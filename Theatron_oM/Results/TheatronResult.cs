@@ -20,29 +20,48 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
+using BH.oM.Common;
 using BH.oM.Geometry;
-using BH.oM.Base;
+using System.ComponentModel;
+using System;
 
 namespace BH.oM.Theatron.Results
 {
-    public class Avalue : TheatronResult
+    public abstract class TheatronResult : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Occulsion { get; set; } = 0.0;
+        public IComparable ObjectId { get; set; } = "";
 
-        public double AValue { get; set; } = 0.0;
+        public IComparable ResultCase { get; set; } = "";
 
-        public NurbsCurve FullPitch { get; set; } = new NurbsCurve();
+        public double TimeStep { get; set; } = 0.0;
 
-        public NurbsCurve ClipPitch { get; set; } = new NurbsCurve();
+        /***************************************************/
+        /**** IComparable Interface                     ****/
+        /***************************************************/
 
-        public NurbsCurve ViewCone { get; set; } = new NurbsCurve();
+        public int CompareTo(IResult other)
+        {
+            TheatronResult otherRes = other as TheatronResult;
 
-        public List<NurbsCurve> Heads = new List<NurbsCurve>();
+            if (otherRes == null)
+                return this.GetType().Name.CompareTo(other.GetType().Name);
+
+            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
+            if (n == 0)
+            {
+                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
+                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+            }
+            else
+            {
+                return n;
+            }
+
+        }
 
         /***************************************************/
     }
