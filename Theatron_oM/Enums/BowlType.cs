@@ -24,26 +24,14 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron_oM.Results
+namespace BH.oM.Theatron_oM.Elements
 {
-    public class Avalue : BHoMObject
+    public enum BowlType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public double Occulsion { get; set; } = 0.0;
-
-        public double AValue { get; set; } = 0.0;
-
-        public NurbsCurve FullPitch { get; set; } = new NurbsCurve();
-
-        public NurbsCurve ClipPitch { get; set; } = new NurbsCurve();
-
-        public NurbsCurve ViewCone { get; set; } = new NurbsCurve();
-
-        public List<NurbsCurve> Heads = new List<NurbsCurve>();
-
-        /***************************************************/
+        Radial = 0,
+        Orthogonal =1,
+        NoCorners =2,
+        Circular=3,
+        Undefined=4,
     }
 }

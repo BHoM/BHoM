@@ -24,51 +24,51 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Parameters
+namespace BH.oM.Theatron_oM.Parameters
 {
-    class ProfileParameters : BHoMObject
+    public class ProfileParameters : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double startX { get; set; } = 0.0;
+        public double StartX { get; set; } = 0.0;
 
-        public double startZ { get; set; } = 0.0;
+        public double StartZ { get; set; } = 0.0;
 
-        public double rowWidth { get; set; } = 0.0;
+        public double RowWidth { get; set; } = 0.0;
 
-        public double cValue { get; set; } = 0.0;
+        public double TargetCValue { get; set; } = 0.0;
 
-        public int rows { get; set; } = 0;
+        public int NumRows { get; set; } = 0;
 
-        public bool superR { get; set; } = false;
+        public bool SuperRiser { get; set; } = false;
 
-        public int superStart { get; set; } = 0;
+        public int SuperRiserStartRow { get; set; } = 0;
 
-        public bool vomitory { get; set; } = false;
+        public bool Vomitory { get; set; } = false;
 
-        public int vomitoryStart { get; set; } = 0;
+        public int VomitoryStartRow { get; set; } = 0;
 
-        public double seatWidth { get; set; } = 0.0;
+        public double SeatWidth { get; set; } = 0.0;
 
-        public double eyeLevel { get; set; } = 0.0;
+        public double EyePositionZ { get; set; } = 0.0;
 
-        public double eyeHoriz { get; set; } = 0.0;
+        public double EyePositionX { get; set; } = 0.0;
 
-        public double boardHeight { get; set; } = 0.0;
+        public double BoardHeight { get; set; } = 0.0;
 
-        public double aisleWidth { get; set; } = 0.0;
+        public double AisleWidth { get; set; } = 0.0;
 
-        public double superNib { get; set; } = 0.0;
+        public double SuperRiserKerbWidth { get; set; } = 0.0;
 
-        public double superEyeHoriz { get; set; } = 0.0;
+        public double SuperRiserEyePositionX { get; set; } = 0.0;
 
-        public double superEyeVert { get; set; } = 0.0;
+        public double SuperRiserEyePositionZ { get; set; } = 0.0;
 
-        public double standingVert { get; set; } = 0.0;
+        public double StandingEyePositionZ { get; set; } = 0.0;
 
-        public double standingHoriz { get; set; } = 0.0;
+        public double StandingEyePositionX { get; set; } = 0.0;
 
         /***************************************************/
     }

@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Elements
+namespace BH.oM.Theatron_oM.Elements
 {
     public class Spectator : BHoMObject
     {
@@ -34,7 +34,7 @@ namespace Theatron_oM.Elements
 
         public Point Location { get; set; } = new Point();
 
-        public Vector viewDirection { get; set; } = new Vector();
+        public Vector ViewDirection { get; set; } = new Vector();
 
 
         /***************************************************/

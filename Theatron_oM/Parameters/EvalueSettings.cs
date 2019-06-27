@@ -23,18 +23,20 @@
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Theatron_oM.Elements;
 
-namespace Theatron_oM.Parameters
+
+namespace BH.oM.Theatron_oM.Parameters
 {
-    class EvalueSettings : BHoMObject
+    public class EvalueSettings : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public int vmethod { get; set; } =  0;
+        public EvalueViewType ViewType { get; set; } =  EvalueViewType.Undefined;
 
-        public bool showRanges { get; set; } =  false;
+        public bool ShowRanges { get; set; } =  false;
 
         /***************************************************/
     }

@@ -23,37 +23,37 @@
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
-namespace Theatron_oM.Parameters
+namespace BH.oM.Theatron_oM.Parameters
 {
-    class TheatronParameters : BHoMObject
+    public class TheatronParameters : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double structBay { get; set; } = 0.0;
+        public double StructBayWidth { get; set; } = 0.0;
 
-        public double cornerRad { get; set; } = 0.0;
+        public double CornerRadius { get; set; } = 0.0;
 
-        public double sideBound { get; set; } = 0.0;
+        public double SideBound { get; set; } = 0.0;
 
-        public double endBound { get; set; } = 0.0;
+        public double EndBound { get; set; } = 0.0;
 
-        public double sideRad { get; set; } = 0.0;
+        public double SideRadius { get; set; } = 0.0;
 
-        public double endRad { get; set; } = 0.0;
+        public double EndRadius { get; set; } = 0.0;
 
-        public double radius { get; set; } = 0.0;
+        public double TheatronRadius { get; set; } = 0.0;
 
-        public int cornerBays { get; set; } = 0;
+        public int NumCornerBays { get; set; } = 0;
 
-        public int bowlType { get; set; } = 0;
+        public int BowlType { get; set; } = 0;
 
-        public double cornerFraction { get; set; } = 0.0;
+        public double CornerFraction { get; set; } = 0.0;
 
-        public double pitchWidth { get; set; } = 0.0;
+        public double PitchWidth { get; set; } = 0.0;
 
-        public double pitchLength { get; set; } = 0.0;
+        public double PitchLength { get; set; } = 0.0;
 
         /***************************************************/
     }

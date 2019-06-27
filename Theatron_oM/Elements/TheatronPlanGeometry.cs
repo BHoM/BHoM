@@ -24,35 +24,35 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace Theatron_oM.Elements
+namespace BH.oM.Theatron_oM.Elements
 {
-    class TheatronPlanGeometry : BHoMObject
+    public class TheatronPlanGeometry : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Plane> sectionPlanes { get; set; } =  new List<Plane>();
+        public List<Plane> SectionPlanes { get; set; } =  new List<Plane>();
 
-        public List<Point> sectionOrigins { get; set; } =  new List<Point>();
+        public List<Point> SectionOrigins { get; set; } =  new List<Point>();
 
-        public Polyline pitch { get; set; } =  new Polyline();
+        public Polyline Pitch { get; set; } =  new Polyline();
 
-        public Point focalPoint { get; set; } =  new Point();
+        public Point FocalPoint { get; set; } =  new Point();
 
-        public Plane worstSectionPlane { get; set; } =  new Plane();
+        public Plane WorstSectionPlane { get; set; } =  new Plane();
 
-        public Polyline bowlFront { get; set; } =  new Polyline();
+        public Polyline BowlFront { get; set; } =  new Polyline();
 
-        public int bowlType { get; set; } =  0;
+        public  BowlType Type { get; set; } = BowlType.Undefined;
 
-        public List<Plane> vomitoryPlanes { get; set; } =  new List<Plane>();
+        public List<Plane> VomitoryPlanes { get; set; } =  new List<Plane>();
 
-        public List<Plane> combinedPlanes { get; set; } =  new List<Plane>();
+        public List<Plane> CombinedPlanes { get; set; } =  new List<Plane>();
 
-        public List<int> bayType { get; set; } =  new List<int>();
+        public List<BayType> StructBayType { get; set; } =  new List<BayType>();
 
-        public int[] noCornersectionRefs { get; set; } =  { -1, -1, -1, -1 };//corner indices for no corners bowl
+        public int[] NoCornerSectionFlags { get; set; } =  { -1, -1, -1, -1 };//corner indices for no corners bowl
 
         /***************************************************/
     }
