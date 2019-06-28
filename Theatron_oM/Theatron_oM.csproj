@@ -84,7 +84,7 @@
     <Compile Include="Elements\Tier.cs" />
     <Compile Include="Elements\ProfileGeometry.cs" />
     <Compile Include="Enums\BayType.cs" />
-    <Compile Include="Enums\BowlType.cs" />
+    <Compile Include="Enums\StadiaType.cs" />
     <Compile Include="Enums\CvalueType.cs" />
     <Compile Include="Enums\EvalueViewType.cs" />
     <Compile Include="Enums\FocalMethod.cs" />
@@ -93,7 +93,7 @@
     <Compile Include="Parameters\AvalueSettings.cs" />
     <Compile Include="Parameters\CvalueSettings.cs" />
     <Compile Include="Parameters\EvalueSettings.cs" />
-    <Compile Include="Parameters\TheatronParameters.cs" />
+    <Compile Include="Parameters\StadiaParameters.cs" />
     <Compile Include="Parameters\ProfileParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\Avalue.cs" />

@@ -36,13 +36,13 @@ namespace BH.oM.Theatron.Results
 
         public double AValue { get; set; } = 0.0;
 
-        public NurbsCurve FullPitch { get; set; } = new NurbsCurve();
+        public Polyline FullPitch { get; set; } = new Polyline();
 
-        public NurbsCurve ClipPitch { get; set; } = new NurbsCurve();
+        public Polyline ClipPitch { get; set; } = new Polyline();
 
-        public NurbsCurve ViewCone { get; set; } = new NurbsCurve();
+        public Polyline ViewCone { get; set; } = new Polyline();
 
-        public List<NurbsCurve> Heads = new List<NurbsCurve>();
+        public List<Polyline> Heads = new List<Polyline>();
 
         /***************************************************/
     }

@@ -34,17 +34,9 @@ namespace BH.oM.Theatron.Elements
 
         public List<Plane> SectionPlanes { get; set; } =  new List<Plane>();
 
-        public List<Point> SectionOrigins { get; set; } =  new List<Point>();
-
         public ActivityArea ActivityArea { get; set; } = new ActivityArea();
 
-        public Point FocalPoint { get; set; } =  new Point();
-
-        public Plane WorstSectionPlane { get; set; } =  new Plane();
-
-        public Polyline BowlFront { get; set; } =  new Polyline();
-
-        public  BowlType TypeOfBowl { get; set; } = BowlType.Undefined;
+        public ICurve FocalCurve { get; set; } = new Polyline();
 
         public List<Plane> VomitoryPlanes { get; set; } =  new List<Plane>();
 
@@ -52,7 +44,9 @@ namespace BH.oM.Theatron.Elements
 
         public List<BayType> StructBayType { get; set; } =  new List<BayType>();
 
-        public int[] NoCornerSectionFlags { get; set; } =  { -1, -1, -1, -1 };//corner indices for no corners bowl
+        public int SectionClosestToFocalCurve { get; set; } = 0;
+
+        public ICurve TheatronFront { get; set; } = new Polyline();
 
         /***************************************************/
     }

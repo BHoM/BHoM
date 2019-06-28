@@ -53,7 +53,7 @@ namespace BH.oM.Theatron.Elements
 
         public double AisleWidth { get; set; } =0.0;
 
-        public SeatingBlockType TypeOfSeatignBlock { get; set; } = SeatingBlockType.Undefined;
+        public SeatingBlockType TypeOfSeatingBlock { get; set; } = SeatingBlockType.Undefined;
 
         /***************************************************/
     }
