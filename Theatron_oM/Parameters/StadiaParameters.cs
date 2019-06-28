@@ -26,7 +26,7 @@ using BH.oM.Base;
 using BH.oM.Theatron.Elements;
 namespace BH.oM.Theatron.Parameters
 {
-    public class TheatronParameters : BHoMObject
+    public class StadiaParameters : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -48,9 +48,15 @@ namespace BH.oM.Theatron.Parameters
 
         public int NumCornerBays { get; set; } = 0;
 
-        public BowlType TypeOfBowl { get; set; } = BowlType.Undefined;
+        public StadiaType TypeOfBowl { get; set; } = StadiaType.Undefined;
 
         public double CornerFraction { get; set; } = 0.0;
+
+        public double Radius { get; set; } = 0.0;
+
+        public double PitchWidth { get; set; } = 0.0;
+
+        public double PitchLength { get; set; } = 0.0;
 
         /***************************************************/
     }

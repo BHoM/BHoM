@@ -26,12 +26,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Theatron.Elements
 {
-    public enum BowlType
+    public enum StadiaType
     {
-        Radial = 0,
+        EightArc = 0,
         Orthogonal =1,
         NoCorners =2,
         Circular=3,
-        Undefined=4,
+        FourArc =4,
+        Undefined=5,
     }
 }
