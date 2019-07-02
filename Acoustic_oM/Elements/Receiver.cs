@@ -31,7 +31,7 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Location { get; set; } = new Point();
+        public Point Location2 { get; set; } = new Point();
 
         public string Category { get; set; } = "Omni";
 
