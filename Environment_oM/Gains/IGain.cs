@@ -32,7 +32,6 @@ namespace BH.oM.Environment.Gains
 {
     public interface IGain : IBHoMObject
     {
-        GainType Type { get; set; }
-        IGainProperties Properties { get; set; }
+
     }
 }

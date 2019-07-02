@@ -27,13 +27,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Fragments;
 
 namespace BH.oM.Environment.Gains
 {
-    public class Gain : BHoMObject, IGain, IEnvironmentObject
+    public class Equipment : BHoMObject, IGain
     {
-        public GainType Type { get; set; } = GainType.Undefined;
-        public IGainProperties Properties { get; set; } = null;
+        public Profile Profile { get; set; } = new Profile();
+        public double Latent { get; set; } = 0.0;
+        public double Sensible { get; set; } = 0.0;
+
+        public double RadiantFraction { get; set; } = 0.0;
+        public double ViewCoefficient { get; set; } = 0.0;
     }
 }
