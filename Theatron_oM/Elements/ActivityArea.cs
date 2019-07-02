@@ -32,9 +32,13 @@ namespace BH.oM.Theatron.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve PlayingArea { get; set; } = new Polyline();
+        public Polyline PlayingArea { get; set; } = new Polyline();
 
-        public Point FocalPoint { get; set; } = new Point();
+        public Point AValueFocalPoint { get; set; } = new Point();
+
+        public double Width { get; set; } = 0.0;
+
+        public double Length { get; set; } = 0.0;
 
         /***************************************************/
     }

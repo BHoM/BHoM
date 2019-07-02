@@ -34,7 +34,7 @@ namespace BH.oM.Theatron.Elements
 
         public int TotalSections { get; set; }= 0;
 
-        public List<ProfileGeometry> Sections { get; set; } = new List<ProfileGeometry>();
+        public List<TierProfile> Sections { get; set; } = new List<TierProfile>();
 
         public List<SeatingBlock> Generatorblocks { get; set; } = new List<SeatingBlock>();
 

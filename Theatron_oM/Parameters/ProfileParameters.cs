@@ -68,6 +68,8 @@ namespace BH.oM.Theatron.Parameters
 
         public double StandingEyePositionX { get; set; } = 0.0;
 
+        public double RiserHeightRounding { get; set; } = 0.0;
+
         /***************************************************/
     }
 }

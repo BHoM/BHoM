@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Theatron_oM</RootNamespace>
     <AssemblyName>Theatron_oM</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,10 +80,10 @@
     <Compile Include="Elements\SeatingBlock.cs" />
     <Compile Include="Elements\Spectator.cs" />
     <Compile Include="Elements\Theatron.cs" />
-    <Compile Include="Elements\TheatronPlanGeometry.cs" />
-    <Compile Include="Elements\TheatronProfile.cs" />
+    <Compile Include="Elements\TheatronPlan.cs" />
+    <Compile Include="Elements\TheatronFullProfile.cs" />
     <Compile Include="Elements\Tier.cs" />
-    <Compile Include="Elements\ProfileGeometry.cs" />
+    <Compile Include="Elements\TierProfile.cs" />
     <Compile Include="Enums\BayType.cs" />
     <Compile Include="Enums\StadiaType.cs" />
     <Compile Include="Enums\CvalueType.cs" />
