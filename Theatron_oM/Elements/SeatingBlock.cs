@@ -39,7 +39,7 @@ namespace BH.oM.Theatron.Elements
 
         public Plane EndPlane { get; set; } = new Plane();
 
-        public List<ProfileGeometry> Sections { get; set; } = new List<ProfileGeometry>();
+        public List<TierProfile> Sections { get; set; } = new List<TierProfile>();
 
         public Mesh Floor { get; set; } = new Mesh();
 

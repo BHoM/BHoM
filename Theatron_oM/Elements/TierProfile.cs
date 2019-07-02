@@ -26,27 +26,25 @@ using BH.oM.Base;
 
 namespace BH.oM.Theatron.Elements
 {
-    public class TheatronPlanGeometry : BHoMObject
+    public class TierProfile : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Plane> SectionPlanes { get; set; } =  new List<Plane>();
+        public int TotalPoints { get; set; }=0;
 
-        public ActivityArea ActivityArea { get; set; } = new ActivityArea();
+        public List<Point> FloorPoints { get; set; } = new List<Point>();
 
-        public ICurve FocalCurve { get; set; } = new Polyline();
+        public List<Point> EyePoints { get; set; } = new List<Point>();
 
-        public List<Plane> VomitoryPlanes { get; set; } =  new List<Plane>();
+        public List<Vector> FocalPoint { get; set; } = new List<Vector>();
 
-        public List<Plane> CombinedPlanes { get; set; } =  new List<Plane>();
+        public List<Line> Sightlines { get; set; } = new List<Line>();
 
-        public List<BayType> StructBayType { get; set; } =  new List<BayType>();
-
-        public int SectionClosestToFocalCurve { get; set; } = 0;
-
-        public ICurve TheatronFront { get; set; } = new Polyline();
+        public Polyline Profile { get; set; } =new Polyline();
+        
+        public double MappingAngle { get; set; } = 0;
 
         /***************************************************/
     }
