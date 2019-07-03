@@ -32,11 +32,11 @@ namespace BH.oM.Environment.Gains
 {
     public class Lighting : BHoMObject, IGain
     {
+        public double Sensible { get; set; } = 0.0;
         public Profile Profile { get; set; } = new Profile();
+
         public double RadiantFraction { get; set; } = 0.0;
         public double ViewCoefficient { get; set; } = 0.0;
         public double LuminousEfficacy { get; set; } = 0.0;
-
-        public double Sensible { get; set; } = 0.0;
     }
 }
