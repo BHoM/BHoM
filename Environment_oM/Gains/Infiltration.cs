@@ -32,8 +32,8 @@ namespace BH.oM.Environment.Gains
 {
     public class Infiltration : BHoMObject, IGain
     {
-        public Profile Profile { get; set; } = new Profile();
-        public double Latent { get; set; } = 0.0;
         public double Sensible { get; set; } = 0.0;
+        public double Latent { get; set; } = 0.0;
+        public Profile Profile { get; set; } = new Profile();   
     }
 }

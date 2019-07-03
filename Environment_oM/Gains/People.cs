@@ -38,6 +38,5 @@ namespace BH.oM.Environment.Gains
 
         public double RadiantFraction { get; set; } = 0.0;
         public double ViewCoefficient { get; set; } = 0.0;
-        public double Value { get; set; } = 0.0;
     }
 }

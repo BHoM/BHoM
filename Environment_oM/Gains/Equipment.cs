@@ -32,9 +32,9 @@ namespace BH.oM.Environment.Gains
 {
     public class Equipment : BHoMObject, IGain
     {
-        public Profile Profile { get; set; } = new Profile();
-        public double Latent { get; set; } = 0.0;
         public double Sensible { get; set; } = 0.0;
+        public double Latent { get; set; } = 0.0;
+        public Profile Profile { get; set; } = new Profile();
 
         public double RadiantFraction { get; set; } = 0.0;
         public double ViewCoefficient { get; set; } = 0.0;
