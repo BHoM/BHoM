@@ -28,9 +28,10 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base.CRUD
 {
-    public enum PushActionType
+    public enum ActionType
     {
-        Replace,
+        CRUD,
+        CreateOnly,
         UpdateOnly
     }
 }

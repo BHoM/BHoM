@@ -28,13 +28,14 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base.CRUD
 {
-    public class CrudConfig
+    public class CrudOptions
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public PushActionType PushActionType { get; set; } = PushActionType.Replace;
+        public ActionType ActionType { get; set; } = ActionType.CRUD;
+        public Dictionary<string, object> CustomOptions { get; set; } = new Dictionary<string, object>();
 
         /***************************************************/
     }
