@@ -47,6 +47,29 @@
     <Compile Include="Elements\Level.cs" />
     <Compile Include="Elements\Floor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theatron\Elements\ActivityArea.cs" />
+    <Compile Include="Theatron\Elements\SeatingBlock.cs" />
+    <Compile Include="Theatron\Elements\Theatron.cs" />
+    <Compile Include="Theatron\Elements\TheatronFullProfile.cs" />
+    <Compile Include="Theatron\Elements\TheatronPlan.cs" />
+    <Compile Include="Theatron\Elements\Tier.cs" />
+    <Compile Include="Theatron\Elements\TierProfile.cs" />
+    <Compile Include="Theatron\Enums\BayType.cs" />
+    <Compile Include="Theatron\Enums\CvalueType.cs" />
+    <Compile Include="Theatron\Enums\EvalueViewType.cs" />
+    <Compile Include="Theatron\Enums\FocalMethod.cs" />
+    <Compile Include="Theatron\Enums\SeatingBlockType.cs" />
+    <Compile Include="Theatron\Enums\StadiaType.cs" />
+    <Compile Include="Theatron\Enums\ViewClippingType.cs" />
+    <Compile Include="Theatron\Parameters\AvalueSettings.cs" />
+    <Compile Include="Theatron\Parameters\CvalueSettings.cs" />
+    <Compile Include="Theatron\Parameters\EvalueSettings.cs" />
+    <Compile Include="Theatron\Parameters\ProfileParameters.cs" />
+    <Compile Include="Theatron\Parameters\StadiaParameters.cs" />
+    <Compile Include="Theatron\Results\Avalue.cs" />
+    <Compile Include="Theatron\Results\Cvalue.cs" />
+    <Compile Include="Theatron\Results\Evalue.cs" />
+    <Compile Include="Theatron\Results\TheatronResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
@@ -60,6 +83,10 @@
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Humans_oM\Humans_oM.csproj">
+      <Project>{0c49182c-7287-45b4-a2e3-d47cb41e5a16}</Project>
+      <Name>Humans_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
       <Project>{29e6dcd7-270a-45cc-ac0b-6c024287645e}</Project>

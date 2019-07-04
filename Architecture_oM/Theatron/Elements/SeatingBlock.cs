@@ -24,23 +24,36 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron.Elements
+
+namespace BH.oM.Architecture.Theatron
 {
-    public class TheatronFullProfile : BHoMObject
+    public class SeatingBlock : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
+        public Plane OriginPlane { get; set; } = new Plane();
 
-        public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
+        public Plane VomitoryPlane { get; set; } = new Plane();
 
-        public double Rounding { get; set; } = 0.0;
+        public Plane EndPlane { get; set; } = new Plane();
 
-        public Plane SectionPlane { get; set; } = new Plane();//the plane at the first surface point
+        public List<TierProfile> Sections { get; set; } = new List<TierProfile>();
 
-        public Point FocalPoint { get; set; } = new Point();
+        public Mesh Floor { get; set; } = new Mesh();
+
+        public List<Point> Eyes { get; set; } = new List<Point>();
+
+        public List<Vector> ViewDirections { get; set; } = new List<Vector>();
+
+        public Line FrontRow { get; set; }=new Line();
+
+        public double SeatWidth { get; set; } =0.0;
+
+        public double AisleWidth { get; set; } =0.0;
+
+        public SeatingBlockType TypeOfSeatingBlock { get; set; } = SeatingBlockType.Undefined;
 
         /***************************************************/
     }

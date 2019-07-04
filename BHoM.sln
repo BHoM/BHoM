@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acoustic_oM", "Acoustic_oM\Acoustic_oM.csproj", "{CC3149B9-36DA-4298-AB1D-DFB589023BD7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Architecture_oM", "Architecture_oM\Architecture_oM.csproj", "{0297C5B2-5EBF-4539-9011-AFDE4366BFEF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0C49182C-7287-45B4-A2E3-D47CB41E5A16} = {0C49182C-7287-45B4-A2E3-D47CB41E5A16}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common_oM", "Common_oM\Common_oM.csproj", "{44F6C3BC-D321-4673-8F54-674AE7B33F18}"
 EndProject
@@ -34,8 +37,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physical_oM", "Physical_oM\Physical_oM.csproj", "{FB790AB1-5914-4797-886F-C4CB469EC168}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_oM", "Data_oM\Data_oM.csproj", "{239C5F01-F82E-4CCE-8598-5134B7756247}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theatron_oM", "Theatron_oM\Theatron_oM.csproj", "{5FCD9F3A-C3F5-42CB-873E-C8E4BCE6F8DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,10 +108,6 @@ Global
 		{239C5F01-F82E-4CCE-8598-5134B7756247}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{239C5F01-F82E-4CCE-8598-5134B7756247}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{239C5F01-F82E-4CCE-8598-5134B7756247}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FCD9F3A-C3F5-42CB-873E-C8E4BCE6F8DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FCD9F3A-C3F5-42CB-873E-C8E4BCE6F8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FCD9F3A-C3F5-42CB-873E-C8E4BCE6F8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FCD9F3A-C3F5-42CB-873E-C8E4BCE6F8DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

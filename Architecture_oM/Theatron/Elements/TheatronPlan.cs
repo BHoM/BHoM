@@ -24,23 +24,33 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron.Elements
+namespace BH.oM.Architecture.Theatron
 {
-    public class TheatronFullProfile : BHoMObject
+    public class TheatronPlan : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
+        public List<Plane> SectionPlanes { get; set; } =  new List<Plane>();
 
-        public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
+        public ActivityArea ActivityArea { get; set; } = new ActivityArea();
 
-        public double Rounding { get; set; } = 0.0;
+        public Polyline FocalCurve { get; set; } = new Polyline();
 
-        public Plane SectionPlane { get; set; } = new Plane();//the plane at the first surface point
+        public List<Plane> VomitoryPlanes { get; set; } =  new List<Plane>();
 
-        public Point FocalPoint { get; set; } = new Point();
+        public List<Plane> CombinedPlanes { get; set; } =  new List<Plane>();
+
+        public List<BayType> StructBayType { get; set; } =  new List<BayType>();
+
+        public Plane SectionClosestToFocalCurve { get; set; } = new Plane();
+
+        public double MinDistToFocalCurve { get; set; } = 0;
+
+        public Point CValueFocalPoint { get; set; } = new Point();
+
+        public ICurve TheatronFront { get; set; } = new Polyline();
 
         /***************************************************/
     }

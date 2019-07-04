@@ -20,21 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron.Elements
+
+namespace BH.oM.Architecture.Theatron
 {
-    public class Spectator : BHoMObject
+    public class EvalueSettings : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Location { get; set; } = new Point();
+        public EvalueViewType ViewType { get; set; } =  EvalueViewType.Undefined;
 
-        public Vector ViewDirection { get; set; } = new Vector();
+        public bool ShowRanges { get; set; } =  false;
 
         /***************************************************/
     }
