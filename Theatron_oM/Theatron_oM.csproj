@@ -75,10 +75,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elements\Crowd.cs" />
     <Compile Include="Elements\ActivityArea.cs" />
     <Compile Include="Elements\SeatingBlock.cs" />
-    <Compile Include="Elements\Spectator.cs" />
     <Compile Include="Elements\Theatron.cs" />
     <Compile Include="Elements\TheatronPlan.cs" />
     <Compile Include="Elements\TheatronFullProfile.cs" />

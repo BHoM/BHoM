@@ -24,16 +24,12 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron.Elements
+namespace BH.oM.Architecture.Theatron
 {
-    public class Crowd : BHoMObject
+    public enum EvalueViewType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public List<Spectator> Spectators { get; set; } = new List<Spectator>();
-
-        /***************************************************/
+        ToPoint =0,
+        PerpendicularToRow=1,
+        Undefined=2,
     }
 }

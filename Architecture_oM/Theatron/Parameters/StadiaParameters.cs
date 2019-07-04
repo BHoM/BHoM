@@ -20,27 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron.Elements
+namespace BH.oM.Architecture.Theatron
 {
-    public class TheatronFullProfile : BHoMObject
+    public class StadiaParameters : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
+        public double StructBayWidth { get; set; } = 0.0;
 
-        public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
+        public double CornerRadius { get; set; } = 0.0;
 
-        public double Rounding { get; set; } = 0.0;
+        public double SideBound { get; set; } = 0.0;
 
-        public Plane SectionPlane { get; set; } = new Plane();//the plane at the first surface point
+        public double EndBound { get; set; } = 0.0;
 
-        public Point FocalPoint { get; set; } = new Point();
+        public double SideRadius { get; set; } = 0.0;
+
+        public double EndRadius { get; set; } = 0.0;
+
+        public double TheatronRadius { get; set; } = 0.0;
+
+        public int NumCornerBays { get; set; } = 0;
+
+        public StadiaType TypeOfBowl { get; set; } = StadiaType.Undefined;
+
+        public double CornerFraction { get; set; } = 0.0;
+
+        public ActivityArea ActivityArea { get; set; } = new ActivityArea();
 
         /***************************************************/
     }

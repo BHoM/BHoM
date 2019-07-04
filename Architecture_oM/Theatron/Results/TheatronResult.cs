@@ -20,27 +20,48 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
+using BH.oM.Common;
 using BH.oM.Geometry;
-using BH.oM.Base;
+using System.ComponentModel;
+using System;
 
-namespace BH.oM.Theatron.Elements
+namespace BH.oM.Architecture.Theatron
 {
-    public class TheatronFullProfile : BHoMObject
+    public abstract class TheatronResult : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
+        public IComparable ObjectId { get; set; } = "";
 
-        public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
+        public IComparable ResultCase { get; set; } = "";
 
-        public double Rounding { get; set; } = 0.0;
+        public double TimeStep { get; set; } = 0.0;
 
-        public Plane SectionPlane { get; set; } = new Plane();//the plane at the first surface point
+        /***************************************************/
+        /**** IComparable Interface                     ****/
+        /***************************************************/
 
-        public Point FocalPoint { get; set; } = new Point();
+        public int CompareTo(IResult other)
+        {
+            TheatronResult otherRes = other as TheatronResult;
+
+            if (otherRes == null)
+                return this.GetType().Name.CompareTo(other.GetType().Name);
+
+            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
+            if (n == 0)
+            {
+                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
+                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+            }
+            else
+            {
+                return n;
+            }
+
+        }
 
         /***************************************************/
     }

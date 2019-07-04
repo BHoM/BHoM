@@ -24,23 +24,27 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron.Elements
+namespace BH.oM.Architecture.Theatron
 {
-    public class TheatronFullProfile : BHoMObject
+    public class TierProfile : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
+        public int TotalPoints { get; set; }=0;
 
-        public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
+        public List<Point> FloorPoints { get; set; } = new List<Point>();
 
-        public double Rounding { get; set; } = 0.0;
+        public List<Point> EyePoints { get; set; } = new List<Point>();
 
-        public Plane SectionPlane { get; set; } = new Plane();//the plane at the first surface point
+        public List<Vector> FocalPoint { get; set; } = new List<Vector>();
 
-        public Point FocalPoint { get; set; } = new Point();
+        public List<Line> Sightlines { get; set; } = new List<Line>();
+
+        public Polyline Profile { get; set; } =new Polyline();
+        
+        public double MappingAngle { get; set; } = 0;
 
         /***************************************************/
     }

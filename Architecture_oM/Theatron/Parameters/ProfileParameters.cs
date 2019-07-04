@@ -20,27 +20,55 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Theatron.Elements
+namespace BH.oM.Architecture.Theatron
 {
-    public class TheatronFullProfile : BHoMObject
+    public class ProfileParameters : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
+        public double StartX { get; set; } = 0.0;
 
-        public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
+        public double StartZ { get; set; } = 0.0;
 
-        public double Rounding { get; set; } = 0.0;
+        public double RowWidth { get; set; } = 0.0;
 
-        public Plane SectionPlane { get; set; } = new Plane();//the plane at the first surface point
+        public double TargetCValue { get; set; } = 0.0;
 
-        public Point FocalPoint { get; set; } = new Point();
+        public int NumRows { get; set; } = 0;
+
+        public bool SuperRiser { get; set; } = false;
+
+        public int SuperRiserStartRow { get; set; } = 0;
+
+        public bool Vomitory { get; set; } = false;
+
+        public int VomitoryStartRow { get; set; } = 0;
+
+        public double SeatWidth { get; set; } = 0.0;
+
+        public double EyePositionZ { get; set; } = 0.0;
+
+        public double EyePositionX { get; set; } = 0.0;
+
+        public double BoardHeight { get; set; } = 0.0;
+
+        public double AisleWidth { get; set; } = 0.0;
+
+        public double SuperRiserKerbWidth { get; set; } = 0.0;
+
+        public double SuperRiserEyePositionX { get; set; } = 0.0;
+
+        public double SuperRiserEyePositionZ { get; set; } = 0.0;
+
+        public double StandingEyePositionZ { get; set; } = 0.0;
+
+        public double StandingEyePositionX { get; set; } = 0.0;
+
+        public double RiserHeightRounding { get; set; } = 0.0;
 
         /***************************************************/
     }

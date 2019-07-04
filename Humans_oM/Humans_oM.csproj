@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BodyParts\Eye.cs" />
     <Compile Include="BodyParts\Head.cs" />
     <Compile Include="BodyParts\LeftFoot.cs" />
     <Compile Include="BodyParts\LeftHand.cs" />
@@ -62,6 +63,8 @@
     <Compile Include="BodyParts\RightUpperArm.cs" />
     <Compile Include="BodyParts\RightUpperLeg.cs" />
     <Compile Include="BodyParts\Spine.cs" />
+    <Compile Include="Audience.cs" />
+    <Compile Include="DynamicViewCone.cs" />
     <Compile Include="Enums\HandStateName.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Human.cs" />
@@ -71,6 +74,8 @@
     <Compile Include="Enums\JointName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skeleton.cs" />
+    <Compile Include="Spectator.cs" />
+    <Compile Include="StaticViewCone.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
