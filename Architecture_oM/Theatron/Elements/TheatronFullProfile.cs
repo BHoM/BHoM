@@ -22,6 +22,7 @@
 
 using System.Collections.Generic;
 using BH.oM.Geometry;
+using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Base;
 
 namespace BH.oM.Architecture.Theatron
@@ -38,7 +39,7 @@ namespace BH.oM.Architecture.Theatron
 
         public double Rounding { get; set; } = 0.0;
 
-        public Plane SectionPlane { get; set; } = new Plane();//the plane at the first surface point
+        public Cartesian SectionPlane { get; set; } = new Cartesian();//the plane at the first surface point
 
         public Point FocalPoint { get; set; } = new Point();
 

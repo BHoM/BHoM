@@ -22,6 +22,7 @@
 
 using System.Collections.Generic;
 using BH.oM.Geometry;
+using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Base;
 
 namespace BH.oM.Architecture.Theatron
@@ -32,19 +33,19 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Plane> SectionPlanes { get; set; } =  new List<Plane>();
+        public List<Cartesian> SectionPlanes { get; set; } =  new List<Cartesian>();
 
         public ActivityArea ActivityArea { get; set; } = new ActivityArea();
 
         public Polyline FocalCurve { get; set; } = new Polyline();
 
-        public List<Plane> VomitoryPlanes { get; set; } =  new List<Plane>();
+        public List<Cartesian> VomitoryPlanes { get; set; } =  new List<Cartesian>();
 
-        public List<Plane> CombinedPlanes { get; set; } =  new List<Plane>();
+        public List<Cartesian> CombinedPlanes { get; set; } =  new List<Cartesian>();
 
         public List<BayType> StructBayType { get; set; } =  new List<BayType>();
 
-        public Plane SectionClosestToFocalCurve { get; set; } = new Plane();
+        public Cartesian SectionClosestToFocalCurve { get; set; } = new Cartesian();
 
         public double MinDistToFocalCurve { get; set; } = 0;
 
