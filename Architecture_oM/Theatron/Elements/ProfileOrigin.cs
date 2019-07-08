@@ -22,27 +22,19 @@
 
 using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Base;
 
 namespace BH.oM.Architecture.Theatron
 {
-    public class TheatronFullProfile : BHoMObject
+    public class ProfileOrigin : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
+        public Point Origin { get; set; } = new Point();
 
-        public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
+        public Vector Direction { get; set; } = new Vector();
 
-        public double Rounding { get; set; } = 0.0;
-
-        public ProfileOrigin FullProfileOrigin { get; set; } = new ProfileOrigin();//the plane at the first surface point
-
-        public Point FocalPoint { get; set; } = new Point();
-
-        /***************************************************/
     }
 }

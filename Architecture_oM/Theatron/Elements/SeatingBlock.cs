@@ -33,11 +33,11 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public Plane OriginPlane { get; set; } = new Plane();
+        public ProfileOrigin Start { get; set; } = new ProfileOrigin();
 
-        public Plane VomitoryPlane { get; set; } = new Plane();
+        public ProfileOrigin Vomitory { get; set; } = new ProfileOrigin();
 
-        public Plane EndPlane { get; set; } = new Plane();
+        public ProfileOrigin End { get; set; } = new ProfileOrigin();
 
         public List<TierProfile> Sections { get; set; } = new List<TierProfile>();
 

@@ -26,7 +26,7 @@ using BH.oM.Humans;
 
 namespace BH.oM.Architecture.Theatron
 {
-    public class Theatron : BHoMObject
+    public class TheatronGeometry : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

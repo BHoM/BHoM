@@ -33,25 +33,27 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Cartesian> SectionPlanes { get; set; } =  new List<Cartesian>();
+        public List<ProfileOrigin> SectionOrigins { get; set; } =  new List<ProfileOrigin>();
 
         public ActivityArea ActivityArea { get; set; } = new ActivityArea();
 
         public Polyline FocalCurve { get; set; } = new Polyline();
 
-        public List<Cartesian> VomitoryPlanes { get; set; } =  new List<Cartesian>();
+        public List<ProfileOrigin> VomitoryOrigins { get; set; } =  new List<ProfileOrigin>();
 
-        public List<Cartesian> CombinedPlanes { get; set; } =  new List<Cartesian>();
+        public List<ProfileOrigin> CombinedOrigins { get; set; } =  new List<ProfileOrigin>();
 
         public List<BayType> StructBayType { get; set; } =  new List<BayType>();
 
-        public Cartesian SectionClosestToFocalCurve { get; set; } = new Cartesian();
+        public ProfileOrigin SectionClosestToFocalCurve { get; set; } = new ProfileOrigin();
 
         public double MinDistToFocalCurve { get; set; } = 0;
 
         public Point CValueFocalPoint { get; set; } = new Point();
 
         public ICurve TheatronFront { get; set; } = new Polyline();
+
+        public SeatingBlockType SeatingBlockType { get; set; } = new SeatingBlockType();
 
         /***************************************************/
     }
