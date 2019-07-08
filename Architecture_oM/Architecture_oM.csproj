@@ -48,8 +48,9 @@
     <Compile Include="Elements\Floor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Theatron\Elements\ActivityArea.cs" />
+    <Compile Include="Theatron\Elements\ProfileOrigin.cs" />
     <Compile Include="Theatron\Elements\SeatingBlock.cs" />
-    <Compile Include="Theatron\Elements\Theatron.cs" />
+    <Compile Include="Theatron\Elements\TheatronGeometry.cs" />
     <Compile Include="Theatron\Elements\TheatronFullProfile.cs" />
     <Compile Include="Theatron\Elements\TheatronPlan.cs" />
     <Compile Include="Theatron\Elements\Tier.cs" />

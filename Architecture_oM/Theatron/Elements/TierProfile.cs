@@ -43,6 +43,8 @@ namespace BH.oM.Architecture.Theatron
         public List<Line> Sightlines { get; set; } = new List<Line>();
 
         public Polyline Profile { get; set; } =new Polyline();
+
+        public ProfileOrigin SectionOrigin { get; set; } = new ProfileOrigin();
         
         public double MappingAngle { get; set; } = 0;
 
