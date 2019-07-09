@@ -38,6 +38,8 @@ namespace BH.oM.Architecture.Theatron
 
         public List<SeatingBlock> Generatorblocks { get; set; } = new List<SeatingBlock>();
 
+        public List<SeatingBlock> TierBlocks { get; set; } = new List<SeatingBlock>();
+
         /***************************************************/
     }
 }
