@@ -17,9 +17,9 @@ Bots posting comments, messages or reporting across any BHoM GitHub Organisation
 
 
 Authorized users in this context will refer to:  
-a) Issue/PR Author  
-b) Code Owner  
-c) Administrators and Maintainers  
+1. Issue/PR Author  
+1. Code Owner  
+1. Administrators and Maintainers  
 
 For more details on code roles and governance see document [here](https://github.com/BHoM/BHoM/blob/master/docs/GOVERNANCE.md).
 
