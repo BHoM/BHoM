@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Humans;
 
 
 namespace BH.oM.Architecture.Theatron
@@ -43,9 +44,7 @@ namespace BH.oM.Architecture.Theatron
 
         public Mesh Floor { get; set; } = new Mesh();
 
-        public List<Point> Eyes { get; set; } = new List<Point>();
-
-        public List<Vector> ViewDirections { get; set; } = new List<Vector>();
+        public Audience Audience { get; set; } = new Audience();
 
         public Line FrontRow { get; set; }=new Line();
 

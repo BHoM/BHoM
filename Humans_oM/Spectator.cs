@@ -31,7 +31,7 @@ namespace BH.oM.Humans
         /**** Properties                                ****/
         /***************************************************/
 
-        public BodyParts.Eye Location { get; set; } = new  BodyParts.Eye();
+        public BodyParts.Eye Eye { get; set; } = new  BodyParts.Eye();
 
         /***************************************************/
     }
