@@ -16,9 +16,9 @@ Bots posting comments, messages or reporting across any BHoM GitHub Organisation
 *   A bot can not modify another author's Branch or raised Pull Request unless directly instructed by an authorized user. 
 
 
-Authorized users in this context will refer to:
-a) Issue/PR Author
-b) Code Owner
+Authorized users in this context will refer to:  
+a) Issue/PR Author  
+b) Code Owner  
 c) Administrators and Maintainers  
 
 For more details on code roles and governance see document [here](https://github.com/BHoM/BHoM/blob/master/docs/GOVERNANCE.md).
