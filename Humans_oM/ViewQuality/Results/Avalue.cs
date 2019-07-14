@@ -36,11 +36,11 @@ namespace BH.oM.Humans.ViewQuality
 
         public double AValue { get; set; } = 0.0;
 
-        public Polyline FullPitch { get; set; } = new Polyline();
+        public Polyline FullActivityArea { get; set; } = new Polyline();
 
-        public Polyline ClipPitch { get; set; } = new Polyline();
+        public List<Polyline> ClippedActivityArea { get; set; } = new List<Polyline>();
 
-        public Polyline ViewCone { get; set; } = new Polyline();
+        public ViewCone ViewCone { get; set; } = new ViewCone();
 
         public List<Polyline> Heads = new List<Polyline>();
 

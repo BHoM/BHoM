@@ -33,8 +33,6 @@ namespace BH.oM.Humans.ViewQuality
 
         public EvalueViewEnum ViewType { get; set; } = EvalueViewEnum.Undefined;
 
-        public bool ShowRanges { get; set; } =  false;
-
         /***************************************************/
     }
 }

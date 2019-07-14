@@ -22,6 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.Collections.Generic;
 
 namespace BH.oM.Humans.ViewQuality
 {
@@ -31,7 +32,9 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public Polyline ConeBoundary { get; set; } = new Polyline();
+        public List<Polyline> ConeBoundary { get; set; } = new List<Polyline>();
+
+        public double ConeArea { get; set; } = 0.0;
 
         /***************************************************/
     }
