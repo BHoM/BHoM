@@ -24,25 +24,23 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Architecture.Theatron
+namespace BH.oM.Humans.ViewQuality
 {
-    public class Cvalue : TheatronResult
+    public class Evalue : ViewQualityResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double CValue { get; set; } = 0.0;
+        public double Torsion { get; set; } = 0.0;
 
-        public double HorizDist { get; set; } = 0.0;
+        public double HorizViewAng { get; set; } = 0.0;
 
-        public double HeightAbovePitch { get; set; } = 0.0;
+        public Polyline HorizViewChevron { get; set; } = new Polyline();
 
-        public double AbsoluteDist { get; set; } = 0.0;
+        public Polyline VertViewChevron { get; set; } = new Polyline();
 
-        public Point Focalpoint { get; set; } = new Point();
-
-        public int CType { get; set; } = 0;
+        public double VertViewAng { get; set; }
 
         /***************************************************/
     }

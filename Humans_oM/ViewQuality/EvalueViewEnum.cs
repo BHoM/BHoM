@@ -20,19 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System.Collections.Generic;
+using BH.oM.Geometry;
+using BH.oM.Base;
 
-namespace BH.oM.Humans
+namespace BH.oM.Humans.ViewQuality
 {
-    public class Audience : BHoMObject
+    public enum EvalueViewEnum
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public List<Spectator> Spectators { get; set; } = new List<Spectator>();
-
-        /***************************************************/
+        ToPoint =0,
+        PerpendicularToRow=1,
+        Undefined=2,
     }
 }

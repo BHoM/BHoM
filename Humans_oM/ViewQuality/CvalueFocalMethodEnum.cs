@@ -20,13 +20,17 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Architecture.Theatron
+using System.Collections.Generic;
+using BH.oM.Geometry;
+using BH.oM.Base;
+
+namespace BH.oM.Humans.ViewQuality
 {
-    public enum ViewClippingType
+    public enum CvalueFocalMethodEnum
     {
-        StaticConeArea = 0,
-        DynamicConeArea=1,
-        ViewFrameArea=2,
-        Undefined=3,
+        OffsetThroughCorners=0,
+        Closest =1,
+        Perpendicular=2,
+        Undefined =3,
     }
 }

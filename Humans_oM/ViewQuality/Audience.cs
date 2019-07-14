@@ -20,22 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-
 using BH.oM.Base;
+using System.Collections.Generic;
 
-namespace BH.oM.Architecture.Theatron
+namespace BH.oM.Humans.ViewQuality
 {
-    public class CvalueSettings : BHoMObject
+    public class Audience : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public FocalMethod FocalMethod { get; set; } = FocalMethod.Undefined;
-
-        public double DefaultCValue { get; set; } =  0;
-
-        public double RowTolerance  { get; set; } =  0;
+        public List<Spectator> Spectators { get; set; } = new List<Spectator>();
 
         /***************************************************/
     }

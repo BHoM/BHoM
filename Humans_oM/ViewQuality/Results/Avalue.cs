@@ -24,9 +24,26 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Architecture.Theatron
+namespace BH.oM.Humans.ViewQuality
 {
-    public enum CvalueType
+    public class Avalue : ViewQualityResult
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public double Occulsion { get; set; } = 0.0;
+
+        public double AValue { get; set; } = 0.0;
+
+        public Polyline FullPitch { get; set; } = new Polyline();
+
+        public Polyline ClipPitch { get; set; } = new Polyline();
+
+        public Polyline ViewCone { get; set; } = new Polyline();
+
+        public List<Polyline> Heads = new List<Polyline>();
+
+        /***************************************************/
     }
 }
