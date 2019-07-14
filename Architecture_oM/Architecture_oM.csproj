@@ -56,21 +56,11 @@
     <Compile Include="Theatron\Elements\Tier.cs" />
     <Compile Include="Theatron\Elements\TierProfile.cs" />
     <Compile Include="Theatron\Enums\BayType.cs" />
-    <Compile Include="Theatron\Enums\CvalueType.cs" />
     <Compile Include="Theatron\Enums\EvalueViewType.cs" />
-    <Compile Include="Theatron\Enums\FocalMethod.cs" />
     <Compile Include="Theatron\Enums\SeatingBlockType.cs" />
     <Compile Include="Theatron\Enums\StadiaType.cs" />
-    <Compile Include="Theatron\Enums\ViewClippingType.cs" />
-    <Compile Include="Theatron\Parameters\AvalueSettings.cs" />
-    <Compile Include="Theatron\Parameters\CvalueSettings.cs" />
-    <Compile Include="Theatron\Parameters\EvalueSettings.cs" />
     <Compile Include="Theatron\Parameters\ProfileParameters.cs" />
     <Compile Include="Theatron\Parameters\StadiaParameters.cs" />
-    <Compile Include="Theatron\Results\Avalue.cs" />
-    <Compile Include="Theatron\Results\Cvalue.cs" />
-    <Compile Include="Theatron\Results\Evalue.cs" />
-    <Compile Include="Theatron\Results\TheatronResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">

@@ -20,18 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
 
-namespace BH.oM.Humans
+using BH.oM.Base;
+
+namespace BH.oM.Humans.ViewQuality
 {
-    public class DynamicViewCone : BHoMObject
+    public class CvalueSettings : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Polyline ConeBoundary { get; set; } = new Polyline();
+        public CvalueFocalMethodEnum FocalMethod { get; set; } = CvalueFocalMethodEnum.Undefined;
+
+        public double DefaultCValue { get; set; } =  0;
+
+        public double RowTolerance  { get; set; } =  0;
 
         /***************************************************/
     }

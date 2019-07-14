@@ -20,19 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-
-namespace BH.oM.Humans
+namespace BH.oM.Humans.ViewQuality
 {
-    public class StaticViewCone: BHoMObject
+    public enum ViewConeEnum
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public Polyline ConeBoundary { get; set; } = new Polyline();
-
-        /***************************************************/
+        StaticConeArea = 0,
+        DynamicConeArea=1,
+        ViewFrameArea=2,
+        Undefined=3,
     }
 }

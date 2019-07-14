@@ -21,17 +21,18 @@
  */
 
 using BH.oM.Base;
-using System.Collections.Generic;
 
-namespace BH.oM.Humans
+namespace BH.oM.Humans.ViewQuality
 {
-    public class Spectator : BHoMObject, IHumanRole
+    public class AvalueSettings : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public BodyParts.Eye Eye { get; set; } = new  BodyParts.Eye();
+        public ViewConeEnum ConeType { get; set; } = ViewConeEnum.Undefined;
+
+        public bool CalculateOcclusion { get; set; } =  false;
 
         /***************************************************/
     }

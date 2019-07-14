@@ -20,17 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
 using BH.oM.Base;
 
-namespace BH.oM.Architecture.Theatron
+
+namespace BH.oM.Humans.ViewQuality
 {
-    public enum FocalMethod 
+    public class EvalueSettings : BHoMObject
     {
-        OffsetThroughCorners=0,
-        Closest =1,
-        Perpendicular=2,
-        Undefined =3,
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public EvalueViewEnum ViewType { get; set; } = EvalueViewEnum.Undefined;
+
+        public bool ShowRanges { get; set; } =  false;
+
+        /***************************************************/
     }
 }

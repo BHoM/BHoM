@@ -20,20 +20,29 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
+using BH.oM.Geometry;
 using BH.oM.Base;
 
-
-namespace BH.oM.Architecture.Theatron
+namespace BH.oM.Humans.ViewQuality
 {
-    public class EvalueSettings : BHoMObject
+    public class Cvalue : ViewQualityResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public EvalueViewType ViewType { get; set; } =  EvalueViewType.Undefined;
+        public double CValue { get; set; } = 0.0;
 
-        public bool ShowRanges { get; set; } =  false;
+        public double HorizDist { get; set; } = 0.0;
+
+        public double HeightAbovePitch { get; set; } = 0.0;
+
+        public double AbsoluteDist { get; set; } = 0.0;
+
+        public Point Focalpoint { get; set; } = new Point();
+
+        public int CType { get; set; } = 0;
 
         /***************************************************/
     }

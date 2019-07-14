@@ -63,8 +63,8 @@
     <Compile Include="BodyParts\RightUpperArm.cs" />
     <Compile Include="BodyParts\RightUpperLeg.cs" />
     <Compile Include="BodyParts\Spine.cs" />
-    <Compile Include="Audience.cs" />
-    <Compile Include="DynamicViewCone.cs" />
+    <Compile Include="ViewQuality\Audience.cs" />
+    <Compile Include="ViewQuality\ViewCone.cs" />
     <Compile Include="Enums\HandStateName.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Human.cs" />
@@ -74,13 +74,26 @@
     <Compile Include="Enums\JointName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skeleton.cs" />
-    <Compile Include="Spectator.cs" />
-    <Compile Include="StaticViewCone.cs" />
+    <Compile Include="ViewQuality\Spectator.cs" />
+    <Compile Include="ViewQuality\AvalueSettings.cs" />
+    <Compile Include="ViewQuality\CvalueSettings.cs" />
+    <Compile Include="ViewQuality\EvalueSettings.cs" />
+    <Compile Include="ViewQuality\EvalueViewEnum.cs" />
+    <Compile Include="ViewQuality\CvalueFocalMethodEnum.cs" />
+    <Compile Include="ViewQuality\Results\Avalue.cs" />
+    <Compile Include="ViewQuality\Results\Cvalue.cs" />
+    <Compile Include="ViewQuality\Results\Evalue.cs" />
+    <Compile Include="ViewQuality\Results\ViewQualityResult.cs" />
+    <Compile Include="ViewQuality\ViewConeEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common_oM\Common_oM.csproj">
+      <Project>{44F6C3BC-D321-4673-8F54-674AE7B33F18}</Project>
+      <Name>Common_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5B09A2E5-CBF5-43E2-8D98-B5035391DB7B}</Project>

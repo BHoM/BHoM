@@ -20,48 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Common;
-using BH.oM.Geometry;
-using System.ComponentModel;
-using System;
+using BH.oM.Base;
+using System.Collections.Generic;
 
-namespace BH.oM.Architecture.Theatron
+namespace BH.oM.Humans.ViewQuality
 {
-    public abstract class TheatronResult : IResult
+    public class Spectator : BHoMObject, IHumanRole
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public IComparable ObjectId { get; set; } = "";
-
-        public IComparable ResultCase { get; set; } = "";
-
-        public double TimeStep { get; set; } = 0.0;
-
-        /***************************************************/
-        /**** IComparable Interface                     ****/
-        /***************************************************/
-
-        public int CompareTo(IResult other)
-        {
-            TheatronResult otherRes = other as TheatronResult;
-
-            if (otherRes == null)
-                return this.GetType().Name.CompareTo(other.GetType().Name);
-
-            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
-            if (n == 0)
-            {
-                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
-                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
-            }
-            else
-            {
-                return n;
-            }
-
-        }
+        public BodyParts.Eye Eye { get; set; } = new  BodyParts.Eye();
 
         /***************************************************/
     }

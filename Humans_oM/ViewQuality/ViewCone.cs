@@ -20,27 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Geometry;
 
-namespace BH.oM.Architecture.Theatron
+namespace BH.oM.Humans.ViewQuality
 {
-    public class Evalue : TheatronResult
+    public class ViewCone : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Torsion { get; set; } = 0.0;
-
-        public double HorizViewAng { get; set; } = 0.0;
-
-        public Polyline HorizViewChevron { get; set; } = new Polyline();
-
-        public Polyline VertViewChevron { get; set; } = new Polyline();
-
-        public double VertViewAng { get; set; }
+        public Polyline ConeBoundary { get; set; } = new Polyline();
 
         /***************************************************/
     }
