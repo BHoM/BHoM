@@ -22,7 +22,7 @@
 
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Humans;
+using BH.oM.Humans.ViewQuality;
 
 namespace BH.oM.Architecture.Theatron
 {
