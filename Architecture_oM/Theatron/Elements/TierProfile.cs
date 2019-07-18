@@ -38,7 +38,7 @@ namespace BH.oM.Architecture.Theatron
 
         public List<Point> EyePoints { get; set; } = new List<Point>();
 
-        public List<Vector> FocalPoint { get; set; } = new List<Vector>();
+        public Point FocalPoint { get; set; } = new Point();
 
         public List<Line> Sightlines { get; set; } = new List<Line>();
 

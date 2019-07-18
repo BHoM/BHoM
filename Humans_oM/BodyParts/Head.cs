@@ -33,7 +33,6 @@ namespace BH.oM.Humans.BodyParts
 
         public Point TrackingPoint { get; set; } = new Point(); // Point at centre of head
 
-
         /***************************************************/
     }
 }

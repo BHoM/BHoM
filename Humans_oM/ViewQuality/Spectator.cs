@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System.Collections.Generic;
 
 namespace BH.oM.Humans.ViewQuality
@@ -32,6 +33,8 @@ namespace BH.oM.Humans.ViewQuality
         /***************************************************/
 
         public BodyParts.Eye Eye { get; set; } = new  BodyParts.Eye();
+
+        public Polyline HeadOutline { get; set; } = new Polyline();
 
         /***************************************************/
     }
