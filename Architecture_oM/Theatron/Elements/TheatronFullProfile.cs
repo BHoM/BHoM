@@ -41,8 +41,6 @@ namespace BH.oM.Architecture.Theatron
 
         public ProfileOrigin FullProfileOrigin { get; set; } = new ProfileOrigin();//the plane at the first surface point
 
-        public Point FocalPoint { get; set; } = new Point();
-
         /***************************************************/
     }
 }

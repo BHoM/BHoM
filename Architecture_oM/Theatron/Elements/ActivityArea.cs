@@ -34,7 +34,7 @@ namespace BH.oM.Architecture.Theatron
 
         public Polyline PlayingArea { get; set; } = new Polyline();
 
-        public Point AValueFocalPoint { get; set; } = new Point();
+        public Point ActivityFocalPoint { get; set; } = new Point();
 
         public double Width { get; set; } = 0.0;
 

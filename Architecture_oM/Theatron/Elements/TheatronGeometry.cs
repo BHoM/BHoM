@@ -36,7 +36,7 @@ namespace BH.oM.Architecture.Theatron
 
         public List<Tier> Tiers3d { get; set; } = new List<Tier>();
 
-        public Audience Spectators { get; set; } = new Audience();
+        public List<Audience> Audience { get; set; } = new List<Audience>();
 
         /***************************************************/
     }

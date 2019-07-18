@@ -36,9 +36,9 @@ namespace BH.oM.Humans.ViewQuality
 
         public double HorizViewAng { get; set; } = 0.0;
 
-        public Polyline HorizViewChevron { get; set; } = new Polyline();
+        public Vector[] HorizViewVectors { get; set; } = new Vector[2];
 
-        public Polyline VertViewChevron { get; set; } = new Polyline();
+        public Vector[] VertViewVectors { get; set; } = new Vector[2];
 
         public double VertViewAng { get; set; }
 

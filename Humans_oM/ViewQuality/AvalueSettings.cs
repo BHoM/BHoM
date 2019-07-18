@@ -34,11 +34,11 @@ namespace BH.oM.Humans.ViewQuality
 
         public bool CalculateOcclusion { get; set; } =  false;
 
-        public double EyeFrameDist { get; set; } = 100;
+        public double EyeFrameDist { get; set; } = 0.1;
 
-        public double ForeheadSize { get; set; } = 120;
+        public double ForeheadSize { get; set; } = 0.120;
 
-        public double NearHeadRange { get; set; } = 100;//dist from viewplane centre for nearest heads
+        public double NearHeadRange { get; set; } = 0.100;//dist from viewplane centre for nearest heads
 
         /***************************************************/
     }

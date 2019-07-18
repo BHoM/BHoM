@@ -42,8 +42,6 @@ namespace BH.oM.Humans.ViewQuality
 
         public Point Focalpoint { get; set; } = new Point();
 
-        public int CType { get; set; } = 0;
-
         /***************************************************/
     }
 }
