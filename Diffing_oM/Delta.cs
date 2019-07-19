@@ -27,7 +27,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Diffing_oM
+namespace BH.oM.Diffing
 {
     public class Delta : IObject
     {
