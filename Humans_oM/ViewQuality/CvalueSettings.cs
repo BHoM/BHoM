@@ -35,7 +35,7 @@ namespace BH.oM.Humans.ViewQuality
 
         public double DefaultCValue { get; set; } =  0;
 
-        public double RowTolerance  { get; set; } =  0;
+        public double RowTolerance  { get; set; } =  2;
 
         /***************************************************/
     }
