@@ -29,19 +29,27 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class Delta : IObject
+    public class Delta : IDiffingProject, IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         public List<object> ToCreate { get; private set; }
-        public List<string> ToDelete { get; private set; }
-        public List<string> ToUpdate { get; private set; }
-        public string ProjectID { get; private set; }
-        public string Revision { get; private set; }
+        public List<string> ToCreate_hashes { get; private set; }
+
+        public List<object> ToDelete { get; private set; }
+        public List<string> ToDelete_hashes { get; private set; }
+
+        public List<object> ToUpdate { get; private set; }
+        public List<string> ToUpdate_hashes { get; private set; }
+
+        public string ProjectName { get; private set; }
+        public string ProjectId { get; private set; }
+        public int Revision { get; private set; } = 0;
         public long Timestamp { get; private set; }
         public string Author { get; private set; }
+
 
         /***************************************************/
 
@@ -49,15 +57,37 @@ namespace BH.oM.Diffing
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Delta(List<object> toCreate, List<string> toDelete, List<string> toUpdate, string projectID, string revision, long timestamp, string author)
+        public Delta(List<object> toCreate, List<object> toDelete, List<object> toUpdate, string projectName)
         {
+            ProjectName = String.IsNullOrWhiteSpace(projectName) ? "UnnamedProject-createdOn" + DateTime.Now.ToString() + "localTime" : projectName;
             ToCreate = toCreate;
             ToDelete = toDelete;
             ToUpdate = toUpdate;
-            ProjectID = projectID;
-            Revision = revision;
-            Timestamp = timestamp;
-            Author = author;
+            ProjectName = "UnnamedProject-createdOn" + DateTime.Now.ToString() + "localTime";
+            ProjectId = Guid.NewGuid().ToString("N");
+            Revision = Revision + 1;
+            Timestamp = DateTime.UtcNow.Ticks;
+            Author = Environment.UserDomainName + "/" + Environment.UserName;
+        }
+
+        public Delta(List<object> toCreate, List<object> toDelete, List<object> toUpdate, string projectName, string projectId) 
+            : this(toCreate, toDelete, toUpdate, projectName)
+        {
+            ProjectId = projectId;
+        }
+
+        public Delta(List<object> toCreate, List<string> toCreate_hashes, List<object> toDelete, List<string> toDelete_hashes, List<object> toUpdate, List<string> toUpdate_hashes, string projectName) 
+            : this(toCreate, toDelete, toUpdate, projectName)
+        {
+            ToCreate_hashes = toCreate_hashes;
+            ToDelete_hashes = toDelete_hashes;
+            ToUpdate_hashes = toUpdate_hashes;
+        }
+
+        public Delta(List<object> toCreate, List<string> toCreate_hashes, List<object> toDelete, List<string> toDelete_hashes, List<object> toUpdate, List<string> toUpdate_hashes, string projectName, string projectId)
+             : this(toCreate, toCreate_hashes, toDelete, toDelete_hashes, toUpdate, toUpdate_hashes, projectName)
+        {
+            ProjectId = projectId;
         }
 
         /***************************************************/
