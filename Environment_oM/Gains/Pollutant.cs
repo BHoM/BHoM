@@ -27,13 +27,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Fragments;
 
 namespace BH.oM.Environment.Gains
 {
-    public class Gain : BHoMObject, IGain, IEnvironmentObject
+    public class Pollutant : BHoMObject, IGain
     {
-        public GainType Type { get; set; } = GainType.Undefined;
-        public IGainProperties Properties { get; set; } = null;
+        public double Sensible { get; set; } = 0.0;
+        public double Latent { get; set; } = 0.0;
+        public Profile Profile { get; set; } = new Profile();
     }
 }

@@ -20,22 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+
 namespace BH.oM.Environment.Gains
 {
-    public enum GainUnit
+    public class Equipment : BHoMObject, IGain
     {
-        Undefined,
-        AirChangesPerHour,
-        CubicMetrePerSecond,
-        CubicMetrePerSecondPerPerson,
-        CubicMetrePerSecondSquareMetreExternal,
-        GramsPerHourPerSquareMetre,
-        Illuminance,
-        LitresPerHourPerSquareMetre,
-        NumberOfPeople,
-        PeoplePerSquareMetre,
-        Watts,
-        WattsPerPerson,
-        WattsPerSquareMetre,
+        public double Sensible { get; set; } = 0.0;
+        public double Latent { get; set; } = 0.0;
+        public Profile Profile { get; set; } = new Profile();
+
+        public double RadiantFraction { get; set; } = 0.0;
+        public double ViewCoefficient { get; set; } = 0.0;
     }
 }

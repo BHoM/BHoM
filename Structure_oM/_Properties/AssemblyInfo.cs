@@ -56,7 +56,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("2.1.0.0")]
+[assembly: AssemblyFileVersion("2.3.0.0")]
 
 // The url of the online repository that contains the project
 [assembly: AssemblyUrl("https://github.com/BHoM/BHoM/")]

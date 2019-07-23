@@ -30,14 +30,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Gains
 {
-    public class PeopleGain : BHoMObject, IGainProperties
+    public class People : BHoMObject, IGain
     {
-        public double SensibleGain { get; set; } = 0.0;
-        public double LatentGain { get; set; } = 0.0;
+        public double Sensible { get; set; } = 0.0;
+        public double Latent { get; set; } = 0.0;
         public Profile Profile { get; set; } = new Profile();
-        public GainUnit Unit { get; set; } = GainUnit.Undefined;
+
         public double RadiantFraction { get; set; } = 0.0;
         public double ViewCoefficient { get; set; } = 0.0;
-        public double Value { get; set; } = 0.0;
     }
 }
