@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class Delta : IDiffingProject, IObject
+    public class Delta : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -44,9 +44,8 @@ namespace BH.oM.Diffing
         public List<IBHoMObject> ToUpdate { get; private set; }
         public List<string> ToUpdate_hashes { get; private set; }
 
-        public string ProjectName { get; private set; }
-        public string ProjectId { get; private set; }
-        public int Revision { get; private set; } = 0;
+        public DiffProjFragment DiffingProject { get; private set;}
+
         public long Timestamp { get; private set; }
         public string Author { get; private set; }
 
@@ -54,46 +53,40 @@ namespace BH.oM.Diffing
 
         /***************************************************/
         /**** Constructors                              ****/
-        /***************************************************/
+        /***************************************************/     
 
-        public Delta(List<IBHoMObject> toCreate, List<IBHoMObject> toDelete, List<IBHoMObject> toUpdate, string projectName)
+        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate)
         {
-            ProjectName = String.IsNullOrWhiteSpace(projectName) ? "UnnamedProject-createdOn" + DateTime.Now.ToString() + "localTime" : projectName;
             ToCreate = toCreate;
-            ToDelete = toDelete;
-            ToUpdate = toUpdate;
-            ProjectName = "UnnamedProject-createdOn" + DateTime.Now.ToString() + "localTime";
-            ProjectId = Guid.NewGuid().ToString("N");
-            Revision = Revision + 1;
+
+            DiffingProject = diffingProject;
+            DiffingProject.Revision += 1;
+
             Timestamp = DateTime.UtcNow.Ticks;
             Author = Environment.UserDomainName + "/" + Environment.UserName;
 
             if (ToCreate_hashes == null)
                 ToCreate_hashes = GetHashes(toCreate);
-            if (ToDelete_hashes == null)
+        }
+
+        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<IBHoMObject> toDelete, List<IBHoMObject> toUpdate)
+            : this(diffingProject, toCreate)
+        {
+            ToDelete = toDelete;
+            ToUpdate = toUpdate;
+
+            if (ToDelete_hashes == null && toDelete != null)
                 ToDelete_hashes = GetHashes(toDelete);
-            if (ToUpdate_hashes == null)
+            if (ToUpdate_hashes == null && ToUpdate != null)
                 ToUpdate_hashes = GetHashes(toUpdate);
         }
 
-        public Delta(List<IBHoMObject> toCreate, List<IBHoMObject> toDelete, List<IBHoMObject> toUpdate, string projectName, string projectId) 
-            : this(toCreate, toDelete, toUpdate, projectName)
-        {
-            ProjectId = projectId;
-        }
-
-        public Delta(List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes, string projectName) 
-            : this(toCreate, toDelete, toUpdate, projectName)
+        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes)
+            : this(diffingProject, toCreate, toDelete, toUpdate)
         {
             ToCreate_hashes = toCreate_hashes;
             ToDelete_hashes = toDelete_hashes;
             ToUpdate_hashes = toUpdate_hashes;
-        }
-
-        public Delta(List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes, string projectName, string projectId)
-             : this(toCreate, toCreate_hashes, toDelete, toDelete_hashes, toUpdate, toUpdate_hashes, projectName)
-        {
-            ProjectId = projectId;
         }
 
         /***************************************************/
@@ -105,7 +98,7 @@ namespace BH.oM.Diffing
 
         private List<string> GetHashes(List<IBHoMObject> objs)
         {
-           return objs.Select(obj => obj.Fragments.OfType<DiffingFragment>().First().Hash).ToList();
+            return objs.Select(obj => obj.Fragments.OfType<DiffHashFragment>().First().Hash).ToList();
         }
 
         /***************************************************/

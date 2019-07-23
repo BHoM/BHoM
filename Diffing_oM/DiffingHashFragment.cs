@@ -29,26 +29,32 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class DiffingFragment : IBHoMFragment, IDiffingProject
+    public class DiffHashFragment : IBHoMFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Hash { get; set; }
-
-        public string ProjectName { get; set; }
-
-        public string ProjectId { get; set; }
-
-        public int Revision { get; set; }
-
+        public string Hash { get; private set; }
+        public DiffProjFragment DiffingProject { get; private set;}
 
         /***************************************************/
 
 
         /***************************************************/
-        /**** IBHoMFragment stuff (I don't want it!) :) ****/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public DiffHashFragment(string hash, DiffProjFragment diffingProject)
+        {
+            Hash = hash;
+            DiffingProject = diffingProject;
+        }
+
+        /***************************************************/
+
+        /***************************************************/
+        /**** IBHoMFragment stuff (not needed)          ****/
         /***************************************************/
 
         public Guid BHoM_Guid
