@@ -50,74 +50,19 @@ namespace BH.oM.Diffing
         /**** IBHoMFragment stuff (not needed)          ****/
         /***************************************************/
 
-        public Guid BHoM_Guid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+        public Guid BHoM_Guid { get; set; } = Guid.NewGuid();
 
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string Name { get; set; } = "";
 
-        public string Name
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+        public List<IBHoMFragment> Fragments { get; set; } = new List<IBHoMFragment>();
 
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public HashSet<string> Tags { get; set; } = new HashSet<string>();
 
-        public List<IBHoMFragment> Fragments
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public HashSet<string> Tags
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public Dictionary<string, object> CustomData
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
 
         public IBHoMObject GetShallowClone(bool newGuid = false)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         /***************************************************/

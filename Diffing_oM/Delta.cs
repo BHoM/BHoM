@@ -44,6 +44,9 @@ namespace BH.oM.Diffing
         public List<IBHoMObject> ToUpdate { get; private set; }
         public List<string> ToUpdate_hashes { get; private set; }
 
+        public List<IBHoMObject> Unchanged { get; private set; }
+        public List<string> Unchanged_hashes { get; private set; }
+
         public DiffProjFragment DiffingProject { get; private set;}
 
         public long Timestamp { get; private set; }
@@ -69,24 +72,28 @@ namespace BH.oM.Diffing
                 ToCreate_hashes = GetHashes(toCreate);
         }
 
-        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<IBHoMObject> toDelete, List<IBHoMObject> toUpdate)
+        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<IBHoMObject> toDelete, List<IBHoMObject> toUpdate, List<IBHoMObject> unchanged)
             : this(diffingProject, toCreate)
         {
             ToDelete = toDelete;
             ToUpdate = toUpdate;
+            Unchanged = unchanged;
 
             if (ToDelete_hashes == null && toDelete != null)
                 ToDelete_hashes = GetHashes(toDelete);
             if (ToUpdate_hashes == null && ToUpdate != null)
                 ToUpdate_hashes = GetHashes(toUpdate);
+            if (Unchanged_hashes == null && Unchanged != null)
+                Unchanged_hashes = GetHashes(Unchanged);
         }
 
-        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes)
-            : this(diffingProject, toCreate, toDelete, toUpdate)
+        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes, List<IBHoMObject> unchanged, List<string> unchanged_hashes)
+            : this(diffingProject, toCreate, toDelete, toUpdate, unchanged)
         {
             ToCreate_hashes = toCreate_hashes;
             ToDelete_hashes = toDelete_hashes;
             ToUpdate_hashes = toUpdate_hashes;
+            Unchanged_hashes = unchanged_hashes;
         }
 
         /***************************************************/

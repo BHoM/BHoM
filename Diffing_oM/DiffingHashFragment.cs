@@ -36,7 +36,9 @@ namespace BH.oM.Diffing
         /***************************************************/
 
         public string Hash { get; private set; }
-        public DiffProjFragment DiffingProject { get; private set;}
+        public string PreviousHash { get; private set; } = null;
+
+        public DiffProjFragment DiffingProject { get; private set; }
 
         /***************************************************/
 
@@ -51,80 +53,31 @@ namespace BH.oM.Diffing
             DiffingProject = diffingProject;
         }
 
+        public DiffHashFragment(string hash, string previousHash, DiffProjFragment diffingProject)
+            : this(hash, diffingProject)
+        {
+            PreviousHash = previousHash;
+        }
+
         /***************************************************/
 
         /***************************************************/
         /**** IBHoMFragment stuff (not needed)          ****/
         /***************************************************/
 
-        public Guid BHoM_Guid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+        public Guid BHoM_Guid { get; set; } = Guid.NewGuid();
 
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string Name { get; set; } = "";
 
-        public string Name
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+        public List<IBHoMFragment> Fragments { get; set; } = new List<IBHoMFragment>();
 
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public HashSet<string> Tags { get; set; } = new HashSet<string>();
 
-        public List<IBHoMFragment> Fragments
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public HashSet<string> Tags
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public Dictionary<string, object> CustomData
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
 
         public IBHoMObject GetShallowClone(bool newGuid = false)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         /***************************************************/
