@@ -49,9 +49,9 @@ namespace BH.oM.Diffing
         public List<string> Unchanged_hashes { get; private set; }
 
         [Description("The dict key is the modified object hash; tuple.item1 is a list of all modified props names; tuple.item2 the list of new values.")]
-        public Dictionary<string, Tuple<List<string>, List<string>>> modifiedPropsPerObject { get; private set; } = new Dictionary<string, Tuple<List<string>, List<string>>>(); 
+        public Dictionary<string, Tuple<List<string>, List<string>>> ModifiedPropsPerObject { get; private set; }
 
-        public DiffProjFragment DiffingProject { get; private set;}
+        public DiffProjFragment DiffingProject { get; private set; }
 
         public long Timestamp { get; private set; }
         public string Author { get; private set; }
@@ -60,7 +60,7 @@ namespace BH.oM.Diffing
 
         /***************************************************/
         /**** Constructors                              ****/
-        /***************************************************/     
+        /***************************************************/
 
         public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate)
         {
@@ -98,6 +98,12 @@ namespace BH.oM.Diffing
             ToDelete_hashes = toDelete_hashes;
             ToUpdate_hashes = toUpdate_hashes;
             Unchanged_hashes = unchanged_hashes;
+        }
+
+        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes, List<IBHoMObject> unchanged, List<string> unchanged_hashes, Dictionary<string, Tuple<List<string>, List<string>>> modifiedPropsPerObject)
+            : this(diffingProject, toCreate, toDelete, toUpdate, unchanged)
+        {
+            ModifiedPropsPerObject = modifiedPropsPerObject;
         }
 
         /***************************************************/
