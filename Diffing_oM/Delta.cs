@@ -23,6 +23,7 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,9 @@ namespace BH.oM.Diffing
 
         public List<IBHoMObject> Unchanged { get; private set; }
         public List<string> Unchanged_hashes { get; private set; }
+
+        [Description("The dict key is the modified object hash; tuple.item1 is a list of all modified props names; tuple.item2 the list of new values.")]
+        public Dictionary<string, Tuple<List<string>, List<string>>> modifiedPropsPerObject { get; private set; } = new Dictionary<string, Tuple<List<string>, List<string>>>(); 
 
         public DiffProjFragment DiffingProject { get; private set;}
 
