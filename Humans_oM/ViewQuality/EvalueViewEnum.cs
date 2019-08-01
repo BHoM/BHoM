@@ -23,11 +23,13 @@
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Humans.ViewQuality
 {
     public enum EvalueViewEnum
     {
+        [Description("Specifies the direction used to evalaute Evalue, ToPoint uses the ActivivtyArea FocalPoint to define view direction")]
         ToPoint =0,
         PerpendicularToRow=1,
         Undefined=2,

@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Architecture.Theatron
 {
@@ -33,13 +34,16 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The set of tier profiles orientated in the world xz plane, the origin is the focal point for Cvalue calculations")]
         public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
 
+        [Description("The set of tier profiles orientated to the plane closest to the focal curve")]
         public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
 
         public double Rounding { get; set; } = 0.0;
 
-        public ProfileOrigin FullProfileOrigin { get; set; } = new ProfileOrigin();//the plane at the first surface point
+        [Description("The plane at the first surface point, x axis is horizontal and points away from the playing area, y axis points up")]
+        public ProfileOrigin FullProfileOrigin { get; set; } = new ProfileOrigin();
 
         /***************************************************/
     }

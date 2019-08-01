@@ -9,7 +9,7 @@ using BH.oM.Humans.Interfaces;
 
 namespace BH.oM.Humans.BodyParts
 {
-    public class Eye : IPointBodyPart
+    public class PairOfEyes : IPointBodyPart
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -17,6 +17,12 @@ namespace BH.oM.Humans.BodyParts
 
         public Point TrackingPoint { get; set; } = new Point();
 
-        /***************************************************/
+        public Eye LeftEye { get; set; } = new Eye();
+
+        public Eye RightEye { get; set; } = new Eye();
+
+        public Point ReferenceLocation { get; set; } = new Point();
+
+        public Vector ViewDirection { get; set; } = new Vector();
     }
 }

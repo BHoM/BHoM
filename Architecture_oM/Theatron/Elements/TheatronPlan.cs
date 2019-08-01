@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Architecture.Theatron
 {
@@ -35,8 +36,10 @@ namespace BH.oM.Architecture.Theatron
 
         public List<ProfileOrigin> SectionOrigins { get; set; } =  new List<ProfileOrigin>();
 
+        [Description("Activity area is used for evaluating Avalue and Evalues")]
         public ActivityArea ActivityArea { get; set; } = new ActivityArea();
 
+        [Description("Focal curve is used for defining Cvalue focal points")]
         public Polyline FocalCurve { get; set; } = new Polyline();
 
         public List<ProfileOrigin> VomitoryOrigins { get; set; } =  new List<ProfileOrigin>();

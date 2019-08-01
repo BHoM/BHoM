@@ -20,24 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Geometry;
 using BH.oM.Base;
-using System.ComponentModel;
 
 namespace BH.oM.Architecture.Theatron
 {
-    public class ActivityArea : BHoMObject
+    public class SuperRiserParameters : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Closed Polyline representing a pitch, screen or any area that an audience are looking at 2d or 3d")]
-        public Polyline PlayingArea { get; set; } = new Polyline();
 
-        [Description("This is used for Avalue and Evalue calculations, typically the centre of the playing area")]
-        public Point ActivityFocalPoint { get; set; } = new Point();
+        public bool SuperRiser { get; set; } = false;
 
-        /***************************************************/
+        public double SuperRiserKerbWidth { get; set; } = 0.0;
+
+        public int SuperRiserStartRow { get; set; } = 0;
     }
 }
