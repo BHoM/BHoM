@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Humans.ViewQuality
 {
@@ -34,11 +35,13 @@ namespace BH.oM.Humans.ViewQuality
 
         public bool CalculateOcclusion { get; set; } =  false;
 
+        [Description("Distance from eye ref point to the plane where the Avalue is calculated")]
         public double EyeFrameDist { get; set; } = 0.1;
 
         public double ForeheadSize { get; set; } = 0.120;
 
-        public double NearHeadRange { get; set; } = 0.100;//dist from viewplane centre for nearest heads
+        [Description("Radius from viewplane centre for finding nearest potentially occulding heads")]
+        public double NearHeadRange { get; set; } = 0.100;
 
         /***************************************************/
     }

@@ -32,7 +32,7 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public BodyParts.Eye Eye { get; set; } = new  BodyParts.Eye();
+        public BodyParts.Head Head { get; set; } = new  BodyParts.Head();
 
         public Polyline HeadOutline { get; set; } = new Polyline();
 

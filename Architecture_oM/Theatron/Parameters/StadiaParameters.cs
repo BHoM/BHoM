@@ -52,6 +52,10 @@ namespace BH.oM.Architecture.Theatron
 
         public ActivityArea ActivityArea { get; set; } = new ActivityArea();
 
+        public double PitchLength { get; set; } = 0.0;
+
+        public double PitchWidth { get; set; } = 0.0;
+
         /***************************************************/
     }
 }

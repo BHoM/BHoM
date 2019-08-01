@@ -31,7 +31,9 @@ namespace BH.oM.Humans.BodyParts
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point(); // Point at centre of head
+        public Point TrackingPoint { get; set; } = new Point();
+
+        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
 
         /***************************************************/
     }

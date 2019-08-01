@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Humans.ViewQuality;
 
 namespace BH.oM.Architecture.Theatron
 {
@@ -40,35 +41,17 @@ namespace BH.oM.Architecture.Theatron
 
         public int NumRows { get; set; } = 0;
 
-        public bool SuperRiser { get; set; } = false;
-
-        public int SuperRiserStartRow { get; set; } = 0;
-
-        public bool Vomitory { get; set; } = false;
-
-        public int VomitoryStartRow { get; set; } = 0;
-
         public double SeatWidth { get; set; } = 0.0;
-
-        public double EyePositionZ { get; set; } = 0.0;
-
-        public double EyePositionX { get; set; } = 0.0;
 
         public double BoardHeight { get; set; } = 0.0;
 
-        public double AisleWidth { get; set; } = 0.0;
-
-        public double SuperRiserKerbWidth { get; set; } = 0.0;
-
-        public double SuperRiserEyePositionX { get; set; } = 0.0;
-
-        public double SuperRiserEyePositionZ { get; set; } = 0.0;
-
-        public double StandingEyePositionZ { get; set; } = 0.0;
-
-        public double StandingEyePositionX { get; set; } = 0.0;
-
         public double RiserHeightRounding { get; set; } = 0.0;
+
+        public VomitoryParameters VomitoryParameters { get; set; } = new VomitoryParameters();
+
+        public SuperRiserParameters SuperRiserParameters { get; set; } = new SuperRiserParameters();
+
+        public EyePositionParameters EyePositionParameters { get; set; } = new EyePositionParameters();
 
         /***************************************************/
     }

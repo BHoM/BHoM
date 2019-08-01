@@ -23,9 +23,11 @@
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Architecture.Theatron
 {
+    [Description("Used for orientation and setting out of tier profiles")]
     public class ProfileOrigin : BHoMObject
     {
         /***************************************************/
@@ -34,6 +36,7 @@ namespace BH.oM.Architecture.Theatron
 
         public Point Origin { get; set; } = new Point();
 
+        [Description("Always horizontal pointing from front row to back row")]
         public Vector Direction { get; set; } = new Vector();
 
     }

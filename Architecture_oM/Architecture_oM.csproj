@@ -61,6 +61,8 @@
     <Compile Include="Theatron\Enums\StadiaType.cs" />
     <Compile Include="Theatron\Parameters\ProfileParameters.cs" />
     <Compile Include="Theatron\Parameters\StadiaParameters.cs" />
+    <Compile Include="Theatron\Parameters\SuperRiserParameters.cs" />
+    <Compile Include="Theatron\Parameters\VomitoryParameters.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
