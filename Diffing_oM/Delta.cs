@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class Delta : IObject
+    public class Delta : IObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

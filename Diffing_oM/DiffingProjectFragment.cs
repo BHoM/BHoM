@@ -50,15 +50,15 @@ namespace BH.oM.Diffing
         /**** IBHoMFragment stuff (not needed)          ****/
         /***************************************************/
 
-        public Guid BHoM_Guid { get; set; } = Guid.NewGuid();
+        public Guid BHoM_Guid { get; set; } = default(Guid);
 
-        public string Name { get; set; } = "";
+        public string Name { get; set; } = null;
 
-        public List<IBHoMFragment> Fragments { get; set; } = new List<IBHoMFragment>();
+        public List<IBHoMFragment> Fragments { get; set; } = null;
 
-        public HashSet<string> Tags { get; set; } = new HashSet<string>();
+        public HashSet<string> Tags { get; set; } = null;
 
-        public Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
+        public Dictionary<string, object> CustomData { get; set; } = null;
 
         public IBHoMObject GetShallowClone(bool newGuid = false)
         {
