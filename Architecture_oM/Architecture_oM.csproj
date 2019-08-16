@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Elements\Grid.cs" />
     <Compile Include="Elements\Roof.cs" />
+    <Compile Include="Elements\Room.cs" />
     <Compile Include="Elements\Wall.cs" />
     <Compile Include="Elements\Level.cs" />
     <Compile Include="Elements\Floor.cs" />
