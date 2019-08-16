@@ -36,71 +36,65 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMObject> ToCreate { get; private set; }
-        public List<string> ToCreate_hashes { get; private set; }
+        public List<IBHoMObject> OnlySetA { get; }
+        public List<string> OnlySetA_hashes { get; }
 
-        public List<IBHoMObject> ToDelete { get; private set; }
-        public List<string> ToDelete_hashes { get; private set; }
+        public List<IBHoMObject> OnlySetB { get; }
+        public List<string> OnlySetB_hashes { get; }
 
-        public List<IBHoMObject> ToUpdate { get; private set; }
-        public List<string> ToUpdate_hashes { get; private set; }
+        public List<IBHoMObject> Modified { get; }
+        public List<string> Modified_hashes { get; }
 
-        public List<IBHoMObject> Unchanged { get; private set; }
-        public List<string> Unchanged_hashes { get; private set; }
+        public List<IBHoMObject> UnModified { get; }
+        public List<string> UnModified_hashes { get; }
 
-        [Description("The dict key is the modified object hash; tuple.item1 is a list of all modified props names; tuple.item2 the list of new values.")]
-        public Dictionary<string, Tuple<List<string>, List<string>>> ModifiedPropsPerObject { get; private set; }
+        [Description("The dict key is the modified object hash. Value is another dictionary whose key is the name of the modified property, while value.item1 is the property value in setA, value.item2 in setB")]
+        public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
 
-        public DiffProjFragment DiffingProject { get; private set; }
+        public DiffProjFragment DiffingProject { get; }
 
-        public long Timestamp { get; private set; }
-        public string Author { get; private set; }
-
-        /***************************************************/
+        public long Timestamp { get; }
+        public string Author { get; }
 
         /***************************************************/
-        /**** Constructors                              ****/
+
+        /***************************************************/
+        /**** Constructor                               ****/
         /***************************************************/
 
-        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate)
+        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<IBHoMObject> toDelete, List<IBHoMObject> toUpdate, List<IBHoMObject> unchanged)
         {
-            ToCreate = toCreate;
+            OnlySetA = toCreate;
+            OnlySetB = toDelete;
+            Modified = toUpdate;
+            UnModified = unchanged;
+
+            if (OnlySetA_hashes == null)
+                OnlySetA_hashes = GetHashes(toCreate);
+            if (OnlySetB_hashes == null && toDelete != null)
+                OnlySetB_hashes = GetHashes(toDelete);
+            if (Modified_hashes == null && Modified != null)
+                Modified_hashes = GetHashes(toUpdate);
+            if (UnModified_hashes == null && UnModified != null)
+                UnModified_hashes = GetHashes(UnModified);
 
             DiffingProject = diffingProject;
             DiffingProject.Revision += 1;
 
             Timestamp = DateTime.UtcNow.Ticks;
             Author = Environment.UserDomainName + "/" + Environment.UserName;
-
-            if (ToCreate_hashes == null)
-                ToCreate_hashes = GetHashes(toCreate);
-        }
-
-        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<IBHoMObject> toDelete, List<IBHoMObject> toUpdate, List<IBHoMObject> unchanged)
-            : this(diffingProject, toCreate)
-        {
-            ToDelete = toDelete;
-            ToUpdate = toUpdate;
-            Unchanged = unchanged;
-
-            if (ToDelete_hashes == null && toDelete != null)
-                ToDelete_hashes = GetHashes(toDelete);
-            if (ToUpdate_hashes == null && ToUpdate != null)
-                ToUpdate_hashes = GetHashes(toUpdate);
-            if (Unchanged_hashes == null && Unchanged != null)
-                Unchanged_hashes = GetHashes(Unchanged);
         }
 
         public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes, List<IBHoMObject> unchanged, List<string> unchanged_hashes)
             : this(diffingProject, toCreate, toDelete, toUpdate, unchanged)
         {
-            ToCreate_hashes = toCreate_hashes;
-            ToDelete_hashes = toDelete_hashes;
-            ToUpdate_hashes = toUpdate_hashes;
-            Unchanged_hashes = unchanged_hashes;
+            OnlySetA_hashes = toCreate_hashes;
+            OnlySetB_hashes = toDelete_hashes;
+            Modified_hashes = toUpdate_hashes;
+            UnModified_hashes = unchanged_hashes;
         }
 
-        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes, List<IBHoMObject> unchanged, List<string> unchanged_hashes, Dictionary<string, Tuple<List<string>, List<string>>> modifiedPropsPerObject)
+        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes, List<IBHoMObject> unchanged, List<string> unchanged_hashes, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject)
             : this(diffingProject, toCreate, toDelete, toUpdate, unchanged)
         {
             ModifiedPropsPerObject = modifiedPropsPerObject;
