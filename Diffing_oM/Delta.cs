@@ -92,7 +92,8 @@ namespace BH.oM.Diffing
 
         private List<string> GetHashes(List<IBHoMObject> objs)
         {
-            return objs.Select(obj => obj.Fragments.OfType<DiffHashFragment>().First().Hash).ToList();
+            var hashes = objs.Select(obj => obj.Fragments.OfType<DiffHashFragment>().First().Hash).ToList();
+            return hashes.Count == 0 ? null : hashes;
         }
 
         /***************************************************/
