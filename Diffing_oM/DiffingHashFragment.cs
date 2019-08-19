@@ -38,7 +38,7 @@ namespace BH.oM.Diffing
         public string Hash { get; private set; }
         public string PreviousHash { get; private set; } = null;
 
-        public DiffProjFragment DiffingProject { get; private set; }
+        public Stream DiffingStream { get; } = null;
 
         /***************************************************/
 
@@ -47,16 +47,11 @@ namespace BH.oM.Diffing
         /**** Constructors                              ****/
         /***************************************************/
 
-        public DiffHashFragment(string hash, DiffProjFragment diffingProject)
+        public DiffHashFragment(string hash, string previousHash = null, Stream diffingStream = null)
         {
             Hash = hash;
-            DiffingProject = diffingProject;
-        }
-
-        public DiffHashFragment(string hash, string previousHash, DiffProjFragment diffingProject)
-            : this(hash, diffingProject)
-        {
             PreviousHash = previousHash;
+            DiffingStream = diffingStream;
         }
 
         /***************************************************/

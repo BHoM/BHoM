@@ -2,45 +2,38 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Reflection.Attributes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class DiffProjFragment : IBHoMFragment
+    public class Stream : IBHoMFragment, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public string ProjectName { get; private set; }
-        public string ProjectId { get; private set; }
-        public int Revision { get; set; } = 0;
+        public string StreamName { get; }
+        public string StreamId { get; }
+        public int Revision { get; set; }
 
         /***************************************************/
 
         /***************************************************/
-        /**** Constructors                              ****/
+        /**** Constructor                               ****/
         /***************************************************/
-        [Description("Creates new Diffing Project with automatically defined name and Id. The name will be `UnnamedProject` followed by UTC. Id will be a GUID. Revision is initally 0.")]
-        public DiffProjFragment()
-        {
-            ProjectName = String.IsNullOrWhiteSpace(ProjectName) ? "UnnamedProject-createdOn" + DateTime.Now.ToString() + "localTime" : ProjectName;
-        }
 
-        [Description("Creates new Diffing Project with a GUID for its Id. Revision is initally 0.")]
-        public DiffProjFragment(string projectName)
+        [Description("Creates new Diffing Stream with automatically defined name and Id. . Id will be a GUID. Revision is initally 0.")]
+        [Input("streamName", "If not specified, the name will be `UnnamedStream` followed by UTC")]
+        [Input("streamId", "If not specified, streamId will be a GUID.Revision is initally 0.")]
+        [Input("revision", "If not specified, revision is initially set to 0.")]
+        public Stream(string streamName = null, string streamId = null, int revision = 0)
         {
-            ProjectName = projectName;
-            ProjectId = string.IsNullOrWhiteSpace(ProjectId) ? Guid.NewGuid().ToString("N") : ProjectId;
-        }
-
-        [Description("Creates new Diffing Project. Revision is initally 0.")]
-        public DiffProjFragment(string projectName, string projectId)
-            : this(projectName)
-        {
-            ProjectId = projectId;
+            StreamName = String.IsNullOrWhiteSpace(streamName) ? "UnnamedStream-createdOn" + DateTime.Now.ToString() + "localTime" : StreamName;
+            StreamId = string.IsNullOrWhiteSpace(StreamId) ? Guid.NewGuid().ToString("N") : StreamId;
+            Revision = 0;
         }
 
         /***************************************************/

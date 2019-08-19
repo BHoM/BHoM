@@ -25,6 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using BH.oM.Reflection.Attributes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,21 +38,17 @@ namespace BH.oM.Diffing
         /***************************************************/
 
         public List<IBHoMObject> OnlySetA { get; }
-        public List<string> OnlySetA_hashes { get; }
 
         public List<IBHoMObject> OnlySetB { get; }
-        public List<string> OnlySetB_hashes { get; }
 
         public List<IBHoMObject> Modified { get; }
-        public List<string> Modified_hashes { get; }
 
         public List<IBHoMObject> UnModified { get; }
-        public List<string> UnModified_hashes { get; }
 
-        [Description("The dict key is the modified object hash. Value is another dictionary whose key is the name of the modified property, while value.item1 is the property value in setA, value.item2 in setB")]
+        [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB.")]
         public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
 
-        public DiffProjFragment DiffingProject { get; }
+        public Stream DiffingStream { get; } = null;
 
         public long Timestamp { get; }
         public string Author { get; }
@@ -62,43 +59,32 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<IBHoMObject> toDelete, List<IBHoMObject> toUpdate, List<IBHoMObject> unchanged)
+        [Description("Creates new Delta object with information on the new, old or modified object, and (if exists) the Diffing Stream that contains them.")]
+        [Input("onlySetA", "Objects existing exclusively in the 'primary' set, e.g. the 'new' objects.")]
+        [Input("onlySetB", "Objects existing exclusively in the 'secondary' set, e.g. the 'old' objects.")]
+        [Input("modified", "Objects existing in both sets that have some differences in their properties.")]
+        [Input("unModified", "Objects existing in both sets that hold no differences in their properties.")]
+        [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
+        [Input("diffingStream", "If the Delta is the result of a diffing in the context of a Stream, this is the stream that holds the objects. Otherwise null.")]
+        public Delta(List<IBHoMObject> setA, List<IBHoMObject> setB, List<IBHoMObject> modified, List<IBHoMObject> unModified, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, Stream diffingStream = null)
         {
-            OnlySetA = toCreate;
-            OnlySetB = toDelete;
-            Modified = toUpdate;
-            UnModified = unchanged;
-
-            if (OnlySetA_hashes == null)
-                OnlySetA_hashes = GetHashes(toCreate);
-            if (OnlySetB_hashes == null && toDelete != null)
-                OnlySetB_hashes = GetHashes(toDelete);
-            if (Modified_hashes == null && Modified != null)
-                Modified_hashes = GetHashes(toUpdate);
-            if (UnModified_hashes == null && UnModified != null)
-                UnModified_hashes = GetHashes(UnModified);
-
-            DiffingProject = diffingProject;
-            DiffingProject.Revision += 1;
+            OnlySetA = setA;
+            OnlySetB = setB;
+            Modified = modified;
+            UnModified = unModified;
 
             Timestamp = DateTime.UtcNow.Ticks;
             Author = Environment.UserDomainName + "/" + Environment.UserName;
-        }
 
-        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes, List<IBHoMObject> unchanged, List<string> unchanged_hashes)
-            : this(diffingProject, toCreate, toDelete, toUpdate, unchanged)
-        {
-            OnlySetA_hashes = toCreate_hashes;
-            OnlySetB_hashes = toDelete_hashes;
-            Modified_hashes = toUpdate_hashes;
-            UnModified_hashes = unchanged_hashes;
-        }
-
-        public Delta(DiffProjFragment diffingProject, List<IBHoMObject> toCreate, List<string> toCreate_hashes, List<IBHoMObject> toDelete, List<string> toDelete_hashes, List<IBHoMObject> toUpdate, List<string> toUpdate_hashes, List<IBHoMObject> unchanged, List<string> unchanged_hashes, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject)
-            : this(diffingProject, toCreate, toDelete, toUpdate, unchanged)
-        {
             ModifiedPropsPerObject = modifiedPropsPerObject;
+
+            if (diffingStream != null)
+            {
+                DiffingStream = diffingStream;
+                DiffingStream.Revision += 1;
+            }
         }
+
 
         /***************************************************/
 
