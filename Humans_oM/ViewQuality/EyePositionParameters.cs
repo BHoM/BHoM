@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,21 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Base;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Humans.ViewQuality
 {
-    public class Head : IPointBodyPart
+    public class EyePositionParameters : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public double EyePositionZ { get; set; } = 0.0;
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        public double EyePositionX { get; set; } = 0.0;
 
-        /***************************************************/
+        public double WheelChairEyePositionZ { get; set; } = 0.0;
+
+        public double WheelChairEyePositionX { get; set; } = 0.0;
+
+        public double StandingEyePositionZ { get; set; } = 0.0;
+
+        public double StandingEyePositionX { get; set; } = 0.0;
     }
 }

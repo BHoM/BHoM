@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Base;
+using BH.oM.Humans.ViewQuality;
 
-namespace BH.oM.Humans.BodyParts
+
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    public class SeatingBlock : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public ProfileOrigin Start { get; set; } = new ProfileOrigin();
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        public ProfileOrigin Vomitory { get; set; } = new ProfileOrigin();
+
+        public ProfileOrigin End { get; set; } = new ProfileOrigin();
+
+        public List<TierProfile> Sections { get; set; } = new List<TierProfile>();
+
+        public Mesh Floor { get; set; } = new Mesh();
+
+        public Audience Audience { get; set; } = new Audience();
+
+        public Line FrontRow { get; set; }=new Line();
+
+        public double SeatWidth { get; set; } =0.0;
+
+        public double AisleWidth { get; set; } =0.0;
+
+        public SeatingBlockType TypeOfSeatingBlock { get; set; } = SeatingBlockType.Undefined;
 
         /***************************************************/
     }

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Base;
+using System.ComponentModel;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    public class ActivityArea : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("Closed Polyline representing a pitch, screen or any area that an audience are looking at 2d or 3d")]
+        public Polyline PlayingArea { get; set; } = new Polyline();
 
-        public Point TrackingPoint { get; set; } = new Point();
-
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        [Description("This is used for Avalue and Evalue calculations, typically the centre of the playing area")]
+        public Point ActivityFocalPoint { get; set; } = new Point();
 
         /***************************************************/
     }

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
 
-namespace BH.oM.Humans.BodyParts
+using BH.oM.Base;
+using System.ComponentModel;
+
+namespace BH.oM.Humans.ViewQuality
 {
-    public class Head : IPointBodyPart
+    public class CvalueSettings : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public CvalueFocalMethodEnum FocalMethod { get; set; } = CvalueFocalMethodEnum.Undefined;
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        [Description("Value assigned to speatators where Cvalue cannot be calculated, for example on a front row")]
+        public double DefaultCValue { get; set; } =  0;
+
+        [Description("Row tolerance is used to identify discontinuities in the spectators such as a gap between tiers")]
+        public double RowTolerance  { get; set; } =  2;
 
         /***************************************************/
     }

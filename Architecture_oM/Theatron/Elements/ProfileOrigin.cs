@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,21 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Base;
+using System.ComponentModel;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    [Description("Used for orientation and setting out of tier profiles")]
+    public class ProfileOrigin : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public Point Origin { get; set; } = new Point();
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        [Description("Always horizontal pointing from front row to back row")]
+        public Vector Direction { get; set; } = new Vector();
 
-        /***************************************************/
     }
 }

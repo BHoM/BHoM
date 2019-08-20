@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,21 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Base;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    public class VomitoryParameters : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public bool Vomitory { get; set; } = false;
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        public int VomitoryStartRow { get; set; } = 0;
 
-        /***************************************************/
+        public double VomitoryWidth { get; set; } = 0;
     }
 }

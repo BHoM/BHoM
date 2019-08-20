@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,49 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
 
-namespace BH.oM.Humans.BodyParts
+using BH.oM.Geometry;
+using System.ComponentModel;
+using System;
+using BH.oM.Common;
+
+namespace BH.oM.Humans.ViewQuality
 {
-    public class Head : IPointBodyPart
+    public abstract class ViewQualityResult : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public IComparable ObjectId { get; set; } = "";
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        public IComparable ResultCase { get; set; } = "";
+
+        public double TimeStep { get; set; } = 0.0;
+
+        /***************************************************/
+        /**** IComparable Interface                     ****/
+        /***************************************************/
+
+        public int CompareTo(IResult other)
+        {
+            ViewQualityResult otherRes = other as ViewQualityResult;
+
+            if (otherRes == null)
+                return this.GetType().Name.CompareTo(other.GetType().Name);
+
+            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
+            if (n == 0)
+            {
+                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
+                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+            }
+            else
+            {
+                return n;
+            }
+
+        }
 
         /***************************************************/
     }

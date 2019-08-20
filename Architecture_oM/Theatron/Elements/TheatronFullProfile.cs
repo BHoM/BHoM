@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Geometry.CoordinateSystem;
+using BH.oM.Base;
+using System.ComponentModel;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    public class TheatronFullProfile : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        [Description("The set of tier profiles orientated in the world xz plane, the origin is the focal point for Cvalue calculations")]
+        public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        [Description("The set of tier profiles orientated to the plane closest to the focal curve")]
+        public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
+
+        public double Rounding { get; set; } = 0.0;
+
+        [Description("The plane at the first surface point, x axis is horizontal and points away from the playing area, y axis points up")]
+        public ProfileOrigin FullProfileOrigin { get; set; } = new ProfileOrigin();
 
         /***************************************************/
     }

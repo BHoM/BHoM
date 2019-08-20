@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,21 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Base;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    public enum StadiaType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public Point TrackingPoint { get; set; } = new Point();
-
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
-
-        /***************************************************/
+        EightArc = 0,
+        Orthogonal =1,
+        NoCorners =2,
+        Circular=3,
+        FourArc =4,
+        Undefined=5,
     }
 }

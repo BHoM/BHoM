@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,21 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Base;
+using System.ComponentModel;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Humans.ViewQuality
 {
-    public class Head : IPointBodyPart
+    public enum EvalueViewEnum
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public Point TrackingPoint { get; set; } = new Point();
-
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
-
-        /***************************************************/
+        [Description("Specifies the direction used to evalaute Evalue, ToPoint uses the ActivivtyArea FocalPoint to define view direction")]
+        ToPoint =0,
+        PerpendicularToRow=1,
+        Undefined=2,
     }
 }

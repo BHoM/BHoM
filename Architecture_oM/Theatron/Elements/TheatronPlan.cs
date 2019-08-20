@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,43 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Geometry.CoordinateSystem;
+using BH.oM.Base;
+using System.ComponentModel;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    public class TheatronPlan : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public List<ProfileOrigin> SectionOrigins { get; set; } =  new List<ProfileOrigin>();
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        [Description("Activity area is used for evaluating Avalue and Evalues")]
+        public ActivityArea ActivityArea { get; set; } = new ActivityArea();
+
+        [Description("Focal curve is used for defining Cvalue focal points")]
+        public Polyline FocalCurve { get; set; } = new Polyline();
+
+        public List<ProfileOrigin> VomitoryOrigins { get; set; } =  new List<ProfileOrigin>();
+
+        public List<ProfileOrigin> CombinedOrigins { get; set; } =  new List<ProfileOrigin>();
+
+        public List<BayType> StructBayType { get; set; } =  new List<BayType>();
+
+        public ProfileOrigin SectionClosestToFocalCurve { get; set; } = new ProfileOrigin();
+
+        public double MinDistToFocalCurve { get; set; } = 0;
+
+        public Point CValueFocalPoint { get; set; } = new Point();
+
+        public ICurve TheatronFront { get; set; } = new Polyline();
+
+        public SeatingBlockType SeatingBlockType { get; set; } = new SeatingBlockType();
 
         /***************************************************/
     }

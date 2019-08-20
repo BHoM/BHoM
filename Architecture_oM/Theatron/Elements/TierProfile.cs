@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Base;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    public class TierProfile : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public int TotalPoints { get; set; }=0;
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        public List<Point> FloorPoints { get; set; } = new List<Point>();
+
+        public List<Point> EyePoints { get; set; } = new List<Point>();
+
+        public Point FocalPoint { get; set; } = new Point();
+
+        public List<Line> Sightlines { get; set; } = new List<Line>();
+
+        public Polyline Profile { get; set; } =new Polyline();
+
+        public ProfileOrigin SectionOrigin { get; set; } = new ProfileOrigin();
+        
+        public double MappingAngle { get; set; } = 0;
 
         /***************************************************/
     }

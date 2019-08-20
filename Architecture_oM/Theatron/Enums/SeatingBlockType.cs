@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -19,22 +19,19 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
-using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
-
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    public enum SeatingBlockType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public Point TrackingPoint { get; set; } = new Point();
-
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
-
-        /***************************************************/
+        
+        Side = 0,
+        End = 1,
+        Corner = 2,
+        Transition1 = 3,
+        Transition2 = 4,
+        CornerNoVom = 5,
+        Transition1mirrored=6,
+        Transition2mirrored=7,
+        Undefined =8,
     }
 }

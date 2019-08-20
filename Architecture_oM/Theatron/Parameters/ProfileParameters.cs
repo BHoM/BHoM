@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,38 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Geometry;
-using BH.oM.Humans.Interfaces;
+using BH.oM.Base;
+using BH.oM.Humans.ViewQuality;
 
-namespace BH.oM.Humans.BodyParts
+namespace BH.oM.Architecture.Theatron
 {
-    public class Head : IPointBodyPart
+    public class ProfileParameters : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public double StartX { get; set; } = 0.0;
 
-        public PairOfEyes PairOfEyes { get; set; } = new PairOfEyes();
+        public double StartZ { get; set; } = 0.0;
+
+        public double RowWidth { get; set; } = 0.0;
+
+        public double TargetCValue { get; set; } = 0.0;
+
+        public int NumRows { get; set; } = 0;
+
+        public double SeatWidth { get; set; } = 0.0;
+
+        public double BoardHeight { get; set; } = 0.0;
+
+        public double RiserHeightRounding { get; set; } = 0.0;
+
+        public VomitoryParameters VomitoryParameters { get; set; } = new VomitoryParameters();
+
+        public SuperRiserParameters SuperRiserParameters { get; set; } = new SuperRiserParameters();
+
+        public EyePositionParameters EyePositionParameters { get; set; } = new EyePositionParameters();
 
         /***************************************************/
     }
