@@ -48,7 +48,7 @@ namespace BH.oM.Diffing
 
         public Stream DiffingStream { get; } = null;
 
-        public long Timestamp { get; }
+        public double Timestamp { get; }
 
         public string Author { get; }
 
