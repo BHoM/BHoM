@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physical_oM", "Physical_oM\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_oM", "Data_oM\Data_oM.csproj", "{239C5F01-F82E-4CCE-8598-5134B7756247}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diffing_oM", "Diffing_oM\Diffing_oM.csproj", "{48B6C927-52E2-47D6-90BF-EEE2AB8466AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,6 +110,10 @@ Global
 		{239C5F01-F82E-4CCE-8598-5134B7756247}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{239C5F01-F82E-4CCE-8598-5134B7756247}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{239C5F01-F82E-4CCE-8598-5134B7756247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48B6C927-52E2-47D6-90BF-EEE2AB8466AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48B6C927-52E2-47D6-90BF-EEE2AB8466AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48B6C927-52E2-47D6-90BF-EEE2AB8466AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48B6C927-52E2-47D6-90BF-EEE2AB8466AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
