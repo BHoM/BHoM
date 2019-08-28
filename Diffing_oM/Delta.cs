@@ -46,11 +46,6 @@ namespace BH.oM.Diffing
         [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB.")]
         public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
 
-        public Stream DiffStream { get; } = null;
-
-        public double Timestamp { get; }
-
-        public string Author { get; }
 
         /***************************************************/
 
@@ -65,22 +60,15 @@ namespace BH.oM.Diffing
         [Input("unModified", "Objects existing in both sets that hold no differences in their properties.")]
         [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
         [Input("diffingStream", "If the Delta is the result of a diffing in the context of a Stream, this is the stream that holds the objects. Otherwise null.")]
-        public Delta(List<IBHoMObject> setA, List<IBHoMObject> setB, List<IBHoMObject> modified, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, Stream diffingStream = null)
+        public Delta(List<IBHoMObject> setA, List<IBHoMObject> setB, List<IBHoMObject> modified, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null)
         {
             NewObjs = setA;
             OldObjs = setB;
             Modified = modified;
-
-            Timestamp = DateTime.UtcNow.Ticks;
-            Author = Environment.UserDomainName + "/" + Environment.UserName;
-
             ModifiedPropsPerObject = modifiedPropsPerObject;
 
-            if (diffingStream != null)
-            {
-                DiffStream = diffingStream;
-                DiffStream.Revision += 1;
-            }
+
+           
         }
 
 
