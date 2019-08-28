@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Delta.cs" />
     <Compile Include="DiffingHashFragment.cs" />
-    <Compile Include="DiffingProjectFragment.cs" />
+    <Compile Include="Stream.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
