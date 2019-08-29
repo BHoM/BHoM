@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class Stream : IObject, IImmutable
+    public class Stream : BHoMObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -29,10 +29,11 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        [Description("Creates new Diffing Stream with automatically defined name and Id. . Id will be a GUID. Revision is initally 0.")]
+        [Description("Creates new Diffing Stream")]
+        [Input("objects", "Objects to be included in the Stream")]
         [Input("streamName", "If not specified, the name will be `UnnamedStream` followed by UTC")]
-        [Input("streamId", "If not specified, streamId will be a GUID.Revision is initally 0.")]
-        [Input("revision", "If not specified, revision is initially set to 0.")]
+        [Input("streamId", "If not specified, streamId will be a GUID.Revision is initally 0")]
+        [Input("revision", "If not specified, revision is initially set to 0")]
         public Stream(IEnumerable<IObject> objects, string streamName = null, string streamId = null, string revision = null)
         {
             Objects = objects;
@@ -46,6 +47,5 @@ namespace BH.oM.Diffing
         }
 
         /***************************************************/
-      
     }
 }

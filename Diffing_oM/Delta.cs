@@ -46,7 +46,6 @@ namespace BH.oM.Diffing
         [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB.")]
         public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
 
-
         /***************************************************/
 
         /***************************************************/
@@ -66,26 +65,8 @@ namespace BH.oM.Diffing
             OldObjs = setB;
             Modified = modified;
             ModifiedPropsPerObject = modifiedPropsPerObject;
-
-
-           
-        }
-
-
-        /***************************************************/
-
-
-        /***************************************************/
-        /**** Private methods                           ****/
-        /***************************************************/
-
-        private List<string> GetHashes(List<IBHoMObject> objs)
-        {
-            var hashes = objs.Select(obj => obj.Fragments.OfType<DiffHashFragment>().First().Hash).ToList();
-            return hashes.Count == 0 ? null : hashes;
         }
 
         /***************************************************/
-
     }
 }
