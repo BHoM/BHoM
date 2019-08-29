@@ -29,29 +29,25 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class DiffHashFragment : IBHoMFragment
+    public class HashFragment : IBHoMFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         public string Hash { get; private set; }
-        public string PreviousHash { get; private set; } = null;
-
-        public Stream DiffingStream { get; } = null;
+        public string PreviousHash { get; private set; } = null; // Until we solve the 'Persistent GUID', this is the current workaround.
 
         /***************************************************/
-
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public DiffHashFragment(string hash, string previousHash = null, Stream diffingStream = null)
+        public HashFragment(string hash, string previousHash = null)
         {
             Hash = hash;
             PreviousHash = previousHash;
-            DiffingStream = diffingStream;
         }
 
         /***************************************************/
