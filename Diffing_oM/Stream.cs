@@ -18,10 +18,10 @@ namespace BH.oM.Diffing
         public string StreamId { get; } // Generally a GUID
         public string StreamName { get; } // Like Github's Branch name
         public string Revision { get; } // Perhaps this can become just a "revisionName" or "comment", like Github's Summary. After all, Revision can be given by Timestam+Author info
-        public double Timestamp { get; }
+        public long Timestamp { get; }
         public string Author { get; }
 
-        public IEnumerable<IObject> Objects { get; }
+        public IEnumerable<IBHoMObject> Objects { get; }
 
         /***************************************************/
 
@@ -34,7 +34,7 @@ namespace BH.oM.Diffing
         [Input("streamName", "If not specified, the name will be `UnnamedStream` followed by UTC")]
         [Input("streamId", "If not specified, streamId will be a GUID.Revision is initally 0")]
         [Input("revision", "If not specified, revision is initially set to 0")]
-        public Stream(IEnumerable<IObject> objects, string streamName = null, string streamId = null, string revision = null)
+        public Stream(IEnumerable<IBHoMObject> objects, string streamName = null, string streamId = null, string revision = null)
         {
             Objects = objects;
 
