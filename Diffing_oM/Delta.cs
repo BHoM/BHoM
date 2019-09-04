@@ -37,11 +37,11 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMObject> NewObjs { get; }
+        public List<IBHoMObject> NewObjects { get; }
 
-        public List<IBHoMObject> OldObjs { get; }
+        public List<IBHoMObject> OldObjects { get; }
 
-        public List<IBHoMObject> Modified { get; }
+        public List<IBHoMObject> ModifiedObjects { get; }
 
         [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB.")]
         public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
@@ -53,17 +53,15 @@ namespace BH.oM.Diffing
         /***************************************************/
 
         [Description("Creates new Delta object with information on the new, old or modified object, and (if exists) the Diffing Stream that contains them.")]
-        [Input("onlySetA", "Objects existing exclusively in the 'primary' set, e.g. the 'new' objects.")]
-        [Input("onlySetB", "Objects existing exclusively in the 'secondary' set, e.g. the 'old' objects.")]
-        [Input("modified", "Objects existing in both sets that have some differences in their properties.")]
-        [Input("unModified", "Objects existing in both sets that hold no differences in their properties.")]
+        [Input("newObjects", "Objects existing exclusively in the 'primary' set, i.e. the 'new' objects.")]
+        [Input("oldObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
+        [Input("modifiedObjects", "Objects existing in both sets that have some differences in their properties.")]
         [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
-        [Input("diffingStream", "If the Delta is the result of a diffing in the context of a Stream, this is the stream that holds the objects. Otherwise null.")]
-        public Delta(List<IBHoMObject> setA, List<IBHoMObject> setB, List<IBHoMObject> modified, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null)
+        public Delta(List<IBHoMObject> newObjects, List<IBHoMObject> oldObjects, List<IBHoMObject> modifiedObjects, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null)
         {
-            NewObjs = setA;
-            OldObjs = setB;
-            Modified = modified;
+            NewObjects = newObjects;
+            OldObjects = oldObjects;
+            ModifiedObjects = modifiedObjects;
             ModifiedPropsPerObject = modifiedPropsPerObject;
         }
 
