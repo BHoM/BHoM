@@ -52,10 +52,6 @@ namespace BH.oM.Diffing
 
         /***************************************************/
 
-        /***************************************************/
-        /**** IBHoMFragment stuff (not needed)          ****/
-        /***************************************************/
-
         public Guid BHoM_Guid { get; set; } = Guid.NewGuid();
 
         public string Name { get; set; } = "";
