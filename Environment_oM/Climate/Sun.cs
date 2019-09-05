@@ -32,7 +32,7 @@ using BH.oM.Environment.Fragments;
 
 namespace BH.oM.Environment.Climate
 {
-    public class SunPosition : BHoMObject, IClimateObject
+    public class Sun : BHoMObject, IClimateObject
     {
         public double Azimuth { get; set; } = 0.0;
         public double Altitude { get; set; } = 0.0;
