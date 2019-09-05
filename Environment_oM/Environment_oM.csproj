@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Climate\IClimateObject.cs" />
+    <Compile Include="Climate\Location.cs" />
+    <Compile Include="Climate\SpaceTime.cs" />
     <Compile Include="Climate\SunPosition.cs" />
     <Compile Include="Elements\Building.cs" />
     <Compile Include="Elements\Edge.cs" />
