@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Climate\IClimateObject.cs" />
+    <Compile Include="Climate\SunPosition.cs" />
     <Compile Include="Elements\Building.cs" />
     <Compile Include="Elements\Edge.cs" />
     <Compile Include="Elements\Enums\BuildingType.cs" />
