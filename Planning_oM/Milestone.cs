@@ -35,6 +35,8 @@ namespace BH.oM.Planning
 
         public ItemState State { get; set; }
 
+        public string Description { get; set; } = ""; 
+
         /***************************************************/
     }
 }
