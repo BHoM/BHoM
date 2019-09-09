@@ -22,17 +22,18 @@
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Physical.Constructions;
 
 namespace BH.oM.Architecture.Elements
 {
-    public class Room : BHoMObject, IElement1D
+    public class Ceiling : BHoMObject, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve Perimeter { get; set; } = null;
-        public Point Location { get; set; } = null;
+        public ISurface Surface { get; set; } = null;
+        public Construction Construction { get; set; } = null;
 
         /***************************************************/
     }
