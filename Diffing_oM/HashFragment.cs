@@ -35,8 +35,8 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Hash { get; private set; }
-        public string PreviousHash { get; private set; } = null; // Until we solve the 'Persistent GUID', this is the current workaround.
+        public string Hash { get; set; }
+        public string PreviousHash { get; set; } = null; // Until we solve the 'Persistent GUID', this is the current workaround.
 
         /***************************************************/
 
