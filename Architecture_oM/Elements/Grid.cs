@@ -22,9 +22,11 @@
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Architecture.Elements
 {
+    [Deprecated("2.4", "Superseded by BH.oM.Geometry.SettingOut.Grid")]
     public class Grid : BHoMObject, IElement1D
     {
         /***************************************************/
