@@ -63,6 +63,8 @@
     <Compile Include="Misc\Tolerance.cs" />
     <Compile Include="Misc\TransformMatrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingOut\Grid.cs" />
+    <Compile Include="SettingOut\Level.cs" />
     <Compile Include="ShapeProfiles\AngleProfile.cs" />
     <Compile Include="ShapeProfiles\BoxProfile.cs" />
     <Compile Include="ShapeProfiles\ChannelProfile.cs" />
