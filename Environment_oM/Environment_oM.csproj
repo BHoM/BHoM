@@ -104,18 +104,22 @@
     <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
       <Project>{c91f1981-1148-4a03-b67e-c0bb42d862f4}</Project>
       <Name>Analytical_oM</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5B09A2E5-CBF5-43E2-8D98-B5035391DB7B}</Project>
       <Name>Geometry_oM</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
       <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>
       <Name>Physical_oM</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
