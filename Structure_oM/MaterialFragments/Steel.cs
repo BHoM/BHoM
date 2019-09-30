@@ -45,6 +45,8 @@ namespace BH.oM.Structure.MaterialFragments
 
         public double UltimateStress { get; set; }
 
+        public double EmbodiedCarbon { get; set; }
+
         /***************************************************/
 
     }

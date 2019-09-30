@@ -46,6 +46,8 @@ namespace BH.oM.Structure.MaterialFragments
 
         public double CubeStrength { get; set; }
 
+        public double EmbodiedCarbon { get; set; }
+
         /***************************************************/
 
     }
