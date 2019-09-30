@@ -15,6 +15,7 @@ namespace BH.oM.Structure.MaterialFragments
 
         double Density { get; set; }
         double DampingRatio { get; set; }
+        double EmbodiedCarbon { get; set; }
 
         /***************************************************/
     }
