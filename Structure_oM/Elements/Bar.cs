@@ -60,7 +60,6 @@ namespace BH.oM.Structure.Elements
 
         public Offset Offset { get; set; } = null;
 
-        public double EmbodiedCarbon { get; set; }
 
         /***************************************************/
     }
