@@ -7,19 +7,18 @@
 # project owners 
 
 #NEED OWNER: /Acoustic_oM
-/Analytical_oM @al-fisher @adecler @IsakNaslundBh @FraserGreenroyd
-/Architecture_oM @FraserGreenroyd
-/BHoM @adecler
-/BHoM_Test @adecler
+/Analytical_oM @al-fisher @rwemay @IsakNaslundBh @FraserGreenroyd
+#NEED OWNER: /Architecture_oM
+/BHoM @adecler @al-fisher
 /Common_oM @al-fisher @rwemay
-/DataManipulation_oM @adecler
-/DataStructure_oM @adecler
-/Diffing_oM @alelom @al-fisher @adecler @epignatelli
-/Environment_oM @FraserGreenroyd
-/Geometry_oM @pawelbaran
+/Data_oM @adecler @epignatelli
+/Diffing_oM @alelom @al-fisher @adecler
+/Environment_oM @FraserGreenroyd @tg359
+/Geometry_oM @pawelbaran @al-fisher @epignatelli
 #NEED OWNER: /Graphics_oM
-/Humans_oM @al-fisher
-/Physical_oM @al-fisher @adecler @IsakNaslundBh @FraserGreenroyd
-/Planning_oM @rwemay
-/Reflection_oM @adecler
-/Structure_oM @IsakNaslundBh
+/Humans_oM @al-fisher @rwemay
+/Physical_oM @al-fisher @rwemay @IsakNaslundBh @FraserGreenroyd
+/Planning_oM @rwemay @al-fisher
+/Reflection_oM @adecler @FraserGreenroyd @al-fisher
+/Structure_oM @IsakNaslundBh @rwemay
+/Testing_oM @adecler @FraserGreenroyd
