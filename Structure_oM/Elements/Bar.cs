@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Structure.SectionProperties;
@@ -60,6 +61,18 @@ namespace BH.oM.Structure.Elements
 
         public Offset Offset { get; set; } = null;
 
+        public double EmbodiedCarbon
+        {
+            get
+            {
+                Vector a = EndNode.Position - StartNode.Position;
+                return 
+                    Math.Pow((Math.Pow(a.X, 2) + Math.Pow(a.Y, 2) + Math.Pow(a.Z, 2)), 1 / 2)
+                    * SectionProperty.Area
+                    * SectionProperty.Material.EmbodiedCarbon;
+            }
+        }
+    
 
         /***************************************************/
     }
