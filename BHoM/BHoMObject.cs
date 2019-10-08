@@ -35,7 +35,7 @@ namespace BH.oM.Base
 
         public string Name { get; set; } = "";
 
-        public List<IBHoMFragment> Fragments { get; set; } = new List<IBHoMFragment>();
+        public FragmentSet<IBHoMFragment> Fragments { get; set; } = new FragmentSet<IBHoMFragment>();
 
         public HashSet<string> Tags { get; set; } = new HashSet<string>();
 

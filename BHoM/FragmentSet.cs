@@ -1,6 +1,6 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,22 +21,15 @@
  */
 
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace BH.oM.Base
 {
-    public interface IBHoMObject : IObject
+    public class FragmentSet<T> : KeyedCollection<Type, T> where T : IBHoMFragment
     {
-        Guid BHoM_Guid { get; set; }
-
-        string Name { get; set; }
-
-        FragmentSet<IBHoMFragment> Fragments { get; set; }
-
-        HashSet<string> Tags { get; set; }
-
-        Dictionary<string, object> CustomData { get; set; }
-
-        IBHoMObject GetShallowClone(bool newGuid = false);
+        protected override Type GetKeyForItem(T item)
+        {
+            return item.GetType();
+        }
     }
 }
