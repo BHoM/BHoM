@@ -56,7 +56,7 @@ namespace BH.oM.Diffing
 
         public string Name { get; set; } = "";
 
-        public FragmentSet<IBHoMFragment> Fragments { get; set; } = new FragmentSet<IBHoMFragment>();
+        public FragmentSet Fragments { get; set; } = new FragmentSet();
 
         public HashSet<string> Tags { get; set; } = new HashSet<string>();
 

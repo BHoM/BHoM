@@ -25,9 +25,9 @@ using System.Collections.ObjectModel;
 
 namespace BH.oM.Base
 {
-    public class FragmentSet<T> : KeyedCollection<Type, T> where T : IBHoMFragment
+    public class FragmentSet : KeyedCollection<Type, IBHoMFragment>
     {
-        protected override Type GetKeyForItem(T item)
+        protected override Type GetKeyForItem(IBHoMFragment item)
         {
             return item.GetType();
         }
