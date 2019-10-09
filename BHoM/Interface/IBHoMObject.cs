@@ -31,7 +31,7 @@ namespace BH.oM.Base
 
         string Name { get; set; }
 
-        FragmentSet<IBHoMFragment> Fragments { get; set; }
+        FragmentSet Fragments { get; set; }
 
         HashSet<string> Tags { get; set; }
 
