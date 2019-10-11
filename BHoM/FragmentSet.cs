@@ -21,12 +21,34 @@
  */
 
 using System;
+using System.Collections;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace BH.oM.Base
 {
     public class FragmentSet : KeyedCollection<Type, IBHoMFragment>
     {
+        public FragmentSet()
+        {
+        }
+
+        public FragmentSet(FragmentSet fragmentSet)
+        {
+            fragmentSet.Dictionary.Values.ToList().ForEach(v => this.Add(v));
+        }
+
+        public bool AddOrReplace(IBHoMFragment fragment) // Slower than Add() or SetItem(), but easier to use.
+        {
+            int idx = this.Dictionary.Keys.ToList().IndexOf(fragment.GetType());
+
+            if (idx == -1)
+                base.Add(fragment);
+            else
+                base.SetItem(idx, fragment);
+            return true;
+        }
+
         protected override Type GetKeyForItem(IBHoMFragment item)
         {
             return item.GetType();
