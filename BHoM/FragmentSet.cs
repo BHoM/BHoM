@@ -40,12 +40,12 @@ namespace BH.oM.Base
 
         public bool AddOrReplace(IBHoMFragment fragment) // Slower than Add() or SetItem(), but easier to use.
         {
-            int idx = this.Dictionary.Keys.ToList().IndexOf(fragment.GetType());
+            int? idx = this.Dictionary?.Keys.ToList().IndexOf(fragment.GetType());
 
-            if (idx == -1)
+            if (idx == null || idx == -1)
                 base.Add(fragment);
             else
-                base.SetItem(idx, fragment);
+                base.SetItem((int)idx, fragment);
             return true;
         }
 
