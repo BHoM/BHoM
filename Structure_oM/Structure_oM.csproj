@@ -67,6 +67,7 @@
     <Compile Include="Loads\BarTemperatureLoad.cs" />
     <Compile Include="Loads\BarUniformlyDistributedLoad.cs" />
     <Compile Include="Loads\BarVaryingDistributedLoad.cs" />
+    <Compile Include="Loads\GeometricalLineLoad.cs" />
     <Compile Include="Loads\Enums\CaseType.cs" />
     <Compile Include="Loads\Enums\LoadAxis.cs" />
     <Compile Include="Loads\Enums\LoadNature.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Loads\ICase.cs" />
     <Compile Include="Loads\ILoad.cs" />
     <Compile Include="Loads\Load.cs" />
+    <Compile Include="Loads\ContourLoad.cs" />
     <Compile Include="Loads\Loadcase.cs" />
     <Compile Include="Loads\Loadcombination.cs" />
     <Compile Include="Loads\PointAcceleration.cs" />
