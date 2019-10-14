@@ -75,7 +75,6 @@
     <Compile Include="Loads\ICase.cs" />
     <Compile Include="Loads\ILoad.cs" />
     <Compile Include="Loads\Load.cs" />
-    <Compile Include="Loads\ContourLoad.cs" />
     <Compile Include="Loads\Loadcase.cs" />
     <Compile Include="Loads\Loadcombination.cs" />
     <Compile Include="Loads\PointAcceleration.cs" />
