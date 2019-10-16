@@ -39,7 +39,7 @@ namespace BH.oM.Data.Library
 
         public DateTime TimeOfCreation { get; set; }
 
-        public object Data { get; set; }
+        public List<IBHoMObject> Data { get; set; }
 
         /***************************************************/
     }
