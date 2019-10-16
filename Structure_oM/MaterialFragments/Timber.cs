@@ -46,6 +46,8 @@ namespace BH.oM.Structure.MaterialFragments
 
         public Vector ShearModulus { get; set; }
 
+        public double EmbodiedCarbon { get; set; }
+
         /***************************************************/
 
     }

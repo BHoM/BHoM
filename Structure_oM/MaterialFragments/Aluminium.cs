@@ -41,6 +41,8 @@ namespace BH.oM.Structure.MaterialFragments
 
         public double YoungsModulus { get; set; }
 
+        public double EmbodiedCarbon { get; set; }
+
         /***************************************************/
 
     }
