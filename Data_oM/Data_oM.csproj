@@ -50,6 +50,8 @@
     <Compile Include="Collections\LocalData.cs" />
     <Compile Include="Collections\PointMatrix.cs" />
     <Compile Include="Collections\PriorityQueue.cs" />
+    <Compile Include="Library\Dataset.cs" />
+    <Compile Include="Library\Source.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\BatchRequest.cs" />
     <Compile Include="Requests\CustomRequest.cs" />
