@@ -80,6 +80,10 @@
       <Project>{239c5f01-f82e-4cce-8598-5134b7756247}</Project>
       <Name>Data_oM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
+      <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
+      <Name>Reflection_oM</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
