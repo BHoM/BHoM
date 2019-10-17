@@ -31,9 +31,9 @@ namespace BH.oM.DeepLearning.Layers
         /**** Properties                                ****/
         /***************************************************/
 
-        public Tuple<int, int> InputSize { get; set; } = null;
+        public int InputSize { get; set; } = -1;
 
-        public Tuple<int, int> HiddenSize { get; set; } = null;
+        public int HiddenSize { get; set; } = -1;
 
         public int NumberOfLayers { get; set; } = 1;
 
