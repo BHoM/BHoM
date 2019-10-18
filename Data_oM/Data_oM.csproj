@@ -57,6 +57,7 @@
     <Compile Include="Requests\IRequest.cs" />
     <Compile Include="Collections\Tree.cs" />
     <Compile Include="Collections\VennDiagram.cs" />
+    <Compile Include="Requests\IResultRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
