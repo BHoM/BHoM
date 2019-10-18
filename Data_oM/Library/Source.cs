@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 using BH.oM.Base;
 
 namespace BH.oM.Data.Library
@@ -35,30 +36,36 @@ namespace BH.oM.Data.Library
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Hyperlink or file path to where the source information used can be found")]
         public string SourceLink { get; set; } = "";
 
+        [Description("Title of the source. For example Book title, Paper title, Code title etc.")]
         public string Title { get; set; } = "";
 
+        [Description("Author of the source of the information")]
         public string Author { get; set; } = "";
 
-        public string CodeReference { get; set; } = "";
+        [Description("Table, figure or code reference etc.")]
+        public string ItemReference { get; set; } = "";
 
-        public string TableReference { get; set; } = "";
-
-        public string FigureReference { get; set; } = "";
-
+        [Description("Version of the source used")]
         public string Version { get; set; } = "";
 
+        [Description("Publisher of the source information")]
         public string Publisher { get; set; } = "";
 
         public string Schema { get; set; } = "";
 
+        [Description("Language of the source information")]
         public string Language { get; set; } = "";
 
-        public string Country { get; set; } = "";
+        [Description("Country/Region of the source information")]
+        public string Location { get; set; } = "";
 
+        [Description("Any applicable copyright information assosiated with the data")]
         public string Copyright { get; set; } = "";
 
+        [Description("Contributors of the source information")]
         public string Contributors { get; set; } = "";
 
         /***************************************************/
