@@ -97,9 +97,11 @@
     <Compile Include="MaterialFragments\Steel.cs" />
     <Compile Include="MaterialFragments\Timber.cs" />
     <Compile Include="Requests\BarResultRequest.cs" />
+    <Compile Include="Requests\Enum\GlobalResultType.cs" />
     <Compile Include="Requests\Enum\NodeResultType.cs" />
     <Compile Include="Requests\Enum\BarResultType.cs" />
     <Compile Include="Requests\Enum\DivisionType.cs" />
+    <Compile Include="Requests\GlobalResultQuery.cs" />
     <Compile Include="Requests\IStructuralResultRequest.cs" />
     <Compile Include="Requests\MeshResultRequest.cs" />
     <Compile Include="Requests\NodeResultQuery.cs" />
