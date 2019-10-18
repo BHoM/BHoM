@@ -101,6 +101,7 @@
     <Compile Include="Requests\Enum\BarResultType.cs" />
     <Compile Include="Requests\Enum\DivisionType.cs" />
     <Compile Include="Requests\IStructuralResultRequest.cs" />
+    <Compile Include="Requests\MeshResultRequest.cs" />
     <Compile Include="Requests\NodeResultQuery.cs" />
     <Compile Include="SectionProperties\Enums\CableType.cs" />
     <Compile Include="Constraints\Enums\DOFType.cs" />
