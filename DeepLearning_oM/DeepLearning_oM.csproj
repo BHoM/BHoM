@@ -48,6 +48,7 @@
     <Compile Include="Activations\Sigmoid.cs" />
     <Compile Include="Activations\Softmax.cs" />
     <Compile Include="Activations\Tanh.cs" />
+    <Compile Include="Shape2d.cs" />
     <Compile Include="Enums\Reduce.cs" />
     <Compile Include="IModule.cs" />
     <Compile Include="Layers\AvgPooling2d.cs" />

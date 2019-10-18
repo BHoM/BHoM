@@ -21,21 +21,36 @@
  */
 
 using BH.oM.Base;
-using System;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
-namespace BH.oM.DeepLearning.Layers
+namespace BH.oM.DeepLearning
 {
-    public class AvgPooling2d : BHoMObject, IModule
+    public class Shape2d : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Shape2d KernelSize { get; set; } = new Shape2d() { Dim1 = 2, Dim2 = 2 };
+        public int Dim1 { get; set; } = -1;
 
-        public Shape2d Stride { get; set; } = new Shape2d() { Dim1 = 2, Dim2 = 2 };
+        public int Dim2 { get; set; } = -1;
 
-        public Shape2d Padding { get; set; } = new Shape2d() { Dim1 = 2, Dim2 = 2 };
+
+        /***************************************************/
+        /**** Casting Operators                         ****/
+        /***************************************************/
+
+        public static explicit operator Shape2d(string shape)
+        {
+            Regex regex = new Regex(".*([0-9]),.*([0-9]).*");
+            Match match = regex.Match(shape);
+
+            if (match.Groups.Count < 2)
+                return null;
+
+            return new Shape2d() { Dim1 = int.Parse(match.Groups[1].Value), Dim2 = int.Parse(match.Groups[2].Value) };
+        }
 
         /***************************************************/
     }
