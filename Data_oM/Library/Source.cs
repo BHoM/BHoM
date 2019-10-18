@@ -35,9 +35,7 @@ namespace BH.oM.Data.Library
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Hyperlink { get; set; } = "";
-
-        public string FilePath { get; set; } = "";
+        public string SourceLink { get; set; } = "";
 
         public string Title { get; set; } = "";
 
@@ -60,6 +58,8 @@ namespace BH.oM.Data.Library
         public string Country { get; set; } = "";
 
         public string Copyright { get; set; } = "";
+
+        public string Contributors { get; set; } = "";
 
         /***************************************************/
     }
