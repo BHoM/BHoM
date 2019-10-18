@@ -20,9 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using System.Collections.Generic;
+
 namespace BH.oM.DeepLearning.Losses
 {
-    public class BCEWithSigmoid : BinaryCrossEntropy
+    public class BCEWithSigmoid : BHoMObject, IModule
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public Reduce Reduce { get; set; } = Reduce.No;
+
+        public List<double> ClassWeights { get; set; } = null;
+
+        /***************************************************/
     }
 }
