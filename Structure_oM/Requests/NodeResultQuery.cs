@@ -34,8 +34,6 @@ namespace BH.oM.Structure.Requests
 
         public NodeResultType ResultType { get; set; } = NodeResultType.NodeReaction;
 
-        public int Divisions { get; set; } = 5;
-
         public List<object> Cases { get; set; } = new List<object>();
 
         public List<string> Modes { get; set; } = new List<string>();
