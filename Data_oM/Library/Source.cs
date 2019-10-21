@@ -42,7 +42,7 @@ namespace BH.oM.Data.Library
         [Description("Title of the source. For example Book title, Paper title, Code title etc.")]
         public string Title { get; set; } = "";
 
-        [Description("Author of the source of the information")]
+        [Description("Author of the source of the source information")]
         public string Author { get; set; } = "";
 
         [Description("Table, figure or code reference etc.")]
@@ -54,6 +54,7 @@ namespace BH.oM.Data.Library
         [Description("Publisher of the source information")]
         public string Publisher { get; set; } = "";
 
+        [Description("Schema of the source information")]
         public string Schema { get; set; } = "";
 
         [Description("Language of the source information")]
@@ -62,7 +63,7 @@ namespace BH.oM.Data.Library
         [Description("Country/Region of the source information")]
         public string Location { get; set; } = "";
 
-        [Description("Any applicable copyright information assosiated with the data")]
+        [Description("Any applicable copyright information assosiated with the source")]
         public string Copyright { get; set; } = "";
 
         [Description("Contributors of the source information")]
