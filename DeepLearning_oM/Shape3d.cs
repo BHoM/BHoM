@@ -25,7 +25,7 @@ using System.Text.RegularExpressions;
 
 namespace BH.oM.DeepLearning
 {
-    public class Shape2d : BHoMObject, IShape
+    public class Shape3d : BHoMObject, IShape
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -35,20 +35,27 @@ namespace BH.oM.DeepLearning
 
         public int Dim2 { get; set; } = -1;
 
+        public int Dim3 { get; set; } = -1;
+
 
         /***************************************************/
         /**** Casting Operators                         ****/
         /***************************************************/
 
-        public static explicit operator Shape2d(string shape)
+        public static explicit operator Shape3d(string shape)
         {
-            Regex regex = new Regex(".*([0-9]),.*([0-9]).*");
+            Regex regex = new Regex(".*([0-9]),.*([0-9]),.*([0-9]).*");
             Match match = regex.Match(shape);
 
-            if (match.Groups.Count < 2)
+            if (match.Groups.Count < 3)
                 return null;
 
-            return new Shape2d() { Dim1 = int.Parse(match.Groups[1].Value), Dim2 = int.Parse(match.Groups[2].Value) };
+            return new Shape3d()
+            {
+                Dim1 = int.Parse(match.Groups[1].Value),
+                Dim2 = int.Parse(match.Groups[2].Value),
+                Dim3 = int.Parse(match.Groups[3].Value)
+            };
         }
 
         /***************************************************/

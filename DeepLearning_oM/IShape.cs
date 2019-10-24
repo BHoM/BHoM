@@ -20,37 +20,9 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System.Text.RegularExpressions;
-
 namespace BH.oM.DeepLearning
 {
-    public class Shape2d : BHoMObject, IShape
+    public interface IShape
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public int Dim1 { get; set; } = -1;
-
-        public int Dim2 { get; set; } = -1;
-
-
-        /***************************************************/
-        /**** Casting Operators                         ****/
-        /***************************************************/
-
-        public static explicit operator Shape2d(string shape)
-        {
-            Regex regex = new Regex(".*([0-9]),.*([0-9]).*");
-            Match match = regex.Match(shape);
-
-            if (match.Groups.Count < 2)
-                return null;
-
-            return new Shape2d() { Dim1 = int.Parse(match.Groups[1].Value), Dim2 = int.Parse(match.Groups[2].Value) };
-        }
-
-        /***************************************************/
     }
 }
