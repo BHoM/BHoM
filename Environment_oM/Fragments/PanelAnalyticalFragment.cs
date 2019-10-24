@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class PanelAnalyticalFragment : BHoMObject, IBHoMFragment
+    public class PanelAnalyticalFragment : IBHoMFragment
     {
         public double Altitude { get; set; } = 0.0;
         public double AltitudeRange { get; set; } = 0.0;

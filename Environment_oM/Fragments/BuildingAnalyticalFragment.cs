@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class BuildingAnalyticalFragment : BHoMObject, IBHoMFragment
+    public class BuildingAnalyticalFragment : IBHoMFragment
     {
         public double NorthAngle { get; set; } = 0;
         public double GMTOffset { get; set; } = 0;

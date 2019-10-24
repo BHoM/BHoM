@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class RadiationFragment : BHoMObject, IBHoMFragment
+    public class RadiationFragment : IBHoMFragment
     {
         public double LightingRadiation { get; set; } = 0.3;
         public double OccupantRadiation { get; set; } = 0.2;

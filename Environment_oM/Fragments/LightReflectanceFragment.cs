@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class LightReflectanceFragment : BHoMObject, IBHoMFragment
+    public class LightReflectanceFragment : IBHoMFragment
     {
         public double RedReflectance { get; set; } = 0.0;
         public double GreenReflectance { get; set; } = 0.0;

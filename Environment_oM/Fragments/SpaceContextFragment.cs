@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class SpaceContextFragment : BHoMObject, IBHoMFragment
+    public class SpaceContextFragment : IBHoMFragment
     {
         public bool IsExternal { get; set; } = false;
         public string Colour { get; set; } = "";

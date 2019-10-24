@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class BuildingContextFragment : BHoMObject, IBHoMFragment
+    public class BuildingContextFragment : IBHoMFragment
     {
         public string PlaceName { get; set; } = "";
         public string WeatherStation { get; set; } = "";
