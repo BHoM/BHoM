@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class SpaceAnalyticalFragment : BHoMObject, IBHoMFragment
+    public class SpaceAnalyticalFragment : IBHoMFragment
     {
         public double InternalDomesticHotWater { get; set; } = 0;
         public double DaylightFactor { get; set; } = 0;

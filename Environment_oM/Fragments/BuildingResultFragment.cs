@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class BuildingResultFragment : BHoMObject, IBHoMFragment
+    public class BuildingResultFragment : IBHoMFragment
     {
         public double PeakCooling { get; set; } = 0;
         public double PeakHeating { get; set; } = 0;

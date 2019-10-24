@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class CoefficientFragment : BHoMObject, IBHoMFragment
+    public class CoefficientFragment : IBHoMFragment
     {
         public double LightingViewCoefficient { get; set; } = 0.49;
         public double OccupantViewCoefficient { get; set; } = 0.227;

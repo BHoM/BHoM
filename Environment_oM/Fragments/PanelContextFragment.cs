@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class PanelContextFragment : BHoMObject, IBHoMFragment
+    public class PanelContextFragment : IBHoMFragment
     {
         public bool IsAir { get; set; } = false;
         public bool IsGround { get; set; } = false;

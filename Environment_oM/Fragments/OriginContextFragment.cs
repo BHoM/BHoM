@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class OriginContextFragment : BHoMObject, IBHoMFragment
+    public class OriginContextFragment : IBHoMFragment
     {
         public string Origin { get; set; } = "";
         public string ElementID { get; set; } = "";

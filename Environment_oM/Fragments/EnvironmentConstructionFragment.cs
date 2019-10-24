@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class EnvironmentConstructionFragment : BHoMObject, IBHoMFragment
+    public class EnvironmentConstructionFragment : IBHoMFragment
     {
         public double FFactor { get; set; } = 0.0;
         public double AdditionalHeatTransfer { get; set; } = 0.0;
