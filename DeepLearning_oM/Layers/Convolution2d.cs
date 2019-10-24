@@ -35,13 +35,13 @@ namespace BH.oM.DeepLearning.Layers
 
         public int FeaturesOut { get; set; } = 0;
 
-        public Tuple<int, int> KernelSize { get; set; } = new Tuple<int, int>(3, 3);
+        public Shape2d KernelSize { get; set; } = new Shape2d() { Dim1 = 3, Dim2 = 3 };
 
-        public Tuple<int, int> Stride { get; set; } = new Tuple<int, int>(1, 1);
+        public Shape2d Stride { get; set; } = new Shape2d() { Dim1 = 1, Dim2 = 1 };
 
-        public Tuple<int, int> Padding { get; set; } = new Tuple<int, int>(0, 0);
+        public Shape2d Padding { get; set; } = new Shape2d() { Dim1 = 0, Dim2 = 0 };
 
-        public Tuple<int, int> Dilation { get; set; } = new Tuple<int, int>(1, 1);
+        public Shape2d Dilation { get; set; } = new Shape2d() { Dim1 = 1, Dim2 = 1 };
 
         /***************************************************/
     }
