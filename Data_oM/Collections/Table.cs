@@ -12,10 +12,10 @@ namespace BH.oM.Data.Collections
 {
     public class Table : BHoMObject
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         public DataTable Data { get; set; }
 
         public string MetaData { get; set; }
