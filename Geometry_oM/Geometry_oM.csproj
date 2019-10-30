@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,7 @@
     <Compile Include="Interface\IElement1D.cs" />
     <Compile Include="Interface\IElement2D.cs" />
     <Compile Include="Math\IntegrationSlice.cs" />
+    <Compile Include="Mesh\Vertex.cs" />
     <Compile Include="Mesh\Face.cs" />
     <Compile Include="Mesh\Mesh.cs" />
     <Compile Include="Misc\BoundingBox.cs" />

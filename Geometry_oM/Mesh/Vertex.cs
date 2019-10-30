@@ -20,20 +20,29 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
+using System.Drawing;
 
 namespace BH.oM.Geometry
 {
-    public class Mesh : IGeometry
+    public class Vertex : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        public Point point { get; set; } = new Point();
 
-        public List<Face> Faces { get; set; } = new List<Face>();
-        
+        public Color color { get; set; } = Color.FromArgb(100, 150, 0, 0);  //the deafault grasshopper display color
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator Vertex(Point point)
+        {
+            return new Vertex { point = point};
+        }
+
         /***************************************************/
     }
 }
