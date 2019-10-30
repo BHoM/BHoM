@@ -56,7 +56,6 @@
     <Compile Include="Interface\IElement1D.cs" />
     <Compile Include="Interface\IElement2D.cs" />
     <Compile Include="Math\IntegrationSlice.cs" />
-    <Compile Include="Mesh\Vertex1.cs" />
     <Compile Include="Mesh\Vertex.cs" />
     <Compile Include="Mesh\Face.cs" />
     <Compile Include="Mesh\Mesh.cs" />
