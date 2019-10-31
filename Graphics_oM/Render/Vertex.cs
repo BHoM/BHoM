@@ -33,7 +33,7 @@ namespace BH.oM.Graphics
 
         public Geometry.Point Point { get; set; } = new Geometry.Point();
 
-        public Color Color { get; set; } = Color.FromArgb(80, 255, 41, 105);
+        public Color Color { get; set; } = Color.FromArgb(255, 250, 34, 74);
 
         /***************************************************/
         /**** Explicit Casting                          ****/
