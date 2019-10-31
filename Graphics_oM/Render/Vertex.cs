@@ -31,9 +31,9 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public Geometry.Point point { get; set; } = new Geometry.Point();
+        public Geometry.Point Point { get; set; } = new Geometry.Point();
 
-        public Color color { get; set; } = Color.FromArgb(100, 150, 0, 0);  //the deafault grasshopper display color
+        public Color Color { get; set; } = Color.FromArgb(80, 255, 41, 105);
 
         /***************************************************/
         /**** Explicit Casting                          ****/
@@ -41,7 +41,7 @@ namespace BH.oM.Graphics
 
         public static explicit operator Vertex(Geometry.Point point)
         {
-            return new Vertex { point = point};
+            return new Vertex { Point = point};
         }
 
         /***************************************************/
