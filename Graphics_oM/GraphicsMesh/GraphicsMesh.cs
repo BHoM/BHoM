@@ -20,17 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Geometry;
 using System.Collections.Generic;
 
-namespace BH.oM.Geometry
+namespace BH.oM.Graphics
 {
-    public class Mesh : IGeometry
+    public class GraphicsMesh : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Point> Vertices { get; set; } = new List<Point>();
+        public List<Vertex> Vertices { get; set; } = new List<Vertex>();
 
         public List<Face> Faces { get; set; } = new List<Face>();
         
