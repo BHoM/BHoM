@@ -20,9 +20,10 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Geometry;
 using System.Drawing;
 
-namespace BH.oM.Geometry
+namespace BH.oM.Graphics
 {
     public class Vertex : IGeometry
     {
@@ -30,7 +31,7 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point point { get; set; } = new Point();
+        public Geometry.Point point { get; set; } = new Geometry.Point();
 
         public Color color { get; set; } = Color.FromArgb(100, 150, 0, 0);  //the deafault grasshopper display color
 
@@ -38,7 +39,7 @@ namespace BH.oM.Geometry
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-        public static explicit operator Vertex(Point point)
+        public static explicit operator Vertex(Geometry.Point point)
         {
             return new Vertex { point = point};
         }
