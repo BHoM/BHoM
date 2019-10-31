@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Graphics
 {
-    public class GraphicsMesh : IGeometry
+    public class RenderMesh : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
