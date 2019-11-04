@@ -37,7 +37,19 @@ namespace BH.oM.Geometry
         public List<double> UKnots { get; set; } = new List<double>();
 
         public List<double> VKnots { get; set; } = new List<double>();
-        
+
+        public int UDegree;
+
+        public int VDegree;
+
+        public List<ICurve> ExternalBoundaries3d { get; set; } = new List<ICurve>();
+
+        public List<ICurve> ExternalBoundaries2d { get; set; } = new List<ICurve>();
+
+        public List<ICurve> InternalBoundaries3d { get; set; } = new List<ICurve>();
+
+        public List<ICurve> InternalBoundaries2d { get; set; } = new List<ICurve>();
+
         /***************************************************/
     }
 }
