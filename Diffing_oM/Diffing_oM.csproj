@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Delta.cs" />
     <Compile Include="HashFragment.cs" />
+    <Compile Include="IsEqualConfig.cs" />
     <Compile Include="Stream.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
