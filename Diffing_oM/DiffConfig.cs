@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Diffing
 {
-    public class IsEqualConfig : BHoMObject
+    public class DiffConfig : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
