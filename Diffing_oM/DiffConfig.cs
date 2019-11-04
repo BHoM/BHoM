@@ -41,7 +41,9 @@ namespace BH.oM.Diffing
 
         public bool IgnoreCustomData { get; set; } = true;
 
-        public List<string> PropertiesToIgnore { get; set; } = new List<string>();
+        public List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid", "CustomData", "Fragments" };
+
+        public bool EnablePropertyDiffing { get; set; } = false;
 
         /***************************************************/
     }
