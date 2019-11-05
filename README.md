@@ -5,7 +5,7 @@ A great place to start is reading our Wiki [here](https://github.com/BHoM/docume
 
 ## Quick start ##
 
-Try the [installer](http://bhom.xyz/assets/installers/v2.1/BHoM%20Alpha%20v2.1.0.5%20Installer.exe) and a selection of [sample scripts](https://github.com/BHoM/samples).
+Try the [installer](http://bhom.xyz/) and a selection of [sample scripts](https://github.com/BHoM/samples).
 
 
 
