@@ -32,7 +32,7 @@ using BH.oM.Physical.FramingProperties;
 
 namespace BH.oM.Physical.Elements
 {
-    public interface IFramingElement : IBHoMObject, IPhysical
+    public interface IFramingElement : IBHoMObject, IPhysical, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
