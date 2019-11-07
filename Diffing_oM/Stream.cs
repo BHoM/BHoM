@@ -20,9 +20,11 @@ namespace BH.oM.Diffing
         public long Timestamp { get; }
         public string Author { get; }
         public string Comment { get; }
-
-
         public IEnumerable<IBHoMObject> Objects { get; }
+
+        [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
+        public DiffConfig StreamDiffConfig { get; } = new DiffConfig();
+
 
         /***************************************************/
 
@@ -32,10 +34,11 @@ namespace BH.oM.Diffing
 
         [Description("Creates new Diffing Stream")]
         [Input("objects", "Objects to be included in the Stream")]
-        [Input("streamName", "If not specified, the name will be `UnnamedStream` followed by UTC")]
+        [Input("streamDiffConfig", "Default diffing settings for this Stream.")]
         [Input("streamId", "If not specified, streamId will be a GUID.Revision is initally 0")]
         [Input("revision", "If not specified, revision is initially set to 0")]
-        public Stream(IEnumerable<IBHoMObject> objects, string streamId = null, string revision = null, string comment = null)
+        [Input("comment", "Any comment to be added for this stream.")]
+        public Stream(IEnumerable<IBHoMObject> objects, DiffConfig streamDiffConfig = null, string streamId = null, string revision = null, string comment = null)
         {
             Objects = objects;
 
@@ -45,6 +48,8 @@ namespace BH.oM.Diffing
 
             Timestamp = DateTime.UtcNow.Ticks;
             Author = Environment.UserDomainName + "/" + Environment.UserName;
+
+            StreamDiffConfig = streamDiffConfig;
         }
 
         /***************************************************/

@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48B6C927-52E2-47D6-90BF-EEE2AB8466AF}</ProjectGuid>
+    <ProjectGuid>{00D8E2D8-CFB0-422C-B380-81496F7B3CE5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Diffing_oM</RootNamespace>
-    <AssemblyName>Diffing_oM</AssemblyName>
+    <RootNamespace>BH.oM.DeepLearning</RootNamespace>
+    <AssemblyName>DeepLearning_oM</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,30 +41,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Delta.cs" />
-    <Compile Include="HashFragment.cs" />
-    <Compile Include="DiffConfig.cs" />
-    <Compile Include="Stream.cs" />
+    <Compile Include="Activations\LeakyReLU.cs" />
+    <Compile Include="Activations\LogSigmoid.cs" />
+    <Compile Include="Activations\LogSoftmax.cs" />
+    <Compile Include="Activations\ReLU.cs" />
+    <Compile Include="Activations\Sigmoid.cs" />
+    <Compile Include="Activations\Softmax.cs" />
+    <Compile Include="Activations\Tanh.cs" />
+    <Compile Include="IShape.cs" />
+    <Compile Include="Shape3d.cs" />
+    <Compile Include="Shape2d.cs" />
+    <Compile Include="Enums\Reduce.cs" />
+    <Compile Include="IModule.cs" />
+    <Compile Include="Layers\AvgPooling2d.cs" />
+    <Compile Include="Layers\Convolution2d.cs" />
+    <Compile Include="Layers\GRU.cs" />
+    <Compile Include="Layers\Linear.cs" />
+    <Compile Include="Layers\LSTM.cs" />
+    <Compile Include="Layers\MaxPooling2d.cs" />
+    <Compile Include="Layers\MaxUnpooling2d.cs" />
+    <Compile Include="Layers\TransposedConvolution2d.cs" />
+    <Compile Include="Losses\BCEWithSigmoid.cs" />
+    <Compile Include="Losses\BinaryCrossEntropy.cs" />
+    <Compile Include="Losses\CrossEntropy.cs" />
+    <Compile Include="Losses\L1.cs" />
+    <Compile Include="Losses\MeanSquareError.cs" />
+    <Compile Include="Losses\NegativeLogLikelihood.cs" />
+    <Compile Include="Models\Graph.cs" />
+    <Compile Include="Models\Sequential.cs" />
+    <Compile Include="Optimisers\Adam.cs" />
+    <Compile Include="Optimisers\IOptimiser.cs" />
+    <Compile Include="Optimisers\SGD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
-      <Project>{94D88927-62A2-48FC-8EFE-D139B67A3373}</Project>
+      <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
-      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Data_oM\Data_oM.csproj">
+      <Project>{239c5f01-f82e-4cce-8598-5134b7756247}</Project>
+      <Name>Data_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
-      <Project>{29e6dcd7-270a-45cc-ac0b-6c024287645e}</Project>
+      <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
       <Name>Reflection_oM</Name>
-      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

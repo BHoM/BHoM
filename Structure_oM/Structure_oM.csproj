@@ -96,6 +96,15 @@
     <Compile Include="MaterialFragments\IMaterialFragment.cs" />
     <Compile Include="MaterialFragments\Steel.cs" />
     <Compile Include="MaterialFragments\Timber.cs" />
+    <Compile Include="Requests\BarResultRequest.cs" />
+    <Compile Include="Requests\Enum\GlobalResultType.cs" />
+    <Compile Include="Requests\Enum\NodeResultType.cs" />
+    <Compile Include="Requests\Enum\BarResultType.cs" />
+    <Compile Include="Requests\Enum\DivisionType.cs" />
+    <Compile Include="Requests\GlobalResultQuery.cs" />
+    <Compile Include="Requests\IStructuralResultRequest.cs" />
+    <Compile Include="Requests\MeshResultRequest.cs" />
+    <Compile Include="Requests\NodeResultQuery.cs" />
     <Compile Include="SectionProperties\Enums\CableType.cs" />
     <Compile Include="Constraints\Enums\DOFType.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />
@@ -167,6 +176,10 @@
       <Project>{44F6C3BC-D321-4673-8F54-674AE7B33F18}</Project>
       <Name>Common_oM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Data_oM\Data_oM.csproj">
+      <Project>{239c5f01-f82e-4cce-8598-5134b7756247}</Project>
+      <Name>Data_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5B09A2E5-CBF5-43E2-8D98-B5035391DB7B}</Project>

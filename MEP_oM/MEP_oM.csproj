@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48B6C927-52E2-47D6-90BF-EEE2AB8466AF}</ProjectGuid>
+    <ProjectGuid>{088711C9-AC7E-409D-A1CD-A65FBABD88DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Diffing_oM</RootNamespace>
-    <AssemblyName>Diffing_oM</AssemblyName>
+    <RootNamespace>BH.oM.MEP</RootNamespace>
+    <AssemblyName>MEP_oM</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,22 +40,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Delta.cs" />
-    <Compile Include="HashFragment.cs" />
-    <Compile Include="DiffConfig.cs" />
-    <Compile Include="Stream.cs" />
+    <Compile Include="Equipment\AirHandlingUnit.cs" />
+    <Compile Include="Equipment\FanCoilUnit.cs" />
+    <Compile Include="Equipment\IEquipment.cs" />
+    <Compile Include="Fragments\Geometry.cs" />
+    <Compile Include="Fragments\Identity.cs" />
+    <Compile Include="Parts\CoolingCoil.cs" />
+    <Compile Include="Parts\ElectricalConnector.cs" />
+    <Compile Include="Parts\EnergyWheel.cs" />
+    <Compile Include="Parts\Filter.cs" />
+    <Compile Include="Parts\HeatingCoil.cs" />
+    <Compile Include="Parts\Fan.cs" />
+    <Compile Include="Parts\IPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Fixtures\" />
+    <Folder Include="Systems\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
-      <Project>{94D88927-62A2-48FC-8EFE-D139B67A3373}</Project>
+      <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
-      <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
-      <Project>{29e6dcd7-270a-45cc-ac0b-6c024287645e}</Project>
-      <Name>Reflection_oM</Name>
-      <Private>False</Private>
+    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
+      <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
+      <Name>Geometry_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
