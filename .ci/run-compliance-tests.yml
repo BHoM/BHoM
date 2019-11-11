@@ -1,0 +1,74 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+  solution: '**/BHoM.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  projectName: 'BHoM'
+
+steps:
+- checkout: self
+  persistCredentials: true
+  
+- task: CopyFiles@2
+  displayName: 'Move Cloned Files to Correct Toolkit Folder'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**'
+    TargetFolder: '$(Build.SourcesDirectory)/$(projectName)'
+
+- task: DeleteFiles@1
+  displayName: 'Clean Up After Moving Cloned Files'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**.sln'
+
+- task: NuGetToolInstaller@1
+
+- task: PowerShell@2
+  displayName: 'Clone Test Toolkit'
+  inputs:
+    filePath: '.ci/CloneTest.ps1'
+
+- task: PowerShell@2
+  displayName: 'Clone and Build Dependencies'
+  inputs:
+    filePath: '$(Build.SourcesDirectory)/Test_Toolkit/CloneAndBuildDependencies.ps1'
+
+- task: PowerShell@2
+  displayName: 'Build Test Toolkit'
+  inputs:
+    filePath: '$(Build.SourcesDirectory)/Test_Toolkit/BuildTest.ps1'
+
+- task: NuGetCommand@2
+  displayName: 'Restore NuGets for Primary Solution'
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  displayName: 'Build Primary Solution'
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: PowerShell@2
+  displayName: 'Copy changed files'
+  inputs:
+    filePath: '$(Build.SourcesDirectory)/Test_Toolkit/MovePRFiles.ps1'
+
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '$(Build.SourcesDirectory)/Test_Toolkit/Build/Test_Test.dll'
+    runSettingsFile: '.ci/testSettings.runsettings'

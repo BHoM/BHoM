@@ -1,0 +1,50 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+  solution: '**/BHoM.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  projectName: 'BHoM'
+
+steps:
+- checkout: self
+  persistCredentials: true
+  
+- task: CopyFiles@2
+  displayName: 'Move Cloned Files to Correct Toolkit Folder'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**'
+    TargetFolder: '$(Build.SourcesDirectory)/$(projectName)'
+
+- task: DeleteFiles@1
+  displayName: 'Clean Up After Moving Cloned Files'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**.sln'
+
+- task: NuGetToolInstaller@1
+
+- task: PowerShell@2
+  displayName: 'Clone Test Toolkit'
+  inputs:
+    filePath: '.ci/CloneTest.ps1'
+
+- task: PowerShell@2
+  displayName: 'Clone BHoM_Installer'
+  inputs:
+    filePath: '$(Build.SourcesDirectory)/Test_Toolkit/CloneInstaller.ps1'
+
+- task: PowerShell@2
+  displayName: 'Run BHoM_Installer tasks'
+  inputs:
+    filePath: '$(Build.SourcesDirectory)/BHoM_Installer/CloneAndBuildAllRequiredRepos.ps1'
