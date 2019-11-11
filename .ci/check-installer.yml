@@ -47,4 +47,4 @@ steps:
 - task: PowerShell@2
   displayName: 'Run BHoM_Installer tasks'
   inputs:
-    filePath: '$(Build.SourcesDirectory)/BHoM_Installer/CloneAndBuildAllRequiredRepos.ps1'
+    filePath: '$(Build.SourcesDirectory)/Test_Toolkit/CloneAndBuildInstaller.ps1'
