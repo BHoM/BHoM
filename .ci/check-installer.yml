@@ -19,13 +19,6 @@ steps:
 - checkout: self
   persistCredentials: true
   
-- task: CopyFiles@2
-  displayName: 'Move Cloned Files to Correct Toolkit Folder'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**'
-    TargetFolder: '$(Build.SourcesDirectory)/$(projectName)'
-
 - task: DeleteFiles@1
   displayName: 'Clean Up After Moving Cloned Files'
   inputs:
