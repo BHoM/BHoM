@@ -101,10 +101,10 @@
     <Compile Include="Requests\Enum\NodeResultType.cs" />
     <Compile Include="Requests\Enum\BarResultType.cs" />
     <Compile Include="Requests\Enum\DivisionType.cs" />
-    <Compile Include="Requests\GlobalResultQuery.cs" />
+    <Compile Include="Requests\GlobalResultRequest.cs" />
     <Compile Include="Requests\IStructuralResultRequest.cs" />
     <Compile Include="Requests\MeshResultRequest.cs" />
-    <Compile Include="Requests\NodeResultQuery.cs" />
+    <Compile Include="Requests\NodeResultRequest.cs" />
     <Compile Include="SectionProperties\Enums\CableType.cs" />
     <Compile Include="Constraints\Enums\DOFType.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />

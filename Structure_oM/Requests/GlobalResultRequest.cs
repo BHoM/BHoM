@@ -26,13 +26,13 @@ using System.Collections.Generic;
 
 namespace BH.oM.Structure.Requests
 {
-    public class NodeResultQuery : IStructuralResultRequest
+    public class GlobalResultRequest : IStructuralResultRequest
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public NodeResultType ResultType { get; set; } = NodeResultType.NodeReaction;
+        public GlobalResultType ResultType { get; set; } = GlobalResultType.Reactions;
 
         public List<object> Cases { get; set; } = new List<object>();
 
