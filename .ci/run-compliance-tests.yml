@@ -54,13 +54,10 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+- task: PowerShell@2
   displayName: 'Build Primary Solution'
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    filePath: '$(Build.SourcesDirectory)/Test_Toolkit/BuildPrimarySolution.ps1'
 
 - task: PowerShell@2
   displayName: 'Copy changed files'
