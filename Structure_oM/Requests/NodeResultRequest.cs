@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using BH.oM.Structure.Loads;
 
 
 namespace BH.oM.Structure.Requests
@@ -33,6 +34,8 @@ namespace BH.oM.Structure.Requests
         /***************************************************/
 
         public NodeResultType ResultType { get; set; } = NodeResultType.NodeReaction;
+
+        public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
         public List<object> Cases { get; set; } = new List<object>();
 
