@@ -54,7 +54,6 @@ namespace BH.oM.Structure.Results
         [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials")]
         public Basis Orientation { get; set; } = Basis.XY;
 
-        public Dictionary<string, object> CustomData { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/
