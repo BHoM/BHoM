@@ -27,7 +27,7 @@ using System;
 
 namespace BH.oM.Structure.Results
 {
-    public class MeshForce : MeshResult, IImmutable
+    public class MeshForce : MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
