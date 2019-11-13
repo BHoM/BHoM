@@ -20,17 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Common;
 using BH.oM.Geometry;
-using System.Collections.Generic;
+using System.ComponentModel;
 using BH.oM.Base;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System;
 
 namespace BH.oM.Structure.Results
 {
-    public class MeshResult : IResult, IResultCollection<MeshElementResult>, IImmutable
+    public abstract class MeshElementResult : IResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -38,32 +37,48 @@ namespace BH.oM.Structure.Results
 
         public IComparable ObjectId { get; } = "";
 
-        public IComparable ResultCase { get; }
+        public IComparable NodeId { get; } = "";
 
-        public double TimeStep { get; }
+        public IComparable MeshFaceId { get; } = "";
 
-        public MeshResultLayer Layer { get;} 
+        public IComparable ResultCase { get; set; } = "";
 
-        [Description("Position within the element thickness that result is extracted from, normalised to 1. 0 = lower surface, 0.5 = middle, 1 = top surface")]
-        public double LayerPosition { get; }
+        public double TimeStep { get; set; } = 0.0;
 
-        public MeshResultSmoothingType Smoothing { get;  }
+        public MeshResultLayer MeshResultLayer { get; set; }
 
-        public ReadOnlyCollection<MeshElementResult> Results { get; }
+        public double LayerPosition { get; set; }
+
+        public MeshResultSmoothingType Smoothing { get; set; }
+
+        [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials")]
+        public Basis Orientation { get; set; } = Basis.XY;
+
+        public Dictionary<string, object> CustomData { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, MeshResultLayer resultLayer, double layerPosition, MeshResultSmoothingType smoothing, ReadOnlyCollection<MeshElementResult> results)
+        protected MeshElementResult(   IComparable objectId,
+                                IComparable nodeId,
+                                IComparable meshFaceId,
+                                IComparable resultCase,
+                                double timeStep,
+                                MeshResultLayer meshResultLayer,
+                                double layerPosition,
+                                MeshResultSmoothingType smoothing,
+                                Basis orientation)
         {
             ObjectId = objectId;
+            NodeId = nodeId;
+            MeshFaceId = MeshFaceId;
             ResultCase = resultCase;
             TimeStep = timeStep;
-            Layer = resultLayer;
+            MeshResultLayer = meshResultLayer;
             LayerPosition = layerPosition;
             Smoothing = smoothing;
-            Results = results;
+            Orientation = orientation;
         }
 
         /***************************************************/
@@ -72,24 +87,31 @@ namespace BH.oM.Structure.Results
 
         public int CompareTo(IResult other)
         {
-            MeshResult otherRes = other as MeshResult;
+            MeshElementResult otherRes = other as MeshElementResult;
 
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
 
-            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
-            if (n == 0)
+            int objectId = this.ObjectId.CompareTo(otherRes.ObjectId);
+            if (objectId == 0)
             {
-                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
-                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+                int loadcase = this.ResultCase.CompareTo(otherRes.ResultCase);
+                if (loadcase == 0)
+                {
+                    int meshFaceId = this.MeshFaceId.CompareTo(otherRes.MeshFaceId);
+                    if (meshFaceId == 0)
+                    {
+                        int nodeId = this.NodeId.CompareTo(otherRes.NodeId);
+                        return nodeId == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : nodeId;
+                    }
+                    else {return meshFaceId;}
+                }
+                else {return loadcase;}
             }
-            else
-            {
-                return n;
-            }
+            else {return objectId;}
         }
 
         /***************************************************/
-
     }
 }
+

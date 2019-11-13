@@ -27,7 +27,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
-    public class MeshStress: MeshResult, IImmutable
+    public class MeshStress: MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

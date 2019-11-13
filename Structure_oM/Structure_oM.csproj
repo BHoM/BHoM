@@ -150,8 +150,8 @@
     <Compile Include="Results\Mesh\Legacy\MeshStresses.cs" />
     <Compile Include="Results\Mesh\MeshDisplacement.cs" />
     <Compile Include="Results\Mesh\MeshForce.cs" />
+    <Compile Include="Results\Mesh\MeshElementResult.cs" />
     <Compile Include="Results\Mesh\MeshResult.cs" />
-    <Compile Include="Results\Mesh\MeshResults.cs" />
     <Compile Include="Results\Mesh\MeshStress.cs" />
     <Compile Include="Results\Mesh\MeshVonMises.cs" />
     <Compile Include="Results\Nodal Results\NodeAcceleration.cs" />

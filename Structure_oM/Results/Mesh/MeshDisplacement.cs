@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
-    public class MeshDisplacement : MeshResult, IImmutable
+    public class MeshDisplacement : MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

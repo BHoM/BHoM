@@ -22,17 +22,28 @@
 
 using BH.oM.Base;
 using System;
+using System.Collections.ObjectModel;
 
 namespace BH.oM.Common
 {
-    public interface IResultCollection : IObject, IImmutable
+
+    /***************************************************/
+
+    public interface IResultCollection : IObject, IImmutable, IResult
+    {
+
+    }
+
+    /***************************************************/
+
+    public interface IResultCollection<T> : IResultCollection where T : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        IComparable ObjectId { get;  }
-        
+        ReadOnlyCollection<T> Results { get; }
+
         /***************************************************/
     }
 }

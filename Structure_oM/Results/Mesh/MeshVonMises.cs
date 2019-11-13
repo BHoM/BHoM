@@ -27,7 +27,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
-    public class MeshVonMises: MeshResult, IImmutable
+    public class MeshVonMises: MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
