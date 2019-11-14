@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomObject.cs" />
-    <Compile Include="Adapter\Enums\PushOption.cs" />
     <Compile Include="FragmentSet.cs" />
     <Compile Include="Interface\IBHoMFragment.cs" />
     <Compile Include="Interface\IBHoMGroup.cs" />
