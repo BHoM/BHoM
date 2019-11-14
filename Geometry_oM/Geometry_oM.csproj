@@ -60,6 +60,7 @@
     <Compile Include="Misc\BoundingBox.cs" />
     <Compile Include="Misc\CompositeGeometry.cs" />
     <Compile Include="Misc\Quaternion.cs" />
+    <Compile Include="Misc\SurfaceTrim.cs" />
     <Compile Include="Misc\Tolerance.cs" />
     <Compile Include="Misc\TransformMatrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

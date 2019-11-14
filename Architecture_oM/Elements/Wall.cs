@@ -37,7 +37,7 @@ namespace BH.oM.Architecture.Elements
         /***************************************************/
 
         public Object2DProperties Properties { get; set; } = new Object2DProperties();
-        public ISurface Surface { get; set; } = new NurbsSurface();
+        public ISurface Surface { get; set; } = new PlanarSurface();
 
         /***************************************************/
     }
