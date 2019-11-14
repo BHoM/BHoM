@@ -21,23 +21,30 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Common.Properties;
-using BH.oM.Common.Interface;
+using System.Collections.Generic;
 
-using BH.oM.Reflection.Attributes;
-
-namespace BH.oM.Architecture.Elements
+namespace BH.oM.Geometry
 {
-    [Deprecated("2.3", "Replaced by BH.oM.Physical.Elements.Roof as part of migration to combined physical namespace")]
-    public class Roof : BHoMObject, IObject2D
+    public class SurfaceTrim : IGeometry, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Object2DProperties Properties { get; set; } = new Object2DProperties();
-        public ISurface Surface { get; set; } = new PlanarSurface();
+        public ICurve Curve3d { get; }
+
+        public ICurve Curve2d { get; }
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public SurfaceTrim(ICurve curve3d, ICurve curve2d)
+        {
+            Curve3d = curve3d;
+            Curve2d = curve2d;
+        }
 
         /***************************************************/
     }
