@@ -26,16 +26,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Base.CRUD
+namespace BH.oM.Base.Adapter
 {
-    public class CrudConfig
+    public enum PushOption
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public PushActionType PushActionType { get; set; } = PushActionType.Replace;
-
-        /***************************************************/
+        FullCRUD,
+        CreateOnly,
+        UpdateOnly,
+        Unset
     }
 }
