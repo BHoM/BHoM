@@ -47,7 +47,7 @@ namespace BH.oM.Structure.Results
         [Description("Position within the element thickness that result is extracted from, normalised to 1. 0 = lower surface, 0.5 = middle, 1 = top surface")]
         public double LayerPosition { get; }
 
-        public MeshResultSmoothingType Smoothing { get;  }
+        public MeshResultSmoothingType Smoothing { get; }
 
         public ReadOnlyCollection<MeshElementResult> Results { get; }
 
