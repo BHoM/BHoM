@@ -21,10 +21,11 @@
  */
 
 using System.Collections.Generic;
+using BH.oM.Base;
 
 namespace BH.oM.Data.Collections
 {
-    public class DBSCANObject<T>
+    public class DBSCANObject<T> : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
