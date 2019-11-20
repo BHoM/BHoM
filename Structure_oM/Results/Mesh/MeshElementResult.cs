@@ -43,16 +43,16 @@ namespace BH.oM.Structure.Results
 
         public IComparable ResultCase { get; set; } = "";
 
-        public double TimeStep { get; set; } = 0.0;
+        public double TimeStep { get; } = 0.0;
 
-        public MeshResultLayer MeshResultLayer { get; set; }
+        public MeshResultLayer MeshResultLayer { get; }
 
-        public double LayerPosition { get; set; }
+        public double LayerPosition { get; }
 
-        public MeshResultSmoothingType Smoothing { get; set; }
+        public MeshResultSmoothingType Smoothing { get; }
 
         [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials")]
-        public Basis Orientation { get; set; } = Basis.XY;
+        public Basis Orientation { get; } = Basis.XY;
 
 
         /***************************************************/
@@ -71,7 +71,7 @@ namespace BH.oM.Structure.Results
         {
             ObjectId = objectId;
             NodeId = nodeId;
-            MeshFaceId = MeshFaceId;
+            MeshFaceId = meshFaceId;
             ResultCase = resultCase;
             TimeStep = timeStep;
             MeshResultLayer = meshResultLayer;
