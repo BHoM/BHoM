@@ -41,7 +41,7 @@ namespace BH.oM.Structure.Results
 
         public IComparable MeshFaceId { get; } = "";
 
-        public IComparable ResultCase { get; set; } = "";
+        public IComparable ResultCase { get; } = "";
 
         public double TimeStep { get; } = 0.0;
 
