@@ -21,9 +21,11 @@
  */
 
 using System;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Local deformation of the bar. All results given in local coordinates")]
     public class BarDeformation : BarResult
     {
         /***************************************************/
