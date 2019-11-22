@@ -105,6 +105,7 @@
     <Compile Include="Requests\IStructuralResultRequest.cs" />
     <Compile Include="Requests\MeshResultRequest.cs" />
     <Compile Include="Requests\NodeResultRequest.cs" />
+    <Compile Include="Results\Bar Results\BarDisplacement.cs" />
     <Compile Include="SectionProperties\Enums\CableType.cs" />
     <Compile Include="Constraints\Enums\DOFType.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />

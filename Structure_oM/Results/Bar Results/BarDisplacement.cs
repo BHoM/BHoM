@@ -1,6 +1,6 @@
 ﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,18 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.Requests
+namespace BH.oM.Structure.Results
 {
-    public enum BarResultType
+    [Description("Total displacement of the bar. All results given in Global coordinates")]
+    public class BarDisplacement : BarResult
     {
-        BarForce,
-        [Description("Local deformation of the bar. All results given in local coordinates")]
-        BarDeformation,
-        BarStress,
-        BarStrain,
-        [Description("Total displacement of the bar. All results given in Global coordinates")]
-        BarDisplacement
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public double UX { get; set; } = 0.0;
+
+        public double UY { get; set; } = 0.0;
+
+        public double UZ { get; set; } = 0.0;
+
+        public double RX { get; set; } = 0.0;
+
+        public double RY { get; set; } = 0.0;
+
+        public double RZ { get; set; } = 0.0;
+
+        /***************************************************/
     }
 }
