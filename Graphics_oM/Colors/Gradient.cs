@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -35,7 +35,7 @@ namespace BH.oM.Graphics
         /***************************************************/
 
         [Description("A List of Tuples containing a Color and double. The double signifies the position within the gradient and should be between 0 to 1")]
-        public SortedDictionary<decimal,Color> Markers { get; set; } = new SortedDictionary<decimal, Color>();
+        public SortedDictionary<decimal, Color> Markers { get; set; } = new SortedDictionary<decimal, Color>();
 
         /***************************************************/
 
