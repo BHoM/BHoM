@@ -80,6 +80,7 @@
     <Compile Include="ShapeProfiles\ISectionProfile.cs" />
     <Compile Include="ShapeProfiles\KiteProfile.cs" />
     <Compile Include="ShapeProfiles\RectangleProfile.cs" />
+    <Compile Include="ShapeProfiles\TaperedProfile.cs" />
     <Compile Include="ShapeProfiles\TSectionProfile.cs" />
     <Compile Include="ShapeProfiles\TubeProfile.cs" />
     <Compile Include="ShapeProfiles\ZSectionProfile.cs" />
