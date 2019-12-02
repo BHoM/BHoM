@@ -34,7 +34,7 @@ namespace BH.oM.Graphics
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("A List of Tuples containing a Color and double. The double signifies the position within the gradient and should be between 0 to 1")]
+        [Description("A SortedDictionary of 'Color's using a 'decimal' between 0 and 1 as Key. Is used to get a interpolated 'Color' from a value between 0 and 1")]
         public SortedDictionary<decimal, Color> Markers { get; set; } = new SortedDictionary<decimal, Color>();
 
         /***************************************************/
