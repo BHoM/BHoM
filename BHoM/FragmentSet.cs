@@ -27,7 +27,7 @@ using System.Linq;
 
 namespace BH.oM.Base
 {
-    public class FragmentSet : KeyedCollection<Type, IBHoMFragment>
+    public class FragmentSet : KeyedCollection<Type, IBHoMFragment>, IObject
     {
         public FragmentSet()
         {

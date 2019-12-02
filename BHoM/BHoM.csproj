@@ -57,10 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CRUD\IExecuteParams.cs" />
     <Compile Include="CustomObject.cs" />
-    <Compile Include="CRUD\CrudConfig.cs" />
-    <Compile Include="CRUD\Enums\PushActionType.cs" />
     <Compile Include="FragmentSet.cs" />
     <Compile Include="Interface\IBHoMFragment.cs" />
     <Compile Include="Interface\IBHoMGroup.cs" />
