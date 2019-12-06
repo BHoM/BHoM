@@ -108,6 +108,7 @@
     <Compile Include="Results\Bar Results\BarDisplacement.cs" />
     <Compile Include="SectionProperties\Enums\CableType.cs" />
     <Compile Include="Constraints\Enums\DOFType.cs" />
+    <Compile Include="SectionProperties\TimberSection.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />
     <Compile Include="SurfaceProperties\Enums\PanelDirection.cs" />
     <Compile Include="SurfaceProperties\Enums\PanelModifier.cs" />
