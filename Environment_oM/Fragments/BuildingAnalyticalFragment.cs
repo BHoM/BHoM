@@ -28,12 +28,20 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
+using System.ComponentModel;
+
 namespace BH.oM.Environment.Fragments
 {
+    [Description("Fragment containing the analytical properties related to buildings")]
     public class BuildingAnalyticalFragment : IBHoMFragment
     {
+        [Description("The angle to north for the building fragment")]
         public double NorthAngle { get; set; } = 0;
+
+        [Description("The timezone of the building as an offset to GMT in decimal hours")]
         public double GMTOffset { get; set; } = 0;
+
+        [Description("The year of the building to be analysed")]
         public int Year { get; set; } = 0;
     }
 }
