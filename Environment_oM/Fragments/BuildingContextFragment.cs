@@ -28,11 +28,17 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
+using System.ComponentModel;
+
 namespace BH.oM.Environment.Fragments
 {
+    [Description("Fragment containing the context properties related to buildings")]
     public class BuildingContextFragment : IBHoMFragment
     {
+        [Description("The name of the place the building occupies")]
         public string PlaceName { get; set; } = "";
+
+        [Description("The name of the nearest weather station to the building")]
         public string WeatherStation { get; set; } = "";
     }
 }
