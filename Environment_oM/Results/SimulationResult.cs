@@ -27,12 +27,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
+    [Description("An Environment Simulation Result object")]
     public class SimulationResult : BHoMObject
     {
+        [Description("The type of simulation result from the Simulation Result enum")]
         public SimulationResultType SimulationResultType { get; set; } = SimulationResultType.Undefined;
+
+        [Description("A collection of profile results that make up this simulation result")]
         public List<ProfileResult> SimulationResults { get; set; } = new List<ProfileResult>();
     }
 }
