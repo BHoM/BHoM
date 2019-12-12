@@ -27,13 +27,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
+    [Description("Fragment containing the radiation property, can be added to any Environment object")]
     public class RadiationFragment : IBHoMFragment
     {
+        [Description("The lighting radiation")]
         public double LightingRadiation { get; set; } = 0.3;
+
+        [Description("The occupant radiation")]
         public double OccupantRadiation { get; set; } = 0.2;
+
+        [Description("The equipment radiation")]
         public double EquipmentRadiation { get; set; } = 0.1;
     }
 }
