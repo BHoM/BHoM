@@ -32,15 +32,26 @@ using BH.oM.Geometry;
 using BH.oM.Environment.Fragments;
 using BH.oM.Analytical.Elements;
 using BH.oM.Physical.Constructions;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
+    [Description("An environment Panel data object")]
     public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D
     {
+        [Description("A collection of Environmend Edge objects which defines the external boundary of the panel")]
         public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+
+        [Description("A collection of Environment Opening objects")]
         public List<Opening> Openings { get; set; } = new List<Opening>();
+
+        [Description("A construction object providing layer and material information for the panel")]
         public IConstruction Construction { get; set; } = new Construction();
+
+        [Description("The type of panel from the Panel Type enum")]
         public PanelType Type { get; set; } = PanelType.Undefined;
+
+        [Description("A collection of the spaces the panel is connected to")]
         public List<string> ConnectedSpaces { get; set; } = new List<string>();
     }
 }
