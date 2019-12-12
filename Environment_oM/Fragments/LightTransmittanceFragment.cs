@@ -27,13 +27,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
+    [Description("Fragment containing the light transmittance property related to buildings")]
     public class LightTransmittanceFragment : IBHoMFragment
     {
+        [Description("The red transmittance of the light transmittance")]
         public double RedTransmittance { get; set; } = 0.0;
+
+        [Description("The green transmittance of the light transmittance")]
         public double GreenTransmittance { get; set; } = 0.0;
+
+        [Description("The blue transmittance of the light transmittance")]
         public double BlueTransmittance { get; set; } = 0.0;
     }
 }
