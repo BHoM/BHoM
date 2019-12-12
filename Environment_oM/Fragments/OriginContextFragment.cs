@@ -27,14 +27,23 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
+    [Description("Fragment containing the origin context property related to buildings")]
     public class OriginContextFragment : IBHoMFragment
     {
+        [Description("The origin of the object this fragment will be added to")]
         public string Origin { get; set; } = "";
+
+        [Description("The original ID of the element from the origin software")]
         public string ElementID { get; set; } = "";
+
+        [Description("A description for the object or its source")]
         public string Description { get; set; } = "";
+
+        [Description("The family type name of the object to group objects together")]
         public string TypeName { get; set; } = "";
     }
 }
