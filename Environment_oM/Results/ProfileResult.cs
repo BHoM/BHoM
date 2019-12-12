@@ -27,17 +27,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
+    [Description("A Environment Profile Result object that can be added to a Simulation Result")]
     public class ProfileResult : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The unit measurement of the profile result from the Profile Result enum")]
         public ProfileResultUnit Unit { get; set; } = ProfileResultUnit.Undefined;
+
+        [Description("The type of the profile result from the Profile Result enum")]
         public ProfileResultType Type { get; set; } = ProfileResultType.Undefined;
+
+        [Description("A collection of the results of this profile")]
         public List<double> Results { get; set; } = new List<double>();
     }
 }
