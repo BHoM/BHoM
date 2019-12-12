@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the panel analytical property related to buildings")]
+    [Description("Fragment containing the panel analytical property related to panels")]
     public class PanelAnalyticalFragment : IBHoMFragment
     {
         [Description("The altitude of the panel")]

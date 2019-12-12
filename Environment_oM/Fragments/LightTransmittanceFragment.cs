@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the light transmittance property related to buildings")]
+    [Description("Fragment containing the light transmittance property")]
     public class LightTransmittanceFragment : IBHoMFragment
     {
         [Description("The red transmittance of the light transmittance")]
