@@ -27,16 +27,26 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Gains
 {
+    [Description("Lighting Gain object which can be attributed to a space")]
     public class Lighting : BHoMObject, IGain
     {
+        [Description("The sensible gain load for the lighting gain")]
         public double Sensible { get; set; } = 0.0;
+
+        [Description("The profile for this gain being active")]
         public Profile Profile { get; set; } = new Profile();
 
+        [Description("The fraction of radiance from this lighting gain")]
         public double RadiantFraction { get; set; } = 0.0;
+
+        [Description("The view coefficient of this lighting gain")]
         public double ViewCoefficient { get; set; } = 0.0;
+
+        [Description("The luminous efficacy of this lighting gain")]
         public double LuminousEfficacy { get; set; } = 0.0;
     }
 }
