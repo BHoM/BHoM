@@ -32,7 +32,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the coefficient property related to buildings")]
+    [Description("Fragment containing the coefficient property")]
     public class CoefficientFragment : IBHoMFragment
     {
        [Description("The lighting wiev coefficient")]

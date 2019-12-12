@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the environment construction property related to buildings")]
+    [Description("Fragment containing the environment construction property")]
     public class EnvironmentConstructionFragment : IBHoMFragment
     {
         [Description("The FFactor for the construction")]

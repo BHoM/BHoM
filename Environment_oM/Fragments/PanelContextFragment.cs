@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the panel context property related to buildings")]
+    [Description("Fragment containing the panel context property related to panels")]
     public class PanelContextFragment : IBHoMFragment
     {
         [Description("Defines whether the panel is an air panel")]
