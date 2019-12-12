@@ -29,14 +29,23 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 
 using BH.oM.Environment.Fragments;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Climate
 {
+    [Description("An environment location object defining locations in space for climate analys")]
     public class Location : BHoMObject, IClimateObject
     {
+        [Description("The latitude for the location")]
         public double Latitude { get; set; } = 0;
+
+        [Description("The longitude for the location")]
         public double Longitude { get; set; } = 0;
+
+        [Description("The elevation for the location")]
         public double Elevation { get; set; } = 0;
+
+        [Description("The offset from UTC for the location (positive or negative)")]
         public double UtcOffset { get; set; } = 0;
     }
 }
