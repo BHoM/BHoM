@@ -29,16 +29,21 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Physical.Materials;
+using System.ComponentModel;
 
 namespace BH.oM.Physical.Constructions
 {
+    [Description("A layer object with given material and thickness")]
     public class Layer : BHoMObject, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The material this layer is made up of")]
         public Material Material { get; set; } = new Material();
+
+        [Description("The thickness of this material layer")]
         public double Thickness { get; set; } = 0;
 
         /***************************************************/
