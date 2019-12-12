@@ -27,32 +27,68 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.MaterialFragments
 {
+    [Description("Fragment containing the Gas Material properties related to materials")]
     public class SolidMaterial : BHoMObject, IEnvironmentMaterial
     {
+        [Description("The density of the material")]
         public double Density { get; set; } = 0.0;
+
+        [Description("The amount of conductivity the material should have")]
         public double Conductivity { get; set; } = 0.0;
+
+        [Description("The unit of specific heat the material should have")]
         public double SpecificHeat { get; set; } = 0.0;
+
+        [Description("The amount of vapour resistance the material should have")]
         public double VapourResistivity { get; set; } = 0.0;
+
+        [Description("A description of this material, default empty string")]
         public string Description { get; set; } = "";
+
+        [Description("The roughness of the material from the Material Roughness enum")]
         public Roughness Roughness { get; set; } = Roughness.Undefined;
+
+        [Description("The refraction of the material")]
         public double Refraction { get; set; } = 0.0;
 
+        [Description("The amount of external solar reflectance of this solid material")]
         public double SolarReflectanceExternal { get; set; } = 0.0;
+
+        [Description("The amount of internal solar reflectance of this solid material")]
         public double SolarReflectanceInternal { get; set; } = 0.0;
+
+        [Description("The amount of solar transmittance of this solid material")]
         public double SolarTransmittance { get; set; } = 0.0;
+
+        [Description("The amount of external light reflectance of this solid material")]
         public double LightReflectanceExternal { get; set; } = 0.0;
+
+        [Description("The amount of internal light reflectance of this solid material")]
         public double LightReflectanceInternal { get; set; } = 0.0;
+
+        [Description("The amount of light transmittance of this solid material")]
         public double LightTransmittance { get; set; } = 0.0;
+
+        [Description("The external emissivity of this solid material")]
         public double EmissivityExternal { get; set; } = 0.0;
+
+        [Description("The internal emissivity of this solid material")]
         public double EmissivityInternal { get; set; } = 0.0;
 
+        [Description("The specularity of the solid material, where specularity is the proportion of directed light reflected from the material")]
         public double Specularity { get; set; } = 0.0;
+
+        [Description("The amount of diffused light transmitted through the solid material")]
         public double TransmittedDiffusivity { get; set; } = 0.0;
+
+        [Description("The amount of directed light transmitted through the solid material")]
         public double TransmittedSpecularity { get; set; } = 0.0;
 
+        [Description("Define whether or not this material should be ignored in any uValue calculations")]
         public bool IgnoreInUValueCalculation { get; set; } = false;
     }
 }
