@@ -35,7 +35,7 @@ namespace BH.oM.Environment.Fragments
     [Description("Fragment containing the coefficient property")]
     public class CoefficientFragment : IBHoMFragment
     {
-       [Description("The lighting wiev coefficient")]
+       [Description("The lighting view coefficient")]
         public double LightingViewCoefficient { get; set; } = 0.49;
 
         [Description("The occupant view coefficient")]

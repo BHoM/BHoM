@@ -33,7 +33,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Climate
 {
-    [Description("An environment location object defining locations in space for climate analys")]
+    [Description("An environment location object defining locations in space for climate analysis")]
     public class Location : BHoMObject, IClimateObject
     {
         [Description("The latitude for the location")]
