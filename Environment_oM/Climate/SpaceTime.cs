@@ -33,7 +33,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Climate
 {
-    [Description("An Environment SpaceTime object used for defining locations in space and time for climate analys")]
+    [Description("An Environment SpaceTime object used for defining locations in space and time for climate analysis")]
     public class SpaceTime : BHoMObject, IClimateObject
     {
         [Description("An Environment Location object specifying the latitude, longitude and other location specifics of the SpaceTime object")]

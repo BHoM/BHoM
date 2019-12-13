@@ -103,7 +103,7 @@ namespace BH.oM.Environment.Fragments
         [Description("The internal temperature of the panel")]
         public double InternalTemperature { get; set; } = 0.0;
 
-        [Description("A Panel Analytical Fragment object - this can be added to an Environment Panel")]
+        [Description("The interstitial condensation of the panel")]
         public double InterstitialCondensation { get; set; } = 0.0;
     }
 }

@@ -36,7 +36,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An environment Panel data object")]
+    [Description("An Environment Panel Analytical Object")]
     public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D
     {
         [Description("A collection of Environmend Edge objects which defines the external boundary of the panel")]
