@@ -55,12 +55,12 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, MeshResultLayer resultLayer, double layerPosition, MeshResultSmoothingType smoothing, ReadOnlyCollection<MeshElementResult> results)
+        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, MeshResultLayer layer, double layerPosition, MeshResultSmoothingType smoothing, ReadOnlyCollection<MeshElementResult> results)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
-            Layer = resultLayer;
+            Layer = layer;
             LayerPosition = layerPosition;
             Smoothing = smoothing;
             Results = results;
