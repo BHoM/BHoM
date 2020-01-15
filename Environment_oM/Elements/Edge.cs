@@ -26,15 +26,17 @@ using BH.oM.Geometry;
 using BH.oM.Base;
 using BH.oM.Analytical.Elements;
 using BH.oM.Environment.Fragments;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
+    [Description("An analytical Edge data object")]
     public class Edge : BHoMObject, IEnvironmentObject, IEdge, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
+        [Description("A BHoM Geometry curve object (e.g polyline, line, etc.)")]
         public ICurve Curve { get; set; } = new Polyline();
 
         /***************************************************/

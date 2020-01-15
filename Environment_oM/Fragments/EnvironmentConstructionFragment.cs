@@ -27,12 +27,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
+    [Description("Fragment containing the environment construction property")]
     public class EnvironmentConstructionFragment : IBHoMFragment
     {
+        [Description("The FFactor for the construction")]
         public double FFactor { get; set; } = 0.0;
+
+        [Description("The additional heat transfer through the construction")]
         public double AdditionalHeatTransfer { get; set; } = 0.0;
     }
 }

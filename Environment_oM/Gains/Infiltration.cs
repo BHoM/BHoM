@@ -27,13 +27,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Gains
 {
+    [Description("Infiltation Gain object which can be attributed to a space")]
     public class Infiltration : BHoMObject, IGain
     {
+        [Description("The sensible gain load for the infiltation gain")]
         public double Sensible { get; set; } = 0.0;
+
+        [Description("The latent gain load for the infiltration gain")]
         public double Latent { get; set; } = 0.0;
+
+        [Description("The profile for the gain being active")]
         public Profile Profile { get; set; } = new Profile();   
     }
 }

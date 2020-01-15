@@ -1,6 +1,6 @@
 ﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,32 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
+using BH.oM.Base;
+using BH.oM.Geometry;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using BH.oM.Base;
-
-using BH.oM.Environment.Fragments;
-using System.ComponentModel;
-
-namespace BH.oM.Environment.Climate
+namespace BH.oM.Geometry.ShapeProfiles
 {
-    [Description("An environment location object defining locations in space for climate analysis")]
-    public class Location : BHoMObject, IClimateObject
+    public class TaperedProfile : BHoMObject, IProfile, IImmutable
     {
-        [Description("The latitude for the location")]
-        public double Latitude { get; set; } = 0;
 
-        [Description("The longitude for the location")]
-        public double Longitude { get; set; } = 0;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        public ShapeType Shape { get; } = ShapeType.FreeForm;
 
-        [Description("The elevation for the location")]
-        public double Elevation { get; set; } = 0;
+        public ReadOnlyDictionary<decimal, IProfile> Profiles { get; }
 
-        [Description("The offset from UTC for the location (positive or negative)")]
-        public double UtcOffset { get; set; } = 0;
+        public ReadOnlyCollection<ICurve> Edges { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public TaperedProfile(IDictionary<decimal, IProfile> profiles)
+        {
+            Profiles = new ReadOnlyDictionary<decimal, IProfile>(profiles);
+            Edges = new ReadOnlyCollection<ICurve>(new List<ICurve>());
+        }
+
+
+        /***************************************************/
     }
 }

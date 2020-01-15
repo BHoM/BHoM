@@ -27,14 +27,23 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
+    [Description("Fragment containing the panel context property related to panels")]
     public class PanelContextFragment : IBHoMFragment
     {
+        [Description("Defines whether the panel is an air panel")]
         public bool IsAir { get; set; } = false;
+
+        [Description("Defines wheather the panel is a ground panel")]
         public bool IsGround { get; set; } = false;
+
+        [Description("Defines the colour of the panel")]
         public string Colour { get; set; } = "";
+
+        [Description("Defines wheather the panel is reversed")]
         public bool Reversed { get; set; } = false;
     }
 }

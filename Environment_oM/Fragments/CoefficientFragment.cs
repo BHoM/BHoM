@@ -28,12 +28,20 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
+using System.ComponentModel;
+
 namespace BH.oM.Environment.Fragments
 {
+    [Description("Fragment containing the coefficient property")]
     public class CoefficientFragment : IBHoMFragment
     {
+       [Description("The lighting view coefficient")]
         public double LightingViewCoefficient { get; set; } = 0.49;
+
+        [Description("The occupant view coefficient")]
         public double OccupantViewCoefficient { get; set; } = 0.227;
+
+        [Description("The equipment view coefficient")]
         public double EquipmentViewCoefficient { get; set; } = 0.372;
     }
 }

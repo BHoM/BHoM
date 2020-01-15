@@ -27,15 +27,23 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Gains
 {
+    [Description("Plug Gain object which can be attributed to a space")]
     public class Plug : BHoMObject, IGain
     {
+        [Description("The sensible gain load for the plug gain")]
         public double Sensible { get; set; } = 0.0;
+
+        [Description("The profile for this gain being active")]
         public Profile Profile { get; set; } = new Profile();
 
+        [Description("The fraction of radiance from this plug gain")]
         public double RadiantFraction { get; set; } = 0.0;
+
+        [Description("The view coefficient of this plug gain")]
         public double ViewCoefficient { get; set; } = 0.0;
     }
 }
