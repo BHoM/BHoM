@@ -91,6 +91,8 @@
     <Compile Include="MaterialFragments\Aluminium.cs" />
     <Compile Include="MaterialFragments\Concrete.cs" />
     <Compile Include="MaterialFragments\Enums\MaterialType.cs" />
+    <Compile Include="MaterialFragments\GenericIsotropicMaterial.cs" />
+    <Compile Include="MaterialFragments\GenericOrthotropicMaterial.cs" />
     <Compile Include="MaterialFragments\IIsotropic.cs" />
     <Compile Include="MaterialFragments\IOrthotropic.cs" />
     <Compile Include="MaterialFragments\IMaterialFragment.cs" />
@@ -106,8 +108,11 @@
     <Compile Include="Requests\MeshResultRequest.cs" />
     <Compile Include="Requests\NodeResultRequest.cs" />
     <Compile Include="Results\Bar Results\BarDisplacement.cs" />
+    <Compile Include="SectionProperties\AluminiumSection.cs" />
     <Compile Include="SectionProperties\Enums\CableType.cs" />
     <Compile Include="Constraints\Enums\DOFType.cs" />
+    <Compile Include="SectionProperties\GenericSection.cs" />
+    <Compile Include="SectionProperties\IGeometricalSection.cs" />
     <Compile Include="SectionProperties\TimberSection.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />
     <Compile Include="SurfaceProperties\Enums\PanelDirection.cs" />

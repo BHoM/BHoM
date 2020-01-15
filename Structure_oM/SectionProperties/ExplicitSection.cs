@@ -22,9 +22,11 @@
 
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
+    [Description("Material agnostic section. Does not own any geometry. Allows explicit setting of all section constants")]
     public class ExplicitSection : BHoMObject, ISectionProperty
     {
 

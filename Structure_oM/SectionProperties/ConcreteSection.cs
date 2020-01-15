@@ -31,7 +31,7 @@ using BH.oM.Geometry.ShapeProfiles;
 namespace BH.oM.Structure.SectionProperties
 {
 
-    public class ConcreteSection : BHoMObject, ISectionProperty, IImmutable
+    public class ConcreteSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

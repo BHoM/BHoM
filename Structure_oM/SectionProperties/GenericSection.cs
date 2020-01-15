@@ -23,11 +23,12 @@
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
 using BH.oM.Geometry.ShapeProfiles;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
-
-    public class TimberSection : BHoMObject, IGeometricalSection, IImmutable
+    [Description("Material agnostic section. To be used for sections of material types not yet explicitily supported.")]
+    public class GenericSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -143,7 +144,7 @@ namespace BH.oM.Structure.SectionProperties
         /***************************************************/
 
         //Main constructor setting all of the properties of the object
-        public TimberSection(
+        public GenericSection(
             IProfile sectionProfile,
 
             double area,
