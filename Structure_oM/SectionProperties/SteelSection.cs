@@ -27,7 +27,7 @@ using BH.oM.Geometry.ShapeProfiles;
 namespace BH.oM.Structure.SectionProperties
 {
 
-    public class SteelSection : BHoMObject, ISectionProperty, IImmutable
+    public class SteelSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

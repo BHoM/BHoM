@@ -27,7 +27,7 @@ using BH.oM.Geometry.ShapeProfiles;
 namespace BH.oM.Structure.SectionProperties
 {
 
-    public class TimberSection : BHoMObject, IGeometricalSection, IImmutable
+    public class AluminiumSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -143,7 +143,7 @@ namespace BH.oM.Structure.SectionProperties
         /***************************************************/
 
         //Main constructor setting all of the properties of the object
-        public TimberSection(
+        public AluminiumSection(
             IProfile sectionProfile,
 
             double area,
