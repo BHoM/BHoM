@@ -46,6 +46,7 @@
     <Compile Include="Attributes\Force.cs" />
     <Compile Include="Attributes\Length.cs" />
     <Compile Include="Attributes\Mass.cs" />
+    <Compile Include="Attributes\Moment.cs" />
     <Compile Include="Base\Enums\Dimension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
