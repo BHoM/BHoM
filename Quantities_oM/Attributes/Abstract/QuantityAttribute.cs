@@ -22,10 +22,7 @@
 
 using BH.oM.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Immutable;
 
 namespace BH.oM.Quantities.Attributes
 {
@@ -35,7 +32,7 @@ namespace BH.oM.Quantities.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public abstract Dictionary<Base.Dimension, int> Dimension { get; }
+        public abstract ImmutableDictionary<Base.Dimension, int> Dimension { get; }
 
         public abstract string SIUnit { get; }
 
