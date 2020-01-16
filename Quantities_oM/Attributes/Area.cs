@@ -20,13 +20,9 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Quantities.Base;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Immutable;
 
 namespace BH.oM.Quantities.Attributes
 {
@@ -37,7 +33,7 @@ namespace BH.oM.Quantities.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public override Dictionary<Base.Dimension, int> Dimension { get; } = new Dictionary<Base.Dimension, int> {  { Base.Dimension.L, 2 } };
+        public override ImmutableDictionary<Base.Dimension, int> Dimension { get; } = new Dictionary<Base.Dimension, int> { { Base.Dimension.L, 2 } }.ToImmutableDictionary();
 
         public override string SIUnit { get; } = "m²";
 
