@@ -35,7 +35,8 @@ namespace BH.oM.Base
 
         public FragmentSet(FragmentSet fragmentSet)
         {
-            fragmentSet.Dictionary.Values.ToList().ForEach(v => this.Add(v));
+            if (fragmentSet != null && fragmentSet.Dictionary != null && fragmentSet.Dictionary.Count != 0)
+                fragmentSet.Dictionary.Values.ToList().ForEach(v => this.Add(v));
         }
 
         public bool AddOrReplace(IBHoMFragment fragment) // Slower than Add() or SetItem(), but easier to use.
