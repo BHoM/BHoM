@@ -32,8 +32,12 @@ namespace BH.oM.Architecture.Theatron
 
         public bool Vomitory { get; set; } = false;
 
-        public int VomitoryStartRow { get; set; } = 0;
+        public int StartRow { get; set; } = 0;
 
-        public double VomitoryWidth { get; set; } = 0;
+        public double Width { get; set; } = 0;
+
+        public int NumberOfRows { get; set; } = 0;
+
+        public int Frequency { get; set; } = 0;
     }
 }
