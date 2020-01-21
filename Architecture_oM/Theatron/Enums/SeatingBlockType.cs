@@ -23,15 +23,18 @@ namespace BH.oM.Architecture.Theatron
 {
     public enum SeatingBlockType
     {
-        
         Side = 0,
         End = 1,
         Corner = 2,
         Transition1 = 3,
         Transition2 = 4,
-        CornerNoVom = 5,
-        Transition1mirrored=6,
-        Transition2mirrored=7,
-        Undefined =8,
+        CornerVom = 5,
+        Transition1mirrored = 6,
+        Transition2mirrored = 7,
+        Undefined = 8,
+        SideVom = 9,
+        EndVom = 10,
+        Standard = 11,
+        StandardVom = 12
     }
 }
