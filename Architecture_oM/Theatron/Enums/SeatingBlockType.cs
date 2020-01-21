@@ -34,6 +34,9 @@ namespace BH.oM.Architecture.Theatron
         Transition2mirrored = 7,
         Undefined = 8,
         SideVom = 9,
-        EndVom = 10
+        EndVom = 10,
+        Standard = 11,
+        StandardVom = 12
+
     }
 }
