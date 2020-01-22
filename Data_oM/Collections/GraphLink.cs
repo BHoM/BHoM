@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+using System.Collections.Generic;
 
 namespace BH.oM.Data.Collections
 {
@@ -28,7 +29,7 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Weight { get; set; } = 1.0;
+        public Dictionary<string,object> Attributes { get; set; } = new Dictionary<string, object>();
 
         public GraphNode<T> StartNode { get; set; } = new GraphNode<T>();
 

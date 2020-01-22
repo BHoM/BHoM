@@ -20,6 +20,8 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
+
 namespace BH.oM.Data.Collections
 {
     public class GraphNode<T> : IDataStructure
@@ -30,6 +32,7 @@ namespace BH.oM.Data.Collections
 
         public T Value { get; set; } = default(T);
 
+        public Dictionary<string, object> Attributes { get; set; } = new Dictionary<string, object>();
 
         /***************************************************/
         /**** Explicit Casting                          ****/
