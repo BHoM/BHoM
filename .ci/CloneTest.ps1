@@ -43,7 +43,7 @@ Write-Output ("Restoring NuGet packages for " + $repo)
 & NuGet.exe restore $slnPath
 
 write-Output ("Building BHoM.sln")
-$msbuildPath -nologo "$ENV:BUILD_SOURCESDIRECTORY\BHoM\BHoM.sln" /verbosity:minimal
+& $msbuildPath -nologo "$ENV:BUILD_SOURCESDIRECTORY\BHoM\BHoM.sln" /verbosity:minimal
 
 write-Output ("Building BHoM_Engine.sln")
 & $msbuildPath -nologo "$ENV:BUILD_SOURCESDIRECTORY\BHoM_Engine\BHoM_Engine.sln" /verbosity:minimal
