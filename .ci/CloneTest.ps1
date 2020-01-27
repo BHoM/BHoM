@@ -14,6 +14,7 @@ git clone -q --branch=master https://github.com/BHoM/$repo.git  $ENV:BUILD_SOURC
 Write-Output ("Restoring NuGet packages for " + $repo)
 & NuGet.exe restore $slnPath
 
+write-Output ("Building BHoM.sln")
 & $msbuildPath -nologo "$ENV:BUILD_SOURCESDIRECTORY\BHoM\BHoM.sln" /verbosity:minimal
 
 # **** Cloning BHoM_Engine ****
@@ -30,6 +31,7 @@ git clone -q --branch=master https://github.com/BHoM/$repo.git  $ENV:BUILD_SOURC
 Write-Output ("Restoring NuGet packages for " + $repo)
 & NuGet.exe restore $slnPath
 
+write-Output ("Building BHoM_Engine.sln")
 & $msbuildPath -nologo "$ENV:BUILD_SOURCESDIRECTORY\BHoM_Engine\BHoM_Engine.sln" /verbosity:minimal
 
 # **** Cloning BHoM Test_Toolkit ****
