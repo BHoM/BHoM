@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
-    [Description("A 2D FEMesh used for structural analysis. Defined by a list of nodes and faces")]
+    [Description("2D finite element mesh for structural analysis. Defined by a list of nodes and faces")]
     public class FEMesh : Base.BHoMObject, IAreaElement, IMesh<Node, FEMeshFace>
     {
         /***************************************************/
