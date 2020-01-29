@@ -31,20 +31,21 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
-
+    [Description("Aluminium section to be used on Bars. Defined by a section profile. Note that all section constants are assuming an uncracked section and are disregarding reinforcement")]
     public class ConcreteSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("List of Reinforcement of the concrete section")]
         public List<Reinforcement.Reinforcement> Reinforcement { get; set; }
 
+        [Description("Minimum reinforcement conver of the section")]
         public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
 
         [Description("Material of the section")]
         public IMaterialFragment Material { get; set; }
-
 
         /***************************************************/
         /**** Properties - Section dimensions           ****/
@@ -59,15 +60,15 @@ namespace BH.oM.Structure.SectionProperties
         /***************************************************/
 
 
-        [Description("Gross Area of the cross sectio"
+        [Description("Gross Area of the cross section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Area { get; }
 
-        [Description("Radius of Gyration about the Y-Axis"
+        [Description("Radius of Gyration about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Rgy { get; }
 
-        [Description("Radius of Gyration about the Z-Axis"
+        [Description("Radius of Gyration about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Rgz { get; }
 
@@ -75,11 +76,11 @@ namespace BH.oM.Structure.SectionProperties
             + "\n Uncracked section disregarding the reinforcement.")]
         public double J { get; }
 
-        [Description("Moment of Inertia about the Y-Axis"
+        [Description("Moment of Inertia about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Iy { get; }
 
-        [Description("Moment of Inertia about the Z-Axis"
+        [Description("Moment of Inertia about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Iz { get; }
 
@@ -87,27 +88,27 @@ namespace BH.oM.Structure.SectionProperties
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Iw { get; }
 
-        [Description("Elastic Modulus of the section about the Y-Axis"
+        [Description("Elastic Modulus of the section about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Wely { get; }
 
-        [Description("Elastic Modulus of the section about the Z-Axis"
+        [Description("Elastic Modulus of the section about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Welz { get; }
 
-        [Description("Plastic Modulus of the section about the Y-Axis"
+        [Description("Plastic Modulus of the section about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Wply { get; }
 
-        [Description("Plastic Modulus of the section about the Z-Axis"
+        [Description("Plastic Modulus of the section about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Wplz { get; }
 
-        [Description("Geometric centre of the section in the Z direction" 
+        [Description("Geometric centre of the section in the local Z direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
         public double CentreZ { get; }
 
-        [Description("Geometric centre of the section in the Y direction" 
+        [Description("Geometric centre of the section in the local Y direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
         public double CentreY { get; }
 
@@ -127,11 +128,11 @@ namespace BH.oM.Structure.SectionProperties
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vpy { get; }
 
-        [Description("Shear Area in the Y direction"
+        [Description("Shear Area in the local Y direction"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Asy { get; }
 
-        [Description("Shear Area in the Z direction" 
+        [Description("Shear Area in the local Z direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Asz { get; }
 
