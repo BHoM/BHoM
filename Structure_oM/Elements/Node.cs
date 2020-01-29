@@ -21,23 +21,27 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Common;
 using BH.oM.Geometry;
 using BH.oM.Structure.Constraints;
 using BH.oM.Analytical.Elements;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("0D finite element for structural analysis. Node class contains positional information as well as orientation and support")]
     public class Node : BHoMObject, IElement0D, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Position of the node in global Cartesian 3D space")]
         public Point Position { get; set; } = null;
 
+        [Description("Local x, y and z axes of the node as a vector Basis")]
         public Basis Orientation { get; set; } = Basis.XY;
 
+        [Description("Defines the constraint of the Node")]
         public Constraint6DOF Support { get; set; } = null;
 
 
