@@ -23,19 +23,25 @@
 using BH.oM.Base;
 using BH.oM.Structure.SurfaceProperties;
 using BH.oM.Structure.Constraints;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("2D element for structural analysis. " +
+                 "\nThe Surface is a freeform surface object defined by geometrical surface. For planar elements the Panel is recomended to be used over this as it is generally better supported in analysis packages")]
     public class Surface : BHoMObject, IAreaElement, Analytical.Elements.ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("A geometrical surface defining the 'centre plane` of the surface")]
         public Geometry.ISurface Extents { get; set; } = null;
 
+        [Description("Defines the thickness property and material of the Element")]
         public ISurfaceProperty Property { get; set; } = null;
 
+        [Description("A planar support for the Surface, constraining the movement in the translational degrees of freedom")]
         public Constraint3DOF PlanarSpring { get; set; } = null;
 
 
