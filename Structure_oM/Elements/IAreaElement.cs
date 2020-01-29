@@ -22,15 +22,18 @@
 
 using BH.oM.Structure.SurfaceProperties;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("Base interface for 2D analytical elements")]
     public interface IAreaElement : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Defines the thickness property and material of the Element")]
         ISurfaceProperty Property { get; set; }
 
         /***************************************************/
