@@ -24,6 +24,7 @@
 
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
@@ -33,6 +34,7 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Material of the section")]
         public IMaterialFragment Material { get; set; } = null;
 
 

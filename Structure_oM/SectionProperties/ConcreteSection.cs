@@ -27,11 +27,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using BH.oM.Structure.MaterialFragments;
 using BH.oM.Geometry.ShapeProfiles;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
 
-    public class ConcreteSection : BHoMObject, ISectionProperty, IImmutable
+    public class ConcreteSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,6 +42,7 @@ namespace BH.oM.Structure.SectionProperties
 
         public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
 
+        [Description("Material of the section")]
         public IMaterialFragment Material { get; set; }
 
 
@@ -48,6 +50,7 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
+        [Description("Profile of the section, containing dimensions and section geometry")]
         public IProfile SectionProfile { get; }
 
 
@@ -55,114 +58,82 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties - Section constants            ****/
         /***************************************************/
 
-        /// <summary>
-        /// Gross Area of the cross section
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Area { get; } = 0;
 
-        /// <summary>
-        /// Radius of Gyration about the Y-Axis
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Rgy { get; } = 0;
+        [Description("Gross Area of the cross sectio"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Area { get; }
 
-        /// <summary>
-        /// Radius of Gyration about the Z-Axis
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Rgz { get; } = 0;
+        [Description("Radius of Gyration about the Y-Axis"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Rgy { get; }
 
-        /// <summary>
-        /// Torsion Constant
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double J { get; } = 0;
+        [Description("Radius of Gyration about the Z-Axis"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Rgz { get; }
 
-        /// <summary>
-        /// Moment of Inertia about the Y-Axis
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Iy { get; } = 0;
+        [Description("Torsion Constant"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double J { get; }
 
-        /// <summary>
-        /// Moment of Inertia about the Z-Axis
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Iz { get; } = 0;
+        [Description("Moment of Inertia about the Y-Axis"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Iy { get; }
 
-        /// <summary>
-        /// Warping Constant
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Iw { get; } = 0;
+        [Description("Moment of Inertia about the Z-Axis"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Iz { get; }
 
-        /// <summary>
-        /// Elastic Modulus of the section about the Y-Axis
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Wely { get; } = 0;
+        [Description("Warping Constant"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Iw { get; }
 
-        /// <summary>
-        /// Elastic Modulus of the section about the Z-Axis
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Welz { get; } = 0;
-        /// <summary>
-        /// Plastic Modulus of the section about the Y-Axis
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Wply { get; } = 0;
+        [Description("Elastic Modulus of the section about the Y-Axis"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Wely { get; }
 
-        /// <summary>
-        /// Plastic Modulus of the section about the Z-Axis
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Wplz { get; } = 0;
-        /// <summary>
-        /// Geometric centre of the section in the Z direction
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double CentreZ { get; } = 0;
-        /// <summary>
-        /// Geometric centre of the section in the Y direction
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double CentreY { get; } = 0;
+        [Description("Elastic Modulus of the section about the Z-Axis"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Welz { get; }
 
-        /// <summary>
-        /// Z Distance from the centroid of the section to top edge of the section
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Vz { get; } = 0;
+        [Description("Plastic Modulus of the section about the Y-Axis"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Wply { get; }
 
-        /// <summary>
-        /// Z Distance from the centroid of the section to bottom edge of the section
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Vpz { get; } = 0;
-        /// <summary>
-        /// Y Distance from the centroid of the section to right edge of the section
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Vy { get; } = 0;
-        /// <summary>
-        /// Y Distance from the centroid of the section to Left edge of the section
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Vpy { get; } = 0;
+        [Description("Plastic Modulus of the section about the Z-Axis"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Wplz { get; }
 
-        /// <summary>
-        /// Shear Area in the Y direction
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Asy { get; } = 0;
+        [Description("Geometric centre of the section in the Z direction" 
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double CentreZ { get; }
 
-        /// <summary>
-        /// Shear Area in the Z direction
-        /// Uncracked section disregarding the reinforcement.
-        /// </summary>
-        public double Asz { get; } = 0;
+        [Description("Geometric centre of the section in the Y direction" 
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double CentreY { get; }
+
+        [Description("Z Distance from the centroid of the section to top edge of the section"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Vz { get; }
+
+        [Description("Z Distance from the centroid of the section to bottom edge of the section"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Vpz { get; }
+
+        [Description("Y Distance from the centroid of the section to right edge of the section"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Vy { get; }
+
+        [Description("Y Distance from the centroid of the section to Left edge of the section"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Vpy { get; }
+
+        [Description("Shear Area in the Y direction"
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Asy { get; }
+
+        [Description("Shear Area in the Z direction" 
+            + "\n Uncracked section disregarding the reinforcement.")]
+        public double Asz { get; }
 
 
         /***************************************************/

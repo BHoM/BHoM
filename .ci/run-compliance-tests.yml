@@ -67,5 +67,5 @@ steps:
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
-    testAssemblyVer2: '$(Build.SourcesDirectory)/Test_Toolkit/Build/Test_Test.dll'
+    testAssemblyVer2: '$(Build.SourcesDirectory)/Test_Toolkit/Build/CodeComplianceTest_Test.dll'
     runSettingsFile: '.ci/testSettings.runsettings'

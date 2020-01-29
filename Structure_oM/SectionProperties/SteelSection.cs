@@ -23,11 +23,12 @@
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
 using BH.oM.Geometry.ShapeProfiles;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
 
-    public class SteelSection : BHoMObject, ISectionProperty, IImmutable
+    public class SteelSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -37,110 +38,76 @@ namespace BH.oM.Structure.SectionProperties
 
         public SteelPlateRestraint PlateRestraint { get; set; } = SteelPlateRestraint.NoRestraint;
 
+        [Description("Material of the section")]
         public IMaterialFragment Material { get; set; } = null;
 
         /***************************************************/
         /**** Properties - Section profile              ****/
         /***************************************************/
 
+        [Description("Profile of the section, containing dimensions and section geometry")]
         public IProfile SectionProfile { get; }
-
 
         /***************************************************/
         /**** Properties - Section constants            ****/
         /***************************************************/
 
+        [Description("Gross Area of the cross section")]
+        public double Area { get; }
 
-        /// <summary>
-        /// Gross Area of the cross section
-        /// </summary>
-        public double Area { get; } = 0;
+        [Description("Radius of Gyration about the Y-Axis")]
+        public double Rgy { get; }
 
-        /// <summary>
-        /// Radius of Gyration about the Y-Axis
-        /// </summary>
-        public double Rgy { get; } = 0;
+        [Description("Radius of Gyration about the Z-Axis")]
+        public double Rgz { get; }
 
-        /// <summary>
-        /// Radius of Gyration about the Z-Axis
-        /// </summary>
-        public double Rgz { get; } = 0;
+        [Description("Torsion Constant")]
+        public double J { get; }
 
-        /// <summary>
-        /// Torsion Constant
-        /// </summary>
-        public double J { get; } = 0;
+        [Description("Moment of Inertia about the Y-Axis")]
+        public double Iy { get; }
 
-        /// <summary>
-        /// Moment of Inertia about the Y-Axis
-        /// </summary>
-        public double Iy { get; } = 0;
+        [Description("Moment of Inertia about the Z-Axis")]
+        public double Iz { get; }
 
-        /// <summary>
-        /// Moment of Inertia about the Z-Axis
-        /// </summary>
-        public double Iz { get; } = 0;
+        [Description("Warping Constant")]
+        public double Iw { get; }
 
-        /// <summary>
-        /// Warping Constant
-        /// </summary>
-        public double Iw { get; } = 0;
+        [Description("Elastic Modulus of the section about the Y-Axis")]
+        public double Wely { get; }
 
-        /// <summary>
-        /// Elastic Modulus of the section about the Y-Axis
-        /// </summary>
-        public double Wely { get; } = 0;
+        [Description("Elastic Modulus of the section about the Z-Axis")]
+        public double Welz { get; }
 
-        /// <summary>
-        /// Elastic Modulus of the section about the Z-Axis
-        /// </summary>
-        public double Welz { get; } = 0;
-        /// <summary>
-        /// Plastic Modulus of the section about the Y-Axis
-        /// </summary>
-        public double Wply { get; } = 0;
+        [Description("Plastic Modulus of the section about the Y-Axis")]
+        public double Wply { get; }
 
-        /// <summary>
-        /// Plastic Modulus of the section about the Z-Axis
-        /// </summary>
-        public double Wplz { get; } = 0;
-        /// <summary>
-        /// Geometric centre of the section in the Z direction
-        /// </summary>
-        public double CentreZ { get; } = 0;
-        /// <summary>
-        /// Geometric centre of the section in the Y direction
-        /// </summary>
-        public double CentreY { get; } = 0;
+        [Description("Plastic Modulus of the section about the Z-Axis")]
+        public double Wplz { get; }
 
-        /// <summary>
-        /// Z Distance from the centroid of the section to top edge of the section
-        /// </summary>
-        public double Vz { get; } = 0;
+        [Description("Geometric centre of the section in the Z direction")]
+        public double CentreZ { get; }
 
-        /// <summary>
-        /// Z Distance from the centroid of the section to bottom edge of the section
-        /// </summary>
-        public double Vpz { get; } = 0;
-        /// <summary>
-        /// Y Distance from the centroid of the section to right edge of the section
-        /// </summary>
-        public double Vy { get; } = 0;
-        /// <summary>
-        /// Y Distance from the centroid of the section to Left edge of the section
-        /// </summary>
-        public double Vpy { get; } = 0;
+        [Description("Geometric centre of the section in the Y direction")]
+        public double CentreY { get; }
 
-        /// <summary>
-        /// Shear Area in the Y direction
-        /// </summary>
-        public double Asy { get; } = 0;
+        [Description("Z Distance from the centroid of the section to top edge of the section")]
+        public double Vz { get; }
 
-        /// <summary>
-        /// Shear Area in the Z direction
-        /// </summary>
-        public double Asz { get; } = 0;
+        [Description("Z Distance from the centroid of the section to bottom edge of the section")]
+        public double Vpz { get; }
 
+        [Description("Y Distance from the centroid of the section to right edge of the section")]
+        public double Vy { get; }
+
+        [Description("Y Distance from the centroid of the section to Left edge of the section")]
+        public double Vpy { get; }
+
+        [Description("Shear Area in the Y direction")]
+        public double Asy { get; }
+
+        [Description("Shear Area in the Z direction")]
+        public double Asz { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

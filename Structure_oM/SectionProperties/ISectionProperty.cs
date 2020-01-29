@@ -22,6 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
@@ -31,96 +32,64 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Material of the section")]
         IMaterialFragment Material { get; set; }
 
-        /// <summary>
-        /// Gross Area of the cross section
-        /// </summary>
+        [Description("Gross Area of the cross section")]
         double Area { get; }
 
-        /// <summary>
-        /// Radius of Gyration about the Y-Axis
-        /// </summary>
+        [Description("Radius of Gyration about the Y-Axis")]
         double Rgy { get; }
 
-        /// <summary>
-        /// Radius of Gyration about the Z-Axis
-        /// </summary>
+        [Description("Radius of Gyration about the Z-Axis")]
         double Rgz { get; }
 
-        /// <summary>
-        /// Torsion Constant
-        /// </summary>
+        [Description("Torsion Constant")]
         double J { get; }
 
-        /// <summary>
-        /// Moment of Inertia about the Y-Axis
-        /// </summary>
+        [Description("Moment of Inertia about the Y-Axis")]
         double Iy { get; }
 
-        /// <summary>
-        /// Moment of Inertia about the Z-Axis
-        /// </summary>
+        [Description("Moment of Inertia about the Z-Axis")]
         double Iz { get; }
 
-        /// <summary>
-        /// Warping Constant
-        /// </summary>
+        [Description("Warping Constant")]
         double Iw { get; }
 
-        /// <summary>
-        /// Elastic Modulus of the section about the Y-Axis
-        /// </summary>
+        [Description("Elastic Modulus of the section about the Y-Axis")]
         double Wely { get; }
 
-        /// <summary>
-        /// Elastic Modulus of the section about the Z-Axis
-        /// </summary>
+        [Description("Elastic Modulus of the section about the Z-Axis")]
         double Welz { get; }
-        /// <summary>
-        /// Plastic Modulus of the section about the Y-Axis
-        /// </summary>
+
+        [Description("Plastic Modulus of the section about the Y-Axis")]
         double Wply { get; }
 
-        /// <summary>
-        /// Plastic Modulus of the section about the Z-Axis
-        /// </summary>
+        [Description("Plastic Modulus of the section about the Z-Axis")]
         double Wplz { get; }
-        /// <summary>
-        /// Geometric centre of the section in the Z direction
-        /// </summary>
+
+        [Description("Geometric centre of the section in the Z direction")]
         double CentreZ { get; }
-        /// <summary>
-        /// Geometric centre of the section in the Y direction
-        /// </summary>
+
+        [Description("Geometric centre of the section in the Y direction")]
         double CentreY { get; }
 
-        /// <summary>
-        /// Z Distance from the centroid of the section to top edge of the section
-        /// </summary>
+        [Description("Z Distance from the centroid of the section to top edge of the section")]
         double Vz { get; }
 
-        /// <summary>
-        /// Z Distance from the centroid of the section to bottom edge of the section
-        /// </summary>
+        [Description("Z Distance from the centroid of the section to bottom edge of the section")]
         double Vpz { get; }
-        /// <summary>
-        /// Y Distance from the centroid of the section to right edge of the section
-        /// </summary>
+
+        [Description("Y Distance from the centroid of the section to right edge of the section")]
         double Vy { get; }
-        /// <summary>
-        /// Y Distance from the centroid of the section to Left edge of the section
-        /// </summary>
+
+        [Description("Y Distance from the centroid of the section to Left edge of the section")]
         double Vpy { get; }
 
-        /// <summary>
-        /// Shear Area in the Y direction
-        /// </summary>
+        [Description("Shear Area in the Y direction")]
         double Asy { get; }
 
-        /// <summary>
-        /// Shear Area in the Z direction
-        /// </summary>
+        [Description("Shear Area in the Z direction")]
         double Asz { get; }
 
         /***************************************************/
