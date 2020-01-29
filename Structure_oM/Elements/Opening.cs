@@ -24,15 +24,18 @@ using BH.oM.Geometry;
 using System.Collections.Generic;
 using BH.oM.Base;
 using BH.oM.Analytical.Elements;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("Opening of a structural Panel object")]
     public class Opening : BHoMObject, IElement2D, IOpening<Edge>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("A list of (co)planar Edges defining the contour and potential constraints of the Opening.")]
         public List<Edge> Edges { get; set; } = new List<Edge>();
         
         /***************************************************/
