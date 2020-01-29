@@ -21,8 +21,6 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
 
 namespace BH.oM.Quantities.Attributes
 {
@@ -33,8 +31,7 @@ namespace BH.oM.Quantities.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public override ImmutableDictionary<Base.Dimension, int> Dimension { get; } = new Dictionary<Base.Dimension, int> { { Base.Dimension.I, 1 } }.ToImmutableDictionary();
-
+        public override int I { get; } = 1;
 
         public override string SIUnit { get; } = "A";
 

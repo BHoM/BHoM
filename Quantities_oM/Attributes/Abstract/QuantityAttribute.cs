@@ -22,18 +22,39 @@
 
 using BH.oM.Base;
 using System;
-using System.Collections.Immutable;
+using System.ComponentModel;
 
 namespace BH.oM.Quantities.Attributes
 {
+    [Description("Dimensional quantity as defined by the International System of Quantities")]
     public abstract class QuantityAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public abstract ImmutableDictionary<Base.Dimension, int> Dimension { get; }
+        [Description("Length dimension")]
+        public virtual int L { get; } = 0;
 
+        [Description("Mass dimension")]
+        public virtual int M { get; } = 0;
+
+        [Description("Time dimension")]
+        public virtual int T { get; } = 0;
+
+        [Description("Electric current dimension")]
+        public virtual int I { get; } = 0;
+
+        [Description("Temperature dimension")]
+        public virtual int Θ { get; } = 0;
+
+        [Description("Amount of substance dimension")]
+        public virtual int N { get; } = 0;
+
+        [Description("Luminous intensity dimension")]
+        public virtual int J { get; } = 0;
+
+        [Description("SI derived unit symbol")]
         public abstract string SIUnit { get; }
 
         /***************************************************/

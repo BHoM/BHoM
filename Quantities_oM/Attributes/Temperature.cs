@@ -21,20 +21,17 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
 
 namespace BH.oM.Quantities.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.ReturnValue)]
-    public class Temprature : QuantityAttribute
+    public class Temperature : QuantityAttribute
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public override ImmutableDictionary<Base.Dimension, int> Dimension { get; } = new Dictionary<Base.Dimension, int> { { Base.Dimension.Θ, 1 } }.ToImmutableDictionary();
-
+        public override int Θ { get; } = 1;             
 
         public override string SIUnit { get; } = "K";
 
