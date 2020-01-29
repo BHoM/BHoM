@@ -30,19 +30,22 @@ using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
-    /// <summary>
-    /// Bar objects for 1D finite element bars.
-    /// </summary>
+
+    [Description("1D finite element for structural analysis. Linear 2-noded element defined by a start and end node." +
+                 "For structural conventions and orientation of the bar please see https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions")]
     public class Bar : BHoMObject, IElement1D, ILink<Node>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Start node of the bar. Defines the start position of the element. \nNote that Nodes can contain Supports, not to be mixed up with releases")]
         public Node StartNode { get; set; }
 
+        [Description("End node of the bar. Defines the end position of the element. \nNote that Nodes can contain Supports, not to be mixed up with releases")]
         public Node EndNode { get; set; }
 
+        [Description("Section property of the bar, containing all sectional constants and, depending on section type, sectional geometry and dimensions")]
         public ISectionProperty SectionProperty { get; set; } = null;
 
         [Description("Bar orientation angle in radians \n" +
@@ -52,12 +55,16 @@ namespace BH.oM.Structure.Elements
                      "For general structural conventions please see  https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions")]
         public double OrientationAngle { get; set; } = 0;
 
+        [Description("Contains the start and endrelease of the Bar. The releases defines how the bar is attached to its end nodes")]
         public BarRelease Release { get; set; } = null;
 
+        [Description("Contains the start and endrelease of the Bar. The releases defines how the bar is attached to its end nodes")]
         public BarFEAType FEAType { get; set; } = BarFEAType.Flexural;
 
+        [Description("Linear support for the bar. 3 translational degrees of freedom and one rotational. The rotational defines constraint around the axis of the bar.")]
         public Constraint4DOF Support { get; set; } = null;
 
+        [Description("Offset of the bar as two vectors, one per end node, in bar local coordinates. Defines offsets from centreline to be applied in analysis packages.")]
         public Offset Offset { get; set; } = null;
 
 
