@@ -38,7 +38,7 @@ namespace BH.oM.Structure.Elements
         [Description("Position of the node in global Cartesian 3D space")]
         public Point Position { get; set; } = null;
 
-        [Description("Local x, y and z axes of the node as a vector Basis")]
+        [Description("Local x, y and z axes of the node as a vector Basis. Defaults to world axes.")]
         public Basis Orientation { get; set; } = Basis.XY;
 
         [Description("Defines the constraint of the Node")]
@@ -49,6 +49,7 @@ namespace BH.oM.Structure.Elements
         /**** Explicit Casting                          ****/
         /***************************************************/
 
+        [Description("Converts a Point to a Node, setting the position to the provided point and rest as default values")]
         public static explicit operator Node(Point point)
         {
             return new Node { Position = point };
@@ -56,6 +57,7 @@ namespace BH.oM.Structure.Elements
 
         /***************************************************/
 
+        [Description("Converts a Cartesian Coordinatesystem to a Node, setting the position to the origin of the CS and the orientation aligned with the axes of the CS")]
         public static explicit operator Node(Geometry.CoordinateSystem.Cartesian coordinateSystem)
         {
             return new Node { Position = coordinateSystem.Origin, Orientation = (Basis)coordinateSystem };
