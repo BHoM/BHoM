@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
-
+    [Description("Steel section to be used on Bars. Defined by a section profile")]
     public class TimberSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
@@ -52,40 +52,40 @@ namespace BH.oM.Structure.SectionProperties
         [Description("Gross Area of the cross section")]
         public double Area { get; }
 
-        [Description("Radius of Gyration about the Y-Axis")]
+        [Description("Radius of Gyration about the local Y-Axis")]
         public double Rgy { get; }
 
-        [Description("Radius of Gyration about the Z-Axis")]
+        [Description("Radius of Gyration about the local Z-Axis")]
         public double Rgz { get; }
 
         [Description("Torsion Constant")]
         public double J { get; }
 
-        [Description("Moment of Inertia about the Y-Axis")]
+        [Description("Moment of Inertia about the local Y-Axis")]
         public double Iy { get; }
 
-        [Description("Moment of Inertia about the Z-Axis")]
+        [Description("Moment of Inertia about the local Z-Axis")]
         public double Iz { get; }
 
         [Description("Warping Constant")]
         public double Iw { get; }
 
-        [Description("Elastic Modulus of the section about the Y-Axis")]
+        [Description("Elastic Modulus of the section about the local Y-Axis")]
         public double Wely { get; }
 
-        [Description("Elastic Modulus of the section about the Z-Axis")]
+        [Description("Elastic Modulus of the section about the local Z-Axis")]
         public double Welz { get; }
 
-        [Description("Plastic Modulus of the section about the Y-Axis")]
+        [Description("Plastic Modulus of the section about the local Y-Axis")]
         public double Wply { get; }
 
-        [Description("Plastic Modulus of the section about the Z-Axis")]
+        [Description("Plastic Modulus of the section about the local Z-Axis")]
         public double Wplz { get; }
 
-        [Description("Geometric centre of the section in the Z direction")]
+        [Description("Geometric centre of the section in the local Z direction")]
         public double CentreZ { get; }
 
-        [Description("Geometric centre of the section in the Y direction")]
+        [Description("Geometric centre of the section in the local Y direction")]
         public double CentreY { get; }
 
         [Description("Z Distance from the centroid of the section to top edge of the section")]
@@ -100,10 +100,10 @@ namespace BH.oM.Structure.SectionProperties
         [Description("Y Distance from the centroid of the section to Left edge of the section")]
         public double Vpy { get; }
 
-        [Description("Shear Area in the Y direction")]
+        [Description("Shear Area in the local Y direction")]
         public double Asy { get; }
 
-        [Description("Shear Area in the Z direction")]
+        [Description("Shear Area in the local Z direction")]
         public double Asz { get; }
 
 
@@ -161,7 +161,7 @@ namespace BH.oM.Structure.SectionProperties
 
         }
 
-
+        /***************************************************/
     }
 }
 
