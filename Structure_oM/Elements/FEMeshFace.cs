@@ -22,15 +22,19 @@
 
 using System.Collections.Generic;
 using BH.oM.Analytical.Elements;
+using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
-    public class FEMeshFace : Base.BHoMObject, IFace
+    [Description("Face of a FEMesh. Contains information about connectivety of the nodes in the mesh. All geometrical information is stored on the host FEMesh.")]
+    public class FEMeshFace : BHoMObject, IFace
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("List of which node indecies in the host FEMesh node list that this face is connecting.")]
         public List<int> NodeListIndices { get; set; } = new List<int>();      
 
         /***************************************************/
