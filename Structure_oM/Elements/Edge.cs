@@ -24,20 +24,25 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Structure.Constraints;
 using BH.oM.Analytical.Elements;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
-    /// <summary>
-    /// BH.oM edge class to describe the edges of panels (or other objects) by a curve plus properties
-    /// </summary>
+    [Description("Edge class to describe the edges of panels (or other objects) by a curve plus properties")]
     public class Edge : BHoMObject, IElement1D, IEdge
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-                
+        
+        [Description("Curve of the edge. Should be a planar curve if used on panels")]            
         public ICurve Curve { get; set; }
+
+        [Description("Release of the edge, defining the connectivity between the edge and adjecent elements and/or nodes. " +
+                     "\nThree tranlational and one rotational degree of freedom, where the rotational refers to the rotation around the axis of the edge.")]
         public Constraint4DOF Release { get; set; } = null;
+
+        [Description("Support of the edge, used to lock the edge from movement.")]
         public Constraint6DOF Support { get; set; } = null;
 
         
