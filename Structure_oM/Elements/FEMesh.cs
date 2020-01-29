@@ -23,19 +23,24 @@
 using System.Collections.Generic;
 using BH.oM.Structure.SurfaceProperties;
 using BH.oM.Analytical.Elements;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("A 2D FEMesh used for structural analysis. Defined by a list of nodes and faces")]
     public class FEMesh : Base.BHoMObject, IAreaElement, IMesh<Node, FEMeshFace>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The nodes of the FEMesh. The connectivity of the faces are depending on the order of this list")]
         public List<Node> Nodes { get; set; } = new List<Node>();
 
+        [Description("The faces of the FEMesh. Each face contains a list of indecies refering which nodes in the node list it is connecting")]
         public List<FEMeshFace> Faces { get; set; } = new List<FEMeshFace>();
 
+        [Description("Defines the thickness property and material of the FEMesh")]
         public ISurfaceProperty Property { get; set; } = new ConstantThickness();
 
         /***************************************************/
