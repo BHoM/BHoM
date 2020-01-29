@@ -23,19 +23,24 @@
 using System.Collections.Generic;
 using BH.oM.Base;
 using BH.oM.Structure.Constraints;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("A rigid link object defining rigid constraints between two or more nodes")]
     public class RigidLink : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Master node rigidly connected to the slave nodes")]
         public Node MasterNode { get; set; } = new Node();
 
+        [Description("List of slave nodes rigidly connected to the master node")]
         public List<Node> SlaveNodes { get; set; } = new List<Node>();
 
+        [Description("LinkConstraint defining which degrees of freedom that should be constraint between the master and slave nodes")]
         public LinkConstraint Constraint { get; set; } = null;
 
 
