@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\AmountOfSubstance.cs" />
+    <Compile Include="Attributes\Angle.cs" />
     <Compile Include="Attributes\Area.cs" />
     <Compile Include="Attributes\Abstract\QuantityAttribute.cs" />
     <Compile Include="Attributes\ElectricCurrent.cs" />
