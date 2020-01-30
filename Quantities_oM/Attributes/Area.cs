@@ -35,7 +35,6 @@ namespace BH.oM.Quantities.Attributes
 
         public override string SIUnit { get; } = "m²";
 
-
         /***************************************************/
     }
 }

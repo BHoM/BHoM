@@ -51,7 +51,6 @@
     <Compile Include="Attributes\Mass.cs" />
     <Compile Include="Attributes\Moment.cs" />
     <Compile Include="Attributes\Temperature.cs" />
-    <Compile Include="Base\Enums\Dimension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Attributes\Time.cs" />
   </ItemGroup>
