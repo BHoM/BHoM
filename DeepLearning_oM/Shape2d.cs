@@ -42,7 +42,7 @@ namespace BH.oM.DeepLearning
 
         public static explicit operator Shape2d(string shape)
         {
-            Regex regex = new Regex(".*([0-9]),.*([0-9]).*");
+            Regex regex = new Regex(@"(\d+)\s*,\s*(\d+)");
             Match match = regex.Match(shape);
 
             if (match.Groups.Count < 2)
