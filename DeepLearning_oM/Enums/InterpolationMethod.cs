@@ -29,5 +29,9 @@ namespace BH.oM.DeepLearning
         Bilinear = 1,
 
         Bicubic = 2,
+
+        Area = 3,
+
+        Lanczos = 4
     }
 }
