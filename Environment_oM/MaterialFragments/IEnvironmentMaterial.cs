@@ -31,7 +31,7 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Environment.MaterialFragments
 {
-    public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties
+    public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties, IBHoMFragment
     {
         double Density { get; set; }
         double Conductivity { get; set; }
