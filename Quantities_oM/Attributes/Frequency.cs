@@ -25,13 +25,15 @@ using System;
 namespace BH.oM.Quantities.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.ReturnValue)]
-    public class Strain : QuantityAttribute
+    public class Frequency : QuantityAttribute
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public override string SIUnit { get; } = "-";
+        public override int T { get; } = -1;
+
+        public override string SIUnit { get; } = "Hz";
 
         /***************************************************/
     }

@@ -24,16 +24,17 @@ using System;
 
 namespace BH.oM.Quantities.Attributes
 {
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.ReturnValue)]
-    public class Strain : QuantityAttribute
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.ReturnValue | AttributeTargets.Method)]
+    public class WarpingConstant : QuantityAttribute
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public override string SIUnit { get; } = "-";
+        public override int L { get; } = 6;
+
+        public override string SIUnit { get; } = "m⁶";
 
         /***************************************************/
     }
 }
-

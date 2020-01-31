@@ -25,13 +25,17 @@ using System;
 namespace BH.oM.Quantities.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.ReturnValue)]
-    public class Strain : QuantityAttribute
+    public class ForcePerUnitLength : QuantityAttribute
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public override string SIUnit { get; } = "-";
+        public override int M { get; } = 1;
+
+        public override int T { get; } = -2;
+
+        public override string SIUnit { get; } = "N/m";
 
         /***************************************************/
     }
