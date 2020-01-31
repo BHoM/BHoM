@@ -25,13 +25,13 @@ using System;
 namespace BH.oM.Quantities.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.ReturnValue)]
-    public class Strain : QuantityAttribute
+    public class MassFraction : QuantityAttribute
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public override string SIUnit { get; } = "-";
+        public override string SIUnit { get; } = "kg/kg";
 
         /***************************************************/
     }

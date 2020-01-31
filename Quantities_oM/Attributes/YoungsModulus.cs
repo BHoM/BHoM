@@ -37,7 +37,7 @@ namespace BH.oM.Quantities.Attributes
 
         public override int T { get; } = -2;
 
-        public override string SIUnit { get; } = "N/m²";
+        public override string SIUnit { get; } = "Pa";
 
         /***************************************************/
     }
