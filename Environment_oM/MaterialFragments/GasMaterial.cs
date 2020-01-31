@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.MaterialFragments
 {
     [Description("Fragment containing the Gas Material properties related to materials")]
-    public class GasMaterial : BHoMObject, IEnvironmentMaterial
+    public class GasMaterial : BHoMObject, IEnvironmentMaterial, IBHoMFragment
     {
         [Description("The density of the material")]
         public double Density { get; set; } = 0.0;
