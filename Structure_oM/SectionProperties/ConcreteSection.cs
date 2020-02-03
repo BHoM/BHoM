@@ -32,28 +32,28 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SectionProperties
 {
-    [Description("Concrete section to be used on Bars. Defined by a section profile. Note that all section constants are assuming an uncracked section and are disregarding reinforcement")]
+    [Description("Concrete section to be used on Bars. Defined by a section profile. Note that all section constants are assuming an uncracked section and are disregarding reinforcement.")]
     public class ConcreteSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("List of Reinforcement of the concrete section")]
+        [Description("List of Reinforcement of the concrete section.")]
         public List<Reinforcement.Reinforcement> Reinforcement { get; set; }
 
         [Length]
-        [Description("Minimum reinforcement conver of the section")]
+        [Description("Minimum reinforcement cover of the section.")]
         public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
 
-        [Description("Material of the section")]
+        [Description("Material of the section.")]
         public IMaterialFragment Material { get; set; }
 
         /***************************************************/
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
-        [Description("Profile of the section, containing dimensions and section geometry")]
+        [Description("Profile of the section, containing dimensions and section geometry.")]
         public IProfile SectionProfile { get; }
 
 
@@ -127,22 +127,22 @@ namespace BH.oM.Structure.SectionProperties
         public double CentreY { get; }
 
         [Length]
-        [Description("Z Distance from the centroid of the section to top edge of the section"
+        [Description("Z distance from the centroid of the section to top edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vz { get; }
 
         [Length]
-        [Description("Z Distance from the centroid of the section to bottom edge of the section"
+        [Description("Z distance from the centroid of the section to bottom edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vpz { get; }
 
         [Length]
-        [Description("Y Distance from the centroid of the section to right edge of the section"
+        [Description("Y distance from the centroid of the section to right edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vy { get; }
 
         [Length]
-        [Description("Y Distance from the centroid of the section to Left edge of the section"
+        [Description("Y distance from the centroid of the section to Left edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vpy { get; }
 

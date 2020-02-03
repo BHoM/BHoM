@@ -28,18 +28,18 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
-    [Description("Edge class to describe the edges of panels (or other objects) by a curve plus properties")]
+    [Description("Edge class to describe the edges of panels (or other objects) by a curve and properties.")]
     public class Edge : BHoMObject, IElement1D, IEdge
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         
-        [Description("Curve of the edge. Should be a planar curve if used on panels")]            
+        [Description("Curve of the edge. Should be a planar curve if used on panels.")]            
         public ICurve Curve { get; set; }
 
-        [Description("Release of the edge, defining the connectivity between the edge and adjecent elements and/or nodes. " +
-                     "\nThree tranlational and one rotational degree of freedom, where the rotational refers to the rotation around the axis of the edge.")]
+        [Description("Release of the edge, defining the connectivity between the edge and adjacent elements and/or nodes. " +
+                     "\nThree translational and one rotational degree of freedom, where the rotational refers to the rotation around the axis of the edge.")]
         public Constraint4DOF Release { get; set; } = null;
 
         [Description("Support of the edge, used to lock the edge from movement.")]

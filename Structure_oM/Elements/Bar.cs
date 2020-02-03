@@ -32,33 +32,33 @@ namespace BH.oM.Structure.Elements
 {
 
     [Description("1D finite element for structural analysis. Linear 2-noded element defined by a start and end node." +
-                 "For structural conventions and orientation of the bar please see https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions")]
+                 "For structural conventions and orientation of the bar please see https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions.")]
     public class Bar : BHoMObject, IElement1D, ILink<Node>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Start node of the bar. Defines the start position of the element. \nNote that Nodes can contain Supports, not to be mixed up with releases")]
+        [Description("Start node of the bar. Defines the start position of the element. \nNote that Nodes can contain Supports, not to be mixed up with releases.")]
         public Node StartNode { get; set; }
 
-        [Description("End node of the bar. Defines the end position of the element. \nNote that Nodes can contain Supports, not to be mixed up with releases")]
+        [Description("End node of the bar. Defines the end position of the element. \nNote that Nodes can contain Supports, not to be mixed up with releases.")]
         public Node EndNode { get; set; }
 
-        [Description("Section property of the bar, containing all sectional constants and material as well as profile geometry and dimensions, where applicable")]
+        [Description("Section property of the bar, containing all sectional constants and material as well as profile geometry and dimensions, where applicable.")]
         public ISectionProperty SectionProperty { get; set; } = null;
 
         [Description("Bar orientation angle in radians \n" +
                      "For non-vertical members the local z is aligned with the global z and rotated with the orientation angle around the local x. \n" +
                      "For vertical members the local y is aligned with the global y and rotated with the orientation angle around the local x. \n"+
                      "A bar is vertical if its projected length to the horizontal plane is less than 0.0001, i.e. a tolerance of 0.1mm on verticality. \n" +
-                     "For general structural conventions please see  https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions")]
+                     "For general structural conventions please see  https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions.")]
         public double OrientationAngle { get; set; } = 0;
 
-        [Description("Contains the start and endrelease of the Bar. The releases defines how the bar is attached to its end nodes")]
+        [Description("Contains the start and end release of the Bar. The releases defines how the bar is attached to its end nodes.")]
         public BarRelease Release { get; set; } = null;
 
-        [Description("Contains the start and endrelease of the Bar. The releases defines how the bar is attached to its end nodes")]
+        [Description("Contains the start and end release of the Bar. The releases defines how the bar is attached to its end nodes.")]
         public BarFEAType FEAType { get; set; } = BarFEAType.Flexural;
 
         [Description("Linear support for the bar. 3 translational degrees of freedom and one rotational. The rotational defines constraint around the axis of the bar.")]

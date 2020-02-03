@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
-    [Description("Face of a FEMesh. The face is defined by the indices of its nodes in the node list. All geometrical information is stored on the host FEMesh.")]
+    [Description("Face of an FEMesh. The face is defined by the indices of its nodes in the node list. All geometrical information is stored on the host FEMesh.")]
     public class FEMeshFace : BHoMObject, IFace
     {
         /***************************************************/

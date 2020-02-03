@@ -28,20 +28,20 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
-    [Description("0D finite element for structural analysis. Node class contains positional information as well as orientation and support")]
+    [Description("0D finite element for structural analysis. Node class contains positional information as well as orientation and support.")]
     public class Node : BHoMObject, IElement0D, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Position of the node in global Cartesian 3D space")]
+        [Description("Position of the node in global Cartesian 3D space.")]
         public Point Position { get; set; } = null;
 
-        [Description("Local x, y and z axes of the node as a vector Basis. Defaults to world axes.")]
+        [Description("Local x, y, and z axes of the node as a vector Basis. Defaults to world axes.")]
         public Basis Orientation { get; set; } = Basis.XY;
 
-        [Description("Defines the constraint of the Node")]
+        [Description("Defines the constraint of the Node.")]
         public Constraint6DOF Support { get; set; } = null;
 
 
@@ -49,7 +49,7 @@ namespace BH.oM.Structure.Elements
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-        [Description("Converts a Point to a Node, setting the position to the provided point and rest as default values")]
+        [Description("Converts a Point to a Node, setting the position to the provided point and rest as default values.")]
         public static explicit operator Node(Point point)
         {
             return new Node { Position = point };
@@ -57,7 +57,7 @@ namespace BH.oM.Structure.Elements
 
         /***************************************************/
 
-        [Description("Converts a Cartesian Coordinatesystem to a Node, setting the position to the origin of the CS and the orientation aligned with the axes of the CS")]
+        [Description("Converts a Cartesian Coordinatesystem to a Node, setting the position to the origin of the CS and the orientation aligned with the axes of the CS.")]
         public static explicit operator Node(Geometry.CoordinateSystem.Cartesian coordinateSystem)
         {
             return new Node { Position = coordinateSystem.Origin, Orientation = (Basis)coordinateSystem };

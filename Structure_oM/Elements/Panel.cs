@@ -36,13 +36,13 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A list of (co)planar Edges defining the external contour and potential constraints of the Panel")]
+        [Description("A list of (co)planar Edges defining the external contour and potential constraints of the Panel.")]
         public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
 
-        [Description("A list of Openings of the panel. The edges that make up the openings need to all be coplanar with the external edges")]
+        [Description("A list of Openings of the panel. The edges that make up the openings must be coplanar with the external edges.")]
         public List<Opening> Openings { get; set; } = new List<Opening>();
 
-        [Description("Defines the thickness property and material of the Panel")]
+        [Description("Defines the thickness property and material of the Panel.")]
         public ISurfaceProperty Property { get; set; } = new ConstantThickness();      
 
 

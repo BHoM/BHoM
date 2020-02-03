@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
-    [Description("2D finite element mesh for structural analysis. Defined by a list of nodes and faces")]
+    [Description("2D finite element mesh for structural analysis. Defined by a list of nodes and faces.")]
     public class FEMesh : Base.BHoMObject, IAreaElement, IMesh<Node, FEMeshFace>
     {
         /***************************************************/
@@ -36,11 +36,11 @@ namespace BH.oM.Structure.Elements
 
         [Description("The nodes of the FEMesh. Mesh faces reference these nodes by their position in this list, so it is important to maintain the order.")]
         public List<Node> Nodes { get; set; } = new List<Node>();
-
-        [Description("The faces of the FEMesh. Each face contains a list of indecies refering which nodes in the node list it is connecting")]
+    
+        [Description("The faces of the FEMesh. Each face contains a list of indices referring to the nodes in the node list it is connecting.")]
         public List<FEMeshFace> Faces { get; set; } = new List<FEMeshFace>();
 
-        [Description("Defines the thickness property and material of the FEMesh")]
+        [Description("Defines the thickness property and material of the FEMesh.")]
         public ISurfaceProperty Property { get; set; } = new ConstantThickness();
 
         /***************************************************/
