@@ -34,7 +34,7 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The nodes of the FEMesh. The connectivity of the faces are depending on the order of this list")]
+        [Description("The nodes of the FEMesh. Mesh faces reference these nodes by their position in this list, so it is important to maintain the order.")]
         public List<Node> Nodes { get; set; } = new List<Node>();
 
         [Description("The faces of the FEMesh. Each face contains a list of indecies refering which nodes in the node list it is connecting")]

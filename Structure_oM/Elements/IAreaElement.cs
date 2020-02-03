@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
-    [Description("Base interface for 2D analytical elements")]
+    [Description("Base interface for 2D analytical elements such as Panels, FEMeshes and Surfaces to represent for example walls and slabs")]
     public interface IAreaElement : IBHoMObject
     {
         /***************************************************/
