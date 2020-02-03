@@ -28,6 +28,7 @@ using System.Linq;
 using BH.oM.Structure.MaterialFragments;
 using BH.oM.Geometry.ShapeProfiles;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SectionProperties
 {
@@ -59,79 +60,97 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties - Section constants            ****/
         /***************************************************/
 
-
+        [Area]
         [Description("Gross Area of the cross section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Area { get; }
 
+        [Length]
         [Description("Radius of Gyration about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Rgy { get; }
 
+        [Length]
         [Description("Radius of Gyration about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Rgz { get; }
 
+        [TorsionConstant]
         [Description("Torsion Constant"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double J { get; }
 
+        [SecondMomentOfArea]
         [Description("Moment of Inertia about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Iy { get; }
 
+        [SecondMomentOfArea]
         [Description("Moment of Inertia about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Iz { get; }
 
+        [WarpingConstant]
         [Description("Warping Constant"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Iw { get; }
 
+        [SectionModulus]
         [Description("Elastic Modulus of the section about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Wely { get; }
 
+        [SectionModulus]
         [Description("Elastic Modulus of the section about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Welz { get; }
 
+        [SectionModulus]
         [Description("Plastic Modulus of the section about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Wply { get; }
 
+        [SectionModulus]
         [Description("Plastic Modulus of the section about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Wplz { get; }
 
+        [Length]
         [Description("Geometric centre of the section in the local Z direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
         public double CentreZ { get; }
 
+        [Length]
         [Description("Geometric centre of the section in the local Y direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
         public double CentreY { get; }
 
+        [Length]
         [Description("Z Distance from the centroid of the section to top edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vz { get; }
 
+        [Length]
         [Description("Z Distance from the centroid of the section to bottom edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vpz { get; }
 
+        [Length]
         [Description("Y Distance from the centroid of the section to right edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vy { get; }
 
+        [Length]
         [Description("Y Distance from the centroid of the section to Left edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vpy { get; }
 
+        [Length]
         [Description("Shear Area in the local Y direction"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Asy { get; }
 
+        [Length]
         [Description("Shear Area in the local Z direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Asz { get; }
