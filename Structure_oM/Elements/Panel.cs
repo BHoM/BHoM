@@ -36,7 +36,7 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A list of (co)planar Edges defining the external contour and potential constraints of the Panel.")]
+        [Description("A list of coplanar Edges defining the external contour and potential constraints of the Panel.")]
         public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
 
         [Description("A list of Openings of the panel. The edges that make up the openings must be coplanar with the external edges.")]

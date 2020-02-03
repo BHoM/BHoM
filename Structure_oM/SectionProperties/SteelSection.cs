@@ -38,7 +38,7 @@ namespace BH.oM.Structure.SectionProperties
         [Description("The fabrication method used for the section.")]
         public SteelFabrication Fabrication { get; set; } = SteelFabrication.Welded;
 
-        [Description("Defines wheter any of the plates of the section have any external restraint, from for example a connecting slab.")]
+        [Description("Defines whether any of the plates of the section have any external restraint, from for example a connecting slab.")]
         public SteelPlateRestraint PlateRestraint { get; set; } = SteelPlateRestraint.NoRestraint;
 
         [Description("Material of the section.")]
