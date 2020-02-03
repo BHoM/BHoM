@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -42,7 +42,7 @@ namespace BH.oM.DeepLearning
 
         public static explicit operator Shape2d(string shape)
         {
-            Regex regex = new Regex(".*([0-9]),.*([0-9]).*");
+            Regex regex = new Regex(@"(\d+)\s*,\s*(\d+)");
             Match match = regex.Match(shape);
 
             if (match.Groups.Count < 2)
@@ -54,3 +54,4 @@ namespace BH.oM.DeepLearning
         /***************************************************/
     }
 }
+

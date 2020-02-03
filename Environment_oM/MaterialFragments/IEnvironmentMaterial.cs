@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -31,7 +31,7 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Environment.MaterialFragments
 {
-    public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties
+    public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties, IBHoMFragment
     {
         double Density { get; set; }
         double Conductivity { get; set; }
@@ -42,3 +42,4 @@ namespace BH.oM.Environment.MaterialFragments
         double Refraction { get; set; }
     }
 }
+

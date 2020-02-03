@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -22,9 +22,11 @@
 
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
+    [Description("Material agnostic section. Does not own any geometry. Allows explicit setting of all section constants")]
     public class ExplicitSection : BHoMObject, ISectionProperty
     {
 
@@ -32,97 +34,65 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Material of the section")]
         public IMaterialFragment Material { get; set; } = null;
 
-        /// <summary>
-        /// Gross Area of the cross section
-        /// </summary>
-        public double Area { get; set; } = 0;
+        [Description("Gross Area of the cross section")]
+        public double Area { get; set; }
 
-        /// <summary>
-        /// Radius of Gyration about the Y-Axis
-        /// </summary>
-        public double Rgy { get; set; } = 0;
+        [Description("Radius of Gyration about the Y-Axis")]
+        public double Rgy { get; set; }
 
-        /// <summary>
-        /// Radius of Gyration about the Z-Axis
-        /// </summary>
-        public double Rgz { get; set; } = 0;
+        [Description("Radius of Gyration about the Z-Axis")]
+        public double Rgz { get; set; }
 
-        /// <summary>
-        /// Torsion Constant
-        /// </summary>
-        public double J { get; set; } = 0;
+        [Description("Torsion Constant")]
+        public double J { get; set; }
 
-        /// <summary>
-        /// Moment of Inertia about the Y-Axis
-        /// </summary>
-        public double Iy { get; set; } = 0;
+        [Description("Moment of Inertia about the Y-Axis")]
+        public double Iy { get; set; }
 
-        /// <summary>
-        /// Moment of Inertia about the Z-Axis
-        /// </summary>
-        public double Iz { get; set; } = 0;
+        [Description("Moment of Inertia about the Z-Axis")]
+        public double Iz { get; set; }
 
-        /// <summary>
-        /// Warping Constant
-        /// </summary>
-        public double Iw { get; set; } = 0;
+        [Description("Warping Constant")]
+        public double Iw { get; set; }
 
-        /// <summary>
-        /// Elastic Modulus of the section about the Y-Axis
-        /// </summary>
-        public double Wely { get; set; } = 0;
+        [Description("Elastic Modulus of the section about the Y-Axis")]
+        public double Wely { get; set; }
 
-        /// <summary>
-        /// Elastic Modulus of the section about the Z-Axis
-        /// </summary>
-        public double Welz { get; set; } = 0;
-        /// <summary>
-        /// Plastic Modulus of the section about the Y-Axis
-        /// </summary>
-        public double Wply { get; set; } = 0;
+        [Description("Elastic Modulus of the section about the Z-Axis")]
+        public double Welz { get; set; }
 
-        /// <summary>
-        /// Plastic Modulus of the section about the Z-Axis
-        /// </summary>
-        public double Wplz { get; set; } = 0;
-        /// <summary>
-        /// Geometric centre of the section in the Z direction
-        /// </summary>
-        public double CentreZ { get; set; } = 0;
-        /// <summary>
-        /// Geometric centre of the section in the Y direction
-        /// </summary>
-        public double CentreY { get; set; } = 0;
+        [Description("Plastic Modulus of the section about the Y-Axis")]
+        public double Wply { get; set; }
 
-        /// <summary>
-        /// Z Distance from the centroid of the section to top edge of the section
-        /// </summary>
-        public double Vz { get; set; } = 0;
+        [Description("Plastic Modulus of the section about the Z-Axis")]
+        public double Wplz { get; set; }
 
-        /// <summary>
-        /// Z Distance from the centroid of the section to bottom edge of the section
-        /// </summary>
-        public double Vpz { get; set; } = 0;
-        /// <summary>
-        /// Y Distance from the centroid of the section to right edge of the section
-        /// </summary>
-        public double Vy { get; set; } = 0;
-        /// <summary>
-        /// Y Distance from the centroid of the section to Left edge of the section
-        /// </summary>
-        public double Vpy { get; set; } = 0;
+        [Description("Geometric centre of the section in the Z direction")]
+        public double CentreZ { get; set; }
 
-        /// <summary>
-        /// Shear Area in the Y direction
-        /// </summary>
-        public double Asy { get; set; } = 0;
+        [Description("Geometric centre of the section in the Y direction")]
+        public double CentreY { get; set; }
 
-        /// <summary>
-        /// Shear Area in the Z direction
-        /// </summary>
-        public double Asz { get; set; } = 0;
+        [Description("Z Distance from the centroid of the section to top edge of the section")]
+        public double Vz { get; set; }
+
+        [Description("Z Distance from the centroid of the section to bottom edge of the section")]
+        public double Vpz { get; set; }
+
+        [Description("Y Distance from the centroid of the section to right edge of the section")]
+        public double Vy { get; set; }
+
+        [Description("Y Distance from the centroid of the section to Left edge of the section")]
+        public double Vpy { get; set; }
+
+        [Description("Shear Area in the Y direction")]
+        public double Asy { get; set; }
+
+        [Description("Shear Area in the Z direction")]
+        public double Asz { get; set; }
 
 
         /***************************************************/
@@ -135,3 +105,4 @@ namespace BH.oM.Structure.SectionProperties
         }
     }
 }
+

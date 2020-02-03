@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.MaterialFragments
 {
     [Description("Fragment containing the Gas Material properties related to materials")]
-    public class GasMaterial : BHoMObject, IEnvironmentMaterial
+    public class GasMaterial : BHoMObject, IEnvironmentMaterial, IBHoMFragment
     {
         [Description("The density of the material")]
         public double Density { get; set; } = 0.0;
@@ -62,3 +62,4 @@ namespace BH.oM.Environment.MaterialFragments
         public Gas Gas { get; set; } = Gas.Undefined;
     }
 }
+
