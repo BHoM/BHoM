@@ -42,6 +42,7 @@ namespace BH.oM.Structure.SectionProperties
         [Description("List of Reinforcement of the concrete section")]
         public List<Reinforcement.Reinforcement> Reinforcement { get; set; }
 
+        [Length]
         [Description("Minimum reinforcement conver of the section")]
         public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
 
