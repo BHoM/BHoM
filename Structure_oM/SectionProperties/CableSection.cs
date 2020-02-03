@@ -29,30 +29,30 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SectionProperties
 {
-    [Description("Cable section to be used on Bars. Defined by cable diameter, number of cables, and area")]
+    [Description("Cable section to be used on Bars. Defined by cable diameter, number of cables, and total area.")]
     public class CableSection : BHoMObject, ISectionProperty, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Material of the cable section")]
+        [Description("Material of the cable section.")]
         public IMaterialFragment Material { get; set; } = null;
 
         /***************************************************/
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
-        [Description("How many cables make up the cross sections")]
+        [Description("How many cables make up the cross sections.")]
         public int NumberOfCables { get; } = 0;
 
-        [Description("Diameter of each cable in the sections")]
+        [Description("Diameter of each cable in the sections.")]
         public double CableDiameter { get; } = 0;
 
-        [Description("Type of cable(s) in the section")]
+        [Description("Type of cable(s) in the section.")]
         public CableType CableType { get; } = CableType.FullLockedCoil;
 
-        [Description("Breaking load of the cable section. For Number of cables > 1 this is assumed to be the total breaking load of all cables")]
+        [Description("Breaking load of the cable section. For Number of cables > 1 this is assumed to be the total breaking load of all cables.")]
         public double BreakingLoad { get; } = 0;
 
         /***************************************************/
@@ -61,79 +61,79 @@ namespace BH.oM.Structure.SectionProperties
 
         [Area]
         [Description("Gross Area of the cross section" +
-                     "\nFor Number of cables > 1 this is assumed to be the total area of all cables")]
+                     "\nFor Number of cables > 1 this is assumed to be the total area of all cables.")]
         public double Area { get; }
 
         [Length]
-        [Description("Radius of Gyration about the local Y-Axis")]
+        [Description("Radius of Gyration about the local Y-Axis.")]
         public double Rgy { get; }
 
         [Length]
-        [Description("Radius of Gyration about the local Z-Axis")]
+        [Description("Radius of Gyration about the local Z-Axis.")]
         public double Rgz { get; }
 
         [TorsionConstant]
-        [Description("Torsion Constant")]
+        [Description("Torsion Constant.")]
         public double J { get; }
 
         [SecondMomentOfArea]
-        [Description("Moment of Inertia about the local Y-Axis")]
+        [Description("Moment of Inertia about the local Y-Axis.")]
         public double Iy { get; }
 
         [SecondMomentOfArea]
-        [Description("Moment of Inertia about the local Z-Axis")]
+        [Description("Moment of Inertia about the local Z-Axis.")]
         public double Iz { get; }
 
         [WarpingConstant]
-        [Description("Warping Constant")]
+        [Description("Warping Constant.")]
         public double Iw { get; }
 
         [SectionModulus]
-        [Description("Elastic Modulus of the section about the local Y-Axis")]
+        [Description("Elastic Modulus of the section about the local Y-Axis.")]
         public double Wely { get; }
 
         [SectionModulus]
-        [Description("Elastic Modulus of the section about the local Z-Axis")]
+        [Description("Elastic Modulus of the section about the local Z-Axis.")]
         public double Welz { get; }
 
         [SectionModulus]
-        [Description("Plastic Modulus of the section about the local Y-Axis")]
+        [Description("Plastic Modulus of the section about the local Y-Axis.")]
         public double Wply { get; }
 
         [SectionModulus]
-        [Description("Plastic Modulus of the section about the local Z-Axis")]
+        [Description("Plastic Modulus of the section about the local Z-Axis.")]
         public double Wplz { get; }
 
         [Length]
-        [Description("Geometric centre of the section in the local Z direction")]
+        [Description("Geometric centre of the section in the local Z direction.")]
         public double CentreZ { get; }
 
         [Length]
-        [Description("Geometric centre of the section in the local Y direction")]
+        [Description("Geometric centre of the section in the local Y direction.")]
         public double CentreY { get; }
 
         [Length]
-        [Description("Z Distance from the centroid of the section to top edge of the section")]
+        [Description("Z distance from the centroid of the section to top edge of the section.")]
         public double Vz { get; }
 
         [Length]
-        [Description("Z Distance from the centroid of the section to bottom edge of the section")]
+        [Description("Z distance from the centroid of the section to bottom edge of the section.")]
         public double Vpz { get; }
 
         [Length]
-        [Description("Y Distance from the centroid of the section to right edge of the section")]
+        [Description("Y distance from the centroid of the section to right edge of the section.")]
         public double Vy { get; }
 
         [Length]
-        [Description("Y Distance from the centroid of the section to Left edge of the section")]
+        [Description("Y distance from the centroid of the section to Left edge of the section.")]
         public double Vpy { get; }
 
         [Area]
-        [Description("Shear Area in the local Y direction")]
+        [Description("Shear Area in the local Y direction.")]
         public double Asy { get; }
 
         [Area]
-        [Description("Shear Area in the local Z direction")]
+        [Description("Shear Area in the local Z direction.")]
         public double Asz { get; }
 
 
