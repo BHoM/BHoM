@@ -1,6 +1,6 @@
 ---
 name: Bug
-about: Use this template if an implementation provides incorrect results or causes crashes.
+about: Report an error, performance issue or unexpected behaviour.
 labels: "type:bug"
 
 ---
@@ -8,11 +8,11 @@ labels: "type:bug"
 <!-- IN PARTICULAR PLEASE ENSURE THAT SENSITIVE OR INAPPROPRIATE INFORMATION IS NOT UPLOADED -->
 
 #### Description:
-<!-- Add a brief description -->
+<!-- Describe your issue here -->
 
 
-#### How to replicate:
-<!-- Describe a routine that allows developers to replicate the issue -->
+#### Steps to reproduce:
+<!-- Please tell us how to reproduce this issue -->
 
 
 #### Expected behaviour:
@@ -20,4 +20,4 @@ labels: "type:bug"
 
 
 #### Test file(s):
-<!-- Link to test files to validate the proposed changes -->
+<!-- Link to test files to help reproduce the bug and validate the proposed fixes -->
