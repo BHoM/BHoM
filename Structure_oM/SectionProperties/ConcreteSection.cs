@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
-    [Description("Aluminium section to be used on Bars. Defined by a section profile. Note that all section constants are assuming an uncracked section and are disregarding reinforcement")]
+    [Description("Concrete section to be used on Bars. Defined by a section profile. Note that all section constants are assuming an uncracked section and are disregarding reinforcement")]
     public class ConcreteSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/

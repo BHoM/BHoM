@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
-    [Description("Steel section to be used on Bars. Defined by a section profile")]
+    [Description("Timber section to be used on Bars. Defined by a section profile")]
     public class TimberSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/

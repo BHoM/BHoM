@@ -45,7 +45,7 @@ namespace BH.oM.Structure.Elements
         [Description("End node of the bar. Defines the end position of the element. \nNote that Nodes can contain Supports, not to be mixed up with releases")]
         public Node EndNode { get; set; }
 
-        [Description("Section property of the bar, containing all sectional constants and and material as well as, depending on section type, sectional geometry and dimensions")]
+        [Description("Section property of the bar, containing all sectional constants and material as well as profile geometry and dimensions, where applicable")]
         public ISectionProperty SectionProperty { get; set; } = null;
 
         [Description("Bar orientation angle in radians \n" +
