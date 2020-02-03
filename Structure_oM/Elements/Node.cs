@@ -49,7 +49,7 @@ namespace BH.oM.Structure.Elements
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-        [Description("Converts a Point to a Node, setting the position to the provided point and rest as default values.")]
+        [Description("Converts a Point to a Node, setting the position to the provided point. All other properties are set to default values.")]
         public static explicit operator Node(Point point)
         {
             return new Node { Position = point };

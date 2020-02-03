@@ -43,10 +43,10 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
-        [Description("How many cables make up the cross sections.")]
+        [Description("How many cables make up the cross section.")]
         public int NumberOfCables { get; } = 0;
 
-        [Description("Diameter of each cable in the sections.")]
+        [Description("Diameter of each cable in the section.")]
         public double CableDiameter { get; } = 0;
 
         [Description("Type of cable(s) in the section.")]
