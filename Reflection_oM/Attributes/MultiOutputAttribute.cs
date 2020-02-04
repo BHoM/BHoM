@@ -60,6 +60,7 @@ namespace BH.oM.Reflection.Attributes
 
         public MultiOutputAttribute(int index, string name, string description, Type quantity)
         {
+            Index = index;
             Name = name;
             Description = description;
             if (quantity != null && typeof(QuantityAttribute).IsAssignableFrom(quantity) && quantity != typeof(QuantityAttribute))
