@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHoM", "BHoM\BHoM.csproj", "{94D88927-62A2-48FC-8EFE-D139B67A3373}"
 EndProject
@@ -41,6 +41,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEP_oM", "MEP_oM\MEP_oM.csproj", "{088711C9-AC7E-409D-A1CD-A65FBABD88DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantities_oM", "Quantities_oM\Quantities_oM.csproj", "{2A5D5A00-D404-4F7E-B771-2FC837145361}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programming_oM", "Programming_oM\Programming_oM.csproj", "{B1B5AA71-143B-4EDB-9D9B-08CC8DBABF4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +122,10 @@ Global
 		{2A5D5A00-D404-4F7E-B771-2FC837145361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A5D5A00-D404-4F7E-B771-2FC837145361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A5D5A00-D404-4F7E-B771-2FC837145361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B5AA71-143B-4EDB-9D9B-08CC8DBABF4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B5AA71-143B-4EDB-9D9B-08CC8DBABF4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B5AA71-143B-4EDB-9D9B-08CC8DBABF4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B5AA71-143B-4EDB-9D9B-08CC8DBABF4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
