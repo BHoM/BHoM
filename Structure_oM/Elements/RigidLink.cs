@@ -34,13 +34,13 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Master node rigidly connected to the slave nodes.")]
+        [Description("Master node to which slave nodes are constrained.")]
         public Node MasterNode { get; set; } = new Node();
 
-        [Description("List of slave nodes rigidly connected to the master node.")]
+        [Description("List of slave nodes which are constrained to the master node.")]
         public List<Node> SlaveNodes { get; set; } = new List<Node>();
 
-        [Description("LinkConstraint defining which degrees of freedom that should be constrained between the master and slave nodes.")]
+        [Description("LinkConstraint which defines how slave nodes are constrained to the master node. The LinkConstraint describes movement of slave nodes with respect to the master node's coordinate system.")]
         public LinkConstraint Constraint { get; set; } = null;
 
 
