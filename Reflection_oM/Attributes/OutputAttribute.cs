@@ -54,15 +54,7 @@ namespace BH.oM.Reflection.Attributes
 
         /***************************************************/
 
-        public OutputAttribute(string name, string description)
-        {
-            Name = name;
-            Description = description;
-        }
-
-        /***************************************************/
-
-        public OutputAttribute(string name, string description, Type quantity)
+        public OutputAttribute(string name, string description, Type quantity = null)
         {
             Name = name;
             Description = description;
