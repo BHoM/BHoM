@@ -47,15 +47,7 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public InputAttribute(string name, string description)
-        {
-            Name = name;
-            Description = description;
-        }
-
-        /***************************************************/
-
-        public InputAttribute(string name, string description, Type quantity)
+        public InputAttribute(string name, string description, Type quantity = null)
         {
             Name = name;
             Description = description;

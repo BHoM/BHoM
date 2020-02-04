@@ -49,16 +49,7 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MultiOutputAttribute(int index, string name, string description)
-        {
-            Index = index;
-            Name = name;
-            Description = description;
-        }
-
-        /***************************************************/
-
-        public MultiOutputAttribute(int index, string name, string description, Type quantity)
+        public MultiOutputAttribute(int index, string name, string description, Type quantity = null)
         {
             Index = index;
             Name = name;
