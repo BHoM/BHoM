@@ -62,6 +62,7 @@
     <Compile Include="Attributes\Moment.cs" />
     <Compile Include="Attributes\MomentPerUnitLength.cs" />
     <Compile Include="Attributes\Pressure.cs" />
+    <Compile Include="Attributes\Ratio.cs" />
     <Compile Include="Attributes\SecondMomentOfArea.cs" />
     <Compile Include="Attributes\ShearModulus.cs" />
     <Compile Include="Attributes\Strain.cs" />
