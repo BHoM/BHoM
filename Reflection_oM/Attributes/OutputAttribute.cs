@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Reflection.Attributes
 {
@@ -40,6 +41,7 @@ namespace BH.oM.Reflection.Attributes
 
         public string Description { get; private set; } = "";
 
+        public QuantityAttribute Quantity { get; set; } = null;
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -58,6 +60,17 @@ namespace BH.oM.Reflection.Attributes
             Description = description;
         }
 
+        /***************************************************/
+
+        public OutputAttribute(string name, string description, Type quantity)
+        {
+            Name = name;
+            Description = description;
+            if (quantity != null && typeof(QuantityAttribute).IsAssignableFrom(quantity) && quantity != typeof(QuantityAttribute))
+            {
+                Quantity = (QuantityAttribute)Activator.CreateInstance(quantity);
+            }
+        }
 
         /***************************************************/
     }
