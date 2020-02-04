@@ -24,7 +24,7 @@ using System;
 
 namespace BH.oM.Quantities.Attributes
 {
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.ReturnValue | AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class SectionModulus : QuantityAttribute
     {
         /***************************************************/
