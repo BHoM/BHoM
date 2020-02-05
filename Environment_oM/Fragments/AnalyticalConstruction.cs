@@ -33,20 +33,38 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class AnalyticalConstruction : IBHoMFragment, IAnalyticalConstruction, IImmutable
+    public class AnalyticalConstruction : IBHoMFragment, IImmutable
     {
-        public double ConstructionThickness { get; set; } = 0;
-        public double ExternalEmissivity { get; set; } = 0;
-        public double ExternalSolarAbsorptance { get; set; } = 0;
-        public double ExternalVisibleReflectance { get; set; } = 0;
-        public double GValue { get; set; } = 0;
-        public double InternalEmissivity { get; set; } = 0;
-        public double InternalSolarAbsorptance { get; set; } = 0;
-        public double InternalVisibleReflectance { get; set; } = 0;
-        public double RefractiveIndex { get; set; } = 0;
-        public double RValue { get; set; } = 0;
-        public double ThermalMassCm { get; set; } = 0;
-        public double UValue { get; set; } = 0;
-        public double VisibleLightTransmittance { get; set; } = 0;
+        public double ConstructionThickness { get; } 
+        public double ExternalEmissivity { get; }
+        public double ExternalSolarAbsorptance { get; }
+        public double ExternalVisibleReflectance { get; }
+        public double GValue { get; }
+        public double InternalEmissivity { get; }
+        public double InternalSolarAbsorptance { get; }
+        public double InternalVisibleReflectance { get; }
+        public double RefractiveIndex { get; }
+        public double RValue { get; }
+        public double ThermalMassCm { get; }
+        public double UValue { get; }
+        public double VisibleLightTransmittance { get; }
+
+        public AnalyticalConstruction(double constructionThickness, double externalEmissivity, double externalSolarAbsorptance, double externalVisibleReflectance, double gValue, double internalEmissivity, double internalSolarAbsorptance, double internalVisibleReflectance, double refractiveIndex, double rValue, double thermalMassCm, double uValue, double visibleLightTransmittance)
+        {
+            ConstructionThickness = constructionThickness;
+            ExternalEmissivity = externalEmissivity;
+            ExternalSolarAbsorptance = externalSolarAbsorptance;
+            ExternalVisibleReflectance = externalVisibleReflectance;
+            GValue = gValue;
+            InternalEmissivity = internalEmissivity;
+            InternalSolarAbsorptance = internalSolarAbsorptance;
+            InternalVisibleReflectance = internalVisibleReflectance;
+            RefractiveIndex = refractiveIndex;
+            RValue = rValue;
+            ThermalMassCm = thermalMassCm;
+            UValue = uValue;
+            VisibleLightTransmittance = visibleLightTransmittance;
+        } 
+
     }
 }
