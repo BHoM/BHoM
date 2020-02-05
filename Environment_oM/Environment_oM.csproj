@@ -56,6 +56,7 @@
     <Compile Include="Elements\Space.cs" />
     <Compile Include="Equipment\AirHandlingUnit.cs" />
     <Compile Include="Equipment\IEquipment.cs" />
+    <Compile Include="Fragments\AnalyticalConstruction.cs" />
     <Compile Include="Fragments\LightReflectanceFragment.cs" />
     <Compile Include="Gains\Emitter.cs" />
     <Compile Include="Gains\Enums\EmitterType.cs" />
