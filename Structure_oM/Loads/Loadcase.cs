@@ -21,12 +21,11 @@
  */
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Loads
 {
-    /// <summary>
-    /// Simple Loadcase class
-    /// </summary>
+    [Description("Basic load case class. All load classes need to point to one Loadcase.")]
     public class Loadcase : BHoMObject, ICase
     {
         /***************************************************/
@@ -35,10 +34,9 @@ namespace BH.oM.Structure.Loads
 
         public LoadNature Nature { get; set; } = LoadNature.Other;
 
+        [Description("Numeric identifier of the Loadcase")]
         public int Number { get; set; } = 0;
-
 
         /***************************************************/
     }
-
 }
