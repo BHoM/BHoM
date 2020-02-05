@@ -22,6 +22,8 @@
 
 using BH.oM.Geometry;
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
