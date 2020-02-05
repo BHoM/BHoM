@@ -20,17 +20,29 @@
 * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
 */
 
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.MaterialFragments
 {
+    [Description("Base interface for isotropic structural materials")]
     public interface IIsotropic : IMaterialFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [YoungsModulus]
+        [Description("Modulus of elasticity of the material. Ratio between axial stress and axial strain.")]
         double YoungsModulus { get; set; }
+
+        [Ratio]
+        [Description("Ratio between axial and transversal strain. Used together with YoungsModulus to derive the ShearModulus for isotropic materials")]
         double PoissonsRatio { get; set; }
+
+        [TemperThermalExpansionCoefficientature]
+        [Description("The strain induced in the material per change of temprature")]
         double ThermalExpansionCoeff { get; set; }
 
         /***************************************************/

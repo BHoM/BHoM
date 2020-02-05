@@ -21,24 +21,34 @@
  */
 
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 using BH.oM.Geometry;
 
 namespace BH.oM.Structure.MaterialFragments
 {
+    [Description("Base interface for orthotropic structural materials")]
     public interface IOrthotropic : IMaterialFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [YoungsModulus]
+        [Description("Modulus of elasticity of the material. Ratio between axial stress and axial strain.")]
         Vector YoungsModulus { get; set; }
+
+        [Ratio]
+        [Description("Ratio between axial and transversal strain")]
         Vector PoissonsRatio { get; set; }
+
+        [TemperThermalExpansionCoefficientature]
+        [Description("The strain induced in the material per change of temprature")]
         Vector ThermalExpansionCoeff { get; set; }
+
+        [ShearModulus]
+        [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain")]
         Vector ShearModulus { get; set; }
 
         /***************************************************/
