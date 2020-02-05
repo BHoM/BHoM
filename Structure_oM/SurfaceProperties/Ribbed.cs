@@ -22,9 +22,12 @@
 
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
+    [Description("Property for 2D analytical elements. ")]
     public class Ribbed : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
