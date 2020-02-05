@@ -21,17 +21,21 @@
  */
 
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Axial prestress load for bar elements.")]
     public class BarPrestressLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Force]
+        [Description("Prestress force to be applied to the bar. Positive for tension, negative for compression")]
         public double Prestress { get; set; } = 0;
-
 
         /***************************************************/
     }
