@@ -22,17 +22,20 @@
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Gravity load to be applied to elements such as bars, panels and FEMeshes.")]
     public class GravityLoad : Load<BHoMObject>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
+        
+        [Description("The direction and magnitude of the gravity. This will be scaled by the gravity constant g in analysis, which means 1 standard gravity should be a vector with -1 as its z-component.")]
         public Vector GravityDirection { get; set; } = new Vector { X = 0, Y = 0, Z = -1 };
-
 
         /***************************************************/
     }
