@@ -25,28 +25,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using BH.oM.Base;
-using BH.oM.Analytical.Elements;
+using BH.oM.Geometry;
 
-using System.ComponentModel;
-
-namespace BH.oM.Environment.Fragments
+namespace BH.oM.Analytical.Elements
 {
-    public class AnalyticalConstruction : IBHoMFragment, IAnalyticalConstruction, IImmutable
+    public interface IAnalyticalConstruction : IAnalytical
     {
-        public double ConstructionThickness { get; set; } = 0;
-        public double ExternalEmissivity { get; set; } = 0;
-        public double ExternalSolarAbsorptance { get; set; } = 0;
-        public double ExternalVisibleReflectance { get; set; } = 0;
-        public double GValue { get; set; } = 0;
-        public double InternalEmissivity { get; set; } = 0;
-        public double InternalSolarAbsorptance { get; set; } = 0;
-        public double InternalVisibleReflectance { get; set; } = 0;
-        public double RefractiveIndex { get; set; } = 0;
-        public double RValue { get; set; } = 0;
-        public double ThermalMassCm { get; set; } = 0;
-        public double UValue { get; set; } = 0;
-        public double VisibleLightTransmittance { get; set; } = 0;
+
     }
 }
