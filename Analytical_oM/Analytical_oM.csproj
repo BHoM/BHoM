@@ -46,6 +46,7 @@
     <Compile Include="Elements\ILink.cs" />
     <Compile Include="Elements\IMesh.cs" />
     <Compile Include="Elements\INode.cs" />
+    <Compile Include="Elements\IAnalyticalConstruction.cs" />
     <Compile Include="Elements\IOpening.cs" />
     <Compile Include="Elements\IPanel.cs" />
     <Compile Include="Elements\ISurface.cs" />
