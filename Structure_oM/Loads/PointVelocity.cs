@@ -27,16 +27,18 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Point velocity load for node elements. Can be used to apply translational as well as angular velocity.")]
     public class PointVelocity : Load<Node>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Velocity]
         public Vector TranslationalVelocity { get; set; } = new Vector();
 
+        [AngularVelocity]
         public Vector RotationalVelocity { get; set; } = new Vector();
-
 
         /***************************************************/
     }
