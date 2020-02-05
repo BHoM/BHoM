@@ -22,19 +22,23 @@
 
 using BH.oM.Geometry;
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Point acceleration load for node elements. Can be used to apply translational as well as angular acceleration.")]
     public class PointAcceleration : Load<Node>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Acceleration]
         public Vector TranslationalAcceleration { get; set; } = new Vector();
 
+        [AngularAcceleration]
         public Vector RotationalAcceleration { get; set; } = new Vector();
-
 
         /***************************************************/
     }
