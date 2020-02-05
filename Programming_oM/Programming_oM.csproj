@@ -68,6 +68,11 @@
       <Name>BHoM</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
+      <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
+      <Name>Reflection_oM</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

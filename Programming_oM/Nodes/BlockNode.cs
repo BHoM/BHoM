@@ -1,6 +1,30 @@
-﻿using BH.oM.Base;
+﻿/*
+ * This file is part of the Buildings and Habitats object Model (BHoM)
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ *
+ * Each contributor holds copyright over their respective contributions.
+ * The project versioning (Git) records all such contribution source information.
+ *                                           
+ *                                                                              
+ * The BHoM is free software: you can redistribute it and/or modify         
+ * it under the terms of the GNU Lesser General Public License as published by  
+ * the Free Software Foundation, either version 3.0 of the License, or          
+ * (at your option) any later version.                                          
+ *                                                                              
+ * The BHoM is distributed in the hope that it will be useful,              
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of               
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
+ * GNU Lesser General Public License for more details.                          
+ *                                                                            
+ * You should have received a copy of the GNU Lesser General Public License     
+ * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
+ */
+
+using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -8,6 +32,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Programming
 {
+    [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
     public class BlockNode : BHoMObject, INode, IImmutable
     {
         /***************************************************/
@@ -31,6 +56,9 @@ namespace BH.oM.Programming
         /**** Constructors                              ****/
         /***************************************************/
 
+        [Description("Returns a BlockNode to be used in a BHoM Syntax Tree.")]
+        [Input("content", "List of syntax nodes to include in the group.")]
+        [Input("description", "Description covering the set of nodes including in this block.")]
         public BlockNode(List<INode> content, string description = "")
         {
             List<ReceiverParam> receivers = content.SelectMany(n => n.Inputs.Where(x => x.SourceId != Guid.Empty)).ToList();
