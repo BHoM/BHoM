@@ -21,17 +21,21 @@
  */
 
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Uniform temprature load for area elements such as Panels and FEMeshes.")]
     public class AreaTemperatureLoad : Load<IAreaElement>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Temperature]
+        [Description("Uniform change of temprature of the element.")]
         public double TemperatureChange { get; set; } = 0;
-
 
         /***************************************************/
     }
