@@ -58,7 +58,7 @@ namespace BH.oM.Structure.Elements
         [Description("Contains the start and end release of the Bar. The releases defines how the bar is attached to its end nodes.")]
         public BarRelease Release { get; set; } = null;
 
-        [Description("Contains the start and end release of the Bar. The releases defines how the bar is attached to its end nodes.")]
+        [Description("Sets if the bar should be treated as a bending element or axial only in analysis packages.")]
         public BarFEAType FEAType { get; set; } = BarFEAType.Flexural;
 
         [Description("Linear support for the bar. 3 translational degrees of freedom and one rotational. The rotational defines constraint around the axis of the bar.")]
