@@ -22,19 +22,25 @@
 
 using BH.oM.Geometry;
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Uniformly distributed load for bar elements. Can be used to apply force and/or moments.")]
     public class BarUniformlyDistributedLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [ForcePerUnitLength]
+        [Description("Force per length unit to be applied to the full length of the bar. The load need the Force and/or the Moment vector to be non-zero to have any effect.")]
         public Vector Force { get; set; } = new Vector();
 
+        [MomentPerUnitLength]
+        [Description("Moment per length unit to be applied to the full length of the bar. The load need the Force and/or the Moment vector to be non-zero to have any effect.")]
         public Vector Moment { get; set; } = new Vector();
-
 
         /***************************************************/
     }
