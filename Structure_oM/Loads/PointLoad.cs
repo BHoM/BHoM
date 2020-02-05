@@ -27,20 +27,18 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
-    /// <summary>
-    /// Nodal load class. Use NodalLoad() to construct an empty instance, then use the Set methods to set forces, moments etc. A second
-    /// constructor allows for a default force and moment nodal load instance.
-    /// </summary>
+    [Description("Point load for node elements. Can be used to apply force as well as moment.")]
     public class PointLoad : Load<Node> 
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Force]
         public Vector Force { get;  set; } = new Vector();
 
+        [Moment]
         public Vector Moment { get;  set; } = new Vector();
-
 
         /***************************************************/
     }
