@@ -124,8 +124,8 @@
     <Compile Include="FramingProperties\ConstantFramingElementProperty.cs" />
     <Compile Include="FramingProperties\IFramingElementProperty.cs" />
     <Compile Include="Offsets\Offset.cs" />
-    <Compile Include="SurfaceProperties\ConcreteRibbed.cs" />
-    <Compile Include="SurfaceProperties\ConcreteWaffle.cs" />
+    <Compile Include="SurfaceProperties\Ribbed.cs" />
+    <Compile Include="SurfaceProperties\Waffle.cs" />
     <Compile Include="SurfaceProperties\ConstantThickness.cs" />
     <Compile Include="SurfaceProperties\ISurfaceProperty.cs" />
     <Compile Include="SurfaceProperties\LoadingPanel.cs" />
