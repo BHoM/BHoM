@@ -21,21 +21,22 @@
  */
 
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Loads
 {
-    /// <summary>
-    /// Uniformly distributed area load
-    /// </summary>
+    [Description("Uniform area load for area elements such as Panels and FEMeshes.")]
     public class AreaUniformlyDistributedLoad : Load<IAreaElement>  
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Pressure]
+        [Description("The force per area to be applied to the elements.")]
         public Vector Pressure { get; set; } = new Vector();
-
 
         /***************************************************/
     }
