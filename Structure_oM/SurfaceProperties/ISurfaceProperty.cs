@@ -22,18 +22,18 @@
 
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
-    /// <summary>
-    /// Property2D for 2D finite element structural objects such as PanelPlanar or MeshFace
-    /// </summary>
+    [Description("Base interface for properties for 2D finite element structural objects such as Panels and FEMeshes.")]
     public interface ISurfaceProperty : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Structural material on the property.")]
         IMaterialFragment Material { get; set; }
 
         /***************************************************/
