@@ -21,24 +21,26 @@
  */
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Loads
 {
-    /// <summary>
-    /// Interface implemented by all loading related classes
-    /// </summary>
+
+    [Description("Base interface implemented by all loading related classes")]
     public interface ILoad : IBHoMObject        
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The case in which the load is applied")]
         Loadcase Loadcase { get; set; }
 
+        [Description("Defines whether the load relates to local or global coordinates")]
         LoadAxis Axis { get; set; }
 
+        [Description("If true the load is projected to the element")]
         bool Projected { get; set; }
-
 
         /***************************************************/
     }
