@@ -22,25 +22,40 @@
 
 using BH.oM.Structure.Elements;
 using BH.oM.Geometry;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Varying distributed load for bar elements. Can be used to apply force and/or moments.")]
     public class BarVaryingDistributedLoad : Load<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("Distance along the bar between the start node and the start of the loaded region.")]
         public double DistanceFromA { get; set; } = 0;
 
+        [ForcePerUnitLength]
+        [Description("Direction and magnitude of the force at the start of the loaded region.")]
         public Vector ForceA { get; set; } = new Vector();
 
+        [MomentPerUnitLength]
+        [Description("Direction and magnitude of the moment at the start of the loaded region.")]
         public Vector MomentA { get; set; } = new Vector();
 
+        [Length]
+        [Description("Distance along the bar between the end node and the end of the loaded region.")]
         public double DistanceFromB { get; set; } = 0;
 
+        [ForcePerUnitLength]
+        [Description("Direction and magnitude of the force at the end of the loaded region.")]
         public Vector ForceB { get; set; } = new Vector();
 
+        [MomentPerUnitLength]
+        [Description("Direction and magnitude of the moment at the end of the loaded region.")]
         public Vector MomentB { get; set; } = new Vector();
 
 
