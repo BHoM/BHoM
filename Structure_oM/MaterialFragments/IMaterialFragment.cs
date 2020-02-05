@@ -39,7 +39,7 @@ namespace BH.oM.Structure.MaterialFragments
         double Density { get; set; }
 
         [Ratio]
-        [Description("Dynamic damping ratio, as ratio between actual and critical damping. Structural damping typically taken as 2% of critical, e.g. 0.02 for 2%")]
+        [Description("Dynamic damping ratio, expressed as a ratio between damping actual and critical damping. For structures, typically taken as 0.02 (i.e. 2%)")]
         double DampingRatio { get; set; }
 
         [MassFraction]
