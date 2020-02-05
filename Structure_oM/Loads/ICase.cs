@@ -33,7 +33,7 @@ namespace BH.oM.Structure.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Numeric identifier of the case")]
+        [Description("Unique numeric identifier of the case")]
         int Number { get; set; }
 
         /***************************************************/

@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Loads
         [Description("The factored loadcases that make up the combination. Stored as a collection of Tuple<double,ICase> where the double is the factor the case should be scaled by in this combination.")]
         public List<Tuple<double, ICase>> LoadCases { get; set; } = new List<Tuple<double, ICase>>();
 
-        [Description("Numeric identifier of the Loadcombination")]
+        [Description("Unique numeric identifier of the Load combination")]
         public int Number { get; set; } = 0;
 
 
