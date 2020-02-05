@@ -21,17 +21,20 @@
  */
 
 using BH.oM.Base;
+using System.ComponentModel;
+
 
 namespace BH.oM.Structure.Loads
 {
+    [Description("Base interface for load cases and combinations")]
     public interface ICase : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Numeric identifier of the case")]
         int Number { get; set; }
-
 
         /***************************************************/
     }
