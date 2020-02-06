@@ -24,40 +24,49 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Gives a full set of shell and membrane forces at a discrete location in the mesh")]
     public class MeshForce : MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Axial/membrane force in X direction in N/m")]
+        [ForcePerUnitLength]
+        [Description("Axial/membrane force in X direction")]
         public double NXX { get; } = 0.0;
 
-        [Description("Axial/membrane force in Y direction in N/m")]
+        [ForcePerUnitLength]
+        [Description("Axial/membrane force in Y direction")]
         public double NYY { get; } = 0.0;
 
-        [Description("Axial/membrane force in XY direction in N/m")]
+        [ForcePerUnitLength]
+        [Description("Axial/membrane force in XY direction")]
         public double NXY { get; } = 0.0;
 
-        [Description("Bending moment in X direction in N/m")]
+        [ForcePerUnitLength]
+        [Description("Bending moment in X direction")]
         public double MXX { get; } = 0.0;
 
-        [Description("Bending moment in Y direction in Nm/m")]
+        [MomentPerUnitLength]
+        [Description("Bending moment in Y direction")]
         public double MYY { get; } = 0.0;
 
-        [Description("Bending moment in XY direction in Nm/m")]
+        [MomentPerUnitLength]
+        [Description("Bending moment in XY direction")]
         public double MXY { get; } = 0.0;
 
-        [Description("Shear force in X direction in N/m")]
+        [ForcePerUnitLength]
+        [Description("Shear force in X direction")]
         public double VX { get; } = 0.0;
 
-        [Description("Shear force in Y direction in N/m")]
+        [ForcePerUnitLength]
+        [Description("Shear force in Y direction")]
         public double VY { get; } = 0.0;
 
-        /***************************************************/
 
         /***************************************************/
         /**** Constructors                              ****/
