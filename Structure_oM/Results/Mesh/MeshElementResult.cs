@@ -36,7 +36,7 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Description("Id of the Mesh that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
-        public IComparable ObjectId { get; set; } = "";
+        public IComparable ObjectId { get; } = "";
 
         [Description("Id of the Node in the mesh that this result belongs to. Will be empty for smoothing types not relating to Nodes. When extracted from an analysis package, the node id will correspond to the node id in the software and match the format and value used in that particular package.")]
         public IComparable NodeId { get; } = "";
@@ -45,10 +45,10 @@ namespace BH.oM.Structure.Results
         public IComparable MeshFaceId { get; } = "";
 
         [Description("Identifier for the load case or load combination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public IComparable ResultCase { get; set; } = "";
+        public IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results")]
-        public double TimeStep { get; set; } = 0.0;
+        public double TimeStep { get; } = 0.0;
 
         public MeshResultLayer MeshResultLayer { get; }
 
