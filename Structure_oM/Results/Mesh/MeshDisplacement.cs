@@ -24,31 +24,39 @@ using System;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Displacements and rotations at a discrete location in the mesh")]
     public class MeshDisplacement : MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         
-        [Description("Translation in local X direction (defined by result coordinate system), in m")]
+        [Length]
+        [Description("Translation in Global X direction")]
         public double UXX { get; } = 0.0;
 
-        [Description("Translation in local Y direction (defined by result coordinate system), in m")]
+        [Length]
+        [Description("Translation in Global Y direction")]
         public double UYY { get; } = 0.0;
 
-        [Description("Translation in local Z direction (defined by result coordinate system), in m")]
+        [Length]
+        [Description("Translation in Global Z direction")]
         public double UZZ { get; } = 0.0;
 
-        [Description("Rotatoin about local X axis (defined by result coordinate system), in radians")]
+        [Angle]
+        [Description("Rotation about Global X axis")]
         public double RXX { get; } = 0.0;
 
-        [Description("Rotatoin about local Y axis (defined by result coordinate system), in radians")]
+        [Angle]
+        [Description("Rotation about Global Y axis")]
         public double RYY { get; } = 0.0;
 
-        [Description("Rotatoin about local Z axis (defined by result coordinate system), in radians")]
+        [Angle]
+        [Description("Rotation about Global Z axis")]
         public double RZZ { get; } = 0.0;
 
         /***************************************************/
