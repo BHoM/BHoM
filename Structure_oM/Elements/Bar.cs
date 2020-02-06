@@ -27,6 +27,7 @@ using BH.oM.Structure.SectionProperties;
 using BH.oM.Structure.Constraints;
 using BH.oM.Structure.Offsets;
 using BH.oM.Analytical.Elements;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Elements
 {
@@ -48,6 +49,7 @@ namespace BH.oM.Structure.Elements
         [Description("Section property of the bar, containing all sectional constants and material as well as profile geometry and dimensions, where applicable.")]
         public ISectionProperty SectionProperty { get; set; } = null;
 
+        [Angle]
         [Description("Bar orientation angle in radians \n" +
                      "For non-vertical members the local z is aligned with the global z and rotated with the orientation angle around the local x. \n" +
                      "For vertical members the local y is aligned with the global y and rotated with the orientation angle around the local x. \n"+
