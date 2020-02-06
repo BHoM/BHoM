@@ -20,26 +20,40 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Resulting velocity and angular velocity for a single node.")]
     public class NodeVelocity : NodeResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Velocity]
+        [Description("Velocity in the x-direction")]
         public double UX { get; set; } = 0.0;
 
+        [Velocity]
+        [Description("Velocity in the x-direction")]
         public double UY { get; set; } = 0.0;
 
+        [Velocity]
+        [Description("Velocity in the x-direction")]
         public double UZ { get; set; } = 0.0;
 
+        [AngularVelocity]
+        [Description("Rotational velocity around the x-axis")]
         public double RX { get; set; } = 0.0;
 
+        [AngularVelocity]
+        [Description("Rotational velocity around the y-axis")]
         public double RY { get; set; } = 0.0;
 
+        [AngularVelocity]
+        [Description("Rotational velocity around the z-axis")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/
