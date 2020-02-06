@@ -24,37 +24,47 @@ using System;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Shell and membrane stresses at a discrete location in the mesh")]
     public class MeshStress: MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Normal stress in X direction in N/m2")]
+        [Stress]
+        [Description("Normal stress in X direction")]
         public double SXX { get; }
 
-        [Description("Normal stress in Y direction in N/m2")]
+        [Stress]
+        [Description("Normal stress in Y direction")]
         public double SYY { get; }
 
-        [Description("Normal stress in XY direction in N/m2")]
+        [Stress]
+        [Description("Normal stress in XY direction")]
         public double SXY { get; }
 
-        [Description("Shear stress in X direction in N/m2")]
+        [Stress]
+        [Description("Shear stress in X direction")]
         public double TXX { get; }
 
-        [Description("Shear stress in Y direction in N/m2")]
+        [Stress]
+        [Description("Shear stress in Y direction")]
         public double TYY { get;  }
 
-        [Description("Principal stress in first principal direction in N/m2")]
+        [Stress]
+        [Description("Principal stress in first principal direction")]
         public double Principal_1 { get; }
 
-        [Description("Principal stress in second principal direction in N/m2")]
+        [Stress]
+        [Description("Principal stress in second principal direction")]
         public double Principal_2 { get; }
 
-        [Description("Principal stress in middle principal direction in N/m2")]
+        [Stress]
+        [Description("Principal stress in middle principal direction")]
         public double Principal_1_2 { get; }
         
         /***************************************************/
