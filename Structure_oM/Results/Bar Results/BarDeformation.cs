@@ -22,26 +22,39 @@
 
 using System;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Local deformation of the bar. All results given in local coordinates")]
+    [Description("Resulting local deformation in Local coordinates along the bar. This is disregarding rigid body motion and/or rotation.")]
     public class BarDeformation : BarResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("Local axial deformation.")]
         public double UX { get; set; } = 0.0;
 
+        [Length]
+        [Description("Local deformation along the local y-axis. Generally minor axis deformation.")]
         public double UY { get; set; } = 0.0;
 
+        [Length]
+        [Description("Local deformation along the local z-axis. Generally major axis deformation.")]
         public double UZ { get; set; } = 0.0;
 
+        [Angle]
+        [Description("Localised torsional rotation.")]
         public double RX { get; set; } = 0.0;
 
+        [Angle]
+        [Description("Localised rotation around the local y-axis. Generally relates to major axis rotation")]
         public double RY { get; set; } = 0.0;
 
+        [Angle]
+        [Description("Localised rotation around the local z-axis. Generally relates to minor axis rotation")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/
