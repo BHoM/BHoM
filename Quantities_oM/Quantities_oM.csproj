@@ -75,6 +75,7 @@
     <Compile Include="Attributes\VolumeticFlowRate.cs" />
     <Compile Include="Attributes\WarpingConstant.cs" />
     <Compile Include="Attributes\YoungsModulus.cs" />
+    <Compile Include="Attributes\MomentPerUnitAngle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Attributes\Time.cs" />
     <Compile Include="Attributes\SectionModulus.cs" />
