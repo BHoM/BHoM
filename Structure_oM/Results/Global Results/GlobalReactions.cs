@@ -20,31 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Total global reactions for a case.")]
     public class GlobalReactions : StructuralGlobalResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Force]
         public double FX { get; set; } = 0.0;
 
+        [Force]
         public double FY { get; set; } = 0.0;
 
+        [Force]
         public double FZ { get; set; } = 0.0;
 
+        [Moment]
         public double MX { get; set; } = 0.0;
 
+        [Moment]
         public double MY { get; set; } = 0.0;
 
+        [Moment]
         public double MZ { get; set; } = 0.0;
 
         /***************************************************/
