@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Base class for all bar result classes. Stores information about all identifier information and how to sort the results in a collection")]
+    [Description("Base class for all bar result classes. Stores all identifier information and how to sort the results in a collection")]
     public abstract class BarResult : IResult
     {
         /***************************************************/
