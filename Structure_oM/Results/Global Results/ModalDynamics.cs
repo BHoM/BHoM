@@ -20,40 +20,48 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("General modal dynamics result of the structure.")]
     public class ModalDynamics : StructuralGlobalResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        
         public int ModeNumber { get; set; } = 0;
 
+        [Frequency]
         public double Frequency { get; set; } = 0.0;
 
+        [Mass]
         public double ModalMass { get; set; } = 0.0;
 
+        [ForcePerUnitLength]
         public double ModalStiffness { get; set; } = 0.0;
 
         public double ModalDamping { get; set; } = 0.0;
 
+        [Ratio]
         public double MassRatioX { get; set; } = 0.0;
 
+        [Ratio]
         public double MassRatioY { get; set; } = 0.0;
 
+        [Ratio]
         public double MassRatioZ { get; set; } = 0.0;
 
+        [Ratio]
         public double InertiaRatioX { get; set; } = 0.0;
 
+        [Ratio]
         public double InertiaRatioY { get; set; } = 0.0;
 
+        [Ratio]
         public double InertiaRatioZ { get; set; } = 0.0;
 
         /***************************************************/
