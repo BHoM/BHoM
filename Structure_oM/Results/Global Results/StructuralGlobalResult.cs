@@ -21,30 +21,32 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BH.oM.Common;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Base class for all structural results affecting the whole structure.")]
     public abstract class StructuralGlobalResult : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Id of the structure. Unused for many results")]
         public IComparable ObjectId { get; set; } = "";
 
+        [Description("Identifier for the load case or load combination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public IComparable ResultCase { get; set; } = "";
 
+        [Description("Time step for time history results.")]
         public double TimeStep { get; set; } = 0.0;
 
         /***************************************************/
         /**** IComparable Interface                     ****/
         /***************************************************/
 
+        [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, TimeStep")]
         public int CompareTo(IResult other)
         {
             StructuralGlobalResult otherRes = other as StructuralGlobalResult;
