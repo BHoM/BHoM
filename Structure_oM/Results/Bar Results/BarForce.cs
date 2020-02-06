@@ -20,26 +20,40 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Bar force class giving resulting sectionforces in local coordinates along the bar.")]
     public class BarForce : BarResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Force]
+        [Description("Axial/Normal force of the bar. Positive for tension, negative for compression.")]
         public double FX { get; set; } = 0.0;
 
+        [Force]
+        [Description("Shear force along the local y-axis. Generally minor axis shear force")]
         public double FY { get; set; } = 0.0;
 
+        [Force]
+        [Description("Shear force along the local z-axis. Generally major axis shear force")]
         public double FZ { get; set; } = 0.0;
 
+        [Moment]
+        [Description("Torsional moment")]
         public double MX { get; set; } = 0.0;
 
+        [Moment]
+        [Description("Bending moment around the local y-axis. Generally major axis bending moment")]
         public double MY { get; set; } = 0.0;
 
+        [Moment]
+        [Description("Bending moment around the local z-axis. Generally minor axis bending moment")]
         public double MZ { get; set; } = 0.0;
 
         /***************************************************/
