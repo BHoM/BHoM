@@ -20,26 +20,40 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Resulting reaction forces and moments for a single node.")]
     public class NodeReaction : NodeResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Force]
+        [Description("Reaction force in x-direction")]
         public double FX { get; set; } = 0.0;
 
+        [Force]
+        [Description("Reaction force in y-direction")]
         public double FY { get; set; } = 0.0;
 
+        [Force]
+        [Description("Reaction force in z-direction")]
         public double FZ { get; set; } = 0.0;
 
+        [Moment]
+        [Description("Moment around the x-axis")]
         public double MX { get; set; } = 0.0;
 
+        [Moment]
+        [Description("Moment around the y-axis")]
         public double MY { get; set; } = 0.0;
 
+        [Moment]
+        [Description("Moment around the z-axis")]
         public double MZ { get; set; } = 0.0;
 
         /***************************************************/
