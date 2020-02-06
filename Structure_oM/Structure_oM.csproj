@@ -152,9 +152,6 @@
     <Compile Include="Results\Mesh\Enums\MeshResultLayer.cs" />
     <Compile Include="Results\Mesh\Enums\MeshResultSmoothingType.cs" />
     <Compile Include="Results\Mesh\Enums\MeshResultType.cs" />
-    <Compile Include="Results\Mesh\Legacy\MeshForces.cs" />
-    <Compile Include="Results\Mesh\Legacy\MeshNodeResult.cs" />
-    <Compile Include="Results\Mesh\Legacy\MeshStresses.cs" />
     <Compile Include="Results\Mesh\MeshDisplacement.cs" />
     <Compile Include="Results\Mesh\MeshForce.cs" />
     <Compile Include="Results\Mesh\MeshElementResult.cs" />
