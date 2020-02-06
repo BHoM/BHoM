@@ -25,7 +25,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Bar stress class giving resulting stresses in local coordinates along the bar.")]
+    [Description("Resulting stresses in Local coordinates along the bar.")]
     public class BarStress : BarResult
     {
         /***************************************************/
