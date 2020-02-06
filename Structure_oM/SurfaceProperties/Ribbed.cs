@@ -27,25 +27,36 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
-    [Description("Property for 2D analytical elements. ")]
+    [Description("Property for 2D analytical elements, made up of a slab on top of paralell ribs running in one direction, all sharing the same material.")]
     public class Ribbed : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("The thickness of the slab sitting on top of the ribs")]
         public double Thickness { get; set; }
 
+        [Description("Homogenous structural material throughout the full thickness of the element.")]
         public IMaterialFragment Material { get; set; }
 
-        public PanelDirection Direction { get; set; } // TODO: Define default values
+        [Description("Specifies if the ribs are running in local x or y direction")]
+        public PanelDirection Direction { get; set; } = PanelDirection.X;
 
+        [Length]
+        [Description("Total depth meassured from the bottom of the ribs to the top of the slab")]
         public double TotalDepth { get; set; }
 
+        [Length]
+        [Description("Width of each rib")]
         public double StemWidth { get; set; }
 
+        [Length]
+        [Description("Centre-Centre distance between the ribs. Meassured perpendicular to the rid direction.")]
         public double Spacing { get; set; }
 
+        [Description("Defines what type of element this property will be used. Used by some analysis packages.")]
         public PanelType PanelType { get; set; } = PanelType.Slab;   //TODO: Required to get Etabs working. To be moved to physical objects
 
 
