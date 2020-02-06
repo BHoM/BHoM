@@ -57,10 +57,13 @@
     <Compile Include="Requests\BatchRequest.cs" />
     <Compile Include="Requests\CustomRequest.cs" />
     <Compile Include="Requests\FilterRequest.cs" />
+    <Compile Include="Requests\ILogicalRequest.cs" />
     <Compile Include="Requests\IRequest.cs" />
     <Compile Include="Collections\Tree.cs" />
     <Compile Include="Collections\VennDiagram.cs" />
     <Compile Include="Requests\IResultRequest.cs" />
+    <Compile Include="Requests\LogicalAndRequest.cs" />
+    <Compile Include="Requests\LogicalOrRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
