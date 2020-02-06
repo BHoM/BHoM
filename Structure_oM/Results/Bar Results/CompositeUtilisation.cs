@@ -21,9 +21,11 @@
  */
 
 using System;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [NotImplemented]
     public class CompositeUtilisation : BarResult
     { 
         public string MinorEffectiveLength { get; set; }
