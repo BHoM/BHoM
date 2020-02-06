@@ -20,26 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Resulting displacements and rotations for a single node.")]
     public class NodeDisplacement : NodeResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
         public double UX { get; set; } = 0.0;
 
+        [Length]
         public double UY { get; set; } = 0.0;
 
+        [Length]
         public double UZ { get; set; } = 0.0;
 
+        [Angle]
         public double RX { get; set; } = 0.0;
 
+        [Angle]
         public double RY { get; set; } = 0.0;
 
+        [Angle]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/
