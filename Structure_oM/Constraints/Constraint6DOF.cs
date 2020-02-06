@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Constraints
 {
@@ -33,10 +34,13 @@ namespace BH.oM.Structure.Constraints
         /**** Properties                                ****/
         /***************************************************/
 
+        [ForcePerUnitLength]
         public double TranslationalStiffnessX { get; set; } = 0;
 
+        [ForcePerUnitLength]
         public double TranslationalStiffnessY { get; set; } = 0;
 
+        [ForcePerUnitLength]
         public double TranslationalStiffnessZ { get; set; } = 0;
 
         public double RotationalStiffnessX { get; set; } = 0;

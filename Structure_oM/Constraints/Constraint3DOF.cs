@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Constraints
 {
@@ -36,10 +37,13 @@ namespace BH.oM.Structure.Constraints
 
         public DOFType Normal { get; set; }
 
+        [ForcePerUnitLength]
         public double KX { get; set; } = 0;
 
+        [ForcePerUnitLength]
         public double KY { get; set; } = 0;
 
+        [ForcePerUnitLength]
         public double KNorm { get; set; } = 0;
 
 
