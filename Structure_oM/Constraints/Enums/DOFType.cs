@@ -24,10 +24,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Constraints
 {
-
     /***************************************************/
 
-    [Description("Enumerator outlining the fixity of a particular degree of freedom")]
+    [Description("Enumerator outlining the fixity of a particular degree of freedom. Controls if the DOF should be free, fixed or stiffness based.")]
     public enum DOFType
     {
         [Description("Free to move")]
