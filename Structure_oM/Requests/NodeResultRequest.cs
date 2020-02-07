@@ -20,27 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using BH.oM.Structure.Loads;
 
 
 namespace BH.oM.Structure.Requests
 {
+    [Description("Request for extracting node results from an adapter")]
     public class NodeResultRequest : IStructuralResultRequest
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Defines which type of results that should be extracted")]
         public NodeResultType ResultType { get; set; } = NodeResultType.NodeReaction;
 
+        [Description("Defines whether results should be extracted in Global coordinates or local node coordinates")]
         public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
+        [Description("Defines which cases and/or combinations that results should be extracted for. Can generally be set to either Loadcase or Loadcombination objects, or identifiers matching the software. If nothing is provided, results for all cases will be assumed.")]
         public List<object> Cases { get; set; } = new List<object>();
 
+        [Description("Defines for which modes results should be extracted. Only applicable for some casetypes. If nothing is provided, results for all modes will be assumed. ")]
         public List<string> Modes { get; set; } = new List<string>();
 
+        [Description("Defines which nodes that results should be extracted for. Can generally be set to either pulled node objects, or identifiers matching the software. If nothing is provided, results for all nodes will be assumed.")]
         public List<object> ObjectIds { get; set; } = new List<object>();
 
         /***************************************************/
