@@ -23,9 +23,11 @@
 using System.Collections.Generic;
 using BH.oM.Base;
 using BH.oM.Structure.Elements;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.Design
 {
+    [NotImplemented]
     public class StructuralLayout : BHoMObject, IDesignable
     {
         /***************************************************/

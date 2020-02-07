@@ -22,9 +22,11 @@
 
 using System.Collections.Generic;
 using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.Design
 {
+    [NotImplemented]
     public class DesignGroup : BHoMObject
     {
         /***************************************************/
