@@ -52,7 +52,7 @@ namespace BH.oM.Structure.Results
 
         public MeshResultLayer MeshResultLayer { get; }
 
-        [Description("Position within the element thickness that result is extracted from, normalised to 1. 0 = lower surface, 0.5 = middle, 1 = top surface")]
+        [Description("Position within the element thickness that result is extracted from, normalised to 1. I.e. 0 = lower surface, 0.5 = middle, 1 = top surface")]
         public double LayerPosition { get; }
 
         public MeshResultSmoothingType Smoothing { get; }
