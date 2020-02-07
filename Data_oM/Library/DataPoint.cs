@@ -44,7 +44,8 @@ namespace BH.oM.Data.Library
             {
                 return thisstring.CompareTo(otherstring);
             }
-            return 1;
+            throw new ArgumentException("DataPoint value is not a comparable");
         }
+
     }
 }
