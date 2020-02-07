@@ -40,9 +40,8 @@ namespace BH.oM.Structure.Elements
         [Description("List of slave nodes which are constrained to the master node.")]
         public List<Node> SlaveNodes { get; set; } = new List<Node>();
 
-        [Description("LinkConstraint which defines how slave nodes are constrained to the master node. The LinkConstraint describes movement of slave nodes with respect to the master node's coordinate system.")]
+        [Description("Defines how slave nodes are constrained to the master node. The LinkConstraint describes movement of slave nodes with respect to the master node's coordinate system.")]
         public LinkConstraint Constraint { get; set; } = null;
-
 
         /***************************************************/
     }
