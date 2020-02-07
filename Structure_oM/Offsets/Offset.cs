@@ -20,21 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Geometry;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Offsets
 {
-    /// <summary>
-    /// Offsets for bars
-    /// </summary>
-    public class Offset : Base.BHoMObject
+    [Description("Class defining offsets for bar objects from its endnodes to be applied in analysis packages.")]
+    public class Offset : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("Defines offset of the start node in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis)")]
         public Vector Start { get; set; } = new Vector();
 
+        [Length]
+        [Description("Defines offset of the end node in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis)")]
         public Vector End { get; set; } = new Vector();
 
         /***************************************************/
