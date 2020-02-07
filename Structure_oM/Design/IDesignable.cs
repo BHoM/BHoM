@@ -21,10 +21,12 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.Design
 {
-    public interface IDesignable : IObject //TODO: Do we still need this?
+
+    public interface IDesignable : IObject
     {
     }
 }

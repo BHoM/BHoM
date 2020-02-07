@@ -21,9 +21,11 @@
  */
 
 using System.Collections.Generic;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.Design
 {
+    [NotImplemented]
     public class Span : Base.BHoMObject
     {
         /***************************************************/
