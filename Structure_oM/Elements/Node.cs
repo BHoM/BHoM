@@ -41,7 +41,7 @@ namespace BH.oM.Structure.Elements
         [Description("Local x, y, and z axes of the node as a vector Basis. Defaults to world axes.")]
         public Basis Orientation { get; set; } = Basis.XY;
 
-        [Description("Defines the constraint of the Node.")]
+        [Description("Defines the constraint of the Node. If not set, the node will be assumed to be free for movement and rotation.")]
         public Constraint6DOF Support { get; set; } = null;
 
 
