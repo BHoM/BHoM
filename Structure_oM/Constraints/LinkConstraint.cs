@@ -20,40 +20,52 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 
 namespace BH.oM.Structure.Constraints
 {
+    [Description("Defines the rigid connectivity between a master and set of slave nodes.")]
     public class LinkConstraint : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("True prohibits relative translation along the x-axis between master and slave")]
         public bool XtoX { get; set; } = false;
 
+        [Description("True prohibits relative translation along the y-axis between master and slave")]
         public bool YtoY { get; set; } = false;
 
+        [Description("True prohibits relative translation along the z-axis between master and slave")]
         public bool ZtoZ { get; set; } = false;
 
-
+        [Description("True means that a x-translation imposes a rigid y-axis rotation")]
         public bool XtoYY { get; set; } = false;
 
+        [Description("True means that a x-translation imposes a rigid z-axis rotation")]
         public bool XtoZZ { get; set; } = false;
 
+        [Description("True means that a y-translation imposes a rigid x-axis rotation")]
         public bool YtoXX { get; set; } = false;
 
+        [Description("True means that a y-translation imposes a rigid z-axis rotation")]
         public bool YtoZZ { get; set; } = false;
 
+        [Description("True means that a z-translation imposes a rigid x-axis rotation")]
         public bool ZtoXX { get; set; } = false;
 
+        [Description("True means that a z-translation imposes a rigid y-axis rotation")]
         public bool ZtoYY { get; set; } = false;
 
-
+        [Description("True prohibits relative rotation around the x-axis between master and slave")]
         public bool XXtoXX { get; set; } = false;
 
+        [Description("True prohibits relative rotation around the y-axis between master and slave")]
         public bool YYtoYY { get; set; } = false;
 
+        [Description("True prohibits relative rotation around the z-axis between master and slave")]
         public bool ZZtoZZ { get; set; } = false;
 
 
