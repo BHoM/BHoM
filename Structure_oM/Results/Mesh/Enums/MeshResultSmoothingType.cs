@@ -20,10 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Structure.Results
 {
     /***************************************************/
 
+    [Description("Defines the smoothing used for the Meshresults, i.e. if and how any result averaging should be done per nodes/face.")]
     public enum MeshResultSmoothingType
     {
         None = 0,
