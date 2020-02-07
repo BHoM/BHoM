@@ -33,27 +33,27 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Acceleration]
-        [Description("Acceleration in the x-direction")]
+        [Description("Acceleration in the x-direction as defined by orientation basis")]
         public double UX { get; set; } = 0.0;
 
         [Acceleration]
-        [Description("Acceleration in the y-direction")]
+        [Description("Acceleration in the y-direction as defined by orientation basis")]
         public double UY { get; set; } = 0.0;
 
         [Acceleration]
-        [Description("Acceleration in the z-direction")]
+        [Description("Acceleration in the z-direction as defined by orientation basis")]
         public double UZ { get; set; } = 0.0;
 
         [AngularAcceleration]
-        [Description("Rotational acceleration around the x-axis")]
+        [Description("Rotational acceleration around the x-axis as defined by orientation basis")]
         public double RX { get; set; } = 0.0;
 
         [AngularAcceleration]
-        [Description("Rotational acceleration around the y-axis")]
+        [Description("Rotational acceleration around the y-axis as defined by orientation basis")]
         public double RY { get; set; } = 0.0;
 
         [AngularAcceleration]
-        [Description("Rotational acceleration around the z-axis")]
+        [Description("Rotational acceleration around the z-axis as defined by orientation basis")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/
