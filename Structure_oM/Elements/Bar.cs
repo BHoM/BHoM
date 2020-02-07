@@ -58,7 +58,7 @@ namespace BH.oM.Structure.Elements
                      "For general structural conventions please see  https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions.")]
         public double OrientationAngle { get; set; } = 0;
 
-        [Description("Defines the start and end release of the Bar. The releases defines how the bar is attached to its end nodes.")]
+        [Description("Defines the start and end release of the Bar. The releases defines how the bar is attached to its end nodes. If not set, full fixity will be assumed")]
         public BarRelease Release { get; set; } = null;
 
         public BarFEAType FEAType { get; set; } = BarFEAType.Flexural;
