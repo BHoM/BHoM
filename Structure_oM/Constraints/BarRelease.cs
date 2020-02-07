@@ -20,24 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 
 namespace BH.oM.Structure.Constraints
 {
-    /// <summary>
-    /// Bar release applicable to bar objects, contains BH.oM.Structure.Constraint objects
-    /// for the start and end of a bar
-    /// </summary>
+
+    [Description("Defines the releases at the start and end node of a bar. ")]
     public class BarRelease : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Release of the start node of the bar, in the local coordinates of the element.")]
         public Constraint6DOF StartRelease { get; set; }
 
+        [Description("Release of the end node of the bar, in the local coordinates of the element.")]
         public Constraint6DOF EndRelease { get; set; }
-
 
         /***************************************************/
     }  
