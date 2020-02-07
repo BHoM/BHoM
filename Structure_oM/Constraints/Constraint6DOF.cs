@@ -43,10 +43,13 @@ namespace BH.oM.Structure.Constraints
         [ForcePerUnitLength]
         public double TranslationalStiffnessZ { get; set; } = 0;
 
+        [MomentPerUnitAngle]
         public double RotationalStiffnessX { get; set; } = 0;
 
+        [MomentPerUnitAngle]
         public double RotationalStiffnessY { get; set; } = 0;
 
+        [MomentPerUnitAngle]
         public double RotationalStiffnessZ { get; set; } = 0;
 
         public DOFType TranslationX { get; set; } = DOFType.Free;
