@@ -46,7 +46,7 @@ namespace BH.oM.Structure.SectionProperties
         [Description("Minimum reinforcement cover of the section.")]
         public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
 
-        [Description("Material of the section.")]
+        [Description("Concrete material used throughout the full section.")]
         public IMaterialFragment Material { get; set; }
 
         /***************************************************/
