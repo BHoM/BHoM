@@ -1,6 +1,6 @@
 ---
 name: Compliance
-about: Use this template to report code that doesn't follow the guidelines.
+about: Report code that doesn't follow the BHoM guidelines.
 labels: "type:compliance"
 
 ---

@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -44,6 +44,9 @@ namespace BH.oM.Environment.Elements
         [Description("A construction object providing construction information about the frame of the opening")]
         public IConstruction FrameConstruction { get; set; } = new Construction();
 
+        [Description("The procentage of the opening that is frame")]
+        public double FrameFactorValue { get; set; } = 0;
+
         [Description("A collection of environment Edge objects which define the internal boundary of the opening")]
         public List<Edge> InnerEdges { get; set; } = new List<Edge>();
 
@@ -56,3 +59,4 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
     }
 }
+

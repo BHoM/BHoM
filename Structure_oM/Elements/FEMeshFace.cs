@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -22,18 +22,23 @@
 
 using System.Collections.Generic;
 using BH.oM.Analytical.Elements;
+using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
-    public class FEMeshFace : Base.BHoMObject, IFace
+    [Description("Face of an FEMesh. The face is defined by the indices of its nodes in the node list. All geometrical information is stored on the host FEMesh.")]
+    public class FEMeshFace : BHoMObject, IFace
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("List of which node indices in the host FEMesh node list that this face is connecting.")]
         public List<int> NodeListIndices { get; set; } = new List<int>();      
 
         /***************************************************/
     }
 }
      
+

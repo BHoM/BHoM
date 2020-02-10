@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -23,75 +23,97 @@
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SectionProperties
 {
+    [Description("Base interface for all bar section properties. Contains the material and all section constants.")]
     public interface ISectionProperty : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Material of the section")]
+        [Description("Material of the section.")]
         IMaterialFragment Material { get; set; }
 
-        [Description("Gross Area of the cross section")]
+        [Area]
+        [Description("Gross Area of the cross section.")]
         double Area { get; }
 
-        [Description("Radius of Gyration about the Y-Axis")]
+        [Length]
+        [Description("Radius of Gyration about the local Y-Axis.")]
         double Rgy { get; }
 
-        [Description("Radius of Gyration about the Z-Axis")]
+        [Length]
+        [Description("Radius of Gyration about the local Z-Axis.")]
         double Rgz { get; }
 
-        [Description("Torsion Constant")]
+        [TorsionConstant]
+        [Description("Torsion Constant.")]
         double J { get; }
 
-        [Description("Moment of Inertia about the Y-Axis")]
+        [SecondMomentOfArea]
+        [Description("Moment of Inertia about the local Y-Axis.")]
         double Iy { get; }
 
-        [Description("Moment of Inertia about the Z-Axis")]
+        [SecondMomentOfArea]
+        [Description("Moment of Inertia about the local Z-Axis.")]
         double Iz { get; }
 
-        [Description("Warping Constant")]
+        [WarpingConstant]
+        [Description("Warping Constant.")]
         double Iw { get; }
 
-        [Description("Elastic Modulus of the section about the Y-Axis")]
+        [SectionModulus]
+        [Description("Elastic Modulus of the section about the local Y-Axis.")]
         double Wely { get; }
 
-        [Description("Elastic Modulus of the section about the Z-Axis")]
+        [SectionModulus]
+        [Description("Elastic Modulus of the section about the local Z-Axis.")]
         double Welz { get; }
 
-        [Description("Plastic Modulus of the section about the Y-Axis")]
+        [SectionModulus]
+        [Description("Plastic Modulus of the section about the local Y-Axis.")]
         double Wply { get; }
 
-        [Description("Plastic Modulus of the section about the Z-Axis")]
+        [SectionModulus]
+        [Description("Plastic Modulus of the section about the local Z-Axis.")]
         double Wplz { get; }
 
-        [Description("Geometric centre of the section in the Z direction")]
+        [Length]
+        [Description("Geometric centre of the section in the local Z direction.")]
         double CentreZ { get; }
 
-        [Description("Geometric centre of the section in the Y direction")]
+        [Length]
+        [Description("Geometric centre of the section in the local Y direction.")]
         double CentreY { get; }
 
-        [Description("Z Distance from the centroid of the section to top edge of the section")]
+        [Length]
+        [Description("Z distance from the centroid of the section to top edge of the section.")]
         double Vz { get; }
 
-        [Description("Z Distance from the centroid of the section to bottom edge of the section")]
+        [Length]
+        [Description("Z distance from the centroid of the section to bottom edge of the section.")]
         double Vpz { get; }
 
-        [Description("Y Distance from the centroid of the section to right edge of the section")]
+        [Length]
+        [Description("Y distance from the centroid of the section to right edge of the section.")]
         double Vy { get; }
 
-        [Description("Y Distance from the centroid of the section to Left edge of the section")]
+        [Length]
+        [Description("Y distance from the centroid of the section to Left edge of the section.")]
         double Vpy { get; }
 
-        [Description("Shear Area in the Y direction")]
+        [Area]
+        [Description("Shear Area in the local Y direction.")]
         double Asy { get; }
 
-        [Description("Shear Area in the Z direction")]
+        [Area]
+        [Description("Shear Area in the local Z direction.")]
         double Asz { get; }
 
         /***************************************************/
     }
 }
+

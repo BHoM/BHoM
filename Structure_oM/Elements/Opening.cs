@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -24,18 +24,22 @@ using BH.oM.Geometry;
 using System.Collections.Generic;
 using BH.oM.Base;
 using BH.oM.Analytical.Elements;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("Opening of a structural Panel object. Can be used to represent, for example, shafts, windows, and doors.")]
     public class Opening : BHoMObject, IElement2D, IOpening<Edge>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("A list of coplanar Edges defining the contour and potential constraints of the Opening.")]
         public List<Edge> Edges { get; set; } = new List<Edge>();
         
         /***************************************************/
     }
 }
+
 

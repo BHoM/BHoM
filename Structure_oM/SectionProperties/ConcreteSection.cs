@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -28,29 +28,32 @@ using System.Linq;
 using BH.oM.Structure.MaterialFragments;
 using BH.oM.Geometry.ShapeProfiles;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SectionProperties
 {
-
+    [Description("Concrete section to be used on Bars. Defined by a section profile. Note that all section constants are assuming an uncracked section and are disregarding reinforcement.")]
     public class ConcreteSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("List of Reinforcement of the concrete section.")]
         public List<Reinforcement.Reinforcement> Reinforcement { get; set; }
 
+        [Length]
+        [Description("Minimum reinforcement cover of the section.")]
         public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
 
-        [Description("Material of the section")]
+        [Description("Material of the section.")]
         public IMaterialFragment Material { get; set; }
-
 
         /***************************************************/
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
-        [Description("Profile of the section, containing dimensions and section geometry")]
+        [Description("Profile of the section, containing dimensions and section geometry.")]
         public IProfile SectionProfile { get; }
 
 
@@ -58,80 +61,98 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties - Section constants            ****/
         /***************************************************/
 
-
-        [Description("Gross Area of the cross sectio"
+        [Area]
+        [Description("Gross Area of the cross section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Area { get; }
 
-        [Description("Radius of Gyration about the Y-Axis"
+        [Length]
+        [Description("Radius of Gyration about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Rgy { get; }
 
-        [Description("Radius of Gyration about the Z-Axis"
+        [Length]
+        [Description("Radius of Gyration about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Rgz { get; }
 
+        [TorsionConstant]
         [Description("Torsion Constant"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double J { get; }
 
-        [Description("Moment of Inertia about the Y-Axis"
+        [SecondMomentOfArea]
+        [Description("Moment of Inertia about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Iy { get; }
 
-        [Description("Moment of Inertia about the Z-Axis"
+        [SecondMomentOfArea]
+        [Description("Moment of Inertia about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Iz { get; }
 
+        [WarpingConstant]
         [Description("Warping Constant"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Iw { get; }
 
-        [Description("Elastic Modulus of the section about the Y-Axis"
+        [SectionModulus]
+        [Description("Elastic Modulus of the section about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Wely { get; }
 
-        [Description("Elastic Modulus of the section about the Z-Axis"
+        [SectionModulus]
+        [Description("Elastic Modulus of the section about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Welz { get; }
 
-        [Description("Plastic Modulus of the section about the Y-Axis"
+        [SectionModulus]
+        [Description("Plastic Modulus of the section about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Wply { get; }
 
-        [Description("Plastic Modulus of the section about the Z-Axis"
+        [SectionModulus]
+        [Description("Plastic Modulus of the section about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Wplz { get; }
 
-        [Description("Geometric centre of the section in the Z direction" 
+        [Length]
+        [Description("Geometric centre of the section in the local Z direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
         public double CentreZ { get; }
 
-        [Description("Geometric centre of the section in the Y direction" 
+        [Length]
+        [Description("Geometric centre of the section in the local Y direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
         public double CentreY { get; }
 
-        [Description("Z Distance from the centroid of the section to top edge of the section"
+        [Length]
+        [Description("Z distance from the centroid of the section to top edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vz { get; }
 
-        [Description("Z Distance from the centroid of the section to bottom edge of the section"
+        [Length]
+        [Description("Z distance from the centroid of the section to bottom edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vpz { get; }
 
-        [Description("Y Distance from the centroid of the section to right edge of the section"
+        [Length]
+        [Description("Y distance from the centroid of the section to right edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vy { get; }
 
-        [Description("Y Distance from the centroid of the section to Left edge of the section"
+        [Length]
+        [Description("Y distance from the centroid of the section to Left edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Vpy { get; }
 
-        [Description("Shear Area in the Y direction"
+        [Length]
+        [Description("Shear Area in the local Y direction"
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Asy { get; }
 
-        [Description("Shear Area in the Z direction" 
+        [Length]
+        [Description("Shear Area in the local Z direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
         public double Asz { get; }
 
@@ -193,5 +214,6 @@ namespace BH.oM.Structure.SectionProperties
        
     }
 }
+
 
 

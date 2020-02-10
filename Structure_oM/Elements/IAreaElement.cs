@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -22,17 +22,21 @@
 
 using BH.oM.Structure.SurfaceProperties;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("Base interface for 2D analytical elements such as Panels, FEMeshes and Surfaces to represent, for example, walls and slabs.")]
     public interface IAreaElement : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Defines the thickness property and material of the Element.")]
         ISurfaceProperty Property { get; set; }
 
         /***************************************************/
     }
 }
+

@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -23,22 +23,28 @@
 using System.Collections.Generic;
 using BH.oM.Base;
 using BH.oM.Structure.Constraints;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("A rigid link object defining rigid constraints between two or more nodes.")]
     public class RigidLink : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Master node to which slave nodes are constrained.")]
         public Node MasterNode { get; set; } = new Node();
 
+        [Description("List of slave nodes which are constrained to the master node.")]
         public List<Node> SlaveNodes { get; set; } = new List<Node>();
 
+        [Description("LinkConstraint which defines how slave nodes are constrained to the master node. The LinkConstraint describes movement of slave nodes with respect to the master node's coordinate system.")]
         public LinkConstraint Constraint { get; set; } = null;
 
 
         /***************************************************/
     }
 }
+

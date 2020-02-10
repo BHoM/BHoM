@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,23 +21,27 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Common;
 using BH.oM.Geometry;
 using BH.oM.Structure.Constraints;
 using BH.oM.Analytical.Elements;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("0D finite element for structural analysis. Node class contains positional information as well as orientation and support.")]
     public class Node : BHoMObject, IElement0D, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Position of the node in global Cartesian 3D space.")]
         public Point Position { get; set; } = null;
 
+        [Description("Local x, y, and z axes of the node as a vector Basis. Defaults to world axes.")]
         public Basis Orientation { get; set; } = Basis.XY;
 
+        [Description("Defines the constraint of the Node.")]
         public Constraint6DOF Support { get; set; } = null;
 
 
@@ -45,6 +49,7 @@ namespace BH.oM.Structure.Elements
         /**** Explicit Casting                          ****/
         /***************************************************/
 
+        [Description("Converts a Point to a Node, setting the position to the provided point. All other properties are set to default values.")]
         public static explicit operator Node(Point point)
         {
             return new Node { Position = point };
@@ -52,6 +57,7 @@ namespace BH.oM.Structure.Elements
 
         /***************************************************/
 
+        [Description("Converts a Cartesian Coordinatesystem to a Node, setting the position to the origin of the CS and the orientation aligned with the axes of the CS.")]
         public static explicit operator Node(Geometry.CoordinateSystem.Cartesian coordinateSystem)
         {
             return new Node { Position = coordinateSystem.Origin, Orientation = (Basis)coordinateSystem };
@@ -61,3 +67,4 @@ namespace BH.oM.Structure.Elements
     }
 }
     
+

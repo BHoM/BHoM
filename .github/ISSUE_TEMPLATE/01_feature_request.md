@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Use this template to request a functionality that doesn't exist yet or is only partially implemented.
+about: Suggest ideas for new functionality, or enhancement of existing.
 labels: "type:feature"
 
 ---
@@ -8,7 +8,7 @@ labels: "type:feature"
 <!-- IN PARTICULAR PLEASE ENSURE THAT SENSITIVE OR INAPPROPRIATE INFORMATION IS NOT UPLOADED -->
 
 #### Description:
-<!-- Add a brief description of what functionality is missing, including sufficient details of expected behaviour -->
+<!-- Describe your idea. Including details of the intended functionality, expected behaviour and desired inputs and outputs -->
 
 
 

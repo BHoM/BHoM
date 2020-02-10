@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2018, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -23,87 +23,106 @@
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
 using BH.oM.Geometry.ShapeProfiles;
- 
+using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
-
+    [Description("Timber section to be used on Bars. Defined by a section profile.")]
     public class TimberSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Material of the section")]
+        [Description("Material of the section.")]
         public IMaterialFragment Material { get; set; } = null;
 
         /***************************************************/
         /**** Properties - Section profile              ****/
         /***************************************************/
 
-        [Description("Profile of the section, containing dimensions and section geometry")]
+        [Description("Profile of the section, containing dimensions and section geometry.")]
         public IProfile SectionProfile { get; }
 
         /***************************************************/
         /**** Properties - Section constants            ****/
         /***************************************************/
 
-        [Description("Gross Area of the cross section")]
+        [Area]
+        [Description("Gross Area of the cross section.")]
         public double Area { get; }
 
-        [Description("Radius of Gyration about the Y-Axis")]
+        [Length]
+        [Description("Radius of Gyration about the local Y-Axis.")]
         public double Rgy { get; }
 
-        [Description("Radius of Gyration about the Z-Axis")]
+        [Length]
+        [Description("Radius of Gyration about the local Z-Axis.")]
         public double Rgz { get; }
 
-        [Description("Torsion Constant")]
+        [TorsionConstant]
+        [Description("Torsion Constant.")]
         public double J { get; }
 
-        [Description("Moment of Inertia about the Y-Axis")]
+        [SecondMomentOfArea]
+        [Description("Moment of Inertia about the local Y-Axis.")]
         public double Iy { get; }
 
-        [Description("Moment of Inertia about the Z-Axis")]
+        [SecondMomentOfArea]
+        [Description("Moment of Inertia about the local Z-Axis.")]
         public double Iz { get; }
 
-        [Description("Warping Constant")]
+        [WarpingConstant]
+        [Description("Warping Constant.")]
         public double Iw { get; }
 
-        [Description("Elastic Modulus of the section about the Y-Axis")]
+        [SectionModulus]
+        [Description("Elastic Modulus of the section about the local Y-Axis.")]
         public double Wely { get; }
 
-        [Description("Elastic Modulus of the section about the Z-Axis")]
+        [SectionModulus]
+        [Description("Elastic Modulus of the section about the local Z-Axis.")]
         public double Welz { get; }
 
-        [Description("Plastic Modulus of the section about the Y-Axis")]
+        [SectionModulus]
+        [Description("Plastic Modulus of the section about the local Y-Axis.")]
         public double Wply { get; }
 
-        [Description("Plastic Modulus of the section about the Z-Axis")]
+        [SectionModulus]
+        [Description("Plastic Modulus of the section about the local Z-Axis.")]
         public double Wplz { get; }
 
-        [Description("Geometric centre of the section in the Z direction")]
+        [Length]
+        [Description("Geometric centre of the section in the local Z direction.")]
         public double CentreZ { get; }
 
-        [Description("Geometric centre of the section in the Y direction")]
+        [Length]
+        [Description("Geometric centre of the section in the local Y direction.")]
         public double CentreY { get; }
 
-        [Description("Z Distance from the centroid of the section to top edge of the section")]
+        [Length]
+        [Description("Z distance from the centroid of the section to top edge of the section.")]
         public double Vz { get; }
 
-        [Description("Z Distance from the centroid of the section to bottom edge of the section")]
+        [Length]
+        [Description("Z distance from the centroid of the section to bottom edge of the section.")]
         public double Vpz { get; }
 
-        [Description("Y Distance from the centroid of the section to right edge of the section")]
+        [Length]
+        [Description("Y distance from the centroid of the section to right edge of the section.")]
         public double Vy { get; }
 
-        [Description("Y Distance from the centroid of the section to Left edge of the section")]
+        [Length]
+        [Description("Y distance from the centroid of the section to Left edge of the section.")]
         public double Vpy { get; }
 
-        [Description("Shear Area in the Y direction")]
+        [Area]
+        [Description("Shear Area in the local Y direction.")]
         public double Asy { get; }
 
-        [Description("Shear Area in the Z direction")]
+        [Area]
+        [Description("Shear Area in the local Z direction.")]
         public double Asz { get; }
 
 
@@ -161,7 +180,8 @@ namespace BH.oM.Structure.SectionProperties
 
         }
 
-
+        /***************************************************/
     }
 }
+
 

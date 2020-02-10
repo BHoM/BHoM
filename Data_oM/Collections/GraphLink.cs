@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+using System.Collections.Generic;
 
 namespace BH.oM.Data.Collections
 {
@@ -28,13 +29,12 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
+        public Dictionary<string,object> Attributes { get; set; } = new Dictionary<string, object>();
         public double Weight { get; set; } = 1.0;
-
         public GraphNode<T> StartNode { get; set; } = new GraphNode<T>();
-
         public GraphNode<T> EndNode { get; set; } = new GraphNode<T>();
-
 
         /***************************************************/
     }
 }
+

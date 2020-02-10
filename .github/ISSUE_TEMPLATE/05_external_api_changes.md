@@ -1,6 +1,6 @@
 ---
-name: External API changes
-about: Use this template if the code requires modification due to api changes of any referenced library. Including other BHoM dlls
+name: External API Changes
+about: Modifications to the code are required due to changes to the API of a referenced library. This includes changes imposed from references to other BHoM projects.
 labels: "type:external-api-changes"
 
 ---
@@ -8,13 +8,12 @@ labels: "type:external-api-changes"
 <!-- IN PARTICULAR PLEASE ENSURE THAT SENSITIVE OR INAPPROPRIATE INFORMATION IS NOT UPLOADED -->
 
 #### Parent issue(s) or Pull Request(s) causing the changes:
-<!-- If appropriate please reference the url of any other issue(s) that forces the current change-->
-<!-- Note: that this is usually a change in an external API -->
+<!-- If appropriate please reference the URL of any other issue(s) that forces the current change-->
 
 #
 
 #### Description:
-<!-- Add a brief description -->
+<!-- Add a brief description of the changes required -->
 
 
 #### Test file(s):
