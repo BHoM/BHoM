@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Loadcombination class to set up combination of factored loadcases.")]
+    [Description("Load combination class to set up combination of factored loadcases.")]
     public class LoadCombination : BHoMObject, ICase
     {
         /***************************************************/

@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Point acceleration load for node elements. Can be used to apply translational as well as angular acceleration.")]
+    [Description("Point acceleration load for Nodes. This can be used to apply translational as well as angular acceleration.")]
     public class PointAcceleration : Load<Node>
     {
         /***************************************************/

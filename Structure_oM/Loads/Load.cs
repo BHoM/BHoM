@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Loads
 {
 
-    [Description("Base load class used by all element type loads, such as bar, node and panel loads")]
+    [Description("Base load class used by all element type loads, such as Bar, Node and Panel loads")]
     public abstract class Load<T> : BHoMObject, ILoad where T : IBHoMObject
     {
         /***************************************************/
@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Loads
         [Description("The case in which the load is applied")]
         public Loadcase Loadcase { get; set; }
 
-        [Description("The group of objects that the load should be applied to. For most analysis packages the obejcts added here need to be pulled from the analysis package before being assigned to the load")]
+        [Description("The group of objects that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
         public BHoMGroup<T> Objects { get; set; } = new BHoMGroup<T>();
 
         [Description("Defines whether the load relates to local or global coordinates")]

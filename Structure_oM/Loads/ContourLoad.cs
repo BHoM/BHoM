@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Load to be applied over a region defnied by a closed planar Polyline. Please note that this load does not allow for openings in the region!")]
+    [Description("Load to be applied over a region defined by a closed planar Polyline. Please note that this load does not allow for openings in the region!")]
     public class ContourLoad : BHoMObject, ILoad
     {
         /***************************************************/

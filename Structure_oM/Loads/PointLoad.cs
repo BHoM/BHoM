@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Point load for node elements. Can be used to apply force as well as moment.")]
+    [Description("Point load for Nodes. This can be used to apply force as well as moment.")]
     public class PointLoad : Load<Node> 
     {
         /***************************************************/
