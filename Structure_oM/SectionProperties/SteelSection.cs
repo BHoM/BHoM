@@ -41,7 +41,7 @@ namespace BH.oM.Structure.SectionProperties
         [Description("Defines whether any of the plates of the section have any external restraint, from for example a connecting slab.")]
         public SteelPlateRestraint PlateRestraint { get; set; } = SteelPlateRestraint.NoRestraint;
 
-        [Description("Material of the section.")]
+        [Description("Homogeneous material used throughout the full section. Should generally be of type Steel.")]
         public IMaterialFragment Material { get; set; } = null;
 
         /***************************************************/

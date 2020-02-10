@@ -35,7 +35,7 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Material of the section.")]
+        [Description("Homogeneous material used throughout the full section. Should generally be of type Timber.")]
         public IMaterialFragment Material { get; set; } = null;
 
         /***************************************************/
