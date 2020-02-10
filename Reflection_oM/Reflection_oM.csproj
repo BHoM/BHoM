@@ -44,6 +44,7 @@
     <Compile Include="Attributes\AbbreviationAttribute.cs" />
     <Compile Include="Attributes\DeprecatedAttribute.cs" />
     <Compile Include="Attributes\InputAttribute.cs" />
+    <Compile Include="Attributes\InputFromProperty.cs" />
     <Compile Include="Attributes\MultiOutputAttribute.cs" />
     <Compile Include="Attributes\NotImplementedAttribute.cs" />
     <Compile Include="Attributes\OutputAttribute.cs" />
