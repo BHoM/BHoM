@@ -49,11 +49,11 @@ namespace BH.oM.Structure.Results
         public double MX { get; set; } = 0.0;
 
         [Moment]
-        [Description("Bending moment around the local y-axis. Generally major axis bending moment")]
+        [Description("Bending moment about the local y-axis. Generally major axis bending moment")]
         public double MY { get; set; } = 0.0;
 
         [Moment]
-        [Description("Bending moment around the local z-axis. Generally minor axis bending moment")]
+        [Description("Bending moment about the local z-axis. Generally minor axis bending moment")]
         public double MZ { get; set; } = 0.0;
 
         /***************************************************/

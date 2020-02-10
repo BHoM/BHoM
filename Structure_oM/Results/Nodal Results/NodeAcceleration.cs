@@ -45,15 +45,15 @@ namespace BH.oM.Structure.Results
         public double UZ { get; set; } = 0.0;
 
         [AngularAcceleration]
-        [Description("Rotational acceleration around the x-axis as defined by orientation basis")]
+        [Description("Rotational acceleration about the x-axis as defined by orientation basis")]
         public double RX { get; set; } = 0.0;
 
         [AngularAcceleration]
-        [Description("Rotational acceleration around the y-axis as defined by orientation basis")]
+        [Description("Rotational acceleration about the y-axis as defined by orientation basis")]
         public double RY { get; set; } = 0.0;
 
         [AngularAcceleration]
-        [Description("Rotational acceleration around the z-axis as defined by orientation basis")]
+        [Description("Rotational acceleration about the z-axis as defined by orientation basis")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/

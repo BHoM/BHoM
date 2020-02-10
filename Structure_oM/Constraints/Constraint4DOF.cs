@@ -26,7 +26,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Constraints
 {
-    [Description("Constraint objects with 4 degrees of freedom, 3 translational and 1 rotational. Used for support or release of 1D analytical elements of 2D analytical objects. The Rotational DOF will correspond to rotation around the axis of the object.")]
+    [Description("Constraint objects with 4 degrees of freedom, 3 translational and 1 rotational. Used for support or release of 1D analytical elements of 2D analytical objects. The Rotational DOF will correspond to rotation about the axis of the object.")]
     public class Constraint4DOF : BHoMObject
     {
         /***************************************************/
@@ -42,7 +42,7 @@ namespace BH.oM.Structure.Constraints
         [Description("Defines the translational fixity in the Z-direction")]
         public DOFType TranslationZ { get; set; } = DOFType.Free;
 
-        [Description("Defines the rotational fixity around the axis of the element")]
+        [Description("Defines the rotational fixity about the axis of the element")]
         public DOFType RotationX { get; set; } = DOFType.Free;
 
         [ForcePerUnitLength]
@@ -58,7 +58,7 @@ namespace BH.oM.Structure.Constraints
         public double TranslationalStiffnessZ { get; set; } = 0;
 
         [MomentPerUnitAngle]
-        [Description("Defines the stiffness for rotation around the axis of the element. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness for rotation about the axis of the element. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double RotationalStiffnessX { get; set; } = 0;
 
 

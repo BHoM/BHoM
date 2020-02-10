@@ -39,7 +39,7 @@ namespace BH.oM.Structure.Elements
         public ICurve Curve { get; set; }
 
         [Description("Release of the edge, defining the connectivity between the host panel and the edge. \n" +
-                     "\nThree translational and one rotational degree of freedom, where the rotational refers to the rotation around the axis of the edge.")]
+                     "\nThree translational and one rotational degree of freedom, where the rotational refers to the rotation about the axis of the edge.")]
         public Constraint4DOF Release { get; set; } = null;
 
         [Description("Support of the edge, used to constrain the edge in space.")]
