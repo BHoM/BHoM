@@ -26,7 +26,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting total displacements in Global coordinates along the bar.")]
+    [Description("Resulting total displacements in global coordinates along the bar.")]
     public class BarDisplacement : BarResult
     {
         /***************************************************/
