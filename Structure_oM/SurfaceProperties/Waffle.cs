@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
-    [Description("Property for 2D analytical elements, made up of a slab on top of paralell ribs running in two directions, all sharing the same material.")]
+    [Description("Property for 2D analytical elements, made up of a slab on top of parallel ribs running in two directions, all sharing the same material.")]
     public class Waffle : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
@@ -42,7 +42,7 @@ namespace BH.oM.Structure.SurfaceProperties
         public IMaterialFragment Material { get; set; }
 
         [Length]
-        [Description("Total depth meassured from the bottom of the ribs in local x-direction to the top of the slab")]
+        [Description("Total depth measured from the bottom of the ribs in local x-direction to the top of the slab")]
         public double TotalDepthX { get; set; }
 
         [Length]
