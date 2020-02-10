@@ -30,7 +30,7 @@ using System;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Full collection of discrete results for a mesh for a specific case.")]
+    [Description("Full collection of discrete results for a Panel/FEMesh for a specific Loadcase or LoadCombination.")]
     public class MeshResult : IResult, IResultCollection<MeshElementResult>, IImmutable
     {
         /***************************************************/

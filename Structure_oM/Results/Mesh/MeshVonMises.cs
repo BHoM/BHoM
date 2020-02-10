@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("von Mises stress, force and moment at a discrete location in the mesh")]
+    [Description("von Mises stress, force and moment at a discrete location in the Panel/FEMesh")]
     public class MeshVonMises: MeshElementResult, IImmutable
     {
         /***************************************************/
@@ -46,8 +46,6 @@ namespace BH.oM.Structure.Results
         [MomentPerUnitLength]
         [Description("von Mises moments")]
         public double M { get; }
-
-        /***************************************************/
 
         /***************************************************/
         /**** Constructors                              ****/

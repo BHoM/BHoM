@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Shell and membrane stresses at a discrete location in the mesh")]
+    [Description("Shell and membrane stresses at a discrete location in the Panel/FEMesh")]
     public class MeshStress: MeshElementResult, IImmutable
     {
         /***************************************************/
@@ -66,8 +66,6 @@ namespace BH.oM.Structure.Results
         [Stress]
         [Description("Principal stress in middle principal direction")]
         public double Principal_1_2 { get; }
-        
-        /***************************************************/
 
         /***************************************************/
         /**** Constructors                              ****/
