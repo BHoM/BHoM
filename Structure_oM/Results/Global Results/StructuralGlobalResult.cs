@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Base class for all structural results affecting the whole structure.")]
+    [Description("Base class for all structural results affecting the entire structure.")]
     public abstract class StructuralGlobalResult : IResult
     {
         /***************************************************/
@@ -36,7 +36,7 @@ namespace BH.oM.Structure.Results
         [Description("Id of the structure. Unused for many results")]
         public IComparable ObjectId { get; set; } = "";
 
-        [Description("Identifier for the load case or load combination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
+        [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public IComparable ResultCase { get; set; } = "";
 
         [Description("Time step for time history results.")]

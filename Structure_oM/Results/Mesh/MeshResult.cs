@@ -40,7 +40,7 @@ namespace BH.oM.Structure.Results
         [Description("Id of the mesh that this result collection belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
         public IComparable ObjectId { get; } = "";
 
-        [Description("Identifier for the load case or load combination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
+        [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results")]

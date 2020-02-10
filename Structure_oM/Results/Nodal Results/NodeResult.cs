@@ -27,7 +27,7 @@ using System;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Base class for all node result classes. Stores all identifier information and how to sort the results in a collection")]
+    [Description("Base class for all Node result classes. Stores all identifier information and how to sort the results in a collection")]
     public abstract class NodeResult :  IResult
     {
         /***************************************************/
@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Results
         [Description("Id of the node that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
         public IComparable ObjectId { get; set; } = "";
 
-        [Description("Identifier for the load case or load combination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
+        [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public IComparable ResultCase { get; set; } = "";
 
         [Description("Time step for time history results")]

@@ -25,7 +25,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting displacements and rotations for a single node.")]
+    [Description("Resulting displacements and rotations for a single Node.")]
     public class NodeDisplacement : NodeResult
     {
         /***************************************************/

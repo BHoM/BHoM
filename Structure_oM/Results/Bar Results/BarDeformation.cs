@@ -26,7 +26,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting local deformation in Local coordinates along the bar. This is disregarding rigid body motion and/or rotation.")]
+    [Description("Resulting local deformation in local coordinates along the bar. This is disregarding rigid body motion and/or rotation.")]
     public class BarDeformation : BarResult
     {
         /***************************************************/

@@ -25,7 +25,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting acceleration and angular acceleration for a single node.")]
+    [Description("Resulting acceleration and angular acceleration for a single Node.")]
     public class NodeAcceleration : NodeResult
     {
         /***************************************************/

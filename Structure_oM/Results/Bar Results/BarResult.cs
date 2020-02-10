@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Results
         [Description("Id of the bar that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
         public IComparable ObjectId { get; set; } = "";
 
-        [Description("Identifier for the load case or load combination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
+        [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public IComparable ResultCase { get; set; } = "";
 
         [Description("Time step for time history results")]

@@ -25,7 +25,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting stresses in Local coordinates along the bar.")]
+    [Description("Resulting stresses in local coordinates along the bar.")]
     public class BarStress : BarResult
     {
         /***************************************************/
@@ -33,7 +33,7 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Stress]
-        [Description("Axial stress induced by normal force in the bar. Positive for tension, negative for compression")]
+        [Description("Axial stress induced by normal force in the Bar. Positive for tension, negative for compression")]
         public double Axial { get; set; } = 0.0;
 
         [Stress]
