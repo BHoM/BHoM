@@ -26,7 +26,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Structure.Requests
 {
-    [Description("Request for extracting bar results from an adapter")]
+    [Description("Request for extracting Bar results from an adapter")]
     public class BarResultRequest : IStructuralResultRequest
     {
         /***************************************************/
@@ -48,7 +48,7 @@ namespace BH.oM.Structure.Requests
         [Description("Defines for which modes results should be extracted. Only applicable for some casetypes. If nothing is provided, results for all modes will be assumed. ")]
         public List<string> Modes { get; set; } = new List<string>();
 
-        [Description("Defines which bars that results should be extracted for. Can generally be set to either pulled bar objects, or identifiers matching the software. If nothing is provided, results for all bars will be assumed.")]
+        [Description("Defines which Bars that results should be extracted for. Can generally be set to either pulled Bar objects, or identifiers matching the software. If nothing is provided, results for all Bars will be assumed.")]
         public List<object> ObjectIds { get; set; } = new List<object>();
 
         /***************************************************/
