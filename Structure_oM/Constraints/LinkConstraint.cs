@@ -59,13 +59,13 @@ namespace BH.oM.Structure.Constraints
         [Description("True means that a Z-translation imposes a rigid Y-axis rotation")]
         public bool ZtoYY { get; set; } = false;
 
-        [Description("True defines a rigid connectivity between master and slave for rotations around the X-axis, i.e. true prohibits relative rotation around the X-axis between master and slave")]
+        [Description("True defines a rigid connectivity between master and slave for rotations about the X-axis, i.e. true prohibits relative rotation about the X-axis between master and slave")]
         public bool XXtoXX { get; set; } = false;
 
-        [Description("True defines a rigid connectivity between master and slave for rotations around the Y-axis, i.e. true prohibits relative rotation around the Y-axis between master and slave")]
+        [Description("True defines a rigid connectivity between master and slave for rotations about the Y-axis, i.e. true prohibits relative rotation about the Y-axis between master and slave")]
         public bool YYtoYY { get; set; } = false;
 
-        [Description("True defines a rigid connectivity between master and slave for rotations around the Z-axis, i.e. true prohibits relative rotation around the Z-axis between master and slave")]
+        [Description("True defines a rigid connectivity between master and slave for rotations about the Z-axis, i.e. true prohibits relative rotation about the Z-axis between master and slave")]
         public bool ZZtoZZ { get; set; } = false;
 
 

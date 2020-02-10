@@ -45,15 +45,15 @@ namespace BH.oM.Structure.Results
         public double UZ { get; set; } = 0.0;
 
         [AngularVelocity]
-        [Description("Rotational velocity around the x-axis as defined by orientation basis")]
+        [Description("Rotational velocity about the x-axis as defined by orientation basis")]
         public double RX { get; set; } = 0.0;
 
         [AngularVelocity]
-        [Description("Rotational velocity around the y-axis as defined by orientation basis")]
+        [Description("Rotational velocity about the y-axis as defined by orientation basis")]
         public double RY { get; set; } = 0.0;
 
         [AngularVelocity]
-        [Description("Rotational velocity around the z-axis as defined by orientation basis")]
+        [Description("Rotational velocity about the z-axis as defined by orientation basis")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/

@@ -45,19 +45,19 @@ namespace BH.oM.Structure.Results
         public double ShearZ { get; set; } = 0.0;
 
         [Stress]
-        [Description("Stress induced by bending around the local y-axis at the 'uppermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers")]
+        [Description("Stress induced by bending about the local y-axis at the 'uppermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers")]
         public double BendingY_Top { get; set; } = 0.0;
 
         [Stress]
-        [Description("Stress induced by bending around the local y-axis at the 'lowermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers")]
+        [Description("Stress induced by bending about the local y-axis at the 'lowermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers")]
         public double BendingY_Bot { get; set; } = 0.0;
 
         [Stress]
-        [Description("Stress induced by bending around the local z-axis at the 'uppermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers")]
+        [Description("Stress induced by bending about the local z-axis at the 'uppermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers")]
         public double BendingZ_Top { get; set; } = 0.0;
 
         [Stress]
-        [Description("Stress induced by bending around the local z-axis at the 'lowermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers")]
+        [Description("Stress induced by bending about the local z-axis at the 'lowermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers")]
         public double BendingZ_Bot { get; set; } = 0.0;
 
         [Stress]

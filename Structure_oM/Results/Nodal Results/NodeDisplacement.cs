@@ -45,15 +45,15 @@ namespace BH.oM.Structure.Results
         public double UZ { get; set; } = 0.0;
 
         [Angle]
-        [Description("Rotational displacement around the y-axis as defined by orientation basis")]
+        [Description("Rotational displacement about the y-axis as defined by orientation basis")]
         public double RX { get; set; } = 0.0;
 
         [Angle]
-        [Description("Rotational displacement around the y-axis as defined by orientation basis")]
+        [Description("Rotational displacement about the y-axis as defined by orientation basis")]
         public double RY { get; set; } = 0.0;
 
         [Angle]
-        [Description("Rotational displacement around the z-axis as defined by orientation basis")]
+        [Description("Rotational displacement about the z-axis as defined by orientation basis")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/

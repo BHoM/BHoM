@@ -47,15 +47,15 @@ namespace BH.oM.Structure.Constraints
         public double TranslationalStiffnessZ { get; set; } = 0;
 
         [MomentPerUnitAngle]
-        [Description("Defines the stiffness for rotation around the X-axis. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness for rotation about the X-axis. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double RotationalStiffnessX { get; set; } = 0;
 
         [MomentPerUnitAngle]
-        [Description("Defines the stiffness for rotation around the Y-axis. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness for rotation about the Y-axis. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double RotationalStiffnessY { get; set; } = 0;
 
         [MomentPerUnitAngle]
-        [Description("Defines the stiffness for rotation around the Z-axis. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness for rotation about the Z-axis. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double RotationalStiffnessZ { get; set; } = 0;
 
         [Description("Defines the translational fixity in the X-direction")]
@@ -67,13 +67,13 @@ namespace BH.oM.Structure.Constraints
         [Description("Defines the translational fixity in the Z-direction")]
         public DOFType TranslationZ { get; set; } = DOFType.Free;
 
-        [Description("Defines the rotational fixity around the X-axis")]
+        [Description("Defines the rotational fixity about the X-axis")]
         public DOFType RotationX { get; set; } = DOFType.Free;
 
-        [Description("Defines the rotational fixity around the Y-axis")]
+        [Description("Defines the rotational fixity about the Y-axis")]
         public DOFType RotationY { get; set; } = DOFType.Free;
 
-        [Description("Defines the rotational fixity around the Z-axis")]
+        [Description("Defines the rotational fixity about the Z-axis")]
         public DOFType RotationZ { get; set; } = DOFType.Free;
 
 
