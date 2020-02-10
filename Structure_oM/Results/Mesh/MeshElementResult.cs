@@ -35,13 +35,13 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Id of the Mesh that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
+        [Description("Id of the FEMesh/Panel that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
         public IComparable ObjectId { get; } = "";
 
-        [Description("Id of the Node in the mesh that this result belongs to. Will be empty for smoothing types not relating to Nodes. When extracted from an analysis package, the node id will correspond to the node id in the software and match the format and value used in that particular package.")]
+        [Description("Id of the Node in the mesh that this result belongs to. Will be empty for smoothing types not relating to Nodes. When extracted from an analysis package, the Node id will correspond to the node id in the software and match the format and value used in that particular package.")]
         public IComparable NodeId { get; } = "";
 
-        [Description("Id of the Face that this result belongs to. Will be empty for smoothing types not relating to Faces. When extracted from an analysis package, the face id will correspond to the face id in the software and match the format and value used in that particular package.")]
+        [Description("Id of the FEFace that this result belongs to. Will be empty for smoothing types not relating to Faces. When extracted from an analysis package, the face id will correspond to the face id in the software and match the format and value used in that particular package.")]
         public IComparable MeshFaceId { get; } = "";
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
@@ -59,7 +59,6 @@ namespace BH.oM.Structure.Results
 
         [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials")]
         public Basis Orientation { get; } = Basis.XY;
-
 
         /***************************************************/
         /**** Constructors                              ****/

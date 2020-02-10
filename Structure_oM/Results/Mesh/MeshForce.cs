@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Gives a full set of shell and membrane forces at a discrete location in the mesh")]
+    [Description("Gives a full set of shell and membrane forces at a discrete location in the Panel/FEMesh")]
     public class MeshForce : MeshElementResult, IImmutable
     {
         /***************************************************/
@@ -66,7 +66,6 @@ namespace BH.oM.Structure.Results
         [ForcePerUnitLength]
         [Description("Shear force in Y direction")]
         public double VY { get; } = 0.0;
-
 
         /***************************************************/
         /**** Constructors                              ****/

@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Displacements and rotations at a discrete location in the mesh")]
+    [Description("Displacements and rotations at a discrete location in the Panel/FEMesh")]
     public class MeshDisplacement : MeshElementResult, IImmutable
     {
         /***************************************************/
@@ -58,8 +58,6 @@ namespace BH.oM.Structure.Results
         [Angle]
         [Description("Rotation about global Z-axis")]
         public double RZZ { get; } = 0.0;
-
-        /***************************************************/
 
         /***************************************************/
         /**** Constructors                              ****/
