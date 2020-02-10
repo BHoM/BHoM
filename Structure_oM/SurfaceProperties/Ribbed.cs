@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
-    [Description("Property for 2D analytical elements, made up of a slab on top of paralell ribs running in one direction, all sharing the same material.")]
+    [Description("Property for 2D analytical elements, made up of a slab on top of parallel ribs running in one direction, all sharing the same material.")]
     public class Ribbed : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
@@ -45,7 +45,7 @@ namespace BH.oM.Structure.SurfaceProperties
         public PanelDirection Direction { get; set; } = PanelDirection.X;
 
         [Length]
-        [Description("Total depth meassured from the bottom of the ribs to the top of the slab")]
+        [Description("Total depth measured from the bottom of the ribs to the top of the slab")]
         public double TotalDepth { get; set; }
 
         [Length]
@@ -53,7 +53,7 @@ namespace BH.oM.Structure.SurfaceProperties
         public double StemWidth { get; set; }
 
         [Length]
-        [Description("Centre-Centre distance between the ribs. Meassured perpendicular to the rid direction.")]
+        [Description("Centre-centre distance between the ribs. Measured perpendicular to the rib direction.")]
         public double Spacing { get; set; }
 
         [Description("Defines what type of element this property will be used. Used by some analysis packages.")]
