@@ -26,7 +26,7 @@ namespace BH.oM.Structure.Elements
 {
     /***************************************************/
 
-    [Description("Defines if the bar should be treated as a bending element or axial only in analysis packages.")]
+    [Description("Defines the finite element type of the bar and what forces the bar can accommodate, i.e. if the bar should be treated as a bending element or axial only in analysis packages.")]
     public enum BarFEAType
     {
         [Description("Full axial, flexural and torsional behaviour. 2 x 6 DOF:s")]
