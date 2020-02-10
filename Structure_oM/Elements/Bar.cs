@@ -41,10 +41,10 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Defines the start position of the element. Note that Nodes can contain Supports, not to be mixed up with releases.")]
+        [Description("Defines the start position of the element. Note that Nodes can contain Supports which should not be confused with Releases.")]
         public Node StartNode { get; set; }
 
-        [Description("Defines the end position of the element. Note that Nodes can contain Supports, not to be mixed up with releases.")]
+        [Description("Defines the end position of the element. Note that Nodes can contain Supports which should not be confused with Releases.")]
         public Node EndNode { get; set; }
 
         [Description("Section property of the bar, containing all sectional constants and material as well as profile geometry and dimensions, where applicable.")]
