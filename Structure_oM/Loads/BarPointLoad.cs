@@ -35,15 +35,15 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Length]
-        [Description("Distance along the Bar between the StartNode and the Load position.")]
+        [Description("Distance along the Bar between the StartNode and the load position.")]
         public double DistanceFromA { get; set; } = 0;
 
         [Force]
-        [Description("Magnitude and direction of the Force. The load need the Force and/or the Moment vector to be non-zero to have any effect.")]
+        [Description("Magnitude and direction of the Force. The load requires the Force and/or the Moment Vector to be non-zero to have any effect.")]
         public Vector Force { get; set; } = new Vector();
 
         [Force]
-        [Description("Magnitude and direction of the Moment. The load need the Force and/or the Moment vector to be non-zero to have any effect.")]
+        [Description("Magnitude and direction of the Moment. The load requires the Force and/or the Moment Vector to be non-zero to have any effect.")]
         public Vector Moment { get; set; } = new Vector();
 
         /***************************************************/
