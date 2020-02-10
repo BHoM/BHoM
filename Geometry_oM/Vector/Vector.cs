@@ -21,19 +21,28 @@
  */
 
 using System;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
+    [Description("Defines a direction and magnitude in three-dimensional Euclidean space")]
     public class Vector : IGeometry, IComparable<Vector>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("Dimension along X coordinate axis")]
         public double X { get; set; } = 0.0;
 
+        [Length]
+        [Description("Dimension along Y coordinate axis")]
         public double Y { get; set; } = 0.0;
 
+        [Length]
+        [Description("Dimension along Z coordinate axis")]
         public double Z { get; set; } = 0.0;
 
 
