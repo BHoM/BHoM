@@ -39,17 +39,17 @@ namespace BH.oM.Structure.Constraints
         FixedPositive = 3,
         [Description("Linear spring constant")]
         Spring = 4,
-        [Description("Non-linear, zero stiffnss in the positive direction")]
+        [Description("Nonlinear, zero stiffness in the positive direction")]
         SpringNegative = 5,
-        [Description("Non-linear, zero stiffness in the negative direction")]
+        [Description("Nonlinear, zero stiffness in the negative direction")]
         SpringPositive = 6,
         [Description("Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness)")]
         SpringRelative = 7,
-        [Description("Non-linear, Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness), zero stiffnss in the positive direction")]
+        [Description("Nonlinear, Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness), zero stiffness in the positive direction")]
         SpringRelativeNegative = 8,
-        [Description("Non-linear, Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness), zero stiffnss in the negative direction")]
+        [Description("Nonlinear, Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness), zero stiffness in the negative direction")]
         SpringRelativePositive = 9,
-        [Description("Non-linear spring model")]
+        [Description("Nonlinear spring model")]
         NonLinear = 10,
         [Description("Friction model (relative to the load applied)")]
         Friction = 11,

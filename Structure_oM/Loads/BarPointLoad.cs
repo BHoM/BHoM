@@ -27,7 +27,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Point load to be applied for bar elements, positioned a set distance from the start node.")]
+    [Description("Point load to be applied for Bars, positioned a set distance from the StartNode.")]
     public class BarPointLoad : Load<Bar>
     {
         /***************************************************/

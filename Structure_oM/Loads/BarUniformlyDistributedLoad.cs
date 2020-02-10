@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Uniformly distributed load for bar elements. Can be used to apply force and/or moments.")]
+    [Description("Uniformly distributed load applied to Bars. Can be used to apply force and/or moments.")]
     public class BarUniformlyDistributedLoad : Load<Bar>
     {
         /***************************************************/

@@ -27,17 +27,17 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Load combination class to set up combination of factored loadcases.")]
+    [Description("Load combination class to set up combination of factored Loadcases.")]
     public class LoadCombination : BHoMObject, ICase
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The factored loadcases that make up the combination. Stored as a collection of Tuple<double,ICase> where the double is the factor the case should be scaled by in this combination.")]
+        [Description("The factored Loadcases that make up the combination. Stored as a collection of Tuple<double,ICase> where the double is the factor the case should be scaled by in this combination.")]
         public List<Tuple<double, ICase>> LoadCases { get; set; } = new List<Tuple<double, ICase>>();
 
-        [Description("Unique numeric identifier of the Load combination")]
+        [Description("Unique numeric identifier of the LoadCombination")]
         public int Number { get; set; } = 0;
 
 

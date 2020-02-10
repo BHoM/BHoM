@@ -33,10 +33,10 @@ namespace BH.oM.Structure.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The case in which the load is applied")]
+        [Description("The Loadcase in which the load is applied")]
         Loadcase Loadcase { get; set; }
 
-        [Description("Defines whether the load relates to local or global coordinates")]
+        [Description("Defines whether the load is applied in local or global coordinates")]
         LoadAxis Axis { get; set; }
 
         [Description("If true the load is projected to the element")]
