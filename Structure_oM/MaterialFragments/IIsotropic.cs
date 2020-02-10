@@ -38,11 +38,11 @@ namespace BH.oM.Structure.MaterialFragments
         double YoungsModulus { get; set; }
 
         [Ratio]
-        [Description("Ratio between axial and transversal strain. Used together with YoungsModulus to derive the ShearModulus for isotropic materials")]
+        [Description("Ratio between axial and transverse strain. Used together with YoungsModulus to derive the ShearModulus for isotropic materials")]
         double PoissonsRatio { get; set; }
 
         [TemperThermalExpansionCoefficientature]
-        [Description("The strain induced in the material per change of temprature")]
+        [Description("The strain induced in the material per unit change of temprature")]
         double ThermalExpansionCoeff { get; set; }
 
         /***************************************************/
