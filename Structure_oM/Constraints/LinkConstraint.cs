@@ -32,40 +32,40 @@ namespace BH.oM.Structure.Constraints
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("True prohibits relative translation along the x-axis between master and slave")]
+        [Description("True defines a rigid connectivity between master and slave for tranlations along the X-axis, ie. true prohibits relative translation along the X-axis between master and slave")]
         public bool XtoX { get; set; } = false;
 
-        [Description("True prohibits relative translation along the y-axis between master and slave")]
+        [Description("True defines a rigid connectivity between master and slave for tranlations along the Y-axis, ie. true prohibits relative translation along the Y-axis between master and slave")]
         public bool YtoY { get; set; } = false;
 
-        [Description("True prohibits relative translation along the z-axis between master and slave")]
+        [Description("True defines a rigid connectivity between master and slave for tranlations along the Z-axis, ie. true prohibits relative translation along the Z-axis between master and slave")]
         public bool ZtoZ { get; set; } = false;
 
-        [Description("True means that a x-translation imposes a rigid y-axis rotation")]
+        [Description("True means that a X-translation imposes a rigid Y-axis rotation")]
         public bool XtoYY { get; set; } = false;
 
-        [Description("True means that a x-translation imposes a rigid z-axis rotation")]
+        [Description("True means that a X-translation imposes a rigid Z-axis rotation")]
         public bool XtoZZ { get; set; } = false;
 
-        [Description("True means that a y-translation imposes a rigid x-axis rotation")]
+        [Description("True means that a Y-translation imposes a rigid X-axis rotation")]
         public bool YtoXX { get; set; } = false;
 
-        [Description("True means that a y-translation imposes a rigid z-axis rotation")]
+        [Description("True means that a Y-translation imposes a rigid Z-axis rotation")]
         public bool YtoZZ { get; set; } = false;
 
-        [Description("True means that a z-translation imposes a rigid x-axis rotation")]
+        [Description("True means that a Z-translation imposes a rigid X-axis rotation")]
         public bool ZtoXX { get; set; } = false;
 
-        [Description("True means that a z-translation imposes a rigid y-axis rotation")]
+        [Description("True means that a Z-translation imposes a rigid Y-axis rotation")]
         public bool ZtoYY { get; set; } = false;
 
-        [Description("True prohibits relative rotation around the x-axis between master and slave")]
+        [Description("True defines a rigid connectivity between master and slave for rotations around the X-axis, i.e. true prohibits relative rotation around the X-axis between master and slave")]
         public bool XXtoXX { get; set; } = false;
 
-        [Description("True prohibits relative rotation around the y-axis between master and slave")]
+        [Description("True defines a rigid connectivity between master and slave for rotations around the Y-axis, i.e. true prohibits relative rotation around the Y-axis between master and slave")]
         public bool YYtoYY { get; set; } = false;
 
-        [Description("True prohibits relative rotation around the z-axis between master and slave")]
+        [Description("True defines a rigid connectivity between master and slave for rotations around the Z-axis, i.e. true prohibits relative rotation around the Z-axis between master and slave")]
         public bool ZZtoZZ { get; set; } = false;
 
 

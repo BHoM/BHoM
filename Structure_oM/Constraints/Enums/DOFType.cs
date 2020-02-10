@@ -29,9 +29,9 @@ namespace BH.oM.Structure.Constraints
     [Description("Enumerator outlining the fixity of a particular degree of freedom. Controls if the DOF should be free, fixed or stiffness based.")]
     public enum DOFType
     {
-        [Description("Free to move")]
+        [Description("Free to translate or rotate, depending on the DOF")]
         Free = 0,
-        [Description("Locked from movement")]
+        [Description("Fixed in translation or rotation, depending on the DOF")]
         Fixed = 1,
         [Description("Zero stiffness in the positive direction")]
         FixedNegative = 2,
@@ -39,15 +39,15 @@ namespace BH.oM.Structure.Constraints
         FixedPositive = 3,
         [Description("Linear spring constant")]
         Spring = 4,
-        [Description("Non-linear, zero stiffnss in positive direction")]
+        [Description("Non-linear, zero stiffnss in the positive direction")]
         SpringNegative = 5,
-        [Description("Non-linear, zero stiffness in negative direction")]
+        [Description("Non-linear, zero stiffness in the negative direction")]
         SpringPositive = 6,
         [Description("Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness)")]
         SpringRelative = 7,
-        [Description("As spring negative, but relative stiffness")]
+        [Description("Non-linear, Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness), zero stiffnss in the positive direction")]
         SpringRelativeNegative = 8,
-        [Description("As spring positive but relative stiffness")]
+        [Description("Non-linear, Spring stiffness between 0-1 relates to the element to which the DOF applies (e.g. bar end stiffness), zero stiffnss in the negative direction")]
         SpringRelativePositive = 9,
         [Description("Non-linear spring model")]
         NonLinear = 10,
