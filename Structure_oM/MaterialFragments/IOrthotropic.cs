@@ -40,11 +40,11 @@ namespace BH.oM.Structure.MaterialFragments
         Vector YoungsModulus { get; set; }
 
         [Ratio]
-        [Description("Ratio between axial and transversal strain")]
+        [Description("Ratio between axial and transverse strain")]
         Vector PoissonsRatio { get; set; }
 
         [TemperThermalExpansionCoefficientature]
-        [Description("The strain induced in the material per change of temprature")]
+        [Description("The strain induced in the material per unit change of temprature")]
         Vector ThermalExpansionCoeff { get; set; }
 
         [ShearModulus]
