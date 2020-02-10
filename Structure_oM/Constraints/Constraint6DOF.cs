@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.Constraints
 {
 
-    [Description("Constraint objects with 6 degrees of freedom, 3 translational and 3 rotational, used for supports and bar end releases")]
+    [Description("Constraint objects with six degrees of freedom, three translational and three rotational, used for supports and bar end releases")]
     public class Constraint6DOF : BHoMObject
     {
         /***************************************************/
