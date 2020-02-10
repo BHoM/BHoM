@@ -36,27 +36,27 @@ namespace BH.oM.Structure.Results
         /***************************************************/
         
         [Length]
-        [Description("Translation in Global X direction")]
+        [Description("Translation in global X-direction")]
         public double UXX { get; } = 0.0;
 
         [Length]
-        [Description("Translation in Global Y direction")]
+        [Description("Translation in global Y-direction")]
         public double UYY { get; } = 0.0;
 
         [Length]
-        [Description("Translation in Global Z direction")]
+        [Description("Translation in global Z-direction")]
         public double UZZ { get; } = 0.0;
 
         [Angle]
-        [Description("Rotation about Global X axis")]
+        [Description("Rotation about global X-axis")]
         public double RXX { get; } = 0.0;
 
         [Angle]
-        [Description("Rotation about Global Y axis")]
+        [Description("Rotation about global Y-axis")]
         public double RYY { get; } = 0.0;
 
         [Angle]
-        [Description("Rotation about Global Z axis")]
+        [Description("Rotation about global Z-axis")]
         public double RZZ { get; } = 0.0;
 
         /***************************************************/

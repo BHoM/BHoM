@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Requests
         [Description("Defines which type of results that should be extracted")]
         public NodeResultType ResultType { get; set; } = NodeResultType.NodeReaction;
 
-        [Description("Defines whether results should be extracted in Global coordinates or local node coordinates")]
+        [Description("Defines whether results should be extracted in global coordinates or local node coordinates")]
         public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
         [Description("Defines which cases and/or combinations that results should be extracted for. Can generally be set to either Loadcase or Loadcombination objects, or identifiers matching the software. If nothing is provided, results for all cases will be assumed.")]

@@ -31,7 +31,7 @@ namespace BH.oM.Structure.Requests
         BarDeformation,
         BarStress,
         BarStrain,
-        [Description("Total displacement of the bar. All results given in Global coordinates")]
+        [Description("Total displacement of the bar. All results given in global coordinates")]
         BarDisplacement
     }
 }

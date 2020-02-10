@@ -43,7 +43,7 @@ namespace BH.oM.Structure.Results
         [Description("Time step for time history results")]
         public double TimeStep { get; set; } = 0.0;
 
-        [Description("Defines the directionality of the results. Defaults to Global XYZ")]
+        [Description("Defines the directionality of the results. Defaults to global XYZ")]
         public Basis Orientation { get; set; } = Basis.XY;
 
         /***************************************************/
