@@ -35,7 +35,7 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Length]
-        [Description("Distance along the bar between the start node and the Load position.")]
+        [Description("Distance along the Bar between the StartNode and the Load position.")]
         public double DistanceFromA { get; set; } = 0;
 
         [Force]

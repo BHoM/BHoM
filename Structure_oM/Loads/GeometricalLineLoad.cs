@@ -52,7 +52,7 @@ namespace BH.oM.Structure.Loads
         public Vector ForceB { get; set; } = new Vector();
 
         [MomentPerUnitLength]
-        [Description("Moment per unitlength at the start of the line")]
+        [Description("Moment per unit length at the start of the line")]
         public Vector MomentA { get; set; } = new Vector();
 
         [MomentPerUnitLength]

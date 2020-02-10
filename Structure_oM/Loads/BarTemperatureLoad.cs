@@ -34,7 +34,7 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Temperature]
-        [Description("Uniform change of temprature of the element.")]
+        [Description("Uniform temperature change of the element.")]
         public double TemperatureChange { get; set; } = 0;
 
         /***************************************************/
