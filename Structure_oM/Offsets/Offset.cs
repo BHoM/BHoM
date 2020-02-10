@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Offsets
 {
-    [Description("Class defining offsets for bar objects from its endnodes to be applied in analysis packages.")]
+    [Description("Class defining offsets for bar objects from its end Nodes to be applied in analysis packages.")]
     public class Offset : BHoMObject
     {
         /***************************************************/
@@ -35,11 +35,11 @@ namespace BH.oM.Structure.Offsets
         /***************************************************/
 
         [Length]
-        [Description("Defines offset of the start node in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis)")]
+        [Description("Defines offset of the StartNode in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis)")]
         public Vector Start { get; set; } = new Vector();
 
         [Length]
-        [Description("Defines offset of the end node in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis)")]
+        [Description("Defines offset of the EndNode in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis)")]
         public Vector End { get; set; } = new Vector();
 
         /***************************************************/
