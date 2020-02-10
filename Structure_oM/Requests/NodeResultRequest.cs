@@ -27,7 +27,7 @@ using BH.oM.Structure.Loads;
 
 namespace BH.oM.Structure.Requests
 {
-    [Description("Request for extracting node results from an adapter")]
+    [Description("Request for extracting Node results from an adapter")]
     public class NodeResultRequest : IStructuralResultRequest
     {
         /***************************************************/
@@ -46,7 +46,7 @@ namespace BH.oM.Structure.Requests
         [Description("Defines for which modes results should be extracted. Only applicable for some casetypes. If nothing is provided, results for all modes will be assumed. ")]
         public List<string> Modes { get; set; } = new List<string>();
 
-        [Description("Defines which nodes that results should be extracted for. Can generally be set to either pulled node objects, or identifiers matching the software. If nothing is provided, results for all nodes will be assumed.")]
+        [Description("Defines which Nodes that results should be extracted for. Can generally be set to either pulled Node objects, or identifiers matching the software. If nothing is provided, results for all Nodes will be assumed.")]
         public List<object> ObjectIds { get; set; } = new List<object>();
 
         /***************************************************/

@@ -54,7 +54,7 @@ namespace BH.oM.Structure.Requests
         [Description("Defines for which modes results should be extracted. Only applicable for some casetypes. If nothing is provided, results for all modes will be assumed. ")]
         public List<string> Modes { get; set; } = new List<string>();
 
-        [Description("Defines which meshes that results should be extracted for. Can generally be set to either pulled panel/mesh objects, or identifiers matching the software. If nothing is provided, results for all meshes will be assumed.")]
+        [Description("Defines which meshes that results should be extracted for. Can generally be set to either pulled Panel/FEMesh objects, or identifiers matching the software. If nothing is provided, results for all meshes will be assumed.")]
         public List<object> ObjectIds { get; set; } = new List<object>();
 
         /***************************************************/
