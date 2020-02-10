@@ -46,19 +46,19 @@ namespace BH.oM.Structure.Constraints
         public DOFType RotationX { get; set; } = DOFType.Free;
 
         [ForcePerUnitLength]
-        [Description("Defines the stiffness in x-direction. Will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness in X-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double TranslationalStiffnessX { get; set; } = 0;
 
         [ForcePerUnitLength]
-        [Description("Defines the stiffness in y-direction. Will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness in Y-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double TranslationalStiffnessY { get; set; } = 0;
 
         [ForcePerUnitLength]
-        [Description("Defines the stiffness in z-direction. Will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness in Z-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double TranslationalStiffnessZ { get; set; } = 0;
 
         [MomentPerUnitAngle]
-        [Description("Defines the stiffness for rotation around the axis of the element. Will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness for rotation around the axis of the element. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double RotationalStiffnessX { get; set; } = 0;
 
 

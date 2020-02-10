@@ -43,15 +43,15 @@ namespace BH.oM.Structure.Constraints
         public DOFType Normal { get; set; }
 
         [ForcePerUnitLength]
-        [Description("Defines the stiffness in x-direction. Will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness in X-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double KX { get; set; } = 0;
 
         [ForcePerUnitLength]
-        [Description("Defines the stiffness in y-direction. Will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness in Y-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double KY { get; set; } = 0;
 
         [ForcePerUnitLength]
-        [Description("Defines the stiffness in z- or Normal-direction. Will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
+        [Description("Defines the stiffness in Z- or Normal-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double KNorm { get; set; } = 0;
 
 
