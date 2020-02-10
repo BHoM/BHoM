@@ -44,7 +44,7 @@ namespace BH.oM.Structure.Results
         [Description("Id of the Face that this result belongs to. Will be empty for smoothing types not relating to Faces. When extracted from an analysis package, the face id will correspond to the face id in the software and match the format and value used in that particular package.")]
         public IComparable MeshFaceId { get; } = "";
 
-        [Description("Identifier for the load case or load combination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
+        [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results")]

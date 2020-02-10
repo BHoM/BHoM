@@ -25,7 +25,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting reaction forces and moments for a single node.")]
+    [Description("Resulting reaction forces and moments for a single Node.")]
     public class NodeReaction : NodeResult
     {
         /***************************************************/

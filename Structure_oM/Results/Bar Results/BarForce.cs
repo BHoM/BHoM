@@ -25,7 +25,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting section forces in Local coordinates along the bar.")]
+    [Description("Resulting section forces in local coordinates along the bar.")]
     public class BarForce : BarResult
     {
         /***************************************************/

@@ -25,7 +25,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting velocity and angular velocity for a single node.")]
+    [Description("Resulting velocity and angular velocity for a single Node.")]
     public class NodeVelocity : NodeResult
     {
         /***************************************************/
@@ -37,11 +37,11 @@ namespace BH.oM.Structure.Results
         public double UX { get; set; } = 0.0;
 
         [Velocity]
-        [Description("Velocity in the x-direction as defined by orientation basis")]
+        [Description("Velocity in the y-direction as defined by orientation basis")]
         public double UY { get; set; } = 0.0;
 
         [Velocity]
-        [Description("Velocity in the x-direction as defined by orientation basis")]
+        [Description("Velocity in the z-direction as defined by orientation basis")]
         public double UZ { get; set; } = 0.0;
 
         [AngularVelocity]

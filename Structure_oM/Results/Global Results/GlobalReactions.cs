@@ -25,7 +25,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Total global reactions for a case.")]
+    [Description("Total global reactions for a given Loadcase or LoadCombination.")]
     public class GlobalReactions : StructuralGlobalResult
     {
         /***************************************************/
