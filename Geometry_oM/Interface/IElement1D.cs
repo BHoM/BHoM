@@ -21,9 +21,11 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Geometry
 {
+    [Deprecated("3.1", "Moved to Dimensional_oM")]
     public interface IElement1D : IElement
     {
     }
