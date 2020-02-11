@@ -35,7 +35,7 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Homogeneous material used throughout the full section. Should generally be of type Aluminium.")]
+        [Description("Homogeneous material used throughout the full section.")]
         public IMaterialFragment Material { get; set; } = null;
 
         /***************************************************/
