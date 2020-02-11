@@ -17,6 +17,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Environment_oM", "Environment_oM\Environment_oM.csproj", "{923A6B8B-4E31-40F3-9CBF-CEBB9A190143}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geometry_oM", "Geometry_oM\Geometry_oM.csproj", "{5B09A2E5-CBF5-43E2-8D98-B5035391DB7B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{17141A37-4853-4558-AF36-134A580BF42B} = {17141A37-4853-4558-AF36-134A580BF42B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics_oM", "Graphics_oM\Graphics_oM.csproj", "{466884F8-6BC5-4977-9F7F-D5233C4B66FF}"
 EndProject
