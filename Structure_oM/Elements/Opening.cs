@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Elements
 {
     [Description("Opening of a structural Panel object. Can be used to represent, for example, shafts, windows, and doors.")]
-    public class Opening : BHoMObject, IElement2D, IOpening<Edge>
+    public class Opening : BHoMObject, Dimensional.IElement2D, IOpening<Edge>
     {
         /***************************************************/
         /**** Properties                                ****/

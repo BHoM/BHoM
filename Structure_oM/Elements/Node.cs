@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Elements
 {
     [Description("0D finite element for structural analysis. Node class contains positional information as well as orientation and support.")]
-    public class Node : BHoMObject, IElement0D, INode
+    public class Node : BHoMObject, Dimensional.IElement0D, INode
     {
         /***************************************************/
         /**** Properties                                ****/
