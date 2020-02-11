@@ -33,27 +33,27 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Force]
-        [Description("Reaction force in x-direction as defined by orientation basis")]
+        [Description("Reaction force in X-direction as defined by orientation basis")]
         public double FX { get; set; } = 0.0;
 
         [Force]
-        [Description("Reaction force in y-direction as defined by orientation basis")]
+        [Description("Reaction force in Y-direction as defined by orientation basis")]
         public double FY { get; set; } = 0.0;
 
         [Force]
-        [Description("Reaction force in z-direction as defined by orientation basis")]
+        [Description("Reaction force in Z-direction as defined by orientation basis")]
         public double FZ { get; set; } = 0.0;
 
         [Moment]
-        [Description("Moment about the x-axis as defined by orientation basis")]
+        [Description("Moment about the X-axis as defined by orientation basis")]
         public double MX { get; set; } = 0.0;
 
         [Moment]
-        [Description("Moment about the y-axis as defined by orientation basis")]
+        [Description("Moment about the Y-axis as defined by orientation basis")]
         public double MY { get; set; } = 0.0;
 
         [Moment]
-        [Description("Moment about the z-axis as defined by orientation basis")]
+        [Description("Moment about the Z-axis as defined by orientation basis")]
         public double MZ { get; set; } = 0.0;
 
         /***************************************************/
