@@ -78,7 +78,7 @@
     <Compile Include="Loads\Load.cs" />
     <Compile Include="Loads\ContourLoad.cs" />
     <Compile Include="Loads\Loadcase.cs" />
-    <Compile Include="Loads\LoadCombination2.cs" />
+    <Compile Include="Loads\LoadCombination.cs" />
     <Compile Include="Loads\PointAcceleration.cs" />
     <Compile Include="Loads\PointDisplacement.cs" />
     <Compile Include="Loads\PointLoad.cs" />
