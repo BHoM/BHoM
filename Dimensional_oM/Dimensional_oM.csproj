@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Spatial\IElement.cs" />
+    <Compile Include="Spatial\IElement0D.cs" />
+    <Compile Include="Spatial\IElement1D.cs" />
+    <Compile Include="Spatial\IElement2D.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
