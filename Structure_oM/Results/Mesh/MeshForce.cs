@@ -36,35 +36,35 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [ForcePerUnitLength]
-        [Description("Axial/membrane force in X direction")]
+        [Description("Axial/membrane force in x-direction")]
         public double NXX { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Axial/membrane force in Y direction")]
+        [Description("Axial/membrane force in y-direction")]
         public double NYY { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Axial/membrane force in XY direction")]
+        [Description("Axial/membrane force in xy-direction")]
         public double NXY { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Bending moment in X direction")]
+        [Description("Bending moment in x-direction")]
         public double MXX { get; } = 0.0;
 
         [MomentPerUnitLength]
-        [Description("Bending moment in Y direction")]
+        [Description("Bending moment in y-direction")]
         public double MYY { get; } = 0.0;
 
         [MomentPerUnitLength]
-        [Description("Bending moment in XY direction")]
+        [Description("Bending moment in xy-direction")]
         public double MXY { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Shear force in X direction")]
+        [Description("Shear force in x-direction")]
         public double VX { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Shear force in Y direction")]
+        [Description("Shear force in y-direction")]
         public double VY { get; } = 0.0;
 
         /***************************************************/
