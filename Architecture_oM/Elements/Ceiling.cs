@@ -23,6 +23,7 @@
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Physical.Constructions;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Architecture.Elements
 {
