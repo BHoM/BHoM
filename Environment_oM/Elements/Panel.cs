@@ -27,6 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
 
 using BH.oM.Environment.Fragments;
