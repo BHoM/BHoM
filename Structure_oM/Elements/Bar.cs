@@ -35,7 +35,7 @@ namespace BH.oM.Structure.Elements
 
     [Description("1D finite element for structural analysis. Linear 2-noded element defined by a start and end node." +
                  "For structural conventions and orientation of the bar please see https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions.")]
-    public class Bar : BHoMObject, Dimensional.IElement1D, ILink<Node>
+    public class Bar : BHoMObject, IElement1D, ILink<Node>
     {
         /***************************************************/
         /**** Properties                                ****/
