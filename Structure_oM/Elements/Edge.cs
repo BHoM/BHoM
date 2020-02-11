@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Elements
 {
     [Description("Edge class to describe the edges of panels (or other objects) by a curve and properties.")]
-    public class Edge : BHoMObject, Dimensional.IElement1D, IEdge
+    public class Edge : BHoMObject, IElement1D, IEdge
     {
         /***************************************************/
         /**** Properties                                ****/
