@@ -25,7 +25,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting velocity and angular velocity for a single Node.")]
+    [Description("Resulting velocity and angular velocity for a Node.")]
     public class NodeVelocity : NodeResult
     {
         /***************************************************/
