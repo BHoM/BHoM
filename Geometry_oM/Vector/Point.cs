@@ -21,6 +21,7 @@
  */
 
 using System;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Geometry
 {
