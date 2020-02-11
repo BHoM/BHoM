@@ -26,7 +26,7 @@ using BH.oM.Physical.Constructions;
 
 namespace BH.oM.Architecture.Elements
 {
-    public class Ceiling : BHoMObject, Dimensional.IElement2D
+    public class Ceiling : BHoMObject, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
