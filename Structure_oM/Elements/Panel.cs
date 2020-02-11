@@ -29,8 +29,8 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Elements
 {
     [Description("2D element for structural analysis. " +
-                 "\nThe Panel is a planar surface object defined by a list of planar 'Edges' (curves with properties) for both external and internal edges (openings).")]
-    public class Panel : Base.BHoMObject, IAreaElement, IElement2D, IPanel<Edge,Opening>
+                 "\nThe Panel is a planar surface object defined by a list of planar 'Edges' (curves with properties) for both external and internal edges (openings)")]
+    public class Panel : Base.BHoMObject, IAreaElement, Dimensional.IElement2D, IPanel<Edge,Opening>
     {
         /***************************************************/
         /**** Properties                                ****/
