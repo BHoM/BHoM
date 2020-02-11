@@ -24,7 +24,7 @@ using System;
 
 namespace BH.oM.Geometry
 {
-    public class Point : IGeometry, IComparable<Point>, IElement0D
+    public class Point : IGeometry, IComparable<Point>, Dimensional.IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
