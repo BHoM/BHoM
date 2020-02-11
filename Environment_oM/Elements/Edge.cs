@@ -31,7 +31,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Elements
 {
     [Description("An analytical Edge data object")]
-    public class Edge : BHoMObject, IEnvironmentObject, IEdge, Dimensional.IElement1D
+    public class Edge : BHoMObject, IEnvironmentObject, IEdge, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/

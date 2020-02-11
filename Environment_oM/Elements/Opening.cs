@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Elements
 {
     [Description("An analytical Opening data object")]
-    public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, Dimensional.IElement2D
+    public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
