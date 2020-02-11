@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using System.Collections.Generic;
 using BH.oM.Base;

@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Structure.Constraints;
 using BH.oM.Analytical.Elements;
