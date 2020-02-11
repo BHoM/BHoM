@@ -24,7 +24,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Geometry.SettingOut
 {
-    public class Grid : BHoMObject, Dimensional.IElement1D
+    public class Grid : BHoMObject, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
