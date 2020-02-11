@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Geometry.SettingOut
 {
