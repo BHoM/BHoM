@@ -36,23 +36,23 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Stress]
-        [Description("Normal stress in X direction")]
+        [Description("Normal stress in x-direction")]
         public double SXX { get; }
 
         [Stress]
-        [Description("Normal stress in Y direction")]
+        [Description("Normal stress in y-direction")]
         public double SYY { get; }
 
         [Stress]
-        [Description("Normal stress in XY direction")]
+        [Description("Normal stress in xy-direction")]
         public double SXY { get; }
 
         [Stress]
-        [Description("Shear stress in X direction")]
+        [Description("Shear stress in x-direction")]
         public double TXX { get; }
 
         [Stress]
-        [Description("Shear stress in Y direction")]
+        [Description("Shear stress in y-direction")]
         public double TYY { get;  }
 
         [Stress]
