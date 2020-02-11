@@ -49,11 +49,7 @@
     <Compile Include="Curve\NurbsCurve.cs" />
     <Compile Include="Curve\PolyCurve.cs" />
     <Compile Include="Curve\Polyline.cs" />
-    <Compile Include="Interface\IElement.cs" />
     <Compile Include="Interface\IGeometry.cs" />
-    <Compile Include="Interface\IElement0D.cs" />
-    <Compile Include="Interface\IElement1D.cs" />
-    <Compile Include="Interface\IElement2D.cs" />
     <Compile Include="Math\IntegrationSlice.cs" />
     <Compile Include="Mesh\Face.cs" />
     <Compile Include="Mesh\Mesh.cs" />
@@ -109,6 +105,10 @@
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
+      <Project>{17141A37-4853-4558-AF36-134A580BF42B}</Project>
+      <Name>Dimensional_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
       <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
