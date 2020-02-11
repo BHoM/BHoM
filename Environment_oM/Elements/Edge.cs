@@ -27,6 +27,7 @@ using BH.oM.Base;
 using BH.oM.Analytical.Elements;
 using BH.oM.Environment.Fragments;
 using System.ComponentModel;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Environment.Elements
 {
