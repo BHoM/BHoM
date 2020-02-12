@@ -44,6 +44,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantities_oM", "Quantities
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programming_oM", "Programming_oM\Programming_oM.csproj", "{B1B5AA71-143B-4EDB-9D9B-08CC8DBABF4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dimensional_oM", "Dimensional_oM\Dimensional_oM.csproj", "{17141A37-4853-4558-AF36-134A580BF42B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +128,10 @@ Global
 		{B1B5AA71-143B-4EDB-9D9B-08CC8DBABF4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1B5AA71-143B-4EDB-9D9B-08CC8DBABF4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1B5AA71-143B-4EDB-9D9B-08CC8DBABF4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17141A37-4853-4558-AF36-134A580BF42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17141A37-4853-4558-AF36-134A580BF42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17141A37-4853-4558-AF36-134A580BF42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17141A37-4853-4558-AF36-134A580BF42B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
