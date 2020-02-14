@@ -26,7 +26,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Loads
 {
 
-    [Description("Base interface implemented by all loading related classes")]
+    [Description("Base interface implemented by all load classes")]
     public interface ILoad : IBHoMObject        
     {
         /***************************************************/
