@@ -39,7 +39,7 @@ namespace BH.oM.Structure.Loads
         [Description("Defines whether the load is applied in local or global coordinates")]
         LoadAxis Axis { get; set; }
 
-        [Description("If true the load is projected to the element")]
+        [Description("If true the load is projected along to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
         bool Projected { get; set; }
 
         /***************************************************/
