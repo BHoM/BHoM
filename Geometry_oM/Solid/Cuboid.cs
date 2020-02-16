@@ -21,24 +21,30 @@
  */
 
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
+    [Description("A polyhedron. Standard cuboid consisting of six right-angled quadrilateral faces.")]
     public class Cuboid : ISolid
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Defines both the Cuboid centre as the CoordinateSystem Origin, as well as the orientation in three-dimensional space")]
         public CoordinateSystem.Cartesian CoordinateSystem { get; set; } = new CoordinateSystem.Cartesian();
 
-        [Description("Dimension in the XAxis")]
+        [Length]
+        [Description("Dimension in the X-axis")]
         public double Length { get; set; } = 0.0;
 
-        [Description("Dimension in the YAxis")]
+        [Length]
+        [Description("Dimension in the Y-axis")]
         public double Depth { get; set; } = 0.0;
 
-        [Description("Dimension in the ZAxis")]
+        [Length]
+        [Description("Dimension in the Z-axis")]
         public double Height { get; set; } = 0.0;
 
 
