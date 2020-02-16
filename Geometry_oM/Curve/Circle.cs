@@ -20,18 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
+
 namespace BH.oM.Geometry
 {
+    [Description("A plane curve. Standard circle defining a curve of constant distance from a point, its Centre")]
     public class Circle : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Origin point defining location of the circle in three-dimensional space")]
         public Point Centre { get; set; } = new Point();
 
+        [Description("Vector perpendicular to the plane in which the Circle lies in. Defines the orientation in three-dimensional space")]
         public Vector Normal { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
+        [Length]
+        [Description("Distance from the Centre to the Circle boundary")]
         public double Radius { get; set; } = 0;
 
         /***************************************************/
