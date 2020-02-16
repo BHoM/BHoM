@@ -20,22 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+ using BH.oM.Quantities.Attributes;
+
 namespace BH.oM.Geometry
 {
+    [Description("A plane curve. A standard ellipse defining a curve of constant combined distance around two foci")]
     public class Ellipse : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Origin point defining location of the Ellipse in three-dimensional space")]
         public Point Centre { get; set; } = new Point();
 
+        [Description("Defines the major axis of the Ellipse, and the line along which the two foci lie. Together with Axis2 also defines orientation in three-dimensional space. Direction only, and not magnitude, matters")]
         public Vector Axis1 { get; set; } = new Vector { X = 1.0, Y = 0.0, Z = 0.0 };
 
+        [Description("Defines the minor axis of the Ellipse. Together with Axis1 also defines orientation in three-dimensional space. Direction only, and not magnitude, matters")]
         public Vector Axis2 { get; set; } = new Vector { X = 0.0, Y = 1.0, Z = 0.0 };
 
+        [Length]
+        [Description("Distance from the Centre to the Ellipse boundary along the major axis")]
         public double Radius1 { get; set; } = 0;
 
+        [Length]
+        [Description("Distance from the Centre to the Ellipse boundary along the minor axis")]
         public double Radius2 { get; set; } = 0;
         
         /***************************************************/
