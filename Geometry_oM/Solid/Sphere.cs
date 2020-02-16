@@ -20,16 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
+ 
 namespace BH.oM.Geometry
 {
+    [Description("Standard sphere defining the closed bounding surface of constant distance from a point, its Centre")]
     public class Sphere : ISolid
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Origin point defining location of the Sphere in three-dimensional space")]
         public Point Centre { get; set; } = new Point();
 
+        [Length]
+        [Description("Distance from the Centre to the Sphere boundary surface")]
         public double Radius { get; set; } = 0.0;
 
         /***************************************************/
