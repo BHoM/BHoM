@@ -32,7 +32,7 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Origin point defining location of the circle in three-dimensional space")]
+        [Description("Origin point defining location of the Circle in three-dimensional space")]
         public Point Centre { get; set; } = new Point();
 
         [Description("Vector perpendicular to the plane in which the Circle lies in. Defines the orientation in three-dimensional space")]
