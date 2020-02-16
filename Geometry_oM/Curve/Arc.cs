@@ -26,7 +26,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
-    [Description("A plane curve. Arc starting from the local x, rotating Angle number of radians counter clockwise")]
+    [Description("A plane curve. Arc starting from the local X, rotating Angle number of radians counter clockwise")]
     public class Arc : ICurve
     {
         /***************************************************/
