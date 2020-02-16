@@ -21,22 +21,29 @@
  */
 
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
-    [Description("A solid circular ring torus")]
+    [Description("A standard solid circular ring torus, formed as a surface of revolution of a circle about an axis")]
     public class Torus : ISolid
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Origin point defining location of the Torus in three-dimensional space")]
         public Point Centre { get; set; } = new Point();
 
+        [Description("Vector defining the axis of revolution and the orientation of the Torus in three-dimensional space")]
         public Vector Axis { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
+        [Length]
+        [Description("Distance from the Torus Centre (and the axis of revolution) to the centre of the circular cross section")]
         public double RadiusMajor { get; set; } = 0.0;
 
+        [Length]
+        [Description("The radius defining the size of the circular cross-section")]
         public double RadiusMinor { get; set; } = 0.0;
 
         /***************************************************/
