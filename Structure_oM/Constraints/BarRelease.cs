@@ -26,7 +26,7 @@ using BH.oM.Base;
 namespace BH.oM.Structure.Constraints
 {
 
-    [Description("Defines the releases at the start and end node of a bar. ")]
+    [Description("Defines the releases at the start and end node of a Bar.")]
     public class BarRelease : BHoMObject
     {
         /***************************************************/

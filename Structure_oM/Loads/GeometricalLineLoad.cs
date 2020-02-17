@@ -27,39 +27,39 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Distributed load to be applied over a line")]
+    [Description("Distributed load to be applied over a line.")]
     public class GeometricalLineLoad : BHoMObject, ILoad
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("The Loadcase in which the load is applied")]
+        [Description("The Loadcase in which the load is applied.")]
         public Loadcase Loadcase { get; set; }
 
-        [Description("Defines whether the load is applied in local or global coordinates")]
+        [Description("Defines whether the load is applied in local or global coordinates.")]
         public LoadAxis Axis { get; set; }
 
-        [Description("If true the load is projected to the region")]
+        [Description("If true the load is projected to the region.")]
         public bool Projected { get; set; }
 
         [ForcePerUnitLength]
-        [Description("Force per unit length at the start of the line")]
+        [Description("Force per unit length at the start of the line.")]
         public Vector ForceA { get; set; } = new Vector();
 
         [ForcePerUnitLength]
-        [Description("Force per unit length at the end of the line")]
+        [Description("Force per unit length at the end of the line.")]
         public Vector ForceB { get; set; } = new Vector();
 
         [MomentPerUnitLength]
-        [Description("Moment per unit length at the start of the line")]
+        [Description("Moment per unit length at the start of the line.")]
         public Vector MomentA { get; set; } = new Vector();
 
         [MomentPerUnitLength]
-        [Description("Moment per unit length at the end of the line")]
+        [Description("Moment per unit length at the end of the line.")]
         public Vector MomentB { get; set; } = new Vector();
 
-        [Description("Line defining the location of the load")]
+        [Description("Line defining the location of the load.")]
         public Line Location { get; set; } = null;
 
         /***************************************************/

@@ -33,16 +33,16 @@ namespace BH.oM.Structure.Constraints
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Defines the translational fixity in the X-direction")]
+        [Description("Defines the translational fixity in the X-direction.")]
         public DOFType TranslationX { get; set; } = DOFType.Free;
 
-        [Description("Defines the translational fixity in the Y-direction")]
+        [Description("Defines the translational fixity in the Y-direction.")]
         public DOFType TranslationY { get; set; } = DOFType.Free;
 
-        [Description("Defines the translational fixity in the Z-direction")]
+        [Description("Defines the translational fixity in the Z-direction.")]
         public DOFType TranslationZ { get; set; } = DOFType.Free;
 
-        [Description("Defines the rotational fixity about the axis of the element")]
+        [Description("Defines the rotational fixity about the axis of the element.")]
         public DOFType RotationX { get; set; } = DOFType.Free;
 
         [ForcePerUnitLength]

@@ -33,13 +33,13 @@ namespace BH.oM.Structure.SurfaceProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Load application enum defining to which edges the load should be distributed")]
+        [Description("Load application enum defining to which edges the load should be distributed.")]
         public LoadPanelSupportConditions LoadApplication { get; set; } = LoadPanelSupportConditions.AllSides;
 
-        [Description("Used to define the direction of the load for when LoadApplication is not AllSides")]
+        [Description("Used to define the direction of the load for when LoadApplication is not AllSides.")]
         public int ReferenceEdge { get; set; } = 1;
 
-        [Description("Material of the property, redundant for most structural applications")]
+        [Description("Material of the property, redundant for most structural applications.")]
         public IMaterialFragment Material { get; set; }
 
         /***************************************************/

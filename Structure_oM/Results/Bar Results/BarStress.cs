@@ -33,31 +33,31 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Stress]
-        [Description("Axial stress induced by normal force in the Bar. Positive for tension, negative for compression")]
+        [Description("Axial stress induced by normal force in the Bar. Positive for tension, negative for compression.")]
         public double Axial { get; set; } = 0.0;
 
         [Stress]
-        [Description("Shear stress along the local y-axis. Generally minor axis shear stress")]
+        [Description("Shear stress along the local y-axis. Generally minor axis shear stress.")]
         public double ShearY { get; set; } = 0.0;
 
         [Stress]
-        [Description("Shear stress along the local z-axis. Generally major axis shear stress")]
+        [Description("Shear stress along the local z-axis. Generally major axis shear stress.")]
         public double ShearZ { get; set; } = 0.0;
 
         [Stress]
-        [Description("Stress induced by bending about the local y-axis at the 'uppermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers")]
+        [Description("Stress induced by bending about the local y-axis at the 'uppermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers.")]
         public double BendingY_Top { get; set; } = 0.0;
 
         [Stress]
-        [Description("Stress induced by bending about the local y-axis at the 'lowermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers")]
+        [Description("Stress induced by bending about the local y-axis at the 'lowermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers.")]
         public double BendingY_Bot { get; set; } = 0.0;
 
         [Stress]
-        [Description("Stress induced by bending about the local z-axis at the 'uppermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers")]
+        [Description("Stress induced by bending about the local z-axis at the 'uppermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers.")]
         public double BendingZ_Top { get; set; } = 0.0;
 
         [Stress]
-        [Description("Stress induced by bending about the local z-axis at the 'lowermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers")]
+        [Description("Stress induced by bending about the local z-axis at the 'lowermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers.")]
         public double BendingZ_Bot { get; set; } = 0.0;
 
         [Stress]

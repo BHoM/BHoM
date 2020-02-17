@@ -34,27 +34,27 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Length]
-        [Description("Total displacement along the global X-axis")]
+        [Description("Total displacement along the global X-axis.")]
         public double UX { get; set; } = 0.0;
 
         [Length]
-        [Description("Total displacement along the global Y-axis")]
+        [Description("Total displacement along the global Y-axis.")]
         public double UY { get; set; } = 0.0;
 
         [Length]
-        [Description("Total displacement along the global Z-axis")]
+        [Description("Total displacement along the global Z-axis.")]
         public double UZ { get; set; } = 0.0;
 
         [Angle]
-        [Description("Total rotation about the global X-axis")]
+        [Description("Total rotation about the global X-axis.")]
         public double RX { get; set; } = 0.0;
 
         [Angle]
-        [Description("Total rotation about the global Y-axis")]
+        [Description("Total rotation about the global Y-axis.")]
         public double RY { get; set; } = 0.0;
 
         [Angle]
-        [Description("Total rotation about the global Z-axis")]
+        [Description("Total rotation about the global Z-axis.")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/

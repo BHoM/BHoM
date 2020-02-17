@@ -33,7 +33,7 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Id of the structure. Unused for many results")]
+        [Description("Id of the structure. Unused for many results.")]
         public IComparable ObjectId { get; set; } = "";
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
@@ -46,7 +46,7 @@ namespace BH.oM.Structure.Results
         /**** IComparable Interface                     ****/
         /***************************************************/
 
-        [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, TimeStep")]
+        [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, TimeStep.")]
         public int CompareTo(IResult other)
         {
             StructuralGlobalResult otherRes = other as StructuralGlobalResult;

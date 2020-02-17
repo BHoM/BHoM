@@ -25,14 +25,14 @@ using BH.oM.Geometry.ShapeProfiles;
 
 namespace BH.oM.Structure.SectionProperties
 {
-    [Description("Interface for sections based on Shape profiles")]
+    [Description("Interface for sections based on Shape profiles.")]
     public interface IGeometricalSection : ISectionProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Profile of the section, containing dimensions and section geometry")]
+        [Description("Profile of the section, containing dimensions and section geometry.")]
         IProfile SectionProfile { get; }
 
         /***************************************************/

@@ -26,20 +26,20 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Constraints
 {
-    [Description("Constraint objects with three translational degrees of freedom, used for support of 2D analytical objects")]
+    [Description("Constraint objects with three translational degrees of freedom, used for support of 2D analytical objects.")]
     public class Constraint3DOF : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Defines the translational fixity in the X-direction")]
+        [Description("Defines the translational fixity in the X-direction.")]
         public DOFType UX { get; set; }
 
-        [Description("Defines the translational fixity in the Y-direction")]
+        [Description("Defines the translational fixity in the Y-direction.")]
         public DOFType UY { get; set; }
 
-        [Description("Defines the translational fixity in the Z- or Normal-direction")]
+        [Description("Defines the translational fixity in the Z- or Normal-direction.")]
         public DOFType Normal { get; set; }
 
         [ForcePerUnitLength]

@@ -50,11 +50,11 @@ namespace BH.oM.Structure.Results
         public double RX { get; set; } = 0.0;
 
         [Angle]
-        [Description("Localised rotation of the Bar about the local y-axis. Generally major axis rotation")]
+        [Description("Localised rotation of the Bar about the local y-axis. Generally major axis rotation.")]
         public double RY { get; set; } = 0.0;
 
         [Angle]
-        [Description("Localised rotation of the Bar about the local z-axis. Generally minor axis rotation")]
+        [Description("Localised rotation of the Bar about the local z-axis. Generally minor axis rotation.")]
         public double RZ { get; set; } = 0.0;
 
         /***************************************************/

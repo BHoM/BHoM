@@ -27,11 +27,11 @@ namespace BH.oM.Structure.Requests
     public enum BarResultType
     {
         BarForce,
-        [Description("Local deformation of the bar. All results given in local coordinates")]
+        [Description("Local deformation of the bar. All results given in local coordinates.")]
         BarDeformation,
         BarStress,
         BarStrain,
-        [Description("Total displacement of the bar. All results given in global coordinates")]
+        [Description("Total displacement of the bar. All results given in global coordinates.")]
         BarDisplacement
     }
 }

@@ -26,14 +26,14 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Base interface for load cases and combinations")]
+    [Description("Base interface for load cases and combinations.")]
     public interface ICase : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Unique numeric identifier of the case")]
+        [Description("Unique numeric identifier of the case.")]
         int Number { get; set; }
 
         /***************************************************/

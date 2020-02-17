@@ -34,20 +34,20 @@ namespace BH.oM.Structure.Loads
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("The Loadcase in which the load is applied")]
+        [Description("The Loadcase in which the load is applied.")]
         public Loadcase Loadcase { get; set; }
 
-        [Description("Defines whether the load is applied in local or global coordinates")]
+        [Description("Defines whether the load is applied in local or global coordinates.")]
         public LoadAxis Axis { get; set; }
 
-        [Description("If true the load is projected to the region")]
+        [Description("If true the load is projected to the region.")]
         public bool Projected { get; set; }
 
         [Pressure]
-        [Description("Force per area to be applied to the region")]
+        [Description("Force per area to be applied to the region.")]
         public Vector Force { get; set; } = new Vector();
 
-        [Description("Closed planar polyline enclosing the region to be loaded")]
+        [Description("Closed planar polyline enclosing the region to be loaded.")]
         public Polyline Contour { get; set; } = null;
 
         /***************************************************/

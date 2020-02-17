@@ -47,17 +47,17 @@ namespace BH.oM.Structure.Results
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public IComparable ResultCase { get; } = "";
 
-        [Description("Time step for time history results")]
+        [Description("Time step for time history results.")]
         public double TimeStep { get; } = 0.0;
 
         public MeshResultLayer MeshResultLayer { get; }
 
-        [Description("Position within the element thickness that result is extracted from, normalised to 1. I.e. 0 = lower surface, 0.5 = middle, 1 = top surface")]
+        [Description("Position within the element thickness that result is extracted from, normalised to 1. I.e. 0 = lower surface, 0.5 = middle, 1 = top surface.")]
         public double LayerPosition { get; }
 
         public MeshResultSmoothingType Smoothing { get; }
 
-        [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials")]
+        [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials.")]
         public Basis Orientation { get; } = Basis.XY;
 
         /***************************************************/
@@ -89,7 +89,7 @@ namespace BH.oM.Structure.Results
         /**** IComparable Interface                     ****/
         /***************************************************/
 
-        [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, MeshFaceId, NodeId, TimeStep")]
+        [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, MeshFaceId, NodeId, TimeStep.")]
         public int CompareTo(IResult other)
         {
             MeshElementResult otherRes = other as MeshElementResult;

@@ -27,7 +27,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Generic orthotropic material to be used for orthotropic materials not yet explicitly supported")]
+    [Description("Generic orthotropic material to be used for orthotropic materials not yet explicitly supported.")]
     public class GenericOrthotropicMaterial : BHoMObject, IOrthotropic
     {
         /***************************************************/
@@ -38,7 +38,7 @@ namespace BH.oM.Structure.MaterialFragments
         public double Density { get; set; }
 
         [Ratio]
-        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%)")]
+        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%).")]
         public double DampingRatio { get; set; }
 
         [YoungsModulus]
@@ -46,15 +46,15 @@ namespace BH.oM.Structure.MaterialFragments
         public Vector YoungsModulus { get; set; }
 
         [Ratio]
-        [Description("Ratio between axial and transverse strain")]
+        [Description("Ratio between axial and transverse strain.")]
         public Vector PoissonsRatio { get; set; }
 
         [TemperThermalExpansionCoefficientature]
-        [Description("The strain induced in the material per unit change of temperature")]
+        [Description("The strain induced in the material per unit change of temperature.")]
         public Vector ThermalExpansionCoeff { get; set; }
 
         [ShearModulus]
-        [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain")]
+        [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain.")]
         public Vector ShearModulus { get; set; }
 
         [MassFraction]

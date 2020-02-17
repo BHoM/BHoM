@@ -27,20 +27,20 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Loads
 {
 
-    [Description("Base load class used by all element type loads, such as Bar, Node and Panel loads")]
+    [Description("Base load class used by all element type loads, such as Bar, Node and Panel loads.")]
     public abstract class Load<T> : BHoMObject, ILoad where T : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The Loadcase in which the load is applied")]
+        [Description("The Loadcase in which the load is applied.")]
         public Loadcase Loadcase { get; set; }
 
         [Description("The group of objects that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
         public BHoMGroup<T> Objects { get; set; } = new BHoMGroup<T>();
 
-        [Description("Defines whether the load is applied in local or global coordinates")]
+        [Description("Defines whether the load is applied in local or global coordinates.")]
         public LoadAxis Axis { get; set; } = LoadAxis.Global;
 
         [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]

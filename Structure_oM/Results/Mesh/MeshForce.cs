@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Gives a full set of shell and membrane forces at a discrete location in the Panel/FEMesh")]
+    [Description("Gives a full set of shell and membrane forces at a discrete location in the Panel/FEMesh.")]
     public class MeshForce : MeshElementResult, IImmutable
     {
         /***************************************************/
@@ -36,35 +36,35 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [ForcePerUnitLength]
-        [Description("Axial/membrane force in x-direction")]
+        [Description("Axial/membrane force in x-direction.")]
         public double NXX { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Axial/membrane force in y-direction")]
+        [Description("Axial/membrane force in y-direction.")]
         public double NYY { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Axial/membrane force in xy-direction")]
+        [Description("Axial/membrane force in xy-direction.")]
         public double NXY { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Bending moment in x-direction")]
+        [Description("Bending moment in x-direction.")]
         public double MXX { get; } = 0.0;
 
         [MomentPerUnitLength]
-        [Description("Bending moment in y-direction")]
+        [Description("Bending moment in y-direction.")]
         public double MYY { get; } = 0.0;
 
         [MomentPerUnitLength]
-        [Description("Bending moment in xy-direction")]
+        [Description("Bending moment in xy-direction.")]
         public double MXY { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Shear force in x-direction")]
+        [Description("Shear force in x-direction.")]
         public double VX { get; } = 0.0;
 
         [ForcePerUnitLength]
-        [Description("Shear force in y-direction")]
+        [Description("Shear force in y-direction.")]
         public double VY { get; } = 0.0;
 
         /***************************************************/

@@ -35,34 +35,34 @@ namespace BH.oM.Structure.SurfaceProperties
         /***************************************************/
 
         [Length]
-        [Description("The thickness of the slab sitting on top of the ribs")]
+        [Description("The thickness of the slab sitting on top of the ribs.")]
         public double Thickness { get; set; }
 
         [Description("Homogenous structural material throughout the full thickness of the element.")]
         public IMaterialFragment Material { get; set; }
 
         [Length]
-        [Description("Total depth measured from the bottom of the ribs in local x-direction to the top of the slab")]
+        [Description("Total depth measured from the bottom of the ribs in local x-direction to the top of the slab.")]
         public double TotalDepthX { get; set; }
 
         [Length]
-        [Description("Total depth meassured from the bottom of the ribs in local y-direction to the top of the slab")]
+        [Description("Total depth meassured from the bottom of the ribs in local y-direction to the top of the slab.")]
         public double TotalDepthY { get; set; }
 
         [Length]
-        [Description("Width of each rib in local x-direction")]
+        [Description("Width of each rib in local x-direction.")]
         public double StemWidthX { get; set; }
 
         [Length]
-        [Description("Width of each rib in local y-direction")]
+        [Description("Width of each rib in local y-direction.")]
         public double StemWidthY { get; set; }
 
         [Length]
-        [Description("Centre-Centre distance between the ribs running in local x-direction")]
+        [Description("Centre-Centre distance between the ribs running in local x-direction.")]
         public double SpacingX { get; set; }
 
         [Length]
-        [Description("Centre-Centre distance between the ribs running in local y-direction")]
+        [Description("Centre-Centre distance between the ribs running in local y-direction.")]
         public double SpacingY { get; set; }
 
         [Description("Defines what type of element this property will be used. Used by some analysis packages.")]
