@@ -36,15 +36,15 @@ namespace BH.oM.Geometry
         public CoordinateSystem.Cartesian CoordinateSystem { get; set; } = new CoordinateSystem.Cartesian();
 
         [Length]
-        [Description("Dimension in the X-axis")]
+        [Description("Dimension in the local x-axis. The Cuboid will have one face at a distance of Length/2 from the centre along the positive local x-axis and, one face at a distance of Length/2 from the centre along the negative local x-axis")]
         public double Length { get; set; } = 0.0;
 
         [Length]
-        [Description("Dimension in the Y-axis")]
+        [Description("Dimension in the local y-axis. The Cuboid will have one face at a distance of Depth/2 from the centre along the positive local y-axis and, one face at a distance of Depth/2 from the centre along the negative local y-axis")]
         public double Depth { get; set; } = 0.0;
 
         [Length]
-        [Description("Dimension in the Z-axis")]
+        [Description("Dimension in the local z-axis. The Cuboid will have one face at a distance of Height/2 from the centre along the positive local z-axis and, one face at a distance of Height/2 from the centre along the negative local z-axis")]
         public double Height { get; set; } = 0.0;
 
 
