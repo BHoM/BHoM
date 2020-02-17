@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Base interface for structural materials used by structural properties or as a fragment of the phsyical material")]
+    [Description("Base interface for structural materials used by structural properties or as a fragment of the phsyical material.")]
     public interface IMaterialFragment : IBHoMFragment, IMaterialProperties
     {
         /***************************************************/
@@ -38,7 +38,7 @@ namespace BH.oM.Structure.MaterialFragments
         double Density { get; set; }
 
         [Ratio]
-        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%)")]
+        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%).")]
         double DampingRatio { get; set; }
 
         [MassFraction]

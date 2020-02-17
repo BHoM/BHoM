@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Base interface for orthotropic structural materials")]
+    [Description("Base interface for orthotropic structural materials.")]
     public interface IOrthotropic : IMaterialFragment
     {
         /***************************************************/
@@ -40,15 +40,15 @@ namespace BH.oM.Structure.MaterialFragments
         Vector YoungsModulus { get; set; }
 
         [Ratio]
-        [Description("Ratio between axial and transverse strain")]
+        [Description("Ratio between axial and transverse strain.")]
         Vector PoissonsRatio { get; set; }
 
         [TemperThermalExpansionCoefficientature]
-        [Description("The strain induced in the material per unit change of temperature")]
+        [Description("The strain induced in the material per unit change of temperature.")]
         Vector ThermalExpansionCoeff { get; set; }
 
         [ShearModulus]
-        [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain")]
+        [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain.")]
         Vector ShearModulus { get; set; }
 
         /***************************************************/

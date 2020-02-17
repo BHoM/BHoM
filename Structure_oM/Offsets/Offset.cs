@@ -35,11 +35,11 @@ namespace BH.oM.Structure.Offsets
         /***************************************************/
 
         [Length]
-        [Description("Defines offset of the StartNode in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis)")]
+        [Description("Defines offset of the StartNode in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis).")]
         public Vector Start { get; set; } = new Vector();
 
         [Length]
-        [Description("Defines offset of the EndNode in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis)")]
+        [Description("Defines offset of the EndNode in local coordinates. This is x - tangential, z- along normal (generally major axis), y - perpendicular to the first two (generally minor axis).")]
         public Vector End { get; set; } = new Vector();
 
         /***************************************************/

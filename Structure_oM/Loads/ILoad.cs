@@ -26,17 +26,17 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Loads
 {
 
-    [Description("Base interface implemented by all load classes")]
+    [Description("Base interface implemented by all load classes.")]
     public interface ILoad : IBHoMObject        
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The Loadcase in which the load is applied")]
+        [Description("The Loadcase in which the load is applied.")]
         Loadcase Loadcase { get; set; }
 
-        [Description("Defines whether the load is applied in local or global coordinates")]
+        [Description("Defines whether the load is applied in local or global coordinates.")]
         LoadAxis Axis { get; set; }
 
         [Description("If true the load is projected along to the element. This means that the load will be reduced when its direction is at an angle to the element.")]

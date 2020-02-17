@@ -27,7 +27,7 @@ using System;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Base class for all Node result classes. Stores all identifier information and how to sort the results in a collection")]
+    [Description("Base class for all Node result classes. Stores all identifier information and how to sort the results in a collection.")]
     public abstract class NodeResult :  IResult
     {
         /***************************************************/
@@ -40,17 +40,17 @@ namespace BH.oM.Structure.Results
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public IComparable ResultCase { get; set; } = "";
 
-        [Description("Time step for time history results")]
+        [Description("Time step for time history results.")]
         public double TimeStep { get; set; } = 0.0;
 
-        [Description("Defines the directionality of the results. Defaults to global XYZ")]
+        [Description("Defines the directionality of the results. Defaults to global XYZ.")]
         public Basis Orientation { get; set; } = Basis.XY;
 
         /***************************************************/
         /**** IComparable Interface                     ****/
         /***************************************************/
 
-        [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, TimeStep")]
+        [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, TimeStep.")]
         public int CompareTo(IResult other)
         {
             NodeResult otherRes = other as NodeResult;

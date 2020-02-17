@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Generic isotropic material to be used for isotropic materials not yet explicitly supported")]
+    [Description("Generic isotropic material to be used for isotropic materials not yet explicitly supported.")]
     public class GenericIsotropicMaterial : BHoMObject, IIsotropic
     {
         /***************************************************/
@@ -37,15 +37,15 @@ namespace BH.oM.Structure.MaterialFragments
         public double Density { get; set; }
 
         [Ratio]
-        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%)")]
+        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%).")]
         public double DampingRatio { get; set; }
 
         [Ratio]
-        [Description("Ratio between axial and transverse strain. Used together with YoungsModulus to derive the ShearModulus for isotropic materials")]
+        [Description("Ratio between axial and transverse strain. Used together with YoungsModulus to derive the ShearModulus for isotropic materials.")]
         public double PoissonsRatio { get; set; }
 
         [TemperThermalExpansionCoefficientature]
-        [Description("The strain induced in the material per unit change of temperature")]
+        [Description("The strain induced in the material per unit change of temperature.")]
         public double ThermalExpansionCoeff { get; set; }
 
         [YoungsModulus]

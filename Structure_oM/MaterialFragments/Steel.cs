@@ -27,7 +27,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Structural steel material to be used on structural elements and properties or as a fragment of the physical material")]
+    [Description("Structural steel material to be used on structural elements and properties or as a fragment of the physical material.")]
     public class Steel : BHoMObject, IIsotropic
     {
         /***************************************************/
@@ -38,15 +38,15 @@ namespace BH.oM.Structure.MaterialFragments
         public double Density { get; set; }
 
         [Ratio]
-        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%)")]
+        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%).")]
         public double DampingRatio { get; set; }
 
         [Ratio]
-        [Description("Ratio between axial and transverse strain. Used together with YoungsModulus to derive the ShearModulus for isotropic materials")]
+        [Description("Ratio between axial and transverse strain. Used together with YoungsModulus to derive the ShearModulus for isotropic materials.")]
         public double PoissonsRatio { get; set; }
 
         [TemperThermalExpansionCoefficientature]
-        [Description("The strain induced in the material per unit change of temperature")]
+        [Description("The strain induced in the material per unit change of temperature.")]
         public double ThermalExpansionCoeff { get; set; }
 
         [YoungsModulus]
@@ -58,11 +58,11 @@ namespace BH.oM.Structure.MaterialFragments
         public double EmbodiedCarbon { get; set; }
 
         [Stress]
-        [Description("The stress required for the material to yield")]
+        [Description("The stress required for the material to yield.")]
         public double YieldStress { get; set; }
 
         [Stress]
-        [Description("The stress required for the material to fail")]
+        [Description("The stress required for the material to fail.")]
         public double UltimateStress { get; set; }
 
 

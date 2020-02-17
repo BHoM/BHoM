@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.Constraints
 {
 
-    [Description("Constraint objects with six degrees of freedom, three translational and three rotational, used for supports and bar end releases")]
+    [Description("Constraint objects with six degrees of freedom, three translational and three rotational, used for supports and bar end releases.")]
     public class Constraint6DOF : BHoMObject
     {
         /***************************************************/
@@ -58,22 +58,22 @@ namespace BH.oM.Structure.Constraints
         [Description("Defines the stiffness for rotation about the Z-axis. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public double RotationalStiffnessZ { get; set; } = 0;
 
-        [Description("Defines the translational fixity in the X-direction")]
+        [Description("Defines the translational fixity in the X-direction.")]
         public DOFType TranslationX { get; set; } = DOFType.Free;
 
-        [Description("Defines the translational fixity in the Y-direction")]
+        [Description("Defines the translational fixity in the Y-direction.")]
         public DOFType TranslationY { get; set; } = DOFType.Free;
 
-        [Description("Defines the translational fixity in the Z-direction")]
+        [Description("Defines the translational fixity in the Z-direction.")]
         public DOFType TranslationZ { get; set; } = DOFType.Free;
 
-        [Description("Defines the rotational fixity about the X-axis")]
+        [Description("Defines the rotational fixity about the X-axis.")]
         public DOFType RotationX { get; set; } = DOFType.Free;
 
-        [Description("Defines the rotational fixity about the Y-axis")]
+        [Description("Defines the rotational fixity about the Y-axis.")]
         public DOFType RotationY { get; set; } = DOFType.Free;
 
-        [Description("Defines the rotational fixity about the Z-axis")]
+        [Description("Defines the rotational fixity about the Z-axis.")]
         public DOFType RotationZ { get; set; } = DOFType.Free;
 
 

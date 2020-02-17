@@ -34,7 +34,7 @@ namespace BH.oM.Structure.Loads
 
         public LoadNature Nature { get; set; } = LoadNature.Other;
 
-        [Description("Unique numeric identifier of the Loadcase")]
+        [Description("Unique numeric identifier of the Loadcase.")]
         public int Number { get; set; } = 0;
 
         /***************************************************/

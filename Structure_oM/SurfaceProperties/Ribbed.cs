@@ -35,21 +35,21 @@ namespace BH.oM.Structure.SurfaceProperties
         /***************************************************/
 
         [Length]
-        [Description("The thickness of the slab sitting on top of the ribs")]
+        [Description("The thickness of the slab sitting on top of the ribs.")]
         public double Thickness { get; set; }
 
         [Description("Homogenous structural material throughout the full thickness of the element.")]
         public IMaterialFragment Material { get; set; }
 
-        [Description("Specifies if the ribs are running in local x or y direction")]
+        [Description("Specifies if the ribs are running in local x or y direction.")]
         public PanelDirection Direction { get; set; } = PanelDirection.X;
 
         [Length]
-        [Description("Total depth measured from the bottom of the ribs to the top of the slab")]
+        [Description("Total depth measured from the bottom of the ribs to the top of the slab.")]
         public double TotalDepth { get; set; }
 
         [Length]
-        [Description("Width of each rib")]
+        [Description("Width of each rib.")]
         public double StemWidth { get; set; }
 
         [Length]
