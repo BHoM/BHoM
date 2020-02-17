@@ -33,9 +33,40 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Strain]
-        public double Axial { get; set; }
+        [Description("Axial strain induced by force along the Bar axis. Positive for tension, negative for compression.")]
+        public double Axial { get; set; } = 0.0;
 
-        //TODO: Complete class with additional strains
+        [Strain]
+        [Description("Shear strain along the local y-axis. Generally minor axis shear strain.")]
+        public double ShearY { get; set; } = 0.0;
+
+        [Strain]
+        [Description("Shear strain along the local z-axis. Generally major axis shear strain.")]
+        public double ShearZ { get; set; } = 0.0;
+
+        [Strain]
+        [Description("Strain induced by bending about the local y-axis at the 'uppermost' extreme fiber. Generally the major axis bending strains in one of the extreme fibers.")]
+        public double BendingY_Top { get; set; } = 0.0;
+
+        [Strain]
+        [Description("Strain induced by bending about the local y-axis at the 'lowermost' extreme fiber. Generally the major axis bending strains in one of the extreme fibers.")]
+        public double BendingY_Bot { get; set; } = 0.0;
+
+        [Strain]
+        [Description("Strain induced by bending about the local z-axis at the 'uppermost' extreme fiber. Generally the minor axis bending strains in one of the extreme fibers.")]
+        public double BendingZ_Top { get; set; } = 0.0;
+
+        [Strain]
+        [Description("Strain induced by bending about the local z-axis at the 'lowermost' extreme fiber. Generally the minor axis bending strains in one of the extreme fibers.")]
+        public double BendingZ_Bot { get; set; } = 0.0;
+
+        [Strain]
+        [Description("Worst case tensile axial strain from combined axial and bending in two directions.")]
+        public double CombAxialBendingPos { get; set; } = 0.0;
+
+        [Strain]
+        [Description("Worst case compressive axial strain from combined axial and bending in two directions.")]
+        public double CombAxialBendingNeg { get; set; } = 0.0;
 
         /***************************************************/
     }
