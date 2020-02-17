@@ -32,13 +32,13 @@ namespace BH.oM.Geometry.CoordinateSystem
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Unit vector defining X coordinate axis")]
+        [Description("Unit vector defining local x coordinate axis")]
         public Vector X { get; } = Vector.XAxis;
 
-        [Description("Unit vector defining Y coordinate axis")]
+        [Description("Unit vector defining local y coordinate axis")]
         public Vector Y { get; } = Vector.YAxis;
 
-        [Description("Unit vector defining Z coordinate axis")]
+        [Description("Unit vector defining local z coordinate axis")]
         public Vector Z { get; } = Vector.ZAxis;
 
         [Description("Location point in three-dimensional space defining (0,0,0) and the origin for each axis")]

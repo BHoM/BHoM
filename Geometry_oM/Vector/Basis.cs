@@ -32,13 +32,13 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The X coordinate axis")]
+        [Description("The local x coordinate axis")]
         public Vector X { get; } = Vector.XAxis;
 
-        [Description("The Y coordinate axis")]
+        [Description("The local y coordinate axis")]
         public Vector Y { get; } = Vector.YAxis;
 
-        [Description("The Z coordinate axis")]
+        [Description("The local z coordinate axis")]
         public Vector Z { get; } = Vector.ZAxis;
 
         /***************************************************/
