@@ -26,7 +26,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Uniform temprature load for Bars.")]
+    [Description("Uniform temperature load for Bars.")]
     public class BarTemperatureLoad : Load<Bar>
     {
         /***************************************************/
