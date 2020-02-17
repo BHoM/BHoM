@@ -33,7 +33,7 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Force]
-        [Description("Axial/Normal force of the bar. Positive for tension, negative for compression.")]
+        [Description("Axial force along the local x-axis. Positive for tension, negative for compression.")]
         public double FX { get; set; } = 0.0;
 
         [Force]
