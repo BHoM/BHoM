@@ -46,7 +46,7 @@ namespace BH.oM.Structure.MaterialFragments
         public double PoissonsRatio { get; set; }
 
         [TemperThermalExpansionCoefficientature]
-        [Description("The strain induced in the material per unit change of temprature")]
+        [Description("The strain induced in the material per unit change of temperature")]
         public double ThermalExpansionCoeff { get; set; }
 
         [YoungsModulus]

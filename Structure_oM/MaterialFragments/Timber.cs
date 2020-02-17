@@ -50,7 +50,7 @@ namespace BH.oM.Structure.MaterialFragments
         public Vector PoissonsRatio { get; set; }
 
         [TemperThermalExpansionCoefficientature]
-        [Description("The strain induced in the material per unit change of temprature")]
+        [Description("The strain induced in the material per unit change of temperature")]
         public Vector ThermalExpansionCoeff { get; set; }
 
         [ShearModulus]
