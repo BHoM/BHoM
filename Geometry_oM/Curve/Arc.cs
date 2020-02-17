@@ -26,7 +26,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
-    [Description("A plane curve. Arc starting from the local X, rotating Angle number of radians counter clockwise")]
+    [Description("A plane curve. A circular Arc, a curve, with a constant distance for a point, its centre, defined it the local angular domain between start and end angle.")]
     public class Arc : ICurve
     {
         /***************************************************/
@@ -41,11 +41,11 @@ namespace BH.oM.Geometry
         public double Radius { get; set; } = 0;
 
         [Angle]
-        [Description("Angle in radians to the start point from the local X-axis, counter clowise around the local Z-axis")]
+        [Description("Angle in radians to the start point from the local x-axis, counter clowise around the local z-axis")]
         public double StartAngle { get; set; } = 0;
 
         [Angle]
-        [Description("Angle in radians to the end point from the local X-axis, counter clowise around the local Z-axis")]
+        [Description("Angle in radians to the end point from the local x-axis, counter clowise around the local z-axis")]
         public double EndAngle { get; set; } = 0;
 
         /***************************************************/
