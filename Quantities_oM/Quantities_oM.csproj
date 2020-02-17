@@ -59,6 +59,8 @@
     <Compile Include="Attributes\LuminousIntensity.cs" />
     <Compile Include="Attributes\Mass.cs" />
     <Compile Include="Attributes\MassFraction.cs" />
+    <Compile Include="Attributes\MassPerUnitArea.cs" />
+    <Compile Include="Attributes\MassPerUnitLength.cs" />
     <Compile Include="Attributes\Moment.cs" />
     <Compile Include="Attributes\MomentPerUnitLength.cs" />
     <Compile Include="Attributes\Pressure.cs" />
