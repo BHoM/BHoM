@@ -33,7 +33,7 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Stress]
-        [Description("Axial stress along the local x-axis. Positive for tension, negative for compression.")]
+        [Description("Axial stress induced by an axial force along the Bar axis. Positive for tension, negative for compression.")]
         public double Axial { get; set; } = 0.0;
 
         [Stress]
