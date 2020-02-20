@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dimensional_oM, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Build\Dimensional_oM.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -188,6 +184,10 @@
     <ProjectReference Include="..\Data_oM\Data_oM.csproj">
       <Project>{239c5f01-f82e-4cce-8598-5134b7756247}</Project>
       <Name>Data_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
+      <Project>{17141a37-4853-4558-af36-134a580bf42b}</Project>
+      <Name>Dimensional_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5B09A2E5-CBF5-43E2-8D98-B5035391DB7B}</Project>
