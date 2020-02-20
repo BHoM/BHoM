@@ -61,11 +61,11 @@ namespace BH.oM.Structure.Results
         public double BendingZ_Bot { get; set; } = 0.0;
 
         [Strain]
-        [Description("Worst case tensile axial strain from combined axial and bending in two directions.")]
+        [Description("Worst case elongation (axial strain) from combined axial and bending in two directions.")]
         public double CombAxialBendingPos { get; set; } = 0.0;
 
         [Strain]
-        [Description("Worst case compressive axial strain from combined axial and bending in two directions.")]
+        [Description("Worst case contraction (axial strain) from combined axial and bending in two directions.")]
         public double CombAxialBendingNeg { get; set; } = 0.0;
 
         /***************************************************/
