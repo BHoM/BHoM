@@ -33,7 +33,7 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Strain]
-        [Description("Axial strain induced by an axial force along the Bar axis. Positive for tension, negative for compression.")]
+        [Description("Axial strain induced by an axial force along the Bar axis. Positive for elongation, negative for contraction.")]
         public double Axial { get; set; } = 0.0;
 
         [Strain]
