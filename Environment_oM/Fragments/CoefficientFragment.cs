@@ -33,7 +33,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the coefficient property")]
-    public class CoefficientFragment : IBHoMFragment
+    public class CoefficientFragment : IFragment
     {
        [Description("The lighting view coefficient")]
         public double LightingViewCoefficient { get; set; } = 0.49;

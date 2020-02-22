@@ -33,7 +33,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the result properties related to buildings")]
-    public class BuildingResultFragment : IBHoMFragment
+    public class BuildingResultFragment : IFragment
     {
         [Description("The peak cooling result for the building")]
         public double PeakCooling { get; set; } = 0;

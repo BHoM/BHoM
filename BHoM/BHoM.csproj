@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="CustomObject.cs" />
     <Compile Include="FragmentSet.cs" />
-    <Compile Include="Interface\IBHoMFragment.cs" />
+    <Compile Include="Interface\IFragment.cs" />
     <Compile Include="Interface\IBHoMGroup.cs" />
     <Compile Include="Interface\IObject.cs" />
     <Compile Include="Interface\IImmutable.cs" />

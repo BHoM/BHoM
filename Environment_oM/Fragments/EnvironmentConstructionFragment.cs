@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the environment construction property")]
-    public class EnvironmentConstructionFragment : IBHoMFragment
+    public class EnvironmentConstructionFragment : IFragment
     {
         [Description("The FFactor for the construction")]
         public double FFactor { get; set; } = 0.0;

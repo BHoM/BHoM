@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.MEP.Fragments
 {
-    public class IdentityFragment : IBHoMFragment
+    public class IdentityFragment : IFragment
     {
         public string Manufacturer { get; set; } = "";
         public string ModelNumber { get; set; } = "";

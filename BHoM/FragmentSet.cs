@@ -27,7 +27,7 @@ using System.Linq;
 
 namespace BH.oM.Base
 {
-    public class FragmentSet : KeyedCollection<Type, IBHoMFragment>, IObject
+    public class FragmentSet : KeyedCollection<Type, IFragment>, IObject
     {
         public FragmentSet()
         {
@@ -38,7 +38,7 @@ namespace BH.oM.Base
             fragmentSet.Dictionary.Values.ToList().ForEach(v => this.Add(v));
         }
 
-        public bool AddOrReplace(IBHoMFragment fragment) // Slower than Add() or SetItem(), but easier to use.
+        public bool AddOrReplace(IFragment fragment) // Slower than Add() or SetItem(), but easier to use.
         {
             int? idx = this.Dictionary?.Keys.ToList().IndexOf(fragment.GetType());
 
@@ -49,7 +49,7 @@ namespace BH.oM.Base
             return true;
         }
 
-        protected override Type GetKeyForItem(IBHoMFragment item)
+        protected override Type GetKeyForItem(IFragment item)
         {
             return item.GetType();
         }

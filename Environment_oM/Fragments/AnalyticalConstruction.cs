@@ -33,7 +33,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class AnalyticalConstruction : IBHoMFragment, IImmutable
+    public class AnalyticalConstruction : IFragment, IImmutable
     {
         public double ConstructionThickness { get; } 
         public double ExternalEmissivity { get; }

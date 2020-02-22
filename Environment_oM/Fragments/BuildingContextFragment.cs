@@ -33,7 +33,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the context properties related to buildings")]
-    public class BuildingContextFragment : IBHoMFragment
+    public class BuildingContextFragment : IFragment
     {
         [Description("The name of the place the building occupies")]
         public string PlaceName { get; set; } = "";

@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class HashFragment : IBHoMFragment
+    public class HashFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/

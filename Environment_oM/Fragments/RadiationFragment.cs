@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the radiation property, can be added to any Environment object")]
-    public class RadiationFragment : IBHoMFragment
+    public class RadiationFragment : IFragment
     {
         [Description("The lighting radiation")]
         public double LightingRadiation { get; set; } = 0.3;
