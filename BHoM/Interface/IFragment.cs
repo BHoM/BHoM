@@ -22,7 +22,7 @@
 
 namespace BH.oM.Base
 {
-    public interface IBHoMFragment : IObject
+    public interface IFragment : IObject
     {
 
     }

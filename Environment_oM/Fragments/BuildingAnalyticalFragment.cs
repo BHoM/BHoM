@@ -33,7 +33,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the analytical properties related to buildings")]
-    public class BuildingAnalyticalFragment : IBHoMFragment
+    public class BuildingAnalyticalFragment : IFragment
     {
         [Description("The angle to north for the building fragment")]
         public double NorthAngle { get; set; } = 0;

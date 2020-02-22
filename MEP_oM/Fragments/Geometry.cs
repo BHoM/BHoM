@@ -32,7 +32,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.MEP.Fragments
 {
-    public class GeometryFragment : IBHoMFragment
+    public class GeometryFragment : IFragment
     {
         public IGeometry Geometry { get; set; } = null;
     }

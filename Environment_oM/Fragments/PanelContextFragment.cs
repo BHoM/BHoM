@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the panel context property related to panels")]
-    public class PanelContextFragment : IBHoMFragment
+    public class PanelContextFragment : IFragment
     {
         [Description("Defines whether the panel is an air panel")]
         public bool IsAir { get; set; } = false;

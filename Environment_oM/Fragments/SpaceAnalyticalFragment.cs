@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the space analytical property related to spaces")]
-    public class SpaceAnalyticalFragment : IBHoMFragment
+    public class SpaceAnalyticalFragment : IFragment
     {
         [Description("The amount of internal domestic hot water supply for the space")]
         public double InternalDomesticHotWater { get; set; } = 0;

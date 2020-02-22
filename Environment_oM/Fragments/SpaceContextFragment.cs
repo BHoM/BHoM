@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the space context property related to spaces")]
-    public class SpaceContextFragment : IBHoMFragment
+    public class SpaceContextFragment : IFragment
     {
         [Description("Defines wheather the space is externally facing")]
         public bool IsExternal { get; set; } = false;

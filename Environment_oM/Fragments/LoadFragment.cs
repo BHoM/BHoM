@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.Fragments
 {
-    public class LoadFragment : IBHoMFragment
+    public class LoadFragment : IFragment
     {
         public double HeatingLoad { get; set; } = 0.0;
         public double CoolingLoad { get; set; } = 0.0;

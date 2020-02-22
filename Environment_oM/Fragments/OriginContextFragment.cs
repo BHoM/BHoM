@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Fragments
 {
     [Description("Fragment containing the origin context property related to buildings")]
-    public class OriginContextFragment : IBHoMFragment
+    public class OriginContextFragment : IFragment
     {
         [Description("The origin of the object this fragment will be added to")]
         public string Origin { get; set; } = "";
