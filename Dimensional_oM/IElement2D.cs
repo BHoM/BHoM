@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Dimensional
 {
-    [Description("A Interface which exposes spatial operations to a edge curve based Element. /n" +
+    [Description("A Interface which exposes spatial operations to a edge curve based 2-dimensional Element. /n" +
                  "The interface expects the outline to be constructed of IElement1D elements and allows for internal IElement2D elements." +
                  "The Interface's methods will expose the object to spatial operations, which can be applyed without modifying the objects other properties." +
                  "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the objects other properties.")]
