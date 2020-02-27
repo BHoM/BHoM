@@ -31,26 +31,19 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    [Description("Class defined as per AECDeltas specification https://github.com/aecdeltas/aec-deltas-spec/wiki/Delta-Container-Specification#payload")]
-    public class Delta : IObject, IImmutable
+    public class Diff : IObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public string StreamId { get; } 
 
-        public string Revision_from { get; }
-        public string Revision_to { get; }
+        public List<IBHoMObject> NewObjects { get; }
 
-        public long Timestamp { get; }
-        public string Author { get; }
-        public string Comment { get; }
+        public List<IBHoMObject> OldObjects { get; }
 
-        public Diff Diff { get; }
+        public List<IBHoMObject> ModifiedObjects { get; }
 
-        [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
-        public DiffConfig StreamDiffConfig { get; } = new DiffConfig();
-
+        public List<IBHoMObject> UnchangedObjects { get; }
 
         [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB.")]
         public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
@@ -61,20 +54,18 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        public Delta(Diff diff, DiffConfig streamDiffConfig = null, string streamId = null, string revision_from = null, string revision_to = null, string comment = null)
+        [Description("Creates new Delta object with information on the new, old or modified object, and (if exists) the Diffing Stream that contains them.")]
+        [Input("newObjects", "Objects existing exclusively in the 'primary' set, i.e. the 'new' objects.")]
+        [Input("oldObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
+        [Input("modifiedObjects", "Objects existing in both sets that have some differences in their properties.")]
+        [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
+        public Diff(List<IBHoMObject> newObjects, List<IBHoMObject> oldObjects, List<IBHoMObject> modifiedObjects, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, List<IBHoMObject> unchangedObjects = null)
         {
-            Diff = diff;
-
-            StreamId = string.IsNullOrWhiteSpace(streamId) ? Guid.NewGuid().ToString("N") : StreamId;
-            Revision_from = revision_from;
-            Revision_to = revision_to;
-
-            Comment = comment;
-
-            Timestamp = DateTime.UtcNow.Ticks;
-            Author = Environment.UserDomainName + "/" + Environment.UserName;
-
-            StreamDiffConfig = streamDiffConfig;
+            NewObjects = newObjects;
+            OldObjects = oldObjects;
+            ModifiedObjects = modifiedObjects;
+            ModifiedPropsPerObject = modifiedPropsPerObject;
+            UnchangedObjects = unchangedObjects;
         }
 
         /***************************************************/
