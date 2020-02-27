@@ -31,21 +31,21 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class Stream : BHoMObject, IImmutable
+    public class Revision : BHoMObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public string StreamId { get; } // Generally a GUID
-        public string Revision { get; } // Perhaps this can become just a "revisionName" or "comment", like Github's Summary. After all, Revision can be given by Timestam+Author info
+        public string StreamId { get; }
+        public string RevisionId { get; }
         public long Timestamp { get; }
         public string Author { get; }
         public string Comment { get; }
         public IEnumerable<IBHoMObject> Objects { get; }
 
-        [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
-        public DiffConfig StreamDiffConfig { get; } = new DiffConfig();
+        [Description("Default diffing settings for this Stream Revision. Hashes of objects contained in this stream will be computed based on these configs.")]
+        public DiffConfig RevisionDiffConfing { get; } = new DiffConfig();
 
 
         /***************************************************/
@@ -54,24 +54,24 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        [Description("Creates new Diffing Stream")]
+        [Description("Creates new Stream Revision.")]
         [Input("objects", "Objects to be included in the Stream")]
         [Input("streamDiffConfig", "Default diffing settings for this Stream.")]
         [Input("streamId", "If not specified, streamId will be a GUID.Revision is initally 0")]
         [Input("revision", "If not specified, revision is initially set to 0")]
         [Input("comment", "Any comment to be added for this stream.")]
-        public Stream(IEnumerable<IBHoMObject> objects, DiffConfig streamDiffConfig = null, string streamId = null, string revision = null, string comment = null)
+        public Revision(IEnumerable<IBHoMObject> objects, DiffConfig streamDiffConfig = null, string streamId = null, string revisionId = null, string comment = null)
         {
             Objects = objects;
 
             StreamId = string.IsNullOrWhiteSpace(streamId) ? Guid.NewGuid().ToString("N") : StreamId;
-            Revision = revision;
+            RevisionId = revisionId;
             Comment = comment;
 
             Timestamp = DateTime.UtcNow.Ticks;
             Author = Environment.UserDomainName + "/" + Environment.UserName;
 
-            StreamDiffConfig = streamDiffConfig;
+            RevisionDiffConfing = streamDiffConfig;
         }
 
         /***************************************************/

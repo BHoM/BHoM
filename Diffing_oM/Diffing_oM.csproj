@@ -42,9 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Delta.cs" />
+    <Compile Include="Diff.cs" />
     <Compile Include="HashFragment.cs" />
     <Compile Include="DiffConfig.cs" />
-    <Compile Include="Stream.cs" />
+    <Compile Include="Revision.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
