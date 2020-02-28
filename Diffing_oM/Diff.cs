@@ -31,6 +31,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
+    [Description("Represent the differences between two sets of objects identified through hashing.")]
     public class Diff : IObject, IImmutable
     {
         /***************************************************/
@@ -48,6 +49,9 @@ namespace BH.oM.Diffing
         [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB.")]
         public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
 
+        [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
+        public DiffConfig DiffConfig { get; }
+
         /***************************************************/
 
         /***************************************************/
@@ -59,11 +63,12 @@ namespace BH.oM.Diffing
         [Input("oldObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
         [Input("modifiedObjects", "Objects existing in both sets that have some differences in their properties.")]
         [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
-        public Diff(List<IBHoMObject> newObjects, List<IBHoMObject> oldObjects, List<IBHoMObject> modifiedObjects, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, List<IBHoMObject> unchangedObjects = null)
+        public Diff(List<IBHoMObject> newObjects, List<IBHoMObject> oldObjects, List<IBHoMObject> modifiedObjects, DiffConfig diffConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, List<IBHoMObject> unchangedObjects = null)
         {
             NewObjects = newObjects;
             OldObjects = oldObjects;
             ModifiedObjects = modifiedObjects;
+            DiffConfig = diffConfig;
             ModifiedPropsPerObject = modifiedPropsPerObject;
             UnchangedObjects = unchangedObjects;
         }

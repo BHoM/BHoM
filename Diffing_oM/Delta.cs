@@ -31,53 +31,51 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    [Description("Class defined as per AECDeltas specification https://github.com/aecdeltas/aec-deltas-spec/wiki/Delta-Container-Specification#payload")]
+    [Description("Contains the Diff plus context information: parent Stream, Timestamp, etc.")]
     public class Delta : IObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public string StreamId { get; } 
+        [Description("Id of the Stream owning both the Revision that this Delta targets and the Revision that it will produce.")]
+        public string StreamId { get; }
 
-        public string Revision_from { get; }
-        public string Revision_to { get; }
-
-        public long Timestamp { get; }
-        public string Author { get; }
-        public string Comment { get; }
-
+        [Description("Represent the differences between two sets of objects.")]
         public Diff Diff { get; }
 
-        [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
-        public DiffConfig StreamDiffConfig { get; } = new DiffConfig();
+        [Description("Revision Id that this Delta targets.")]
+        public string Revision_from { get; }
 
+        [Description("Revision Id that this Delta produces.")]
+        public string Revision_to { get; }
 
-        [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB.")]
-        public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
+        [Description("In UTC ticks.")]
+        public long Timestamp { get; }
 
-        /***************************************************/
+        [Description("Any descriptive string identifying either the Author and/or the software used.")]
+        public string Author { get; }
+
+        public string Comment { get; }
 
         /***************************************************/
         /**** Constructor                               ****/
         /***************************************************/
 
-        public Delta(Diff diff, DiffConfig streamDiffConfig = null, string streamId = null, string revision_from = null, string revision_to = null, string comment = null)
+        public Delta(string streamId, Diff diff, string revision_from, string revision_to = null, long timestamp = default(long), string author = null, string comment = null)
         {
+            StreamId = string.IsNullOrWhiteSpace(streamId) ? Guid.NewGuid().ToString("N") : StreamId;
+
             Diff = diff;
 
-            StreamId = string.IsNullOrWhiteSpace(streamId) ? Guid.NewGuid().ToString("N") : StreamId;
             Revision_from = revision_from;
             Revision_to = revision_to;
 
             Comment = comment;
 
-            Timestamp = DateTime.UtcNow.Ticks;
+            Timestamp = timestamp == default(long) ? DateTime.UtcNow.Ticks : timestamp;
             Author = Environment.UserDomainName + "/" + Environment.UserName;
-
-            StreamDiffConfig = streamDiffConfig;
         }
 
-        /***************************************************/
     }
 }
 

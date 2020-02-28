@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Payload\DeltaPayload.cs" />
     <Compile Include="Delta.cs" />
     <Compile Include="Diff.cs" />
     <Compile Include="HashFragment.cs" />
