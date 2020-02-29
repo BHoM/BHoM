@@ -32,29 +32,29 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An analytical Opening data object")]
+    [Description("An analytical Opening object (e.g. Window, Door, Hole etc.).")]
     public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of environment Edge objects which define the external boundary of the opening")]
+        [Description("A collection of environment Edge objects which define the external boundary of the opening.")]
         public List<Edge> Edges { get; set; } = new List<Edge>();
 
-        [Description("A construction object providing construction information about the frame of the opening")]
+        [Description("A construction object providing information about the construction of the opening frame.")]
         public IConstruction FrameConstruction { get; set; } = new Construction();
 
-        [Description("The procentage of the opening that is frame")]
+        [Description("The fraction of the total opening area that is frame.")]
         public double FrameFactorValue { get; set; } = 0;
 
-        [Description("A collection of environment Edge objects which define the internal boundary of the opening")]
+        [Description("A collection of environment Edge objects which define the internal boundary of the opening.")]
         public List<Edge> InnerEdges { get; set; } = new List<Edge>();
 
-        [Description("A construction object providing construction information about the opening - typically gazing construction")]
+        [Description("A construction object providing information about the construction of the opening panel.")]
         public IConstruction OpeningConstruction { get; set; } = new Construction();
 
-        [Description("The type of opening from Opening Type enum")]
+        [Description("The type of opening (e.g. Window, Door, Hole etc.).")]
         public OpeningType Type { get; set; } = OpeningType.Undefined;
 
         /***************************************************/
