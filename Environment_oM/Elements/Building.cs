@@ -45,7 +45,7 @@ namespace BH.oM.Environment.Elements
         [Description("The elevation of the building.")]
         public double Elevation { get; set; } = 0.0;
 
-        [Description("The type of building from the BuildingType enum.")]
+        [Description("The primary use type of the building.")]
         public BuildingType Type { get; set; } = BuildingType.Undefined;
     }
 }
