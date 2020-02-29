@@ -33,7 +33,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An analytical Building data object.")]
+    [Description("An analytical Building object.")]
     public class Building : BHoMObject, IEnvironmentObject
     {
         [Description("The latitude of the building location.")]
@@ -45,7 +45,7 @@ namespace BH.oM.Environment.Elements
         [Description("The elevation of the building.")]
         public double Elevation { get; set; } = 0.0;
 
-        [Description("The primary use type of the building.")]
+        [Description("The primary use type of the building (e.g. Residential, Education, Office etc.).")]
         public BuildingType Type { get; set; } = BuildingType.Undefined;
     }
 }
