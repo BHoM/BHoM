@@ -37,13 +37,13 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An Environment Panel Analytical Object")]
+    [Description("An analytical Panel object (e.g. Wall, Roof, Floor etc.).")]
     public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D
     {
-        [Description("A collection of Environmend Edge objects which defines the external boundary of the panel")]
+        [Description("A collection of Environment Edge objects which define the external boundary of the panel")]
         public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
 
-        [Description("A collection of Environment Opening objects")]
+        [Description("A collection of Environment Opening objects associated with the panel")]
         public List<Opening> Openings { get; set; } = new List<Opening>();
 
         [Description("A construction object providing layer and material information for the panel")]
