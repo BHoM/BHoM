@@ -36,19 +36,19 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An environment Space data object")]
+    [Description("An analytical Space object.")]
     public class Space : BHoMObject, IEnvironmentObject
     {
-        [Description("A collection of zone names the space is to be included in")]
+        [Description("A collection of zone names the Space is to be included in.")]
         public List<string> Zones { get; set; } = new List<string>();
 
-        [Description("A collection of gains to be applied to the space")]
+        [Description("A collection of internal gains to be applied to the Space.")]
         public List<IGain> Gains { get; set; } = new List<IGain>();
 
-        [Description("The type of space from the Space Type enum")]
+        [Description("The primary use type of the Space (e.g. Office, Bedroom, WC etc.).")]
         public SpaceType Type { get; set; } = SpaceType.Undefined;
 
-        [Description("A point in 3D space providing a basic location point of the space")]
+        [Description("A point in 3D space providing a basic location point of the Space.")]
         public Point Location { get; set; } = new Point();
     }
 }
