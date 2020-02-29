@@ -39,22 +39,22 @@ namespace BH.oM.Environment.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of environment Edge objects which define the external boundary of the opening.")]
+        [Description("A collection of Environment Edge objects which define the external boundary of the Opening.")]
         public List<Edge> Edges { get; set; } = new List<Edge>();
 
-        [Description("A construction object providing information about the construction of the opening frame.")]
+        [Description("A construction object providing information about the layers and materials that make up the Opening frame.")]
         public IConstruction FrameConstruction { get; set; } = new Construction();
 
-        [Description("The fraction of the total opening area that is frame.")]
+        [Description("The fraction of the total Opening area that is frame.")]
         public double FrameFactorValue { get; set; } = 0;
 
-        [Description("A collection of environment Edge objects which define the internal boundary of the opening.")]
+        [Description("A collection of Environment Edge objects which define the internal boundary of the Opening.")]
         public List<Edge> InnerEdges { get; set; } = new List<Edge>();
 
-        [Description("A construction object providing information about the construction of the opening panel.")]
+        [Description("A construction object providing information about the layers and materials that make up the Opening pane.")]
         public IConstruction OpeningConstruction { get; set; } = new Construction();
 
-        [Description("The type of opening (e.g. Window, Door, Hole etc.).")]
+        [Description("The type of Opening (e.g. Window, Door, Hole etc.).")]
         public OpeningType Type { get; set; } = OpeningType.Undefined;
 
         /***************************************************/
