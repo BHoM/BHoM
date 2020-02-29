@@ -40,19 +40,19 @@ namespace BH.oM.Environment.Elements
     [Description("An analytical Panel object (e.g. Wall, Roof, Floor etc.).")]
     public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D
     {
-        [Description("A collection of Environment Edge objects which define the external boundary of the panel")]
+        [Description("A collection of Environment Edge objects which define the external boundary of the Panel.")]
         public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
 
-        [Description("A collection of Environment Opening objects associated with the panel")]
+        [Description("A collection of Environment Opening objects associated with the Panel.")]
         public List<Opening> Openings { get; set; } = new List<Opening>();
 
-        [Description("A construction object providing layer and material information for the panel")]
+        [Description("A construction object providing information about the layers and materials that make up the Panel.")]
         public IConstruction Construction { get; set; } = new Construction();
 
-        [Description("The type of panel from the Panel Type enum")]
+        [Description("The type of Panel (e.g. Wall, Floor, Roof etc.).")]
         public PanelType Type { get; set; } = PanelType.Undefined;
 
-        [Description("A collection of the spaces the panel is connected to")]
+        [Description("A collection of Environment Spaces the Panel is connected to.")]
         public List<string> ConnectedSpaces { get; set; } = new List<string>();
     }
 }
