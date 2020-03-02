@@ -61,7 +61,7 @@
     <Compile Include="Layers\Linear.cs" />
     <Compile Include="Layers\LSTM.cs" />
     <Compile Include="Layers\MaxPooling2d.cs" />
-    <Compile Include="Layers\MaxUnpooling2d.cs" />
+    <Compile Include="Layers\MaxUnPooling2d.cs" />
     <Compile Include="Layers\TransposedConvolution2d.cs" />
     <Compile Include="Losses\BCEWithSigmoid.cs" />
     <Compile Include="Losses\BinaryCrossEntropy.cs" />
