@@ -93,7 +93,7 @@
     <Compile Include="Surface\NurbsSurface.cs" />
     <Compile Include="Surface\Pipe.cs" />
     <Compile Include="Surface\PlanarSurface.cs" />
-    <Compile Include="Surface\Polysurface.cs" />
+    <Compile Include="Surface\PolySurface.cs" />
     <Compile Include="CoordinateSystem\Cartesian.cs" />
     <Compile Include="Vector\Basis.cs" />
     <Compile Include="Vector\Plane.cs" />
