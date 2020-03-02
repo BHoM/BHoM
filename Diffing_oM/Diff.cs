@@ -38,13 +38,13 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IBHoMObject> NewObjects { get; }
+        public IEnumerable<object> NewObjects { get; }
 
-        public List<IBHoMObject> OldObjects { get; }
+        public IEnumerable<object> OldObjects { get; }
 
-        public List<IBHoMObject> ModifiedObjects { get; }
+        public IEnumerable<object> ModifiedObjects { get; }
 
-        public List<IBHoMObject> UnchangedObjects { get; }
+        public IEnumerable<object> UnchangedObjects { get; }
 
         [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB.")]
         public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
@@ -63,7 +63,7 @@ namespace BH.oM.Diffing
         [Input("oldObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
         [Input("modifiedObjects", "Objects existing in both sets that have some differences in their properties.")]
         [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
-        public Diff(List<IBHoMObject> newObjects, List<IBHoMObject> oldObjects, List<IBHoMObject> modifiedObjects, DiffConfig diffConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, List<IBHoMObject> unchangedObjects = null)
+        public Diff(IEnumerable<object> newObjects, IEnumerable<object> oldObjects, IEnumerable<object> modifiedObjects, DiffConfig diffConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, IEnumerable<object> unchangedObjects = null)
         {
             NewObjects = newObjects;
             OldObjects = oldObjects;

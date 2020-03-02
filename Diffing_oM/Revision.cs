@@ -42,7 +42,7 @@ namespace BH.oM.Diffing
         public long Timestamp { get; }
         public string Author { get; }
         public string Comment { get; }
-        public IEnumerable<IBHoMObject> Objects { get; }
+        public IEnumerable<object> Objects { get; }
 
         [Description("Diffing settings for this Stream Revision. Hashes of objects contained in this stream will be computed based on these configs.")]
         public DiffConfig RevisionDiffConfing { get; }
@@ -57,7 +57,7 @@ namespace BH.oM.Diffing
         [Input("revisionDiffConfig", "If the Revision was produced via a diff of a previous one, diffing settings used. Otherwise null.")]
         [Input("revision", "If not specified, revision is initially set to 0")]
         [Input("comment", "Any comment to be added for this stream.")]
-        public Revision(IEnumerable<IBHoMObject> objects, string streamId, DiffConfig revisionDiffConfig = null, string revisionId = null, string comment = null)
+        public Revision(IEnumerable<object> objects, string streamId, DiffConfig revisionDiffConfig = null, string revisionId = null, string comment = null)
         {
             Objects = objects;
 
