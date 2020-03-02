@@ -49,7 +49,7 @@ namespace BH.oM.Structure.MaterialFragments
         [Description("Ratio between axial and transverse strain.")]
         public Vector PoissonsRatio { get; set; }
 
-        [TemperThermalExpansionCoefficientature]
+        [ThermalExpansionCoefficient]
         [Description("The strain induced in the material per unit change of temperature.")]
         public Vector ThermalExpansionCoeff { get; set; }
 
