@@ -25,7 +25,7 @@ using System;
 namespace BH.oM.Quantities.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class Illuminace : QuantityAttribute
+    public class Illuminance : QuantityAttribute
     {
         /***************************************************/
         /**** Properties                                ****/
