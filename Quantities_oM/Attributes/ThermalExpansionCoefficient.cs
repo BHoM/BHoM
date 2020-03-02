@@ -25,7 +25,7 @@ using System;
 namespace BH.oM.Quantities.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class TemperThermalExpansionCoefficientature : QuantityAttribute
+    public class ThermalExpansionCoefficient : QuantityAttribute
     {
         /***************************************************/
         /**** Properties                                ****/

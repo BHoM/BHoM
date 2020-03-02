@@ -70,7 +70,7 @@
     <Compile Include="Attributes\Strain.cs" />
     <Compile Include="Attributes\Stress.cs" />
     <Compile Include="Attributes\Temperature.cs" />
-    <Compile Include="Attributes\TemperThermalExpansionCoefficientature.cs" />
+    <Compile Include="Attributes\ThermalExpansionCoefficient.cs" />
     <Compile Include="Attributes\TorsionConstant.cs" />
     <Compile Include="Attributes\Velocity.cs" />
     <Compile Include="Attributes\Volume.cs" />
