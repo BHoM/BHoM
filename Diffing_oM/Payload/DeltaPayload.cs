@@ -28,8 +28,9 @@ using System.Linq;
 using BH.oM.Reflection.Attributes;
 using System.Text;
 using System.Threading.Tasks;
+using BH.oM.Diffing;
 
-namespace BH.oM.Diffing
+namespace BH.oM.AECDeltas
 {
     [Description("Class defined as per AECDeltas specification https://github.com/aecdeltas/aec-deltas-spec/wiki/Delta-Container-Specification#payload")]
     public class DeltaPayload : IObject, IImmutable
