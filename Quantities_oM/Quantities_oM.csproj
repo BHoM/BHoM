@@ -74,7 +74,7 @@
     <Compile Include="Attributes\TorsionConstant.cs" />
     <Compile Include="Attributes\Velocity.cs" />
     <Compile Include="Attributes\Volume.cs" />
-    <Compile Include="Attributes\VolumeticFlowRate.cs" />
+    <Compile Include="Attributes\VolumetricFlowRate.cs" />
     <Compile Include="Attributes\WarpingConstant.cs" />
     <Compile Include="Attributes\YoungsModulus.cs" />
     <Compile Include="Attributes\MomentPerUnitAngle.cs" />
