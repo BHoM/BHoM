@@ -37,10 +37,6 @@ namespace BH.oM.Diffing
 
         public double NumericTolerance { get; set; } = 1e-6;
 
-        public bool IgnoreGuid { get; set; } = true;
-
-        public bool IgnoreCustomData { get; set; } = true;
-
         public List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid", "CustomData", "Fragments" };
 
         public bool EnablePropertyDiffing { get; set; } = true;
