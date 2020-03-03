@@ -26,7 +26,7 @@ using System.ComponentModel;
 namespace BH.oM.Dimensional
 {
     [Description("A Interface which exposes spatial operations to a ICurve based Element. /n" +
-                 "The Interface's methods will expose the object to spatial operations which will maintain the objects other properties." +
+                 "The Interface's methods will expose the object to spatial operations, which can be applyed without modifying the objects other properties." +
                  "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the objects other properties.")]
     public interface IElement1D : IElement
     {
