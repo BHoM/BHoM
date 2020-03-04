@@ -33,7 +33,7 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.Physical.Elements
 {
-    public interface IFramingElement : IBHoMObject, IPhysical, IElement1D
+    public interface IFramingElement : IBHoMObject, IPhysical, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
