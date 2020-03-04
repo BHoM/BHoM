@@ -30,10 +30,11 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Physical.Constructions;
 using BH.oM.Physical.Elements;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Physical.Elements
 {
-    public interface ISurface : IBHoMObject, IPhysical
+    public interface ISurface : IBHoMObject, IPhysical, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/

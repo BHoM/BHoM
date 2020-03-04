@@ -28,10 +28,11 @@ using System.Threading.Tasks;
 
 using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Physical.Elements
 {
-    public interface IOpening : IBHoMObject, IPhysical
+    public interface IOpening : IBHoMObject, IPhysical, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
