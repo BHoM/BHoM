@@ -29,10 +29,11 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Physical.FramingProperties;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Physical.Elements
 {
-    public interface IFramingElement : IBHoMObject, IPhysical
+    public interface IFramingElement : IBHoMObject, IPhysical, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
