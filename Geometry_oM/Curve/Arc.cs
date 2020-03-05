@@ -26,26 +26,26 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
-    [Description("A plane curve. A circular Arc, a curve, with a constant distance for a point, its centre, defined it the local angular domain between start and end angle.")]
+    [Description("A plane curve. A circular Arc, a curve, with a constant distance from a point, its centre, defined it the local angular domain between start and end angle.")]
     public class Arc : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Defines the Arc centre as the CoordinateSystem Origin, as well as the orientation of the Arc in three-dimensional space, lying in the CoordinateSystem XY-Plane")]
+        [Description("Defines Arc centre equal to Origin of the CoordinateSystem, as well as the orientation of the Arc in three-dimensional space, equal to local xy-Plane of the CoordinateSystem.")]
         public CoordinateSystem.Cartesian CoordinateSystem { get; set; } = new CoordinateSystem.Cartesian();
 
         [Length]
-        [Description("Distance from the CoordinateSystem.Origin to the Arc boundary")]
+        [Description("Distance from the CoordinateSystem.Origin to the any point on Arc.")]
         public double Radius { get; set; } = 0;
 
         [Angle]
-        [Description("Angle in radians to the start point from the local x-axis, counter clowise around the local z-axis")]
+        [Description("Angle in radians to the start point from the local x-axis, counter clockwise around the local z-axis.")]
         public double StartAngle { get; set; } = 0;
 
         [Angle]
-        [Description("Angle in radians to the end point from the local x-axis, counter clowise around the local z-axis")]
+        [Description("Angle in radians to the end point from the local x-axis, counter clockwise around the local z-axis.")]
         public double EndAngle { get; set; } = 0;
 
         /***************************************************/

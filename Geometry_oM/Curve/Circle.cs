@@ -25,21 +25,21 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
-    [Description("A plane curve. Standard circle defining a curve of constant distance from a point, its Centre")]
+    [Description("A plane curve. Standard circle defining a curve of constant distance from a point, its Centre.")]
     public class Circle : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Origin point defining location of the Circle in three-dimensional space")]
+        [Description("Origin point defining location of the Circle in three-dimensional space.")]
         public Point Centre { get; set; } = new Point();
 
-        [Description("Vector perpendicular to the plane in which the Circle lies in. Defines the orientation in three-dimensional space")]
+        [Description("Vector perpendicular to the plane in which the Circle lies.")]
         public Vector Normal { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
         [Length]
-        [Description("Distance from the Centre to the Circle boundary")]
+        [Description("Distance from the Centre to any point on Circle.")]
         public double Radius { get; set; } = 0;
 
         /***************************************************/
