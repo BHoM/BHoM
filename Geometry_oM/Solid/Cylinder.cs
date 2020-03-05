@@ -25,25 +25,25 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
-    [Description("A solid circular right angled cylinder")]
+    [Description("A solid circular right angled cylinder.")]
     public class Cylinder : ISolid
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Point defining the centre of the circular base")]
+        [Description("Point defining the centre of the circular base.")]
         public Point Centre { get; set; } = new Point();
 
-        [Description("Vector perperdicular to the base. Defines the orientation in three-dimensional space")]
+        [Description("Vector perperdicular to the base. Defines the orientation in three-dimensional space.")]
         public Vector Axis { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
         [Length]
-        [Description("Distance from the Axis to the Cylinder boundary")]
+        [Description("Distance from the Axis to the Cylinder boundary surface.")]
         public double Radius { get; set; } = 0.0;
 
         [Length]
-        [Description("Distance between the base and top surface, measured along the Axis")]
+        [Description("Distance between the base and top surface, measured along the Axis.")]
         public double Height { get; set; } = 0.0;
 
         /***************************************************/
