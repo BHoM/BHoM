@@ -33,13 +33,16 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("An ordered set of three-dimensional points defining the curve shape. The control point locations are approximating, as opposed to interpolating, meaning in the general case the resulting curve will not pass through the control point locations themselves")]
+        [Description("An ordered set of three-dimensional points defining the curve shape. The control point locations are approximating, as opposed to interpolating, meaning in the general case the resulting curve will not pass through the control point locations themselves." +
+                     "\nThe special case of where both Knot and ControlPoint count are equal defines a NurbsCurve of Degree 1. This shape will pass through all ControlPoints, linearly interpolating beween them and being equivalent to a Polyline.")]
         public List<Point> ControlPoints { get; set; } = new List<Point>();
 
         [Description("A list of scalar factors, one for each ControlPoint. The weights in effect add an additional degree of freedom, allowing control over the relative influence of each control point on the curve shape")]
         public List<double> Weights { get; set; } = new List<double>();
 
-        [Description("The knot vector is a non-decreasing list of numbers, the relative spacing of which define the spans and transition points of the basis functions along the curve’s domain. Together with the ControlPoint count, the length of the knot vector defines the degree of the NurbsCurve")]
+        [Description("The knot vector is a non-decreasing list of numbers, the relative spacing of which define the spans and transition points of the basis functions along the curve's domain." +
+                     "\nKnot vector length must be equal to or greater than the number of ControlPoints, such that together, the difference in counts defines the order (and degree) of the NurbsCurve." +
+                     "\nThe NurbsCurve degree is equal to order plus one.")]
         public List<double> Knots { get; set; } = new List<double>();
         
         /***************************************************/
