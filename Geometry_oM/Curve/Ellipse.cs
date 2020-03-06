@@ -36,10 +36,10 @@ namespace BH.oM.Geometry
         [Description("Origin point defining location of the Ellipse in three-dimensional space.")]
         public Point Centre { get; set; } = new Point();
 
-        [Description("Together with Axis2 also defines orientation in three-dimensional space. Direction only, and not magnitude, matters.")]
+        [Description("Together with Axis2 defines orientation in three-dimensional space. Direction only, and not magnitude, matters.")]
         public Vector Axis1 { get; set; } = new Vector { X = 1.0, Y = 0.0, Z = 0.0 };
 
-        [Description("Together with Axis1 also defines orientation in three-dimensional space. Direction only, and not magnitude, matters.")]
+        [Description("Together with Axis1 defines orientation in three-dimensional space. Direction only, and not magnitude, matters.")]
         public Vector Axis2 { get; set; } = new Vector { X = 0.0, Y = 1.0, Z = 0.0 };
 
         [Length]
