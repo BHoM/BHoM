@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -27,41 +27,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-
-using BH.oM.Environment.Fragments;
-using BH.oM.Environment.Gains;
-
-using BH.oM.Geometry;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.Gains
 {
-    [Description("An environment Space data object")]
-    public class Space : BHoMObject, IEnvironmentObject
+    [Description("Ventilation object which can be attributed to a space")]
+    public class Ventilation : BHoMObject
     {
-        [Description("A collection of zone names the space is to be included in")]
-        public List<string> Zones { get; set; } = new List<string>();
+        [Description("The people ventilation rate, example: 0.00025 m3/s per person")]
+        public double PeopleRate { get; set; } = 0.0;
 
-        [Description("Lighting gain to be added to the space")]
-        public Lighting LightingGain { get; set; } = new Lighting();
+        [Description("The area ventilation rate, example: 0.0003 m3/s*m2")]
+        public double AreaRate { get; set; } = 0.0;
 
-        [Description("Equipment gain to be added to the space")]
-        public Gains.Equipment EquipmentGain { get; set; } = new Gains.Equipment();
-
-        [Description("People gain to be added to the space")]
-        public People PeopleGain { get; set; } = new People();
-
-        [Description("Infiltration gain to be added to the space")]
-        public Infiltration InfiltrationGain { get; set; } = new Infiltration();
-
-        [Description("Ventilation rate to be added to the space")]
-        public Ventilation Ventilation { get; set; } = new Ventilation();
-
-        [Description("The type of space from the Space Type enum")]
-        public SpaceType Type { get; set; } = SpaceType.Undefined;
-
-        [Description("A point in 3D space providing a basic location point of the space")]
-        public Point Location { get; set; } = new Point();
     }
 }
-
