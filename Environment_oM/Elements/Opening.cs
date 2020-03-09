@@ -45,9 +45,6 @@ namespace BH.oM.Environment.Elements
         [Description("A construction object providing information about the layers and materials that make up the Opening frame.")]
         public IConstruction FrameConstruction { get; set; } = new Construction();
 
-        [Description("The fraction of the total Opening area that is frame.")]
-        public double FrameFactorValue { get; set; } = 0;
-
         [Description("A collection of Environment Edge objects which define the internal boundary of the Opening.")]
         public List<Edge> InnerEdges { get; set; } = new List<Edge>();
 
