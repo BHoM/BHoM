@@ -25,11 +25,10 @@ using System.ComponentModel;
 
 namespace BH.oM.Dimensional
 {
-    [Description("An Interface for the Spatial IElements." +
-                 "This Interface should not be inherited directly, only through its sub Interfaces." +
-                 "That is because every method accepting IElement assumes that it's one of the sub-ones.")]
+    [Description("The common base interface for all the Spatial Dimensional Objects." +
+                 "This interface should not be implemented directly, only through its sub-interfaces." +
+                 "Methods operating on IElement assume a specific implementation of one or other of the sub-interfaces (i.e. IElement0D, IElement1D, IElement2D)")]
     public interface IElement : IObject
     {
     }
 }
-
