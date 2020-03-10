@@ -26,7 +26,6 @@ using System.ComponentModel;
 namespace BH.oM.Dimensional
 {
     [Description("Enables geometrical operations to be performed on a Curve based spatial element, whilst preserving all other object properties as unchanged. /n" +
-                 "The Interface's methods will expose the object to spatial operations, which can be applied without modifying the objects other properties." +
                  "Objects implementing this interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties." +
                   "Documentation detailing required extension methods can be found here: https://github.com/BHoM/documentation/wiki/IElement-required-extension-methods")]
     public interface IElement1D : IElement
