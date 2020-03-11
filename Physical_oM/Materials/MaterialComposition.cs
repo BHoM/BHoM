@@ -28,17 +28,23 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.Physical.Materials
 {
+    [Description("An object which defines a collection of materials and their ratios.")]
     public class MaterialComposition : BHoMObject, IPhysical, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The materials in the MaterialComposition, their order in the list is related to the order of the ratios.")]
         public IReadOnlyList<Material> Materials { get; } = new List<Material>();
 
+        [Ratio]
+        [Description("The ratios of the Materials, the sum of which equals one")]
         public IReadOnlyList<double> Ratios { get; } = new List<double>();
 
 
@@ -46,6 +52,7 @@ namespace BH.oM.Physical.Materials
         /**** Constructors                              ****/
         /***************************************************/
 
+        [Description("The base constructor for MaterialComposition, assigns the properties to the read-only lists.")]
         public MaterialComposition(IEnumerable<Material> materials, IEnumerable<double> ratios)
         {
             if (materials == null || ratios == null)
@@ -54,11 +61,11 @@ namespace BH.oM.Physical.Materials
             }
             else if (materials.Count() == ratios.Count())
             {
-                throw new Exception("Diffrent length list input");
+                throw new Exception("MaterialComposition requires equal length list input");
             }
             else if (Math.Abs(1 - ratios.Sum()) > Tolerance.Distance)
             {
-                throw new Exception("ratios sum must equal 1");
+                throw new Exception("MaterialComposition requires its ratios sum to equal 1");
             }
             else
             {
