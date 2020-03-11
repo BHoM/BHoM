@@ -25,20 +25,20 @@ using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
-    [Description("An ordered set of vectors defining three-dimensional orientation in space")]
+    [Description("An ordered set of mutually orthogonal unit vectors defining three-dimensional orientation in space")]
     public class Basis : IGeometry, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The local x coordinate axis")]
+        [Description("Unit vector defining local x coordinate axis")]
         public Vector X { get; } = Vector.XAxis;
 
-        [Description("The local y coordinate axis")]
+        [Description("Unit vector defining local y coordinate axis")]
         public Vector Y { get; } = Vector.YAxis;
 
-        [Description("The local z coordinate axis")]
+        [Description("Unit vector defining local z coordinate axis")]
         public Vector Z { get; } = Vector.ZAxis;
 
         /***************************************************/

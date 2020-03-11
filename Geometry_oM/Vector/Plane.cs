@@ -34,7 +34,7 @@ namespace BH.oM.Geometry
         [Description("A point through which the plane passes")]
         public Point Origin { get; set; } = new Point();
 
-        [Description("Vector perpendicualar to the plane, defining the orientation of the surface in three-dimensional space")]
+        [Description("Vector perpendicualar to the plane, defining the orientation in three-dimensional space")]
         public Vector Normal { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
 
