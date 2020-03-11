@@ -59,7 +59,7 @@ namespace BH.oM.Physical.Materials
             {
                 throw new ArgumentNullException();
             }
-            else if (materials.Count() == ratios.Count())
+            else if (materials.Count() != ratios.Count())
             {
                 throw new Exception("MaterialComposition requires equal length list input");
             }
