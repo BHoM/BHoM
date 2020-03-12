@@ -32,10 +32,8 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Position in three-dimensional space.")]
         public Point Start { get; set; } = new Point();
 
-        [Description("Position in three-dimensional space.")]
         public Point End { get; set; } = new Point();
 
         [Description("Defines the Line as a ray of infinite extents in both directions")]
