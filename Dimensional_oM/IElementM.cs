@@ -28,7 +28,7 @@ namespace BH.oM.Dimensional
     [Description("An Interface for Elements which have a mass definition." +
                  "It creates a wider exposure to the questions of: which kind of matter is it made from, and how much matter is it?" +
                  "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the objects other properties." +
-                 "For further instructions refer to the documentation: ...Link...")]
+                 "For further instructions refer to the documentation: https://github.com/BHoM/documentation/wiki/IElement-required-extension-methods")]
     public interface IElementM : IObject
     {
     }
