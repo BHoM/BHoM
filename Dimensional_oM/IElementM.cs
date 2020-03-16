@@ -25,12 +25,11 @@ using System.ComponentModel;
 
 namespace BH.oM.Dimensional
 {
-    [Description("An Interface for Elements which have a mass definition." +
-                 "It creates a wider exposure to the questions of: which kind of matter is it made from, and how much matter is it?" +
-                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the objects other properties." +
-                 "For further instructions refer to the documentation: https://github.com/BHoM/documentation/wiki/IElement-required-extension-methods")]
+    [Description("Enables Mass based operations to be performed on elements with materiality\n" +
+                 "Ensures representation of the material composition of objects including the type and volume of matter forming the object's make up\n" +
+                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n" +
+                 "Documentation detailing required extension methods can be found here: https://github.com/BHoM/documentation/wiki/IElement-required-extension-methods")]
     public interface IElementM : IObject
     {
     }
 }
-

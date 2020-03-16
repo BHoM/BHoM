@@ -33,18 +33,19 @@ using System.ComponentModel;
 
 namespace BH.oM.Physical.Materials
 {
-    [Description("An object which defines a collection of materials and their ratios.")]
+    [Description("Defines the make up of an object through a list of Materials as relative proportions of the total solid volume." +
+                        "\nThere must be the same number of items in both lists, assigning a single Ratio for each Material.")]
     public class MaterialComposition : BHoMObject, IPhysical, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The materials in the MaterialComposition, their order in the list is related to the order of the ratios.")]
+        [Description("The Materials that form an object's make up, the order of which corresponds to the order of the Ratios.")]
         public IReadOnlyList<Material> Materials { get; } = new List<Material>();
 
         [Ratio]
-        [Description("The ratios of the Materials, the sum of which equals one")]
+        [Description("The list of Material volumetric Ratios. The sum of which must equate to one.")]
         public IReadOnlyList<double> Ratios { get; } = new List<double>();
 
 
@@ -87,4 +88,3 @@ namespace BH.oM.Physical.Materials
 
     }
 }
-
