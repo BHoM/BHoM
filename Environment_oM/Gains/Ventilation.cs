@@ -30,14 +30,14 @@ using BH.oM.Base;
 using System.ComponentModel;
 
 namespace BH.oM.Environment.Gains
-{
-    [Description("Ventilation object which can be attributed to a space")]
+
+    [Description("Ventilation defines the amount of outside air that should be introduced to a space, which is typically based on the number of occupants breathing the air and the area of the space.")]
     public class Ventilation : BHoMObject
     {
-        [Description("The people ventilation rate, example: 0.00025 m3/s per person")]
+        [Description("The ventilation rate associated with the number of occupants within a space, example: 0.00025 m3/s per person")]
         public double PeopleRate { get; set; } = 0.0;
 
-        [Description("The area ventilation rate, example: 0.0003 m3/s*m2")]
+        [Description("The ventilation rate associated with the area of the space, example: 0.0003 m3/s*m2")]
         public double AreaRate { get; set; } = 0.0;
 
     }
