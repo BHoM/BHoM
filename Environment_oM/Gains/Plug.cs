@@ -31,16 +31,16 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Gains
 {
-    [Description("Plug Gain object which can be attributed to a space")]
+    [Description("Plug gains are defined as the amount of sensible heat contributed by electrical receptacle/outlet loads")]
     public class Plug : BHoMObject, IGain
     {
-        [Description("The sensible gain load for the plug gain")]
+        [Description("The sensible heat contributed by plugs, which contributes to a rise in temperature with no change in phase.")]
         public double Sensible { get; set; } = 0.0;
 
-        [Description("The profile for this gain being active")]
+        [Description("Profiles depict the time period (hours per day, days per week) during which plug loads are contributing heat to the space.")]
         public Profile Profile { get; set; } = new Profile();
 
-        [Description("The fraction of radiance from this plug gain")]
+        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by plugs.")]
         public double RadiantFraction { get; set; } = 0.0;
 
         [Description("The view coefficient of this plug gain")]
