@@ -25,25 +25,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
 
 namespace BH.oM.MEP.Parts
 {
+    [Description("Cooling coils allow fluids (air) to lower their temperature as they pass through the coil")]
     public class CoolingCoil : BHoMObject, IPart
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Total capacity indicates the combined sensible and latent capacity of the cooling coil")]
         public double TotalCapacity { get; set; } = 0.0;
+        [Description("Sensible capacity indicates the ability for the cooling coil to change the temperature (rather than the phase) of the fluid (air).")]
         public double SensibleCapacity { get; set; } = 0.0;
+        [Description("Entering Dry Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius, without taking humidity into consideration")]
         public double EnteringDryBulbAirTemperature { get; set; } = 0.0;
+        [Description("Entering Wet Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius, while taking humidity into consideration")]
         public double EnteringWetBulbAirTemperature { get; set; } = 0.0;
+        [Description("Leaving Dry Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius, without taking humidity into consideration")]
         public double LeavingDryBulbAirTemperature { get; set; } = 0.0;
+        [Description("Leaving Wet Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius, while taking humidity into consideration")]
         public double LeavingWetBulbAirTemperature { get; set; } = 0.0;
+        [Description("Entering Water Temperature indicates the heat intensity of the water entering the system in degrees Celsius")]
         public double EnteringWaterTemperature { get; set; } = 0.0;
+        [Description("Leaving Water Temperature indicates the heat intensity of the water leaving the system in degrees Celsius")]
         public double LeavingWaterTemperature { get; set; } = 0.0;
+        [Description("Pressure Drop indicates the amount of resistance created by the coil which creates a loss in pressure of the fluid (air)")]
         public double PressureDrop { get; set; } = 0.0;
         public int NumberOfRows { get; set; } = 0;
 

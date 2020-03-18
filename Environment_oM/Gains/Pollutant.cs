@@ -31,16 +31,16 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Gains
 {
-    [Description("Pollutant Gain object which can be attributed to a space")]
+    [Description("Pollutant gains are defined as the amount of both latent and sensible heat contributed by pollutution sources.")]
     public class Pollutant : BHoMObject, IGain
     {
-        [Description("The sensible gain load for the pollutant gain")]
+        [Description("The sensible heat contributed by pollutants, which contribute to a rise in temperature with no change in phase.")]
         public double Sensible { get; set; } = 0.0;
 
-        [Description("The latent gain load for the pollutant gain")]
+        [Description("The latent heat contributed by pollutants, which contribute to a change in phase from solid to liquid.")]
         public double Latent { get; set; } = 0.0;
 
-        [Description("The profile for this gain being active")]
+        [Description("Profiles depict the time period (hours per day, days per week) during which pollutants are contributing heat to the space.")]
         public Profile Profile { get; set; } = new Profile();
     }
 }
