@@ -46,7 +46,7 @@ namespace BH.oM.Environment.Gains
         [Description("The view coefficient of this lighting gain")]
         public double ViewCoefficient { get; set; } = 0.0;
 
-        [Description("The luminous efficacy of this lighting gain")]
+        [Description("Luminous efficacy is a measure of how well a light fixture produces visible light")]
         public double LuminousEfficacy { get; set; } = 0.0;
     }
 }
