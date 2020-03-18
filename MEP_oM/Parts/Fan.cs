@@ -25,24 +25,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
 
 namespace BH.oM.MEP.Parts
 {
+    [Description("Fans are devices that create a current of air (used for ventilation and cooling) by rotating blades")]
     public class Fan : BHoMObject, IPart
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Flow Rate denotes the amount of air that is drawn across the fan, measured in m3/s")]
         public double FlowRate { get; set; } = 0.0;
+        [Description("External static pressure denotes the resistance within the system that the fan has to overcome from filters, grilles, coils, etc")]
         public double ExternalStaticPressure { get; set; } = 0.0;
+        [Description("Speed denotes the rotational speed of the fan blades")]
         public double Speed { get; set; } = 0.0;
+        [Description("Drive type denotes the drive type as either direct or belt")]
         public string DriveType { get; set; } = "";
+        [Description("A device for controlling the fan speed.")]
         public string SpeedControl { get; set; } = "";
         public double BrakeHorsePower { get; set; } = 0.0;
         public double HorsePower { get; set; } = 0.0;
+        [Description("Efficiency denotes the ratio between the power transferred to airflow produced by the fan and the power used by the fan")]
         public double Efficiency { get; set; } = 0.0;
 
         /***************************************************/

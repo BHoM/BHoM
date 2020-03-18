@@ -56,6 +56,7 @@ namespace BH.oM.MEP.Parts
         public double LeavingWaterTemperature { get; set; } = 0.0;
         [Description("Pressure Drop indicates the amount of resistance created by the coil which creates a loss in pressure of the fluid (air)")]
         public double PressureDrop { get; set; } = 0.0;
+        [Description("Number of Rows indicates the number of rows of coils that the fluid (air) passes through")]
         public int NumberOfRows { get; set; } = 0;
 
         /***************************************************/
