@@ -21,11 +21,14 @@
  */
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Dimensional
 {
+    [Description("The common base interface for all the Spatial Dimensional Objects." +
+                 "This interface should not be implemented directly, only through its sub-interfaces." +
+                 "Methods operating on IElement assume a specific implementation of one or other of the sub-interfaces (i.e. IElement0D, IElement1D, IElement2D)")]
     public interface IElement : IObject
     {
     }
 }
-

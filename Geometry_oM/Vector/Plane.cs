@@ -20,16 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Geometry
 {
+    [Description("Defines a flat infinite two-dimensional surface")]
     public class Plane : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("A point through which the plane passes")]
         public Point Origin { get; set; } = new Point();
 
+        [Description("Vector perpendicualar to the plane, defining the orientation in three-dimensional space")]
         public Vector Normal { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
 

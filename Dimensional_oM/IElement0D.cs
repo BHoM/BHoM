@@ -21,11 +21,14 @@
  */
 
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Dimensional
 {
+    [Description("Enables geometrical operations to be performed on a Point based spatial element, whilst preserving all other object properties as unchanged. /n" +
+                 "Objects implementing this interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties." +
+                 "Documentation detailing required extension methods can be found here: https://github.com/BHoM/documentation/wiki/IElement-required-extension-methods")]
     public interface IElement0D : IElement
     {
     }
 }
-

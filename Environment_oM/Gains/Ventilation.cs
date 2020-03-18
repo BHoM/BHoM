@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -27,25 +27,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Constructions;
-using BH.oM.Physical.Elements;
-using BH.oM.Dimensional;
+using System.ComponentModel;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Environment.Gains
 {
-    public interface ISurface : IBHoMObject, IPhysical, IElement2D
+    [Description("Ventilation object which can be attributed to a space")]
+    public class Ventilation : BHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("The people ventilation rate, example: 0.00025 m3/s per person")]
+        public double PeopleRate { get; set; } = 0.0;
 
-        BH.oM.Geometry.ISurface Location { get; set; }
-        IConstruction Construction { get; set; }
-        List<IOpening> Openings { get; set; }
-        Offset Offset { get; set; }
+        [Description("The area ventilation rate, example: 0.0003 m3/s*m2")]
+        public double AreaRate { get; set; } = 0.0;
 
-        /***************************************************/
     }
 }
-

@@ -25,19 +25,23 @@ using BH.oM.Base;
 
 namespace BH.oM.Geometry.CoordinateSystem
 {
-    [Description("Cartesian coordinate system. All vectors to be orthogonal unit vectors")]
+    [Description("A three-dimensional Cartesian coordinate system, as defined by a set of mutually orthogonal unit vectors and a common origin point")]
     public class Cartesian : IGeometry, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Unit vector defining local x coordinate axis")]
         public Vector X { get; } = Vector.XAxis;
 
+        [Description("Unit vector defining local y coordinate axis")]
         public Vector Y { get; } = Vector.YAxis;
 
+        [Description("Unit vector defining local z coordinate axis")]
         public Vector Z { get; } = Vector.ZAxis;
 
+        [Description("Location point in three-dimensional space defining (0,0,0) and the origin for each axis")]
         public Point Origin { get; set; } = Point.Origin;
 
         /***************************************************/

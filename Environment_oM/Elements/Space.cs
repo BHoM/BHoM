@@ -42,8 +42,20 @@ namespace BH.oM.Environment.Elements
         [Description("A collection of zone names the space is to be included in")]
         public List<string> Zones { get; set; } = new List<string>();
 
-        [Description("A collection of gains to be applied to the space")]
-        public List<IGain> Gains { get; set; } = new List<IGain>();
+        [Description("Lighting gain to be added to the space")]
+        public Lighting LightingGain { get; set; } = new Lighting();
+
+        [Description("Equipment gain to be added to the space")]
+        public Gains.Equipment EquipmentGain { get; set; } = new Gains.Equipment();
+
+        [Description("People gain to be added to the space")]
+        public People PeopleGain { get; set; } = new People();
+
+        [Description("Infiltration gain to be added to the space")]
+        public Infiltration InfiltrationGain { get; set; } = new Infiltration();
+
+        [Description("Ventilation rate to be added to the space")]
+        public Ventilation Ventilation { get; set; } = new Ventilation();
 
         [Description("The type of space from the Space Type enum")]
         public SpaceType Type { get; set; } = SpaceType.Undefined;

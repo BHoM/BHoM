@@ -31,15 +31,15 @@ namespace BH.oM.Base
         /**** Properties                                ****/
         /***************************************************/
 
-        public Guid BHoM_Guid { get; set; } = Guid.NewGuid();
+        public virtual Guid BHoM_Guid { get; set; } = Guid.NewGuid();
 
-        public string Name { get; set; } = "";
+        public virtual string Name { get; set; } = "";
 
-        public FragmentSet Fragments { get; set; } = new FragmentSet();
+        public virtual FragmentSet Fragments { get; set; } = new FragmentSet();
 
-        public HashSet<string> Tags { get; set; } = new HashSet<string>();
+        public virtual HashSet<string> Tags { get; set; } = new HashSet<string>();
 
-        public Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
+        public virtual Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
 
 
         /***************************************************/

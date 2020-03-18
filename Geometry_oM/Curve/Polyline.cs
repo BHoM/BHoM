@@ -20,16 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
+    [Description("A curve consisting of a continuous chain of straight line segments. The Polyline is considered closed if the first and last ControlPoints are coincident")]
     public class Polyline : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("An ordered set of three-dimensional points defining the curve shape")]
         public List<Point> ControlPoints { get; set; } = new List<Point>();
         
         /***************************************************/

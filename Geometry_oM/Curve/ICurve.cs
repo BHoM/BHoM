@@ -21,9 +21,11 @@
  */
 
 using BH.oM.Dimensional;
+using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
+    [Description("The interface for all one-dimensional geometrical objects.")]
     public interface ICurve : IGeometry, IElement1D
     {
     }

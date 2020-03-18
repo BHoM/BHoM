@@ -20,27 +20,32 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using System;
-
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
-    [Description("Arc starting from the local x, rotating Angle number of radians counter clockwise")]
+    [Description("A plane curve. A circular Arc, a curve, with a constant distance from a point, its centre, defined it the local angular domain between start and end angle.")]
     public class Arc : ICurve
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Defines Arc centre equal to Origin of the CoordinateSystem, as well as the orientation of the Arc in three-dimensional space, equal to local xy-Plane of the CoordinateSystem.")]
         public CoordinateSystem.Cartesian CoordinateSystem { get; set; } = new CoordinateSystem.Cartesian();
 
+        [Length]
+        [Description("Distance from the CoordinateSystem.Origin to the any point on Arc.")]
         public double Radius { get; set; } = 0;
 
-        [Description("Angle in radians to the start point from the local X-axis, counter clowise around the local Z-axis")]
+        [Angle]
+        [Description("Angle in radians to the start point from the local x-axis, counter clockwise around the local z-axis.")]
         public double StartAngle { get; set; } = 0;
 
-        [Description("Angle in radians to the end point from the local X-axis, counter clowise around the local Z-axis")]
+        [Angle]
+        [Description("Angle in radians to the end point from the local x-axis, counter clockwise around the local z-axis.")]
         public double EndAngle { get; set; } = 0;
 
         /***************************************************/

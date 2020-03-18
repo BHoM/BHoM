@@ -22,19 +22,24 @@
 
 using System;
 using BH.oM.Dimensional;
+using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
+    [Description("Defines a dimensionless location in three-dimensional space.")]
     public class Point : IGeometry, IComparable<Point>, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Position along global X coordinate axis.")]
         public double X { get; set; } = 0;
 
+        [Description("Position along global Y coordinate axis.")]
         public double Y { get; set; } = 0;
 
+        [Description("Position along global Z coordinate axis.")]
         public double Z { get; set; } = 0;
 
 

@@ -20,25 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
+    [Description("An ordered set of mutually orthogonal unit vectors defining three-dimensional orientation in space")]
     public class Basis : IGeometry, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Unit vector defining local x coordinate axis")]
         public Vector X { get; } = Vector.XAxis;
 
+        [Description("Unit vector defining local y coordinate axis")]
         public Vector Y { get; } = Vector.YAxis;
 
+        [Description("Unit vector defining local z coordinate axis")]
         public Vector Z { get; } = Vector.ZAxis;
 
         /***************************************************/

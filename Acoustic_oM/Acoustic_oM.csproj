@@ -49,9 +49,9 @@
     <Compile Include="Elements\Speaker.cs" />
     <Compile Include="Frequency.cs" />
     <Compile Include="Parameters\IAcousticParameter.cs" />
-    <Compile Include="Parameters\RASTI.cs" />
+    <Compile Include="Parameters\Rasti.cs" />
     <Compile Include="Parameters\RT60.cs" />
-    <Compile Include="Parameters\SNRatio.cs" />
+    <Compile Include="Parameters\SnRatio.cs" />
     <Compile Include="Parameters\SoundLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

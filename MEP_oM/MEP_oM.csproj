@@ -43,8 +43,8 @@
     <Compile Include="Equipment\AirHandlingUnit.cs" />
     <Compile Include="Equipment\FanCoilUnit.cs" />
     <Compile Include="Equipment\IEquipment.cs" />
-    <Compile Include="Fragments\Geometry.cs" />
-    <Compile Include="Fragments\Identity.cs" />
+    <Compile Include="Fragments\GeometryFragment.cs" />
+    <Compile Include="Fragments\IdentityFragment.cs" />
     <Compile Include="Parts\CoolingCoil.cs" />
     <Compile Include="Parts\ElectricalConnector.cs" />
     <Compile Include="Parts\EnergyWheel.cs" />

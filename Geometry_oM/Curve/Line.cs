@@ -20,8 +20,12 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Geometry
 {
+    [Description("A straight segment in space defining the shortest distance between two points in three-dimensional Euclidean geometry.\n" +
+                 "The Vector from Start to End defines the Line direction, which can be important for some applications.")]
     public class Line : ICurve
     {
         /***************************************************/
@@ -32,6 +36,7 @@ namespace BH.oM.Geometry
 
         public Point End { get; set; } = new Point();
 
+        [Description("Defines the Line as a ray of infinite extents in both directions")]
         public bool Infinite { get; set; } = false;
         
         /***************************************************/

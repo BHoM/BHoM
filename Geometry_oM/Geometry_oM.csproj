@@ -93,7 +93,7 @@
     <Compile Include="Surface\NurbsSurface.cs" />
     <Compile Include="Surface\Pipe.cs" />
     <Compile Include="Surface\PlanarSurface.cs" />
-    <Compile Include="Surface\Polysurface.cs" />
+    <Compile Include="Surface\PolySurface.cs" />
     <Compile Include="CoordinateSystem\Cartesian.cs" />
     <Compile Include="Vector\Basis.cs" />
     <Compile Include="Vector\Plane.cs" />
@@ -113,6 +113,10 @@
     <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
       <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
       <Name>Reflection_oM</Name>
+	</ProjectReference>
+    <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj">
+      <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
+      <Name>Quantities_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -26,7 +26,7 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.Architecture.Elements
 {
-    public class Room : BHoMObject, IElement1D
+    public class Room : BHoMObject, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
