@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+ using System.ComponentModel;
+
 namespace BH.oM.Environment.Elements
 {
+    [Description("The type of opening on a panel (e.g. Window, Door)")]
     public enum OpeningType
     {
         Undefined,

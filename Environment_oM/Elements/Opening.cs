@@ -32,7 +32,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An analytical Opening data object")]
+    [Description("An environment object used to define openings on a panel (e.g. Window, Door)")]
     public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D
     {
         /***************************************************/
@@ -54,7 +54,7 @@ namespace BH.oM.Environment.Elements
         [Description("A construction object providing construction information about the opening - typically gazing construction")]
         public IConstruction OpeningConstruction { get; set; } = new Construction();
 
-        [Description("The type of opening from Opening Type enum")]
+        [Description("The type of opening on a panel (e.g. Window, Door). Use OpeningType enum")]
         public OpeningType Type { get; set; } = OpeningType.Undefined;
 
         /***************************************************/
