@@ -26,9 +26,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Diffing
 {
+    [Description("General configurations for the Diffing process, including settings for the Hash computation.")]
     public class DiffConfig : BHoMObject
     {
         /***************************************************/
@@ -37,6 +39,8 @@ namespace BH.oM.Diffing
 
         public double NumericTolerance { get; set; } = 1e-6;
 
+        [Description("Exceptions used when computing the hash of the objects. By default it includes BHoM_Guid, CustomData, Fragments." 
+            + "Any property found with a name matching any of this list it will not be considered; this includes any sub-object.")]
         public List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid", "CustomData", "Fragments" };
 
         public bool EnablePropertyDiffing { get; set; } = true;
