@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
 
@@ -32,12 +33,13 @@ using BH.oM.MEP.Parts;
 
 namespace BH.oM.MEP.Equipment
 {
+    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
     public class FanCoilUnit : BHoMObject, IEquipment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
+        [Description("Plug your parts (Fan, Coil, Electrical Connector) into this list!")]
         public List<IPart> Parts { get; set; } = new List<IPart>();
 
         /***************************************************/
