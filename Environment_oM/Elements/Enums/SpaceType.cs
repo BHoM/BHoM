@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Environment.Elements
 {
+    [Description("The main use of a space. Includes space types from CIBSE and ASHRAE (e.g. Classroom, Open Office)")]
     public enum SpaceType
     {
         Undefined,

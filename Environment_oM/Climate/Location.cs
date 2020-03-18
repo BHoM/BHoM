@@ -33,19 +33,19 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Climate
 {
-    [Description("An environment location object defining locations in space for climate analysis")]
+    [Description("An environment object used for climate analysis that describes a location")]
     public class Location : BHoMObject, IClimateObject
     {
-        [Description("The latitude for the location")]
+        [Description("The latitude for the location (in -90 to +90 degrees)")]
         public double Latitude { get; set; } = 0;
 
-        [Description("The longitude for the location")]
+        [Description("The longitude for the location (in -180 to +180 degrees)")]
         public double Longitude { get; set; } = 0;
 
-        [Description("The elevation for the location")]
+        [Description("The elevation for the location (in meters)")]
         public double Elevation { get; set; } = 0;
 
-        [Description("The offset from UTC for the location (positive or negative)")]
+        [Description("The Coordinated Universal Time (UTC) for the location (in -12 to +14 hours)")]
         public double UtcOffset { get; set; } = 0;
     }
 }

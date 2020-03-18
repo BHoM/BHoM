@@ -33,19 +33,19 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An analytical Building data object")]
+    [Description("An environment object used to describe a building. Typically used for gbXML file creation")]
     public class Building : BHoMObject, IEnvironmentObject
     {
-        [Description("The latitude of the building location")]
+        [Description("The latitude for the location (in -90 to +90 degrees)")]
         public double Latitude { get; set; } = 0.0;
 
-        [Description("The longitude of the building location")]
+        [Description("The longitude for the location (in -180 to +180 degrees)")]
         public double Longitude { get; set; } = 0.0;
 
-        [Description("The elevation of the building")]
+        [Description("The elevation for the location (in meters)")]
         public double Elevation { get; set; } = 0.0;
 
-        [Description("The type of building from the BuildingType enum")]
+        [Description("The main classification for the building (e.g. Office, Residential). Use BuildingType enum)")]
         public BuildingType Type { get; set; } = BuildingType.Undefined;
     }
 }

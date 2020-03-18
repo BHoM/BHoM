@@ -31,13 +31,13 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An analytical Edge data object")]
+    [Description("An environment object used to define the external boundaries of an environmental panel or opening")]
     public class Edge : BHoMObject, IEnvironmentObject, IEdge, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("A BHoM Geometry curve object (e.g polyline, line, etc.)")]
+        [Description("A BHoM Geometry planar curve object (e.g polyline, line, etc.)")]
         public ICurve Curve { get; set; } = new Polyline();
 
         /***************************************************/
