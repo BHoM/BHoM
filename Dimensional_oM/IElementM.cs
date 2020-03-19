@@ -20,29 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.FramingProperties;
-using BH.oM.Dimensional;
+using System.ComponentModel;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Dimensional
 {
-    public interface IFramingElement : IBHoMObject, IPhysical, IElement1D, IElementM
+    [Description("Enables Mass based operations to be performed on elements with materiality\n" +
+                 "Ensures the material composition of a physical object is represented, defined as proportions of discrete types of material forming the object's total solid volume.\n" +
+                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n" +
+                 "Documentation detailing required extension methods can be found here: https://github.com/BHoM/documentation/wiki/IElement-required-extension-methods")]
+    public interface IElementM : IObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        ICurve Location { get; set; }
-        IFramingElementProperty Property { get; set; }
-
-        /***************************************************/
     }
 }
-
