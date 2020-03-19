@@ -33,7 +33,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An environment object used to describe a building. Typically used for gbXML file creation")]
+    [Description("An environment object used to describe a building")]
     public class Building : BHoMObject, IEnvironmentObject
     {
         [Description("The latitude for the location (in -90 to +90 degrees)")]

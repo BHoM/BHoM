@@ -31,7 +31,7 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An environment object used to define the external boundaries of an environmental panel or opening")]
+    [Description("An environment object used to define an edge of an external boundary (e.g. the edge of an environmental panel or opening)")]
     public class Edge : BHoMObject, IEnvironmentObject, IEdge, IElement1D
     {
         /***************************************************/
