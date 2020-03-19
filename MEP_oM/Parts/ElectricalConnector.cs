@@ -39,9 +39,9 @@ namespace BH.oM.MEP.Parts
         /***************************************************/
 
         [Description("Motor Horsepower indicates the power required for the electrical connector without any power losses")]
-        public double MotorHorsepower { get; set; } = 0.0;
+        public double MotorHorsePower { get; set; } = 0.0;
         [Description("Brake Horsepower indicates the power required for the electrical connector including any power losses")]
-        public double BrakeHorsepower { get; set; } = 0.0;
+        public double BrakeHorsePower { get; set; } = 0.0;
         [Description("Full Load Amps indicates the amount of current drawn by the motor when running, and is used for sizing the conductors")]
         public double FullLoadAmps { get; set; } = 0.0;
         [Description("Maximum Overcurrent Protection indicates the maximum size of the fuse or breaker")]
@@ -55,9 +55,8 @@ namespace BH.oM.MEP.Parts
         [Description("Emergency Power is a boolean value (true/false) that denotes whether a device requires backup from an emergency power source")]
         public bool EmergencyPower { get; set; } = false;
         [Description("Optional Standby is a boolean value (true/false) that denotes whether a device requires backup from a secondary power source, for non-critical systems")]
-        public bool OptionalStandBy { get; set; } = false;
+        public bool StandBy { get; set; } = false;
 
         /***************************************************/
     }
 }
-
