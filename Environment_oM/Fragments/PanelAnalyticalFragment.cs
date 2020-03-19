@@ -49,10 +49,10 @@ namespace BH.oM.Environment.Fragments
         [Description("The orientation of the panel")]
         public double Orientation { get; set; } = 0.0;
 
-        [Description("The gValue of the panel")]
+        [Description("The gValue or total solar energy transmittance of the panel")]
         public double GValue { get; set; } = 0.0;
 
-        [Description("The ltValue of the panel")]
+        [Description("The ltValue or visible light transmittance (VLT) of the panel")]
         public double LTValue { get; set; } = 0.0;
 
         [Description("The uValue of the panel")]

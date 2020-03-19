@@ -46,10 +46,10 @@ namespace BH.oM.Environment.Fragments
         [Description("The fixed convection coefficient of the space")]
         public double FixedConvectionCoefficient { get; set; } = 0;
 
-        [Description("The cooling size method of the space from the Sizing Method enum")]
+        [Description("The cooling size method of the space. Use SizingMethod enum")]
         public SizingMethod SizeCoolingMethod { get; set; } = SizingMethod.Sizing;
 
-        [Description("The heating size method of the space from the Sizing Method enum")]
+        [Description("The heating size method of the space. Use SizingMethod enum")]
         public SizingMethod SizeHeatingMethod { get; set; } = SizingMethod.Sizing;
 
         [Description("The radiant proportion of the space")]
