@@ -34,7 +34,7 @@ namespace BH.oM.Environment.Fragments
     [Description("Fragment containing the panel context property related to panels")]
     public class PanelContextFragment : IFragment
     {
-        [Description("Defines whether the panel is an air panel")]
+        [Description("Defines whether the panel is an air panel (e.g. air wall or hole)")]
         public bool IsAir { get; set; } = false;
 
         [Description("Defines wheather the panel is a ground panel")]

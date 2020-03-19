@@ -31,28 +31,28 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.MaterialFragments
 {
-    [Description("Fragment containing the Gas Material properties related to materials")]
+    [Description("Fragment containing solid material properties related to material")]
     public class SolidMaterial : BHoMObject, IEnvironmentMaterial, IFragment
     {
         [Description("The density of the material")]
         public double Density { get; set; } = 0.0;
 
-        [Description("The amount of conductivity the material should have")]
+        [Description("The conductivity of the material")]
         public double Conductivity { get; set; } = 0.0;
 
-        [Description("The unit of specific heat the material should have")]
+        [Description("The specific heat of the material")]
         public double SpecificHeat { get; set; } = 0.0;
 
-        [Description("The amount of vapour resistance the material should have")]
+        [Description("The vapour resistance of the material")]
         public double VapourResistivity { get; set; } = 0.0;
 
-        [Description("A description of this material, default empty string")]
+        [Description("A description of this material")]
         public string Description { get; set; } = "";
 
-        [Description("The roughness of the material from the Material Roughness enum")]
+        [Description("The roughness of the material. Use Roughness enum")]
         public Roughness Roughness { get; set; } = Roughness.Undefined;
 
-        [Description("The refraction of the material")]
+        [Description("The index of refraction of the material")]
         public double Refraction { get; set; } = 0.0;
 
         [Description("The amount of external solar reflectance of this solid material")]
@@ -61,7 +61,7 @@ namespace BH.oM.Environment.MaterialFragments
         [Description("The amount of internal solar reflectance of this solid material")]
         public double SolarReflectanceInternal { get; set; } = 0.0;
 
-        [Description("The amount of solar transmittance of this solid material")]
+        [Description("The amount of solar transmittance or G-Value of this solid material")]
         public double SolarTransmittance { get; set; } = 0.0;
 
         [Description("The amount of external light reflectance of this solid material")]
@@ -70,7 +70,7 @@ namespace BH.oM.Environment.MaterialFragments
         [Description("The amount of internal light reflectance of this solid material")]
         public double LightReflectanceInternal { get; set; } = 0.0;
 
-        [Description("The amount of light transmittance of this solid material")]
+        [Description("The amount of visible light transmittance (VLT) of this solid material")]
         public double LightTransmittance { get; set; } = 0.0;
 
         [Description("The external emissivity of this solid material")]
