@@ -32,7 +32,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An environment object used to define openings on a panel (e.g. Window, Door)")]
+    [Description("An environment object used to define openings (e.g. Window, Door)")]
     public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D
     {
         /***************************************************/

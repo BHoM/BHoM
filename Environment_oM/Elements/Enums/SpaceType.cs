@@ -24,7 +24,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("The main use of a space. Includes space types from CIBSE and ASHRAE (e.g. Classroom, Open Office)")]
+    [Description("The main use of a space (e.g. Classroom, Lobby, Open Office)")]
     public enum SpaceType
     {
         Undefined,
