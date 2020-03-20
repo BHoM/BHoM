@@ -61,7 +61,7 @@ namespace BH.oM.Diffing
         {
             Objects = objects;
 
-            StreamId = string.IsNullOrWhiteSpace(streamId) ? Guid.NewGuid().ToString("N") : StreamId;
+            StreamId = string.IsNullOrWhiteSpace(streamId) ? Guid.NewGuid().ToString("N") : streamId;
             RevisionId = revisionId;
             Comment = comment;
 
