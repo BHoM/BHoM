@@ -39,11 +39,15 @@ namespace BH.oM.Diffing
 
         public double NumericTolerance { get; set; } = 1e-6;
 
-        [Description("Exceptions used when computing the hash of the objects. By default it includes BHoM_Guid, CustomData, Fragments." 
+        [Description("List of strings specifying the names of the properties that should be ignored in the diffing. By default it includes BHoM_Guid, CustomData, Fragments."
             + "Any property found with a name matching any of this list it will not be considered; this includes any sub-object.")]
         public List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid", "CustomData", "Fragments" };
 
+        [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
         public bool EnablePropertyDiffing { get; set; } = true;
+
+        [Description("If enabled, the Diff stores also the objects that did not change (`Unchanged` property).")]
+        public bool StoreUnchangedObjects { get; set; } = false;
 
         /***************************************************/
     }
