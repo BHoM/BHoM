@@ -32,7 +32,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An environment object used to define openings (e.g. Window, Door)")]
+    [Description("A cutout or hole in a buiding surface (e.g. Window, Door, Rooflight)")]
     public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D
     {
         /***************************************************/
@@ -45,7 +45,7 @@ namespace BH.oM.Environment.Elements
         [Description("A construction object providing construction information about the frame of the opening")]
         public IConstruction FrameConstruction { get; set; } = new Construction();
 
-        [Description("The procentage of the opening that is frame")]
+        [Description("The percentage of the opening that is frame")]
         public double FrameFactorValue { get; set; } = 0;
 
         [Description("A collection of environment Edge objects which define the internal boundary of the opening")]

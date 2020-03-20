@@ -35,25 +35,19 @@ namespace BH.oM.Environment.MaterialFragments
 {
     public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties, IFragment
     {
-        [Description("The density of the material")]
         double Density { get; set; }
 
-        [Description("The conductivity of the material")]
         double Conductivity { get; set; }
 
-        [Description("The specific heat of the material")]
         double SpecificHeat { get; set; }
 
-        [Description("The vapour resistivity of the material")]
         double VapourResistivity { get; set; }
 
-        [Description("A description of the material")]
         string Description { get; set; }
 
         [Description("The roughness of the material. Use Roughness enum")]
         Roughness Roughness { get; set; }
 
-        [Description("The index of refraction of the material")]
         double Refraction { get; set; }
     }
 }

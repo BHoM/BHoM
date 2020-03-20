@@ -33,6 +33,8 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
+
+    [Description("This fragment is used to define physical and thermal properties for a building surface")]
     public class AnalyticalConstruction : IFragment, IImmutable
     {
         public double ConstructionThickness { get; } 

@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Environment.MaterialFragments
 {
+    [Description("Required for some calculations, such as determining the convective heat transfer coefficient")]
     public enum Roughness
     {
         Undefined,
