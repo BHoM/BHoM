@@ -31,19 +31,17 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the space analytical property related to spaces")]
+    [Description("Fragment containing space analytical properties (e.g. domestic hot water supply, daylight factor, heating and cooling sizing method)")]
     public class SpaceAnalyticalFragment : IFragment
     {
         [Description("The amount of internal domestic hot water supply for the space")]
         public double InternalDomesticHotWater { get; set; } = 0;
 
-        [Description("The daylight factor for the space")]
         public double DaylightFactor { get; set; } = 0;
 
-        [Description("The length of the facade on the space")]
+        [Description("The length of the space enclsoure that is adjacent to the outdoors")]
         public double FacadeLength { get; set; } = 0;
 
-        [Description("The fixed convection coefficient of the space")]
         public double FixedConvectionCoefficient { get; set; } = 0;
 
         [Description("The cooling size method of the space. Use SizingMethod enum")]
@@ -52,7 +50,6 @@ namespace BH.oM.Environment.Fragments
         [Description("The heating size method of the space. Use SizingMethod enum")]
         public SizingMethod SizeHeatingMethod { get; set; } = SizingMethod.Sizing;
 
-        [Description("The radiant proportion of the space")]
         public double RadiantProportion { get; set; } = 0;
     }
 }

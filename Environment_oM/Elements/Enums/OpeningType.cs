@@ -24,7 +24,7 @@
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("The type of opening on a panel (e.g. Window, Door)")]
+    [Description("The type of cutout or hole in a buiding surface (e.g. Window, Door, Rooflight)")]
     public enum OpeningType
     {
         Undefined,

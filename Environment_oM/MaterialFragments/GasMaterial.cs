@@ -34,28 +34,21 @@ namespace BH.oM.Environment.MaterialFragments
     [Description("Fragment containing gas material properties related to material")]
     public class GasMaterial : BHoMObject, IEnvironmentMaterial, IFragment
     {
-        [Description("The density of the material")]
         public double Density { get; set; } = 0.0;
 
-        [Description("The conductivity of the material")]
         public double Conductivity { get; set; } = 0.0;
-
-        [Description("The specific heat of the material")]
+               
         public double SpecificHeat { get; set; } = 0.0;
 
-        [Description("The vapor resistance the material")]
         public double VapourResistivity { get; set; } = 0.0;
 
-        [Description("A description of the material")]
         public string Description { get; set; } = "";
 
         [Description("The roughness of the material. Use Roughness enum")]
         public Roughness Roughness { get; set; } = Roughness.Undefined;
 
-        [Description("The index of refraction of the material")]
         public double Refraction { get; set; } = 0.0;
 
-        [Description("The convection coefficient of the material")]
         public double ConvectionCoefficient { get; set; } = 0.0;
 
         [Description("The type of gas (e.g Air, Argon). Use GasType enum")]

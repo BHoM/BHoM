@@ -31,16 +31,13 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the light transmittance property")]
+    [Description("Fragment containing red, green, and blue light transmittance property")]
     public class LightTransmittanceFragment : IFragment
     {
-        [Description("The red transmittance of the light transmittance")]
         public double RedTransmittance { get; set; } = 0.0;
 
-        [Description("The green transmittance of the light transmittance")]
         public double GreenTransmittance { get; set; } = 0.0;
 
-        [Description("The blue transmittance of the light transmittance")]
         public double BlueTransmittance { get; set; } = 0.0;
     }
 }
