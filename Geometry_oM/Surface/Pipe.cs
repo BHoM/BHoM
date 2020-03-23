@@ -21,6 +21,7 @@
  */
 
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
@@ -34,6 +35,7 @@ namespace BH.oM.Geometry
         [Description("Defines the central axis perpendicular to the circular cross sections, and thus the path along which the tubular surface follows.")]
         public ICurve Centreline { get; set; } = new Line();
 
+        [Length]
         [Description("The distance from the Curve Centreline to a point on the Pipe surface.")]
         public double Radius { get; set; } = 0;
 
