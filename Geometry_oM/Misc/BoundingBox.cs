@@ -21,17 +21,22 @@
  */
 
 using System;
+using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
+    [Description("An axis aligned cuboid, which describes the smallest volume Box, oriented with the global coordinate system, that fully encompases a set of geometry." +
+                 "\nDefined by its two extreme corner Points, these six coordinate values of Min and Max X, Y and Z are combined to specify all eight Box corners.")]
     public class BoundingBox : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The lower bound values for the X, Y and Z coordinates of the Box corner Points.")]
         public Point Min { get; set; } = new Point();
 
+        [Description("The upper bound values for the X, Y and Z coordinates of the Box corner Points.")]
         public Point Max { get; set; } = new Point();
 
 
