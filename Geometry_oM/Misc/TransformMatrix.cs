@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Geometry
 {
+    [Description("A 4x4 matrix describing linear tranformations in three-dimensional space, such as translations, rotations, reflections, scaling and shearing.")]
     public class TransformMatrix : IGeometry
     {
         /***************************************************/
