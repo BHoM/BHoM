@@ -26,7 +26,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
-    [Description("A pair of curves representing the boundary of a trimmed surface in both global X, Y, Z coordinates (Curve3d) as well as local surface U, V parameter space." +
+    [Description("A pair of curves representing the boundary of a trimmed surface in both global X, Y, Z coordinates (Curve3d) as well as local surface U, V parameter space (Curve2d)." +
                  "\nA Surface Trim is immutable to ensure compatiblity of both curves.")]
     public class SurfaceTrim : IGeometry, IImmutable
     {
@@ -34,10 +34,11 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Trim Curve in global X, Y, Z coordinates.")]
         public ICurve Curve3d { get; }
 
+        [Description("Trim Curve in local surface U, V coordinates.")]
         public ICurve Curve2d { get; }
-
 
         /***************************************************/
         /**** Constructors                              ****/
