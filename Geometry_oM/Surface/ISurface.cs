@@ -24,7 +24,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
-    [Description("The interface for all two-dimensional geometrical objects.")]
+    [Description("The interface for two-dimensional geometrical objects.")]
     public interface ISurface : IGeometry
     {
     }

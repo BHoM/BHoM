@@ -26,7 +26,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry.SettingOut
 {
-    [Description("Defines a plane, or infinite flat two-dimensional surface, based on a height measured along the global Z axis and origin.")]
+    [Description("Defines a horizontal plane, or infinite flat two-dimensional surface, based on a height measured along the global Z axis and origin.")]
     public class Level : BHoMObject
     {
         /***************************************************/
