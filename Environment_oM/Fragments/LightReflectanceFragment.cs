@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing red, breen and blue light reflectance property")]
+    [Description("Fragment containing red, green and blue light reflectance property")]
     public class LightReflectanceFragment : IFragment
     {
         public double RedReflectance { get; set; } = 0.0;
