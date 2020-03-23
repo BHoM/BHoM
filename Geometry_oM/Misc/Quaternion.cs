@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Geometry
 {
+    [Description("A four-dimensional vector, useful in calculation of affine transformations in three-dimensional space. See also BH.oM.Geometry.TransformMatrix.")]
     public class Quaternion : IGeometry
     {
         /***************************************************/
