@@ -21,6 +21,7 @@
  */
 
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
@@ -34,6 +35,7 @@ namespace BH.oM.Geometry
         [Description("The Extrusion profile curve. Slicing the surface at any point perpendicular to the Direction axis Vector will result in an identical curve.")]
         public ICurve Curve { get; set; } = new Line();
 
+        [Length]
         [Description("The axis along which to translate the profile curve. The Vector magnitude determining the Extrusion length.")]
         public Vector Direction { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
