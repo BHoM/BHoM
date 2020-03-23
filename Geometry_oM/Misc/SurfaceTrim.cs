@@ -20,11 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
+    [Description("A pair of curves representing the boundary of a trimmed surface in both global X, Y, Z coordinates (Curve3d) as well as local surface U, V parameter space." +
+                 "\nA Surface Trim is immutable to ensure compatiblity of both curves.")]
     public class SurfaceTrim : IGeometry, IImmutable
     {
         /***************************************************/
