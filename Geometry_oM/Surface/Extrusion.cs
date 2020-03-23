@@ -32,7 +32,7 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The Extrusion profile curve. Slicing the surface at any point perpendicular to the Direction axis Vector will result in an identical curve.")]
+        [Description("The Extrusion profile curve defining the constant cross sectional shape. Idential curves can be recreated at any point along the Extrusion axis through intersection with the Surface.")]
         public ICurve Curve { get; set; } = new Line();
 
         [Length]
