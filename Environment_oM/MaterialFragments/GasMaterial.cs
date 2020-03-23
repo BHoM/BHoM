@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.MaterialFragments
 {
-    [Description("Fragment containing gas material properties related to material")]
+    [Description("Fragment containing gas material properties")]
     public class GasMaterial : BHoMObject, IEnvironmentMaterial, IFragment
     {
         public double Density { get; set; } = 0.0;
@@ -44,7 +44,7 @@ namespace BH.oM.Environment.MaterialFragments
 
         public string Description { get; set; } = "";
 
-        [Description("The roughness of the material. Use Roughness enum")]
+        [Description("Required for some calculations, such as determining the convective heat transfer coefficient. Use Roughness enum")]
         public Roughness Roughness { get; set; } = Roughness.Undefined;
 
         public double Refraction { get; set; } = 0.0;

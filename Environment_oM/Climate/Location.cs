@@ -25,24 +25,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
-
 using BH.oM.Environment.Fragments;
-using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Climate
 {
-    [Description("An environment object used for climate analysis that describes a location")]
+    [Description("Defines a uniquely identifiable point on the Earth in standard global Latitude, Longitude and Elevation, coordinate system. Particularly useful for specifying local climate conditions for environmental analysis.")]
     public class Location : BHoMObject, IClimateObject
     {
-        [Description("The latitude for the location (in -90 to +90 degrees)")]
+        [Description("Defines North-South position on the Earth. Between -90 to +90 degrees.")]
         public double Latitude { get; set; } = 0;
 
-        [Description("The longitude for the location (in -180 to +180 degrees)")]
+        [Description("Defines the East-West position on the Earth. Between -180 to +180 degrees.")]
         public double Longitude { get; set; } = 0;
 
-        [Description("The elevation for the location (in meters)")]
+        [Length]
+        [Description("The elevation for the location, measured relative to sea level.")]
         public double Elevation { get; set; } = 0;
 
         [Description("The Coordinated Universal Time (UTC) for the location (in -12 to +14 hours)")]

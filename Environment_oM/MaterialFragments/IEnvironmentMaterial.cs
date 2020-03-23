@@ -45,7 +45,7 @@ namespace BH.oM.Environment.MaterialFragments
 
         string Description { get; set; }
 
-        [Description("The roughness of the material. Use Roughness enum")]
+        [Description("Required for some calculations, such as determining the convective heat transfer coefficient. Use Roughness enum")]
         Roughness Roughness { get; set; }
 
         double Refraction { get; set; }
