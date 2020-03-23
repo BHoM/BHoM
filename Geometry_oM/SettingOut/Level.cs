@@ -20,18 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry.SettingOut
 {
+    [Description("Defines a plane, or infinite flat two-dimensional surface, based on a height measured along the global Z axis and origin.")]
     public class Level : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Elevation { get; set; } = 0.0;
+        [Description("The Level Reference, ID or text based identifier.")]
+        public override string Name { get; set; } = "";
 
+        [Length]
+        [Description("The position of the Level along the global Z coordinate axis.")]
+        public double Elevation { get; set; } = 0.0;
 
         /***************************************************/
     }
