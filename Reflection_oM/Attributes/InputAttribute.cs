@@ -58,6 +58,12 @@ namespace BH.oM.Reflection.Attributes
         }
 
         /***************************************************/
+
+        public InputAttribute(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
     }
 }
 

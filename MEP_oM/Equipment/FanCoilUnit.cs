@@ -40,7 +40,7 @@ namespace BH.oM.MEP.Equipment
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Plug your parts (Fan, Coil, Electrical Connector) into this list")]
+        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
         public List<IPart> Parts { get; set; } = new List<IPart>();
 
         /***************************************************/

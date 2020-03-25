@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing thermal boundary context, color, and surface direction properties")]
+    [Description("Fragment containing thermal boundary context, colour, and surface direction properties")]
     public class PanelContextFragment : IFragment
     {
         [Description("Defines whether the panel is an air panel (e.g. air wall or hole)")]

@@ -38,7 +38,7 @@ namespace BH.oM.Environment.Gains
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Proportional control indicates that the thermostat can modulate the voltage delivered to the heating device")]
+        [Description("Proportional control indicates that the thermostat can modulate the voltage delivered to the heating and/or cooling device")]
         public bool ProportionalControl { get; set; } = false;
 
         [Description("Control range indicates the range in temperature (in degrees of celsius)")]
