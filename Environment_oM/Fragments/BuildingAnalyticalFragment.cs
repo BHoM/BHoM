@@ -32,7 +32,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("This fragment is used to define the north angle, GMT offset and year of construction for a building. Required for some workflows")]
+    [Description("This fragment is used to define the north angle, GMT offset and year of construction for a building")]
     public class BuildingAnalyticalFragment : IFragment
     {
         public double NorthAngle { get; set; } = 0;

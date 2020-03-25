@@ -43,7 +43,7 @@ namespace BH.oM.Environment.Elements
         [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
         public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
 
-        [Description("A collection of cutouts or holes in a buiding surface (e.g. Window, Door, Rooflight)")]
+        [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
         public List<Opening> Openings { get; set; } = new List<Opening>();
 
         [Description("A construction object providing layer and material information for the panel")]

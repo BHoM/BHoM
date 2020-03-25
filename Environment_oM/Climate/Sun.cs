@@ -31,7 +31,6 @@ using BH.oM.Base;
 using BH.oM.Environment.Fragments;
 using System.ComponentModel;
 
-
 namespace BH.oM.Environment.Climate
 {
     [Description("An environment object used to define the position of the sun (in azimuth and elevation)")]
