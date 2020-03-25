@@ -38,7 +38,7 @@ namespace BH.oM.AECDeltas
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public string StreamId { get; }
+        public Guid StreamId { get; }
 
         public Dictionary<string, object> Diff { get; }
 
@@ -60,14 +60,14 @@ namespace BH.oM.AECDeltas
         {
             Diff = new Dictionary<string, object>()
             {
-                { "toBeCreated" , delta.Diff.NewObjects },
-                { "toBeDeleted" , delta.Diff.OldObjects },
+                { "toBeCreated" , delta.Diff.AddedObjects },
+                { "toBeDeleted" , delta.Diff.RemovedObjects },
                 { "toBeUpdated" , delta.Diff.ModifiedObjects },
             };
 
             StreamId = delta.StreamId;
-            Revision_from = delta.Revision_from;
-            Revision_to = delta.Revision_to;
+            Revision_from = delta.Revision_from.ToString();
+            Revision_to = delta.Revision_to.ToString();
 
             Comment = delta.Comment;
 

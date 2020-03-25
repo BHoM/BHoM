@@ -31,42 +31,26 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class Revision : BHoMObject, IImmutable
+    [Description("Points to a specific Stream. Can be used to generate a new Stream and StreamId.")]
+    public class StreamPointer : BHoMObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public Guid StreamId { get; }
-        public Guid RevisionId { get; } = Guid.NewGuid();
-        public string RevisionName { get; }
+        public Guid StreamId { get; } = Guid.NewGuid();
+        public string StreamName { get; }
+        public string Description { get; }
         public long Timestamp { get; } = DateTime.UtcNow.Ticks;
-        public string Author { get; } = Environment.UserDomainName + "/" + Environment.UserName;
-        public string Comment { get; }
-        public IEnumerable<object> Objects { get; }
-
-        [Description("Diffing settings for this Stream Revision. Hashes of objects contained in this stream will be computed based on these configs.")]
-        public DiffConfig RevisionDiffConfing { get; }
 
         /***************************************************/
         /**** Constructor                               ****/
         /***************************************************/
 
-        [Description("Creates new Stream Revision.")]
-        [Input("objects", "Objects to be included in the Stream")]
-        [Input("streamId", "Id of the Stream that owns this Revision.")]
-        [Input("revisionDiffConfig", "If the Revision was produced via a diff of a previous one, diffing settings used. Otherwise null.")]
-        [Input("revision", "If not specified, revision is initially set to 0")]
-        [Input("comment", "Any comment to be added for this stream.")]
-        public Revision(IEnumerable<object> objects, Guid streamId, DiffConfig revisionDiffConfig = null, string revisionName = null, string comment = null)
+        public StreamPointer(string name = null, string description = null)
         {
-            Objects = objects;
-
-            StreamId = streamId;
-            RevisionName = revisionName;
-            Comment = comment;
-
-            RevisionDiffConfing = revisionDiffConfig;
+            StreamName = name;
+            Description = description;
         }
 
         /***************************************************/
