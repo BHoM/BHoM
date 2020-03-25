@@ -38,9 +38,9 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        public IEnumerable<object> NewObjects { get; }
+        public IEnumerable<object> AddedObjects { get; }
 
-        public IEnumerable<object> OldObjects { get; }
+        public IEnumerable<object> RemovedObjects { get; }
 
         public IEnumerable<object> ModifiedObjects { get; }
 
@@ -58,15 +58,15 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        [Description("Creates new Delta object with information on the new, old or modified object, and (if exists) the Diffing Stream that contains them.")]
-        [Input("newObjects", "Objects existing exclusively in the 'primary' set, i.e. the 'new' objects.")]
-        [Input("oldObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
+        [Description("Creates new Delta object with information on the added, removed or modified object, and (if exists) the Diffing Stream that contains them.")]
+        [Input("addedObjects", "Objects existing exclusively in the 'primary' set, i.e. the 'new' objects.")]
+        [Input("removedObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
         [Input("modifiedObjects", "Objects existing in both sets that have some differences in their properties.")]
         [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
-        public Diff(IEnumerable<object> newObjects, IEnumerable<object> oldObjects, IEnumerable<object> modifiedObjects, DiffConfig diffConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, IEnumerable<object> unchangedObjects = null)
+        public Diff(IEnumerable<object> addedObjects, IEnumerable<object> removedObjects, IEnumerable<object> modifiedObjects, DiffConfig diffConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, IEnumerable<object> unchangedObjects = null)
         {
-            NewObjects = newObjects;
-            OldObjects = oldObjects;
+            AddedObjects = addedObjects;
+            RemovedObjects = removedObjects;
             ModifiedObjects = modifiedObjects;
             DiffConfig = diffConfig;
             ModifiedPropsPerObject = modifiedPropsPerObject;

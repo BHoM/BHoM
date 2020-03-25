@@ -37,23 +37,23 @@ namespace BH.oM.Diffing
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Id of the Stream owning both the Revision that this Delta targets and the Revision that it will produce.")]
-        public string StreamId { get; }
+        [Description("The Id of the owning Stream. It must be the same for both the Revision that this Delta targets and the Revision that it will produce.")]
+        public Guid StreamId { get; }
 
         [Description("Represent the differences between two sets of objects.")]
         public Diff Diff { get; }
 
         [Description("Revision Id that this Delta targets.")]
-        public string Revision_from { get; }
+        public Guid Revision_from { get; }
 
         [Description("Revision Id that this Delta produces.")]
-        public string Revision_to { get; }
+        public Guid? Revision_to { get; }
 
         [Description("In UTC ticks.")]
-        public long Timestamp { get; }
+        public long Timestamp { get; } = DateTime.UtcNow.Ticks;
 
         [Description("Any descriptive string identifying either the Author and/or the software used.")]
-        public string Author { get; }
+        public string Author { get; } = Environment.UserDomainName + "/" + Environment.UserName;
 
         public string Comment { get; }
 
@@ -61,19 +61,16 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        public Delta(string streamId, Diff diff, string revision_from, string revision_to = null, long timestamp = default(long), string author = null, string comment = null)
+        public Delta(Guid streamId, Diff diff, Guid revision_from, Guid? revision_to = null, string comment = null)
         {
-            StreamId = string.IsNullOrWhiteSpace(streamId) ? Guid.NewGuid().ToString("N") : streamId;
+            StreamId = streamId;
 
             Diff = diff;
 
             Revision_from = revision_from;
-            Revision_to = revision_to;
+            Revision_to = revision_to == null ? new Guid() : Revision_to;
 
             Comment = comment;
-
-            Timestamp = timestamp == default(long) ? DateTime.UtcNow.Ticks : timestamp;
-            Author = Environment.UserDomainName + "/" + Environment.UserName;
         }
 
     }
