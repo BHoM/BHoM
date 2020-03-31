@@ -33,31 +33,31 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Climate
 {
-    [Description("An Environment SpaceTime object used for defining locations in space and time for climate analysis")]
+    [Description("An environment object used to describe time for climate analysis")]
     public class SpaceTime : BHoMObject, IClimateObject
     {
-        [Description("An Environment Location object specifying the latitude, longitude and other location specifics of the SpaceTime object")]
+        [Description("The location for the climate analysis")]
         public Location Location { get; set; } = new Location();
 
-        [Description("The year of the time for the space time object")]
+        [Description("A number that represents the year (e.g. 1970)")]
         public int Year { get; set; } = 1900;
 
-        [Description("The month of the time for the space time object")]
+        [Description("A number between 1 to 12, where 1 is January")]
         public int Month { get; set; } = 1;
 
-        [Description("The day of the time for the space time object")]
+        [Description("A number between 1 to 31")]
         public int Day { get; set; } = 1;
 
-        [Description("The hour of the time for the space time object")]
+        [Description("A number between 0 to 23")]
         public int Hour { get; set; } = 0;
 
-        [Description("The minute of the time for the space time object")]
+        [Description("A number between 0 to 59")]
         public int Minute { get; set; } = 0;
 
-        [Description("The second of the time for the space time object")]
+        [Description("A number between 0 to 59")]
         public int Second { get; set; } = 0;
 
-        [Description("The millisecond of the time for the space time object")]
+        [Description("A number between 0 to 999")]
         public int Millisecond { get; set; } = 0;
     }
 }

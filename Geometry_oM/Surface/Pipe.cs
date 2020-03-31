@@ -20,18 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
+
 namespace BH.oM.Geometry
 {
+    [Description("A constant circular cross section surface, following a defined curve path.")]
     public class Pipe : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Defines the central axis perpendicular to the circular cross sections, and thus the path along which the tubular surface follows.")]
         public ICurve Centreline { get; set; } = new Line();
 
+        [Length]
+        [Description("The distance from the Curve Centreline to a point on the Pipe surface.")]
         public double Radius { get; set; } = 0;
 
+        [Description("Defines the Pipe as closed and therfore a solid volume.")]
         public bool Capped { get; set; } = true;
         
         /***************************************************/

@@ -43,7 +43,7 @@ namespace BH.oM.Geometry
         public double RadiusMajor { get; set; } = 0.0;
 
         [Length]
-        [Description("The radius defining the size of the circular cross-section.")]
+        [Description("The radius defining the size of the circular cross section.")]
         public double RadiusMinor { get; set; } = 0.0;
 
         /***************************************************/

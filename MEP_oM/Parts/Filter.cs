@@ -25,21 +25,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
 
 namespace BH.oM.MEP.Parts
 {
+    [Description("Filters are devices that remove solid particles from a system")]
     public class Filter : BHoMObject, IPart
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
+        [Description("Type denotes the kind of filter (eg fiberglass, pleated, HEPA, washable, etc)")]
         public string Type { get; set; } = "";
+        
+        [Description("MERV Rating is the Minimum Efficiency Rating Value which denotes the effectiveness of the filter's ability to trap small particles)")]
         public int MERVRating { get; set; } = 0;
+        
+        [Description("Initial pressure drop describes the pressure drop across a new (unused) filter")]
         public double InitialPressureDrop { get; set; } = 0.0;
+        
+        [Description("Replacement pressure drop describes the pressure drop across a used filter, and indicates that the filter should be replaced")]
         public double ReplacementPressureDrop { get; set; } = 0.0;
+        
+        [Description("Area indicates the face area of the filter in m2")]
         public double Area { get; set; } = 0.0;
 
         /***************************************************/

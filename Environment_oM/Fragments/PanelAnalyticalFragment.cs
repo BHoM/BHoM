@@ -31,79 +31,55 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the panel analytical property related to panels")]
+    [Description("Fragment containing geometric and thermal properties of a panel")]
     public class PanelAnalyticalFragment : IFragment
     {
-        [Description("The altitude of the panel")]
         public double Altitude { get; set; } = 0.0;
 
-        [Description("The altitude range of the panel")]
         public double AltitudeRange { get; set; } = 0.0;
 
-        [Description("The inclination of the panel")]
         public double Inclination { get; set; } = 0.0;
 
-        [Description("The inclination range of the panel")]
         public double InclinationRange { get; set; } = 0.0;
 
-        [Description("The orientation of the panel")]
         public double Orientation { get; set; } = 0.0;
 
-        [Description("The gValue of the panel")]
         public double GValue { get; set; } = 0.0;
 
-        [Description("The ltValue of the panel")]
         public double LTValue { get; set; } = 0.0;
 
-        [Description("The uValue of the panel")]
         public double UValue { get; set; } = 0.0;
 
-        [Description("The aperture flow in towards the panel")]
         public double ApertureFlowIn { get; set; } = 0.0;
 
-        [Description("The aperture flow out from the panel")]
         public double ApertureFlowOut { get; set; } = 0.0;
 
-        [Description("The aperture for the opening of the panel")]
         public double ApertureOpening { get; set; } = 0.0;
 
-        [Description("The external condensation for the panel")]
         public double ExternalCondensation { get; set; } = 0.0;
 
-        [Description("The external conduction for the panel")]
         public double ExternalConduction { get; set; } = 0.0;
 
-        [Description("The external convection for the panel")]
         public double ExternalConvection { get; set; } = 0.0;
 
-        [Description("The external long wave for the panel")]
         public double ExternalLongWave { get; set; } = 0.0;
 
-        [Description("The external solar result of the panel")]
         public double ExternalSolar { get; set; } = 0.0;
 
-        [Description("The external temperature of the panel")]
         public double ExternalTemperature { get; set; } = 0.0;
 
-        [Description("The internal condensation for the panel")]
         public double InternalCondensation { get; set; } = 0.0;
 
-        [Description("The internal conduction for the panel")]
         public double InternalConduction { get; set; } = 0.0;
 
-        [Description("The internal convection for the panel")]
         public double InternalConvection { get; set; } = 0.0;
 
-        [Description("The internal long wave for the panel")]
         public double InternalLongWave { get; set; } = 0.0;
 
-        [Description("The internal solar result of the panel")]
         public double InternalSolar { get; set; } = 0.0;
 
-        [Description("The internal temperature of the panel")]
         public double InternalTemperature { get; set; } = 0.0;
 
-        [Description("The interstitial condensation of the panel")]
         public double InterstitialCondensation { get; set; } = 0.0;
     }
 }

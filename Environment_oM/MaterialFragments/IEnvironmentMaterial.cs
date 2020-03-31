@@ -29,16 +29,25 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Physical.Materials;
 
+using System.ComponentModel;
+
 namespace BH.oM.Environment.MaterialFragments
 {
     public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties, IFragment
     {
         double Density { get; set; }
+
         double Conductivity { get; set; }
+
         double SpecificHeat { get; set; }
+
         double VapourResistivity { get; set; }
+
         string Description { get; set; }
+
+        [Description("Required for some calculations, such as determining the convective heat transfer coefficient. Use Roughness enum")]
         Roughness Roughness { get; set; }
+
         double Refraction { get; set; }
     }
 }

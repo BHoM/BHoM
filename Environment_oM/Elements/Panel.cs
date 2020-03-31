@@ -37,22 +37,22 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An Environment Panel Analytical Object")]
+    [Description("An environmental object used to define planar surfaces of a space (e.g. Wall, Floor, Roof)")]
     public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D
     {
-        [Description("A collection of Environmend Edge objects which defines the external boundary of the panel")]
+        [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
         public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
 
-        [Description("A collection of Environment Opening objects")]
+        [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
         public List<Opening> Openings { get; set; } = new List<Opening>();
 
         [Description("A construction object providing layer and material information for the panel")]
         public IConstruction Construction { get; set; } = new Construction();
 
-        [Description("The type of panel from the Panel Type enum")]
+        [Description("The type of environmental surface (e.g. Wall, Floor, Roof). Use PanelType enum)")]
         public PanelType Type { get; set; } = PanelType.Undefined;
 
-        [Description("A collection of the spaces the panel is connected to")]
+        [Description("This is a list of space names for which the panel belongs to. For example, the same panel can be a ceiling for Room A while also being a floor for Room B")]
         public List<string> ConnectedSpaces { get; set; } = new List<string>();
     }
 }

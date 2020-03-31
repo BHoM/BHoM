@@ -25,28 +25,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
 
 namespace BH.oM.MEP.Parts
 {
+    [Description("Electrical Connectors are the devices (motors, disconnects/isolators) that serve as a source of power for mechanical equipment")]
     public class ElectricalConnector : BHoMObject, IPart
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Motor Horsepower indicates the power required for the electrical connector without any power losses")]
         public double MotorHorsePower { get; set; } = 0.0;
+        
+        [Description("Brake Horsepower indicates the power required for the electrical connector including any power losses")]
         public double BrakeHorsePower { get; set; } = 0.0;
+        
+        [Description("Full Load Amps indicates the amount of current drawn by the motor when running, and is used for sizing the conductors")]
         public double FullLoadAmps { get; set; } = 0.0;
+        
+        [Description("Maximum Overcurrent Protection indicates the maximum size of the fuse or breaker")]
         public double MaximumOvercurrentProtection { get; set; } = 0.0;
+        
+        [Description("Phase denotes the distribution of alternating current (example: single or three phase)")]
         public double Phase { get; set; } = 0.0;
+        
+        [Description("Frequency is the rate of oscillation")]
         public double Frequency { get; set; } = 0.0;
+        
+        [Description("Voltage denotes the electrical potential difference (120/208, 277/480 (US), 240, 415 (UK)")]
         public double Voltage { get; set; } = 0.0;
+        
+        [Description("Emergency Power is a boolean value (true/false) that denotes whether a device requires backup from an emergency power source")]
         public bool EmergencyPower { get; set; } = false;
+        
+        [Description("Optional Standby is a boolean value (true/false) that denotes whether a device requires backup from a secondary power source, for non-critical systems")]
         public bool StandBy { get; set; } = false;
+
 
         /***************************************************/
     }
 }
-

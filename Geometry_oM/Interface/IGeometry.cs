@@ -20,10 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 
 namespace BH.oM.Geometry
 {
+    [Description("The parent interface for all primative geometrical objects." +
+                 "\nIGeometry implements IObject - and not IBHoMObject. Equally primative geometrical objects do not inherit from the base BHoMObject class either. As primatives, the additional base BHoM properties are omitted for both efficency and performace.")]
     public interface IGeometry : IObject
     {
     }

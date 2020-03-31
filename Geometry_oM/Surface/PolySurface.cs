@@ -20,16 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
+    [Description("A composite surface constructed by combining a collection of surfaces of any type. Whole PolySurface integrity, continuity and closure is not guaranteed at creation. Discontinuous and/or multi-region definitions are possible, although validity of some engine methods may vary depending on the PolySurface form.")]
     public class PolySurface : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("A collection of surfaces, of any or mixed type, which together define the composite shape.")]
         public List<ISurface> Surfaces { get; set; } = new List<ISurface>();
         
         /***************************************************/

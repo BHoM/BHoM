@@ -31,16 +31,15 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the space context property related to spaces")]
+    [Description("Fragment containing space context properties (e.g. is external facing, colour, connected elements)")]
     public class SpaceContextFragment : IFragment
     {
         [Description("Defines wheather the space is externally facing")]
         public bool IsExternal { get; set; } = false;
 
-        [Description("Defines the colour of the space")]
         public string Colour { get; set; } = "";
 
-        [Description("A collection of the elements which enclose the space described by their name or unique identifer as a string")]
+        [Description("A collection of the elements which enclose the space")]
         public List<string> ConnectedElements { get; set; } = new List<string>();
     }
 }
