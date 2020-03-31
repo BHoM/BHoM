@@ -68,7 +68,7 @@ namespace BH.oM.Diffing
             Diff = diff;
 
             Revision_from = revision_from;
-            Revision_to = revision_to == null ? new Guid() : Revision_to;
+            Revision_to = revision_to == null ? new Guid() : revision_to;
 
             Comment = comment;
         }
