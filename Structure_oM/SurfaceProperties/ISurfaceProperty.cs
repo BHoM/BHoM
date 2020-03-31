@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.SurfaceProperties
 {
     [Description("Base interface for properties for 2D finite element structural objects such as Panels and FEMeshes.")]
-    public interface ISurfaceProperty : IBHoMObject
+    public interface ISurfaceProperty : IBHoMObject, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

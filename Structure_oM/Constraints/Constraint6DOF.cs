@@ -28,7 +28,7 @@ namespace BH.oM.Structure.Constraints
 {
 
     [Description("Constraint objects with six degrees of freedom, three translational and three rotational, used for supports and bar end releases.")]
-    public class Constraint6DOF : BHoMObject
+    public class Constraint6DOF : BHoMObject, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

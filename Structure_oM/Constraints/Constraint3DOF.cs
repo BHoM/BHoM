@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.Constraints
 {
     [Description("Constraint objects with three translational degrees of freedom, used for support of 2D analytical objects.")]
-    public class Constraint3DOF : BHoMObject
+    public class Constraint3DOF : BHoMObject, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/
