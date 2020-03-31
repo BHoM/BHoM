@@ -26,7 +26,7 @@ using BH.oM.Base;
 namespace BH.oM.Structure.Constraints
 {
     [Description("Defines the rigid connectivity between a master and set of slave nodes.")]
-    public class LinkConstraint : BHoMObject
+    public class LinkConstraint : BHoMObject, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

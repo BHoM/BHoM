@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Structure.MaterialFragments
 {
     [Description("Structural timber material to be used on structural elements and properties or as a fragment of the physical material.")]
-    public class Timber : BHoMObject, IOrthotropic
+    public class Timber : BHoMObject, IOrthotropic, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

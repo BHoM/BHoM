@@ -27,7 +27,7 @@ namespace BH.oM.Structure.Constraints
 {
 
     [Description("Defines the releases at the start and end node of a Bar.")]
-    public class BarRelease : BHoMObject
+    public class BarRelease : BHoMObject, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.SectionProperties
 {
     [Description("Material agnostic section. Does not own any geometry. Allows explicit setting of all section constants.")]
-    public class ExplicitSection : BHoMObject, ISectionProperty
+    public class ExplicitSection : BHoMObject, ISectionProperty, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

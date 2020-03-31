@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.MaterialFragments
 {
     [Description("Generic isotropic material to be used for isotropic materials not yet explicitly supported.")]
-    public class GenericIsotropicMaterial : BHoMObject, IIsotropic
+    public class GenericIsotropicMaterial : BHoMObject, IIsotropic, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

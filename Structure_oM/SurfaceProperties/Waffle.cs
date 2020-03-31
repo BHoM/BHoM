@@ -28,7 +28,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.SurfaceProperties
 {
     [Description("Property for 2D analytical elements, made up of a slab on top of parallel ribs running in two directions, all sharing the same material.")]
-    public class Waffle : BHoMObject, ISurfaceProperty
+    public class Waffle : BHoMObject, ISurfaceProperty, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -29,7 +29,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.SectionProperties
 {
     [Description("Material agnostic section. To be used for sections of material types not yet explicitly supported.")]
-    public class GenericSection : BHoMObject, IGeometricalSection, IImmutable
+    public class GenericSection : BHoMObject, IGeometricalSection, IImmutable, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

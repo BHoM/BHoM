@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.SurfaceProperties
 {
     [Description("Property for 2D analytical elements used to distribute load, without any structural stiffness.")]
-    public class LoadingPanelProperty : BHoMObject, ISurfaceProperty
+    public class LoadingPanelProperty : BHoMObject, ISurfaceProperty, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

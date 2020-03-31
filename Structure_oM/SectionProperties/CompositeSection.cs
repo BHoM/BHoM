@@ -33,7 +33,7 @@ namespace BH.oM.Structure.SectionProperties
 {
     [NotImplemented]
     [Description("A steel-concrete composite section to be used on bars. Defined by a steel and a concrete section. Not yet fully implemented/Supported.")]
-    public class CompositeSection : BHoMObject, ISectionProperty, IImmutable
+    public class CompositeSection : BHoMObject, ISectionProperty, IImmutable, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

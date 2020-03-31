@@ -29,7 +29,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.SectionProperties
 {
     [Description("Steel section to be used on Bars. Defined by a section profile.")]
-    public class SteelSection : BHoMObject, IGeometricalSection, IImmutable
+    public class SteelSection : BHoMObject, IGeometricalSection, IImmutable, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

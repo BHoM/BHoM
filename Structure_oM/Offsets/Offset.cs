@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.Offsets
 {
     [Description("Class defining offsets for bar objects from its end Nodes to be applied in analysis packages.")]
-    public class Offset : BHoMObject
+    public class Offset : BHoMObject, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/
