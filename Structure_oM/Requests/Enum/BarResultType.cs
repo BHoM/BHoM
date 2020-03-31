@@ -24,6 +24,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Requests
 {
+    [Description("Defines which type of results that should be extracted for BarResultRequests.")]
     public enum BarResultType
     {
         BarForce,

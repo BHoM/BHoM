@@ -33,7 +33,6 @@ namespace BH.oM.Structure.Requests
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Defines which type of results that should be extracted.")]
         public BarResultType ResultType { get; set; } = BarResultType.BarForce;
 
         [Description("Defines which internal points results should be extracted for. For evenly distributed the bar is split into equal length segments, controlled by the divisions. For ExtremeValues the positions with extreme forces for any DOF will be included, which means you might get more/less values than stated in the Divisions.")]
