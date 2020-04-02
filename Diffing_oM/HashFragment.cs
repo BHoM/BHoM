@@ -23,25 +23,30 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    public class HashFragment : IFragment
+    [Description("Stores the current object Hash and its previous Hash.")]
+    public class HashFragment : IFragment, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Current object Hash.")]
         public string Hash { get; set; }
+
+        [Description("Previous object Hash, typically the one it had in its previous Revision.")]
         public string PreviousHash { get; set; } = null; // Until we solve the 'Persistent GUID', this is the current workaround.
 
         /***************************************************/
 
         /***************************************************/
-        /**** Constructors                              ****/
+        /**** Constructor                               ****/
         /***************************************************/
 
         public HashFragment(string hash, string previousHash = null)
@@ -51,25 +56,6 @@ namespace BH.oM.Diffing
         }
 
         /***************************************************/
-
-        public Guid BHoM_Guid { get; set; } = Guid.NewGuid();
-
-        public string Name { get; set; } = "";
-
-        public FragmentSet Fragments { get; set; } = new FragmentSet();
-
-        public HashSet<string> Tags { get; set; } = new HashSet<string>();
-
-        public Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
-
-        public IBHoMObject GetShallowClone(bool newGuid = false)
-        {
-            return null;
-        }
-
-        /***************************************************/
-
-
     }
 }
 
