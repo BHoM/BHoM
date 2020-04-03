@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.SurfaceProperties
 {
     [Description("Simplest property for 2D analytical elements with a constant thickness and homogenous material across the whole element.")]
-    public class ConstantThickness : BHoMObject, ISurfaceProperty, IProperty
+    public class ConstantThickness : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/

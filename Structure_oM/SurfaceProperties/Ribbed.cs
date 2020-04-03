@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.SurfaceProperties
 {
     [Description("Property for 2D analytical elements, made up of a slab on top of parallel ribs running in one direction, all sharing the same material.")]
-    public class Ribbed : BHoMObject, ISurfaceProperty, IProperty
+    public class Ribbed : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/

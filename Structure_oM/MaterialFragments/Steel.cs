@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Structure.MaterialFragments
 {
     [Description("Structural steel material to be used on structural elements and properties or as a fragment of the physical material.")]
-    public class Steel : BHoMObject, IIsotropic, IProperty
+    public class Steel : BHoMObject, IIsotropic
     {
         /***************************************************/
         /**** Properties                                ****/

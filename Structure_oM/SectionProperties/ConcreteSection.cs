@@ -33,7 +33,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.SectionProperties
 {
     [Description("Concrete section to be used on Bars. Defined by a section profile. Note that all section constants are assuming an uncracked section and are disregarding reinforcement.")]
-    public class ConcreteSection : BHoMObject, IGeometricalSection, IImmutable, IProperty
+    public class ConcreteSection : BHoMObject, IGeometricalSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
