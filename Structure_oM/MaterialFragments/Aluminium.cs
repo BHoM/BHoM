@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.MaterialFragments
 {
     [Description("Structural aluminium material to be used on structural elements and properties or as a fragment of the physical material.")]
-    public class Aluminium : BHoMObject, IIsotropic, IProperty
+    public class Aluminium : BHoMObject, IIsotropic
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Structure.MaterialFragments
 {
     [Description("Generic orthotropic material to be used for orthotropic materials not yet explicitly supported.")]
-    public class GenericOrthotropicMaterial : BHoMObject, IOrthotropic, IProperty
+    public class GenericOrthotropicMaterial : BHoMObject, IOrthotropic
     {
         /***************************************************/
         /**** Properties                                ****/

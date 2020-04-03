@@ -30,7 +30,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.SectionProperties
 {
     [Description("Cable section to be used on Bars. Defined by cable diameter, number of cables, and total area.")]
-    public class CableSection : BHoMObject, ISectionProperty, IImmutable, IProperty
+    public class CableSection : BHoMObject, ISectionProperty, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
