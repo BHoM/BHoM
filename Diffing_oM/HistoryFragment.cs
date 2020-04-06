@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Diffing
 {
     [Description("Stores the current object Hash and its previous Hash.")]
-    public class HashFragment : IFragment, IImmutable
+    public class HistoryFragment : IFragment, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -49,7 +49,7 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        public HashFragment(string hash, string previousHash = null)
+        public HistoryFragment(string hash, string previousHash = null)
         {
             Hash = hash;
             PreviousHash = previousHash;
