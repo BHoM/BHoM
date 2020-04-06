@@ -64,6 +64,7 @@
     <Compile Include="Gains\Enums\ProfileType.cs" />
     <Compile Include="Gains\Enums\SimulationDayType.cs" />
     <Compile Include="Gains\Equipment.cs" />
+    <Compile Include="Gains\Exhaust.cs" />
     <Compile Include="Gains\IGain.cs" />
     <Compile Include="Gains\Infiltration.cs" />
     <Compile Include="Gains\Lighting.cs" />
