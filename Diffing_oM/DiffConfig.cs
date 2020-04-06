@@ -41,7 +41,7 @@ namespace BH.oM.Diffing
 
         [Description("List of strings specifying the names of the properties that should be ignored in the diffing. By default it includes BHoM_Guid, CustomData, Fragments."
             + "Any property found with a name matching any of this list it will not be considered; this includes any sub-object.")]
-        public List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid", "CustomData", "Fragments" };
+        public List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid", "CustomData" };
 
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
         public bool EnablePropertyDiffing { get; set; } = true;
