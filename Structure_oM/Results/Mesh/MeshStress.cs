@@ -37,35 +37,35 @@ namespace BH.oM.Structure.Results
 
         [Stress]
         [Description("Normal stress in x-direction.")]
-        public double SXX { get; }
+        public virtual double SXX { get; }
 
         [Stress]
         [Description("Normal stress in y-direction.")]
-        public double SYY { get; }
+        public virtual double SYY { get; }
 
         [Stress]
         [Description("Normal stress in xy-direction.")]
-        public double SXY { get; }
+        public virtual double SXY { get; }
 
         [Stress]
         [Description("Shear stress in x-direction.")]
-        public double TXX { get; }
+        public virtual double TXX { get; }
 
         [Stress]
         [Description("Shear stress in y-direction.")]
-        public double TYY { get;  }
+        public virtual double TYY { get;  }
 
         [Stress]
         [Description("Principal stress in first principal direction.")]
-        public double Principal_1 { get; }
+        public virtual double Principal_1 { get; }
 
         [Stress]
         [Description("Principal stress in second principal direction.")]
-        public double Principal_2 { get; }
+        public virtual double Principal_2 { get; }
 
         [Stress]
         [Description("Principal stress in middle principal direction.")]
-        public double Principal_1_2 { get; }
+        public virtual double Principal_1_2 { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

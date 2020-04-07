@@ -38,17 +38,17 @@ namespace BH.oM.Environment.Elements
     public class Building : BHoMObject, IEnvironmentObject
     {
         [Description("The latitude for the location (in -90 to +90 degrees)")]
-        public double Latitude { get; set; } = 0.0;
+        public virtual double Latitude { get; set; } = 0.0;
 
         [Description("The longitude for the location (in -180 to +180 degrees)")]
-        public double Longitude { get; set; } = 0.0;
+        public virtual double Longitude { get; set; } = 0.0;
 
         [Length]
         [Description("The elevation for the location above sea level")]
-        public double Elevation { get; set; } = 0.0;
+        public virtual double Elevation { get; set; } = 0.0;
 
         [Description("The main classification for the building (e.g. Office, Residential). Use BuildingType enum)")]
-        public BuildingType Type { get; set; } = BuildingType.Undefined;
+        public virtual BuildingType Type { get; set; } = BuildingType.Undefined;
     }
 }
 

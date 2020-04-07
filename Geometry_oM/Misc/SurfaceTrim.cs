@@ -35,10 +35,10 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Trim Curve in global X, Y, Z coordinates.")]
-        public ICurve Curve3d { get; }
+        public virtual ICurve Curve3d { get; }
 
         [Description("Trim Curve in local surface U, V coordinates.")]
-        public ICurve Curve2d { get; }
+        public virtual ICurve Curve2d { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

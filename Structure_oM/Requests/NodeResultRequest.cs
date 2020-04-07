@@ -35,19 +35,19 @@ namespace BH.oM.Structure.Requests
         /***************************************************/
 
         [Description("Defines which type of results that should be extracted.")]
-        public NodeResultType ResultType { get; set; } = NodeResultType.NodeReaction;
+        public virtual NodeResultType ResultType { get; set; } = NodeResultType.NodeReaction;
 
         [Description("Defines whether results should be extracted in global coordinates or local node coordinates.")]
-        public LoadAxis Axis { get; set; } = LoadAxis.Global;
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
 
         [Description("Defines which cases and/or combinations that results should be extracted for. Can generally be set to either Loadcase or Loadcombination objects, or identifiers matching the software. If nothing is provided, results for all cases will be assumed.")]
-        public List<object> Cases { get; set; } = new List<object>();
+        public virtual List<object> Cases { get; set; } = new List<object>();
 
         [Description("Defines for which modes results should be extracted. Only applicable for some casetypes. If nothing is provided, results for all modes will be assumed.")]
-        public List<string> Modes { get; set; } = new List<string>();
+        public virtual List<string> Modes { get; set; } = new List<string>();
 
         [Description("Defines which Nodes that results should be extracted for. Can generally be set to either pulled Node objects, or identifiers matching the software. If nothing is provided, results for all Nodes will be assumed.")]
-        public List<object> ObjectIds { get; set; } = new List<object>();
+        public virtual List<object> ObjectIds { get; set; } = new List<object>();
 
         /***************************************************/
     }

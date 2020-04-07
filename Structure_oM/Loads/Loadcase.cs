@@ -32,10 +32,10 @@ namespace BH.oM.Structure.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        public LoadNature Nature { get; set; } = LoadNature.Other;
+        public virtual LoadNature Nature { get; set; } = LoadNature.Other;
 
         [Description("Unique numeric identifier of the Loadcase.")]
-        public int Number { get; set; } = 0;
+        public virtual int Number { get; set; } = 0;
 
         /***************************************************/
     }

@@ -35,16 +35,16 @@ namespace BH.oM.Environment.Gains
     public class Plug : BHoMObject, IGain
     {
         [Description("The sensible heat contributed by plugs, which contributes to a rise in temperature with no change in phase.")]
-        public double Sensible { get; set; } = 0.0;
+        public virtual double Sensible { get; set; } = 0.0;
 
         [Description("Profiles depict the time period (hours per day, days per week) during which plug loads are contributing heat to the space.")]
-        public Profile Profile { get; set; } = new Profile();
+        public virtual Profile Profile { get; set; } = new Profile();
 
         [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by plugs.")]
-        public double RadiantFraction { get; set; } = 0.0;
+        public virtual double RadiantFraction { get; set; } = 0.0;
 
         [Description("The view coefficient of this plug gain")]
-        public double ViewCoefficient { get; set; } = 0.0;
+        public virtual double ViewCoefficient { get; set; } = 0.0;
     }
 }
 

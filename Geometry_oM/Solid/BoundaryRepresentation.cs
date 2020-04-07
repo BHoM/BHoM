@@ -36,7 +36,7 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("List of ISurfaces must form a closed volume - checks and guarantees to be performed at conversion")]
-        public ReadOnlyCollection<ISurface> Surfaces { get; }
+        public virtual ReadOnlyCollection<ISurface> Surfaces { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

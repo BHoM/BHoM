@@ -35,9 +35,9 @@ namespace BH.oM.Environment.Fragments
     [Description("Fragment containing the place (city) and name of the nearest weather station")]
     public class BuildingContextFragment : IFragment
     {
-        public string PlaceName { get; set; } = "";
+        public virtual string PlaceName { get; set; } = "";
 
-        public string WeatherStation { get; set; } = "";
+        public virtual string WeatherStation { get; set; } = "";
     }
 }
 

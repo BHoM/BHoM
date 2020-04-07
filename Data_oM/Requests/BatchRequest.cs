@@ -30,7 +30,7 @@ namespace BH.oM.Data.Requests
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IRequest> Requests { get; set; } = new List<IRequest>();
+        public virtual List<IRequest> Requests { get; set; } = new List<IRequest>();
 
 
         /***************************************************/

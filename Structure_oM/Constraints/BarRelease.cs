@@ -34,10 +34,10 @@ namespace BH.oM.Structure.Constraints
         /***************************************************/
 
         [Description("Release of the start node of the bar, in the local coordinates of the element.")]
-        public Constraint6DOF StartRelease { get; set; }
+        public virtual Constraint6DOF StartRelease { get; set; }
 
         [Description("Release of the end node of the bar, in the local coordinates of the element.")]
-        public Constraint6DOF EndRelease { get; set; }
+        public virtual Constraint6DOF EndRelease { get; set; }
 
         /***************************************************/
     }  

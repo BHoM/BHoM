@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -37,19 +37,19 @@ namespace BH.oM.Environment.Fragments
     [Description("This fragment is used to define physical and thermal properties for a building surface")]
     public class AnalyticalConstruction : IFragment, IImmutable
     {
-        public double ConstructionThickness { get; } 
-        public double ExternalEmissivity { get; }
-        public double ExternalSolarAbsorptance { get; }
-        public double ExternalVisibleReflectance { get; }
-        public double GValue { get; }
-        public double InternalEmissivity { get; }
-        public double InternalSolarAbsorptance { get; }
-        public double InternalVisibleReflectance { get; }
-        public double RefractiveIndex { get; }
-        public double RValue { get; }
-        public double ThermalMassCm { get; }
-        public double UValue { get; }
-        public double VisibleLightTransmittance { get; }
+        public virtual double ConstructionThickness { get; }
+        public virtual double ExternalEmissivity { get; }
+        public virtual double ExternalSolarAbsorptance { get; }
+        public virtual double ExternalVisibleReflectance { get; }
+        public virtual double GValue { get; }
+        public virtual double InternalEmissivity { get; }
+        public virtual double InternalSolarAbsorptance { get; }
+        public virtual double InternalVisibleReflectance { get; }
+        public virtual double RefractiveIndex { get; }
+        public virtual double RValue { get; }
+        public virtual double ThermalMassCm { get; }
+        public virtual double UValue { get; }
+        public virtual double VisibleLightTransmittance { get; }
 
         public AnalyticalConstruction(double constructionThickness, double externalEmissivity, double externalSolarAbsorptance, double externalVisibleReflectance, double gValue, double internalEmissivity, double internalSolarAbsorptance, double internalVisibleReflectance, double refractiveIndex, double rValue, double thermalMassCm, double uValue, double visibleLightTransmittance)
         {

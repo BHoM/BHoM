@@ -35,13 +35,13 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("The nodes of the FEMesh. Mesh faces reference these nodes by their position in this list, so it is important to maintain the order.")]
-        public List<Node> Nodes { get; set; } = new List<Node>();
+        public virtual List<Node> Nodes { get; set; } = new List<Node>();
     
         [Description("The faces of the FEMesh. Each face contains a list of indices referring to the nodes in the node list it is connecting.")]
-        public List<FEMeshFace> Faces { get; set; } = new List<FEMeshFace>();
+        public virtual List<FEMeshFace> Faces { get; set; } = new List<FEMeshFace>();
 
         [Description("Defines the thickness property and material of the FEMesh.")]
-        public ISurfaceProperty Property { get; set; } = new ConstantThickness();
+        public virtual ISurfaceProperty Property { get; set; } = new ConstantThickness();
 
         /***************************************************/
     }

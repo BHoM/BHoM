@@ -35,13 +35,13 @@ namespace BH.oM.Environment.Gains
     public class Infiltration : BHoMObject, IGain
     {
         [Description("The sensible heat contributed or lost by infiltration, which contributes to a rise or drop in temperature with no change in phase.")]
-        public double Sensible { get; set; } = 0.0;
+        public virtual double Sensible { get; set; } = 0.0;
 
         [Description("The latent heat contributed or lost by infiltration, which contributes to a change in phase from solid to liquid.")]
-        public double Latent { get; set; } = 0.0;
+        public virtual double Latent { get; set; } = 0.0;
 
         [Description("Profiles depict the time period (hours per day, days per week) during which infiltration is contributing to or causing a loss of heat to the space.")]
-        public Profile Profile { get; set; } = new Profile();   
+        public virtual Profile Profile { get; set; } = new Profile();
     }
 }
 

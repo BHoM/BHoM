@@ -30,9 +30,9 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public double CellSize { get; set; } = 1.0;
+        public virtual double CellSize { get; set; } = 1.0;
 
-        public Dictionary<DiscretePoint, List<LocalData<T>>> Data { get; set; } = new Dictionary<DiscretePoint, List<LocalData<T>>>();
+        public virtual Dictionary<DiscretePoint, List<LocalData<T>>> Data { get; set; } = new Dictionary<DiscretePoint, List<LocalData<T>>>();
         
         /***************************************************/
     }

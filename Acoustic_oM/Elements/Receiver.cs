@@ -31,11 +31,11 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Location { get; set; } = new Point();
+        public virtual Point Location { get; set; } = new Point();
 
-        public string Category { get; set; } = "Omni";
+        public virtual string Category { get; set; } = "Omni";
 
-        public int ReceiverID { get; set; } = 0;
+        public virtual int ReceiverID { get; set; } = 0;
 
 
         /***************************************************/

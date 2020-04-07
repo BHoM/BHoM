@@ -35,9 +35,9 @@ namespace BH.oM.Reflection.Debugging
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Event> AllEvents { get; set; } = new List<Event>();
+        public virtual List<Event> AllEvents { get; set; } = new List<Event>();
 
-        public List<Event> CurrentEvents { get; set; } = new List<Event>();
+        public virtual List<Event> CurrentEvents { get; set; } = new List<Event>();
 
 
         /***************************************************/

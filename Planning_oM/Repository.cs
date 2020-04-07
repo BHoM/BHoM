@@ -30,13 +30,13 @@ namespace BH.oM.Planning
         /**** Properties                                ****/
         /***************************************************/
 
-        public int OpenIssues { get; set; } = 0;
+        public virtual int OpenIssues { get; set; } = 0;
 
-        public int OpenPullRequests { get; set; } = 0;
+        public virtual int OpenPullRequests { get; set; } = 0;
 
-        public int ClosedIssues { get; set; } = 0;
+        public virtual int ClosedIssues { get; set; } = 0;
 
-        public int ClosedPullRequests { get; set; } = 0;
+        public virtual int ClosedPullRequests { get; set; } = 0;
 
 
         /***************************************************/

@@ -37,28 +37,28 @@ namespace BH.oM.Environment.Climate
     public class SpaceTime : BHoMObject, IClimateObject
     {
         [Description("The location for the climate analysis")]
-        public Location Location { get; set; } = new Location();
+        public virtual Location Location { get; set; } = new Location();
 
         [Description("A number that represents the year (e.g. 1970)")]
-        public int Year { get; set; } = 1900;
+        public virtual int Year { get; set; } = 1900;
 
         [Description("A number between 1 to 12, where 1 is January")]
-        public int Month { get; set; } = 1;
+        public virtual int Month { get; set; } = 1;
 
         [Description("A number between 1 to 31")]
-        public int Day { get; set; } = 1;
+        public virtual int Day { get; set; } = 1;
 
         [Description("A number between 0 to 23")]
-        public int Hour { get; set; } = 0;
+        public virtual int Hour { get; set; } = 0;
 
         [Description("A number between 0 to 59")]
-        public int Minute { get; set; } = 0;
+        public virtual int Minute { get; set; } = 0;
 
         [Description("A number between 0 to 59")]
-        public int Second { get; set; } = 0;
+        public virtual int Second { get; set; } = 0;
 
         [Description("A number between 0 to 999")]
-        public int Millisecond { get; set; } = 0;
+        public virtual int Millisecond { get; set; } = 0;
     }
 }
 

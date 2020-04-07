@@ -35,22 +35,22 @@ namespace BH.oM.Environment.Fragments
     public class SpaceAnalyticalFragment : IFragment
     {
         [Description("The amount of internal domestic hot water supply for the space")]
-        public double InternalDomesticHotWater { get; set; } = 0;
+        public virtual double InternalDomesticHotWater { get; set; } = 0;
 
-        public double DaylightFactor { get; set; } = 0;
+        public virtual double DaylightFactor { get; set; } = 0;
 
         [Description("The length of the space enclsoure that is adjacent to the outdoors")]
-        public double FacadeLength { get; set; } = 0;
+        public virtual double FacadeLength { get; set; } = 0;
 
-        public double FixedConvectionCoefficient { get; set; } = 0;
+        public virtual double FixedConvectionCoefficient { get; set; } = 0;
 
         [Description("The cooling size method of the space. Use SizingMethod enum")]
-        public SizingMethod SizeCoolingMethod { get; set; } = SizingMethod.Sizing;
+        public virtual SizingMethod SizeCoolingMethod { get; set; } = SizingMethod.Sizing;
 
         [Description("The heating size method of the space. Use SizingMethod enum")]
-        public SizingMethod SizeHeatingMethod { get; set; } = SizingMethod.Sizing;
+        public virtual SizingMethod SizeHeatingMethod { get; set; } = SizingMethod.Sizing;
 
-        public double RadiantProportion { get; set; } = 0;
+        public virtual double RadiantProportion { get; set; } = 0;
     }
 }
 

@@ -33,16 +33,16 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Index of first corner in Point list.")]
-        public int A { get; set; } = 0;
+        public virtual int A { get; set; } = 0;
 
         [Description("Index of second corner in Point list.")]
-        public int B { get; set; } = 0;
+        public virtual int B { get; set; } = 0;
 
         [Description("Index of third corner in Point list.")]
-        public int C { get; set; } = 0;
+        public virtual int C { get; set; } = 0;
 
         [Description("Index of fourth corner in Point list. Set to -1 for three-sided Face.")]
-        public int D { get; set; } = -1;
+        public virtual int D { get; set; } = -1;
         
         /***************************************************/
     }

@@ -42,11 +42,11 @@ namespace BH.oM.Physical.Materials
         /***************************************************/
 
         [Description("The Materials that form an object's make up, the order of which corresponds to the order of the Ratios.")]
-        public IReadOnlyList<Material> Materials { get; } = new List<Material>();
+        public virtual IReadOnlyList<Material> Materials { get; } = new List<Material>();
 
         [Ratio]
         [Description("The list of Material volumetric Ratios. The sum of which must equate to one.")]
-        public IReadOnlyList<double> Ratios { get; } = new List<double>();
+        public virtual IReadOnlyList<double> Ratios { get; } = new List<double>();
 
 
         /***************************************************/

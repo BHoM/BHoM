@@ -31,13 +31,13 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        public double X { get; set; } = 0;
+        public virtual double X { get; set; } = 0;
 
-        public double Y { get; set; } = 0;
+        public virtual double Y { get; set; } = 0;
 
-        public double Z { get; set; } = 0;
+        public virtual double Z { get; set; } = 0;
 
-        public double W { get; set; } = 0;
+        public virtual double W { get; set; } = 0;
 
 
         /***************************************************/

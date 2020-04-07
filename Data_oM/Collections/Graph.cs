@@ -30,9 +30,9 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<GraphNode<T>> Nodes { get; set; } = new List<GraphNode<T>>();
+        public virtual List<GraphNode<T>> Nodes { get; set; } = new List<GraphNode<T>>();
 
-        public List<GraphLink<T>> Links { get; set; } = new List<GraphLink<T>>();
+        public virtual List<GraphLink<T>> Links { get; set; } = new List<GraphLink<T>>();
 
 
         /***************************************************/

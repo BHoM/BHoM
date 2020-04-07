@@ -34,7 +34,7 @@ namespace BH.oM.MEP.Fragments
 {
     public class GeometryFragment : IFragment
     {
-        public IGeometry Geometry { get; set; } = null;
+        public virtual IGeometry Geometry { get; set; } = null;
     }
 }
 

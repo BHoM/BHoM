@@ -34,11 +34,11 @@ namespace BH.oM.Environment.Fragments
     [Description("Fragment containing the lighting, occupant and equipment radiation amount")]
     public class RadiationFragment : IFragment
     {
-        public double LightingRadiation { get; set; } = 0.3;
+        public virtual double LightingRadiation { get; set; } = 0.3;
 
-        public double OccupantRadiation { get; set; } = 0.2;
+        public virtual double OccupantRadiation { get; set; } = 0.2;
 
-        public double EquipmentRadiation { get; set; } = 0.1;
+        public virtual double EquipmentRadiation { get; set; } = 0.1;
     }
 }
 

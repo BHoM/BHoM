@@ -31,17 +31,17 @@ namespace BH.oM.DeepLearning.Layers
         /**** Properties                                ****/
         /***************************************************/
 
-        public int InputSize { get; set; } = -1;
+        public virtual int InputSize { get; set; } = -1;
 
-        public int HiddenSize { get; set; } = -1;
+        public virtual int HiddenSize { get; set; } = -1;
 
-        public int NumberOfLayers { get; set; } = 1;
+        public virtual int NumberOfLayers { get; set; } = 1;
 
-        public bool BatchFirst { get; set; } = true;
+        public virtual bool BatchFirst { get; set; } = true;
 
-        public double Dropout { get; set; } = 0;
+        public virtual double Dropout { get; set; } = 0;
 
-        public bool Bidirectional { get; set; } = true;
+        public virtual bool Bidirectional { get; set; } = true;
 
         /***************************************************/
     }

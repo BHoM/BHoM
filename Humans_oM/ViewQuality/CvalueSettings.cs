@@ -32,13 +32,13 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public CvalueFocalMethodEnum FocalMethod { get; set; } = CvalueFocalMethodEnum.Undefined;
+        public virtual CvalueFocalMethodEnum FocalMethod { get; set; } = CvalueFocalMethodEnum.Undefined;
 
         [Description("Value assigned to speatators where Cvalue cannot be calculated, for example on a front row")]
-        public double DefaultCValue { get; set; } =  0;
+        public virtual double DefaultCValue { get; set; } =  0;
 
         [Description("Row tolerance is used to identify discontinuities in the spectators such as a gap between tiers")]
-        public double RowTolerance  { get; set; } =  2;
+        public virtual double RowTolerance  { get; set; } =  2;
 
         /***************************************************/
     }

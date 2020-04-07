@@ -37,15 +37,15 @@ namespace BH.oM.Structure.Results
 
         [Stress]
         [Description("von Mises Stress.")]
-        public double S { get; }
+        public virtual double S { get; }
 
         [ForcePerUnitLength]
         [Description("von Mises normal/membrane forces.")]
-        public double N { get; }
+        public virtual double N { get; }
 
         [MomentPerUnitLength]
         [Description("von Mises moments.")]
-        public double M { get; }
+        public virtual double M { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

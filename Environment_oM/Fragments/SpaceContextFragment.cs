@@ -35,12 +35,12 @@ namespace BH.oM.Environment.Fragments
     public class SpaceContextFragment : IFragment
     {
         [Description("Defines wheather the space is externally facing")]
-        public bool IsExternal { get; set; } = false;
+        public virtual bool IsExternal { get; set; } = false;
 
-        public string Colour { get; set; } = "";
+        public virtual string Colour { get; set; } = "";
 
         [Description("A collection of the elements which enclose the space")]
-        public List<string> ConnectedElements { get; set; } = new List<string>();
+        public virtual List<string> ConnectedElements { get; set; } = new List<string>();
     }
 }
 

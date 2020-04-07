@@ -31,7 +31,7 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<T> Data { get; set; } = new List<T>();
+        public virtual List<T> Data { get; set; } = new List<T>();
 
         /***************************************************/
     }

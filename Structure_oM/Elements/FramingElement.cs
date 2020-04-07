@@ -34,11 +34,11 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve LocationCurve { get; set; } = null;
+        public virtual ICurve LocationCurve { get; set; } = null;
 
-        public IFramingElementProperty Property { get; set; } = null;
+        public virtual IFramingElementProperty Property { get; set; } = null;
 
-        public StructuralUsage1D StructuralUsage { get; set; } = StructuralUsage1D.Beam;
+        public virtual StructuralUsage1D StructuralUsage { get; set; } = StructuralUsage1D.Beam;
 
         /***************************************************/
     }

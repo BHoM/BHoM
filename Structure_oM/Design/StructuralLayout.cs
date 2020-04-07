@@ -34,15 +34,15 @@ namespace BH.oM.Structure.Design
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Bar> AnalyticBars { get; set; } = new List<Bar>();
+        public virtual List<Bar> AnalyticBars { get; set; } = new List<Bar>();
 
-        public List<Span> MajorAxisSpans { get; set; } = new List<Span>();
+        public virtual List<Span> MajorAxisSpans { get; set; } = new List<Span>();
 
-        public List<Span> MinorAxisSpans { get; set; } = new List<Span>();
+        public virtual List<Span> MinorAxisSpans { get; set; } = new List<Span>();
 
-        public List<Span> LateralTorsionalSpans { get; set; } = new List<Span>();
+        public virtual List<Span> LateralTorsionalSpans { get; set; } = new List<Span>();
 
-        public StructuralUsage1D StructuralUsage { get; set; } = new StructuralUsage1D();
+        public virtual StructuralUsage1D StructuralUsage { get; set; } = new StructuralUsage1D();
 
 
         /***************************************************/

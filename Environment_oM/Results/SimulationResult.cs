@@ -35,10 +35,10 @@ namespace BH.oM.Environment.Results
     public class SimulationResult : BHoMObject
     {
         [Description("The type of simulation result from the Simulation Result enum")]
-        public SimulationResultType SimulationResultType { get; set; } = SimulationResultType.Undefined;
+        public virtual SimulationResultType SimulationResultType { get; set; } = SimulationResultType.Undefined;
 
         [Description("A collection of profile results that make up this simulation result")]
-        public List<ProfileResult> SimulationResults { get; set; } = new List<ProfileResult>();
+        public virtual List<ProfileResult> SimulationResults { get; set; } = new List<ProfileResult>();
     }
 }
 

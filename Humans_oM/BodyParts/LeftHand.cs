@@ -32,11 +32,11 @@ namespace BH.oM.Humans.BodyParts
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public virtual Point TrackingPoint { get; set; } = new Point();
 
-        public Line TrackingLine { get; set; } = new Line();
+        public virtual Line TrackingLine { get; set; } = new Line();
 
-        public HandStateName State { get; set; } = HandStateName.Unknown;
+        public virtual HandStateName State { get; set; } = HandStateName.Unknown;
 
 
         /***************************************************/

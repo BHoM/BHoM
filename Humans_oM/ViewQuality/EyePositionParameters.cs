@@ -30,17 +30,17 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public double EyePositionZ { get; set; } = 0.0;
+        public virtual double EyePositionZ { get; set; } = 0.0;
 
-        public double EyePositionX { get; set; } = 0.0;
+        public virtual double EyePositionX { get; set; } = 0.0;
 
-        public double WheelChairEyePositionZ { get; set; } = 0.0;
+        public virtual double WheelChairEyePositionZ { get; set; } = 0.0;
 
-        public double WheelChairEyePositionX { get; set; } = 0.0;
+        public virtual double WheelChairEyePositionX { get; set; } = 0.0;
 
-        public double StandingEyePositionZ { get; set; } = 0.0;
+        public virtual double StandingEyePositionZ { get; set; } = 0.0;
 
-        public double StandingEyePositionX { get; set; } = 0.0;
+        public virtual double StandingEyePositionX { get; set; } = 0.0;
     }
 }
 

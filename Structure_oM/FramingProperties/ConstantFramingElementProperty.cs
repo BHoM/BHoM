@@ -29,9 +29,9 @@ namespace BH.oM.Structure.FramingProperties
     [Deprecated("2.3", "Replaced by BH.oM.Physical.FramingProperties.ConstantFramingProperty in Physical_oM", typeof(Physical.FramingProperties.ConstantFramingProperty))]
     public class ConstantFramingElementProperty : BHoMObject, IFramingElementProperty
     {
-        public ISectionProperty SectionProperty { get; set; }
+        public virtual ISectionProperty SectionProperty { get; set; }
 
-        public double OrientationAngle { get; set; } = 0;
+        public virtual double OrientationAngle { get; set; } = 0;
     }
 }
 

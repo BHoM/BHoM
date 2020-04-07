@@ -31,7 +31,7 @@ namespace BH.oM.Planning
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Colour { get; set; } = "";
+        public virtual string Colour { get; set; } = "";
 
 
         /***************************************************/

@@ -31,9 +31,9 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public Geometry.Point Point { get; set; } = new Geometry.Point();
+        public virtual Geometry.Point Point { get; set; } = new Geometry.Point();
 
-        public Color Color { get; set; } = Color.FromArgb(255, 250, 34, 74);
+        public virtual Color Color { get; set; } = Color.FromArgb(255, 250, 34, 74);
 
         /***************************************************/
         /**** Explicit Casting                          ****/

@@ -33,10 +33,10 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Defines the three-dimensional Mesh geometry as  X, Y, Z coordinates.")]
-        public List<Point> Vertices { get; set; } = new List<Point>();
+        public virtual List<Point> Vertices { get; set; } = new List<Point>();
 
         [Description("The list of polygons, defined as corner Point indices referencing the list of Vertices.")]
-        public List<Face> Faces { get; set; } = new List<Face>();
+        public virtual List<Face> Faces { get; set; } = new List<Face>();
         
         /***************************************************/
     }

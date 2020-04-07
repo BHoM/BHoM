@@ -36,28 +36,28 @@ namespace BH.oM.Structure.SurfaceProperties
 
         [Length]
         [Description("The thickness of the slab sitting on top of the ribs.")]
-        public double Thickness { get; set; }
+        public virtual double Thickness { get; set; }
 
         [Description("Homogenous structural material throughout the full thickness of the element.")]
-        public IMaterialFragment Material { get; set; }
+        public virtual IMaterialFragment Material { get; set; }
 
         [Description("Specifies if the ribs are running in local x or y direction.")]
-        public PanelDirection Direction { get; set; } = PanelDirection.X;
+        public virtual PanelDirection Direction { get; set; } = PanelDirection.X;
 
         [Length]
         [Description("Total depth measured from the bottom of the ribs to the top of the slab.")]
-        public double TotalDepth { get; set; }
+        public virtual double TotalDepth { get; set; }
 
         [Length]
         [Description("Width of each rib.")]
-        public double StemWidth { get; set; }
+        public virtual double StemWidth { get; set; }
 
         [Length]
         [Description("Centre-centre distance between the ribs. Measured perpendicular to the rib direction.")]
-        public double Spacing { get; set; }
+        public virtual double Spacing { get; set; }
 
         [Description("Defines what type of element this property will be used. Used by some analysis packages.")]
-        public PanelType PanelType { get; set; } = PanelType.Slab;   //TODO: Required to get Etabs working. To be moved to physical objects
+        public virtual PanelType PanelType { get; set; } = PanelType.Slab;
 
 
         /***************************************************/

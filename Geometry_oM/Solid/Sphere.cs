@@ -33,11 +33,11 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Origin point defining location of the Sphere in three-dimensional space")]
-        public Point Centre { get; set; } = new Point();
+        public virtual Point Centre { get; set; } = new Point();
 
         [Length]
         [Description("Distance from the Centre to the Sphere boundary surface")]
-        public double Radius { get; set; } = 0.0;
+        public virtual double Radius { get; set; } = 0.0;
 
         /***************************************************/
     }

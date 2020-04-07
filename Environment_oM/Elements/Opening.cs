@@ -40,22 +40,22 @@ namespace BH.oM.Environment.Elements
         /***************************************************/
 
         [Description("A collection of environment Edge objects which define the external boundary of the opening")]
-        public List<Edge> Edges { get; set; } = new List<Edge>();
+        public virtual List<Edge> Edges { get; set; } = new List<Edge>();
 
         [Description("A construction object providing construction information about the frame of the opening")]
-        public IConstruction FrameConstruction { get; set; } = new Construction();
+        public virtual IConstruction FrameConstruction { get; set; } = new Construction();
 
         [Description("The percentage of the opening that is frame")]
-        public double FrameFactorValue { get; set; } = 0;
+        public virtual double FrameFactorValue { get; set; } = 0;
 
         [Description("A collection of environment Edge objects which define the internal boundary of the opening")]
-        public List<Edge> InnerEdges { get; set; } = new List<Edge>();
+        public virtual List<Edge> InnerEdges { get; set; } = new List<Edge>();
 
         [Description("A construction object providing construction information about the opening - typically gazing construction")]
-        public IConstruction OpeningConstruction { get; set; } = new Construction();
+        public virtual IConstruction OpeningConstruction { get; set; } = new Construction();
 
         [Description("The type of opening on a panel (e.g. Window, Door). Use OpeningType enum")]
-        public OpeningType Type { get; set; } = OpeningType.Undefined;
+        public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
 
         /***************************************************/
     }

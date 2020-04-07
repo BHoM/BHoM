@@ -35,32 +35,32 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Description("The Loadcase in which the load is applied.")]
-        public Loadcase Loadcase { get; set; }
+        public virtual Loadcase Loadcase { get; set; }
 
         [Description("Defines whether the load is applied in local or global coordinates.")]
-        public LoadAxis Axis { get; set; }
+        public virtual LoadAxis Axis { get; set; }
 
         [Description("If true the load is projected to the region.")]
-        public bool Projected { get; set; }
+        public virtual bool Projected { get; set; }
 
         [ForcePerUnitLength]
         [Description("Force per unit length at the start of the line.")]
-        public Vector ForceA { get; set; } = new Vector();
+        public virtual Vector ForceA { get; set; } = new Vector();
 
         [ForcePerUnitLength]
         [Description("Force per unit length at the end of the line.")]
-        public Vector ForceB { get; set; } = new Vector();
+        public virtual Vector ForceB { get; set; } = new Vector();
 
         [MomentPerUnitLength]
         [Description("Moment per unit length at the start of the line.")]
-        public Vector MomentA { get; set; } = new Vector();
+        public virtual Vector MomentA { get; set; } = new Vector();
 
         [MomentPerUnitLength]
         [Description("Moment per unit length at the end of the line.")]
-        public Vector MomentB { get; set; } = new Vector();
+        public virtual Vector MomentB { get; set; } = new Vector();
 
         [Description("Line defining the location of the load.")]
-        public Line Location { get; set; } = null;
+        public virtual Line Location { get; set; } = null;
 
         /***************************************************/
     }

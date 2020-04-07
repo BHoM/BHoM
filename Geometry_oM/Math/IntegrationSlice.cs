@@ -32,13 +32,13 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Width { get; set; } = 0;
+        public virtual double Width { get; set; } = 0;
 
-        public double Length { get; set; } = 0;
+        public virtual double Length { get; set; } = 0;
 
-        public double Centre { get; set; } = 0;
+        public virtual double Centre { get; set; } = 0;
 
-        public double[] Placement { get; set; } = new double[0];
+        public virtual double[] Placement { get; set; } = new double[0];
         
         /***************************************************/
     }

@@ -31,17 +31,17 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public ViewConeEnum ConeType { get; set; } = ViewConeEnum.Undefined;
+        public virtual ViewConeEnum ConeType { get; set; } = ViewConeEnum.Undefined;
 
-        public bool CalculateOcclusion { get; set; } =  false;
+        public virtual bool CalculateOcclusion { get; set; } =  false;
 
         [Description("Distance from eye ref point to the plane where the Avalue is calculated")]
-        public double EyeFrameDist { get; set; } = 0.1;
+        public virtual double EyeFrameDist { get; set; } = 0.1;
 
-        public double ForeheadSize { get; set; } = 0.120;
+        public virtual double ForeheadSize { get; set; } = 0.120;
 
         [Description("Radius from viewplane centre for finding nearest potentially occulding heads")]
-        public double NearHeadRange { get; set; } = 0.100;
+        public virtual double NearHeadRange { get; set; } = 0.100;
 
         /***************************************************/
     }

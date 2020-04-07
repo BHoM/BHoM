@@ -34,10 +34,10 @@ namespace BH.oM.Environment.Fragments
     [Description("Fragment containing red, green and blue light reflectance property")]
     public class LightReflectanceFragment : IFragment
     {
-        public double RedReflectance { get; set; } = 0.0;
+        public virtual double RedReflectance { get; set; } = 0.0;
 
-        public double GreenReflectance { get; set; } = 0.0;
+        public virtual double GreenReflectance { get; set; } = 0.0;
 
-        public double BlueReflectance { get; set; } = 0.0;
+        public virtual double BlueReflectance { get; set; } = 0.0;
     }
 }

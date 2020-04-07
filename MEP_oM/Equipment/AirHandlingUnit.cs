@@ -41,44 +41,44 @@ namespace BH.oM.MEP.Equipment
         /***************************************************/
 
         [Description("Type denotes the kind of Air Handling Unit (eg heat and ventilation, energy recovery)")]
-        public string Type { get; set; } = "";
+        public virtual string Type { get; set; } = "";
         
         [Description("Total Supply Airflow accounts for the total amount of air supplied to the building by the Air Handling Unit")]
-        public double TotalSupplyAirFlow { get; set; } = 0.0;
+        public virtual double TotalSupplyAirFlow { get; set; } = 0.0;
         
         [Description("Total supply external static pressure denotes the resistance within the system that the supply fan has to overcome from filters, grilles, coils, etc")]
-        public double TotalSupplyAirExternalStaticPressure { get; set; } = 0.0;
+        public virtual double TotalSupplyAirExternalStaticPressure { get; set; } = 0.0;
         
         [Description("Total Return Airflow accounts for the total amount of air returned from the building to the Air Handling Unit")]
-        public double TotalReturnAirFlow { get; set; } = 0.0;
+        public virtual double TotalReturnAirFlow { get; set; } = 0.0;
         
         [Description("Total return external static pressure denotes the resistance within the system that the return fan has to overcome from grilles, ducts, etc")]
-        public double TotalReturnAirExternalStaticPressure { get; set; } = 0.0;
+        public virtual double TotalReturnAirExternalStaticPressure { get; set; } = 0.0;
         
         [Description("Total Design Outdoor Airflow accounts for the total amount of outdoor air introduced to the supply air that goes to the building from the Air Handling Unit")]
-        public double TotalDesignOutdoorAirFlow { get; set; } = 0.0;
+        public virtual double TotalDesignOutdoorAirFlow { get; set; } = 0.0;
         
         [Description("Demand Controlled Ventilation Minimum Outdoor Airflow denotes that amount of outdoor air that is required to be supplied to the building, at a minimum")]
-        public double DemandControlledVentilationMinimumOutdoorAirFlow { get; set; } = 0.0;
+        public virtual double DemandControlledVentilationMinimumOutdoorAirFlow { get; set; } = 0.0;
         
         [Description("Total outdoor air external static pressure denotes the resistance within the system that the outdoor air intake fan has to overcome")]
-        public double TotalOutdoorAirFlowExternalStaticPressure { get; set; } = 0.0;
+        public virtual double TotalOutdoorAirFlowExternalStaticPressure { get; set; } = 0.0;
         
         [Description("Total Relief Airflow accounts for the total amount of extract/exhaust air that is removed from the system and introduced to the atmosphere")]
-        public double TotalReliefAirFlow { get; set; } = 0.0;
+        public virtual double TotalReliefAirFlow { get; set; } = 0.0;
         [Description("Total Relief Airflow external static pressure denotes the resistance within the system that the relief/extract/exhaust fan has to overcome")]
         
-        public double TotalReliefExternalStaticPressure { get; set; } = 0.0;
+        public virtual double TotalReliefExternalStaticPressure { get; set; } = 0.0;
 
         
         [Description("Supply Air Economisers allow additional outdoor air to be introduced to the system when outdoor conditions are favorable (typically cool and dry)")]
-        public bool SupplyAirEconomiser { get; set; } = false;
+        public virtual bool SupplyAirEconomiser { get; set; } = false;
         
         [Description("Water Economisers allow returned fluids to be introduced to the system when conditions are favorable")]
-        public bool WaterEconomiser { get; set; } = false;
+        public virtual bool WaterEconomiser { get; set; } = false;
 
         [Description("A collection of the parts (Fans, Coils, Energy Wheel, Filters, Electrical Connectors) that make up the Air Handling Unit")]
-        public List<IPart> Parts { get; set; } = new List<IPart>();
+        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
         /***************************************************/
     }

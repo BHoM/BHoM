@@ -34,27 +34,27 @@ namespace BH.oM.Structure.Results
 
         [Force]
         [Description("Axial force along the local x-axis. Positive for tension, negative for compression.")]
-        public double FX { get; set; } = 0.0;
+        public virtual double FX { get; set; } = 0.0;
 
         [Force]
         [Description("Shear force along the local y-axis. Generally minor axis shear force.")]
-        public double FY { get; set; } = 0.0;
+        public virtual double FY { get; set; } = 0.0;
 
         [Force]
         [Description("Shear force along the local z-axis. Generally major axis shear force.")]
-        public double FZ { get; set; } = 0.0;
+        public virtual double FZ { get; set; } = 0.0;
 
         [Moment]
         [Description("Torsional moment.")]
-        public double MX { get; set; } = 0.0;
+        public virtual double MX { get; set; } = 0.0;
 
         [Moment]
         [Description("Bending moment about the local y-axis. Generally major axis bending moment.")]
-        public double MY { get; set; } = 0.0;
+        public virtual double MY { get; set; } = 0.0;
 
         [Moment]
         [Description("Bending moment about the local z-axis. Generally minor axis bending moment.")]
-        public double MZ { get; set; } = 0.0;
+        public virtual double MZ { get; set; } = 0.0;
 
         /***************************************************/
     }

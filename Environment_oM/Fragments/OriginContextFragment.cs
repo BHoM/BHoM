@@ -34,14 +34,14 @@ namespace BH.oM.Environment.Fragments
     [Description("Fragment containing the origin context property such as Element ID or Type")]
     public class OriginContextFragment : IFragment
     {
-        public string Origin { get; set; } = "";
+        public virtual string Origin { get; set; } = "";
 
         [Description("The original ID of the element from the origin software")]
-        public string ElementID { get; set; } = "";
+        public virtual string ElementID { get; set; } = "";
 
-        public string Description { get; set; } = "";
+        public virtual string Description { get; set; } = "";
            
-        public string TypeName { get; set; } = "";
+        public virtual string TypeName { get; set; } = "";
     }
 }
 

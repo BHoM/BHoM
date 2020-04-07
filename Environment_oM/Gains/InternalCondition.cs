@@ -37,15 +37,15 @@ namespace BH.oM.Environment.Gains
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Emitter> Emitters { get; set; } = new List<Emitter>();
+        public virtual List<Emitter> Emitters { get; set; } = new List<Emitter>();
 
-        public bool IncludeSolarInMeanRadiantTemp { get; set; } = true;
+        public virtual bool IncludeSolarInMeanRadiantTemp { get; set; } = true;
 
-        public List<SimulationDayType> DayTypes { get; set; } = new List<SimulationDayType>();
+        public virtual List<SimulationDayType> DayTypes { get; set; } = new List<SimulationDayType>();
 
-        public List<IGain> Gains { get; set; } = new List<IGain>();
+        public virtual List<IGain> Gains { get; set; } = new List<IGain>();
 
-        public Thermostat Thermostat { get; set; } = new Thermostat();
+        public virtual Thermostat Thermostat { get; set; } = new Thermostat();
         /***************************************************/
     }
 }

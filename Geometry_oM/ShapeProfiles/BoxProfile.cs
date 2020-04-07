@@ -34,19 +34,19 @@ namespace BH.oM.Geometry.ShapeProfiles
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Box;
+        public virtual ShapeType Shape { get; } = ShapeType.Box;
 
-        public double Height { get; }
+        public virtual double Height { get; }
 
-        public double Width { get; }
+        public virtual double Width { get; }
 
-        public double Thickness { get; }
+        public virtual double Thickness { get; }
 
-        public double OuterRadius { get; }
+        public virtual double OuterRadius { get; }
 
-        public double InnerRadius { get; }
+        public virtual double InnerRadius { get; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

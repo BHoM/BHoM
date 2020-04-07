@@ -35,15 +35,15 @@ namespace BH.oM.Geometry
 
         [Length]
         [Description("Dimension along global X coordinate axis.")]
-        public double X { get; set; } = 0.0;
+        public virtual double X { get; set; } = 0.0;
 
         [Length]
         [Description("Dimension along global Y coordinate axis.")]
-        public double Y { get; set; } = 0.0;
+        public virtual double Y { get; set; } = 0.0;
 
         [Length]
         [Description("Dimension along global Z coordinate axis.")]
-        public double Z { get; set; } = 0.0;
+        public virtual double Z { get; set; } = 0.0;
 
 
         /***************************************************/

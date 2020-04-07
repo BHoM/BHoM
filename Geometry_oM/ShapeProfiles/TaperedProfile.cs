@@ -34,11 +34,11 @@ namespace BH.oM.Geometry.ShapeProfiles
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.FreeForm;
+        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
 
-        public ReadOnlyDictionary<decimal, IProfile> Profiles { get; }
+        public virtual ReadOnlyDictionary<decimal, IProfile> Profiles { get; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

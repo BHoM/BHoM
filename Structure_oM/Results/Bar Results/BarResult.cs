@@ -35,19 +35,19 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Description("Id of the bar that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
-        public IComparable ObjectId { get; set; } = "";
+        public virtual IComparable ObjectId { get; set; } = "";
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public IComparable ResultCase { get; set; } = "";
+        public virtual IComparable ResultCase { get; set; } = "";
 
         [Description("Time step for time history results.")]
-        public double TimeStep { get; set; } = 0.0;
+        public virtual double TimeStep { get; set; } = 0.0;
 
         [Description("Position on the bar as normalised length, i.e. 0 for start, 1 for end and 0.5 for middle.")]
-        public double Position { get; set; } = 0.0;
+        public virtual double Position { get; set; } = 0.0;
 
         [Description("How many division points along the bar was used when extracting this result. This generally means that this many results with the same ObjectId, ResultCase and TimeStep was extracted.")]
-        public int Divisions { get; set; } = 1;
+        public virtual int Divisions { get; set; } = 1;
 
         /***************************************************/
         /**** IComparable Interface                     ****/

@@ -30,7 +30,7 @@ namespace BH.oM.DeepLearning.Activations
         /**** Properties                                ****/
         /***************************************************/
 
-        public double NegativeSlope { get; set; } = 0.01;
+        public virtual double NegativeSlope { get; set; } = 0.01;
 
         /***************************************************/
     }

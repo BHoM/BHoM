@@ -32,9 +32,9 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public BodyParts.Head Head { get; set; } = new  BodyParts.Head();
+        public virtual BodyParts.Head Head { get; set; } = new  BodyParts.Head();
 
-        public Polyline HeadOutline { get; set; } = new Polyline();
+        public virtual Polyline HeadOutline { get; set; } = new Polyline();
 
         /***************************************************/
     }

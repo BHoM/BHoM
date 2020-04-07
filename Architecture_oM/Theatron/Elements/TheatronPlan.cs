@@ -34,29 +34,29 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ProfileOrigin> SectionOrigins { get; set; } =  new List<ProfileOrigin>();
+        public virtual List<ProfileOrigin> SectionOrigins { get; set; } =  new List<ProfileOrigin>();
 
         [Description("Activity area is used for evaluating Avalue and Evalues")]
-        public ActivityArea ActivityArea { get; set; } = new ActivityArea();
+        public virtual ActivityArea ActivityArea { get; set; } = new ActivityArea();
 
         [Description("Focal curve is used for defining Cvalue focal points")]
-        public Polyline FocalCurve { get; set; } = new Polyline();
+        public virtual Polyline FocalCurve { get; set; } = new Polyline();
 
-        public List<ProfileOrigin> VomitoryOrigins { get; set; } =  new List<ProfileOrigin>();
+        public virtual List<ProfileOrigin> VomitoryOrigins { get; set; } =  new List<ProfileOrigin>();
 
-        public List<ProfileOrigin> CombinedOrigins { get; set; } =  new List<ProfileOrigin>();
+        public virtual List<ProfileOrigin> CombinedOrigins { get; set; } =  new List<ProfileOrigin>();
 
-        public List<BayType> StructBayType { get; set; } =  new List<BayType>();
+        public virtual List<BayType> StructBayType { get; set; } =  new List<BayType>();
 
-        public ProfileOrigin SectionClosestToFocalCurve { get; set; } = new ProfileOrigin();
+        public virtual ProfileOrigin SectionClosestToFocalCurve { get; set; } = new ProfileOrigin();
 
-        public double MinDistToFocalCurve { get; set; } = 0;
+        public virtual double MinDistToFocalCurve { get; set; } = 0;
 
-        public Point CValueFocalPoint { get; set; } = new Point();
+        public virtual Point CValueFocalPoint { get; set; } = new Point();
 
-        public ICurve TheatronFront { get; set; } = new Polyline();
+        public virtual ICurve TheatronFront { get; set; } = new Polyline();
 
-        public SeatingBlockType SeatingBlockType { get; set; } = new SeatingBlockType();
+        public virtual SeatingBlockType SeatingBlockType { get; set; } = new SeatingBlockType();
 
         /***************************************************/
     }

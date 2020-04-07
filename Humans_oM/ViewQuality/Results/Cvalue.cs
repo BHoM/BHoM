@@ -32,15 +32,15 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public double CValue { get; set; } = 0.0;
+        public virtual double CValue { get; set; } = 0.0;
 
-        public double HorizDist { get; set; } = 0.0;
+        public virtual double HorizDist { get; set; } = 0.0;
 
-        public double HeightAbovePitch { get; set; } = 0.0;
+        public virtual double HeightAbovePitch { get; set; } = 0.0;
 
-        public double AbsoluteDist { get; set; } = 0.0;
+        public virtual double AbsoluteDist { get; set; } = 0.0;
 
-        public Point Focalpoint { get; set; } = new Point();
+        public virtual Point Focalpoint { get; set; } = new Point();
 
         /***************************************************/
     }

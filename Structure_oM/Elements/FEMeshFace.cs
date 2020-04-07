@@ -35,7 +35,7 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("List of which node indices in the host FEMesh node list that this face is connecting.")]
-        public List<int> NodeListIndices { get; set; } = new List<int>();      
+        public virtual List<int> NodeListIndices { get; set; } = new List<int>();
 
         /***************************************************/
     }

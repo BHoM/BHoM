@@ -41,19 +41,19 @@ namespace BH.oM.Environment.Elements
     public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D
     {
         [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
-        public List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+        public virtual List<Edge> ExternalEdges { get; set; } = new List<Edge>();
 
         [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
-        public List<Opening> Openings { get; set; } = new List<Opening>();
+        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
 
         [Description("A construction object providing layer and material information for the panel")]
-        public IConstruction Construction { get; set; } = new Construction();
+        public virtual IConstruction Construction { get; set; } = new Construction();
 
         [Description("The type of environmental surface (e.g. Wall, Floor, Roof). Use PanelType enum)")]
-        public PanelType Type { get; set; } = PanelType.Undefined;
+        public virtual PanelType Type { get; set; } = PanelType.Undefined;
 
         [Description("This is a list of space names for which the panel belongs to. For example, the same panel can be a ceiling for Room A while also being a floor for Room B")]
-        public List<string> ConnectedSpaces { get; set; } = new List<string>();
+        public virtual List<string> ConnectedSpaces { get; set; } = new List<string>();
     }
 }
 

@@ -33,14 +33,14 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Defines the central axis perpendicular to the circular cross sections, and thus the path along which the tubular surface follows.")]
-        public ICurve Centreline { get; set; } = new Line();
+        public virtual ICurve Centreline { get; set; } = new Line();
 
         [Length]
         [Description("The distance from the Curve Centreline to a point on the Pipe surface.")]
-        public double Radius { get; set; } = 0;
+        public virtual double Radius { get; set; } = 0;
 
         [Description("Defines the Pipe as closed and therfore a solid volume.")]
-        public bool Capped { get; set; } = true;
+        public virtual bool Capped { get; set; } = true;
         
         /***************************************************/
     }

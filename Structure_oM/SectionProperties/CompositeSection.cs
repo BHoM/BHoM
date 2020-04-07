@@ -39,22 +39,22 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        public SteelSection SteelSection { get; }
+        public virtual SteelSection SteelSection { get; }
 
-        public ConcreteSection ConcreteSection { get; }
+        public virtual ConcreteSection ConcreteSection { get; }
 
-        public double SteelEmbedmentDepth { get; }
+        public virtual double SteelEmbedmentDepth { get; }
 
-        public double StudDiameter { get; }
+        public virtual double StudDiameter { get; }
 
-        public double StudHeight { get; }
+        public virtual double StudHeight { get; }
 
-        public double StudSpacing { get; }
+        public virtual double StudSpacing { get; }
 
-        public int StudsPerGroup { get; }
+        public virtual int StudsPerGroup { get; }
 
 
-        public IMaterialFragment Material { get; set; }
+        public virtual IMaterialFragment Material { get; set; }
 
 
         /***************************************************/
@@ -63,79 +63,79 @@ namespace BH.oM.Structure.SectionProperties
 
         [Area]
         [Description("Gross Area of the cross section.")]
-        public double Area { get; }
+        public virtual double Area { get; }
 
         [Length]
         [Description("Radius of Gyration about the local Y-Axis.")]
-        public double Rgy { get; }
+        public virtual double Rgy { get; }
 
         [Length]
         [Description("Radius of Gyration about the local Z-Axis.")]
-        public double Rgz { get; }
+        public virtual double Rgz { get; }
 
         [TorsionConstant]
         [Description("Torsion Constant.")]
-        public double J { get; }
+        public virtual double J { get; }
 
         [SecondMomentOfArea]
         [Description("Moment of Inertia about the local Y-Axis.")]
-        public double Iy { get; }
+        public virtual double Iy { get; }
 
         [SecondMomentOfArea]
         [Description("Moment of Inertia about the local Z-Axis.")]
-        public double Iz { get; }
+        public virtual double Iz { get; }
 
         [WarpingConstant]
         [Description("Warping Constant.")]
-        public double Iw { get; }
+        public virtual double Iw { get; }
 
         [SectionModulus]
         [Description("Elastic Modulus of the section about the local Y-Axis.")]
-        public double Wely { get; }
+        public virtual double Wely { get; }
 
         [SectionModulus]
         [Description("Elastic Modulus of the section about the local Z-Axis.")]
-        public double Welz { get; }
+        public virtual double Welz { get; }
 
         [SectionModulus]
         [Description("Plastic Modulus of the section about the local Y-Axis.")]
-        public double Wply { get; }
+        public virtual double Wply { get; }
 
         [SectionModulus]
         [Description("Plastic Modulus of the section about the local Z-Axis.")]
-        public double Wplz { get; }
+        public virtual double Wplz { get; }
 
         [Length]
         [Description("Geometric centre of the section in the local Z direction.")]
-        public double CentreZ { get; }
+        public virtual double CentreZ { get; }
 
         [Length]
         [Description("Geometric centre of the section in the local Y direction.")]
-        public double CentreY { get; }
+        public virtual double CentreY { get; }
 
         [Length]
         [Description("Z distance from the centroid of the section to top edge of the section.")]
-        public double Vz { get; }
+        public virtual double Vz { get; }
 
         [Length]
         [Description("Z distance from the centroid of the section to bottom edge of the section.")]
-        public double Vpz { get; }
+        public virtual double Vpz { get; }
 
         [Length]
         [Description("Y distance from the centroid of the section to right edge of the section.")]
-        public double Vy { get; }
+        public virtual double Vy { get; }
 
         [Length]
         [Description("Y distance from the centroid of the section to Left edge of the section.")]
-        public double Vpy { get; }
+        public virtual double Vpy { get; }
 
         [Area]
         [Description("Shear Area in the local Y direction.")]
-        public double Asy { get; }
+        public virtual double Asy { get; }
 
         [Area]
         [Description("Shear Area in the local Z direction.")]
-        public double Asz { get; }
+        public virtual double Asz { get; }
 
 
         /***************************************************/

@@ -37,13 +37,13 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("Position of the node in global Cartesian 3D space.")]
-        public Point Position { get; set; } = null;
+        public virtual Point Position { get; set; } = null;
 
         [Description("Local x, y, and z axes of the node as a vector Basis. Defaults to world axes.")]
-        public Basis Orientation { get; set; } = Basis.XY;
+        public virtual Basis Orientation { get; set; } = Basis.XY;
 
         [Description("Defines the Support property of the Node. If not set, the Node will be assumed to be free to translate and rotate.")]
-        public Constraint6DOF Support { get; set; } = null;
+        public virtual Constraint6DOF Support { get; set; } = null;
 
 
         /***************************************************/

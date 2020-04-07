@@ -37,13 +37,13 @@ namespace BH.oM.Reflection.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Description { get; private set; } = "";
+        public virtual string Description { get; private set; } = "";
 
-        public string FromVersion { get; private set; } = "1.0.0.0";
+        public virtual string FromVersion { get; private set; } = "1.0.0.0";
 
-        public Type ReplacingType { get; private set; } = null;
+        public virtual Type ReplacingType { get; private set; } = null;
 
-        public string ReplacingMethod { get; private set; } = "";
+        public virtual string ReplacingMethod { get; private set; } = "";
 
 
         /***************************************************/

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -55,7 +55,7 @@ namespace BH.oM.Quantities.Attributes
         public virtual int J { get; } = 0;
 
         [Description("SI derived unit symbol")]
-        public abstract string SIUnit { get; }
+        public virtual abstract string SIUnit { get; }
 
         /***************************************************/
     }

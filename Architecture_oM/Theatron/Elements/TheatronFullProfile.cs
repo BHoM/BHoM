@@ -35,15 +35,15 @@ namespace BH.oM.Architecture.Theatron
         /***************************************************/
 
         [Description("The set of tier profiles orientated in the world xz plane, the origin is the focal point for Cvalue calculations")]
-        public List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
+        public virtual List<TierProfile> BaseTierProfiles { get; set; } = new List<TierProfile>();
 
         [Description("The set of tier profiles orientated to the plane closest to the focal curve")]
-        public List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
+        public virtual List<TierProfile> MappedProfiles { get; set; } = new List<TierProfile>();
 
-        public double Rounding { get; set; } = 0.0;
+        public virtual double Rounding { get; set; } = 0.0;
 
         [Description("The plane at the first surface point, x axis is horizontal and points away from the playing area, y axis points up")]
-        public ProfileOrigin FullProfileOrigin { get; set; } = new ProfileOrigin();
+        public virtual ProfileOrigin FullProfileOrigin { get; set; } = new ProfileOrigin();
 
         /***************************************************/
     }

@@ -35,15 +35,15 @@ namespace BH.oM.Environment.Fragments
     public class PanelContextFragment : IFragment
     {
         [Description("Defines whether the panel is an air panel (e.g. air wall or hole)")]
-        public bool IsAir { get; set; } = false;
+        public virtual bool IsAir { get; set; } = false;
 
         [Description("Defines whether the panel is a ground panel")]
-        public bool IsGround { get; set; } = false;
+        public virtual bool IsGround { get; set; } = false;
 
-        public string Colour { get; set; } = "";
+        public virtual string Colour { get; set; } = "";
 
         [Description("Defines whether the panel surface direction is reversed")]
-        public bool Reversed { get; set; } = false;
+        public virtual bool Reversed { get; set; } = false;
     }
 }
 

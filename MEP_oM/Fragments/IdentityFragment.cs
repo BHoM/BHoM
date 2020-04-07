@@ -32,11 +32,11 @@ namespace BH.oM.MEP.Fragments
 {
     public class IdentityFragment : IFragment
     {
-        public string Manufacturer { get; set; } = "";
-        public string ModelNumber { get; set; } = "";
-        public string Location { get; set; } = "";
-        public string Service { get; set; } = "";
-        public List<string> Remarks { get; set; } = new List<string>();
+        public virtual string Manufacturer { get; set; } = "";
+        public virtual string ModelNumber { get; set; } = "";
+        public virtual string Location { get; set; } = "";
+        public virtual string Service { get; set; } = "";
+        public virtual List<string> Remarks { get; set; } = new List<string>();
     }
 }
 

@@ -36,13 +36,13 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("A geometrical surface defining the 'centre plane` of the surface.")]
-        public Geometry.ISurface Extents { get; set; } = null;
+        public virtual Geometry.ISurface Extents { get; set; } = null;
 
         [Description("Defines the thickness property and material of the Element.")]
-        public ISurfaceProperty Property { get; set; } = null;
+        public virtual ISurfaceProperty Property { get; set; } = null;
 
         [Description("A planar support for the Surface, constraining the movement in the translational degrees of freedom.")]
-        public Constraint3DOF PlanarSpring { get; set; } = null;
+        public virtual Constraint3DOF PlanarSpring { get; set; } = null;
 
 
         /***************************************************/

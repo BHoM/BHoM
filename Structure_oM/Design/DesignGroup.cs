@@ -33,11 +33,11 @@ namespace BH.oM.Structure.Design
         /**** Properties                                ****/
         /***************************************************/
 
-        public int Number { get; set; } = 0;
+        public virtual int Number { get; set; } = 0;
 
-        public string MaterialName { get; set; } = "";
+        public virtual string MaterialName { get; set; } = "";
 
-        public List<int> MemberIds { get; set; } = new List<int>();
+        public virtual List<int> MemberIds { get; set; } = new List<int>();
 
         /***************************************************/
     }

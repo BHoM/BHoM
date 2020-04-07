@@ -41,7 +41,7 @@ namespace BH.oM.MEP.Equipment
         /***************************************************/
 
         [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public List<IPart> Parts { get; set; } = new List<IPart>();
+        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
         /***************************************************/
     }

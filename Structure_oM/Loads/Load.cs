@@ -35,16 +35,16 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Description("The Loadcase in which the load is applied.")]
-        public Loadcase Loadcase { get; set; }
+        public virtual Loadcase Loadcase { get; set; }
 
         [Description("The group of objects that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
-        public BHoMGroup<T> Objects { get; set; } = new BHoMGroup<T>();
+        public virtual BHoMGroup<T> Objects { get; set; } = new BHoMGroup<T>();
 
         [Description("Defines whether the load is applied in local or global coordinates.")]
-        public LoadAxis Axis { get; set; } = LoadAxis.Global;
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
 
         [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
-        public bool Projected { get; set; } = false;
+        public virtual bool Projected { get; set; } = false;
 
         /***************************************************/
     }

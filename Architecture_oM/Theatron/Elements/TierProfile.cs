@@ -32,21 +32,21 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public int TotalPoints { get; set; }=0;
+        public virtual int TotalPoints { get; set; }=0;
 
-        public List<Point> FloorPoints { get; set; } = new List<Point>();
+        public virtual List<Point> FloorPoints { get; set; } = new List<Point>();
 
-        public List<Point> EyePoints { get; set; } = new List<Point>();
+        public virtual List<Point> EyePoints { get; set; } = new List<Point>();
 
-        public Point FocalPoint { get; set; } = new Point();
+        public virtual Point FocalPoint { get; set; } = new Point();
 
-        public List<Line> Sightlines { get; set; } = new List<Line>();
+        public virtual List<Line> Sightlines { get; set; } = new List<Line>();
 
-        public Polyline Profile { get; set; } =new Polyline();
+        public virtual Polyline Profile { get; set; } =new Polyline();
 
-        public ProfileOrigin SectionOrigin { get; set; } = new ProfileOrigin();
+        public virtual ProfileOrigin SectionOrigin { get; set; } = new ProfileOrigin();
         
-        public double MappingAngle { get; set; } = 0;
+        public virtual double MappingAngle { get; set; } = 0;
 
         /***************************************************/
     }

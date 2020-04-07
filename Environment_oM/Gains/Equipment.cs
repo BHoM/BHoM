@@ -35,19 +35,19 @@ namespace BH.oM.Environment.Gains
     public class Equipment : BHoMObject, IGain
     {
         [Description("The sensible heat contributed by equipment, which contributes to a rise in temperature with no change in phase.")]
-        public double Sensible { get; set; } = 0.0;
+        public virtual double Sensible { get; set; } = 0.0;
 
         [Description("The latent heat contributed by equipment, which contributes to a change in phase from solid to liquid.")]
-        public double Latent { get; set; } = 0.0;
+        public virtual double Latent { get; set; } = 0.0;
 
         [Description("Profiles depict the time period (hours per day, days per week) during which equipment is contributing heat to the space.")]
-        public Profile Profile { get; set; } = new Profile();
+        public virtual Profile Profile { get; set; } = new Profile();
 
         [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by equipment.")]
-        public double RadiantFraction { get; set; } = 0.0;
+        public virtual double RadiantFraction { get; set; } = 0.0;
 
         [Description("The view coefficient of this equipment gain")]
-        public double ViewCoefficient { get; set; } = 0.0;
+        public virtual double ViewCoefficient { get; set; } = 0.0;
     }
 }
 

@@ -33,7 +33,7 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("A collection of surfaces, of any or mixed type, which together define the composite shape.")]
-        public List<ISurface> Surfaces { get; set; } = new List<ISurface>();
+        public virtual List<ISurface> Surfaces { get; set; } = new List<ISurface>();
         
         /***************************************************/
     }

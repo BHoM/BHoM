@@ -37,10 +37,10 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public BH.oM.Geometry.ISurface Location { get; set; } = new BH.oM.Geometry.PlanarSurface();
-        public IConstruction Construction { get; set; } = new Construction();
-        public List<IOpening> Openings { get; set; } = new List<IOpening>();
-        public Offset Offset { get; set; } = Offset.Centre;
+        public virtual BH.oM.Geometry.ISurface Location { get; set; } = new BH.oM.Geometry.PlanarSurface();
+        public virtual IConstruction Construction { get; set; } = new Construction();
+        public virtual List<IOpening> Openings { get; set; } = new List<IOpening>();
+        public virtual Offset Offset { get; set; } = Offset.Centre;
 
         /***************************************************/
     }

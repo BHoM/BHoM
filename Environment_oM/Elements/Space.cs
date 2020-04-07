@@ -40,28 +40,28 @@ namespace BH.oM.Environment.Elements
     public class Space : BHoMObject, IEnvironmentObject
     {
         [Description("Zones denotes the list of zones that this particular space is associated with. Zones are collections of spaces with similar internal gains and exterior envelope conditions.")]
-        public List<string> Zones { get; set; } = new List<string>();
+        public virtual List<string> Zones { get; set; } = new List<string>();
 
         [Description("Lighting gains are objects that are defined as the amount of heat contributed by light fixtures within the space")]
-        public Lighting LightingGain { get; set; } = new Lighting();
+        public virtual Lighting LightingGain { get; set; } = new Lighting();
 
         [Description("Equipment gains are objects that are defined as the amount of heat contributed by equipment within the space")]
-        public Gains.Equipment EquipmentGain { get; set; } = new Gains.Equipment();
+        public virtual Gains.Equipment EquipmentGain { get; set; } = new Gains.Equipment();
 
         [Description("People gains are objects that are defined as the amount of heat contributed by people based on their assumed activity level within the space (dancing, sitting, etc)")]
-        public People PeopleGain { get; set; } = new People();
+        public virtual People PeopleGain { get; set; } = new People();
 
         [Description("Infiltration gains are objects that are defined as the amount of heat or heat loss contributed by cracks in the exterior envelope of the building which allow unconditioned outside air to be introduced to the space")]
-        public Infiltration InfiltrationGain { get; set; } = new Infiltration();
+        public virtual Infiltration InfiltrationGain { get; set; } = new Infiltration();
 
         [Description("Ventilation is an object that defines the amount of outside air that should be introduced to a space, which is typically based on the number of occupants breathing the air and the area of the space.")]
-        public Ventilation Ventilation { get; set; } = new Ventilation();
+        public virtual Ventilation Ventilation { get; set; } = new Ventilation();
 
         [Description("Space Type is an enum that defines how the space is used (Museum, Corridor, etc)")]
-        public SpaceType Type { get; set; } = SpaceType.Undefined;
+        public virtual SpaceType Type { get; set; } = SpaceType.Undefined;
 
         [Description("A point in 3D space providing a location point of the space")]
-        public Point Location { get; set; } = new Point();
+        public virtual Point Location { get; set; } = new Point();
     }
 }
 

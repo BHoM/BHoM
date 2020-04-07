@@ -31,7 +31,7 @@ namespace BH.oM.Humans
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IHumanRole> Roles { get; set; } = new List<IHumanRole>();        
+        public virtual List<IHumanRole> Roles { get; set; } = new List<IHumanRole>();
 
 
         /***************************************************/

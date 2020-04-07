@@ -36,37 +36,37 @@ namespace BH.oM.Structure.SurfaceProperties
 
         [Length]
         [Description("The thickness of the slab sitting on top of the ribs.")]
-        public double Thickness { get; set; }
+        public virtual double Thickness { get; set; }
 
         [Description("Homogenous structural material throughout the full thickness of the element.")]
-        public IMaterialFragment Material { get; set; }
+        public virtual IMaterialFragment Material { get; set; }
 
         [Length]
         [Description("Total depth measured from the bottom of the ribs in local x-direction to the top of the slab.")]
-        public double TotalDepthX { get; set; }
+        public virtual double TotalDepthX { get; set; }
 
         [Length]
         [Description("Total depth meassured from the bottom of the ribs in local y-direction to the top of the slab.")]
-        public double TotalDepthY { get; set; }
+        public virtual double TotalDepthY { get; set; }
 
         [Length]
         [Description("Width of each rib in local x-direction.")]
-        public double StemWidthX { get; set; }
+        public virtual double StemWidthX { get; set; }
 
         [Length]
         [Description("Width of each rib in local y-direction.")]
-        public double StemWidthY { get; set; }
+        public virtual double StemWidthY { get; set; }
 
         [Length]
         [Description("Centre-Centre distance between the ribs running in local x-direction.")]
-        public double SpacingX { get; set; }
+        public virtual double SpacingX { get; set; }
 
         [Length]
         [Description("Centre-Centre distance between the ribs running in local y-direction.")]
-        public double SpacingY { get; set; }
+        public virtual double SpacingY { get; set; }
 
         [Description("Defines what type of element this property will be used. Used by some analysis packages.")]
-        public PanelType PanelType { get; set; } = PanelType.Slab;   //TODO: Required to get Etabs working. To be moved to physical objects
+        public virtual PanelType PanelType { get; set; } = PanelType.Slab;
 
 
         /***************************************************/

@@ -34,25 +34,25 @@ namespace BH.oM.Structure.Constraints
         /***************************************************/
 
         [Description("Defines the translational fixity in the X-direction.")]
-        public DOFType UX { get; set; }
+        public virtual DOFType UX { get; set; }
 
         [Description("Defines the translational fixity in the Y-direction.")]
-        public DOFType UY { get; set; }
+        public virtual DOFType UY { get; set; }
 
         [Description("Defines the translational fixity in the Z- or Normal-direction.")]
-        public DOFType Normal { get; set; }
+        public virtual DOFType Normal { get; set; }
 
         [ForcePerUnitLength]
         [Description("Defines the stiffness in X-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
-        public double KX { get; set; } = 0;
+        public virtual double KX { get; set; } = 0;
 
         [ForcePerUnitLength]
         [Description("Defines the stiffness in Y-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
-        public double KY { get; set; } = 0;
+        public virtual double KY { get; set; } = 0;
 
         [ForcePerUnitLength]
         [Description("Defines the stiffness in Z- or Normal-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
-        public double KNorm { get; set; } = 0;
+        public virtual double KNorm { get; set; } = 0;
 
 
         /***************************************************/

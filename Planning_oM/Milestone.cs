@@ -31,11 +31,11 @@ namespace BH.oM.Planning
         /**** Properties                                ****/
         /***************************************************/
 
-        public DateTimeOffset? DueOn { get; set; }
+        public virtual DateTimeOffset? DueOn { get; set; }
 
-        public ItemState State { get; set; }
+        public virtual ItemState State { get; set; }
 
-        public string Description { get; set; } = ""; 
+        public virtual string Description { get; set; } = "";
 
         /***************************************************/
     }
