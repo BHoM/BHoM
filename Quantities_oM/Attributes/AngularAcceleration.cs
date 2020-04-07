@@ -31,9 +31,9 @@ namespace BH.oM.Quantities.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual override int T { get; } = -2;
+        public override int T { get; } = -2;
 
-        public virtual override string SIUnit { get; } = "rad/s²";
+        public override string SIUnit { get; } = "rad/s²";
 
         /***************************************************/
     }

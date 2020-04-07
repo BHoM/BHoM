@@ -31,7 +31,7 @@ namespace BH.oM.Quantities.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual override string SIUnit { get; } = "kg/kg";
+        public override string SIUnit { get; } = "kg/kg";
 
         /***************************************************/
     }
