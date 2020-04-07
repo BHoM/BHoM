@@ -31,11 +31,11 @@ namespace BH.oM.Quantities.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual override int M { get; } = 1;
+        public override int M { get; } = 1;
 
-        public virtual override int L { get; } = -1;
+        public override int L { get; } = -1;
 
-        public virtual override string SIUnit { get; } = "kg/m";
+        public override string SIUnit { get; } = "kg/m";
 
         /***************************************************/
     }

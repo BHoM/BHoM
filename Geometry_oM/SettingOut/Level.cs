@@ -34,7 +34,7 @@ namespace BH.oM.Geometry.SettingOut
         /***************************************************/
 
         [Description("The Level Reference, ID or text based identifier.")]
-        public virtual override string Name { get; set; } = "";
+        public override string Name { get; set; } = "";
 
         [Length]
         [Description("The position of the Level along the global Z coordinate axis.")]

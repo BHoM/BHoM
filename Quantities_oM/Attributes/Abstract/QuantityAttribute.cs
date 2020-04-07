@@ -55,7 +55,7 @@ namespace BH.oM.Quantities.Attributes
         public virtual int J { get; } = 0;
 
         [Description("SI derived unit symbol")]
-        public virtual abstract string SIUnit { get; }
+        public abstract string SIUnit { get; }
 
         /***************************************************/
     }

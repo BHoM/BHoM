@@ -35,7 +35,7 @@ namespace BH.oM.Geometry.SettingOut
         /***************************************************/
 
         [Description("The Grid Reference, ID or text based identifier.")]
-        public virtual override string Name { get; set; } = "";
+        public override string Name { get; set; } = "";
 
         [Description("The centreline defining the Grid's path. Can be curved or linear.")]
         public virtual ICurve Curve { get; set; } = null;
