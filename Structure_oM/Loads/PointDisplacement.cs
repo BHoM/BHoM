@@ -35,10 +35,10 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Length]
-        public Vector Translation { get; set; } = new Vector();
+        public virtual Vector Translation { get; set; } = new Vector();
 
         [Angle]
-        public Vector Rotation { get; set; } = new Vector();
+        public virtual Vector Rotation { get; set; } = new Vector();
 
         /***************************************************/
     }

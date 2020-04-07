@@ -35,10 +35,10 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Force]
-        public Vector Force { get;  set; } = new Vector();
+        public virtual Vector Force { get;  set; } = new Vector();
 
         [Moment]
-        public Vector Moment { get;  set; } = new Vector();
+        public virtual Vector Moment { get;  set; } = new Vector();
 
         /***************************************************/
     }
