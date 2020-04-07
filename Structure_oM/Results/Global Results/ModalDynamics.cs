@@ -36,33 +36,33 @@ namespace BH.oM.Structure.Results
         public virtual int ModeNumber { get; set; } = 0;
 
         [Frequency]
-        public double Frequency { get; set; } = 0.0;
+        public virtual double Frequency { get; set; } = 0.0;
 
         [Mass]
-        public double ModalMass { get; set; } = 0.0;
+        public virtual double ModalMass { get; set; } = 0.0;
 
         [ForcePerUnitLength]
-        public double ModalStiffness { get; set; } = 0.0;
+        public virtual double ModalStiffness { get; set; } = 0.0;
 
         public virtual double ModalDamping { get; set; } = 0.0;
 
         [Ratio]
-        public double MassRatioX { get; set; } = 0.0;
+        public virtual double MassRatioX { get; set; } = 0.0;
 
         [Ratio]
-        public double MassRatioY { get; set; } = 0.0;
+        public virtual double MassRatioY { get; set; } = 0.0;
 
         [Ratio]
-        public double MassRatioZ { get; set; } = 0.0;
+        public virtual double MassRatioZ { get; set; } = 0.0;
 
         [Ratio]
-        public double InertiaRatioX { get; set; } = 0.0;
+        public virtual double InertiaRatioX { get; set; } = 0.0;
 
         [Ratio]
-        public double InertiaRatioY { get; set; } = 0.0;
+        public virtual double InertiaRatioY { get; set; } = 0.0;
 
         [Ratio]
-        public double InertiaRatioZ { get; set; } = 0.0;
+        public virtual double InertiaRatioZ { get; set; } = 0.0;
 
         /***************************************************/
     }

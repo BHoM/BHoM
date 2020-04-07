@@ -35,10 +35,10 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Acceleration]
-        public Vector TranslationalAcceleration { get; set; } = new Vector();
+        public virtual Vector TranslationalAcceleration { get; set; } = new Vector();
 
         [AngularAcceleration]
-        public Vector RotationalAcceleration { get; set; } = new Vector();
+        public virtual Vector RotationalAcceleration { get; set; } = new Vector();
 
         /***************************************************/
     }
