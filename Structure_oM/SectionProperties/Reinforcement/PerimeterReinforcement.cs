@@ -31,7 +31,7 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         /**** Properties                                ****/
         /***************************************************/
 
-        public ReinforcementPattern Pattern { get; set; }
+        public virtual ReinforcementPattern Pattern { get; set; }
 
 
         /***************************************************/

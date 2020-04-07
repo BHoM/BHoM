@@ -30,9 +30,9 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Position { get; set; } = new Point();
+        public virtual Point Position { get; set; } = new Point();
 
-        public T Data { get; set; } = default(T);
+        public virtual T Data { get; set; } = default(T);
         
         /***************************************************/
     }

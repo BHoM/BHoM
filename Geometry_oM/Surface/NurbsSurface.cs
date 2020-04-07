@@ -39,28 +39,28 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("An ordered list of three-dimensional points defining the overall surface patch geometry. Each row of Points in the UV grid are listed sequentially as a single vector. The control point locations are approximating, as opposed to interpolating, meaning in the general case the resulting surface will not pass through the control point locations themselves.")]                    
-        public ReadOnlyCollection<Point> ControlPoints { get; }
+        public virtual ReadOnlyCollection<Point> ControlPoints { get; }
 
         [Description("A list of scalar factors, one for each ControlPoint. The weights in effect add an additional degree of freedom, allowing control over the relative influence of each control point on the surface shape.")]
-        public ReadOnlyCollection<double> Weights { get; }
+        public virtual ReadOnlyCollection<double> Weights { get; }
 
         [Description("Defines the spans and transition points of the basis functions in the U domain. See also BH.oM.Geometry.NurbsCurve for more info on Knot Vectors.")]
-        public ReadOnlyCollection<double> UKnots { get; }
+        public virtual ReadOnlyCollection<double> UKnots { get; }
 
         [Description("Defines the spans and transition points of the basis functions in the V domain. See also BH.oM.Geometry.NurbsCurve for more info on Knot Vectors.")]
-        public ReadOnlyCollection<double> VKnots { get; }
+        public virtual ReadOnlyCollection<double> VKnots { get; }
 
         [Description("Sets the degree of the polynomial basis functions in the U direction of the surface patch. This ultimately defines the number of local U ControlPoints that influence a given point of the surface.")]
-        public int UDegree { get; }
+        public virtual int UDegree { get; }
 
         [Description("Sets the degree of the polynomial basis functions in the V direction of the surface patch. This ultimately defines the number of local V ControlPoints that influence a given point of the surface.")]
-        public int VDegree { get; }
+        public virtual int VDegree { get; }
 
         [Description("Allows definition of a set of free-form shapes to be cut from the underlying Surface.")]
-        public ReadOnlyCollection<SurfaceTrim> InnerTrims { get; }
+        public virtual ReadOnlyCollection<SurfaceTrim> InnerTrims { get; }
 
         [Description("Allows definition of free-form external perimeter to the NurbsSurface patch.")]
-        public ReadOnlyCollection<SurfaceTrim> OuterTrims { get; }
+        public virtual ReadOnlyCollection<SurfaceTrim> OuterTrims { get; }
 
 
         /***************************************************/

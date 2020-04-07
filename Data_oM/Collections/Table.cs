@@ -32,7 +32,7 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public DataTable Data { get; set; }
+        public virtual DataTable Data { get; set; }
 
         /***************************************************/
     }

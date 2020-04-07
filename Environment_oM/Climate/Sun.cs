@@ -37,10 +37,10 @@ namespace BH.oM.Environment.Climate
     public class Sun : BHoMObject, IClimateObject
     {
         [Description("The azimuth position of the sun (in degrees clockwise from North; where 0 is North, 90 is East, etc.)")]
-        public double Azimuth { get; set; } = 0.0;
+        public virtual double Azimuth { get; set; } = 0.0;
 
         [Description("The altitude position of the sun (in degrees above the horizon)")]
-        public double Altitude { get; set; } = 0.0;
+        public virtual double Altitude { get; set; } = 0.0;
     }
 }
 

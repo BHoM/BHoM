@@ -35,27 +35,27 @@ namespace BH.oM.Structure.Results
 
         [Length]
         [Description("Local deformation of the Bar along the local x-axis. Local axial deformation of the Bar.")]
-        public double UX { get; set; } = 0.0;
+        public virtual double UX { get; set; } = 0.0;
 
         [Length]
         [Description("Local deformation of the Bar along the local y-axis. Generally minor axis deformation.")]
-        public double UY { get; set; } = 0.0;
+        public virtual double UY { get; set; } = 0.0;
 
         [Length]
         [Description("Local deformation of the Bar along the local z-axis. Generally major axis deformation.")]
-        public double UZ { get; set; } = 0.0;
+        public virtual double UZ { get; set; } = 0.0;
 
         [Angle]
         [Description("Localised rotation of the Bar about the local x-axis. Twist of the Bar.")]
-        public double RX { get; set; } = 0.0;
+        public virtual double RX { get; set; } = 0.0;
 
         [Angle]
         [Description("Localised rotation of the Bar about the local y-axis. Generally major axis rotation.")]
-        public double RY { get; set; } = 0.0;
+        public virtual double RY { get; set; } = 0.0;
 
         [Angle]
         [Description("Localised rotation of the Bar about the local z-axis. Generally minor axis rotation.")]
-        public double RZ { get; set; } = 0.0;
+        public virtual double RZ { get; set; } = 0.0;
 
         /***************************************************/
     }

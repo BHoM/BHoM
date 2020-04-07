@@ -32,9 +32,9 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IGeometry> Shapes { get; set; } = null;
+        public virtual List<IGeometry> Shapes { get; set; } = null;
 
-        public SVGStyle Style { get; set; } = new SVGStyle();
+        public virtual SVGStyle Style { get; set; } = new SVGStyle();
         
 
         /***************************************************/

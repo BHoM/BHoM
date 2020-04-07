@@ -39,13 +39,13 @@ namespace BH.oM.Environment.Results
         /***************************************************/
 
         [Description("The unit measurement of the profile result from the Profile Result enum")]
-        public ProfileResultUnit Unit { get; set; } = ProfileResultUnit.Undefined;
+        public virtual ProfileResultUnit Unit { get; set; } = ProfileResultUnit.Undefined;
 
         [Description("The type of the profile result from the Profile Result enum")]
-        public ProfileResultType Type { get; set; } = ProfileResultType.Undefined;
+        public virtual ProfileResultType Type { get; set; } = ProfileResultType.Undefined;
 
         [Description("A collection of the results of this profile")]
-        public List<double> Results { get; set; } = new List<double>();
+        public virtual List<double> Results { get; set; } = new List<double>();
     }
 }
 

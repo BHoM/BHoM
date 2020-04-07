@@ -32,9 +32,9 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Polyline> ConeBoundary { get; set; } = new List<Polyline>();
+        public virtual List<Polyline> ConeBoundary { get; set; } = new List<Polyline>();
 
-        public double ConeArea { get; set; } = 0.0;
+        public virtual double ConeArea { get; set; } = 0.0;
 
         /***************************************************/
     }

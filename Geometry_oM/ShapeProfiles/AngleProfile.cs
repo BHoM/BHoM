@@ -34,25 +34,25 @@ namespace BH.oM.Geometry.ShapeProfiles
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Angle;
+        public virtual ShapeType Shape { get; } = ShapeType.Angle;
 
-        public double Height { get; }
+        public virtual double Height { get; }
 
-        public double Width { get; }
+        public virtual double Width { get; }
 
-        public double WebThickness { get; }
+        public virtual double WebThickness { get; }
 
-        public double FlangeThickness { get; }
+        public virtual double FlangeThickness { get; }
 
-        public double RootRadius { get; }
+        public virtual double RootRadius { get; }
 
-        public double ToeRadius { get; }
+        public virtual double ToeRadius { get; }
 
-        public bool MirrorAboutLocalZ { get; }
+        public virtual bool MirrorAboutLocalZ { get; }
 
-        public bool MirrorAboutLocalY { get; }
+        public virtual bool MirrorAboutLocalY { get; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
 
         /***************************************************/

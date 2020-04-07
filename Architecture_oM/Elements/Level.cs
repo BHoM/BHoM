@@ -32,7 +32,7 @@ namespace BH.oM.Architecture.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Elevation { get; set; } = 0.0;
+        public virtual double Elevation { get; set; } = 0.0;
 
 
         /***************************************************/

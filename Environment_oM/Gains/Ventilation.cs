@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -36,10 +36,10 @@ namespace BH.oM.Environment.Gains
     public class Ventilation : BHoMObject
     {
         [Description("The ventilation rate associated with the number of occupants within a space, example: 0.00025 m3/s per person")]
-        public double PeopleRate { get; set; } = 0.0;
+        public virtual double PeopleRate { get; set; } = 0.0;
 
         [Description("The ventilation rate associated with the area of the space, example: 0.0003 m3/s*m2")]
-        public double AreaRate { get; set; } = 0.0;
+        public virtual double AreaRate { get; set; } = 0.0;
 
     }
 }

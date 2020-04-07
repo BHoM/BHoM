@@ -32,7 +32,7 @@ namespace BH.oM.Humans.BodyParts
         /**** Properties                                ****/
         /***************************************************/
 
-        public Line TrackingLine { get; set; } = new Line();
+        public virtual Line TrackingLine { get; set; } = new Line();
 
 
         /***************************************************/

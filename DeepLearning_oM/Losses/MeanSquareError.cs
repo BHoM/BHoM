@@ -30,7 +30,7 @@ namespace BH.oM.DeepLearning.Losses
         /**** Properties                                ****/
         /***************************************************/
 
-        public Reduce Reduce { get; set; } = Reduce.No;
+        public virtual Reduce Reduce { get; set; } = Reduce.No;
 
         /***************************************************/
     }

@@ -33,18 +33,18 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Point defining the centre of the circular base.")]
-        public Point Centre { get; set; } = new Point();
+        public virtual Point Centre { get; set; } = new Point();
 
         [Description("Vector perperdicular to the base. Defines the orientation in three-dimensional space.")]
-        public Vector Axis { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
+        public virtual Vector Axis { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
         [Length]
         [Description("Distance from the Axis to the Cylinder boundary surface.")]
-        public double Radius { get; set; } = 0.0;
+        public virtual double Radius { get; set; } = 0.0;
 
         [Length]
         [Description("Distance between the base and top surface, measured along the Axis.")]
-        public double Height { get; set; } = 0.0;
+        public virtual double Height { get; set; } = 0.0;
 
         /***************************************************/
     }

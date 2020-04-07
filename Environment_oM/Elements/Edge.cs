@@ -38,7 +38,7 @@ namespace BH.oM.Environment.Elements
         /**** Properties                                ****/
         /***************************************************/
         [Description("A BHoM Geometry planar curve object (e.g polyline, line, etc.)")]
-        public ICurve Curve { get; set; } = new Polyline();
+        public virtual ICurve Curve { get; set; } = new Polyline();
 
         /***************************************************/
     }

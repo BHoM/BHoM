@@ -31,11 +31,11 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Tuple<T,T>> Intersection { get; set; } = new List<Tuple<T,T>>();
+        public virtual List<Tuple<T,T>> Intersection { get; set; } = new List<Tuple<T,T>>();
 
-        public List<T> OnlySet1 { get; set; } = new List<T>();
+        public virtual List<T> OnlySet1 { get; set; } = new List<T>();
 
-        public List<T> OnlySet2 { get; set; } = new List<T>();
+        public virtual List<T> OnlySet2 { get; set; } = new List<T>();
 
 
         /***************************************************/

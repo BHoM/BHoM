@@ -35,13 +35,13 @@ namespace BH.oM.Environment.Gains
     public class Pollutant : BHoMObject, IGain
     {
         [Description("The sensible heat contributed by pollutants, which contribute to a rise in temperature with no change in phase.")]
-        public double Sensible { get; set; } = 0.0;
+        public virtual double Sensible { get; set; } = 0.0;
 
         [Description("The latent heat contributed by pollutants, which contribute to a change in phase from solid to liquid.")]
-        public double Latent { get; set; } = 0.0;
+        public virtual double Latent { get; set; } = 0.0;
 
         [Description("Profiles depict the time period (hours per day, days per week) during which pollutants are contributing heat to the space.")]
-        public Profile Profile { get; set; } = new Profile();
+        public virtual Profile Profile { get; set; } = new Profile();
     }
 }
 

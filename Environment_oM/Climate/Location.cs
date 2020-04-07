@@ -37,17 +37,17 @@ namespace BH.oM.Environment.Climate
     public class Location : BHoMObject, IClimateObject
     {
         [Description("Defines North-South position on the Earth. Between -90 to +90 degrees.")]
-        public double Latitude { get; set; } = 0;
+        public virtual double Latitude { get; set; } = 0;
 
         [Description("Defines the East-West position on the Earth. Between -180 to +180 degrees.")]
-        public double Longitude { get; set; } = 0;
+        public virtual double Longitude { get; set; } = 0;
 
         [Length]
         [Description("The elevation for the location, measured relative to sea level.")]
-        public double Elevation { get; set; } = 0;
+        public virtual double Elevation { get; set; } = 0;
 
         [Description("The Coordinated Universal Time (UTC) for the location (in -12 to +14 hours)")]
-        public double UtcOffset { get; set; } = 0;
+        public virtual double UtcOffset { get; set; } = 0;
     }
 }
 

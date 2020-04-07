@@ -32,11 +32,11 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public int TotalTiers { get; set; } = 0;
+        public virtual int TotalTiers { get; set; } = 0;
 
-        public List<Tier> Tiers3d { get; set; } = new List<Tier>();
+        public virtual List<Tier> Tiers3d { get; set; } = new List<Tier>();
 
-        public List<Audience> Audience { get; set; } = new List<Audience>();
+        public virtual List<Audience> Audience { get; set; } = new List<Audience>();
 
         /***************************************************/
     }

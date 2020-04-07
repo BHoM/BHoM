@@ -31,11 +31,11 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public T ClusterItem { get; set; }
+        public virtual T ClusterItem { get; set; }
 
-        public int ClusterId { get; set; } = 0;
+        public virtual int ClusterId { get; set; } = 0;
 
-        public bool IsVisited { get; set; } = false;
+        public virtual bool IsVisited { get; set; } = false;
 
         /***************************************************/
     }

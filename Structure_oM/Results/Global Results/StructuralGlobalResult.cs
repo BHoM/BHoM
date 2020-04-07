@@ -34,13 +34,13 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Description("Id of the structure. Unused for many results.")]
-        public IComparable ObjectId { get; set; } = "";
+        public virtual IComparable ObjectId { get; set; } = "";
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public IComparable ResultCase { get; set; } = "";
+        public virtual IComparable ResultCase { get; set; } = "";
 
         [Description("Time step for time history results.")]
-        public double TimeStep { get; set; } = 0.0;
+        public virtual double TimeStep { get; set; } = 0.0;
 
         /***************************************************/
         /**** IComparable Interface                     ****/

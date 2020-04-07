@@ -31,9 +31,9 @@ namespace BH.oM.Common.Planning
         /**** Properties                                ****/
         /***************************************************/
 
-        public DateTime StartTime { get; set; } = new DateTime();
+        public virtual DateTime StartTime { get; set; } = new DateTime();
 
-        public DateTime EndTime { get; set; } = new DateTime();
+        public virtual DateTime EndTime { get; set; } = new DateTime();
 
 
         /***************************************************/

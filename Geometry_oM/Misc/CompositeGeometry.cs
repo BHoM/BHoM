@@ -34,7 +34,7 @@ namespace BH.oM.Geometry
 
 
         [Description("A list of assorted geometry, which together define the composite shape.")]
-        public List<IGeometry> Elements { get; set; } = new List<IGeometry>();
+        public virtual List<IGeometry> Elements { get; set; } = new List<IGeometry>();
         
         /***************************************************/
     }

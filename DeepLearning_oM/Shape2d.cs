@@ -31,9 +31,9 @@ namespace BH.oM.DeepLearning
         /**** Properties                                ****/
         /***************************************************/
 
-        public int Dim1 { get; set; } = -1;
+        public virtual int Dim1 { get; set; } = -1;
 
-        public int Dim2 { get; set; } = -1;
+        public virtual int Dim2 { get; set; } = -1;
 
 
         /***************************************************/

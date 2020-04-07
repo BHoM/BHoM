@@ -28,7 +28,7 @@ namespace BH.oM.Data.Requests
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Body { get; set; }
+        public virtual string Body { get; set; }
 
 
         /***************************************************/

@@ -33,18 +33,18 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Point defining the centre of the circular base")]
-        public Point Centre { get; set; } = new Point();
+        public virtual Point Centre { get; set; } = new Point();
 
         [Description("Vector perperdicular to the Cone base. Defines the orientation in three-dimensional space")]
-        public Vector Axis { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
+        public virtual Vector Axis { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
         [Length]
         [Description("Distance from the Centre to the edge of the circular base")]
-        public double Radius { get; set; } = 0.0;
+        public virtual double Radius { get; set; } = 0.0;
 
         [Length]
         [Description("Distance from the centre of the base to the Cone's apex")]
-        public double Height { get; set; } = 0.0;
+        public virtual double Height { get; set; } = 0.0;
 
         /***************************************************/
     }

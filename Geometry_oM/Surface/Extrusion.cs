@@ -33,14 +33,14 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("The Extrusion profile curve defining the constant cross sectional shape. Idential curves can be recreated at any point along the Extrusion axis through intersection with the Surface.")]
-        public ICurve Curve { get; set; } = new Line();
+        public virtual ICurve Curve { get; set; } = new Line();
 
         [Length]
         [Description("The axis along which to translate the profile curve. The Vector magnitude determining the Extrusion length.")]
-        public Vector Direction { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
+        public virtual Vector Direction { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
         [Description("Defines the Extrusion as closed and therfore a solid volume.")]
-        public bool Capped { get; set; } = true;
+        public virtual bool Capped { get; set; } = true;
         
         /***************************************************/
     }

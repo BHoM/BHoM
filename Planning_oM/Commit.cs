@@ -31,19 +31,19 @@ namespace BH.oM.Planning
         /**** Properties                                ****/
         /***************************************************/
 
-        public string RepoName { get; set; }
+        public virtual string RepoName { get; set; }
 
-        public DateTimeOffset Date { get; set; }
+        public virtual DateTimeOffset Date { get; set; }
 		
-		public string Author { get; set; }
+        public virtual string Author { get; set; }
 		
-		public string Committer { get; set; }
+        public virtual string Committer { get; set; }
 
-        public int Additions { get; set; }
+        public virtual int Additions { get; set; }
 
-        public int Deletions { get; set; }
+        public virtual int Deletions { get; set; }
 
-        public int TotalChanges { get; set; }
+        public virtual int TotalChanges { get; set; }
 
 
         /***************************************************/

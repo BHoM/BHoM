@@ -34,27 +34,27 @@ namespace BH.oM.Geometry.ShapeProfiles
         /**** Properties                                ****/
         /***************************************************/
 
-        public ShapeType Shape { get; } = ShapeType.Box;
+        public virtual ShapeType Shape { get; } = ShapeType.Box;
 
-        public double Height { get; }
+        public virtual double Height { get; }
 
-        public double Width { get; }
+        public virtual double Width { get; }
 
-        public double WebThickness { get; }
+        public virtual double WebThickness { get; }
 
-        public double TopFlangeThickness { get; }
+        public virtual double TopFlangeThickness { get; }
 
-        public double BotFlangeThickness { get; }
+        public virtual double BotFlangeThickness { get; }
 
-        public double TopLeftCorbelWidth { get; }
+        public virtual double TopLeftCorbelWidth { get; }
 
-        public double TopRightCorbelWidth { get; }
+        public virtual double TopRightCorbelWidth { get; }
 
-        public double BotLeftCorbelWidth { get; }
+        public virtual double BotLeftCorbelWidth { get; }
 
-        public double BotRightCorbelWidth { get; }
+        public virtual double BotRightCorbelWidth { get; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

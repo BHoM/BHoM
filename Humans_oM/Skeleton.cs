@@ -30,47 +30,47 @@ namespace BH.oM.Humans
         /**** Properties                                ****/
         /***************************************************/
 
-        public Head Head { get; set; } = new Head();
+        public virtual Head Head { get; set; } = new Head();
 
-        public RightHand RightHand { get; set; } = new RightHand();
+        public virtual RightHand RightHand { get; set; } = new RightHand();
 
-        public LeftHand LeftHand { get; set; } = new LeftHand();
+        public virtual LeftHand LeftHand { get; set; } = new LeftHand();
 
-        public RightThumb RightThumb { get; set; } = new RightThumb();
+        public virtual RightThumb RightThumb { get; set; } = new RightThumb();
 
-        public LeftThumb LeftThumb { get; set; } = new LeftThumb();
+        public virtual LeftThumb LeftThumb { get; set; } = new LeftThumb();
 
-        public Neck Neck { get; set; } = new Neck();
+        public virtual Neck Neck { get; set; } = new Neck();
 
-        public RightShoulder RightShoulder { get; set; } = new RightShoulder();
+        public virtual RightShoulder RightShoulder { get; set; } = new RightShoulder();
 
-        public LeftShoulder LeftShoulder { get; set; } = new LeftShoulder();
+        public virtual LeftShoulder LeftShoulder { get; set; } = new LeftShoulder();
 
-        public Spine Spine { get; set; } = new Spine();
+        public virtual Spine Spine { get; set; } = new Spine();
 
-        public RightHip RightHip { get; set; } = new RightHip();
+        public virtual RightHip RightHip { get; set; } = new RightHip();
 
-        public LeftHip LeftHip { get; set; } = new LeftHip();
+        public virtual LeftHip LeftHip { get; set; } = new LeftHip();
 
-        public RightUpperArm RightUpperArm { get; set; } = new RightUpperArm();
+        public virtual RightUpperArm RightUpperArm { get; set; } = new RightUpperArm();
 
-        public LeftUpperArm LeftUpperArm { get; set; } = new LeftUpperArm();
+        public virtual LeftUpperArm LeftUpperArm { get; set; } = new LeftUpperArm();
 
-        public RightLowerArm RightLowerArm { get; set; } = new RightLowerArm();
+        public virtual RightLowerArm RightLowerArm { get; set; } = new RightLowerArm();
 
-        public LeftLowerArm LeftLowerArm { get; set; } = new LeftLowerArm();
+        public virtual LeftLowerArm LeftLowerArm { get; set; } = new LeftLowerArm();
 
-        public RightUpperLeg RightUpperLeg { get; set; } = new RightUpperLeg();
+        public virtual RightUpperLeg RightUpperLeg { get; set; } = new RightUpperLeg();
 
-        public LeftUpperLeg LeftUpperLeg { get; set; } = new LeftUpperLeg();
+        public virtual LeftUpperLeg LeftUpperLeg { get; set; } = new LeftUpperLeg();
 
-        public RightLowerLeg RightLowerLeg { get; set; } = new RightLowerLeg();
+        public virtual RightLowerLeg RightLowerLeg { get; set; } = new RightLowerLeg();
 
-        public LeftLowerLeg LeftLowerLeg { get; set; } = new LeftLowerLeg();
+        public virtual LeftLowerLeg LeftLowerLeg { get; set; } = new LeftLowerLeg();
 
-        public RightFoot RightFoot { get; set; } = new RightFoot();
+        public virtual RightFoot RightFoot { get; set; } = new RightFoot();
 
-        public LeftFoot LeftFoot { get; set; } = new LeftFoot();
+        public virtual LeftFoot LeftFoot { get; set; } = new LeftFoot();
 
 
         /***************************************************/

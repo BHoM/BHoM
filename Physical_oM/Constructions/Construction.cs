@@ -36,7 +36,7 @@ namespace BH.oM.Physical.Constructions
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Layer> Layers { get; set; } = new List<Layer>();
+        public virtual List<Layer> Layers { get; set; } = new List<Layer>();
 
         /***************************************************/
     }

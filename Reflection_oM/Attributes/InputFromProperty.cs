@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -32,9 +32,9 @@ namespace BH.oM.Reflection.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public string InputName { get; private set; } = "";
+        public virtual string InputName { get; private set; } = "";
 
-        public string PropertyName { get; private set; } = "";
+        public virtual string PropertyName { get; private set; } = "";
 
 
         /***************************************************/

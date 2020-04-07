@@ -32,12 +32,12 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Start { get; set; } = new Point();
+        public virtual Point Start { get; set; } = new Point();
 
-        public Point End { get; set; } = new Point();
+        public virtual Point End { get; set; } = new Point();
 
         [Description("Defines the Line as a ray of infinite extents in both directions")]
-        public bool Infinite { get; set; } = false;
+        public virtual bool Infinite { get; set; } = false;
         
         /***************************************************/
     }

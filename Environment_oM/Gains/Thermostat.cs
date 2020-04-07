@@ -39,13 +39,13 @@ namespace BH.oM.Environment.Gains
         /***************************************************/
 
         [Description("Proportional control indicates that the thermostat can modulate the voltage delivered to the heating and/or cooling device")]
-        public bool ProportionalControl { get; set; } = false;
+        public virtual bool ProportionalControl { get; set; } = false;
 
         [Description("Control range indicates the range in temperature (in degrees of celsius)")]
-        public double ControlRange { get; set; } = 0.0; //Degrees Celcius contorl range
+        public virtual double ControlRange { get; set; } = 0.0;
 
         [Description("Profiles depict the time period (hours per day, days per week) during which the thermostat will be active.")]
-        public List<Profile> Profiles { get; set; } = new List<Profile>();
+        public virtual List<Profile> Profiles { get; set; } = new List<Profile>();
 
         /***************************************************/
     }

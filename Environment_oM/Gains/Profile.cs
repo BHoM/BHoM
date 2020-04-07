@@ -39,21 +39,21 @@ namespace BH.oM.Environment.Gains
         /***************************************************/
 
         [Description("Profile Type depicts the time period (hours per day or year) during which the gain is actively contributing to the space")]
-        public ProfileType ProfileType { get; set; } = ProfileType.Undefined;
+        public virtual ProfileType ProfileType { get; set; } = ProfileType.Undefined;
 
         [Description("The multiplication factor indicates the total percentage 0.0-1.0 over which the profile should be applied")]
-        public double MultiplicationFactor { get; set; } = 1.0;
+        public virtual double MultiplicationFactor { get; set; } = 1.0;
 
         [Description("The set back value indicates the total percentage 0.0-1.0 over which the profile should not be applied")]
-        public double SetBackValue { get; set; } = 0.0;
+        public virtual double SetBackValue { get; set; } = 0.0;
 
-        public string Function { get; set; } = ""; //Function built query defined as a string within simulation
+        public virtual string Function { get; set; } = "";
 
         [Description("Values denotes the hour-by-hour values based on the chosen Profile Type: yearly, daily")]
-        public List<double> Values { get; set; } = new List<double>();
+        public virtual List<double> Values { get; set; } = new List<double>();
 
         [Description("The profile category in an enum that denotes what this profile is being set for: a gain, humdistat or thermostat")]
-        public ProfileCategory Category { get; set; } = ProfileCategory.Undefined;
+        public virtual ProfileCategory Category { get; set; } = ProfileCategory.Undefined;
 
         /***************************************************/
     }

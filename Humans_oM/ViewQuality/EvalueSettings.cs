@@ -31,7 +31,7 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public EvalueViewEnum ViewType { get; set; } = EvalueViewEnum.Undefined;
+        public virtual EvalueViewEnum ViewType { get; set; } = EvalueViewEnum.Undefined;
 
         /***************************************************/
     }

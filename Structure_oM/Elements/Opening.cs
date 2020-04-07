@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("A list of coplanar Edges defining the contour and potential constraints of the Opening.")]
-        public List<Edge> Edges { get; set; } = new List<Edge>();
+        public virtual List<Edge> Edges { get; set; } = new List<Edge>();
         
         /***************************************************/
     }

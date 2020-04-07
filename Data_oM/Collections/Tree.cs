@@ -30,11 +30,11 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public Dictionary<string, Tree<T>> Children { get; set; } = new Dictionary<string, Tree<T>>();
+        public virtual Dictionary<string, Tree<T>> Children { get; set; } = new Dictionary<string, Tree<T>>();
 
-        public string Name { get; set; } = "";
+        public virtual string Name { get; set; } = "";
 
-        public T Value { get; set; } = default(T);
+        public virtual T Value { get; set; } = default(T);
 
 
         /***************************************************/

@@ -36,29 +36,29 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Description("Id of the FEMesh/Panel that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
-        public IComparable ObjectId { get; } = "";
+        public virtual IComparable ObjectId { get; } = "";
 
         [Description("Id of the Node in the mesh that this result belongs to. Will be empty for smoothing types not relating to Nodes. When extracted from an analysis package, the Node id will correspond to the node id in the software and match the format and value used in that particular package.")]
-        public IComparable NodeId { get; } = "";
+        public virtual IComparable NodeId { get; } = "";
 
         [Description("Id of the FEFace that this result belongs to. Will be empty for smoothing types not relating to Faces. When extracted from an analysis package, the face id will correspond to the face id in the software and match the format and value used in that particular package.")]
-        public IComparable MeshFaceId { get; } = "";
+        public virtual IComparable MeshFaceId { get; } = "";
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public IComparable ResultCase { get; } = "";
+        public virtual IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results.")]
-        public double TimeStep { get; } = 0.0;
+        public virtual double TimeStep { get; } = 0.0;
 
-        public MeshResultLayer MeshResultLayer { get; }
+        public virtual MeshResultLayer MeshResultLayer { get; }
 
         [Description("Position within the element thickness that result is extracted from, normalised to 1. I.e. 0 = lower surface, 0.5 = middle, 1 = top surface.")]
-        public double LayerPosition { get; }
+        public virtual double LayerPosition { get; }
 
-        public MeshResultSmoothingType Smoothing { get; }
+        public virtual MeshResultSmoothingType Smoothing { get; }
 
         [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials.")]
-        public Basis Orientation { get; } = Basis.XY;
+        public virtual Basis Orientation { get; } = Basis.XY;
 
         /***************************************************/
         /**** Constructors                              ****/

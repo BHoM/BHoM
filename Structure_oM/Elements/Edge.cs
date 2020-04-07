@@ -37,14 +37,14 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
         
         [Description("Curve of the edge. Should be a planar curve if used on panels.")]            
-        public ICurve Curve { get; set; }
+        public virtual ICurve Curve { get; set; }
 
         [Description("Release of the edge, defining the connectivity between the host panel and the edge. \n" +
                      "\nThree translational and one rotational degree of freedom, where the rotational refers to the rotation about the axis of the edge.")]
-        public Constraint4DOF Release { get; set; } = null;
+        public virtual Constraint4DOF Release { get; set; } = null;
 
         [Description("Support of the edge, used to constrain the edge in space.")]
-        public Constraint6DOF Support { get; set; } = null;
+        public virtual Constraint6DOF Support { get; set; } = null;
 
         
         /***************************************************/

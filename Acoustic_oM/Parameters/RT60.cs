@@ -30,13 +30,13 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Value { get; set; } = 0.0;
+        public virtual double Value { get; set; } = 0.0;
 
-        public int ReceiverID { get; set; } = 0;
+        public virtual int ReceiverID { get; set; } = 0;
 
-        public int SpeakerID { get; set; } = 0;
+        public virtual int SpeakerID { get; set; } = 0;
 
-        public Frequency Frequency { get; set; } = Frequency.Hz1000;
+        public virtual Frequency Frequency { get; set; } = Frequency.Hz1000;
 
 
         /***************************************************/

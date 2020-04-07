@@ -32,13 +32,13 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public Polyline Path { get; set; } = new Polyline();
+        public virtual Polyline Path { get; set; } = new Polyline();
 
-        public int SpeakerID { get; set; } = 0;
+        public virtual int SpeakerID { get; set; } = 0;
 
-        public int ReceiverID { get; set; } = 0;
+        public virtual int ReceiverID { get; set; } = 0;
 
-        public List<int> PanelsID { get; set; } = new List<int>();
+        public virtual List<int> PanelsID { get; set; } = new List<int>();
 
 
         /***************************************************/

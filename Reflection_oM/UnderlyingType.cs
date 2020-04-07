@@ -35,9 +35,9 @@ namespace BH.oM.Reflection
         /**** Properties                                ****/
         /***************************************************/
 
-        public Type Type { get; set; } = null;
+        public virtual Type Type { get; set; } = null;
 
-        public int Depth { get; set; } = 0;
+        public virtual int Depth { get; set; } = 0;
 
 
         /***************************************************/

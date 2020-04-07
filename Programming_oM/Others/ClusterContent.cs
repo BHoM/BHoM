@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -38,13 +38,13 @@ namespace BH.oM.Programming
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<INode> InternalNodes { get; set; } = new List<INode>();
+        public virtual List<INode> InternalNodes { get; set; } = new List<INode>();
 
-        public List<NodeGroup> NodeGroups { get; set; } = new List<NodeGroup>();
+        public virtual List<NodeGroup> NodeGroups { get; set; } = new List<NodeGroup>();
 
-        public List<DataParam> Inputs { get; set; } = new List<DataParam>();
+        public virtual List<DataParam> Inputs { get; set; } = new List<DataParam>();
 
-        public List<ReceiverParam> Outputs { get; set; } = new List<ReceiverParam>();
+        public virtual List<ReceiverParam> Outputs { get; set; } = new List<ReceiverParam>();
 
         /***************************************************/
     }

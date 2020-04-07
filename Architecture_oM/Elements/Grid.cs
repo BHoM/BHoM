@@ -34,7 +34,7 @@ namespace BH.oM.Architecture.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve Curve { get; set; } = null;
+        public virtual ICurve Curve { get; set; } = null;
 
 
         /***************************************************/

@@ -35,9 +35,9 @@ namespace BH.oM.Environment.Fragments
     [Description("Fragment containing the peak heating and peak cooling for a buildng")]
     public class BuildingResultFragment : IFragment
     {
-        public double PeakCooling { get; set; } = 0;
+        public virtual double PeakCooling { get; set; } = 0;
 
-        public double PeakHeating { get; set; } = 0;
+        public virtual double PeakHeating { get; set; } = 0;
     }
 }
 

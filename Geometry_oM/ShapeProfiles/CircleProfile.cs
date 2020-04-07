@@ -33,11 +33,11 @@ namespace BH.oM.Geometry.ShapeProfiles
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Circle;
+        public virtual ShapeType Shape { get; } = ShapeType.Circle;
 
-        public double Diameter { get; }
+        public virtual double Diameter { get; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

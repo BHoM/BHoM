@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -38,11 +38,11 @@ namespace BH.oM.Programming
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Description { get; set; } = "";
+        public virtual string Description { get; set; } = "";
 
-        public List<Guid> NodeIds { get; set; } = new List<Guid>();
+        public virtual List<Guid> NodeIds { get; set; } = new List<Guid>();
 
-        public List<NodeGroup> InternalGroups { get; set; } = new List<NodeGroup>();
+        public virtual List<NodeGroup> InternalGroups { get; set; } = new List<NodeGroup>();
 
 
         /***************************************************/

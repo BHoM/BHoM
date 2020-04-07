@@ -37,7 +37,7 @@ namespace BH.oM.Physical.Materials
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IMaterialProperties> Properties { get; set; } = new List<IMaterialProperties>();
+        public virtual List<IMaterialProperties> Properties { get; set; } = new List<IMaterialProperties>();
 
         /***************************************************/
     }

@@ -34,53 +34,53 @@ namespace BH.oM.Environment.Fragments
     [Description("Fragment containing geometric and thermal properties of a panel")]
     public class PanelAnalyticalFragment : IFragment
     {
-        public double Altitude { get; set; } = 0.0;
+        public virtual double Altitude { get; set; } = 0.0;
 
-        public double AltitudeRange { get; set; } = 0.0;
+        public virtual double AltitudeRange { get; set; } = 0.0;
 
-        public double Inclination { get; set; } = 0.0;
+        public virtual double Inclination { get; set; } = 0.0;
 
-        public double InclinationRange { get; set; } = 0.0;
+        public virtual double InclinationRange { get; set; } = 0.0;
 
-        public double Orientation { get; set; } = 0.0;
+        public virtual double Orientation { get; set; } = 0.0;
 
-        public double GValue { get; set; } = 0.0;
+        public virtual double GValue { get; set; } = 0.0;
 
-        public double LTValue { get; set; } = 0.0;
+        public virtual double LTValue { get; set; } = 0.0;
 
-        public double UValue { get; set; } = 0.0;
+        public virtual double UValue { get; set; } = 0.0;
 
-        public double ApertureFlowIn { get; set; } = 0.0;
+        public virtual double ApertureFlowIn { get; set; } = 0.0;
 
-        public double ApertureFlowOut { get; set; } = 0.0;
+        public virtual double ApertureFlowOut { get; set; } = 0.0;
 
-        public double ApertureOpening { get; set; } = 0.0;
+        public virtual double ApertureOpening { get; set; } = 0.0;
 
-        public double ExternalCondensation { get; set; } = 0.0;
+        public virtual double ExternalCondensation { get; set; } = 0.0;
 
-        public double ExternalConduction { get; set; } = 0.0;
+        public virtual double ExternalConduction { get; set; } = 0.0;
 
-        public double ExternalConvection { get; set; } = 0.0;
+        public virtual double ExternalConvection { get; set; } = 0.0;
 
-        public double ExternalLongWave { get; set; } = 0.0;
+        public virtual double ExternalLongWave { get; set; } = 0.0;
 
-        public double ExternalSolar { get; set; } = 0.0;
+        public virtual double ExternalSolar { get; set; } = 0.0;
 
-        public double ExternalTemperature { get; set; } = 0.0;
+        public virtual double ExternalTemperature { get; set; } = 0.0;
 
-        public double InternalCondensation { get; set; } = 0.0;
+        public virtual double InternalCondensation { get; set; } = 0.0;
 
-        public double InternalConduction { get; set; } = 0.0;
+        public virtual double InternalConduction { get; set; } = 0.0;
 
-        public double InternalConvection { get; set; } = 0.0;
+        public virtual double InternalConvection { get; set; } = 0.0;
 
-        public double InternalLongWave { get; set; } = 0.0;
+        public virtual double InternalLongWave { get; set; } = 0.0;
 
-        public double InternalSolar { get; set; } = 0.0;
+        public virtual double InternalSolar { get; set; } = 0.0;
 
-        public double InternalTemperature { get; set; } = 0.0;
+        public virtual double InternalTemperature { get; set; } = 0.0;
 
-        public double InterstitialCondensation { get; set; } = 0.0;
+        public virtual double InterstitialCondensation { get; set; } = 0.0;
     }
 }
 

@@ -31,7 +31,7 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        public double[,] Matrix { get; set; } = new double[4, 4];
+        public virtual double[,] Matrix { get; set; } = new double[4, 4];
 
 
         /***************************************************/

@@ -34,10 +34,10 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point Origin { get; set; } = new Point();
+        public virtual Point Origin { get; set; } = new Point();
 
         [Description("Always horizontal pointing from front row to back row")]
-        public Vector Direction { get; set; } = new Vector();
+        public virtual Vector Direction { get; set; } = new Vector();
 
     }
 }

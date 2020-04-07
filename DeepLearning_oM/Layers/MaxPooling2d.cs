@@ -31,13 +31,13 @@ namespace BH.oM.DeepLearning.Layers
         /**** Properties                                ****/
         /***************************************************/
 
-        public Shape2d KernelSize { get; set; } = new Shape2d() { Dim1 = 2, Dim2 = 2 };
+        public virtual Shape2d KernelSize { get; set; } = new Shape2d() { Dim1 = 2, Dim2 = 2 };
 
-        public Shape2d Stride { get; set; } = new Shape2d() { Dim1 = 2, Dim2 = 2};
+        public virtual Shape2d Stride { get; set; } = new Shape2d() { Dim1 = 2, Dim2 = 2};
 
-        public Shape2d Padding { get; set; } = new Shape2d() { Dim1 = 0, Dim2 = 0};
+        public virtual Shape2d Padding { get; set; } = new Shape2d() { Dim1 = 0, Dim2 = 0};
 
-        public Shape2d Dilation { get; set; } = new Shape2d() { Dim1 = 1, Dim2 = 1};
+        public virtual Shape2d Dilation { get; set; } = new Shape2d() { Dim1 = 1, Dim2 = 1};
 
         /***************************************************/
     }

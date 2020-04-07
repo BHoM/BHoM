@@ -36,19 +36,19 @@ namespace BH.oM.Environment.Gains
         /***************************************************/
 
         [Description("The radiant property of the emitter")]
-        public double RadiantProportion { get; set; } = 0.0;
+        public virtual double RadiantProportion { get; set; } = 0.0;
 
         [Description("The view property of the emitter")]
-        public double ViewCoefficient { get; set; } = 0.0;
+        public virtual double ViewCoefficient { get; set; } = 0.0;
 
         [Description("The maximum temperature outside the space the emitter should be working with")]
-        public double MaximumOutsideTemperature { get; set; } = 0.0;
+        public virtual double MaximumOutsideTemperature { get; set; } = 0.0;
 
         [Description("The temperature to be used outside the emitter when switched off")]
-        public double SwitchOffOutsideTemperature { get; set; } = 0.0;
+        public virtual double SwitchOffOutsideTemperature { get; set; } = 0.0;
 
         [Description("The type of emitter from the Emitter Type enum")]
-        public EmitterType Type { get; set; } = EmitterType.Undefined;
+        public virtual EmitterType Type { get; set; } = EmitterType.Undefined;
 
         /***************************************************/
     }

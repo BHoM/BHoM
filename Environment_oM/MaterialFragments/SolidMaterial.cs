@@ -34,45 +34,45 @@ namespace BH.oM.Environment.MaterialFragments
     [Description("Fragment containing solid material properties related to material")]
     public class SolidMaterial : BHoMObject, IEnvironmentMaterial, IFragment
     {
-        public double Density { get; set; } = 0.0;
+        public virtual double Density { get; set; } = 0.0;
 
-        public double Conductivity { get; set; } = 0.0;
+        public virtual double Conductivity { get; set; } = 0.0;
 
-        public double SpecificHeat { get; set; } = 0.0;
+        public virtual double SpecificHeat { get; set; } = 0.0;
 
-        public double VapourResistivity { get; set; } = 0.0;
+        public virtual double VapourResistivity { get; set; } = 0.0;
 
-        public string Description { get; set; } = "";
+        public virtual string Description { get; set; } = "";
 
         [Description("Required for some calculations, such as determining the convective heat transfer coefficient. Use Roughness enum")]
-        public Roughness Roughness { get; set; } = Roughness.Undefined;
+        public virtual Roughness Roughness { get; set; } = Roughness.Undefined;
 
-        public double Refraction { get; set; } = 0.0;
+        public virtual double Refraction { get; set; } = 0.0;
 
-        public double SolarReflectanceExternal { get; set; } = 0.0;
+        public virtual double SolarReflectanceExternal { get; set; } = 0.0;
 
-        public double SolarReflectanceInternal { get; set; } = 0.0;
+        public virtual double SolarReflectanceInternal { get; set; } = 0.0;
 
-        public double SolarTransmittance { get; set; } = 0.0;
+        public virtual double SolarTransmittance { get; set; } = 0.0;
 
-        public double LightReflectanceExternal { get; set; } = 0.0;
+        public virtual double LightReflectanceExternal { get; set; } = 0.0;
 
-        public double LightReflectanceInternal { get; set; } = 0.0;
+        public virtual double LightReflectanceInternal { get; set; } = 0.0;
 
-        public double LightTransmittance { get; set; } = 0.0;
+        public virtual double LightTransmittance { get; set; } = 0.0;
 
-        public double EmissivityExternal { get; set; } = 0.0;
+        public virtual double EmissivityExternal { get; set; } = 0.0;
 
-        public double EmissivityInternal { get; set; } = 0.0;
+        public virtual double EmissivityInternal { get; set; } = 0.0;
 
-        public double Specularity { get; set; } = 0.0;
+        public virtual double Specularity { get; set; } = 0.0;
 
-        public double TransmittedDiffusivity { get; set; } = 0.0;
+        public virtual double TransmittedDiffusivity { get; set; } = 0.0;
 
-        public double TransmittedSpecularity { get; set; } = 0.0;
+        public virtual double TransmittedSpecularity { get; set; } = 0.0;
 
         [Description("Define whether or not this material should be ignored in any uValue calculations")]
-        public bool IgnoreInUValueCalculation { get; set; } = false;
+        public virtual bool IgnoreInUValueCalculation { get; set; } = false;
     }
 }
 

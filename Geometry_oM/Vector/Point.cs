@@ -34,13 +34,13 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Position along global X coordinate axis.")]
-        public double X { get; set; } = 0;
+        public virtual double X { get; set; } = 0;
 
         [Description("Position along global Y coordinate axis.")]
-        public double Y { get; set; } = 0;
+        public virtual double Y { get; set; } = 0;
 
         [Description("Position along global Z coordinate axis.")]
-        public double Z { get; set; } = 0;
+        public virtual double Z { get; set; } = 0;
 
 
         /***************************************************/

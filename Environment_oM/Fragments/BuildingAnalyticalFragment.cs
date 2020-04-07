@@ -35,11 +35,11 @@ namespace BH.oM.Environment.Fragments
     [Description("This fragment is used to define the north angle, GMT offset and year of construction for a building")]
     public class BuildingAnalyticalFragment : IFragment
     {
-        public double NorthAngle { get; set; } = 0;
+        public virtual double NorthAngle { get; set; } = 0;
 
-        public double GMTOffset { get; set; } = 0;
+        public virtual double GMTOffset { get; set; } = 0;
 
-        public int Year { get; set; } = 0;
+        public virtual int Year { get; set; } = 0;
     }
 }
 

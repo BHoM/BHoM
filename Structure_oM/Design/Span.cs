@@ -32,9 +32,9 @@ namespace BH.oM.Structure.Design
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<int> BarIndices { get; set; } = new List<int>();
+        public virtual List<int> BarIndices { get; set; } = new List<int>();
 
-        public double EffectiveLength { get; set; } = 0.0;
+        public virtual double EffectiveLength { get; set; } = 0.0;
 
 
         /***************************************************/

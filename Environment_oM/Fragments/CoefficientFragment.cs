@@ -35,11 +35,11 @@ namespace BH.oM.Environment.Fragments
     [Description("Fragment containing lighting, occupant and equipment view coefficient property")]
     public class CoefficientFragment : IFragment
     {
-        public double LightingViewCoefficient { get; set; } = 0.49;
+        public virtual double LightingViewCoefficient { get; set; } = 0.49;
 
-        public double OccupantViewCoefficient { get; set; } = 0.227;
+        public virtual double OccupantViewCoefficient { get; set; } = 0.227;
 
-        public double EquipmentViewCoefficient { get; set; } = 0.372;
+        public virtual double EquipmentViewCoefficient { get; set; } = 0.372;
     }
 }
 

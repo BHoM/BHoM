@@ -34,10 +34,10 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("The lower bound values for the X, Y and Z coordinates of the Box corner Points.")]
-        public Point Min { get; set; } = new Point();
+        public virtual Point Min { get; set; } = new Point();
 
         [Description("The upper bound values for the X, Y and Z coordinates of the Box corner Points.")]
-        public Point Max { get; set; } = new Point();
+        public virtual Point Max { get; set; } = new Point();
 
 
         /***************************************************/

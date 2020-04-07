@@ -33,7 +33,7 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("An ordered list of Curves defining the varying cross sectional surface profile.")]
-        public List<ICurve> Curves { get; set; } = new List<ICurve>();
+        public virtual List<ICurve> Curves { get; set; } = new List<ICurve>();
         
         /***************************************************/
     }

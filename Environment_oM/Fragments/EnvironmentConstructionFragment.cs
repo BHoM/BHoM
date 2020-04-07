@@ -35,9 +35,9 @@ namespace BH.oM.Environment.Fragments
     public class EnvironmentConstructionFragment : IFragment
     {
         [Description("The perimeter heat loss factor for slab-on-grade floors")]
-        public double FFactor { get; set; } = 0.0;
+        public virtual double FFactor { get; set; } = 0.0;
 
-        public double AdditionalHeatTransfer { get; set; } = 0.0;
+        public virtual double AdditionalHeatTransfer { get; set; } = 0.0;
     }
 }
 
