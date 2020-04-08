@@ -32,7 +32,7 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         string Id { get; set; }
         string Density { get; set; }
-        string DeclaredUnit { get; set; } // <---- make sure this is always populated 
+        string DeclaredUnit { get; set; }
         string Description { get; set; }
         string Scope { get; set; }
         double GlobalWarmingPotential { get; set; }
