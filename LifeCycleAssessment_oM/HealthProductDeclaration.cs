@@ -30,8 +30,6 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        //public string Cpid { get; set; } = "";
-        //public string Version { get; set; } = "";
         public string MasterFormat { get; set; } = "";
         public string Uniformats { get; set; } = "";
         public double CancerOrange { get; set; } = double.NaN;
