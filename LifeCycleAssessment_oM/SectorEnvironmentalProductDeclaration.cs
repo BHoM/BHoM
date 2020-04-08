@@ -21,6 +21,7 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 using BH.oM.Base;
 
 namespace BH.oM.LifeCycleAssessment
@@ -30,26 +31,67 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("Publisher description.")]
         public List<string> Publisher { get; set; } = new List<string>();
+
+        [Description("Jurisdiction description.")]
         public List<string> Jurisdiction { get; set; } = new List<string>();
+
+        [Description("Id description.")]
         public string Id { get; set; } = "";
+
+        [Description("Density description.")]
         public string Density { get; set; } = "";
+
+        [Description("Declared Unit description.")]
         public string DeclaredUnit { get; set; } = "";
+
+        [Description("Description description.")]
         public string Description { get; set; } = "";
+
+        [Description("Scope description.")]
         public string Scope { get; set; } = "";
+
+        [Description("Global Warming Potential description.")]
         public double GlobalWarmingPotential { get; set; } = double.NaN;
+
+        [Description("Biogenic Embodied Carbon description.")]
         public double BiogenicEmbodiedCarbon { get; set; } = double.NaN;
+
+        [Description("Ozone Depletion Potential description.")]
         public double OzoneDepletionPotential { get; set; } = double.NaN;
+
+        [Description("Photochemical Ozone Creation Potential description.")]
         public double PhotochemicalOzoneCreationPotential { get; set; } = double.NaN;
+
+        [Description("Acidification Potential description.")]
         public double AcidificationPotential { get; set; } = double.NaN;
+
+        [Description("Eutrophication Potential description.")]
         public double EutrophicationPotential { get; set; } = double.NaN;
+
+        [Description("Depletion of Abiotic Resources Fossil Fuels description.")]
         public double DepletionOfAbioticResourcesFossilFuels { get; set; } = double.NaN;
+
+        [Description("Global Warming Potential End of Life description.")]
         public double GlobalWarmingPotentialEndOfLife { get; set; } = double.NaN;
+
+        [Description("Ozone Depletion Potential End of Life description.")]
         public double OzoneDepletionPotentialEndOfLife { get; set; } = double.NaN;
+
+        [Description("Photochemcical Ozone Creation Potential End of Life description.")]
         public double PhotochemicalOzoneCreationPotentialEndOfLife { get; set; } = double.NaN;
+
+        [Description("Acidification Potential End of Life description.")]
         public double AcidificationPotentialEndOfLife { get; set; } = double.NaN;
+
+        [Description("Eutrophication Potential End of Life description.")]
         public double EutrophicationPotentialEndOfLife { get; set; } = double.NaN;
+
+        [Description("Depletion of Abiotic Resources Fossil Fuels End of Life description.")]
         public double DepletionOfAbioticResourcesFossilFuelsEndOfLife { get; set; } = double.NaN;
+
+        [Description("End of Life Treatment description.")]
         public string EndOfLifeTreatment { get; set; } = "";
         /***************************************************/
     }
