@@ -35,13 +35,13 @@ namespace BH.oM.Environment.Gains
     public class Exhaust : BHoMObject
     {
         [Description("The continuous exhaust rate associated with a particular space type (eg pet shop, printing room) measured in m3/s*m2")]
-        public double SpaceTypeContinuous { get; set; } = 0.0;
+        public virtual double SpaceTypeContinuous { get; set; } = 0.0;
 
         [Description("The exhaust rate associated with a particular fixture type (eg toilets, showers) that is run continuously, meaning that it is not triggered by a sensor or switch and is measured in m3/s*unit")]
-        public double UnitContinuous { get; set; } = 0.0;
+        public virtual double UnitContinuous { get; set; } = 0.0;
 
         [Description("The exhaust rate associated with a particular fixture type (eg toilets, showers) that is run intermittently, meaning that it is triggered by a sensor or switch and is measured in m3/s*unit")]
-        public double UnitIntermittent { get; set; } = 0.0;
+        public virtual double UnitIntermittent { get; set; } = 0.0;
 
     }
 }
