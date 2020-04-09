@@ -61,17 +61,17 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        public Delta(Guid streamId, Diff diff, Guid revision_from, Guid revision_to, long timestamp, string author, string comment = null)
+        public Delta(Guid streamId, Diff diff, Guid revision_from, Guid revision_to, long timestamp = default(long), string author = null, string comment = null)
         {
             StreamId = streamId;
 
             Diff = diff;
 
-            Revision_from = revision_from;
-            Revision_to = revision_to;
+            Revision_from = (revision_from == null || revision_from == Guid.Empty) ? Guid.NewGuid() : revision_from;
+            Revision_to = (revision_to == null || revision_to == Guid.Empty) ? Guid.NewGuid() : revision_to;
 
-            Timestamp = timestamp;
-            Author = author;
+            Timestamp = (timestamp == 0 || timestamp == default(long)) ? DateTime.UtcNow.Ticks : timestamp;
+            Author = String.IsNullOrWhiteSpace(author) ? Environment.UserDomainName + "/" + Environment.UserName : author;
 
             Comment = comment;
         }
