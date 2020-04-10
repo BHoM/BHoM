@@ -31,7 +31,7 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         string Id { get; set; }
-        string Density { get; set; }
+        double Density { get; set; }
         string DeclaredUnit { get; set; }
         string Description { get; set; }
         string Scope { get; set; }
