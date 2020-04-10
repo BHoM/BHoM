@@ -30,32 +30,32 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public string Manufacturer { get; set; } = "";
-        public string Plant { get; set; } = "";
-        public int PostalCode { get; set; } = 0;
+        public virtual string Manufacturer { get; set; } = "";
+        public virtual string Plant { get; set; } = "";
+        public virtual int PostalCode { get; set; } = 0;
         public List<string> IndustryStandards { get; set; } = new List<string>();
-        public string Id { get; set; } = "";
-        public string Density { get; set; } = "";
-        public string DeclaredUnit { get; set; } = "";
-        public string Description { get; set; } = "";
+        public virtual string Id { get; set; } = "";
+        public virtual double Density { get; set; } = double.NaN;
+        public virtual string DeclaredUnit { get; set; } = "";
+        public virtual string Description { get; set; } = "";
         public string Scope { get; set; } = "";
-        public double GlobalWarmingPotential { get; set; } = double.NaN;
-        public double BiogenicEmbodiedCarbon { get; set; } = double.NaN;
-        public double OzoneDepletionPotential { get; set; } = double.NaN;
-        public double PhotochemicalOzoneCreationPotential { get; set; } = double.NaN; //needs convert method "smogPotential"
-        public double AcidificationPotential { get; set; } = double.NaN;
-        public double EutrophicationPotential { get; set; } = double.NaN;
-        public double DepletionOfAbioticResourcesFossilFuels { get; set; } = double.NaN; //needs convert method "primaryEnergyDemand"
-        public double GlobalWarmingPotentialEndOfLife { get; set; } = double.NaN;
-        public double OzoneDepletionPotentialEndOfLife { get; set; } = double.NaN;
-        public double PhotochemicalOzoneCreationPotentialEndOfLife { get; set; } = double.NaN; //needs convert method "smogPotentialEol"
-        public double AcidificationPotentialEndOfLife { get; set; } = double.NaN;
-        public double EutrophicationPotentialEndOfLife { get; set; } = double.NaN;
-        public double DepletionOfAbioticResourcesFossilFuelsEndOfLife { get; set; } = double.NaN; //needs convert method "primaryEnergyDemandEol"
-        public string EndOfLifeTreatment { get; set; } = "";
-        public string Masterformat { get; set; } = "";
-        public string PostConsumerRecycledContent { get; set; } = "";
-        public int ReferenceYear { get; set; } = 0;
+        public virtual double GlobalWarmingPotential { get; set; } = double.NaN;
+        public virtual double BiogenicEmbodiedCarbon { get; set; } = double.NaN;
+        public virtual double OzoneDepletionPotential { get; set; } = double.NaN;
+        public virtual double PhotochemicalOzoneCreationPotential { get; set; } = double.NaN; //needs convert method "smogPotential"
+        public virtual double AcidificationPotential { get; set; } = double.NaN;
+        public virtual double EutrophicationPotential { get; set; } = double.NaN;
+        public virtual double DepletionOfAbioticResourcesFossilFuels { get; set; } = double.NaN; //needs convert method "primaryEnergyDemand"
+        public virtual double GlobalWarmingPotentialEndOfLife { get; set; } = double.NaN;
+        public virtual double OzoneDepletionPotentialEndOfLife { get; set; } = double.NaN;
+        public virtual double PhotochemicalOzoneCreationPotentialEndOfLife { get; set; } = double.NaN; //needs convert method "smogPotentialEol"
+        public virtual double AcidificationPotentialEndOfLife { get; set; } = double.NaN;
+        public virtual double EutrophicationPotentialEndOfLife { get; set; } = double.NaN;
+        public virtual double DepletionOfAbioticResourcesFossilFuelsEndOfLife { get; set; } = double.NaN; //needs convert method "primaryEnergyDemandEol"
+        public virtual string EndOfLifeTreatment { get; set; } = "";
+        public virtual string Masterformat { get; set; } = "";
+        public virtual string PostConsumerRecycledContent { get; set; } = "";
+        public virtual int ReferenceYear { get; set; } = 0;
         /***************************************************/
     }
 }
