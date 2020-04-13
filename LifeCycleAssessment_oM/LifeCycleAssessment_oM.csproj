@@ -56,7 +56,6 @@
     <Compile Include="ScopeObjects\FoundationsScope.cs" />
     <Compile Include="ScopeObjects\FoundationsSlabs.cs" />
     <Compile Include="ScopeObjects\FoundationsWalls.cs" />
-    <Compile Include="ScopeObjects\HealthProductDeclaration.cs" />
     <Compile Include="ScopeObjects\LifeCycleAssessmentScope.cs" />
     <Compile Include="ScopeObjects\MEPBatteries.cs" />
     <Compile Include="ScopeObjects\MEPConduit.cs" />
@@ -68,7 +67,6 @@
     <Compile Include="ScopeObjects\MEPScope.cs" />
     <Compile Include="ScopeObjects\MEPWiring.cs" />
     <Compile Include="ScopeObjects\ProjectLifeCycleAssessment.cs" />
-    <Compile Include="ScopeObjects\SectorEnvironmentalProductDeclaration.cs" />
     <Compile Include="ScopeObjects\StructuresBeams.cs" />
     <Compile Include="ScopeObjects\StructuresColumns.cs" />
     <Compile Include="ScopeObjects\StructuresCoreWalls.cs" />
