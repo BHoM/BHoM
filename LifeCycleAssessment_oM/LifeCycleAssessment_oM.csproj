@@ -41,6 +41,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\LevelOfDevelopment.cs" />
+    <Compile Include="Enums\LifeCycleAssessmentPhases.cs" />
+    <Compile Include="Enums\PrimaryStructuralMaterial.cs" />
+    <Compile Include="Enums\ProjectArea.cs" />
+    <Compile Include="Enums\ProjectType.cs" />
+    <Compile Include="ScopeObjects\EnclosuresCurtainWalls.cs" />
+    <Compile Include="ScopeObjects\EnclosuresDoors.cs" />
+    <Compile Include="ScopeObjects\EnclosuresScope.cs" />
+    <Compile Include="ScopeObjects\EnclosuresWalls.cs" />
+    <Compile Include="ScopeObjects\EnclosuresWindows.cs" />
+    <Compile Include="ScopeObjects\FoundationsFootings.cs" />
+    <Compile Include="ScopeObjects\FoundationsPiles.cs" />
+    <Compile Include="ScopeObjects\FoundationsScope.cs" />
+    <Compile Include="ScopeObjects\FoundationsSlabs.cs" />
+    <Compile Include="ScopeObjects\FoundationsWalls.cs" />
+    <Compile Include="ScopeObjects\HealthProductDeclaration.cs" />
+    <Compile Include="ScopeObjects\LifeCycleAssessmentScope.cs" />
+    <Compile Include="ScopeObjects\MEPBatteries.cs" />
+    <Compile Include="ScopeObjects\MEPConduit.cs" />
+    <Compile Include="ScopeObjects\MEPDuctwork.cs" />
+    <Compile Include="ScopeObjects\MEPEquipment.cs" />
+    <Compile Include="ScopeObjects\MEPGenerators.cs" />
+    <Compile Include="ScopeObjects\MEPLighting.cs" />
+    <Compile Include="ScopeObjects\MEPPiping.cs" />
+    <Compile Include="ScopeObjects\MEPScope.cs" />
+    <Compile Include="ScopeObjects\MEPWiring.cs" />
+    <Compile Include="ScopeObjects\ProjectLifeCycleAssessment.cs" />
+    <Compile Include="ScopeObjects\SectorEnvironmentalProductDeclaration.cs" />
+    <Compile Include="ScopeObjects\StructuresBeams.cs" />
+    <Compile Include="ScopeObjects\StructuresColumns.cs" />
+    <Compile Include="ScopeObjects\StructuresCoreWalls.cs" />
+    <Compile Include="ScopeObjects\StructuresScope.cs" />
+    <Compile Include="ScopeObjects\StructuresSlabs.cs" />
+    <Compile Include="ScopeObjects\TenantImprovementsCeiling.cs" />
+    <Compile Include="ScopeObjects\TenantImprovementScope.cs" />
+    <Compile Include="ScopeObjects\TenantImprovementsFinishes.cs" />
+    <Compile Include="ScopeObjects\TenantImprovementsFlooring.cs" />
+    <Compile Include="ScopeObjects\TenantImprovementsFurniture.cs" />
+    <Compile Include="ScopeObjects\TenantImprovementsInteriorDoors.cs" />
+    <Compile Include="ScopeObjects\TenantImprovementsInteriorGlazing.cs" />
+    <Compile Include="ScopeObjects\TenantImprovementsPartitionWalls.cs" />
     <Compile Include="SectorEnvironmentalProductDeclaration.cs" />
     <Compile Include="IEnvironmentalProductDeclarationData.cs" />
     <Compile Include="HealthProductDeclaration.cs" />
@@ -51,6 +92,11 @@
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
+      <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
+      <Name>Geometry_oM</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
