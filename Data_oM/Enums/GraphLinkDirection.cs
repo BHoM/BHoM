@@ -22,7 +22,7 @@
 
 namespace BH.oM.Data
 {
-    public enum GraphNodeNeighbours
+    public enum GraphLinkDirection
     {
         Incoming = 0,
         Outgoing = 1,
