@@ -50,7 +50,7 @@ namespace BH.oM.Diffing
         public Guid Revision_to { get; }
 
         [Description("In UTC ticks.")]
-        public long Timestamp { get; } = DateTime.UtcNow.Ticks;
+        public long Timestamp { get; }
 
         [Description("Any descriptive string identifying either the Author and/or the software used.")]
         public string Author { get; }
@@ -67,8 +67,8 @@ namespace BH.oM.Diffing
 
             Diff = diff;
 
-            Revision_from = (revision_from == null || revision_from == Guid.Empty) ? Guid.NewGuid() : revision_from;
-            Revision_to = (revision_to == null || revision_to == Guid.Empty) ? Guid.NewGuid() : revision_to;
+            Revision_from = (revision_from == default(Guid)) ? Guid.NewGuid() : revision_from;
+            Revision_to = (revision_to == default(Guid)) ? Guid.NewGuid() : revision_to;
 
             Timestamp = (timestamp == 0 || timestamp == default(long)) ? DateTime.UtcNow.Ticks : timestamp;
             Author = String.IsNullOrWhiteSpace(author) ? Environment.UserDomainName + "/" + Environment.UserName : author;
