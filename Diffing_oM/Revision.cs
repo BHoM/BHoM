@@ -37,38 +37,49 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Id of the Stream that owns this Revision.")]
         public Guid StreamId { get; }
+
+        [Description("Unique GUID of this Revision.")]
         public Guid RevisionId { get; } = Guid.NewGuid();
+
+        [Description("Name assigned to this Revision. It may be descriptive of the changes included in this Revision, e.g. AddedBasementColumns.")]
         public string RevisionName { get; }
-        public long Timestamp { get; } = DateTime.UtcNow.Ticks;
-        public string Author { get; } = Environment.UserDomainName + "/" + Environment.UserName;
+
+        [Description("In UTC.Now ticks. Automatically defined when creating a new Revision.")]
+        public long Timestamp { get; } 
+
+        [Description("Author of the Stream Revision. Automatically calculated as it should be univocally defined.")]
+        public string Author { get; }
+
+        [Description("Any comment to be added on this this Revision.")]
         public string Comment { get; }
+
+        [Description("Objects to be included in this Revision.")]
         public IEnumerable<object> Objects { get; }
 
-        [Description("Diffing settings for this Stream Revision. Hashes of objects contained in this stream will be computed based on these configs.")]
+        [Description("Diffing settings for this Revision. Hashes of objects contained in this stream will be computed based on these configs.")]
         public DiffConfig RevisionDiffConfing { get; }
 
         /***************************************************/
         /**** Constructor                               ****/
         /***************************************************/
 
-        [Description("Creates new Stream Revision.")]
-        [Input("objects", "Objects to be included in the Stream")]
-        [Input("streamId", "Id of the Stream that owns this Revision.")]
-        [Input("revisionDiffConfig", "If the Revision was produced via a diff of a previous one, diffing settings used. Otherwise null.")]
-        [Input("revision", "If not specified, revision is initially set to 0")]
-        [Input("comment", "Any comment to be added for this stream.")]
-        public Revision(IEnumerable<object> objects, Guid streamId, DiffConfig revisionDiffConfig = null, string revisionName = null, string comment = null)
+
+        public Revision(IEnumerable<object> objects, Guid streamId, DiffConfig revisionDiffConfing = null, string revisionName = null, string comment = null, Guid revisionId = default(Guid),  long timestamp = default(long), string author = null)
         {
-            Objects = objects;
-
             StreamId = streamId;
+            RevisionId = (revisionId == default(Guid)) ? Guid.NewGuid() : revisionId;
             RevisionName = revisionName;
+            Timestamp = (timestamp == 0 || timestamp == default(long)) ? DateTime.UtcNow.Ticks : timestamp;
+            Author = String.IsNullOrWhiteSpace(author) ? Environment.UserDomainName + "/" + Environment.UserName : author;
             Comment = comment;
-
-            RevisionDiffConfing = revisionDiffConfig;
+            Objects = objects;
+            RevisionDiffConfing = revisionDiffConfing == null ? new DiffConfig() : revisionDiffConfing;
         }
 
         /***************************************************/
+
+
     }
 }
