@@ -42,12 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildingBenchmarkingData.cs" />
     <Compile Include="Enums\LevelOfDevelopment.cs" />
     <Compile Include="Enums\LifeCycleAssessmentPhases.cs" />
     <Compile Include="Enums\PrimaryStructuralMaterial.cs" />
     <Compile Include="Enums\ProjectArea.cs" />
     <Compile Include="Enums\QuantityType.cs" />
     <Compile Include="Enums\ProjectType.cs" />
+    <Compile Include="EnvironmentalProductDeclarationField.cs" />
     <Compile Include="ScopeObjects\EnclosuresCurtainWalls.cs" />
     <Compile Include="ScopeObjects\EnclosuresDoors.cs" />
     <Compile Include="ScopeObjects\EnclosuresScope.cs" />
