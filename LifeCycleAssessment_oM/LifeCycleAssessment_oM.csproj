@@ -45,6 +45,7 @@
     <Compile Include="Enums\LifeCycleAssessmentPhases.cs" />
     <Compile Include="Enums\PrimaryStructuralMaterial.cs" />
     <Compile Include="Enums\ProjectArea.cs" />
+    <Compile Include="Enums\QuantityType.cs" />
     <Compile Include="Enums\ProjectType.cs" />
     <Compile Include="ScopeObjects\EnclosuresCurtainWalls.cs" />
     <Compile Include="ScopeObjects\EnclosuresDoors.cs" />
