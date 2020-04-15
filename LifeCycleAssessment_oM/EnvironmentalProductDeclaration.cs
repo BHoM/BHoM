@@ -37,7 +37,6 @@ namespace BH.oM.LifeCycleAssessment
         public virtual List<string> IndustryStandards { get; set; } = new List<string>();
         public virtual string Id { get; set; } = "";
         public virtual double Density { get; set; } = double.NaN;
-        public virtual string DeclaredUnit { get; set; } = "";
         public virtual string Description { get; set; } = "";
         public virtual string Scope { get; set; } = "";
         public virtual double GlobalWarmingPotential { get; set; } = double.NaN;

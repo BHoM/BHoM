@@ -33,7 +33,6 @@ namespace BH.oM.LifeCycleAssessment
         QuantityType QuantityType { get; set; }
         string Id { get; set; }
         double Density { get; set; }
-        string DeclaredUnit { get; set; }
         string Description { get; set; }
         string Scope { get; set; }
         double GlobalWarmingPotential { get; set; }
