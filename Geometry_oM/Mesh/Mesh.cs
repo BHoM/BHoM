@@ -20,19 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
+    [Description("A polygon mesh, defined by a list of triangular or quadrilateral Faces and their Vertices.")]
     public class Mesh : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Point> Vertices { get; set; } = new List<Point>();
+        [Description("Defines the three-dimensional Mesh geometry as  X, Y, Z coordinates.")]
+        public virtual List<Point> Vertices { get; set; } = new List<Point>();
 
-        public List<Face> Faces { get; set; } = new List<Face>();
+        [Description("The list of polygons, defined as corner Point indices referencing the list of Vertices.")]
+        public virtual List<Face> Faces { get; set; } = new List<Face>();
         
         /***************************************************/
     }

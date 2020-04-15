@@ -28,9 +28,9 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Depth { get; set; }
+        public virtual double Depth { get; set; }
 
-        public bool IsVertical { get; set; } = false;
+        public virtual bool IsVertical { get; set; } = false;
 
 
         /***************************************************/

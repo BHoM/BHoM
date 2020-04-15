@@ -36,7 +36,7 @@ namespace BH.oM.Reflection.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Name { get; private set; } = "";
+        public virtual string Name { get; private set; } = "";
 
 
         /***************************************************/

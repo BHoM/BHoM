@@ -31,7 +31,7 @@ namespace BH.oM.DeepLearning.Models
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IModule> Modules { get; set; } = new List<IModule>();
+        public virtual List<IModule> Modules { get; set; } = new List<IModule>();
 
         /***************************************************/
     }

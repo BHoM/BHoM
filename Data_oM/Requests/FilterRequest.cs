@@ -31,11 +31,11 @@ namespace BH.oM.Data.Requests
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Tag { get; set; } = "";
+        public virtual string Tag { get; set; } = "";
 
-        public Type Type { get; set; } = null;
+        public virtual Type Type { get; set; } = null;
 
-        public Dictionary<string, object> Equalities { get; set; } = new Dictionary<string, object>();
+        public virtual Dictionary<string, object> Equalities { get; set; } = new Dictionary<string, object>();
 
 
         /***************************************************/

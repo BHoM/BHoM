@@ -34,11 +34,11 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public IComparable ObjectId { get; set; } = "";
+        public virtual IComparable ObjectId { get; set; } = "";
 
-        public IComparable ResultCase { get; set; } = "";
+        public virtual IComparable ResultCase { get; set; } = "";
 
-        public double TimeStep { get; set; } = 0.0;
+        public virtual double TimeStep { get; set; } = 0.0;
 
         /***************************************************/
         /**** IComparable Interface                     ****/

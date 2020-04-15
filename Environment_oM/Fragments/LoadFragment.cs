@@ -28,12 +28,15 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
+using System.ComponentModel;
+
 namespace BH.oM.Environment.Fragments
 {
+    [Description("Fragment containing heating and cooling load")]
     public class LoadFragment : IFragment
     {
-        public double HeatingLoad { get; set; } = 0.0;
-        public double CoolingLoad { get; set; } = 0.0;
+        public virtual double HeatingLoad { get; set; } = 0.0;
+        public virtual double CoolingLoad { get; set; } = 0.0;
     }
 }
 

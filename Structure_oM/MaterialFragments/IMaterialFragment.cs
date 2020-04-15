@@ -28,7 +28,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.MaterialFragments
 {
     [Description("Base interface for structural materials used by structural properties or as a fragment of the physical material.")]
-    public interface IMaterialFragment : IFragment, IMaterialProperties
+    public interface IMaterialFragment : IFragment, IMaterialProperties, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

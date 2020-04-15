@@ -31,17 +31,14 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the radiation property, can be added to any Environment object")]
+    [Description("Fragment containing the lighting, occupant and equipment radiation amount")]
     public class RadiationFragment : IFragment
     {
-        [Description("The lighting radiation")]
-        public double LightingRadiation { get; set; } = 0.3;
+        public virtual double LightingRadiation { get; set; } = 0.3;
 
-        [Description("The occupant radiation")]
-        public double OccupantRadiation { get; set; } = 0.2;
+        public virtual double OccupantRadiation { get; set; } = 0.2;
 
-        [Description("The equipment radiation")]
-        public double EquipmentRadiation { get; set; } = 0.1;
+        public virtual double EquipmentRadiation { get; set; } = 0.1;
     }
 }
 

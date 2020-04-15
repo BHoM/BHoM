@@ -32,14 +32,12 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the context properties related to buildings")]
+    [Description("Fragment containing the place (city) and name of the nearest weather station")]
     public class BuildingContextFragment : IFragment
     {
-        [Description("The name of the place the building occupies")]
-        public string PlaceName { get; set; } = "";
+        public virtual string PlaceName { get; set; } = "";
 
-        [Description("The name of the nearest weather station to the building")]
-        public string WeatherStation { get; set; } = "";
+        public virtual string WeatherStation { get; set; } = "";
     }
 }
 

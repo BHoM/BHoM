@@ -31,9 +31,9 @@ namespace BH.oM.Planning
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Repository { get; set; }
+        public virtual string Repository { get; set; }
 
-        public List<string> References { get; set; }
+        public virtual List<string> References { get; set; }
 
 
         /***************************************************/

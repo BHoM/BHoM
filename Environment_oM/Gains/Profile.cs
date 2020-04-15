@@ -27,6 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using System.ComponentModel;
 using BH.oM.Environment.Fragments;
 
 namespace BH.oM.Environment.Gains
@@ -37,16 +38,22 @@ namespace BH.oM.Environment.Gains
         /**** Properties                                ****/
         /***************************************************/
 
-        public ProfileType ProfileType { get; set; } = ProfileType.Undefined;
+        [Description("Profile Type depicts the time period (hours per day or year) during which the gain is actively contributing to the space")]
+        public virtual ProfileType ProfileType { get; set; } = ProfileType.Undefined;
 
-        public double MultiplicationFactor { get; set; } = 1.0;
-        public double SetBackValue { get; set; } = 0.0; //Value for those outside the schedule
+        [Description("The multiplication factor indicates the total percentage 0.0-1.0 over which the profile should be applied")]
+        public virtual double MultiplicationFactor { get; set; } = 1.0;
 
-        public string Function { get; set; } = ""; //Function built query defined as a string within simulation
+        [Description("The set back value indicates the total percentage 0.0-1.0 over which the profile should not be applied")]
+        public virtual double SetBackValue { get; set; } = 0.0;
 
-        public List<double> Values { get; set; } = new List<double>(); //List of values for each hour of simulation under hourly profile or hours in a year for yearly profile
+        public virtual string Function { get; set; } = "";
 
-        public ProfileCategory Category { get; set; } = ProfileCategory.Undefined;
+        [Description("Values denotes the hour-by-hour values based on the chosen Profile Type: yearly, daily")]
+        public virtual List<double> Values { get; set; } = new List<double>();
+
+        [Description("The profile category in an enum that denotes what this profile is being set for: a gain, humdistat or thermostat")]
+        public virtual ProfileCategory Category { get; set; } = ProfileCategory.Undefined;
 
         /***************************************************/
     }

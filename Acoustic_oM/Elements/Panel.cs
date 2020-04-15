@@ -32,7 +32,7 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public Mesh Surface { get; set; } = new Mesh();
+        public virtual Mesh Surface { get; set; } = new Mesh();
 
         public static int PanelID { get; set; } = 0;
 

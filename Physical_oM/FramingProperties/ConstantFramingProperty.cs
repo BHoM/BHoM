@@ -38,11 +38,11 @@ namespace BH.oM.Physical.FramingProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        public IProfile Profile { get; set; }
+        public virtual IProfile Profile { get; set; }
 
-        public Material Material { get; set; }
+        public virtual Material Material { get; set; }
 
-        public double OrientationAngle { get; set; }
+        public virtual double OrientationAngle { get; set; }
 
 
         /***************************************************/

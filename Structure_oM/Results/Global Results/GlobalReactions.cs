@@ -34,27 +34,27 @@ namespace BH.oM.Structure.Results
 
         [Force]
         [Description("Total force in the global X-direction.")]
-        public double FX { get; set; } = 0.0;
+        public virtual double FX { get; set; } = 0.0;
 
         [Force]
         [Description("Total force in the global Y-direction.")]
-        public double FY { get; set; } = 0.0;
+        public virtual double FY { get; set; } = 0.0;
 
         [Force]
         [Description("Total force in the global Z-direction.")]
-        public double FZ { get; set; } = 0.0;
+        public virtual double FZ { get; set; } = 0.0;
 
         [Moment]
         [Description("Total moment about the global X-axis.")]
-        public double MX { get; set; } = 0.0;
+        public virtual double MX { get; set; } = 0.0;
 
         [Moment]
         [Description("Total moment about the global Y-axis.")]
-        public double MY { get; set; } = 0.0;
+        public virtual double MY { get; set; } = 0.0;
 
         [Moment]
         [Description("Total moment about the global Z-axis.")]
-        public double MZ { get; set; } = 0.0;
+        public virtual double MZ { get; set; } = 0.0;
 
         /***************************************************/
     }

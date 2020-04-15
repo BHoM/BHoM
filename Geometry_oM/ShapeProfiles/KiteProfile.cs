@@ -34,15 +34,15 @@ namespace BH.oM.Geometry.ShapeProfiles
         /**** Properties                                ****/
         /***************************************************/
 
-        public ShapeType Shape { get; } = ShapeType.DoubleAngle;
+        public virtual ShapeType Shape { get; } = ShapeType.DoubleAngle;
 
-        public double Width1 { get; }
+        public virtual double Width1 { get; }
 
-        public double Angle1 { get; } 
+        public virtual double Angle1 { get; }
 
-        public double Thickness { get; }
+        public virtual double Thickness { get; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

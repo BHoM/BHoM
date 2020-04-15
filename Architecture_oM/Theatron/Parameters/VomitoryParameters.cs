@@ -30,11 +30,11 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public bool Vomitory { get; set; } = false;
+        public virtual bool Vomitory { get; set; } = false;
 
-        public int VomitoryStartRow { get; set; } = 0;
+        public virtual int VomitoryStartRow { get; set; } = 0;
 
-        public double VomitoryWidth { get; set; } = 0;
+        public virtual double VomitoryWidth { get; set; } = 0;
     }
 }
 

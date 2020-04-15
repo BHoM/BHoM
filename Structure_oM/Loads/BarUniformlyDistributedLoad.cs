@@ -36,11 +36,11 @@ namespace BH.oM.Structure.Loads
 
         [ForcePerUnitLength]
         [Description("Force per length unit to be applied to the full length of the Bar. The load requires the Force and/or the Moment Vector to be non-zero to have any effect.")]
-        public Vector Force { get; set; } = new Vector();
+        public virtual Vector Force { get; set; } = new Vector();
 
         [MomentPerUnitLength]
         [Description("Moment per length unit to be applied to the full length of the Bar. The load requires the Force and/or the Moment Vector to be non-zero to have any effect.")]
-        public Vector Moment { get; set; } = new Vector();
+        public virtual Vector Moment { get; set; } = new Vector();
 
         /***************************************************/
     }

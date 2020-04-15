@@ -31,65 +31,48 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.MaterialFragments
 {
-    [Description("Fragment containing the Gas Material properties related to materials")]
+    [Description("Fragment containing solid material properties related to material")]
     public class SolidMaterial : BHoMObject, IEnvironmentMaterial, IFragment
     {
-        [Description("The density of the material")]
-        public double Density { get; set; } = 0.0;
+        public virtual double Density { get; set; } = 0.0;
 
-        [Description("The amount of conductivity the material should have")]
-        public double Conductivity { get; set; } = 0.0;
+        public virtual double Conductivity { get; set; } = 0.0;
 
-        [Description("The unit of specific heat the material should have")]
-        public double SpecificHeat { get; set; } = 0.0;
+        public virtual double SpecificHeat { get; set; } = 0.0;
 
-        [Description("The amount of vapour resistance the material should have")]
-        public double VapourResistivity { get; set; } = 0.0;
+        public virtual double VapourResistivity { get; set; } = 0.0;
 
-        [Description("A description of this material, default empty string")]
-        public string Description { get; set; } = "";
+        public virtual string Description { get; set; } = "";
 
-        [Description("The roughness of the material from the Material Roughness enum")]
-        public Roughness Roughness { get; set; } = Roughness.Undefined;
+        [Description("Required for some calculations, such as determining the convective heat transfer coefficient. Use Roughness enum")]
+        public virtual Roughness Roughness { get; set; } = Roughness.Undefined;
 
-        [Description("The refraction of the material")]
-        public double Refraction { get; set; } = 0.0;
+        public virtual double Refraction { get; set; } = 0.0;
 
-        [Description("The amount of external solar reflectance of this solid material")]
-        public double SolarReflectanceExternal { get; set; } = 0.0;
+        public virtual double SolarReflectanceExternal { get; set; } = 0.0;
 
-        [Description("The amount of internal solar reflectance of this solid material")]
-        public double SolarReflectanceInternal { get; set; } = 0.0;
+        public virtual double SolarReflectanceInternal { get; set; } = 0.0;
 
-        [Description("The amount of solar transmittance of this solid material")]
-        public double SolarTransmittance { get; set; } = 0.0;
+        public virtual double SolarTransmittance { get; set; } = 0.0;
 
-        [Description("The amount of external light reflectance of this solid material")]
-        public double LightReflectanceExternal { get; set; } = 0.0;
+        public virtual double LightReflectanceExternal { get; set; } = 0.0;
 
-        [Description("The amount of internal light reflectance of this solid material")]
-        public double LightReflectanceInternal { get; set; } = 0.0;
+        public virtual double LightReflectanceInternal { get; set; } = 0.0;
 
-        [Description("The amount of light transmittance of this solid material")]
-        public double LightTransmittance { get; set; } = 0.0;
+        public virtual double LightTransmittance { get; set; } = 0.0;
 
-        [Description("The external emissivity of this solid material")]
-        public double EmissivityExternal { get; set; } = 0.0;
+        public virtual double EmissivityExternal { get; set; } = 0.0;
 
-        [Description("The internal emissivity of this solid material")]
-        public double EmissivityInternal { get; set; } = 0.0;
+        public virtual double EmissivityInternal { get; set; } = 0.0;
 
-        [Description("The specularity of the solid material, where specularity is the proportion of directed light reflected from the material")]
-        public double Specularity { get; set; } = 0.0;
+        public virtual double Specularity { get; set; } = 0.0;
 
-        [Description("The amount of diffused light transmitted through the solid material")]
-        public double TransmittedDiffusivity { get; set; } = 0.0;
+        public virtual double TransmittedDiffusivity { get; set; } = 0.0;
 
-        [Description("The amount of directed light transmitted through the solid material")]
-        public double TransmittedSpecularity { get; set; } = 0.0;
+        public virtual double TransmittedSpecularity { get; set; } = 0.0;
 
         [Description("Define whether or not this material should be ignored in any uValue calculations")]
-        public bool IgnoreInUValueCalculation { get; set; } = false;
+        public virtual bool IgnoreInUValueCalculation { get; set; } = false;
     }
 }
 

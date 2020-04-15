@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -38,17 +38,17 @@ namespace BH.oM.Programming
         /**** Properties                                ****/
         /***************************************************/
 
-        public Type Type { get; set; } = null;
+        public virtual Type Type { get; set; } = null;
 
-        public string Description { get; set; } = "";
+        public virtual string Description { get; set; } = "";
 
-        public List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
+        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
 
-        public List<DataParam> Outputs { get; set; } = new List<DataParam>();
+        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
 
-        public bool IsInline { get; set; } = true;
+        public virtual bool IsInline { get; set; } = true;
 
-        public bool IsDeclaration { get; set; } = false;
+        public virtual bool IsDeclaration { get; set; } = false;
 
         /***************************************************/
     }

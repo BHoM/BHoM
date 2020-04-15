@@ -31,9 +31,9 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
 
-        public List<Face> Faces { get; set; } = new List<Face>();
+        public virtual List<Face> Faces { get; set; } = new List<Face>();
         
         /***************************************************/
     }

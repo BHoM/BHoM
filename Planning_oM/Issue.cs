@@ -32,25 +32,25 @@ namespace BH.oM.Planning
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Creator { get; set; }
+        public virtual string Creator { get; set; }
 
-        public List<string> Assignees { get; set; }
+        public virtual List<string> Assignees { get; set; }
 
-        public string Title { get; set; }
+        public virtual string Title { get; set; }
 
-        public string RepoName { get; set; }
+        public virtual string RepoName { get; set; }
 
-        public int Number { get; set; }
+        public virtual int Number { get; set; }
 
-        public DateTimeOffset CreationDate { get; set; }
+        public virtual DateTimeOffset CreationDate { get; set; }
 
-        public string MilestoneName { get; set; }
+        public virtual string MilestoneName { get; set; }
 
-        public bool PullRequested { get; set; } = false;
+        public virtual bool PullRequested { get; set; } = false;
 
-        public List<string> Labels { get; set; } = new List<string>();
+        public virtual List<string> Labels { get; set; } = new List<string>();
 
-        public string Url { get; set; } = "";
+        public virtual string Url { get; set; } = "";
 
 
         /***************************************************/

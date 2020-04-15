@@ -34,25 +34,25 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public ProfileOrigin Start { get; set; } = new ProfileOrigin();
+        public virtual ProfileOrigin Start { get; set; } = new ProfileOrigin();
 
-        public ProfileOrigin Vomitory { get; set; } = new ProfileOrigin();
+        public virtual ProfileOrigin Vomitory { get; set; } = new ProfileOrigin();
 
-        public ProfileOrigin End { get; set; } = new ProfileOrigin();
+        public virtual ProfileOrigin End { get; set; } = new ProfileOrigin();
 
-        public List<TierProfile> Sections { get; set; } = new List<TierProfile>();
+        public virtual List<TierProfile> Sections { get; set; } = new List<TierProfile>();
 
-        public Mesh Floor { get; set; } = new Mesh();
+        public virtual Mesh Floor { get; set; } = new Mesh();
 
-        public Audience Audience { get; set; } = new Audience();
+        public virtual Audience Audience { get; set; } = new Audience();
 
-        public Line FrontRow { get; set; }=new Line();
+        public virtual Line FrontRow { get; set; }=new Line();
 
-        public double SeatWidth { get; set; } =0.0;
+        public virtual double SeatWidth { get; set; } =0.0;
 
-        public double AisleWidth { get; set; } =0.0;
+        public virtual double AisleWidth { get; set; } =0.0;
 
-        public SeatingBlockType TypeOfSeatingBlock { get; set; } = SeatingBlockType.Undefined;
+        public virtual SeatingBlockType TypeOfSeatingBlock { get; set; } = SeatingBlockType.Undefined;
 
         /***************************************************/
     }

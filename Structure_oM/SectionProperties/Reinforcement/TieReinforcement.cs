@@ -28,7 +28,7 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Spacing { get; set; }
+        public virtual double Spacing { get; set; }
 
 
         /***************************************************/

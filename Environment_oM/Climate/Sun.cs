@@ -29,13 +29,18 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 
 using BH.oM.Environment.Fragments;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Climate
 {
+    [Description("An environment object used to define the position of the sun (in azimuth and elevation)")]
     public class Sun : BHoMObject, IClimateObject
     {
-        public double Azimuth { get; set; } = 0.0;
-        public double Altitude { get; set; } = 0.0;
+        [Description("The azimuth position of the sun (in degrees clockwise from North; where 0 is North, 90 is East, etc.)")]
+        public virtual double Azimuth { get; set; } = 0.0;
+
+        [Description("The altitude position of the sun (in degrees above the horizon)")]
+        public virtual double Altitude { get; set; } = 0.0;
     }
 }
 

@@ -32,13 +32,13 @@ namespace BH.oM.Acoustic
         /**** Properties                                ****/
         /***************************************************/
 
-        public PolySurface Boundaries { get; set; } = new PolySurface();
+        public virtual PolySurface Boundaries { get; set; } = new PolySurface();
         
-        public double Area { get; set; } = 0;
+        public virtual double Area { get; set; } = 0;
 
-        public double Volume { get; set; } = 0;
+        public virtual double Volume { get; set; } = 0;
 
-        public List<Receiver> Samples { get; set; } = new List<Receiver>();
+        public virtual List<Receiver> Samples { get; set; } = new List<Receiver>();
 
 
         /***************************************************/

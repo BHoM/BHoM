@@ -30,7 +30,7 @@ namespace BH.oM.DeepLearning.Activations
         /**** Properties                                ****/
         /***************************************************/
 
-        public int Dimension { get; set; } = -1;
+        public virtual int Dimension { get; set; } = -1;
 
         /***************************************************/
     }

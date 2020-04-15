@@ -30,9 +30,9 @@ namespace BH.oM.DeepLearning.Layers
         /**** Properties                                ****/
         /***************************************************/
 
-        public int FeaturesIn { get; set; } = 0;
+        public virtual int FeaturesIn { get; set; } = 0;
 
-        public int FeaturesOut { get; set; } = 0;
+        public virtual int FeaturesOut { get; set; } = 0;
 
         /***************************************************/
     }

@@ -31,15 +31,15 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Diameter { get; set; }
+        public virtual double Diameter { get; set; }
 
-        public int BarCount { get; set; }
+        public virtual int BarCount { get; set; }
 
-        public Material Material { get; set; }
+        public virtual Material Material { get; set; }
 
-        public double StartLocation { get; set; } = 0;  // location of the beginning of the reinforcement as a ratio of the bar length
+        public virtual double StartLocation { get; set; } = 0;
 
-        public double EndLocation { get; set; } = 1; // location of the end of the reinforcement as a ratio of the bar length
+        public virtual double EndLocation { get; set; } = 1;
 
 
         /***************************************************/

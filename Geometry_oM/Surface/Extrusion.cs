@@ -20,19 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
+
 namespace BH.oM.Geometry
 {
+    [Description("A constant cross section surface, defined by a single profile curve and a linear axis.")]
     public class Extrusion : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve Curve { get; set; } = new Line();
+        [Description("The Extrusion profile curve defining the constant cross sectional shape. Idential curves can be recreated at any point along the Extrusion axis through intersection with the Surface.")]
+        public virtual ICurve Curve { get; set; } = new Line();
 
-        public Vector Direction { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
+        [Length]
+        [Description("The axis along which to translate the profile curve. The Vector magnitude determining the Extrusion length.")]
+        public virtual Vector Direction { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
-        public bool Capped { get; set; } = true;
+        [Description("Defines the Extrusion as closed and therfore a solid volume.")]
+        public virtual bool Capped { get; set; } = true;
         
         /***************************************************/
     }

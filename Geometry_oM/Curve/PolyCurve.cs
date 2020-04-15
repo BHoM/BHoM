@@ -33,7 +33,7 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("A collection of curves, of any or mixed type, which together define the composite shape.")]
-        public List<ICurve> Curves { get; set; } = new List<ICurve>();
+        public virtual List<ICurve> Curves { get; set; } = new List<ICurve>();
         
         /***************************************************/
     }

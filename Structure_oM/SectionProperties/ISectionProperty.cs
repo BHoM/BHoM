@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.SectionProperties
 {
     [Description("Base interface for all bar section properties. Contains the material and all section constants.")]
-    public interface ISectionProperty : IBHoMObject
+    public interface ISectionProperty : IBHoMObject, IProperty
     {
         /***************************************************/
         /**** Properties                                ****/

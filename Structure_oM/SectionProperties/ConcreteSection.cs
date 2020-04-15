@@ -40,21 +40,21 @@ namespace BH.oM.Structure.SectionProperties
         /***************************************************/
 
         [Description("List of Reinforcement of the concrete section.")]
-        public List<Reinforcement.Reinforcement> Reinforcement { get; set; }
+        public virtual List<Reinforcement.Reinforcement> Reinforcement { get; set; }
 
         [Length]
         [Description("Minimum reinforcement cover of the section.")]
-        public double MinimumCover { get; }  //TODO: Do we need this property or should it be a BHoM_Engine query?
+        public virtual double MinimumCover { get; }
 
         [Description("Concrete material used throughout the full section.")]
-        public IMaterialFragment Material { get; set; }
+        public virtual IMaterialFragment Material { get; set; }
 
         /***************************************************/
         /**** Properties - Section dimensions           ****/
         /***************************************************/
 
         [Description("Profile of the section, containing dimensions and section geometry.")]
-        public IProfile SectionProfile { get; }
+        public virtual IProfile SectionProfile { get; }
 
 
         /***************************************************/
@@ -64,97 +64,97 @@ namespace BH.oM.Structure.SectionProperties
         [Area]
         [Description("Gross Area of the cross section"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Area { get; }
+        public virtual double Area { get; }
 
         [Length]
         [Description("Radius of Gyration about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Rgy { get; }
+        public virtual double Rgy { get; }
 
         [Length]
         [Description("Radius of Gyration about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Rgz { get; }
+        public virtual double Rgz { get; }
 
         [TorsionConstant]
         [Description("Torsion Constant"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double J { get; }
+        public virtual double J { get; }
 
         [SecondMomentOfArea]
         [Description("Moment of Inertia about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Iy { get; }
+        public virtual double Iy { get; }
 
         [SecondMomentOfArea]
         [Description("Moment of Inertia about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Iz { get; }
+        public virtual double Iz { get; }
 
         [WarpingConstant]
         [Description("Warping Constant"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Iw { get; }
+        public virtual double Iw { get; }
 
         [SectionModulus]
         [Description("Elastic Modulus of the section about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Wely { get; }
+        public virtual double Wely { get; }
 
         [SectionModulus]
         [Description("Elastic Modulus of the section about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Welz { get; }
+        public virtual double Welz { get; }
 
         [SectionModulus]
         [Description("Plastic Modulus of the section about the local Y-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Wply { get; }
+        public virtual double Wply { get; }
 
         [SectionModulus]
         [Description("Plastic Modulus of the section about the local Z-Axis"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Wplz { get; }
+        public virtual double Wplz { get; }
 
         [Length]
         [Description("Geometric centre of the section in the local Z direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double CentreZ { get; }
+        public virtual double CentreZ { get; }
 
         [Length]
         [Description("Geometric centre of the section in the local Y direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double CentreY { get; }
+        public virtual double CentreY { get; }
 
         [Length]
         [Description("Z distance from the centroid of the section to top edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Vz { get; }
+        public virtual double Vz { get; }
 
         [Length]
         [Description("Z distance from the centroid of the section to bottom edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Vpz { get; }
+        public virtual double Vpz { get; }
 
         [Length]
         [Description("Y distance from the centroid of the section to right edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Vy { get; }
+        public virtual double Vy { get; }
 
         [Length]
         [Description("Y distance from the centroid of the section to Left edge of the section"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Vpy { get; }
+        public virtual double Vpy { get; }
 
         [Length]
         [Description("Shear Area in the local Y direction"
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Asy { get; }
+        public virtual double Asy { get; }
 
         [Length]
         [Description("Shear Area in the local Z direction" 
             + "\n Uncracked section disregarding the reinforcement.")]
-        public double Asz { get; }
+        public virtual double Asz { get; }
 
 
         /***************************************************/

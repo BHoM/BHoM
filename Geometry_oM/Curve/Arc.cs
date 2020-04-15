@@ -34,19 +34,19 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Defines Arc centre equal to Origin of the CoordinateSystem, as well as the orientation of the Arc in three-dimensional space, equal to local xy-Plane of the CoordinateSystem.")]
-        public CoordinateSystem.Cartesian CoordinateSystem { get; set; } = new CoordinateSystem.Cartesian();
+        public virtual CoordinateSystem.Cartesian CoordinateSystem { get; set; } = new CoordinateSystem.Cartesian();
 
         [Length]
         [Description("Distance from the CoordinateSystem.Origin to the any point on Arc.")]
-        public double Radius { get; set; } = 0;
+        public virtual double Radius { get; set; } = 0;
 
         [Angle]
         [Description("Angle in radians to the start point from the local x-axis, counter clockwise around the local z-axis.")]
-        public double StartAngle { get; set; } = 0;
+        public virtual double StartAngle { get; set; } = 0;
 
         [Angle]
         [Description("Angle in radians to the end point from the local x-axis, counter clockwise around the local z-axis.")]
-        public double EndAngle { get; set; } = 0;
+        public virtual double EndAngle { get; set; } = 0;
 
         /***************************************************/
         /**** Explicit Casting - Special Case           ****/

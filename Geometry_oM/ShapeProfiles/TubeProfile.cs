@@ -34,13 +34,13 @@ namespace BH.oM.Geometry.ShapeProfiles
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.Tube;
+        public virtual ShapeType Shape { get; } = ShapeType.Tube;
 
-        public double Diameter { get; }
+        public virtual double Diameter { get; }
 
-        public double Thickness { get; }
+        public virtual double Thickness { get; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

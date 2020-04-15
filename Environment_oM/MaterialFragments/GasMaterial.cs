@@ -31,35 +31,28 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.MaterialFragments
 {
-    [Description("Fragment containing the Gas Material properties related to materials")]
+    [Description("Fragment containing gas material properties")]
     public class GasMaterial : BHoMObject, IEnvironmentMaterial, IFragment
     {
-        [Description("The density of the material")]
-        public double Density { get; set; } = 0.0;
+        public virtual double Density { get; set; } = 0.0;
 
-        [Description("The amount of conductivity the material should have")]
-        public double Conductivity { get; set; } = 0.0;
+        public virtual double Conductivity { get; set; } = 0.0;
+               
+        public virtual double SpecificHeat { get; set; } = 0.0;
 
-        [Description("The unit of specific heat the material should have")]
-        public double SpecificHeat { get; set; } = 0.0;
+        public virtual double VapourResistivity { get; set; } = 0.0;
 
-        [Description("The amount of vapor resistance the material should have")]
-        public double VapourResistivity { get; set; } = 0.0;
+        public virtual string Description { get; set; } = "";
 
-        [Description("A description of the material")]
-        public string Description { get; set; } = "";
+        [Description("Required for some calculations, such as determining the convective heat transfer coefficient. Use Roughness enum")]
+        public virtual Roughness Roughness { get; set; } = Roughness.Undefined;
 
-        [Description("The roughness of the material from the material Roughness enum")]
-        public Roughness Roughness { get; set; } = Roughness.Undefined;
+        public virtual double Refraction { get; set; } = 0.0;
 
-        [Description("The refraction of the material")]
-        public double Refraction { get; set; } = 0.0;
+        public virtual double ConvectionCoefficient { get; set; } = 0.0;
 
-        [Description("The convection coefficient of the gas material")]
-        public double ConvectionCoefficient { get; set; } = 0.0;
-
-        [Description("The type of gas this material is from the Gas Type enum")]
-        public Gas Gas { get; set; } = Gas.Undefined;
+        [Description("The type of gas (e.g Air, Argon). Use GasType enum")]
+        public virtual Gas Gas { get; set; } = Gas.Undefined;
     }
 }
 

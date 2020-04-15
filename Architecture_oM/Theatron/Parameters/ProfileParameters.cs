@@ -31,27 +31,27 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public double StartX { get; set; } = 0.0;
+        public virtual double StartX { get; set; } = 0.0;
 
-        public double StartZ { get; set; } = 0.0;
+        public virtual double StartZ { get; set; } = 0.0;
 
-        public double RowWidth { get; set; } = 0.0;
+        public virtual double RowWidth { get; set; } = 0.0;
 
-        public double TargetCValue { get; set; } = 0.0;
+        public virtual double TargetCValue { get; set; } = 0.0;
 
-        public int NumRows { get; set; } = 0;
+        public virtual int NumRows { get; set; } = 0;
 
-        public double SeatWidth { get; set; } = 0.0;
+        public virtual double SeatWidth { get; set; } = 0.0;
 
-        public double BoardHeight { get; set; } = 0.0;
+        public virtual double BoardHeight { get; set; } = 0.0;
 
-        public double RiserHeightRounding { get; set; } = 0.0;
+        public virtual double RiserHeightRounding { get; set; } = 0.0;
 
-        public VomitoryParameters VomitoryParameters { get; set; } = new VomitoryParameters();
+        public virtual VomitoryParameters VomitoryParameters { get; set; } = new VomitoryParameters();
 
-        public SuperRiserParameters SuperRiserParameters { get; set; } = new SuperRiserParameters();
+        public virtual SuperRiserParameters SuperRiserParameters { get; set; } = new SuperRiserParameters();
 
-        public EyePositionParameters EyePositionParameters { get; set; } = new EyePositionParameters();
+        public virtual EyePositionParameters EyePositionParameters { get; set; } = new EyePositionParameters();
 
         /***************************************************/
     }

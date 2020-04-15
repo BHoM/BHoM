@@ -30,23 +30,25 @@ using BH.oM.Base;
 
 using BH.oM.Environment.Fragments;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An analytical Building data object")]
+    [Description("This building object is used for setting the location and building type, which is required for some environmental workflows")]
     public class Building : BHoMObject, IEnvironmentObject
     {
-        [Description("The latitude of the building location")]
-        public double Latitude { get; set; } = 0.0;
+        [Description("The latitude for the location (in -90 to +90 degrees)")]
+        public virtual double Latitude { get; set; } = 0.0;
 
-        [Description("The longitude of the building location")]
-        public double Longitude { get; set; } = 0.0;
+        [Description("The longitude for the location (in -180 to +180 degrees)")]
+        public virtual double Longitude { get; set; } = 0.0;
 
-        [Description("The elevation of the building")]
-        public double Elevation { get; set; } = 0.0;
+        [Length]
+        [Description("The elevation for the location above sea level")]
+        public virtual double Elevation { get; set; } = 0.0;
 
-        [Description("The type of building from the BuildingType enum")]
-        public BuildingType Type { get; set; } = BuildingType.Undefined;
+        [Description("The main classification for the building (e.g. Office, Residential). Use BuildingType enum)")]
+        public virtual BuildingType Type { get; set; } = BuildingType.Undefined;
     }
 }
 

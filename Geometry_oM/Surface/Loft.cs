@@ -20,17 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
+    [Description("A free-form surface defined by a series of cross sectional Curves. The surface provides a continuous interpolation passing through each Curve in order.")]
     public partial class Loft : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<ICurve> Curves { get; set; } = new List<ICurve>();
+        [Description("An ordered list of Curves defining the varying cross sectional surface profile.")]
+        public virtual List<ICurve> Curves { get; set; } = new List<ICurve>();
         
         /***************************************************/
     }

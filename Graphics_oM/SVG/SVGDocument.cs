@@ -32,9 +32,9 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<SVGObject> SVGObjects { get; set; } = new List<SVGObject>();
+        public virtual List<SVGObject> SVGObjects { get; set; } = new List<SVGObject>();
 
-        public BoundingBox Canvas { get; set; } = new BoundingBox();
+        public virtual BoundingBox Canvas { get; set; } = new BoundingBox();
 
 
         /***************************************************/

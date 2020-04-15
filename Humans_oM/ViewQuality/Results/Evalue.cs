@@ -32,15 +32,15 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Torsion { get; set; } = 0.0;
+        public virtual double Torsion { get; set; } = 0.0;
 
-        public double HorizViewAng { get; set; } = 0.0;
+        public virtual double HorizViewAng { get; set; } = 0.0;
 
-        public Vector[] HorizViewVectors { get; set; } = new Vector[2];
+        public virtual Vector[] HorizViewVectors { get; set; } = new Vector[2];
 
-        public Vector[] VertViewVectors { get; set; } = new Vector[2];
+        public virtual Vector[] VertViewVectors { get; set; } = new Vector[2];
 
-        public double VertViewAng { get; set; }
+        public virtual double VertViewAng { get; set; }
 
         /***************************************************/
     }

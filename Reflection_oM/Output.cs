@@ -34,55 +34,55 @@ namespace BH.oM.Reflection
 
     public class Output<T> : IObject, IOutput
     {
-        public T Item1 { get; set; }
+        public virtual T Item1 { get; set; }
     }
 
     /***************************************************/
 
     public class Output<T1, T2> : IObject, IOutput
     {
-        public T1 Item1 { get; set; }
+        public virtual T1 Item1 { get; set; }
 
-        public T2 Item2 { get; set; }
+        public virtual T2 Item2 { get; set; }
     }
 
     /***************************************************/
 
     public class Output<T1, T2, T3> : IObject, IOutput
     {
-        public T1 Item1 { get; set; }
+        public virtual T1 Item1 { get; set; }
 
-        public T2 Item2 { get; set; }
+        public virtual T2 Item2 { get; set; }
 
-        public T3 Item3 { get; set; }
+        public virtual T3 Item3 { get; set; }
     }
 
     /***************************************************/
 
     public class Output<T1, T2, T3, T4> : IObject, IOutput
     {
-        public T1 Item1 { get; set; }
+        public virtual T1 Item1 { get; set; }
 
-        public T2 Item2 { get; set; }
+        public virtual T2 Item2 { get; set; }
 
-        public T3 Item3 { get; set; }
+        public virtual T3 Item3 { get; set; }
 
-        public T4 Item4 { get; set; }
+        public virtual T4 Item4 { get; set; }
     }
 
     /***************************************************/
 
     public class Output<T1, T2, T3, T4, T5> : IObject, IOutput
     {
-        public T1 Item1 { get; set; }
+        public virtual T1 Item1 { get; set; }
 
-        public T2 Item2 { get; set; }
+        public virtual T2 Item2 { get; set; }
 
-        public T3 Item3 { get; set; }
+        public virtual T3 Item3 { get; set; }
 
-        public T4 Item4 { get; set; }
+        public virtual T4 Item4 { get; set; }
 
-        public T5 Item5 { get; set; }
+        public virtual T5 Item5 { get; set; }
     }
 
     /***************************************************/

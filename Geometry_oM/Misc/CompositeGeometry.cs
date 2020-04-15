@@ -20,17 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using System.Collections.Generic;
 
 namespace BH.oM.Geometry
 {
+    [Description("A collection of multiple sets of Geometry of any or mixed type. Integrity, continuity and closure is not guaranteed. Discontinuous and/or mixed type definitions are possible, with no restrictions placed on how geometry can be combined.")]
     public class CompositeGeometry : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<IGeometry> Elements { get; set; } = new List<IGeometry>();
+
+        [Description("A list of assorted geometry, which together define the composite shape.")]
+        public virtual List<IGeometry> Elements { get; set; } = new List<IGeometry>();
         
         /***************************************************/
     }

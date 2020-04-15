@@ -32,13 +32,13 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public int TotalSections { get; set; }= 0;
+        public virtual int TotalSections { get; set; }= 0;
 
-        public List<TierProfile> Sections { get; set; } = new List<TierProfile>();
+        public virtual List<TierProfile> Sections { get; set; } = new List<TierProfile>();
 
-        public List<SeatingBlock> Generatorblocks { get; set; } = new List<SeatingBlock>();
+        public virtual List<SeatingBlock> Generatorblocks { get; set; } = new List<SeatingBlock>();
 
-        public List<SeatingBlock> TierBlocks { get; set; } = new List<SeatingBlock>();
+        public virtual List<SeatingBlock> TierBlocks { get; set; } = new List<SeatingBlock>();
 
         /***************************************************/
     }

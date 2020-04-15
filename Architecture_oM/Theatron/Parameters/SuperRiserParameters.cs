@@ -30,11 +30,11 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
 
-        public bool SuperRiser { get; set; } = false;
+        public virtual bool SuperRiser { get; set; } = false;
 
-        public double SuperRiserKerbWidth { get; set; } = 0.0;
+        public virtual double SuperRiserKerbWidth { get; set; } = 0.0;
 
-        public int SuperRiserStartRow { get; set; } = 0;
+        public virtual int SuperRiserStartRow { get; set; } = 0;
     }
 }
 

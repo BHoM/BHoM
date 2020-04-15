@@ -33,8 +33,8 @@ namespace BH.oM.Architecture.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public ISurface Surface { get; set; } = null;
-        public Construction Construction { get; set; } = null;
+        public virtual ISurface Surface { get; set; } = null;
+        public virtual Construction Construction { get; set; } = null;
 
         /***************************************************/
     }

@@ -37,11 +37,11 @@ namespace BH.oM.Reflection.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Name { get; private set; } = "";
+        public virtual string Name { get; private set; } = "";
 
-        public string Description { get; private set; } = "";
+        public virtual string Description { get; private set; } = "";
 
-        public QuantityAttribute Quantity { get; set; } = null;
+        public virtual QuantityAttribute Quantity { get; set; } = null;
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -58,6 +58,12 @@ namespace BH.oM.Reflection.Attributes
         }
 
         /***************************************************/
+
+        public InputAttribute(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
     }
 }
 

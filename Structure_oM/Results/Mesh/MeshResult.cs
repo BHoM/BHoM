@@ -38,23 +38,23 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Description("Id of the mesh that this result collection belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
-        public IComparable ObjectId { get; } = "";
+        public virtual IComparable ObjectId { get; } = "";
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public IComparable ResultCase { get; } = "";
+        public virtual IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results.")]
-        public double TimeStep { get; } = 0.0;
+        public virtual double TimeStep { get; } = 0.0;
 
-        public MeshResultLayer Layer { get; }
+        public virtual MeshResultLayer Layer { get; }
 
         [Description("Position within the element thickness that result is extracted from, normalised to 1. I.e. 0 = lower surface, 0.5 = middle, 1 = top surface.")]
-        public double LayerPosition { get; }
+        public virtual double LayerPosition { get; }
 
-        public MeshResultSmoothingType Smoothing { get; }
+        public virtual MeshResultSmoothingType Smoothing { get; }
 
         [Description("A collection of the discrete mesh element results per node and/or face.")]
-        public ReadOnlyCollection<MeshElementResult> Results { get; }
+        public virtual ReadOnlyCollection<MeshElementResult> Results { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

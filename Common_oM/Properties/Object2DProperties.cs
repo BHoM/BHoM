@@ -35,7 +35,7 @@ namespace BH.oM.Common.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<CompoundLayer> CompoundLayers { get; set; } = new List<CompoundLayer>();
+        public virtual List<CompoundLayer> CompoundLayers { get; set; } = new List<CompoundLayer>();
 
         /***************************************************/
     }

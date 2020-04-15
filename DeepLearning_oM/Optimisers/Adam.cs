@@ -30,13 +30,13 @@ namespace BH.oM.DeepLearning.Optimisers
         /**** Properties                                ****/
         /***************************************************/
 
-        public double LearningRate { get; set; } = 0.001;
+        public virtual double LearningRate { get; set; } = 0.001;
 
-        public double Beta1 { get; set; } = 0.9;
+        public virtual double Beta1 { get; set; } = 0.9;
 
-        public double Beta2 { get; set; } = 0.999;
+        public virtual double Beta2 { get; set; } = 0.999;
 
-        public double WeightDecay { get; set; } = 0;
+        public virtual double WeightDecay { get; set; } = 0;
 
         /***************************************************/
     }

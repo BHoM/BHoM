@@ -31,17 +31,17 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public double StrokeWidth { get; set; } = 1; 
+        public virtual double StrokeWidth { get; set; } = 1;
 
-        public string StrokeColor { get; set; } = "black";
+        public virtual string StrokeColor { get; set; } = "black";
 
-        public string FillColor { get; set; } = "none";
+        public virtual string FillColor { get; set; } = "none";
 
-        public double StrokeOpacity { get; set; } = 1;
+        public virtual double StrokeOpacity { get; set; } = 1;
 
-        public double FillOpacity { get; set; } = 1;
+        public virtual double FillOpacity { get; set; } = 1;
 
-        public List<double> StrokeDash { get; set; } = new List<double>() {0}; 
+        public virtual List<double> StrokeDash { get; set; } = new List<double>() {0};
 
 
         /***************************************************/

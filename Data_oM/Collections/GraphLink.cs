@@ -29,10 +29,10 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public Dictionary<string,object> Attributes { get; set; } = new Dictionary<string, object>();
-        public double Weight { get; set; } = 1.0;
-        public GraphNode<T> StartNode { get; set; } = new GraphNode<T>();
-        public GraphNode<T> EndNode { get; set; } = new GraphNode<T>();
+        public virtual Dictionary<string,object> Attributes { get; set; } = new Dictionary<string, object>();
+        public virtual double Weight { get; set; } = 1.0;
+        public virtual GraphNode<T> StartNode { get; set; } = new GraphNode<T>();
+        public virtual GraphNode<T> EndNode { get; set; } = new GraphNode<T>();
 
         /***************************************************/
     }

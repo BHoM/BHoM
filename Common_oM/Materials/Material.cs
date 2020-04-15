@@ -33,25 +33,25 @@ namespace BH.oM.Common.Materials
         /**** Properties                                ****/
         /***************************************************/
 
-        public MaterialType Type { get; set; } = MaterialType.Steel;
+        public virtual MaterialType Type { get; set; } = MaterialType.Steel;
 
-        public double YoungsModulus { get; set; } = 0.0;
+        public virtual double YoungsModulus { get; set; } = 0.0;
 
-        public double PoissonsRatio { get; set; } = 0.0;
+        public virtual double PoissonsRatio { get; set; } = 0.0;
 
-        public double DryDensity { get;  set; } = 0.0;
+        public virtual double DryDensity { get;  set; } = 0.0;
 
-        public double CoeffThermalExpansion { get; set; } = 0.0;
+        public virtual double CoeffThermalExpansion { get; set; } = 0.0;
 
-        public double DampingRatio { get; set; } = 0.0;
+        public virtual double DampingRatio { get; set; } = 0.0;
 
-        public double Density { get; set; } = 0.0; //in [kg/m^3] 
+        public virtual double Density { get; set; } = 0.0;
 
-        public double CompressiveYieldStrength { get; set; } = 0.0;
+        public virtual double CompressiveYieldStrength { get; set; } = 0.0;
 
-        public double TensileYieldStrength { get; set; } = 0.0;
+        public virtual double TensileYieldStrength { get; set; } = 0.0;
 
-        public double StrainAtYield { get; set; } = 0.0;
+        public virtual double StrainAtYield { get; set; } = 0.0;
 
 
         /***************************************************/

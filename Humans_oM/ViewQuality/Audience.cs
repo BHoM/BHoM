@@ -31,7 +31,7 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<Spectator> Spectators { get; set; } = new List<Spectator>();
+        public virtual List<Spectator> Spectators { get; set; } = new List<Spectator>();
 
         /***************************************************/
     }

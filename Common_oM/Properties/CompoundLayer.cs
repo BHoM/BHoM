@@ -38,8 +38,8 @@ namespace BH.oM.Common.Properties
         /**** Properties                                ****/
         /***************************************************/
 
-        public Material Material { get; set; } = new Material();
-        public double Thickness { get; set; } = 0;
+        public virtual Material Material { get; set; } = new Material();
+        public virtual double Thickness { get; set; } = 0;
 
         /***************************************************/
     }

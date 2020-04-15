@@ -20,23 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 
 namespace BH.oM.Geometry
 {
+    [Description("Describes a discrete finite slice of an area. Used for numerical approximation of an integration.")]
     public class IntegrationSlice : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Width { get; set; } = 0;
+        public virtual double Width { get; set; } = 0;
 
-        public double Length { get; set; } = 0;
+        public virtual double Length { get; set; } = 0;
 
-        public double Centre { get; set; } = 0;
+        public virtual double Centre { get; set; } = 0;
 
-        public double[] Placement { get; set; } = new double[0];
+        public virtual double[] Placement { get; set; } = new double[0];
         
         /***************************************************/
     }

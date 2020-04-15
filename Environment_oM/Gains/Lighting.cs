@@ -31,23 +31,23 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Gains
 {
-    [Description("Lighting Gain object which can be attributed to a space")]
+    [Description("Lighting gains are defined as the amount of heat contributed by light fixtures")]
     public class Lighting : BHoMObject, IGain
     {
-        [Description("The sensible gain load for the lighting gain")]
-        public double Sensible { get; set; } = 0.0;
+        [Description("The sensible heat contributed by light fixtures, which contributes to a rise in temperature with no change in phase.")]
+        public virtual double Sensible { get; set; } = 0.0;
 
-        [Description("The profile for this gain being active")]
-        public Profile Profile { get; set; } = new Profile();
+        [Description("Profiles depict the time period (hours per day, days per week) during which the lighting gain is contributing heat to the space.")]
+        public virtual Profile Profile { get; set; } = new Profile();
 
-        [Description("The fraction of radiance from this lighting gain")]
-        public double RadiantFraction { get; set; } = 0.0;
+        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by the light fixtures.")]
+        public virtual double RadiantFraction { get; set; } = 0.0;
 
         [Description("The view coefficient of this lighting gain")]
-        public double ViewCoefficient { get; set; } = 0.0;
+        public virtual double ViewCoefficient { get; set; } = 0.0;
 
-        [Description("The luminous efficacy of this lighting gain")]
-        public double LuminousEfficacy { get; set; } = 0.0;
+        [Description("Luminous efficacy is a measure of how well a light fixture produces visible light")]
+        public virtual double LuminousEfficacy { get; set; } = 0.0;
     }
 }
 

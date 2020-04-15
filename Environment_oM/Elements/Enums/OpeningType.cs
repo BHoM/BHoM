@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+ using System.ComponentModel;
+
 namespace BH.oM.Environment.Elements
 {
+    [Description("The type of cutout or hole in a building surface/panel (e.g. Window, Door, Rooflight)")]
     public enum OpeningType
     {
         Undefined,

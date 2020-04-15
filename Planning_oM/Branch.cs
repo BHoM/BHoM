@@ -32,15 +32,15 @@ namespace BH.oM.Planning
         /**** Properties                                ****/
         /***************************************************/
 
-        public string LastPusher { get; set; }
+        public virtual string LastPusher { get; set; }
 
-        public string Title { get; set; }
+        public virtual string Title { get; set; }
 
-        public string RepoName { get; set; }
+        public virtual string RepoName { get; set; }
 
-        public bool Protected { get; set; }
+        public virtual bool Protected { get; set; }
 
-        public DateTimeOffset LastCommitDate { get; set; }
+        public virtual DateTimeOffset LastCommitDate { get; set; }
 
 
         /***************************************************/

@@ -35,13 +35,13 @@ namespace BH.oM.Reflection.Debugging
         /**** Properties                                ****/
         /***************************************************/
 
-        public DateTime Time { get; set; } = DateTime.Now;
+        public virtual DateTime Time { get; set; } = DateTime.Now;
 
-        public string StackTrace { get; set; } = "";
+        public virtual string StackTrace { get; set; } = "";
 
-        public string Message { get; set; } = "";
+        public virtual string Message { get; set; } = "";
 
-        public EventType Type { get; set; } = EventType.Unknown;
+        public virtual EventType Type { get; set; } = EventType.Unknown;
 
 
         /***************************************************/

@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
 
@@ -32,28 +33,52 @@ using BH.oM.MEP.Parts;
 
 namespace BH.oM.MEP.Equipment
 {
+    [Description("Air Handling Units are devices which house fans, filter, coils, and energy wheels which produce heated and cooled fresh/partially recirculated air to a building")]
     public class AirHandlingUnit : BHoMObject, IEquipment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Type { get; set; } = "";
-        public double TotalSupplyAirFlow { get; set; } = 0.0;
-        public double TotalSupplyAirExternalStaticPressure { get; set; } = 0.0;
-        public double TotalReturnAirFlow { get; set; } = 0.0;
-        public double TotalReturnAirExternalStaticPressure { get; set; } = 0.0;
+        [Description("Type denotes the kind of Air Handling Unit (eg heat and ventilation, energy recovery)")]
+        public virtual string Type { get; set; } = "";
+        
+        [Description("Total Supply Airflow accounts for the total amount of air supplied to the building by the Air Handling Unit")]
+        public virtual double TotalSupplyAirFlow { get; set; } = 0.0;
+        
+        [Description("Total supply external static pressure denotes the resistance within the system that the supply fan has to overcome from filters, grilles, coils, etc")]
+        public virtual double TotalSupplyAirExternalStaticPressure { get; set; } = 0.0;
+        
+        [Description("Total Return Airflow accounts for the total amount of air returned from the building to the Air Handling Unit")]
+        public virtual double TotalReturnAirFlow { get; set; } = 0.0;
+        
+        [Description("Total return external static pressure denotes the resistance within the system that the return fan has to overcome from grilles, ducts, etc")]
+        public virtual double TotalReturnAirExternalStaticPressure { get; set; } = 0.0;
+        
+        [Description("Total Design Outdoor Airflow accounts for the total amount of outdoor air introduced to the supply air that goes to the building from the Air Handling Unit")]
+        public virtual double TotalDesignOutdoorAirFlow { get; set; } = 0.0;
+        
+        [Description("Demand Controlled Ventilation Minimum Outdoor Airflow denotes that amount of outdoor air that is required to be supplied to the building, at a minimum")]
+        public virtual double DemandControlledVentilationMinimumOutdoorAirFlow { get; set; } = 0.0;
+        
+        [Description("Total outdoor air external static pressure denotes the resistance within the system that the outdoor air intake fan has to overcome")]
+        public virtual double TotalOutdoorAirFlowExternalStaticPressure { get; set; } = 0.0;
+        
+        [Description("Total Relief Airflow accounts for the total amount of extract/exhaust air that is removed from the system and introduced to the atmosphere")]
+        public virtual double TotalReliefAirFlow { get; set; } = 0.0;
+        [Description("Total Relief Airflow external static pressure denotes the resistance within the system that the relief/extract/exhaust fan has to overcome")]
+        
+        public virtual double TotalReliefExternalStaticPressure { get; set; } = 0.0;
 
-        public double TotalDesignOutdoorAirFlow { get; set; } = 0.0;
-        public double DemandControlledVentilationMinimumOutdoorAirFlow { get; set; } = 0.0;
-        public double TotalOutdoorAirFlowExternalStaticPressure { get; set; } = 0.0;
-        public double TotalReliefAirFlow { get; set; } = 0.0;
-        public double TotalReliefExternalStaticPressure { get; set; } = 0.0;
+        
+        [Description("Supply Air Economisers allow additional outdoor air to be introduced to the system when outdoor conditions are favorable (typically cool and dry)")]
+        public virtual bool SupplyAirEconomiser { get; set; } = false;
+        
+        [Description("Water Economisers allow returned fluids to be introduced to the system when conditions are favorable")]
+        public virtual bool WaterEconomiser { get; set; } = false;
 
-        public bool SupplyAirEconomiser { get; set; } = false;
-        public bool WaterEconomiser { get; set; } = false;
-
-        public List<IPart> Parts { get; set; } = new List<IPart>();
+        [Description("A collection of the parts (Fans, Coils, Energy Wheel, Filters, Electrical Connectors) that make up the Air Handling Unit")]
+        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
         /***************************************************/
     }

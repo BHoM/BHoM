@@ -37,14 +37,14 @@ namespace BH.oM.Humans.BodyParts
         /**** Properties                                ****/
         /***************************************************/
 
-        public Point TrackingPoint { get; set; } = new Point();
+        public virtual Point TrackingPoint { get; set; } = new Point();
 
-        public Eye LeftEye { get; set; } = new Eye();
+        public virtual Eye LeftEye { get; set; } = new Eye();
 
-        public Eye RightEye { get; set; } = new Eye();
+        public virtual Eye RightEye { get; set; } = new Eye();
 
-        public Point ReferenceLocation { get; set; } = new Point();
+        public virtual Point ReferenceLocation { get; set; } = new Point();
 
-        public Vector ViewDirection { get; set; } = new Vector();
+        public virtual Vector ViewDirection { get; set; } = new Vector();
     }
 }

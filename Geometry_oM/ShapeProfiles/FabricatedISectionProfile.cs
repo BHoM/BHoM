@@ -34,23 +34,23 @@ namespace BH.oM.Geometry.ShapeProfiles
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public ShapeType Shape { get; } = ShapeType.ISection;
+        public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
-        public double Height { get; }
+        public virtual double Height { get; }
 
-        public double TopFlangeWidth { get; }
+        public virtual double TopFlangeWidth { get; }
 
-        public double BotFlangeWidth { get; }
+        public virtual double BotFlangeWidth { get; }
 
-        public double WebThickness { get; }
+        public virtual double WebThickness { get; }
 
-        public double TopFlangeThickness { get; }
+        public virtual double TopFlangeThickness { get; }
 
-        public double BotFlangeThickness { get; }
+        public virtual double BotFlangeThickness { get; }
 
-        public double WeldSize { get; }
+        public virtual double WeldSize { get; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

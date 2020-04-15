@@ -33,7 +33,7 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("An ordered set of three-dimensional points defining the curve shape")]
-        public List<Point> ControlPoints { get; set; } = new List<Point>();
+        public virtual List<Point> ControlPoints { get; set; } = new List<Point>();
         
         /***************************************************/
     }

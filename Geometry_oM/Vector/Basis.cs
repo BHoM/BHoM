@@ -33,13 +33,13 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Unit vector defining local x coordinate axis")]
-        public Vector X { get; } = Vector.XAxis;
+        public virtual Vector X { get; } = Vector.XAxis;
 
         [Description("Unit vector defining local y coordinate axis")]
-        public Vector Y { get; } = Vector.YAxis;
+        public virtual Vector Y { get; } = Vector.YAxis;
 
         [Description("Unit vector defining local z coordinate axis")]
-        public Vector Z { get; } = Vector.ZAxis;
+        public virtual Vector Z { get; } = Vector.ZAxis;
 
         /***************************************************/
         /**** Constructors                              ****/

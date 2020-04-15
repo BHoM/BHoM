@@ -35,7 +35,7 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
         
         [Description("The magnitude and direction of gravity. This will be scaled by the gravity constant g in the analysis, which means a load representing gravity should be a Vector with -1 as its Z-component.")]
-        public Vector GravityDirection { get; set; } = new Vector { X = 0, Y = 0, Z = -1 };
+        public virtual Vector GravityDirection { get; set; } = new Vector { X = 0, Y = 0, Z = -1 };
 
         /***************************************************/
     }

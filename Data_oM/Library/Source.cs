@@ -37,37 +37,37 @@ namespace BH.oM.Data.Library
         /***************************************************/
 
         [Description("Hyperlink or file path to where the source information used can be found")]
-        public string SourceLink { get; set; } = "";
+        public virtual string SourceLink { get; set; } = "";
 
         [Description("Title of the source. For example Book title, Paper title, Code title etc.")]
-        public string Title { get; set; } = "";
+        public virtual string Title { get; set; } = "";
 
         [Description("Author of the source of the source information")]
-        public string Author { get; set; } = "";
+        public virtual string Author { get; set; } = "";
 
         [Description("Table, figure or code reference etc.")]
-        public string ItemReference { get; set; } = "";
+        public virtual string ItemReference { get; set; } = "";
 
         [Description("Version of the source used")]
-        public string Version { get; set; } = "";
+        public virtual string Version { get; set; } = "";
 
         [Description("Publisher of the source information")]
-        public string Publisher { get; set; } = "";
+        public virtual string Publisher { get; set; } = "";
 
         [Description("Schema of the source information")]
-        public string Schema { get; set; } = "";
+        public virtual string Schema { get; set; } = "";
 
         [Description("Language of the source information")]
-        public string Language { get; set; } = "";
+        public virtual string Language { get; set; } = "";
 
         [Description("Country/Region of the source information")]
-        public string Location { get; set; } = "";
+        public virtual string Location { get; set; } = "";
 
         [Description("Any applicable copyright information assosiated with the source")]
-        public string Copyright { get; set; } = "";
+        public virtual string Copyright { get; set; } = "";
 
         [Description("Contributors of the source information")]
-        public string Contributors { get; set; } = "";
+        public virtual string Contributors { get; set; } = "";
 
         /***************************************************/
     }

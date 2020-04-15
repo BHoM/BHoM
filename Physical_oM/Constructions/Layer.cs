@@ -41,10 +41,10 @@ namespace BH.oM.Physical.Constructions
         /***************************************************/
 
         [Description("The material this layer is made up of")]
-        public Material Material { get; set; } = new Material();
+        public virtual Material Material { get; set; } = new Material();
 
         [Description("The thickness of this material layer")]
-        public double Thickness { get; set; } = 0;
+        public virtual double Thickness { get; set; } = 0;
 
         /***************************************************/
     }

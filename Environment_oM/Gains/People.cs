@@ -31,23 +31,23 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Gains
 {
-    [Description("People Gain object which can be attributed to a space")]
+    [Description("People gains are defined as the amount of both latent and sensible heat contributed by people based on their assumed activity level within the space (dancing, sitting, etc)")]
     public class People : BHoMObject, IGain
     {
-        [Description("The sensible gain load for the people gain")]
-        public double Sensible { get; set; } = 0.0;
+        [Description("The sensible heat contributed by people, which contributes to a rise in temperature with no change in phase.")]
+        public virtual double Sensible { get; set; } = 0.0;
 
-        [Description("The latent gain load for the people gain")]
-        public double Latent { get; set; } = 0.0;
+        [Description("The latent heat contributed by people, which contributes to a change in phase from solid to liquid.")]
+        public virtual double Latent { get; set; } = 0.0;
 
-        [Description("The profile for this gain being active")]
-        public Profile Profile { get; set; } = new Profile();
+        [Description("Profiles depict the time period (hours per day, days per week) during which people are contributing heat to the space.")]
+        public virtual Profile Profile { get; set; } = new Profile();
 
-        [Description("The fraction of radiance from this people gain")]
-        public double RadiantFraction { get; set; } = 0.0;
+        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by people.")]
+        public virtual double RadiantFraction { get; set; } = 0.0;
 
         [Description("The view coefficient of this people gain")]
-        public double ViewCoefficient { get; set; } = 0.0;
+        public virtual double ViewCoefficient { get; set; } = 0.0;
     }
 }
 

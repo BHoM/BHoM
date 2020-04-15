@@ -32,8 +32,8 @@ namespace BH.oM.Architecture.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public ICurve Perimeter { get; set; } = null;
-        public Point Location { get; set; } = null;
+        public virtual ICurve Perimeter { get; set; } = null;
+        public virtual Point Location { get; set; } = null;
 
         /***************************************************/
     }

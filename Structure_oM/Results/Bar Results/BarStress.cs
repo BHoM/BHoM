@@ -34,39 +34,39 @@ namespace BH.oM.Structure.Results
 
         [Stress]
         [Description("Axial stress induced by an axial force along the Bar axis. Positive for tension, negative for compression.")]
-        public double Axial { get; set; } = 0.0;
+        public virtual double Axial { get; set; } = 0.0;
 
         [Stress]
         [Description("Shear stress along the local y-axis. Generally minor axis shear stress.")]
-        public double ShearY { get; set; } = 0.0;
+        public virtual double ShearY { get; set; } = 0.0;
 
         [Stress]
         [Description("Shear stress along the local z-axis. Generally major axis shear stress.")]
-        public double ShearZ { get; set; } = 0.0;
+        public virtual double ShearZ { get; set; } = 0.0;
 
         [Stress]
         [Description("Stress induced by bending about the local y-axis at the 'uppermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers.")]
-        public double BendingY_Top { get; set; } = 0.0;
+        public virtual double BendingY_Top { get; set; } = 0.0;
 
         [Stress]
         [Description("Stress induced by bending about the local y-axis at the 'lowermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers.")]
-        public double BendingY_Bot { get; set; } = 0.0;
+        public virtual double BendingY_Bot { get; set; } = 0.0;
 
         [Stress]
         [Description("Stress induced by bending about the local z-axis at the 'uppermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers.")]
-        public double BendingZ_Top { get; set; } = 0.0;
+        public virtual double BendingZ_Top { get; set; } = 0.0;
 
         [Stress]
         [Description("Stress induced by bending about the local z-axis at the 'lowermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers.")]
-        public double BendingZ_Bot { get; set; } = 0.0;
+        public virtual double BendingZ_Bot { get; set; } = 0.0;
 
         [Stress]
         [Description("Worst case tensile normal stress from combined axial and bending in two directions.")]
-        public double CombAxialBendingPos { get; set; } = 0.0;
+        public virtual double CombAxialBendingPos { get; set; } = 0.0;
 
         [Stress]
         [Description("Worst case compressive normal stress from combined axial and bending in two directions.")]
-        public double CombAxialBendingNeg { get; set; } = 0.0;
+        public virtual double CombAxialBendingNeg { get; set; } = 0.0;
 
         /***************************************************/
     }

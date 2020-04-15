@@ -31,17 +31,17 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Gains
 {
-    [Description("Infiltation Gain object which can be attributed to a space")]
+    [Description("Infiltration gains are defined as the amount of heat or heat loss contributed by cracks in the exterior envelope of the building which allow unconditioned outside air to be introduced to the space")]
     public class Infiltration : BHoMObject, IGain
     {
-        [Description("The sensible gain load for the infiltation gain")]
-        public double Sensible { get; set; } = 0.0;
+        [Description("The sensible heat contributed or lost by infiltration, which contributes to a rise or drop in temperature with no change in phase.")]
+        public virtual double Sensible { get; set; } = 0.0;
 
-        [Description("The latent gain load for the infiltration gain")]
-        public double Latent { get; set; } = 0.0;
+        [Description("The latent heat contributed or lost by infiltration, which contributes to a change in phase from solid to liquid.")]
+        public virtual double Latent { get; set; } = 0.0;
 
-        [Description("The profile for the gain being active")]
-        public Profile Profile { get; set; } = new Profile();   
+        [Description("Profiles depict the time period (hours per day, days per week) during which infiltration is contributing to or causing a loss of heat to the space.")]
+        public virtual Profile Profile { get; set; } = new Profile();
     }
 }
 

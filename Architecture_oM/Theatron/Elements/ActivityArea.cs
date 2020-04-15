@@ -33,10 +33,10 @@ namespace BH.oM.Architecture.Theatron
         /**** Properties                                ****/
         /***************************************************/
         [Description("Closed Polyline representing a pitch, screen or any area that an audience are looking at 2d or 3d")]
-        public Polyline PlayingArea { get; set; } = new Polyline();
+        public virtual Polyline PlayingArea { get; set; } = new Polyline();
 
         [Description("This is used for Avalue and Evalue calculations, typically the centre of the playing area")]
-        public Point ActivityFocalPoint { get; set; } = new Point();
+        public virtual Point ActivityFocalPoint { get; set; } = new Point();
 
         /***************************************************/
     }

@@ -25,27 +25,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
 
 namespace BH.oM.MEP.Parts
 {
+    [Description("Cooling coils allow fluids (air) to lower their temperature as they pass through the coil")]
     public class CoolingCoil : BHoMObject, IPart
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public double TotalCapacity { get; set; } = 0.0;
-        public double SensibleCapacity { get; set; } = 0.0;
-        public double EnteringDryBulbAirTemperature { get; set; } = 0.0;
-        public double EnteringWetBulbAirTemperature { get; set; } = 0.0;
-        public double LeavingDryBulbAirTemperature { get; set; } = 0.0;
-        public double LeavingWetBulbAirTemperature { get; set; } = 0.0;
-        public double EnteringWaterTemperature { get; set; } = 0.0;
-        public double LeavingWaterTemperature { get; set; } = 0.0;
-        public double PressureDrop { get; set; } = 0.0;
-        public int NumberOfRows { get; set; } = 0;
+        [Description("Total capacity indicates the combined sensible and latent capacity of the cooling coil")]
+        public virtual double TotalCapacity { get; set; } = 0.0;
+        
+        [Description("Sensible capacity indicates the ability for the cooling coil to change the temperature (rather than the phase) of the fluid (air).")]
+        public virtual double SensibleCapacity { get; set; } = 0.0;
+        
+        [Description("Entering Dry Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius, without taking humidity into consideration")]
+        public virtual double EnteringDryBulbAirTemperature { get; set; } = 0.0;
+        
+        [Description("Entering Wet Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius, while taking humidity into consideration")]
+        public virtual double EnteringWetBulbAirTemperature { get; set; } = 0.0;
+        
+        [Description("Leaving Dry Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius, without taking humidity into consideration")]
+        public virtual double LeavingDryBulbAirTemperature { get; set; } = 0.0;
+        
+        [Description("Leaving Wet Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius, while taking humidity into consideration")]
+        public virtual double LeavingWetBulbAirTemperature { get; set; } = 0.0;
+        
+        [Description("Entering Water Temperature indicates the heat intensity of the water entering the system in degrees Celsius")]
+        public virtual double EnteringWaterTemperature { get; set; } = 0.0;
+        
+        [Description("Leaving Water Temperature indicates the heat intensity of the water leaving the system in degrees Celsius")]
+        public virtual double LeavingWaterTemperature { get; set; } = 0.0;
+        
+        [Description("Pressure Drop indicates the amount of resistance created by the coil which creates a loss in pressure of the fluid (air)")]
+        public virtual double PressureDrop { get; set; } = 0.0;
+        
+        [Description("Number of Rows indicates the number of rows of coils that the fluid (air) passes through")]
+        public virtual int NumberOfRows { get; set; } = 0;
 
         /***************************************************/
     }

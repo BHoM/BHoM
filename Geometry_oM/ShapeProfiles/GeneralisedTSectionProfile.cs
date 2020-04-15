@@ -34,23 +34,23 @@ namespace BH.oM.Geometry.ShapeProfiles
         /**** Properties                                ****/
         /***************************************************/
 
-        public ShapeType Shape { get; } = ShapeType.Tee;
+        public virtual ShapeType Shape { get; } = ShapeType.Tee;
 
-        public double Height { get; }
+        public virtual double Height { get; }
 
-        public double WebThickness { get; }
+        public virtual double WebThickness { get; }
 
-        public double LeftOutstandWidth { get; }
+        public virtual double LeftOutstandWidth { get; }
 
-        public double LeftOutstandThickness { get; }
+        public virtual double LeftOutstandThickness { get; }
 
-        public double RightOutstandWidth { get; }
+        public virtual double RightOutstandWidth { get; }
 
-        public double RightOutstandThickness { get; }
+        public virtual double RightOutstandThickness { get; }
 
-        public bool MirrorAboutLocalY { get; }
+        public virtual bool MirrorAboutLocalY { get; }
 
-        public ReadOnlyCollection<ICurve> Edges { get; }
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

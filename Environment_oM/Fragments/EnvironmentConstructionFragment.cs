@@ -31,14 +31,13 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the environment construction property")]
+    [Description("Fragment containing the F-factor and additional heat transfer construction property")]
     public class EnvironmentConstructionFragment : IFragment
     {
-        [Description("The FFactor for the construction")]
-        public double FFactor { get; set; } = 0.0;
+        [Description("The perimeter heat loss factor for slab-on-grade floors")]
+        public virtual double FFactor { get; set; } = 0.0;
 
-        [Description("The additional heat transfer through the construction")]
-        public double AdditionalHeatTransfer { get; set; } = 0.0;
+        public virtual double AdditionalHeatTransfer { get; set; } = 0.0;
     }
 }
 

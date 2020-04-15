@@ -24,56 +24,56 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Reflection.Attributes;
 using System.Linq;
+using BH.oM.Reflection.Attributes;
 using System.Text;
 using System.Threading.Tasks;
+using BH.oM.Diffing;
 
-namespace BH.oM.Diffing
+namespace BH.oM.AECDeltas
 {
-    public class Stream : BHoMObject, IImmutable
+    [Description("Class defined as per AECDeltas specification https://github.com/aecdeltas/aec-deltas-spec/wiki/Delta-Container-Specification#payload")]
+    public class DeltaPayload : IObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public Guid StreamId { get; }
 
-        public string StreamId { get; } // Generally a GUID
-        public string Revision { get; } // Perhaps this can become just a "revisionName" or "comment", like Github's Summary. After all, Revision can be given by Timestam+Author info
+        public Dictionary<string, object> Diff { get; }
+
+        public string Revision_from { get; }
+        public string Revision_to { get; }
+
         public long Timestamp { get; }
-        public string Author { get; }
+        public string Signature { get; }
+        public string Sender { get; }
         public string Comment { get; }
-        public IEnumerable<IBHoMObject> Objects { get; }
-
-        [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
-        public DiffConfig StreamDiffConfig { get; } = new DiffConfig();
-
-
-        /***************************************************/
 
         /***************************************************/
         /**** Constructor                               ****/
         /***************************************************/
 
-        [Description("Creates new Diffing Stream")]
-        [Input("objects", "Objects to be included in the Stream")]
-        [Input("streamDiffConfig", "Default diffing settings for this Stream.")]
-        [Input("streamId", "If not specified, streamId will be a GUID.Revision is initally 0")]
-        [Input("revision", "If not specified, revision is initially set to 0")]
-        [Input("comment", "Any comment to be added for this stream.")]
-        public Stream(IEnumerable<IBHoMObject> objects, DiffConfig streamDiffConfig = null, string streamId = null, string revision = null, string comment = null)
+        public DeltaPayload(Delta delta)
         {
-            Objects = objects;
+            Diff = new Dictionary<string, object>()
+            {
+                { "toBeCreated" , delta.Diff.AddedObjects },
+                { "toBeDeleted" , delta.Diff.RemovedObjects },
+                { "toBeUpdated" , delta.Diff.ModifiedObjects },
+            };
 
-            StreamId = string.IsNullOrWhiteSpace(streamId) ? Guid.NewGuid().ToString("N") : StreamId;
-            Revision = revision;
-            Comment = comment;
+            StreamId = delta.StreamId;
+            Revision_from = delta.Revision_from.ToString();
+            Revision_to = delta.Revision_to.ToString();
 
-            Timestamp = DateTime.UtcNow.Ticks;
-            Author = Environment.UserDomainName + "/" + Environment.UserName;
+            Comment = delta.Comment;
 
-            StreamDiffConfig = streamDiffConfig;
+            Timestamp = delta.Timestamp;
+            Signature = delta.Author;
         }
 
         /***************************************************/
     }
 }
+

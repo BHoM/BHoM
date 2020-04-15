@@ -34,7 +34,7 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.Physical.Elements
 {
-    public interface ISurface : IBHoMObject, IPhysical, IElement2D
+    public interface ISurface : IBHoMObject, IPhysical, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/

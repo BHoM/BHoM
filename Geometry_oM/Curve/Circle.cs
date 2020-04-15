@@ -33,14 +33,14 @@ namespace BH.oM.Geometry
         /***************************************************/
 
         [Description("Origin point defining location of the Circle in three-dimensional space.")]
-        public Point Centre { get; set; } = new Point();
+        public virtual Point Centre { get; set; } = new Point();
 
         [Description("Vector perpendicular to the plane in which the Circle lies.")]
-        public Vector Normal { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
+        public virtual Vector Normal { get; set; } = new Vector { X = 0, Y = 0, Z = 1 };
 
         [Length]
         [Description("Distance from the Centre to any point on Circle.")]
-        public double Radius { get; set; } = 0;
+        public virtual double Radius { get; set; } = 0;
 
         /***************************************************/
     }

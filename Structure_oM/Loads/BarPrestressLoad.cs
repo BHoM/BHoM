@@ -35,7 +35,7 @@ namespace BH.oM.Structure.Loads
 
         [Force]
         [Description("Prestress force to be applied to the Bar. Positive for tension, negative for compression.")]
-        public double Prestress { get; set; } = 0;
+        public virtual double Prestress { get; set; } = 0;
 
         /***************************************************/
     }

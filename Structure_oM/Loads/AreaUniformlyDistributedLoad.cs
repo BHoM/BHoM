@@ -36,7 +36,7 @@ namespace BH.oM.Structure.Loads
 
         [Pressure]
         [Description("The force per area to be applied to the elements.")]
-        public Vector Pressure { get; set; } = new Vector();
+        public virtual Vector Pressure { get; set; } = new Vector();
 
         /***************************************************/
     }

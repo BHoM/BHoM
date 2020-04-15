@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -37,18 +37,18 @@ namespace BH.oM.Programming
         /**** Properties                                ****/
         /***************************************************/
 
-        public object Data { get; set; } = null;
+        public virtual object Data { get; set; } = null;
 
         [Description("Guids of the connected Receiver parameters.")]
-        public List<Guid> TargetIds { get; set; } = new List<Guid>();
+        public virtual List<Guid> TargetIds { get; set; } = new List<Guid>();
 
         [Description("Guids of the parent syntax node.")]
-        public Guid ParentId { get; set; } = Guid.Empty;
+        public virtual Guid ParentId { get; set; } = Guid.Empty;
 
         [Description("Type of data expected by this parameter.")]
-        public Type DataType { get; set; } = typeof(object);
+        public virtual Type DataType { get; set; } = typeof(object);
 
-        public string Description { get; set; } = "";
+        public virtual string Description { get; set; } = "";
 
         /***************************************************/
     }

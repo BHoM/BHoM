@@ -25,17 +25,18 @@ using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
+    [Description("A surface defined by boundary edge curves lying in a common plane. Planarity toleraces default to the BH.oM.Geometry.Tolerace.Distance.")]
     public class PlanarSurface : ISurface
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Closed planar curve defining the outer boundary of the surface")]   
-        public ICurve ExternalBoundary { get; set; } = null;
+        [Description("Closed planar curve defining the outer boundary of the surface.")]   
+        public virtual ICurve ExternalBoundary { get; set; } = null;
 
-        [Description("List of closed (co)planar curves defining any internal openings in the surface")]
-        public List<ICurve> InternalBoundaries { get; set; } = new List<ICurve>();
+        [Description("List of closed (co)planar curves defining any internal openings in the surface.")]
+        public virtual List<ICurve> InternalBoundaries { get; set; } = new List<ICurve>();
 
         /***************************************************/
     }

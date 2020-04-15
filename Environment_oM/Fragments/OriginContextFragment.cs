@@ -31,20 +31,17 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Fragments
 {
-    [Description("Fragment containing the origin context property related to buildings")]
+    [Description("Fragment containing the origin context property such as Element ID or Type")]
     public class OriginContextFragment : IFragment
     {
-        [Description("The origin of the object this fragment will be added to")]
-        public string Origin { get; set; } = "";
+        public virtual string Origin { get; set; } = "";
 
         [Description("The original ID of the element from the origin software")]
-        public string ElementID { get; set; } = "";
+        public virtual string ElementID { get; set; } = "";
 
-        [Description("A description for the object or its source")]
-        public string Description { get; set; } = "";
-
-        [Description("The family type name of the object to group objects together")]
-        public string TypeName { get; set; } = "";
+        public virtual string Description { get; set; } = "";
+           
+        public virtual string TypeName { get; set; } = "";
     }
 }
 

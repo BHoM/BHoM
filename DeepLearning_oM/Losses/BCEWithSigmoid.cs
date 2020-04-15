@@ -31,9 +31,9 @@ namespace BH.oM.DeepLearning.Losses
         /**** Properties                                ****/
         /***************************************************/
 
-        public Reduce Reduce { get; set; } = Reduce.No;
+        public virtual Reduce Reduce { get; set; } = Reduce.No;
 
-        public List<double> ClassWeights { get; set; } = null;
+        public virtual List<double> ClassWeights { get; set; } = null;
 
         /***************************************************/
     }

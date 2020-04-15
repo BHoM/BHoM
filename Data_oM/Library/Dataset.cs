@@ -32,11 +32,11 @@ namespace BH.oM.Data.Library
         /**** Properties                                ****/
         /***************************************************/
 
-        public Source SourceInformation { get; set; }
+        public virtual Source SourceInformation { get; set; }
 
-        public DateTime TimeOfCreation { get; set; }
+        public virtual DateTime TimeOfCreation { get; set; }
 
-        public List<IBHoMObject> Data { get; set; }
+        public virtual List<IBHoMObject> Data { get; set; }
 
         /***************************************************/
     }

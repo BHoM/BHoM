@@ -32,15 +32,15 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public double Occulsion { get; set; } = 0.0;
+        public virtual double Occulsion { get; set; } = 0.0;
 
-        public double AValue { get; set; } = 0.0;
+        public virtual double AValue { get; set; } = 0.0;
 
-        public Polyline FullActivityArea { get; set; } = new Polyline();
+        public virtual Polyline FullActivityArea { get; set; } = new Polyline();
 
-        public List<Polyline> ClippedActivityArea { get; set; } = new List<Polyline>();
+        public virtual List<Polyline> ClippedActivityArea { get; set; } = new List<Polyline>();
 
-        public ViewCone ViewCone { get; set; } = new ViewCone();
+        public virtual ViewCone ViewCone { get; set; } = new ViewCone();
 
         public List<Polyline> Heads = new List<Polyline>();
 
