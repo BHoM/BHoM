@@ -27,6 +27,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
 
 
 namespace BH.oM.Spatial.Layouts
@@ -44,6 +45,7 @@ namespace BH.oM.Spatial.Layouts
         [Description("Direction of the axis. Vector should lie in the XY-plane, i.e. have a Z-coordinate equal to 0.")]
         public Vector Direction { get; }
 
+        [Length]
         [Description("Offset of the linear layout in relation to the centroid of the host object. Vector should lie in the XY-plane, i.e. have a Z-coordinate equal to 0.")]
         public Vector Offset { get; }
 
