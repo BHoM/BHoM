@@ -7,20 +7,26 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Structure.Elements;
+using System.ComponentModel;
 
 namespace BH.oM.Structure.Elements
 {
     public class SteelConnection : BHoMObject
     {
-        public List<int> ConnectingElementIds { get; set; } = null;
+        [Description("Framing Elements Connected Together by Connection")]
+        public virtual List<FramingElement> ConnectingElementIds { get; set; } = null;
 
-        public List<Panel> Plates { get; set; } = null;
+        [Description("Plates in Connection")]
+        public virtual List<Panel> Plates { get; set; } = null;
 
-        public List<Bolt> Bolts { get; set; } = null;
+        [Description("Bolts in Connection")]
+        public virtual List<Bolt> Bolts { get; set; } = null;
 
-        public List<Weld> Welds { get; set; } = null;
+        [Description("Welds in Connection")]
+        public virtual List<Weld> Welds { get; set; } = null;
 
-        public List<Cut> Cuts { get; set; } = null;
+        [Description("Cuts in Connection")]
+        public virtual List<Cut> Cuts { get; set; } = null;
 
     }
 

@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.ComponentModel;
 
 
 namespace BH.oM.Structure.Elements
 {
     public class Weld : BHoMObject
     {
-
+        [Description("Path of Root of Weld")]
         public virtual ICurve weldPath { get; set; }
 
+        [Description("Object to be Supported")]
         public virtual BHoMObject objWelded { get; set; } = null;
 
+        [Description("Object to be welded to (supporting member)")]
         public virtual BHoMObject objWeldedTo { get; set; } = null;
 
         // WeldContour Enum (none/flush/convex/concave/...)
@@ -26,7 +29,6 @@ namespace BH.oM.Structure.Elements
         // WeldProcess Enum (shielded metal/submerged arc/gas metal arc/flux cored arc/electroslag/electrogas)
 
         // WeldType (shop weld/site weld)
-
 
     }
 
