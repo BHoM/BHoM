@@ -26,7 +26,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Spatial.Layouts
 {
-    [Description("Base interface for all 2D layouts")]
+    [Description("Linear distribution of points along the perimiter of the host object.")]
     public class PerimiterLayout : BHoMObject, ILayout2D
     {
         /***************************************************/
@@ -35,6 +35,9 @@ namespace BH.oM.Spatial.Layouts
 
         [Description("Number of points along the perimiter of the host object")]
         public int NumberOfPoints { get; set; }
+
+        [Description("True means that the discontinuity points of the hostobject curve always should be included in point extraction from the layout.")]
+        public bool EnforceDiscontinuityPoints { get; set; }
 
         /***************************************************/
     }
