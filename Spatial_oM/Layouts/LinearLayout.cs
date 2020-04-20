@@ -40,7 +40,7 @@ namespace BH.oM.Spatial.Layouts
         /***************************************************/
 
         [Description("Number of points along the axis.")]
-        public int NumberOfPoints { get; }
+        public int NumberOfPoints { get; set; }
 
         [Description("Direction of the axis. Vector should lie in the XY-plane, i.e. have a Z-coordinate equal to 0.")]
         public Vector Direction { get; }
