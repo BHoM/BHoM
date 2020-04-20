@@ -14,13 +14,13 @@ namespace BH.oM.Structure.Elements
     public class Cut : BHoMObject
     {
         [Description("Profile Representing shape of cut to be extruded")]
-        public virtual ICurve curve { get; set; } = null;
+        public virtual ICurve Curve { get; set; } = null;
 
         [Description("Thickness of Cut Extrusion")]
-        public virtual double thickness { get; set; } = 0;
+        public virtual double Thickness { get; set; } = 0;
 
         [Description("Object which needs cut")]
-        public virtual BHoMObject cutObject { get; set; } = null;
+        public virtual BHoMObject CutObject { get; set; } = null;
 
     }
 

@@ -14,13 +14,13 @@ namespace BH.oM.Structure.Elements
     public class Weld : BHoMObject
     {
         [Description("Path of Root of Weld")]
-        public virtual ICurve weldPath { get; set; }
+        public virtual ICurve WeldPath { get; set; }
 
         [Description("Object to be Supported")]
-        public virtual BHoMObject objWelded { get; set; } = null;
+        public virtual BHoMObject ObjWelded { get; set; } = null;
 
         [Description("Object to be welded to (supporting member)")]
-        public virtual BHoMObject objWeldedTo { get; set; } = null;
+        public virtual BHoMObject ObjWeldedTo { get; set; } = null;
 
         // WeldContour Enum (none/flush/convex/concave/...)
 
