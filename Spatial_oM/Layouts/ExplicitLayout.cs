@@ -39,7 +39,7 @@ namespace BH.oM.Spatial.Layouts
         /***************************************************/
 
         [Description("The explicit grid of points in the layout")]
-        public ReadOnlyCollection<Point> Points { get; }
+        public virtual ReadOnlyCollection<Point> Points { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

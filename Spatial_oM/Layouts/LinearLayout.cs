@@ -40,14 +40,14 @@ namespace BH.oM.Spatial.Layouts
         /***************************************************/
 
         [Description("Number of points along the axis.")]
-        public int NumberOfPoints { get; set; }
+        public virtual int NumberOfPoints { get; set; }
 
         [Description("Direction of the axis. Vector should lie in the XY-plane, i.e. have a Z-coordinate equal to 0.")]
-        public Vector Direction { get; }
+        public virtual Vector Direction { get; }
 
         [Length]
         [Description("Offset of the linear layout in relation to the reference point, perpendicular to the Direction vector in the XY plane.")]
-        public double Offset { get; }
+        public virtual double Offset { get; }
 
         [Description("Controls which point on the host element that should be used for the layout.")]
         public virtual ReferencePoint ReferencePoint { get; set; }
@@ -56,11 +56,12 @@ namespace BH.oM.Spatial.Layouts
         /**** Constructors                              ****/
         /***************************************************/
 
-        public LinearLayout(int numberOfPoints, Vector direction, double offset)
+        public LinearLayout(int numberOfPoints, Vector direction, double offset, ReferencePoint referencePoint)
         {
             NumberOfPoints = numberOfPoints;
             Direction = direction;
             Offset = offset;
+            ReferencePoint = referencePoint;
         }
 
         /***************************************************/
