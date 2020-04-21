@@ -43,41 +43,13 @@ namespace BH.oM.MEP.Equipment
         [Description("Type denotes the kind of Air Handling Unit (eg heat and ventilation, energy recovery)")]
         public virtual string Type { get; set; } = "";
         
-        [Description("Total Supply Airflow accounts for the total amount of air supplied to the building by the Air Handling Unit")]
-        public virtual double TotalSupplyAirFlow { get; set; } = 0.0;
-        
-        [Description("Total supply external static pressure denotes the resistance within the system that the supply fan has to overcome from filters, grilles, coils, etc")]
-        public virtual double TotalSupplyAirExternalStaticPressure { get; set; } = 0.0;
-        
-        [Description("Total Return Airflow accounts for the total amount of air returned from the building to the Air Handling Unit")]
-        public virtual double TotalReturnAirFlow { get; set; } = 0.0;
-        
-        [Description("Total return external static pressure denotes the resistance within the system that the return fan has to overcome from grilles, ducts, etc")]
-        public virtual double TotalReturnAirExternalStaticPressure { get; set; } = 0.0;
-        
-        [Description("Total Design Outdoor Airflow accounts for the total amount of outdoor air introduced to the supply air that goes to the building from the Air Handling Unit")]
-        public virtual double TotalDesignOutdoorAirFlow { get; set; } = 0.0;
-        
-        [Description("Demand Controlled Ventilation Minimum Outdoor Airflow denotes that amount of outdoor air that is required to be supplied to the building, at a minimum")]
-        public virtual double DemandControlledVentilationMinimumOutdoorAirFlow { get; set; } = 0.0;
-        
-        [Description("Total outdoor air external static pressure denotes the resistance within the system that the outdoor air intake fan has to overcome")]
-        public virtual double TotalOutdoorAirFlowExternalStaticPressure { get; set; } = 0.0;
-        
-        [Description("Total Relief Airflow accounts for the total amount of extract/exhaust air that is removed from the system and introduced to the atmosphere")]
-        public virtual double TotalReliefAirFlow { get; set; } = 0.0;
-        [Description("Total Relief Airflow external static pressure denotes the resistance within the system that the relief/extract/exhaust fan has to overcome")]
-        
-        public virtual double TotalReliefExternalStaticPressure { get; set; } = 0.0;
+        [Description("Total Airflow accounts for the maximum amount of supply/outside air that the Air Handling Unit will be passing. This value is measured in m3/s (e.g. 2.35 m3/s (5000 CFM) of Outside Air)")]
+        public virtual double TotalAirFlow { get; set; } = 0.0;
 
-        
-        [Description("Supply Air Economisers allow additional outdoor air to be introduced to the system when outdoor conditions are favorable (typically cool and dry)")]
-        public virtual bool SupplyAirEconomiser { get; set; } = false;
-        
-        [Description("Water Economisers allow returned fluids to be introduced to the system when conditions are favorable")]
-        public virtual bool WaterEconomiser { get; set; } = false;
+        [Description("Air velocity across coil denotes the maximum velocity of the air that should be passed along the Air Handling Unit's coil. This value is measured in m/s (maximum values around 2.5 m/s (500 ft/min) are considered best practice)")]
+        public virtual double AirVelocityAcrossCoil { get; set; } = 0.0;
 
-        [Description("A collection of the parts (Fans, Coils, Energy Wheel, Filters, Electrical Connectors) that make up the Air Handling Unit")]
+        [Description("A collection of the parts (Air Handling Unit, Fans, Coils, Energy Wheel, Filters, Electrical Connectors) that make up the Air Handling Unit")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
         /***************************************************/
