@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\AbbreviationAttribute.cs" />
-    <Compile Include="Attributes\ToBeDeletedAttribute.cs" />
+    <Compile Include="Attributes\ToBeRemovedAttribute.cs" />
     <Compile Include="Attributes\ReplacedAttribute.cs" />
     <Compile Include="Attributes\DeprecatedAttribute.cs" />
     <Compile Include="Attributes\InputAttribute.cs" />
