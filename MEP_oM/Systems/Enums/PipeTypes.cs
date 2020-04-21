@@ -27,25 +27,26 @@ namespace BH.oM.MEP.Systems
     [Description("The type of pipe (e.g. Sanitary, Storm, Domestic Cold Water)")]
     public enum PipeTypes
     {
-            Storm,
-            Sanitary,
-            Waste,
-            DomesticColdWater,
-            DomesticHotWater,
-            HotWaterRecirculation,
-            Vent,
-            Sprinkler,
+            Undefined,
             ChilledWaterSupply,
             ChilledWaterReturn,
-            HeatingHotWaterSupply,
-            HeatingHotWaterReturn,
+            Condensate,
             CondenserWaterSupply,
             CondenserWaterReturn,
-            Condensate,
-            HeatRecoveryWaterSupply,
-            HeatRecoveryWaterReturn,
+            DomesticColdWater,
+            DomesticHotWater,
+            DomesticHotWaterRecirculation,
             FuelOilSupply,
             FuelOilReturn,
-            Gas
+            Gas,
+            HeatingHotWaterSupply,
+            HeatingHotWaterReturn,
+            HeatRecoveryWaterSupply,
+            HeatRecoveryWaterReturn,
+            Sanitary,
+            Sprinkler,
+            Storm,
+            Vent,
+            Waste
     }
 }
