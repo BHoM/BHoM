@@ -45,6 +45,7 @@
     <Compile Include="Equipment\IEquipment.cs" />
     <Compile Include="Fragments\GeometryFragment.cs" />
     <Compile Include="Fragments\IdentityFragment.cs" />
+    <Compile Include="Parts\AirHandlingUnit.cs" />
     <Compile Include="Parts\CoolingCoil.cs" />
     <Compile Include="Parts\ElectricalConnector.cs" />
     <Compile Include="Parts\EnergyWheel.cs" />
