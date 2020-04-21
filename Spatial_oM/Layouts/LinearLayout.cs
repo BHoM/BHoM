@@ -46,14 +46,17 @@ namespace BH.oM.Spatial.Layouts
         public Vector Direction { get; }
 
         [Length]
-        [Description("Offset of the linear layout in relation to the centroid of the host object. Vector should lie in the XY-plane, i.e. have a Z-coordinate equal to 0.")]
-        public Vector Offset { get; }
+        [Description("Offset of the linear layout in relation to the reference point, perpendicular to the Direction vector in the XY plane.")]
+        public double Offset { get; }
+
+        [Description("Controls which point on the host element that should be used for the layout.")]
+        public virtual ReferencePoint ReferencePoint { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public LinearLayout(int numberOfPoints, Vector direction, Vector offset)
+        public LinearLayout(int numberOfPoints, Vector direction, double offset)
         {
             NumberOfPoints = numberOfPoints;
             Direction = direction;
