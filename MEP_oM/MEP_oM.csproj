@@ -53,10 +53,10 @@
     <Compile Include="Parts\Fan.cs" />
     <Compile Include="Parts\IPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Systems\Enums\PipeTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fixtures\" />
-    <Folder Include="Systems\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
