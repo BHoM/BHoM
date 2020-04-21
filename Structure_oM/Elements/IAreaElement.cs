@@ -23,11 +23,12 @@
 using BH.oM.Structure.SurfaceProperties;
 using BH.oM.Base;
 using System.ComponentModel;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Structure.Elements
 {
     [Description("Base interface for 2D analytical elements such as Panels, FEMeshes and Surfaces to represent, for example, walls and slabs.")]
-    public interface IAreaElement : IBHoMObject
+    public interface IAreaElement : IBHoMObject, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
