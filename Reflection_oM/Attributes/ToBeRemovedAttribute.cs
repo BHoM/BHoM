@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Reflection.Attributes
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum)]
-    public class ToBeDeletedAttribute : Attribute, IImmutable
+    public class ToBeRemovedAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -46,7 +46,7 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ToBeDeletedAttribute(string fromVersion, string description = "")
+        public ToBeRemovedAttribute(string fromVersion, string description = "")
         {
             Description = description;
             FromVersion = fromVersion;
