@@ -25,7 +25,6 @@ namespace BH.oM.Spatial.Layouts
     public enum ReferencePoint
     {
         Centroid,
-        BoundingBoxCentre,
         BottomLeft,
         BottomCenter,
         BottomRight,
