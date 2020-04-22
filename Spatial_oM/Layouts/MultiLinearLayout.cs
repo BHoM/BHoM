@@ -43,8 +43,13 @@ namespace BH.oM.Spatial.Layouts
         [Description("Number of points along the axis.")]
         public virtual int NumberOfPoints { get; set; }
 
-        [Description("Minimum distance between any two points in the layout.")]
-        public virtual double MinimumSpacing { get; set; }
+        [Length]
+        [Description("Minimum distance between any two points in the layout along the axis layers.")]
+        public virtual double ParallellMinimumSpacing { get; set; }
+
+        [Length]
+        [Description("Minimum distance between any two layers.")]
+        public virtual double PerpendicularMinimumSpacing { get; set; }
 
         [Description("Direction of the axis. Vector should lie in the XY-plane, i.e. have a Z-coordinate equal to 0.")]
         public virtual Vector Direction { get; }
@@ -60,10 +65,11 @@ namespace BH.oM.Spatial.Layouts
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MultiLinearLayout(int numberOfPoints, double minimumSpacing, Vector direction, double offset, ReferencePoint referencePoint)
+        public MultiLinearLayout(int numberOfPoints, double parallellMinimumSpacing, double perpendicularMinimumSpacing, Vector direction, double offset, ReferencePoint referencePoint)
         {
             NumberOfPoints = numberOfPoints;
-            MinimumSpacing = minimumSpacing;
+            ParallellMinimumSpacing = parallellMinimumSpacing;
+            PerpendicularMinimumSpacing = perpendicularMinimumSpacing;
             Direction = direction;
             Offset = offset;
             ReferencePoint = referencePoint;
