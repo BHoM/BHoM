@@ -32,7 +32,7 @@ using BH.oM.Base;
 namespace BH.oM.MEP.Parts
 {
     [Description("Air Handling Units are devices which house fans, filter, coils, and energy wheels which produce heated and cooled fresh/partially recirculated air to a building")]
-    public class AirHandlingUnit : BHoMObject, IPart
+    public class AirHandlingUnitBase : BHoMObject, IPart
     {
         /***************************************************/
         /**** Properties                                ****/
