@@ -46,7 +46,7 @@
     <Compile Include="Layouts\ILayout2D.cs" />
     <Compile Include="Layouts\LinearLayout.cs" />
     <Compile Include="Layouts\MultiLinearLayout.cs" />
-    <Compile Include="Layouts\PerimiterLayout.cs" />
+    <Compile Include="Layouts\PerimeterLayout.cs" />
     <Compile Include="Layouts\Enums\ReferencePoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
