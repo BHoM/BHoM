@@ -30,14 +30,14 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Reflection.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Property)]
-    public class OldVersionAttribute : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Constructor)]
+    public class PreviousVersionAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string OldVersionAsText { get; private set; } = "";
+        public virtual string PreviousVersionAsText { get; private set; } = "";
 
         public virtual string FromVersion { get; private set; } = "1.0.0.0";
 
@@ -46,10 +46,10 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public OldVersionAttribute(string fromVersion, string oldVersionAsText = "")
+        public PreviousVersionAttribute(string fromVersion, string oldVersionAsText = "")
         {
             FromVersion = fromVersion;
-            OldVersionAsText = oldVersionAsText;
+            PreviousVersionAsText = oldVersionAsText;
         }
 
 
