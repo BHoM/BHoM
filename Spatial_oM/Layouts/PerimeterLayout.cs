@@ -27,7 +27,7 @@ using BH.oM.Base;
 namespace BH.oM.Spatial.Layouts
 {
     [Description("Linear distribution of points along the perimiter of the host object.")]
-    public class PerimiterLayout : BHoMObject, ILayout2D
+    public class PerimeterLayout : BHoMObject, ILayout2D
     {
         /***************************************************/
         /**** Properties                                ****/
