@@ -32,7 +32,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.Layouts
 {
-    [Description("Linear distribution of points along a vector from one side of the perimiter of the host object to the other.")]
+    [Description("Linear distribution of points along a vector from one side of the perimeter of the host object to the other.")]
     public class LinearLayout : BHoMObject, ILayout2D, IImmutable
     {
         /***************************************************/
