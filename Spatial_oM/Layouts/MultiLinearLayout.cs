@@ -55,7 +55,8 @@ namespace BH.oM.Spatial.Layouts
         public virtual Vector Direction { get; }
 
         [Length]
-        [Description("Offset of the linear layout in relation to the reference point, perpendicular to the Direction vector in the XY plane.")]
+        [Description("Offset of the linear layout in relation to the reference point, perpendicular to the Direction vector in the XY plane.\n" + 
+                     "A positive value will mean an offset towards the centre of the boundingbox of the host objects.")]
         public virtual double Offset { get; }
 
         [Description("Controls which point on the host element that should be used for the layout.")]
