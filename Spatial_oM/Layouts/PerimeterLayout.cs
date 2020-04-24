@@ -26,14 +26,14 @@ using BH.oM.Base;
 
 namespace BH.oM.Spatial.Layouts
 {
-    [Description("Linear distribution of points along the perimiter of the host object.")]
+    [Description("Linear distribution of points along the perimeter of the host object.")]
     public class PerimeterLayout : BHoMObject, ILayout2D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Number of points along the perimiter of the host object")]
+        [Description("Number of points along the perimeter of the host object")]
         public virtual int NumberOfPoints { get; set; }
 
         [Description("True means that the discontinuity points of the hostobject curve always should be included in point extraction from the layout.")]
