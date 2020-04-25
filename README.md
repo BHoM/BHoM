@@ -13,7 +13,7 @@ The objects themselves are designed to be very simple, and therefore flexible an
 
 The core BHoM contains objects from wide ranging domains across the desciplines of engineering, architecture, our environment and the physical world, as well as defining concepts within programming, machine learning, mathematics, geometry and planning.
 
-Along with the rest of the core repositories - [BHoM_Engine](https://github.com/BHoM/BHoM_Engine), [BHoM_Adapter](https://github.com/BHoM/BHoM_Adapter) and [BHoM_UI](https://github.com/BHoM/BHoM_UI) – these all form the basis on which all the BHoM Toolkits are built.
+Along with the rest of the core repositories - [BHoM_Engine](https://github.com/BHoM/BHoM_Engine), [BHoM_Adapter](https://github.com/BHoM/BHoM_Adapter) and [BHoM_UI](https://github.com/BHoM/BHoM_UI) – this is the basis on which all of the BHoM Toolkits are built.
 
 ## Quick Start 🚀 
 
