@@ -3,12 +3,12 @@
 
 The development of the Buildings and Habitats object Model is led by a number of core maintainers within the BHoM Organisation. These individuals and their focuses are listed below.
 
-Contributions are very welcome and warmly encouraged either from outside of the organisation, as a collaborator added to individual repositories or alternatively from any individual's created forks.
+Contributions are very welcome and warmly encouraged either from outside of the organisation, as a collaborator added to individual repositories or alternatively from any individual's created branches or forks.
 
 The current core maintainers are listed below, however we are actively interested in other members joining to expand and support further at every level. If interested please get in touch. You can do this through contacting individual maintainers or emailing hello@bhom.xyz or simply raising issues or submitting code. 
 
 
-If you should have any queries around best practices in contributing or commenting on code, issues, PRs etc. please see our Code of Conduct document [here](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT.md).
+If you should have any queries around best practices in contributing or commenting on code, issues, PRs etc. please see our [Code of Conduct document here](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT.md).
 
 ## Organisation Maintainers 
 
@@ -45,7 +45,7 @@ In particular, for granular breakdown for the Core Repositories see direct links
 * Structure oM/Engine  &nbsp;  @IsakNaslundBh  
 * Environment oM/Engine  &nbsp;  @FraserGreenroyd
 * Geometery & BIM &nbsp;  @pawelbaran 
-* Data & Machine Learning &nbsp; @epignatelli  
+* Data oM & Machine Learning &nbsp; @epignatelli  
 * BHoM_Adapter & Interoperability &nbsp; @alelom
 * Structural_Adapters  &nbsp;  @IsakNaslundBh  
 * Environmental_Adapters  &nbsp;  @FraserGreenroyd   
@@ -54,9 +54,9 @@ In particular, for granular breakdown for the Core Repositories see direct links
 
 ## Decision making 
 
-The Buildings and Habitats object Model operates on a fully open and community led governance model. We benefit from a hugely rich diversity of inputs, with individuals with deep domain knowledge both contributing know-how, as well as responsible for maintainance and leading areas of development.
+The Buildings and Habitats object Model operates on a fully open and community led governance model. We benefit from a hugely rich diversity of inputs, from individuals with deep domain knowledge contributing both their know-how, as well as responsible for maintainance and leading areas of development.
 
-We believe the widest possible active community is essential. Thus all decision making is carried out collectively, with agreement reached through discussion and consensus. This includes all planning, technical objectives and code reviews.
+We believe in the widest possible active community. Thus all decision making is carried out collectively, with agreement reached through discussion and consensus. This includes all planning, technical objective setting and code reviews.
 
 In the unlikely and rare event that consensus is not reached on any thread - deadlock is broken and a decision is made by voting across the group of maintainers. Tie-breaking may be provided by organisation maintainers only when needed.
 
