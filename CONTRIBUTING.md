@@ -1,6 +1,6 @@
 # Contributing to the BHoM
 
-Geat to see you here! :smile: There are a number of ways to contribute and get involved in the Buildings and Habitats object Model. Please do take a read and reach out if curious to join in with our collective experiment. [hello@bhom.xyz](mailto:hello@bhom.xyz)  
+Great to see you here! :smile: There are a number of ways to contribute and get involved in the Buildings and Habitats object Model. Please do take a read and reach out if curious to join in with our collective experiment. [hello@bhom.xyz](mailto:hello@bhom.xyz)  
 Check out our [wiki](https://github.com/BHoM/documentation/wiki) too for more info about the BHoM and how it works.
 
 Do also take a look at our [code of conduct](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT.md) (_we also have one for [bots too](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT_FOR_BOTS.md) if that is you?_ :+1: :robot:)
@@ -32,7 +32,7 @@ Do also take a look at our [code of conduct](https://github.com/BHoM/BHoM/blob/m
 - Suggest a new Toolkit
 
   Use an application that does not already have a BHoM Adapter? 
-  Reach out on [https://bhom.slack.com/](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) and let us and others know what you'd like to see. 
+  Reach out on [https://bhom.slack.com/](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) and let us and others know what you'd like to see. :raising_hand:
 
 - Building a new BHoM Toolkit yourself?
 
