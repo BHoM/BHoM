@@ -1,68 +1,50 @@
 # Contributing to the BHoM
 
-Geat to see you here! :smile: There are a number of ways to contribute and get involved. Please take a read and do reach out if curious to join in with our experiment. [hello@bhom.xyz](mailto:hello@bhom.xyz)  
+Geat to see you here! :smile: There are a number of ways to contribute and get involved in the Buildings and Habitats object Model. Please do take a read and reach out if curious to join in with our collective experiment. [hello@bhom.xyz](mailto:hello@bhom.xyz)  
 Check out our [wiki](https://github.com/BHoM/documentation/wiki) too for more info about the BHoM and how it works.
+
+Do also take a look at our [code of conduct](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT.md) (_we also have one for [bots too](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT_FOR_BOTS.md) if that is you?_ :+1: :robot:)
 
 
 ## Get stuck in
 
 - Submit an issue
 
-  Found a bug? Have an idea for a feature? Why not [submit an issue](https://github.com/BHoM/documentation/wiki/Submitting-an-Issue)?
+  Found a bug? :bug: Have an idea for a feature? :brain: Why not [submit an issue](https://github.com/BHoM/documentation/wiki/Submitting-an-Issue)?
 
 - Contribute code
 
-  Got an idea? Know how to fix an open issue?   :fork_and_knife: Fork away and feel free to raise a Pull Request to start a conversation!
+  Want to hack? :computer: Know how to fix an open issue? Branch :palm_tree: or Fork :fork_and_knife: away and feel free to raise a Pull Request to start a conversation. [See resolving an issue](https://github.com/BHoM/documentation/wiki/Resolving-an-Issue)!
 
 
 
 ## Other ways to contribute
 
-- Just get involved
+- Just get involved in the community 
 
-  Even if you do not have code to contribute, a feature to request or an issue
-  to report you can still get involved. Join the discussion on existing issues
-  and pull requests. Visit our [Slack](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) or send us an [email](mailto:hello@bhom.xyz) to give us feedback or tell us what you use the BHoM for.
-
-
-- Help with an issue
-
-  Don't have an issue to submit? Experiencing an issue that has already been
-  submitted? Still want to help but feel unable to solve it yourself? Join the
-  discussion on an issue to help us investigate it.
-
+  Even if you do not have code to contribute you can still get involved. Join the discussion on existing issues and pull requests. Also do feel free to ask a question or join a chat on [BHoM Slack](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) :loudspeaker:.
 
 - Contribute documentation
 
-  Know some details that are not documented? Think that the documentation that
-  is there is lacking detail? Got an example or tutorial you would like to
-  share? Feel free to [submit an issue](https://github.com/BHoM/documentation/wiki/Submitting-an-Issue) and submit pull
-  requests related to documentation too. If you've
-  published some samples or tutorials somewhere else online, [let us
-  know](mailto:hello@bhom.xyz).
+  Know some details that are not documented? Think that the documentation that is there is lacking detail? Got an example or tutorial you would like to share? :mortar_board: Feel free to [submit a documentation issue](https://github.com/BHoM/documentation/wiki/Submitting-an-Issue) and submit pull requests related to documentation too. If you've published some samples or tutorials somewhere else online, let us know! 
 
-- Contribute translations
-
-  Speak languages other than English? Great! The BHoM need translators for both
-  our documentation and localisation of our UIs so get involved and help us
-  make the BHoM global.
 
 - Suggest a new Toolkit
 
-  Use an application that does not already have a BHoM Adapter? [Contact us](mailto:hello@bhom.xyz) 
-  and let us know what you'd like to see. Alternatively write one yourself,
-  we'd love to hear from you if you do as we may wish to help you maintain it.
+  Use an application that does not already have a BHoM Adapter? 
+  Reach out on [https://bhom.slack.com/](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) and let us and others know what you'd like to see. 
 
-### Get even more involved
+- Building a new BHoM Toolkit yourself?
 
-As a free software project anybody can contribute to the BHoM or create their
-own derivatives but if simply contributing is not enough for you and you would
-like to be more involved still then there are even more options for you. The
-BHoM is primarily developed and maintained by Core Contributors, a curated
-group of contributors who form the [BHoM organisation] open to anyone willing
-and able as detailed in our governance document. Core Contributors
-collaborate to plan and execute the roadmap for the higher level direction of
-the BHoM. If you are interested in becoming a Core Contributor please [Contact us](mailto:hello@bhom.xyz). We will be excited to hear from you!
+    We'd love to hear from you as we may wish to help you maintain it. :construction:
+
+## Get even more involved
+
+As a free software project anybody can contribute to the BHoM or create their own derivatives. The roadmaps and development objectives for the core BHoM is primarily maintained by a group of Core Maintainers who form the [BHoM Governance Organisation](https://github.com/BHoM/BHoM/blob/master/docs/GOVERNANCE.md). This group is open to anyone willing and able, with contributions warmly encouraged as detailed in our governance document. 
+
+If you might be interested in becoming listed as a Core Maintainer please [contact us at hello@bhom.xyz](mailto:hello@bhom.xyz)
+
+We will be excited to hear from you!
 
 
 
