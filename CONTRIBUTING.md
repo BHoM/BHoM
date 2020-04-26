@@ -22,7 +22,7 @@ Do also take a look at our [code of conduct](https://github.com/BHoM/BHoM/blob/m
 
 - Just get involved in the community 
 
-  Even if you do not have code to contribute you can still get involved. Join the discussion on existing issues and pull requests. Also do feel free to ask a question or join a chat on [BHoM Slack](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) :loudspeaker:.
+  Even if you do not have code to contribute you can still get involved. Join the discussion on existing issues and pull requests. Also do feel free to ask a question or join a chat on [BHoM Slack](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) :mega:
 
 - Contribute documentation
 
