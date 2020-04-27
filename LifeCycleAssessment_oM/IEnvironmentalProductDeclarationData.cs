@@ -21,20 +21,22 @@
  */
 
 using System.Collections.Generic;
+using BH.oM.Environment.MaterialFragments;
 using BH.oM.Base;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    public interface IEnvironmentalProductDeclarationData : IBHoMObject
+    public interface IEnvironmentalProductDeclarationData : IBHoMObject, IEnvironmentMaterial, IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         QuantityType QuantityType { get; set; }
+        //List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; } = new List<LifeCycleAssessmentPhases>(); <-- WIP Collect all LCA Phases from data
         string Id { get; set; }
-        double Density { get; set; }
-        string Description { get; set; }
-        string Scope { get; set; }
+        //double Density { get; set; } <-- Removed as property is now inherited from IEnvironmentMaterial
+        //string Description { get; set; } <-- Removed as property is now inherited from IEnvironmentMaterial
+        //string Scope { get; set; } <-- Replaced by LifeCycleAssessmentPhases enum
         double GlobalWarmingPotential { get; set; }
         double BiogenicEmbodiedCarbon { get; set; }
         double OzoneDepletionPotential { get; set; }
