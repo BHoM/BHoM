@@ -32,6 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Environment_oM, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Environment_oM.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Physical_oM, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Build\Physical_oM.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,7 +58,7 @@
     <Compile Include="Enums\ProjectArea.cs" />
     <Compile Include="Enums\QuantityType.cs" />
     <Compile Include="Enums\ProjectType.cs" />
-    <Compile Include="EnvironmentalProductDeclarationField.cs" />
+    <Compile Include="Enums\EnvironmentalProductDeclarationField.cs" />
     <Compile Include="ScopeObjects\EnclosuresCurtainWalls.cs" />
     <Compile Include="ScopeObjects\EnclosuresDoors.cs" />
     <Compile Include="ScopeObjects\EnclosuresScope.cs" />
