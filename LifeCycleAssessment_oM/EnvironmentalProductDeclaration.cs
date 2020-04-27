@@ -21,7 +21,6 @@
  */
 
 using System.Collections.Generic;
-using BH.oM.Environment.MaterialFragments;
 using BH.oM.Base;
 
 namespace BH.oM.LifeCycleAssessment
@@ -57,11 +56,6 @@ namespace BH.oM.LifeCycleAssessment
         public virtual string Masterformat { get; set; } = "";
         public virtual string PostConsumerRecycledContent { get; set; } = "";
         public virtual int ReferenceYear { get; set; } = 0;
-        public double Conductivity { get; set; } = 0;
-        public double SpecificHeat { get; set; } = 0;
-        public double VapourResistivity { get; set; } = 0;
-        public Roughness Roughness { get; set; } = 0;
-        public double Refraction { get; set; } = 0;
         /***************************************************/
     }
 }

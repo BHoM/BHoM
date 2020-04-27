@@ -21,7 +21,6 @@
  */
 
 using System.Collections.Generic;
-using BH.oM.Environment.MaterialFragments;
 using BH.oM.Base;
 
 namespace BH.oM.LifeCycleAssessment
@@ -53,11 +52,6 @@ namespace BH.oM.LifeCycleAssessment
         public virtual double EutrophicationPotentialEndOfLife { get; set; } = double.NaN;
         public virtual double DepletionOfAbioticResourcesFossilFuelsEndOfLife { get; set; } = double.NaN;
         public virtual string EndOfLifeTreatment { get; set; } = "";
-        public double Conductivity { get; set; } = 0;
-        public double SpecificHeat { get; set; } = 0;
-        public double VapourResistivity { get; set; } = 0;
-        public Roughness Roughness { get; set; } = 0;
-        public double Refraction { get; set; } = 0;
         /***************************************************/
     }
 }
