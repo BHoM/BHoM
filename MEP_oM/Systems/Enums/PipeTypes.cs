@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,24 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Structure.SurfaceProperties;
-using BH.oM.Base;
 using System.ComponentModel;
-using BH.oM.Dimensional;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.MEP.Systems
 {
-    [Description("Base interface for 2D analytical elements such as Panels, FEMeshes and Surfaces to represent, for example, walls and slabs.")]
-    public interface IAreaElement : IBHoMObject, IElementM
+    [Description("The type of pipe (e.g. Sanitary, Storm, Domestic Cold Water)")]
+    public enum PipeTypes
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Defines the thickness property and material of the Element.")]
-        ISurfaceProperty Property { get; set; }
-
-        /***************************************************/
+            Undefined,
+            ChilledWaterSupply,
+            ChilledWaterReturn,
+            Condensate,
+            CondenserWaterSupply,
+            CondenserWaterReturn,
+            DomesticColdWater,
+            DomesticHotWater,
+            DomesticHotWaterRecirculation,
+            FuelOilSupply,
+            FuelOilReturn,
+            Gas,
+            HeatingHotWaterSupply,
+            HeatingHotWaterReturn,
+            HeatRecoveryWaterSupply,
+            HeatRecoveryWaterReturn,
+            Sanitary,
+            Sprinkler,
+            Storm,
+            Vent,
+            Waste
     }
 }
-

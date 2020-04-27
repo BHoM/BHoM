@@ -20,40 +20,41 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-
-using BH.oM.Environment.Fragments;
-using BH.oM.Analytical.Elements;
-using BH.oM.Physical.Constructions;
-using System.ComponentModel;
-
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Reflection.Attributes
 {
-    [Description("An environmental object used to define planar surfaces of a space (e.g. Wall, Floor, Roof)")]
-    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D, IElementM
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
+    public class PreviousVersionAttribute : Attribute, IImmutable
     {
-        [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
-        public virtual List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
-        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
+        public virtual string PreviousVersionAsText { get; private set; } = "";
 
-        [Description("A construction object providing layer and material information for the panel")]
-        public virtual IConstruction Construction { get; set; } = new Construction();
+        public virtual string FromVersion { get; private set; } = "1.0.0.0";
 
-        [Description("The type of environmental surface (e.g. Wall, Floor, Roof). Use PanelType enum)")]
-        public virtual PanelType Type { get; set; } = PanelType.Undefined;
 
-        [Description("This is a list of space names for which the panel belongs to. For example, the same panel can be a ceiling for Room A while also being a floor for Room B")]
-        public virtual List<string> ConnectedSpaces { get; set; } = new List<string>();
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public PreviousVersionAttribute(string fromVersion, string oldVersionAsText = "")
+        {
+            FromVersion = fromVersion;
+            PreviousVersionAsText = oldVersionAsText;
+        }
+
+
+
+        /***************************************************/
     }
 }
 
