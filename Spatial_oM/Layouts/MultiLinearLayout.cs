@@ -45,7 +45,7 @@ namespace BH.oM.Spatial.Layouts
 
         [Length]
         [Description("Minimum distance between any two points in the layout along the axis layers.")]
-        public virtual double ParallellMinimumSpacing { get; set; }
+        public virtual double ParallelMinimumSpacing { get; set; }
 
         [Length]
         [Description("Minimum distance between any two layers.")]
@@ -66,10 +66,10 @@ namespace BH.oM.Spatial.Layouts
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MultiLinearLayout(int numberOfPoints, double parallellMinimumSpacing, double perpendicularMinimumSpacing, Vector direction, double offset, ReferencePoint referencePoint)
+        public MultiLinearLayout(int numberOfPoints, double parallelMinimumSpacing, double perpendicularMinimumSpacing, Vector direction, double offset, ReferencePoint referencePoint)
         {
             NumberOfPoints = numberOfPoints;
-            ParallellMinimumSpacing = parallellMinimumSpacing;
+            ParallelMinimumSpacing = parallelMinimumSpacing;
             PerpendicularMinimumSpacing = perpendicularMinimumSpacing;
             Direction = direction;
             Offset = offset;
