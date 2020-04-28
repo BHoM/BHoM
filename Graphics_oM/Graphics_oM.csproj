@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Colors\Gradient.cs" />
+    <Compile Include="Render\RenderMeshOptions.cs" />
     <Compile Include="Render\RenderMesh.cs" />
     <Compile Include="Render\Vertex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
