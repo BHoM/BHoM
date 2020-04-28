@@ -32,8 +32,7 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         QuantityType QuantityType { get; set; }
-
-        //List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; } = new List<LifeCycleAssessmentPhases>(); <-- WIP Collect all LCA Phases from data
+        List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; }
         string Id { get; set; }
         double Density { get; set; }
         string Description { get; set; }

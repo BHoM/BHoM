@@ -31,6 +31,7 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         public virtual QuantityType QuantityType { get; set; } = QuantityType.Undefined;
+        public virtual List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; }
         public virtual string Manufacturer { get; set; } = "";
         public virtual string Plant { get; set; } = "";
         public virtual int PostalCode { get; set; } = 0;

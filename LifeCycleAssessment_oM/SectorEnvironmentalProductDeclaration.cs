@@ -32,6 +32,7 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         
         public virtual QuantityType QuantityType { get; set; } = QuantityType.Undefined;
+        public virtual List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; }
         public virtual List<string> Publisher { get; set; } = new List<string>();
         public virtual List<string> Jurisdiction { get; set; } = new List<string>();
         public virtual string Id { get; set; } = "";
