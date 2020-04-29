@@ -50,9 +50,22 @@ namespace BH.oM.AECDeltas
         public string Sender { get; }
         public string Comment { get; }
 
+
         /***************************************************/
         /**** Constructor                               ****/
         /***************************************************/
+
+        public DeltaPayload(Guid streamId, Dictionary<string, object> diff, string revision_from, string revision_to, long timestamp, string signature, string sender, string comment)
+        {
+            StreamId = streamId;
+            Diff = diff;
+            Revision_from = revision_from;
+            Revision_to = revision_to;
+            Timestamp = timestamp;
+            Signature = signature;
+            Sender = sender;
+            Comment = comment;
+        }
 
         public DeltaPayload(Delta delta)
         {
