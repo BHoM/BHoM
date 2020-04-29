@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="Physical_oM">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Build\Physical_oM.dll</HintPath>
+      <HintPath>..BHoM\Build\Physical_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
