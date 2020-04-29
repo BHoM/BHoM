@@ -50,12 +50,12 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ReplacedAttribute(string fromVersion, string description = "", Type newType = null, string newMethod = "")
+        public ReplacedAttribute(string fromVersion, string description = "", Type replacingType = null, string replacingMethod = "")
         {
             Description = description;
             FromVersion = fromVersion;
-            ReplacingType = newType;
-            ReplacingMethod = newMethod;
+            ReplacingType = replacingType;
+            ReplacingMethod = replacingMethod;
         }
 
 
