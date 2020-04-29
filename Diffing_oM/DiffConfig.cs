@@ -47,7 +47,8 @@ namespace BH.oM.Diffing
         public bool EnablePropertyDiffing { get; set; } = true;
 
         [Description("If enabled, the Diff stores also the objects that did not change (`Unchanged` property).")]
-        public bool StoreUnchangedObjects { get; set; } = false;
+        public bool StoreUnchangedObjects { get; set; } = true;
+
         [Description("If EnablePropertyDiffing is true, this sets the maximum number of differences to be determine before stopping.\n"
             + "Useful to shorten the run time")]
         public int MaxPropertyDifferences { get; set; } = 1000;
