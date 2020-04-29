@@ -32,11 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Physical_oM">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..BHoM\Build\Physical_oM.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -104,6 +99,10 @@
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
+      <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>
+      <Name>Physical_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
