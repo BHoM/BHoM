@@ -26,6 +26,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
 using System.ComponentModel;
 
@@ -38,6 +39,7 @@ namespace BH.oM.MEP
         [Description("The prescribed hazard type of the space/building (e.g. light, ordinary or extra")]
         public virtual string OccupancyHazardType { get; set; } = "";
 
+        [Area]
         [Description("The amount of area that a sprinkler head is able to cover in the space or building, this value should be represented as m2 per sprinkler head")]
         public virtual double SprinklerCoverage { get; set; } = 0.0;
 
