@@ -19,12 +19,11 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.SectionProperties.Reinforcement
 {
-    /// <summary>
-    /// Perimeter Reinforcement is aimed at columns and is only valid on rectangular and circular sections
-    /// </summary>
+    [ToBeRemoved("3.2", "Complete refactoring of reinforcement is being done, outside current possible scope of versioning. Old reinfrcement classes will be removed.")]
     public class PerimeterReinforcement : Reinforcement
     {
         /***************************************************/
