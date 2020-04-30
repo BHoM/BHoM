@@ -39,8 +39,8 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("List of Reinforcement of the concrete section.")]
-        public virtual List<Reinforcement.Reinforcement> Reinforcement { get; set; }
+        [Description("List of LongitudinalReinforcement of the concrete section.")]
+        public virtual List<Reinforcement.LongitudinalReinforcement> LongitudinalReinforcement { get; set; }
 
         [Length]
         [Description("Minimum reinforcement cover of the section.")]
