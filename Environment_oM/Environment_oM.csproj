@@ -61,6 +61,7 @@
     <Compile Include="Gains\Acoustics.cs" />
     <Compile Include="Gains\Emitter.cs" />
     <Compile Include="Gains\Enums\EmitterType.cs" />
+    <Compile Include="Gains\Enums\ProfileDay.cs" />
     <Compile Include="Gains\Enums\ProfileCategory.cs" />
     <Compile Include="Gains\Enums\ProfileType.cs" />
     <Compile Include="Gains\Enums\SimulationDayType.cs" />
