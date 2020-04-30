@@ -22,16 +22,17 @@
 
 namespace BH.oM.Environment.Gains
 {
-    public enum ProfileType
+    public enum ProfileDay
     {
         Undefined,
-        EquipmentGain,
-        Humidistat,
-        Infiltration,
-        LightingGain,
-        PeopleGain,
-        Thermostat,
-        Ventilation
+        Holiday,
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
     }
 }
 
