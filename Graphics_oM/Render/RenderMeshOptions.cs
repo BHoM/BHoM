@@ -35,16 +35,16 @@ namespace BH.oM.Graphics
         /***************************************************/
 
         [Description("If true, 0D elements are detailed. E.g. Points are represented by spheres; Node representation includes the support condition (e.g. pyramid with sphere on top for a Pin).")]
-        public bool Detailed0DElements { get; set; } = true;
+        public virtual bool Detailed0DElements { get; set; } = true;
 
         [Description("Scale the Element0D representation.")]
-        public double Element0DScale { get; set; } = 1;
+        public virtual double Element0DScale { get; set; } = 1;
 
         [Description("If true, 1D elements are detailed. E.g. the bars are extruded using their Section property.")]
-        public bool Detailed1DElements { get; set; } = false;
+        public virtual bool Detailed1DElements { get; set; } = false;
 
         [Description("If true, 2D elements are detailed. E.g. panels are represented as boxes with their thickness.")]
-        public bool Detailed2DElements { get; set; } = false;
+        public virtual bool Detailed2DElements { get; set; } = false;
 
         [Description("Insert the key of the BHoMObjects' CustomData dictionary that contains the color information.")]
         public string CustomDataColorKey { get; set; } = "Colour";
