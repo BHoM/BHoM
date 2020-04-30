@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -19,49 +19,25 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
-using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Reflection.Attributes
+using BH.oM.Base;
+
+namespace BH.oM.Architecture.Elements
 {
-    [ToBeRemoved("3.2", "Use ReplacedAttribute or ToBeDeletedAttribute instead")]
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum)]
-    public class DeprecatedAttribute : Attribute, IImmutable
+    public class Occupancy : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public virtual string Description { get; private set; } = "";
-
-        public virtual string FromVersion { get; private set; } = "1.0.0.0";
-
-        public virtual Type ReplacingType { get; private set; } = null;
-
-        public virtual string ReplacingMethod { get; private set; } = "";
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public DeprecatedAttribute(string fromVersion, string description = "", Type replacingType = null, string replacingMethod = "")
-        {
-            Description = description;
-            FromVersion = fromVersion;
-            ReplacingType = replacingType;
-            ReplacingMethod = replacingMethod;
-        }
-
-
+        [Description("The area per person is representative of the square meters each person occupies within the building or space.")]
+        public virtual double AreaPerPerson { get; set; } = 0.0;
 
         /***************************************************/
     }
 }
-

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,46 +21,12 @@
  */
 
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Spatial.Layouts
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum)]
-    public class ReplacedAttribute : Attribute, IImmutable
+    [Description("Base interface for all 2D layouts")]
+    public interface ILayout2D : IBHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual string Description { get; private set; } = "";
-
-        public virtual string FromVersion { get; private set; } = "1.0.0.0";
-
-        public virtual Type ReplacingType { get; private set; } = null;
-
-        public virtual string ReplacingMethod { get; private set; } = "";
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public ReplacedAttribute(string fromVersion, string description = "", Type replacingType = null, string replacingMethod = "")
-        {
-            Description = description;
-            FromVersion = fromVersion;
-            ReplacingType = replacingType;
-            ReplacingMethod = replacingMethod;
-        }
-
-
-
-        /***************************************************/
     }
 }
-

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,73 +20,51 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using BH.oM.Reflection.Attributes;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Diffing;
 
-namespace BH.oM.AECDeltas
+using System.ComponentModel;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using BH.oM.Base;
+using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
+
+
+namespace BH.oM.Spatial.Layouts
 {
-    [Description("Class defined as per AECDeltas specification https://github.com/aecdeltas/aec-deltas-spec/wiki/Delta-Container-Specification#payload")]
-    public class DeltaPayload : IObject, IImmutable
+    [Description("Linear distribution of points along a vector from one side of the perimeter of the host object to the other.")]
+    public class LinearLayout : BHoMObject, ILayout2D, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public Guid StreamId { get; }
 
-        public Dictionary<string, object> Diff { get; }
+        [Description("Number of points along the axis.")]
+        public virtual int NumberOfPoints { get; set; }
 
-        public string Revision_from { get; }
-        public string Revision_to { get; }
+        [Description("Direction of the axis. Vector should lie in the XY-plane, i.e. have a Z-coordinate equal to 0.")]
+        public virtual Vector Direction { get; }
 
-        public long Timestamp { get; }
-        public string Signature { get; }
-        public string Sender { get; }
-        public string Comment { get; }
+        [Length]
+        [Description("Offset of the linear layout in relation to the reference point, perpendicular to the Direction vector in the XY plane.\n" +
+                     "A positive value will mean an offset towards the centre of the boundingbox of the host objects.")]
+        public virtual double Offset { get; }
 
+        [Description("Controls which point on the host element that should be used for the layout.")]
+        public virtual ReferencePoint ReferencePoint { get; set; }
 
         /***************************************************/
-        /**** Constructor                               ****/
+        /**** Constructors                              ****/
         /***************************************************/
 
-        public DeltaPayload(Guid streamId, Dictionary<string, object> diff, string revision_from, string revision_to, long timestamp, string signature, string sender, string comment)
+        public LinearLayout(int numberOfPoints, Vector direction, double offset, ReferencePoint referencePoint)
         {
-            StreamId = streamId;
-            Diff = diff;
-            Revision_from = revision_from;
-            Revision_to = revision_to;
-            Timestamp = timestamp;
-            Signature = signature;
-            Sender = sender;
-            Comment = comment;
-        }
-
-        public DeltaPayload(Delta delta)
-        {
-            Diff = new Dictionary<string, object>()
-            {
-                { "toBeCreated" , delta.Diff.AddedObjects },
-                { "toBeDeleted" , delta.Diff.RemovedObjects },
-                { "toBeUpdated" , delta.Diff.ModifiedObjects },
-            };
-
-            StreamId = delta.StreamId;
-            Revision_from = delta.Revision_from.ToString();
-            Revision_to = delta.Revision_to.ToString();
-
-            Comment = delta.Comment;
-
-            Timestamp = delta.Timestamp;
-            Signature = delta.Author;
+            NumberOfPoints = numberOfPoints;
+            Direction = direction;
+            Offset = offset;
+            ReferencePoint = referencePoint;
         }
 
         /***************************************************/
     }
 }
-
