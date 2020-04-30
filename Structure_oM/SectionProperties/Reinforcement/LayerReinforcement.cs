@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Reflection.Attributes;
+
 namespace BH.oM.Structure.SectionProperties.Reinforcement
 {
+    [ToBeRemoved("3.2", "Complete refactoring of reinforcement is being done, outside current possible scope of versioning. Old reinfrcement classes will be removed.")]
     public class LayerReinforcement : Reinforcement
     {
         /***************************************************/
