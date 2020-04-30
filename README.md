@@ -11,7 +11,7 @@ This particular repo contains all of the core _object Model_ (oM) definitions. O
 
 The objects themselves are designed to be very simple, and therefore flexible and customisable. Comprising of nothing more than a list of defining properties. See [defining objects in the oM](https://github.com/BHoM/documentation/wiki/BH.oM-%E2%80%90-Define-New-Objects) for more details.
 
-The core BHoM contains objects from wide ranging domains across the desciplines of engineering, architecture, our environment and the physical world, as well as defining concepts within programming, machine learning, mathematics, geometry and planning.
+The core BHoM contains objects from wide ranging domains across the desciplines of engineering, architecture, our environment and the physical world, as well as defining concepts within programming, machine learning, mathematics, geometry and planning to name a few.
 
 Along with the rest of the core repositories - [BHoM_Engine](https://github.com/BHoM/BHoM_Engine), [BHoM_Adapter](https://github.com/BHoM/BHoM_Adapter) and [BHoM_UI](https://github.com/BHoM/BHoM_UI) – this is the basis on which all of the BHoM Toolkits are built.
 
