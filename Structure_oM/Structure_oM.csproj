@@ -114,6 +114,8 @@
     <Compile Include="Constraints\Enums\DOFType.cs" />
     <Compile Include="SectionProperties\GenericSection.cs" />
     <Compile Include="SectionProperties\IGeometricalSection.cs" />
+    <Compile Include="SectionProperties\Reinforcement\IBarReinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\LongitudinalReinforcement.cs" />
     <Compile Include="SectionProperties\TimberSection.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />
     <Compile Include="SurfaceProperties\Enums\PanelDirection.cs" />
@@ -208,6 +210,10 @@
       <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
       <Name>Reflection_oM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Spatial_oM\Spatial_oM.csproj">
+      <Project>{789eaf6c-d68f-4770-b01b-c07bbf3d2188}</Project>
+      <Name>Spatial_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
