@@ -54,7 +54,7 @@ In particular, for granular breakdown for the Core Repositories see direct links
 
 ## Decision making 
 
-The Buildings and Habitats object Model operates on a fully open and community led governance model. We benefit from a hugely rich diversity of inputs, from individuals with deep domain knowledge contributing both their know-how, as well as responsible for maintainance and leading areas of development.
+The Buildings and Habitats object Model operates on a fully open and community led governance model. We benefit from a hugely rich diversity of contributions, with individuals sharing deep domain know-how, as well as taking responsibility for maintainance and leading areas of development.
 
 We believe in the widest possible active community. Thus all decision making is carried out collectively, with agreement reached through discussion and consensus. This includes all planning, technical objective setting and code reviews.
 
