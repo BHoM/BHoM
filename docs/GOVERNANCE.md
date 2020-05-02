@@ -1,7 +1,6 @@
 # BHoM Governance 
 
-
-The development of the Buildings and Habitats object Model is led by a number of core maintainers within the BHoM Organisation. These individuals and their focuses are listed below.
+The development of the Buildings and Habitats object Model (the BHoM) is led by a number of core maintainers within the BHoM Organisation. These individuals and their focuses are listed below.
 
 Contributions are very welcome and warmly encouraged either from outside of the organisation, as a collaborator added to individual repositories or alternatively from any individual's created branches or forks.
 
@@ -33,7 +32,7 @@ Typical activities of a Repository Maintainer include:
 * Supporting both testing and any releases of code
 
 
-A number of the key repositories and/or individual namespaces are summarised below. However for more detail on individual responsibilities for code within repos please refer to the local CODEOWNERS documents.
+A number of the key repositories and/or individual namespaces are summarised below. However for more detail on individual responsibilities for code within the core oM and Engine repositories please refer to the local CODEOWNERS documents.
 In particular, for granular breakdown for the Core Repositories see direct links [BHoM Repository Code Owners](https://github.com/BHoM/BHoM/blob/master/docs/CODEOWNERS) and [BHoM_Engine Repository Code Owners](https://github.com/BHoM/BHoM_Engine/blob/master/docs/CODEOWNERS).
 
 
@@ -45,11 +44,11 @@ In particular, for granular breakdown for the Core Repositories see direct links
 * Structure oM/Engine  &nbsp;  @IsakNaslundBh  
 * Environment oM/Engine  &nbsp;  @FraserGreenroyd
 * Geometery & BIM &nbsp;  @pawelbaran 
-* Data oM & Machine Learning &nbsp; @epignatelli  
-* BHoM_Adapter & Interoperability &nbsp; @alelom
+* Data oM & Machine Learning &nbsp;  @epignatelli  
+* BHoM_Adapter & Interoperability  &nbsp;  @alelom
 * Structural_Adapters  &nbsp;  @IsakNaslundBh  
 * Environmental_Adapters  &nbsp;  @FraserGreenroyd   
-* Test_Toolkit & Continuous Integration &nbsp;  @FraserGreenroyd 
+* Continuous Integration & Test_Toolkit  &nbsp;  @FraserGreenroyd 
 
 
 ## Decision making 
