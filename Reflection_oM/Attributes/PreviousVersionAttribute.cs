@@ -46,10 +46,10 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public PreviousVersionAttribute(string fromVersion, string oldVersionAsText = "")
+        public PreviousVersionAttribute(string fromVersion, string previousVersionAsText = "")
         {
             FromVersion = fromVersion;
-            PreviousVersionAsText = oldVersionAsText;
+            PreviousVersionAsText = previousVersionAsText;
         }
 
 
