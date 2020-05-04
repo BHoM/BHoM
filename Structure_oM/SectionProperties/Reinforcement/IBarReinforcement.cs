@@ -47,6 +47,10 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         [Description("Normalised length (0 means start, 1 means end) along the element where the rebars ends.")]
         double EndLocation { get; set; }
 
+        [Length]
+        [Description("Minimum reinforcement cover of the section.")]
+        double MinimumCover { get; set; }
+
         /***************************************************/
     }
 }
