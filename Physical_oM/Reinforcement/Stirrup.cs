@@ -29,8 +29,8 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [Description("Defining shear reinforcement for framing elements")]
-    public class Stirup : BHoMObject, IReinforcingBar
+    [Description("Defining shear reinforcement for framing elements.")]
+    public class Stirrup : BHoMObject, IReinforcingBar
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -45,7 +45,7 @@ namespace BH.oM.Physical.Reinforcement
         public virtual Material Material { get; set; }
 
         [Length]
-        [Description("Bend radius used for any discontinuities in the CentreCurve")]
+        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
         public virtual double BendRadius { get; set; }
 
         /***************************************************/
