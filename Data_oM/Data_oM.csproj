@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\Leaf.cs" />
+    <Compile Include="Collections\NTree.cs" />
+    <Compile Include="Collections\NBound.cs" />
+    <Compile Include="Collections\ITree.cs" />
     <Compile Include="Collections\DBSCANObject.cs" />
     <Compile Include="Collections\Graph.cs" />
     <Compile Include="Collections\GraphLink.cs" />

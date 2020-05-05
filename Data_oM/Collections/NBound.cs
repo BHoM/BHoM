@@ -20,12 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using BH.oM.Base;
+using System.Linq;
+using System;
 
 namespace BH.oM.Data.Collections
 {
-    public interface IDataStructure  :IObject
+    public class NBound : IObject
     {
+        public double[] Min { get; set; } = null;
+
+        public double[] Max { get; set; } = null;
+
+        public static NBound operator +(NBound a, NBound b)
+        {
+            if (b == null)
+                return null;
+            if (a == null)
+                return b;
+
+            return new NBound
+            {
+                Min = a.Min.Zip(b.Min, (u, v) => Math.Min(u, v)).ToArray(),
+                Max = a.Max.Zip(b.Max, (u, v) => Math.Max(u, v)).ToArray()
+            };
+        }
+
     }
 }
 
