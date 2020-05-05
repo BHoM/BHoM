@@ -34,7 +34,51 @@ namespace BH.oM.Geometry
 
         [Description("A collection of curves, of any or mixed type, which together define the composite shape.")]
         public virtual List<ICurve> Curves { get; set; } = new List<ICurve>();
-        
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator PolyCurve(Arc curve)
+        {
+            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
+        }
+
+        /***************************************************/
+
+        public static explicit operator PolyCurve(Circle curve)
+        {
+            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
+        }
+
+        /***************************************************/
+
+        public static explicit operator PolyCurve(Ellipse curve)
+        {
+            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
+        }
+
+        /***************************************************/
+
+        public static explicit operator PolyCurve(Line curve)
+        {
+            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
+        }
+
+        /***************************************************/
+
+        public static explicit operator PolyCurve(NurbsCurve curve)
+        {
+            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
+        }
+
+        /***************************************************/
+
+        public static explicit operator PolyCurve(Polyline curve)
+        {
+            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
+        }
+
         /***************************************************/
     }
 }   
