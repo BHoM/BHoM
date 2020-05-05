@@ -40,13 +40,22 @@ namespace BH.oM.Graphics
         [Description("Scale the Element0D representation.")]
         public virtual double Element0DScale { get; set; } = 1;
 
-        [Description("If true, 1D elements are detailed. E.g. the bars are extruded using their Section property.")]
+        [Description("If true, 1D elements are detailed: e.g. the Bars are extruded using their Section property. Else, the Bars' centreline is coarsely piped.")]
         public virtual bool Detailed1DElements { get; set; } = false;
+
+        [Description("Scale the Element1D representation, if applicable. E.g. for Lines, this increases the Pipe size.")]
+        public virtual double Element1DScale { get; set; } = 1;
+
+        [Description("Regulates the refinement of Pipe meshes for 1DElements, i.e. the number of faces of the Pipes. By default, circular Pipes are meshed with 3 faces.")]
+        public virtual double Element1DRefinement { get; set; } = 3;
 
         [Description("If true, 2D elements are detailed. E.g. panels are represented as boxes with their thickness.")]
         public virtual bool Detailed2DElements { get; set; } = false;
 
-        [Description("Insert the key of the BHoMObjects' CustomData dictionary that contains the color information.")]
+        [Description("The key of the BHoMObjects' CustomData dictionary where a custom RenderMesh might be found.")]
+        public string CustomRendermeshKey { get; set; } = "Rendermesh";
+
+        [Description("The key of the BHoMObjects' CustomData dictionary where colour information might be found.")]
         public string CustomDataColorKey { get; set; } = "Colour";
 
         /***************************************************/
