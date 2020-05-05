@@ -45,7 +45,7 @@ namespace BH.oM.Physical.Reinforcement
         public virtual Material Material { get; set; }
 
         [Length]
-        [Description("Bend radius used for any discontinuities in the CentreCurve")]
+        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
         public virtual double BendRadius { get; set; }
 
         /***************************************************/

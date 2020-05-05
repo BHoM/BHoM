@@ -68,7 +68,7 @@
     <Compile Include="Reinforcement\IReinforcingBar.cs" />
     <Compile Include="Reinforcement\PrimaryReinforcingBar.cs" />
     <Compile Include="Reinforcement\ReinforcementFragment.cs" />
-    <Compile Include="Reinforcement\Stirup.cs" />
+    <Compile Include="Reinforcement\Stirrup.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
