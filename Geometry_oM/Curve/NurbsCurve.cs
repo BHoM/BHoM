@@ -56,8 +56,8 @@ namespace BH.oM.Geometry
         {
             return new NurbsCurve {
                 ControlPoints = new List<Point> { line.Start, line.End },
-                Knots = new List<double> { 1, 1 },
-                Weights = new List<double> { 0, 1 },
+                Knots = new List<double> { 0, 1 },
+                Weights = new List<double> { 1, 1 },
             };
         }
 
