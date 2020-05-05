@@ -34,7 +34,17 @@ namespace BH.oM.Geometry
 
         [Description("An ordered set of three-dimensional points defining the curve shape")]
         public virtual List<Point> ControlPoints { get; set; } = new List<Point>();
-        
+
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator Polyline(Line line)
+        {
+            return new Polyline() { ControlPoints = new List<Point>() { line.Start, line.End } };
+        }
+
         /***************************************************/
     }
 }
