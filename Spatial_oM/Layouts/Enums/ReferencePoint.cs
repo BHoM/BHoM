@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,25 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
-
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Spatial.Layouts
 {
-    [Description("This enum provides several evaluation fields that are commonly assessed within standard Environmental Product Declarations. You may provide single or multiple EPD Field selections for evaluation within the EvaluateEnvironmentalProductDeclaration compute method.")]
-    public enum EnvironmentalProductDeclarationField
+    public enum ReferencePoint
     {
-        GlobalWarmingPotential,
-        OzoneDepletionPotential,
-        PhotochemicalOzoneCreationPotential,
-        AcidificationPotential,
-        EutrophicationPotential,
-        DepletionOfAbioticResourcesFossilFuels,
-        GlobalWarmingPotentialEndOfLife,
-        OzoneDepletionPotentialEndOfLife,
-        PhotochemicalOzoneCreationPotentialEndOfLife,
-        AcidificationPotentialEndOfLife,
-        EutrophicationPotentialEndOfLife,
-        DepletionOfAbioticResourcesFossilFuelsEndOfLife,
-        //add more evaluation properties when needed.
+        Centroid,
+        BottomLeft,
+        BottomCenter,
+        BottomRight,
+        MiddleLeft,
+        MiddleCenter,
+        MiddleRight,
+        TopLeft,
+        TopCenter,
+        TopRight
     }
 }

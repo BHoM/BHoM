@@ -26,7 +26,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -49,41 +49,41 @@
     <Compile Include="Enums\ProjectArea.cs" />
     <Compile Include="Enums\QuantityType.cs" />
     <Compile Include="Enums\ProjectType.cs" />
-    <Compile Include="EnvironmentalProductDeclarationField.cs" />
-    <Compile Include="ScopeObjects\EnclosuresCurtainWalls.cs" />
-    <Compile Include="ScopeObjects\EnclosuresDoors.cs" />
+    <Compile Include="Enums\EnvironmentalProductDeclarationField.cs" />
+    <Compile Include="Constructions\EnclosuresCurtainWalls.cs" />
+    <Compile Include="Constructions\EnclosuresDoors.cs" />
     <Compile Include="ScopeObjects\EnclosuresScope.cs" />
-    <Compile Include="ScopeObjects\EnclosuresWalls.cs" />
-    <Compile Include="ScopeObjects\EnclosuresWindows.cs" />
-    <Compile Include="ScopeObjects\FoundationsFootings.cs" />
-    <Compile Include="ScopeObjects\FoundationsPiles.cs" />
+    <Compile Include="Constructions\EnclosuresWalls.cs" />
+    <Compile Include="Constructions\EnclosuresWindows.cs" />
+    <Compile Include="Constructions\FoundationsFootings.cs" />
+    <Compile Include="Constructions\FoundationsPiles.cs" />
     <Compile Include="ScopeObjects\FoundationsScope.cs" />
-    <Compile Include="ScopeObjects\FoundationsSlabs.cs" />
-    <Compile Include="ScopeObjects\FoundationsWalls.cs" />
+    <Compile Include="Constructions\FoundationsSlabs.cs" />
+    <Compile Include="Constructions\FoundationsWalls.cs" />
     <Compile Include="ScopeObjects\LifeCycleAssessmentScope.cs" />
-    <Compile Include="ScopeObjects\MEPBatteries.cs" />
-    <Compile Include="ScopeObjects\MEPConduit.cs" />
-    <Compile Include="ScopeObjects\MEPDuctwork.cs" />
-    <Compile Include="ScopeObjects\MEPEquipment.cs" />
-    <Compile Include="ScopeObjects\MEPGenerators.cs" />
-    <Compile Include="ScopeObjects\MEPLighting.cs" />
-    <Compile Include="ScopeObjects\MEPPiping.cs" />
+    <Compile Include="Constructions\MEPBatteries.cs" />
+    <Compile Include="Constructions\MEPConduit.cs" />
+    <Compile Include="Constructions\MEPDuctwork.cs" />
+    <Compile Include="Constructions\MEPEquipment.cs" />
+    <Compile Include="Constructions\MEPGenerators.cs" />
+    <Compile Include="Constructions\MEPLighting.cs" />
+    <Compile Include="Constructions\MEPPiping.cs" />
     <Compile Include="ScopeObjects\MEPScope.cs" />
-    <Compile Include="ScopeObjects\MEPWiring.cs" />
+    <Compile Include="Constructions\MEPWiring.cs" />
     <Compile Include="ScopeObjects\ProjectLifeCycleAssessment.cs" />
-    <Compile Include="ScopeObjects\StructuresBeams.cs" />
-    <Compile Include="ScopeObjects\StructuresColumns.cs" />
-    <Compile Include="ScopeObjects\StructuresCoreWalls.cs" />
+    <Compile Include="Constructions\StructuresBeams.cs" />
+    <Compile Include="Constructions\StructuresColumns.cs" />
+    <Compile Include="Constructions\StructuresCoreWalls.cs" />
     <Compile Include="ScopeObjects\StructuresScope.cs" />
-    <Compile Include="ScopeObjects\StructuresSlabs.cs" />
-    <Compile Include="ScopeObjects\TenantImprovementsCeiling.cs" />
+    <Compile Include="Constructions\StructuresSlabs.cs" />
+    <Compile Include="Constructions\TenantImprovementsCeiling.cs" />
     <Compile Include="ScopeObjects\TenantImprovementScope.cs" />
-    <Compile Include="ScopeObjects\TenantImprovementsFinishes.cs" />
-    <Compile Include="ScopeObjects\TenantImprovementsFlooring.cs" />
-    <Compile Include="ScopeObjects\TenantImprovementsFurniture.cs" />
-    <Compile Include="ScopeObjects\TenantImprovementsInteriorDoors.cs" />
-    <Compile Include="ScopeObjects\TenantImprovementsInteriorGlazing.cs" />
-    <Compile Include="ScopeObjects\TenantImprovementsPartitionWalls.cs" />
+    <Compile Include="Constructions\TenantImprovementsFinishes.cs" />
+    <Compile Include="Constructions\TenantImprovementsFlooring.cs" />
+    <Compile Include="Constructions\TenantImprovementsFurniture.cs" />
+    <Compile Include="Constructions\TenantImprovementsInteriorDoors.cs" />
+    <Compile Include="Constructions\TenantImprovementsInteriorGlazing.cs" />
+    <Compile Include="Constructions\TenantImprovementsPartitionWalls.cs" />
     <Compile Include="SectorEnvironmentalProductDeclaration.cs" />
     <Compile Include="IEnvironmentalProductDeclarationData.cs" />
     <Compile Include="HealthProductDeclaration.cs" />
@@ -99,6 +99,10 @@
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
+      <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>
+      <Name>Physical_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

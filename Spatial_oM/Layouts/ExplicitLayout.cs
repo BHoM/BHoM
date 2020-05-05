@@ -20,37 +20,36 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Physical.Materials;
-using BH.oM.Base;
 
-namespace BH.oM.LifeCycleAssessment
+using System.ComponentModel;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using BH.oM.Base;
+using BH.oM.Geometry;
+
+
+namespace BH.oM.Spatial.Layouts
 {
-    public interface IEnvironmentalProductDeclarationData : IBHoMObject, IMaterialProperties, IFragment
+    [Description("Layout for freeform control over the point distribution")]
+    public class ExplicitLayout : BHoMObject, ILayout2D, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        QuantityType QuantityType { get; set; }
-        List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; }
-        string Id { get; set; }
-        double Density { get; set; }
-        string Description { get; set; }
-        string Scope { get; set; }
-        double GlobalWarmingPotential { get; set; }
-        double BiogenicEmbodiedCarbon { get; set; }
-        double OzoneDepletionPotential { get; set; }
-        double PhotochemicalOzoneCreationPotential { get; set; }
-        double AcidificationPotential { get; set; }
-        double EutrophicationPotential { get; set; }
-        double DepletionOfAbioticResourcesFossilFuels { get; set; }
-        double GlobalWarmingPotentialEndOfLife { get; set; }
-        double OzoneDepletionPotentialEndOfLife { get; set; }
-        double PhotochemicalOzoneCreationPotentialEndOfLife { get; set; }
-        double AcidificationPotentialEndOfLife { get; set; }
-        double EutrophicationPotentialEndOfLife { get; set; }
-        double DepletionOfAbioticResourcesFossilFuelsEndOfLife { get; set; }
-        string EndOfLifeTreatment { get; set; }
+
+        [Description("The explicit grid of points in the layout")]
+        public virtual ReadOnlyCollection<Point> Points { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ExplicitLayout(IEnumerable<Point> points)
+        {
+            Points = new ReadOnlyCollection<Point>(points.ToList());
+        }
+
         /***************************************************/
     }
 }
