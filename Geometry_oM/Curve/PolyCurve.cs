@@ -76,7 +76,14 @@ namespace BH.oM.Geometry
 
         public static explicit operator PolyCurve(Polyline curve)
         {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
+            PolyCurve result = new PolyCurve();
+
+            for (int i = 0; i < curve.ControlPoints.Count - 1; i++)
+            {
+                result.Curves.Add(new Line() { Start = curve.ControlPoints[i], End = curve.ControlPoints[i + 1] });
+            }
+
+            return result;
         }
 
         /***************************************************/
