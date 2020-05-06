@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Reflection_oM, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +42,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Layouts\ExplicitLayout.cs" />
+    <Compile Include="Layouts\ILayout2D.cs" />
+    <Compile Include="Layouts\LinearLayout.cs" />
+    <Compile Include="Layouts\MultiLinearLayout.cs" />
+    <Compile Include="Layouts\PerimeterLayout.cs" />
+    <Compile Include="Layouts\Enums\ReferencePoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BHoM\BHoM.csproj">
+      <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
+      <Name>BHoM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
+      <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
+      <Name>Geometry_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj">
+      <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
+      <Name>Quantities_oM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -20,37 +20,51 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Physical.Materials;
-using BH.oM.Base;
 
-namespace BH.oM.LifeCycleAssessment
+using System.ComponentModel;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using BH.oM.Base;
+using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
+
+
+namespace BH.oM.Spatial.Layouts
 {
-    public interface IEnvironmentalProductDeclarationData : IBHoMObject, IMaterialProperties, IFragment
+    [Description("Linear distribution of points along a vector from one side of the perimeter of the host object to the other.")]
+    public class LinearLayout : BHoMObject, ILayout2D, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        QuantityType QuantityType { get; set; }
-        List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; }
-        string Id { get; set; }
-        double Density { get; set; }
-        string Description { get; set; }
-        string Scope { get; set; }
-        double GlobalWarmingPotential { get; set; }
-        double BiogenicEmbodiedCarbon { get; set; }
-        double OzoneDepletionPotential { get; set; }
-        double PhotochemicalOzoneCreationPotential { get; set; }
-        double AcidificationPotential { get; set; }
-        double EutrophicationPotential { get; set; }
-        double DepletionOfAbioticResourcesFossilFuels { get; set; }
-        double GlobalWarmingPotentialEndOfLife { get; set; }
-        double OzoneDepletionPotentialEndOfLife { get; set; }
-        double PhotochemicalOzoneCreationPotentialEndOfLife { get; set; }
-        double AcidificationPotentialEndOfLife { get; set; }
-        double EutrophicationPotentialEndOfLife { get; set; }
-        double DepletionOfAbioticResourcesFossilFuelsEndOfLife { get; set; }
-        string EndOfLifeTreatment { get; set; }
+
+        [Description("Number of points along the axis.")]
+        public virtual int NumberOfPoints { get; set; }
+
+        [Description("Direction of the axis. Vector should lie in the XY-plane, i.e. have a Z-coordinate equal to 0.")]
+        public virtual Vector Direction { get; }
+
+        [Length]
+        [Description("Offset of the linear layout in relation to the reference point, perpendicular to the Direction vector in the XY plane.\n" +
+                     "A positive value will mean an offset towards the centre of the boundingbox of the host objects.")]
+        public virtual double Offset { get; }
+
+        [Description("Controls which point on the host element that should be used for the layout.")]
+        public virtual ReferencePoint ReferencePoint { get; set; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public LinearLayout(int numberOfPoints, Vector direction, double offset, ReferencePoint referencePoint)
+        {
+            NumberOfPoints = numberOfPoints;
+            Direction = direction;
+            Offset = offset;
+            ReferencePoint = referencePoint;
+        }
+
         /***************************************************/
     }
 }

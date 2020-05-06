@@ -20,37 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Physical.Materials;
+
+using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Spatial.Layouts
 {
-    public interface IEnvironmentalProductDeclarationData : IBHoMObject, IMaterialProperties, IFragment
+    [Description("Linear distribution of points along the perimeter of the host object.")]
+    public class PerimeterLayout : BHoMObject, ILayout2D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        QuantityType QuantityType { get; set; }
-        List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; }
-        string Id { get; set; }
-        double Density { get; set; }
-        string Description { get; set; }
-        string Scope { get; set; }
-        double GlobalWarmingPotential { get; set; }
-        double BiogenicEmbodiedCarbon { get; set; }
-        double OzoneDepletionPotential { get; set; }
-        double PhotochemicalOzoneCreationPotential { get; set; }
-        double AcidificationPotential { get; set; }
-        double EutrophicationPotential { get; set; }
-        double DepletionOfAbioticResourcesFossilFuels { get; set; }
-        double GlobalWarmingPotentialEndOfLife { get; set; }
-        double OzoneDepletionPotentialEndOfLife { get; set; }
-        double PhotochemicalOzoneCreationPotentialEndOfLife { get; set; }
-        double AcidificationPotentialEndOfLife { get; set; }
-        double EutrophicationPotentialEndOfLife { get; set; }
-        double DepletionOfAbioticResourcesFossilFuelsEndOfLife { get; set; }
-        string EndOfLifeTreatment { get; set; }
+
+        [Description("Number of points along the perimeter of the host object")]
+        public virtual int NumberOfPoints { get; set; }
+
+        [Description("True means that the discontinuity points of the hostobject curve always should be included in point extraction from the layout.")]
+        public virtual bool EnforceDiscontinuityPoints { get; set; }
+
         /***************************************************/
     }
 }

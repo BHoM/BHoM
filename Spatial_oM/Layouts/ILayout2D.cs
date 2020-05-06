@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,40 +21,12 @@
  */
 
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Spatial.Layouts
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
-    public class PreviousVersionAttribute : Attribute, IImmutable
+    [Description("Base interface for all 2D layouts")]
+    public interface ILayout2D : IBHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual string PreviousVersionAsText { get; private set; } = "";
-
-        public virtual string FromVersion { get; private set; } = "1.0.0.0";
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public PreviousVersionAttribute(string fromVersion, string previousVersionAsText = "")
-        {
-            FromVersion = fromVersion;
-            PreviousVersionAsText = previousVersionAsText;
-        }
-
-
-
-        /***************************************************/
     }
 }
-
