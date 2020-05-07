@@ -129,9 +129,7 @@ namespace BH.oM.Geometry
                 return null;
 
             ICurve c = curve.Curves[0];
-            if (c == null)
-                return null;
-            else if (c is NurbsCurve)
+            if (c is NurbsCurve)
                 return c as NurbsCurve;
             else if (c is Line)
                 return (NurbsCurve)(c as Line);

@@ -67,9 +67,7 @@ namespace BH.oM.Geometry
             List<Polyline> polyLines = new List<Polyline>();
             foreach (ICurve c in polyCurve.Curves)
             {
-                if (c == null)
-                    return null;
-                else if (c is Line)
+                if (c is Line)
                     polyLines.Add((Polyline)(c as Line));
                 else if (c is Polyline)
                     polyLines.Add(c as Polyline);
