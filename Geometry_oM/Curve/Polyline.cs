@@ -93,7 +93,7 @@ namespace BH.oM.Geometry
 
             Polyline result = new Polyline();
 
-            result.ControlPoints.Add(polyLines[0].ControlPoints[0]);
+            result.ControlPoints.AddRange(polyLines[0].ControlPoints);
             for (int i = 1; i < polyLines.Count; i++)
             {
                 // Ensure continious
