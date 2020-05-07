@@ -100,7 +100,7 @@ namespace BH.oM.Geometry
             {
                 // Ensure continious
                 Vector v = polyLines[i].ControlPoints[0] - polyLines[i - 1].ControlPoints.Last();
-                if (Math.Abs(v.X) > Tolerance.Distance || Math.Abs(v.Y) > Tolerance.Distance || Math.Abs(v.Z) > Tolerance.Distance)
+                if (v.X * v.X * + v.Y * v.Y * + v.Z * v.Z < Tolerance.Distance * Tolerance.Distance)
                     return null;
 
                 result.ControlPoints.AddRange(polyLines[i].ControlPoints.Skip(1));
