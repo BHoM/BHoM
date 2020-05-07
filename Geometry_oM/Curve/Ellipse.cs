@@ -118,8 +118,10 @@ namespace BH.oM.Geometry
         public static explicit operator Ellipse(Arc curve)
         {
             Circle circle = (Circle)curve;
+
             if (circle == null)
                 return null;
+
             return (Ellipse)circle;
         }
 
