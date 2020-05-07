@@ -48,6 +48,7 @@ namespace BH.oM.Geometry
         [Description("Angle in radians to the end point from the local x-axis, counter clockwise around the local z-axis.")]
         public virtual double EndAngle { get; set; } = 0;
 
+
         /***************************************************/
         /**** Explicit Casting - Special Case           ****/
         /***************************************************/
@@ -84,6 +85,44 @@ namespace BH.oM.Geometry
                 StartAngle = 0,
                 EndAngle = Math.PI * 2
             };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Arc(PolyCurve curve)
+        {
+            if (curve.Curves.Count != 1)
+                return null;
+
+            ICurve c = curve.Curves[0];
+            switch (c.GetType().Name)
+            {
+                case "Arc":
+                    return c as Arc;
+                case "Circle":
+                    Circle circle = c as Circle;
+                    return (Arc)circle;
+                case "Ellipse":
+                    Ellipse ellipse = c as Ellipse;
+                    return (Arc)ellipse;
+                case "PolyCurve":
+                    PolyCurve polyCurve = c as PolyCurve;
+                    return (Arc)polyCurve;
+                default:
+                    return null;
+            }
+        }
+
+        /***************************************************/
+
+        public static explicit operator Arc(Ellipse curve)
+        {
+            Circle circle = (Circle)curve;
+
+            if (circle == null)
+                return null;
+
+            return (Arc)circle;
         }
 
         /***************************************************/

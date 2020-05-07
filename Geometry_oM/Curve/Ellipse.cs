@@ -91,6 +91,42 @@ namespace BH.oM.Geometry
         }
 
         /***************************************************/
+
+        public static explicit operator Ellipse(PolyCurve curve)
+        {
+            if (curve.Curves.Count != 1)
+                return null;
+
+            ICurve c = curve.Curves[0];
+            switch (c.GetType().Name)
+            {
+                case "Ellipse":
+                    return c as Ellipse;
+                case "Circle":
+                    Circle circle = c as Circle;
+                    return (Ellipse)circle;
+                case "Arc":
+                    Arc arc = c as Arc;
+                    return (Ellipse)arc;
+                case "PolyCurve":
+                    PolyCurve polyCurve = c as PolyCurve;
+                    return (Ellipse)polyCurve;
+                default:
+                    return null;
+            }
+        }
+
+        /***************************************************/
+
+        public static explicit operator Ellipse(Arc curve)
+        {
+            Circle circle = (Circle)curve;
+            if (circle == null)
+                return null;
+            return (Ellipse)circle;
+        }
+
+        /***************************************************/
     }
 }
 

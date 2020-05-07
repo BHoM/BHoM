@@ -22,6 +22,7 @@
 
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BH.oM.Geometry
 {
@@ -43,6 +44,66 @@ namespace BH.oM.Geometry
         public static explicit operator Polyline(Line line)
         {
             return new Polyline() { ControlPoints = new List<Point>() { line.Start, line.End } };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Polyline(NurbsCurve nurbs)
+        {
+            if (nurbs.Knots.Count != nurbs.ControlPoints.Count)
+                return null;
+
+            return new Polyline() { ControlPoints = nurbs.ControlPoints };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Polyline(PolyCurve polyCurve)
+        {
+            if (polyCurve.Curves.Count == 0)
+                return null;
+
+            List<Polyline> polyLines = new List<Polyline>();
+            foreach (ICurve c in polyCurve.Curves)
+            {
+                switch (c.GetType().Name)
+                {
+                    case "NurbsCurve":
+                        NurbsCurve nCurve = c as NurbsCurve;
+                        Polyline pl = (Polyline)nCurve;
+                        if (pl == null)
+                            return null;
+                        else
+                            polyLines.Add(pl);
+                        break;
+                    case "PolyCurve":
+                        PolyCurve pCurve = c as PolyCurve;
+                        pl = (Polyline)pCurve;
+                        if (pl == null)
+                            return null;
+                        else
+                            polyLines.Add(pl);
+                        break;
+                    case "Line":
+                        polyLines.Add((Polyline)(c as Line));
+                        break;
+                    case "Polyline":
+                        polyLines.Add(c as Polyline);
+                        break;
+                    default:
+                        return null;
+                }
+            }
+
+            Polyline result = new Polyline();
+
+            result.ControlPoints.Add(polyLines[0].ControlPoints[0]);
+            for (int i = 1; i < polyLines.Count; i++)
+            {
+                result.ControlPoints.AddRange(polyLines[i].ControlPoints.Skip(1));
+            }
+
+            return result;
         }
 
         /***************************************************/
