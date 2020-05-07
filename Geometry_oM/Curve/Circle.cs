@@ -53,22 +53,18 @@ namespace BH.oM.Geometry
                 return null;
             
             ICurve c = curve.Curves[0];
-            switch (c.GetType().Name)
-            {
-                case "Circle":
-                    return c as Circle;
-                case "Arc":
-                    Arc arc = c as Arc;
-                    return (Circle)arc;
-                case "Ellipse":
-                    Ellipse ellipse = c as Ellipse;
-                    return (Circle)ellipse;
-                case "PolyCurve":
-                    PolyCurve polyCurve = c as PolyCurve;
-                    return (Circle)polyCurve;
-                default:
-                    return null;
-            }
+            if (c == null)
+                return null;
+            else if (c is Circle)
+                return c as Circle;
+            else if (c is Arc)
+                return (Circle)(c as Arc);
+            else if (c is Ellipse)
+                return ((Circle)(c as Ellipse));
+            else if (c is PolyCurve)
+                return (Circle)(c as PolyCurve);
+            else
+                return null;
         }
 
         /***************************************************/

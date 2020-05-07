@@ -70,22 +70,19 @@ namespace BH.oM.Geometry
                 return null;
 
             ICurve c = curve.Curves[0];
-            switch (c.GetType().Name)
-            {
-                case "Line":
-                    return c as Line;
-                case "Polyline":
-                    Polyline polyline = c as Polyline;
-                    return (Line)polyline;
-                case "NurbsCurve":
-                    NurbsCurve nurbsCurve = c as NurbsCurve;
-                    return (Line)nurbsCurve;
-                case "PolyCurve":
-                    PolyCurve polyCurve = c as PolyCurve;
-                    return (Line)polyCurve;
-                default:
-                    return null;
-            }
+            if (c == null)
+                return null;
+            else if (c is Line)
+                return c as Line;
+            else if (c is Polyline)
+                return (Line)(c as Polyline);
+            else if (c is NurbsCurve)
+                return (Line)(c as NurbsCurve);
+            else if (c is PolyCurve)
+                return (Line)(c as PolyCurve);
+            else
+                return null;
+
         }
 
         /***************************************************/

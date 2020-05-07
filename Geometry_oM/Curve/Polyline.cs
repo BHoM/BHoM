@@ -66,33 +66,30 @@ namespace BH.oM.Geometry
             List<Polyline> polyLines = new List<Polyline>();
             foreach (ICurve c in polyCurve.Curves)
             {
-                switch (c.GetType().Name)
+                if (c == null)
+                    return null;
+                else if (c is Line)
+                    polyLines.Add((Polyline)(c as Line));
+                else if (c is Polyline)
+                    polyLines.Add(c as Polyline);
+                else if (c is NurbsCurve)
                 {
-                    case "NurbsCurve":
-                        NurbsCurve nCurve = c as NurbsCurve;
-                        Polyline pl = (Polyline)nCurve;
-                        if (pl == null)
-                            return null;
-                        else
-                            polyLines.Add(pl);
-                        break;
-                    case "PolyCurve":
-                        PolyCurve pCurve = c as PolyCurve;
-                        pl = (Polyline)pCurve;
-                        if (pl == null)
-                            return null;
-                        else
-                            polyLines.Add(pl);
-                        break;
-                    case "Line":
-                        polyLines.Add((Polyline)(c as Line));
-                        break;
-                    case "Polyline":
-                        polyLines.Add(c as Polyline);
-                        break;
-                    default:
+                    Polyline pl = (Polyline)(c as NurbsCurve);
+                    if (pl == null)
                         return null;
+                    else
+                        polyLines.Add(pl);
                 }
+                else if (c is PolyCurve)
+                {
+                    Polyline pl = (Polyline)(c as PolyCurve);
+                    if (pl == null)
+                        return null;
+                    else
+                        polyLines.Add(pl);
+                }
+                else
+                    return null;
             }
 
             Polyline result = new Polyline();
