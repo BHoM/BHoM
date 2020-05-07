@@ -53,9 +53,7 @@ namespace BH.oM.Geometry
                 return null;
             
             ICurve c = curve.Curves[0];
-            if (c == null)
-                return null;
-            else if (c is Circle)
+            if (c is Circle)
                 return c as Circle;
             else if (c is Arc)
                 return (Circle)(c as Arc);

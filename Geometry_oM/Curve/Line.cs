@@ -70,9 +70,7 @@ namespace BH.oM.Geometry
                 return null;
 
             ICurve c = curve.Curves[0];
-            if (c == null)
-                return null;
-            else if (c is Line)
+            if (c is Line)
                 return c as Line;
             else if (c is Polyline)
                 return (Line)(c as Polyline);

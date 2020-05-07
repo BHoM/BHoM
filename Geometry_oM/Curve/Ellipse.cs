@@ -98,9 +98,7 @@ namespace BH.oM.Geometry
                 return null;
 
             ICurve c = curve.Curves[0];
-            if (c == null)
-                return null;
-            else if (c is Ellipse)
+            if (c is Ellipse)
                 return c as Ellipse;
             else if (c is Circle)
                 return (Ellipse)(c as Circle);
