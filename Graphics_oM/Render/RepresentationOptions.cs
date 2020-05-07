@@ -28,21 +28,33 @@ using System.Drawing;
 
 namespace BH.oM.Graphics
 {
-    [Description("Defines options for the Meshing of BHoM Objects.")]
-    public class RenderMeshOptions : BHoMObject
+    [Description("Defines options for the Representation of BHoM Objects.")]
+    public class RepresentationOptions : BHoMObject
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("Regulate how the Representation of the objects is computed.")]
-        public virtual RepresentationOptions RepresentationOptions { get; set; } = new RepresentationOptions();
+        [Description("If true, 0D elements are detailed. E.g. Points are represented by spheres; Node representation includes the support condition (e.g. pyramid with sphere on top for a Pin).")]
+        public virtual bool Detailed0DElements { get; set; } = true;
 
-        [Description("Regulates the refinement of Pipe meshes for 1DElements, i.e. the number of faces of the Pipes. By default, circular Pipes are meshed with 3 faces.")]
-        public virtual double Element1DRefinement { get; set; } = 3;
+        [Description("Scale the Element0D representation.")]
+        public virtual double Element0DScale { get; set; } = 1;
 
-        [Description("Regulates the refinement of surface meshes for 2DElements.")]
-        public virtual double Element2DRefinement { get; set; } = 3;
+        [Description("If true, 1D elements are detailed: e.g. the Bars are extruded using their Section property. Else, the Bars' centreline is coarsely piped.")]
+        public virtual bool Detailed1DElements { get; set; } = false;
+
+        [Description("Scale the Element1D representation, if applicable. E.g. for Lines, this increases the Pipe size.")]
+        public virtual double Element1DScale { get; set; } = 1;
+
+        [Description("If true, 2D elements are detailed. E.g. panels are represented as boxes with their thickness.")]
+        public virtual bool Detailed2DElements { get; set; } = false;
+
+        [Description("The key of the BHoMObjects' CustomData dictionary where a custom RenderMesh might be found.")]
+        public string CustomRendermeshKey { get; set; } = "Rendermesh";
+
+        [Description("The key of the BHoMObjects' CustomData dictionary where colour information might be found.")]
+        public string CustomDataColorKey { get; set; } = "Colour";
 
         /***************************************************/
 
