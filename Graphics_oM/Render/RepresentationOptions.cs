@@ -42,10 +42,13 @@ namespace BH.oM.Graphics
         public virtual double Element0DScale { get; set; } = 1;
 
         [Description("If true, 1D elements are detailed: e.g. the Bars are extruded using their Section property. Else, the Bars' centreline is coarsely piped.")]
-        public virtual bool Detailed1DElements { get; set; } = false;
+        public virtual bool Detailed1DElements { get; set; } = true;
 
         [Description("Scale the Element1D representation, if applicable. E.g. for Lines, this increases the Pipe size.")]
         public virtual double Element1DScale { get; set; } = 1;
+
+        [Description("Cap 1D elements, if applicable. E.g. for a Line, this caps the computed Pipe; for a Bar it may cap the Extrusion of its cross section.")]
+        public virtual bool Cap1DElements { get; set; } = false;
 
         [Description("If true, 2D elements are detailed. E.g. panels are represented as boxes with their thickness.")]
         public virtual bool Detailed2DElements { get; set; } = false;

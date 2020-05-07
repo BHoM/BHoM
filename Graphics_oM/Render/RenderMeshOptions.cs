@@ -38,11 +38,11 @@ namespace BH.oM.Graphics
         [Description("Regulate how the Representation of the objects is computed.")]
         public virtual RepresentationOptions RepresentationOptions { get; set; } = new RepresentationOptions();
 
-        [Description("Regulates the refinement of Pipe meshes for 1DElements, i.e. the number of faces of the Pipes. By default, circular Pipes are meshed with 3 faces.")]
-        public virtual double Element1DRefinement { get; set; } = 3;
+        [Description("Regulates the refinement of Pipe meshes for 1DElements, i.e. the number of faces of the Pipes.")]
+        public virtual double Element1DRefinement { get; set; } = 1;
 
         [Description("Regulates the refinement of surface meshes for 2DElements.")]
-        public virtual double Element2DRefinement { get; set; } = 3;
+        public virtual double Element2DRefinement { get; set; } = 1;
 
         /***************************************************/
 
