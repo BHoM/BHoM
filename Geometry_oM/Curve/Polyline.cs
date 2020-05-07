@@ -23,6 +23,7 @@
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace BH.oM.Geometry
 {
@@ -97,6 +98,11 @@ namespace BH.oM.Geometry
             result.ControlPoints.Add(polyLines[0].ControlPoints[0]);
             for (int i = 1; i < polyLines.Count; i++)
             {
+                // Ensure continious
+                Vector v = polyLines[i].ControlPoints[0] - polyLines[i - 1].ControlPoints.Last();
+                if (Math.Abs(v.X) > Tolerance.Distance || Math.Abs(v.Y) > Tolerance.Distance || Math.Abs(v.Z) > Tolerance.Distance)
+                    return null;
+
                 result.ControlPoints.AddRange(polyLines[i].ControlPoints.Skip(1));
             }
 
