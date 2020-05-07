@@ -35,10 +35,8 @@ namespace BH.oM.Data.Collections
 
         public static NBound operator +(NBound a, NBound b)
         {
-            if (b == null)
+            if (b == null || a == null)
                 return null;
-            if (a == null)
-                return b;
 
             return new NBound
             {
