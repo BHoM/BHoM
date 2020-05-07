@@ -123,6 +123,38 @@ namespace BH.oM.Geometry
 
         /***************************************************/
 
+        public static explicit operator NurbsCurve(PolyCurve curve)
+        {
+            if (curve.Curves.Count != 1)
+                return null;
+
+            ICurve c = curve.Curves[0];
+            switch (c.GetType().Name)
+            {
+                case "NurbsCurve":
+                    return c as NurbsCurve;
+                case "Line":
+                    Line line = c as Line;
+                    return (NurbsCurve)line;
+                case "Polyline":
+                    Polyline polyline = c as Polyline;
+                    return (NurbsCurve)polyline;
+                case "Ellipse":
+                    Ellipse ellipse = c as Ellipse;
+                    return (NurbsCurve)ellipse;
+                case "Circle":
+                    Circle circle = c as Circle;
+                    return (NurbsCurve)circle;
+                case "PolyCurve":
+                    PolyCurve polyCurve = c as PolyCurve;
+                    return (NurbsCurve)polyCurve;
+                default:
+                    return null;
+            }
+        }
+
+        /***************************************************/
+
     }
 }
 

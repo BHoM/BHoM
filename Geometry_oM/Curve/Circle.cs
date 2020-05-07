@@ -42,6 +42,70 @@ namespace BH.oM.Geometry
         [Description("Distance from the Centre to any point on Circle.")]
         public virtual double Radius { get; set; } = 0;
 
+
+        /***************************************************/
+        /**** Explicit Casting - Special Case           ****/
+        /***************************************************/
+
+        public static explicit operator Circle(PolyCurve curve)
+        {
+            if (curve.Curves.Count != 1)
+                return null;
+            
+            ICurve c = curve.Curves[0];
+            switch (c.GetType().Name)
+            {
+                case "Circle":
+                    return c as Circle;
+                case "Arc":
+                    Arc arc = c as Arc;
+                    return (Circle)arc;
+                case "Ellipse":
+                    Ellipse ellipse = c as Ellipse;
+                    return (Circle)ellipse;
+                case "PolyCurve":
+                    PolyCurve polyCurve = c as PolyCurve;
+                    return (Circle)polyCurve;
+                default:
+                    return null;
+            }
+        }
+
+        /***************************************************/
+
+        public static explicit operator Circle(Ellipse curve)
+        {
+            if (System.Math.Abs(curve.Radius1 - curve.Radius2) > Tolerance.Distance)
+                return null;
+
+            Vector x = curve.Axis1;
+            Vector y = curve.Axis2;
+
+            Vector normal = new Vector { X = x.Y * y.Z - x.Z * y.Y, Y = x.Z * y.X - x.X * y.Z, Z = x.X * y.Y - x.Y * y.X };
+
+            return new Circle()
+            {
+                Centre = curve.Centre,
+                Radius = curve.Radius1,
+                Normal = normal,
+            };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Circle(Arc curve)
+        {
+            if (System.Math.Abs((curve.EndAngle - curve.StartAngle) - System.Math.PI * 2) > Tolerance.Distance)
+                return null;
+
+            return new Circle()
+            {
+                Centre = curve.CoordinateSystem.Origin,
+                Normal = curve.CoordinateSystem.Z,
+                Radius = curve.Radius,
+            };
+        }
+
         /***************************************************/
     }
 }
