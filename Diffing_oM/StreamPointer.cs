@@ -38,19 +38,21 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        public Guid StreamId { get; } = Guid.NewGuid();
+        public Guid StreamId { get; }
         public string StreamName { get; }
         public string Description { get; }
-        public long Timestamp { get; } = DateTime.UtcNow.Ticks;
+        public long Timestamp { get; }
 
         /***************************************************/
         /**** Constructor                               ****/
         /***************************************************/
 
-        public StreamPointer(string name = null, string description = null)
+        public StreamPointer(Guid streamId, string streamName = null, string description = null, long timestamp = 0)
         {
-            StreamName = name;
+            StreamId = streamId;
+            StreamName = streamName;
             Description = description;
+            Timestamp = (timestamp > 0) ? timestamp : DateTime.UtcNow.Ticks;
         }
 
         /***************************************************/
