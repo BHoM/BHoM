@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Quantities_oM, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Build\Quantities_oM.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -72,6 +68,10 @@
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj">
+      <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
+      <Name>Quantities_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
