@@ -42,6 +42,9 @@ namespace BH.oM.Structure.SectionProperties
         [Description("List of Reinforcement of the concrete section.")]
         public virtual List<Reinforcement.IBarReinforcement> Reinforcement { get; set; }
 
+        [Length]
+        [Description("Minimum reinforcement cover of the section.")]
+        public virtual double MinimumCover { get; set; }
 
         [Description("Concrete material used throughout the full section.")]
         public virtual IMaterialFragment Material { get; set; }
