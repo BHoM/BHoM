@@ -42,7 +42,6 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         [Description("Diameter of a single rebar.")]
         public virtual double Diameter { get; set; }
 
-        [Description("Diameter of a single rebar.")]
         public virtual IMaterialFragment Material { get; set; }
 
         [Description("Normalised length (0 means start, 1 means end) along the element where the rebars start.")]
