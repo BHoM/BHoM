@@ -137,10 +137,10 @@
     <Compile Include="SectionProperties\ConcreteSection.cs" />
     <Compile Include="SectionProperties\ExplicitSection.cs" />
     <Compile Include="SectionProperties\ISectionProperty.cs" />
-    <Compile Include="SectionProperties\Reinforcement\LayerReinforcement.cs" />
-    <Compile Include="SectionProperties\Reinforcement\PerimeterReinforcement.cs" />
-    <Compile Include="SectionProperties\Reinforcement\Reinforcement.cs" />
-    <Compile Include="SectionProperties\Reinforcement\TieReinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\Deprecated\LayerReinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\Deprecated\PerimeterReinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\Deprecated\Reinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\Deprecated\TieReinforcement.cs" />
     <Compile Include="SectionProperties\SteelSection.cs" />
     <Compile Include="Results\Bar Results\BarDeformation.cs" />
     <Compile Include="Results\Bar Results\BarForce.cs" />
