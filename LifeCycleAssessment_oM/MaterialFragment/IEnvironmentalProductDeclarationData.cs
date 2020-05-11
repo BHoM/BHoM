@@ -26,7 +26,7 @@ using BH.oM.Base;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    public interface IEnvironmentalProductDeclarationData : IBHoMObject, IMaterialProperties, IFragment
+    public interface IEnvironmentalProductDeclarationData : IFragment, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/
