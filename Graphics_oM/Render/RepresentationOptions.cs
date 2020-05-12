@@ -53,12 +53,6 @@ namespace BH.oM.Graphics
         [Description("If true, 2D elements are detailed. E.g. panels are represented as boxes with their thickness.")]
         public virtual bool Detailed2DElements { get; set; } = false;
 
-        [Description("The key of the BHoMObjects' CustomData dictionary where a custom RenderMesh might be found.")]
-        public string CustomRendermeshKey { get; set; } = "Rendermesh";
-
-        [Description("The key of the BHoMObjects' CustomData dictionary where colour information might be found.")]
-        public string CustomDataColorKey { get; set; } = "Colour";
-
         /***************************************************/
 
     }
