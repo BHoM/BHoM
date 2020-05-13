@@ -20,37 +20,17 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Analytical.Elements;
-using System.ComponentModel;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.Analysis
 {
-    [Description("0D finite element for environmental analysis. Node class contains positional information and is used to build AnalysisGrids and provide links between model geometry and analytical results")]
-    public class Node : BHoMObject, IElement0D, INode
+    public class AnalysisGrid : BHoMObject, IImmutable
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Position of the node in global Cartesian 3D space.")]
-        public virtual Point Position { get; set; } = null;
-
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        [Description("Converts a Point to a Node, setting the position to the provided point. All other properties are set to default values.")]
-        public static explicit operator Node(Point point)
-        {
-            return new Node { Position = point };
-        }
-
-        /***************************************************/
     }
 }
-
-
