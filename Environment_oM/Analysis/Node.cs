@@ -38,7 +38,6 @@ namespace BH.oM.Environment.Analysis
         [Description("Position of the node in global Cartesian 3D space.")]
         public virtual Point Position { get; set; } = null;
 
-
         /***************************************************/
         /**** Explicit Casting                          ****/
         /***************************************************/
