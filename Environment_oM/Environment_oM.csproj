@@ -51,6 +51,7 @@
     <Compile Include="Elements\Enums\OpeningType.cs" />
     <Compile Include="Elements\Enums\PanelType.cs" />
     <Compile Include="Elements\Enums\SpaceType.cs" />
+    <Compile Include="Elements\Node.cs" />
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\Space.cs" />
