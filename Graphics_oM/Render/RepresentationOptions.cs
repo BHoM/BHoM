@@ -35,22 +35,22 @@ namespace BH.oM.Graphics
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("If true, 0D elements are detailed. E.g. Points are represented by spheres; Node representation includes the support condition (e.g. pyramid with sphere on top for a Pin).")]
+        [Description("If true, 0D elements are detailed.\nIf `true`, Points are represented by Spheres.\nFor discipline-specific objects, `true` may correspond to e.g. a composite geometry computed based on their properties.")]
         public virtual bool Detailed0DElements { get; set; } = true;
 
         [Description("Scale the Element0D representation.")]
         public virtual double Element0DScale { get; set; } = 1;
 
-        [Description("If true, 1D elements are detailed: e.g. the Bars are extruded using their Section property. Else, the Bars' centreline is coarsely piped.")]
+        [Description("If true, 1D elements are detailed.\nIf `true`, Lines are represented by Pipes. For discipline-specific objects, `true` may correspond to e.g. an Extrusion using a cross section property; `false` to pipe using a centreline.")]
         public virtual bool Detailed1DElements { get; set; } = true;
 
-        [Description("Scale the Element1D representation, if applicable. E.g. for Lines, this increases the Pipe size.")]
+        [Description("Scale the Element1D representation, if applicable.\nFor Lines, this increases the Pipe size.\nDiscipline-specific representations might not be affected by this parameter.")]
         public virtual double Element1DScale { get; set; } = 1;
 
-        [Description("Cap 1D elements, if applicable. E.g. for a Line, this caps the computed Pipe; for a Bar it may cap the Extrusion of its cross section.")]
+        [Description("Cap 1D elements, if applicable.\nE.g. for a Line, this caps the computed Pipe.\nFor discipline-specific objects, it may e.g. cap the Extrusions of their cross section.")]
         public virtual bool Cap1DElements { get; set; } = false;
 
-        [Description("If true, 2D elements are detailed. E.g. panels are represented as boxes with their thickness.")]
+        [Description("If true, 2D elements are detailed.\nFor discipline-specific objects, `true` may correspond to e.g. a box-like geometry representing the 2D element with their thickness, based on its cross section; `false` to e.g. their the middle surface.")]//E.g. panels are represented as boxes with their thickness.")]
         public virtual bool Detailed2DElements { get; set; } = false;
 
         /***************************************************/
