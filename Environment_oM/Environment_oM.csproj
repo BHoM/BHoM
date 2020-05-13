@@ -101,6 +101,8 @@
     <Compile Include="Results\Enums\ProfileResultType.cs" />
     <Compile Include="Results\Enums\ProfileResultUnit.cs" />
     <Compile Include="Results\Enums\SimulationResultType.cs" />
+    <Compile Include="Results\Mesh\MeshElementResult.cs" />
+    <Compile Include="Results\Mesh\MeshResult.cs" />
     <Compile Include="Results\ProfileResult.cs" />
     <Compile Include="Results\SimulationResult.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
