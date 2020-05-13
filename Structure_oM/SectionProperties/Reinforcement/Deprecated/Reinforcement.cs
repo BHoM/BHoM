@@ -26,7 +26,7 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.SectionProperties.Reinforcement
 {
-    [ToBeRemoved("3.2", "Complete refactoring of reinforcement is being done, outside current possible scope of versioning. Old reinfrcement classes will be removed.")]
+    [ToBeRemoved("3.2", "Complete refactoring of reinforcement is being done, outside current possible scope of versioning. Old reinforcement classes will be removed.")]
     public abstract class Reinforcement : BHoMObject
     {
         /***************************************************/
