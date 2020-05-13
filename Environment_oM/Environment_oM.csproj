@@ -116,6 +116,10 @@
       <Name>BHoM</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Common_oM\Common_oM.csproj">
+      <Project>{44f6c3bc-d321-4673-8f54-674ae7b33f18}</Project>
+      <Name>Common_oM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
       <Project>{17141a37-4853-4558-af36-134a580bf42b}</Project>
       <Name>Dimensional_oM</Name>
