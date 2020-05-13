@@ -20,25 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
     [Description("A surface defined by boundary edge curves lying in a common plane. Planarity toleraces default to the BH.oM.Geometry.Tolerace.Distance.")]
-    public class PlanarSurface : ISurface
+    public class PlanarSurface : ISurface , IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Closed planar curve defining the outer boundary of the surface.")]   
-        public virtual ICurve ExternalBoundary { get; set; } = null;
+        public virtual ICurve ExternalBoundary { get; }
 
         [Description("List of closed (co)planar curves defining any internal openings in the surface.")]
-        public virtual List<ICurve> InternalBoundaries { get; set; } = new List<ICurve>();
+        public virtual List<ICurve> InternalBoundaries { get; }
 
         /***************************************************/
+
+        public PlanarSurface(ICurve externalBoundary, List<ICurve> internalBoundaries)
+        {
+            ExternalBoundary = externalBoundary;
+            InternalBoundaries = internalBoundaries;
+        }
     }
 }
 
