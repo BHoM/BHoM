@@ -45,7 +45,7 @@ namespace BH.oM.Graphics
         public virtual double Element2DRefinement { get; set; } = 1;
 
         [Description("The key of the BHoMObjects' CustomData dictionary where a custom RenderMesh might be found.")]
-        public virtual string CustomRendermeshKey { get; set; } = "Rendermesh";
+        public virtual string CustomRendermeshKey { get; set; } = "RenderMesh";
 
         [Description("The key of the BHoMObjects' CustomData dictionary where colour information might be found.")]
         public virtual string CustomDataColorKey { get; set; } = "Colour";
