@@ -38,7 +38,7 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual BH.oM.Geometry.ISurface Location { get; set; } = new PlanarSurface();
+        public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
 
         /***************************************************/
     }
