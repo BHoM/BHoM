@@ -48,7 +48,7 @@ namespace BH.oM.Environment.Analysis
         [Description("The ID of the AnalysisGrid. This should be unique for AnalysisGrids in a collection and is used to refer to result objects in the ObjectId property of result objects")]
         public virtual int ID { get; set; } = -1;
 
-        [Description("The name for the AnalysisGrid to identify it for engineers")]
+        [Description("The name for the AnalysisGrid to identify it for users")]
         public override string Name { get; set; } = "";
 
         public AnalysisGrid(Polyline boundaryCurve = null, List<Polyline> innerCurves = null, List<Node> nodes = null, int id = -1, string name = "")
