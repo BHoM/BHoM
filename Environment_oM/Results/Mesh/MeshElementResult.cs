@@ -38,7 +38,7 @@ namespace BH.oM.Environment.Results.Mesh
         [Description("ID of the AnalysisGrid that this result belongs to")]
         public virtual IComparable ObjectId { get; } = "";
 
-        [Description("ID of the Node in the mesh that this result belongs to.")]
+        [Description("ID of the Node in the Analysis Grid that this result belongs to")]
         public virtual IComparable NodeID { get; } = "";
 
         [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]

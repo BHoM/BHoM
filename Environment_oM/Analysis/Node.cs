@@ -38,6 +38,9 @@ namespace BH.oM.Environment.Analysis
         [Description("Position of the node in global Cartesian 3D space.")]
         public virtual Point Position { get; set; } = null;
 
+        [Description("An ID for this node to identify it within result lists and on an analysis grid. ID should be unique and not shared with other nodes in the same grid")]
+        public virtual int ID { get; set; } = -1;
+
         /***************************************************/
         /**** Explicit Casting                          ****/
         /***************************************************/
