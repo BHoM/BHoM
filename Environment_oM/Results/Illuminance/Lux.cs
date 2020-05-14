@@ -32,14 +32,13 @@ using BH.oM.Environment.Analysis;
 using BH.oM.Environment.Results.Mesh;
 
 using System.ComponentModel;
-using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Environment.Results.Lighting
+namespace BH.oM.Environment.Results.Illuminance
 {
     [Description("Lux contains results for Lux analysis. Inherits from MeshElementResult which provides properties related to which node this Lux is recorded for")]
     public class Lux : MeshElementResult, IImmutable
     {
-        [Illuminance]
+        [BH.oM.Quantities.Attributes.Illuminance]
         [Description("The amount of lux recorded for the given analysis node")]
         public virtual double LuxLevel { get; set; } = -1;
 

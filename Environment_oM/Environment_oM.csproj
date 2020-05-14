@@ -103,7 +103,7 @@
     <Compile Include="Results\Enums\ProfileResultType.cs" />
     <Compile Include="Results\Enums\ProfileResultUnit.cs" />
     <Compile Include="Results\Enums\SimulationResultType.cs" />
-    <Compile Include="Results\Lighting\Lux.cs" />
+    <Compile Include="Results\Illuminance\Lux.cs" />
     <Compile Include="Results\Mesh\MeshElementResult.cs" />
     <Compile Include="Results\Mesh\MeshResult.cs" />
     <Compile Include="Results\ProfileResult.cs" />
