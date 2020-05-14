@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,21 +21,17 @@
  */
 
 using System.Collections.Generic;
-using System.ComponentModel;
+using BH.oM.Physical.Materials;
 using BH.oM.Base;
-using BH.oM.Geometry; 
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("The Life Cycle Assessment Scope object intends to provide a means of reporting all of the project criteria (name, area, type, location) as well as the objects that the study encompassed (structural slabs, foundation walls, etc) along with their properties for the Enviornmental Product Declarations they used (when using SetProperty), their densities and volumes. This object may be used for studies at any stage of development and can serve as a true means of 'apples to apples' comparison when catalogued.")]
-    public class EnclosuresDoors : BHoMObject, ILifeCycleAssessmentConstruction
+    public interface ILifeCycleAssessmentConstruction : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual BoundaryRepresentation Doors { get; set; } = null;
-        public virtual IEnvironmentalProductDeclarationData Data { get; set; } = null;
 
-        /***************************************************/
+        IEnvironmentalProductDeclarationData Data { get; set; }
     }
 }

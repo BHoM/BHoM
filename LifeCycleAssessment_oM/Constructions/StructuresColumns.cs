@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Structural columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
-    public class StructuresColumns : BHoMObject
+    public class StructuresColumns : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

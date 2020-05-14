@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Tenant Improvements Finishes is inclusive of finishes (eg paint)")]
-    public class TenantImprovementsFinishes : BHoMObject
+    public class TenantImprovementsFinishes : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

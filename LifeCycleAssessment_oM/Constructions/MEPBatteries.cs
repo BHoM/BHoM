@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("MEP Batties are energy storage devices (eg photovoltaic panels)")]
-    public class MEPBatteries : BHoMObject
+    public class MEPBatteries : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

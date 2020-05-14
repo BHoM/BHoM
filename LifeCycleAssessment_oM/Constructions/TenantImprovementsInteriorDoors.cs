@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Tenant Improvements Interior Doors includes doors in the interior of the building")]
-    public class TenantImprovementsInteriorDoors : BHoMObject
+    public class TenantImprovementsInteriorDoors : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Tenant Improvements Partition Walls includes walls in the interior of the building")]
-    public class TenantImprovementsPartitionWalls : BHoMObject
+    public class TenantImprovementsPartitionWalls : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

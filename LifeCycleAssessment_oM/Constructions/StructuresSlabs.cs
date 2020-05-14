@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Structural slabs are inclusive of the above-grade structural floors in a building")]
-    public class StructuresSlabs : BHoMObject
+    public class StructuresSlabs : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

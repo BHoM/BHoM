@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Foundation walls are structural walls built below-grade")]
-    public class FoundationsWalls : BHoMObject
+    public class FoundationsWalls : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/
