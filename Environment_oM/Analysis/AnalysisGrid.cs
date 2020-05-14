@@ -27,10 +27,37 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Geometry;
+
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Analysis
 {
+    [Description("An AnalysisGrid is used to define an area in 3D space that should be analysed for a given set of results, e.g. daylighting levels, wind levels, heat indexes, etc. - an AnalysisGrid can be used to represent a measurable bit of the environment, including a void in a space, or it can be used to represent a mesh on a panel for analysis")]
     public class AnalysisGrid : BHoMObject, IImmutable
     {
+        [Description("The BoundaryCurve is the outer-most edges of the AnalysisGrid. Nodes should not fall outside of this curve")]
+        public virtual Polyline BoundaryCurve { get; set; } = null;
+
+        [Description("The InnerCurves define any openings within the AnalysisGrid which should not be analysed or included in results, such as windows, doors, or atriums")]
+        public virtual List<Polyline> InnerCurves { get; set; } = null;
+
+        [Description("The Nodes define the geometric points in 3D space that form the analysis points of this grid. Each node in the Nodes property will be analysed in the analysis package")]
+        public virtual List<Node> Nodes { get; set; } = null;
+
+        [Description("The ID of the AnalysisGrid. This should be unique for AnalysisGrids in a collection and is used to refer to result objects in the ObjectId property of result objects")]
+        public virtual int ID { get; set; } = -1;
+
+        [Description("The name for the AnalysisGrid to identify it for engineers")]
+        public override string Name { get; set; } = "";
+
+        public AnalysisGrid(Polyline boundaryCurve = null, List<Polyline> innerCurves = null, List<Node> nodes = null, int id = -1, string name = "")
+        {
+            BoundaryCurve = boundaryCurve;
+            InnerCurves = innerCurves ?? new List<Polyline>();
+            Nodes = nodes ?? new List<Node>();
+            ID = id;
+            Name = name;
+        }
     }
 }
