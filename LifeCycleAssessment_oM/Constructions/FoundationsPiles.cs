@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Foundation piles are structural supports that are driven into the ground below a building to support the building structure")]
-    public class FoundationsPiles : BHoMObject
+    public class FoundationsPiles : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

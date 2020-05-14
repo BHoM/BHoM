@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("MEP Ductwork is a material (eg sheet metal) that helps to convey airflow from heating, ventilation or cooling systems")]
-    public class MEPDuctwork : BHoMObject
+    public class MEPDuctwork : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Tenant Improvements Flooring  is inclusive of the flooring materials placed on top of the structural floor (eg carpet, tile)")]
-    public class TenantImprovementsFlooring : BHoMObject
+    public class TenantImprovementsFlooring : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

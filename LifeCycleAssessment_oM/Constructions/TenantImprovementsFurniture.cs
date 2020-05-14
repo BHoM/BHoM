@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Tenant Improvements Furniture includes furnishings (eg tables, chairs, desks)")]
-    public class TenantImprovementsFurniture : BHoMObject
+    public class TenantImprovementsFurniture : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

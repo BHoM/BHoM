@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Structural core walls are inclusive of the above-grade, structural-grade walls surrounding the core (elevators, building services)")]
-    public class StructuresCoreWalls : BHoMObject
+    public class StructuresCoreWalls : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

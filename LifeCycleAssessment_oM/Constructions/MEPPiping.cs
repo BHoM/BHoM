@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("MEP Piping is a material (eg copper) that helps to convey fluids (eg water, waste) within a building")]
-    public class MEPPiping : BHoMObject
+    public class MEPPiping : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

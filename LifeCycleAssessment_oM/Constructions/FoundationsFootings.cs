@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Foundation footings (or pile caps) are mats below the buildings piles that help to distribute the load from the structure above")]
-    public class FoundationsFootings : BHoMObject
+    public class FoundationsFootings : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Structural beams are typically horizontal elements that carry the load of floors, roofs, and ceilings")]
-    public class StructuresBeams : BHoMObject
+    public class StructuresBeams : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

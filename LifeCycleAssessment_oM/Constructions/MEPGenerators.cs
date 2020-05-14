@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("MEP Generators are devices that convert mechanical energy to electrical power")]
-    public class MEPGenerators : BHoMObject
+    public class MEPGenerators : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

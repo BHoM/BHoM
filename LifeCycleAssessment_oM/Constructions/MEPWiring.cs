@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("MEP Wiring is a flexible conductor of electricity")]
-    public class MEPWiring : BHoMObject
+    public class MEPWiring : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

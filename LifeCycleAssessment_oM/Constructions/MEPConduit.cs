@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("MEP Conduit is a tube used to route electrical wiring")]
-    public class MEPConduit : BHoMObject
+    public class MEPConduit : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

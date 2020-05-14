@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Tenant Improvement Ceiling is a material that creates an additional upper interior surface in a room")]
-    public class TenantImprovementsCeiling : BHoMObject
+    public class TenantImprovementsCeiling : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/

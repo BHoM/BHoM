@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Tenant Improvements Interior Glazing is inclusive of windows in the interior of the building")]
-    public class TenantImprovementsInteriorGlazing : BHoMObject
+    public class TenantImprovementsInteriorGlazing : BHoMObject, ILifeCycleAssessmentConstruction
     {
         /***************************************************/
         /**** Properties                                ****/
