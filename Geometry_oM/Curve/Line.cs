@@ -38,7 +38,51 @@ namespace BH.oM.Geometry
 
         [Description("Defines the Line as a ray of infinite extents in both directions")]
         public virtual bool Infinite { get; set; } = false;
-        
+
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator Line(Polyline line)
+        {
+            if (line.ControlPoints.Count != 2)
+                return null;
+
+            return new Line() { Start = line.ControlPoints[0], End = line.ControlPoints[1] };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Line(NurbsCurve line)
+        {
+            if (line.ControlPoints.Count != 2)
+                return null;
+
+            return new Line() { Start = line.ControlPoints[0], End = line.ControlPoints[1] };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Line(PolyCurve curve)
+        {
+            if (curve.Curves.Count != 1)
+                return null;
+
+            ICurve c = curve.Curves[0];
+            if (c is Line)
+                return c as Line;
+            else if (c is Polyline)
+                return (Line)(c as Polyline);
+            else if (c is NurbsCurve)
+                return (Line)(c as NurbsCurve);
+            else if (c is PolyCurve)
+                return (Line)(c as PolyCurve);
+            else
+                return null;
+
+        }
+
         /***************************************************/
     }
 }

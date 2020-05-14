@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,41 +20,28 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using BH.oM.Reflection.Attributes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Diffing
+using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
+using System.ComponentModel;
+
+namespace BH.oM.MEP
+
 {
-    [Description("Points to a specific Stream. Can be used to generate a new Stream and StreamId.")]
-    public class StreamPointer : BHoMObject, IImmutable
+    [Description("The Fire Protection object defines the fire protection criteria for a space or building.")]
+    public class FireProtection : BHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("The prescribed hazard type of the space/building (e.g. light, ordinary or extra")]
+        public virtual string OccupancyHazardType { get; set; } = "";
 
-        public Guid StreamId { get; }
-        public string StreamName { get; }
-        public string Description { get; }
-        public long Timestamp { get; }
+        [Area]
+        [Description("The amount of area that a sprinkler head is able to cover in the space or building, this value should be represented as m2 per sprinkler head")]
+        public virtual double SprinklerCoverage { get; set; } = 0.0;
 
-        /***************************************************/
-        /**** Constructor                               ****/
-        /***************************************************/
-
-        public StreamPointer(Guid streamId, string streamName = null, string description = null, long timestamp = 0)
-        {
-            StreamId = streamId;
-            StreamName = streamName;
-            Description = description;
-            Timestamp = (timestamp > 0) ? timestamp : DateTime.UtcNow.Ticks;
-        }
-
-        /***************************************************/
     }
 }

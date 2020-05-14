@@ -84,10 +84,10 @@
     <Compile Include="Constructions\TenantImprovementsInteriorDoors.cs" />
     <Compile Include="Constructions\TenantImprovementsInteriorGlazing.cs" />
     <Compile Include="Constructions\TenantImprovementsPartitionWalls.cs" />
-    <Compile Include="SectorEnvironmentalProductDeclaration.cs" />
-    <Compile Include="IEnvironmentalProductDeclarationData.cs" />
+    <Compile Include="MaterialFragment\SectorEnvironmentalProductDeclaration.cs" />
+    <Compile Include="MaterialFragment\IEnvironmentalProductDeclarationData.cs" />
     <Compile Include="HealthProductDeclaration.cs" />
-    <Compile Include="EnvironmentalProductDeclaration.cs" />
+    <Compile Include="MaterialFragment\EnvironmentalProductDeclaration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

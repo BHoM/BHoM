@@ -20,41 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using BH.oM.Reflection.Attributes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BH.oM.Diffing
+namespace BH.oM.Environment.Gains
 {
-    [Description("Points to a specific Stream. Can be used to generate a new Stream and StreamId.")]
-    public class StreamPointer : BHoMObject, IImmutable
+    public enum ProfileDay
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public Guid StreamId { get; }
-        public string StreamName { get; }
-        public string Description { get; }
-        public long Timestamp { get; }
-
-        /***************************************************/
-        /**** Constructor                               ****/
-        /***************************************************/
-
-        public StreamPointer(Guid streamId, string streamName = null, string description = null, long timestamp = 0)
-        {
-            StreamId = streamId;
-            StreamName = streamName;
-            Description = description;
-            Timestamp = (timestamp > 0) ? timestamp : DateTime.UtcNow.Ticks;
-        }
-
-        /***************************************************/
+        Undefined,
+        Holiday,
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
     }
 }
+

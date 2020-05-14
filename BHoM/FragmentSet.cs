@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -36,7 +37,12 @@ namespace BH.oM.Base
         public FragmentSet(FragmentSet fragmentSet)
         {
             if (fragmentSet != null && fragmentSet.Dictionary != null && fragmentSet.Dictionary.Count != 0)
-                fragmentSet.Dictionary.Values.ToList().ForEach(v => this.Add(v));
+                fragmentSet.Dictionary.Values.Where(x => x != null).ToList().ForEach(v => this.Add(v));
+        }
+
+        public FragmentSet(List<IFragment> fragments)
+        {
+            fragments.Where(x => x != null).ToList().ForEach(v => this.Add(v));
         }
 
         public bool AddOrReplace(IFragment fragment) // Slower than Add() or SetItem(), but easier to use.
