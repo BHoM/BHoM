@@ -23,8 +23,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry; 
-
+using BH.oM.Geometry;
+using BH.oM.LifeCycleAssessment.MaterialFragments;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Structural slabs are inclusive of the above-grade structural floors in a building")]
