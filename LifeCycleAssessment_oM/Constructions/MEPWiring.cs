@@ -23,8 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.LifeCycleAssessment.MaterialFragments;
+using BH.oM.Geometry; 
 
 namespace BH.oM.LifeCycleAssessment
 {
