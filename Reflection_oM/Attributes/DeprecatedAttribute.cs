@@ -30,6 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Reflection.Attributes
 {
+    [ToBeRemoved("3.2", "Use ReplacedAttribute or ToBeDeletedAttribute instead")]
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum)]
     public class DeprecatedAttribute : Attribute, IImmutable
     {
@@ -50,12 +51,12 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public DeprecatedAttribute(string fromVersion, string description = "", Type newType = null, string newMethod = "")
+        public DeprecatedAttribute(string fromVersion, string description = "", Type replacingType = null, string replacingMethod = "")
         {
             Description = description;
             FromVersion = fromVersion;
-            ReplacingType = newType;
-            ReplacingMethod = newMethod;
+            ReplacingType = replacingType;
+            ReplacingMethod = replacingMethod;
         }
 
 

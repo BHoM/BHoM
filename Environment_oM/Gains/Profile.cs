@@ -32,28 +32,21 @@ using BH.oM.Environment.Fragments;
 
 namespace BH.oM.Environment.Gains
 {
+    [Description("A profile object represents a gain, thermostat or humdistat as conditions vary over a 24-hour period")]
     public class Profile : BHoMObject, IEnvironmentObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Profile Type depicts the time period (hours per day or year) during which the gain is actively contributing to the space")]
+        [Description("Profile Type depicts the type of profile (lighting gain, equipment gain, thermostat, etc)")]
         public virtual ProfileType ProfileType { get; set; } = ProfileType.Undefined;
 
-        [Description("The multiplication factor indicates the total percentage 0.0-1.0 over which the profile should be applied")]
-        public virtual double MultiplicationFactor { get; set; } = 1.0;
+        [Description("Profile Day depicts the day described in the profile, whether it's a day of the week or a holiday")]
+        public virtual ProfileDay ProfileDay { get; set; } = ProfileDay.Undefined;
 
-        [Description("The set back value indicates the total percentage 0.0-1.0 over which the profile should not be applied")]
-        public virtual double SetBackValue { get; set; } = 0.0;
-
-        public virtual string Function { get; set; } = "";
-
-        [Description("Values denotes the hour-by-hour values based on the chosen Profile Type: yearly, daily")]
-        public virtual List<double> Values { get; set; } = new List<double>();
-
-        [Description("The profile category in an enum that denotes what this profile is being set for: a gain, humdistat or thermostat")]
-        public virtual ProfileCategory Category { get; set; } = ProfileCategory.Undefined;
+        [Description("Hourly Values denotes the hour-by-hour values for a 24-hour period. These values may be represented in temperature (degrees C) (thermostat), fraction (0.9) (lighting gain), or flow (m3/s) (ventilation)")]
+        public virtual List<double> HourlyValues { get; set; } = new List<double>();
 
         /***************************************************/
     }

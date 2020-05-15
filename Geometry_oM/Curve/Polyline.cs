@@ -22,6 +22,8 @@
 
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace BH.oM.Geometry
 {
@@ -34,7 +36,77 @@ namespace BH.oM.Geometry
 
         [Description("An ordered set of three-dimensional points defining the curve shape")]
         public virtual List<Point> ControlPoints { get; set; } = new List<Point>();
-        
+
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator Polyline(Line line)
+        {
+            return new Polyline() { ControlPoints = new List<Point>() { line.Start, line.End } };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Polyline(NurbsCurve nurbs)
+        {
+            if (nurbs.Knots.Count != nurbs.ControlPoints.Count)
+                return null;
+
+            return new Polyline() { ControlPoints = nurbs.ControlPoints };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Polyline(PolyCurve polyCurve)
+        {
+            if (polyCurve.Curves.Count == 0)
+                return null;
+
+            List<Polyline> polyLines = new List<Polyline>();
+            foreach (ICurve c in polyCurve.Curves)
+            {
+                if (c is Line)
+                    polyLines.Add((Polyline)(c as Line));
+                else if (c is Polyline)
+                    polyLines.Add(c as Polyline);
+                else if (c is NurbsCurve)
+                {
+                    Polyline pl = (Polyline)(c as NurbsCurve);
+                    if (pl == null)
+                        return null;
+                    else
+                        polyLines.Add(pl);
+                }
+                else if (c is PolyCurve)
+                {
+                    Polyline pl = (Polyline)(c as PolyCurve);
+                    if (pl == null)
+                        return null;
+                    else
+                        polyLines.Add(pl);
+                }
+                else
+                    return null;
+            }
+
+            Polyline result = new Polyline();
+
+            result.ControlPoints.AddRange(polyLines[0].ControlPoints);
+            for (int i = 1; i < polyLines.Count; i++)
+            {
+                // Ensure continious
+                Vector v = polyLines[i].ControlPoints[0] - polyLines[i - 1].ControlPoints.Last();
+                if (v.X * v.X * + v.Y * v.Y * + v.Z * v.Z > Tolerance.Distance * Tolerance.Distance)
+                    return null;
+
+                result.ControlPoints.AddRange(polyLines[i].ControlPoints.Skip(1));
+            }
+
+            return result;
+        }
+
         /***************************************************/
     }
 }

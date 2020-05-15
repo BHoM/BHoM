@@ -33,7 +33,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Elements
 {
     [Description("A cutout or hole in a building surface/panel (e.g. Window, Door, Rooflight)")]
-    public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D
+    public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -25,12 +25,13 @@ namespace BH.oM.Environment.Gains
     public enum ProfileType
     {
         Undefined,
-        Function,
-        Hourly, //24 hours of hourly by each hour
-        HourlyFunction,
-        Value,
-        Yearly, //8760 hours
-        YearlyFunction,
+        EquipmentGain,
+        Humidistat,
+        Infiltration,
+        LightingGain,
+        PeopleGain,
+        Thermostat,
+        Ventilation
     }
 }
 

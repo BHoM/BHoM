@@ -22,6 +22,8 @@
 
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace BH.oM.Geometry
 {
@@ -44,8 +46,108 @@ namespace BH.oM.Geometry
                      "\nKnot vector length must be equal to or greater than the number of ControlPoints, such that together, the difference in counts defines the order (and degree) of the NurbsCurve." +
                      "\nThe NurbsCurve degree is equal to order plus one.")]
         public virtual List<double> Knots { get; set; } = new List<double>();
-        
+
+
         /***************************************************/
+        /**** Explicit Casting - Special Case           ****/
+        /***************************************************/
+
+        public static explicit operator NurbsCurve(Line line)
+        {
+            return new NurbsCurve {
+                ControlPoints = new List<Point> { line.Start, line.End },
+                Knots = new List<double> { 0, 1 },
+                Weights = new List<double> { 1, 1 },
+            };
+        }
+
+        /***************************************************/
+
+        public static explicit operator NurbsCurve(Polyline polyline)
+        {
+            List<Point> points = polyline.ControlPoints;
+            List<double> weights = polyline.ControlPoints.Select(x => 1.0).ToList();
+            List<double> knots = new List<double> { 0 };
+
+            double t = 0;
+            for (int i = 1; i < points.Count; i++)
+            {
+                Vector v = points[i] - points[i - 1];
+                t += Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
+                knots.Add(t);
+            }
+            knots = knots.Select(x => x / t).ToList();
+
+            return new NurbsCurve { ControlPoints = points, Weights = weights, Knots = knots };
+        }
+
+        /***************************************************/
+
+        public static explicit operator NurbsCurve(Ellipse ellipse)
+        {
+
+            Point centre = ellipse.Centre;
+            Vector d1 = ellipse.Radius1 * ellipse.Axis1;
+            Vector d2 = ellipse.Radius2 * ellipse.Axis2;
+            double factor = Math.Cos(Math.PI / 4);
+
+            List<Point> points = new List<Point>
+            {
+                centre + d1,
+                centre + d1 + d2,
+                centre + d2,
+                centre - d1 + d2,
+                centre - d1,
+                centre - d1 - d2,
+                centre - d2,
+                centre + d1 - d2,
+                centre + d1
+            };
+
+            return new NurbsCurve
+            {
+                ControlPoints = points,
+                Knots = new List<double> { 0, 0, 0.25, 0.25, 0.5, 0.5, 0.75, 0.75, 1.0, 1.0 },
+                Weights = new List<double> { 1.0, factor, 1.0, factor, 1.0, factor, 1.0, factor, 1.0 }
+            };
+
+        }
+
+        /***************************************************/
+
+        public static explicit operator NurbsCurve(Circle circle)
+        {
+            Ellipse ellipse = (Ellipse)circle;
+            return (NurbsCurve)ellipse;
+        }
+
+        /***************************************************/
+
+        public static explicit operator NurbsCurve(PolyCurve curve)
+        {
+            if (curve.Curves.Count != 1)
+                return null;
+
+            ICurve c = curve.Curves[0];
+            if (c is NurbsCurve)
+                return c as NurbsCurve;
+            else if (c is Line)
+                return (NurbsCurve)(c as Line);
+            else if (c is Polyline)
+                return (NurbsCurve)(c as Polyline);
+            else if (c is Circle)
+                return (NurbsCurve)(c as Circle);
+            else if (c is Ellipse)
+                return (NurbsCurve)(c as Ellipse);
+            else if (c is PolyCurve)
+                return (NurbsCurve)(c as PolyCurve);
+            else
+                return null;
+            
+        }
+
+        /***************************************************/
+
     }
 }
 

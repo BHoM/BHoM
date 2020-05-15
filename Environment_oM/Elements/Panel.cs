@@ -38,7 +38,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Elements
 {
     [Description("An environmental object used to define planar surfaces of a space (e.g. Wall, Floor, Roof)")]
-    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D
+    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D, IElementM
     {
         [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
         public virtual List<Edge> ExternalEdges { get; set; } = new List<Edge>();

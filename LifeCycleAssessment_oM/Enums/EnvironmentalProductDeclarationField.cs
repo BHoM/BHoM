@@ -27,18 +27,17 @@ namespace BH.oM.LifeCycleAssessment
     [Description("This enum provides several evaluation fields that are commonly assessed within standard Environmental Product Declarations. You may provide single or multiple EPD Field selections for evaluation within the EvaluateEnvironmentalProductDeclaration compute method.")]
     public enum EnvironmentalProductDeclarationField
     {
-        GlobalWarmingPotential,
-        OzoneDepletionPotential,
-        PhotochemicalOzoneCreationPotential,
         AcidificationPotential,
-        EutrophicationPotential,
-        DepletionOfAbioticResourcesFossilFuels,
-        GlobalWarmingPotentialEndOfLife,
-        OzoneDepletionPotentialEndOfLife,
-        PhotochemicalOzoneCreationPotentialEndOfLife,
         AcidificationPotentialEndOfLife,
-        EutrophicationPotentialEndOfLife,
+        DepletionOfAbioticResourcesFossilFuels,
         DepletionOfAbioticResourcesFossilFuelsEndOfLife,
-        //add more evaluation properties when needed.
+        EutrophicationPotential,
+        EutrophicationPotentialEndOfLife,
+        GlobalWarmingPotential,
+        GlobalWarmingPotentialEndOfLife,
+        OzoneDepletionPotential,
+        OzoneDepletionPotentialEndOfLife,
+        PhotochemicalOzoneCreationPotential,
+        PhotochemicalOzoneCreationPotentialEndOfLife,
     }
 }

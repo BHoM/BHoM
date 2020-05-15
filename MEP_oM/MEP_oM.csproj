@@ -45,6 +45,7 @@
     <Compile Include="Equipment\IEquipment.cs" />
     <Compile Include="Fragments\GeometryFragment.cs" />
     <Compile Include="Fragments\IdentityFragment.cs" />
+    <Compile Include="Parts\AirHandlingUnitBase.cs" />
     <Compile Include="Parts\CoolingCoil.cs" />
     <Compile Include="Parts\ElectricalConnector.cs" />
     <Compile Include="Parts\EnergyWheel.cs" />
@@ -53,10 +54,11 @@
     <Compile Include="Parts\Fan.cs" />
     <Compile Include="Parts\IPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpaceProperties\FireProtection.cs" />
+    <Compile Include="Systems\Enums\PipeTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fixtures\" />
-    <Folder Include="Systems\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
@@ -66,6 +68,10 @@
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj">
+      <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
+      <Name>Quantities_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
