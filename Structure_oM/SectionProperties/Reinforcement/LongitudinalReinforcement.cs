@@ -28,14 +28,14 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties.Reinforcement
 {
-    [Description("Defines any longitudinal reinforcement along a Bar or IFramingElement.")]
+    [Description("Defines any longitudinal reinforcement along a Bar.")]
     public class LongitudinalReinforcement : BHoMObject, IBarReinforcement
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Layout controling the distribution of the rebars across the SectionProperty")]
+        [Description("Layout controlling the distribution of the rebars across the SectionProperty.")]
         public virtual ILayout2D RebarLayout { get; set; }
 
         [Length]
