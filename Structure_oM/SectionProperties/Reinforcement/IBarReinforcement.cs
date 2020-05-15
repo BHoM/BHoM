@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties.Reinforcement
 {
-    [Description("Base interface for any reinforcement applied to a Bar or IFramingElement")]
+    [Description("Base interface for any reinforcement applied to a Bar.")]
     public interface IBarReinforcement : IBHoMObject
     {
         /***************************************************/
