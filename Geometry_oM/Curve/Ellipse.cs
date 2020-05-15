@@ -21,7 +21,8 @@
  */
 
 using System.ComponentModel;
- using BH.oM.Quantities.Attributes;
+using BH.oM.Quantities.Attributes;
+using System;
 
 namespace BH.oM.Geometry
 {
@@ -49,7 +50,79 @@ namespace BH.oM.Geometry
         [Length]
         [Description("Distance from the Centre to a point on the Ellipse along Axis2.")]
         public virtual double Radius2 { get; set; } = 0;
-        
+
+        /***************************************************/
+        /**** Explicit Casting - Special Case           ****/
+        /***************************************************/
+
+        public static explicit operator Ellipse(Circle circle)
+        {
+            //No way of having explicit operators outside the class definition, why some code for crossproducts etc is stored in here.
+
+            double length = Math.Sqrt(circle.Normal.X * circle.Normal.X + circle.Normal.Y * circle.Normal.Y + circle.Normal.Z * circle.Normal.Z);
+
+            //Get normalised z vector
+            Vector z = new Vector { X = circle.Normal.X / length, Y = circle.Normal.Y / length, Z = circle.Normal.Z / length };
+
+            Vector x;
+            if (z.Y != 0 && z.Z != 0)
+                x = Vector.XAxis;
+            else
+                x = Vector.YAxis;
+
+            //Project local x to the plane
+            x = x - (x.X * z.X + x.Y * z.Y + x.Z * z.Z) * z;
+
+            //Normalise x
+            length = Math.Sqrt(x.X * x.X + x.Y * x.Y + x.Z * x.Z);
+            x = x / length;
+
+            //Crossproduct to get local y
+            Vector y = new Vector { X = z.Y * x.Z - z.Z * x.Y, Y = z.Z * x.X - z.X * x.Z, Z = z.X * x.Y - z.Y * x.X };
+
+            return new Ellipse()
+            {
+                Centre = circle.Centre,
+                Axis1 = x,
+                Axis2 = y,
+                Radius1 = circle.Radius,
+                Radius2 = circle.Radius,
+            };
+        }
+
+        /***************************************************/
+
+        public static explicit operator Ellipse(PolyCurve curve)
+        {
+            if (curve.Curves.Count != 1)
+                return null;
+
+            ICurve c = curve.Curves[0];
+            if (c is Ellipse)
+                return c as Ellipse;
+            else if (c is Circle)
+                return (Ellipse)(c as Circle);
+            else if (c is Arc)
+                return (Ellipse)(c as Arc);
+            else if (c is PolyCurve)
+                return (Ellipse)(c as PolyCurve);
+            else
+                return null;
+
+        }
+
+        /***************************************************/
+
+        public static explicit operator Ellipse(Arc curve)
+        {
+            Circle circle = (Circle)curve;
+
+            if (circle == null)
+                return null;
+
+            return (Ellipse)circle;
+        }
+
         /***************************************************/
     }
 }
