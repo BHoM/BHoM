@@ -47,6 +47,9 @@
     <Compile Include="Design\SpanDirection.cs" />
     <Compile Include="Design\StructuralLayout.cs" />
     <Compile Include="Elements\Bar.cs" />
+    <Compile Include="Elements\Bolt.cs" />
+    <Compile Include="Elements\Cut.cs" />
+    <Compile Include="Elements\SteelConnection.cs" />
     <Compile Include="Elements\Edge.cs" />
     <Compile Include="Elements\Enums\BarFEAType.cs" />
     <Compile Include="Elements\Enums\StructuralUsage1d.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="Elements\Surface.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\RigidLink.cs" />
+    <Compile Include="Elements\Weld.cs" />
     <Compile Include="IProperty.cs" />
     <Compile Include="Loads\AreaTemperatureLoad.cs" />
     <Compile Include="Loads\AreaUniformlyDistributedLoad.cs" />
