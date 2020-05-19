@@ -73,7 +73,7 @@
     <Compile Include="Gains\People.cs" />
     <Compile Include="Gains\Plug.cs" />
     <Compile Include="Gains\Pollutant.cs" />
-    <Compile Include="Gains\Ventilation.cs" />
+    <Compile Include="Ventilation\Ventilation.cs" />
     <Compile Include="MaterialFragments\Enums\Function.cs" />
     <Compile Include="Fragments\BuildingAnalyticalFragment.cs" />
     <Compile Include="Fragments\BuildingContextFragment.cs" />
