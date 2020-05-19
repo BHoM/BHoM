@@ -34,16 +34,16 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
 
         [Description("Enclosure walls are inclusive of the opaque exterior wall assemblies of a building")]
-        public virtual EnclosuresCurtainWalls EnclosuresCurtainWalls { get; set; } = new EnclosuresCurtainWalls();
+        public virtual List<IBHoMObject> EnclosuresCurtainWalls { get; set; } = new List<IBHoMObject>();
         
         [Description("Enclosure curtain walls are large sheets of transparent glazing on the building exterior")]
-        public virtual EnclosuresWalls EnclosuresWalls { get; set; } = new EnclosuresWalls();
+        public virtual List<IBHoMObject> EnclosuresWalls { get; set; } = new List<IBHoMObject>();
         
         [Description("Enclosure windows are are openings in the building exterior, which consist of framing and glazing")]
-        public virtual EnclosuresWindows EnclosuresWindows { get; set; } = new EnclosuresWindows();
+        public virtual List<IBHoMObject> EnclosuresWindows { get; set; } = new List<IBHoMObject>();
         
         [Description("Enclosure doors are are openings in the building exterior, which consist of framing and panels")]
-        public virtual EnclosuresDoors EnclosuresDoors { get; set; } = new EnclosuresDoors();
+        public virtual List<IBHoMObject> EnclosuresDoors { get; set; } = new List<IBHoMObject>();
 
         /***************************************************/
     }
