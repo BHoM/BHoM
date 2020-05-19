@@ -42,9 +42,6 @@ namespace BH.oM.Environment.Gains
 
         [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by plugs.")]
         public virtual double RadiantFraction { get; set; } = 0.0;
-
-        [Description("The view coefficient of this plug gain")]
-        public virtual double ViewCoefficient { get; set; } = 0.0;
     }
 }
 
