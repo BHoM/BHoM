@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Base;
 using BH.oM.Physical.Materials;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     public class SectorEnvironmentalProductDeclaration : BHoMObject, IEnvironmentalProductDeclarationData
     {

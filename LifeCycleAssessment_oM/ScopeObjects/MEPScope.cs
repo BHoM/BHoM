@@ -33,28 +33,28 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("MEP Equipment is a machine that processes mechanical, electrical or plumbing loads (eg Fan, Electrical Panel, Pump")]
-        public virtual MEPEquipment MEPEquipment { get; set; } = new MEPEquipment();
+        public virtual List<IBHoMObject> MEPEquipment { get; set; } = new List<IBHoMObject>();
         
         [Description("MEP Ductwork is a material (eg sheet metal) that helps to convey airflow from heating, ventilation or cooling systems")]
-        public virtual MEPDuctwork MEPDuctwork { get; set; } = new MEPDuctwork();
+        public virtual List<IBHoMObject> MEPDuctwork { get; set; } = new List<IBHoMObject>();
         
         [Description("MEP Generators are devices that convert mechanical energy to electrical power")]
-        public virtual MEPGenerators MEPGenerators { get; set; } = new MEPGenerators();
+        public virtual List<IBHoMObject> MEPGenerators { get; set; } = new List<IBHoMObject>();
         
         [Description("MEP Conduit is a tube used to route electrical wiring")]
-        public virtual MEPConduit MEPConduit { get; set; } = new MEPConduit();
+        public virtual List<IBHoMObject> MEPConduit { get; set; } = new List<IBHoMObject>();
         
         [Description("MEP Wiring is a flexible conductor of electricity")]
-        public virtual MEPWiring MEPWiring { get; set; } = new MEPWiring();
+        public virtual List<IBHoMObject> MEPWiring { get; set; } = new List<IBHoMObject>();
         
         [Description("MEP Lighting is inclusive of all light fixtures")]
-        public virtual MEPLighting MEPLighting { get; set; } = new MEPLighting();
+        public virtual List<IBHoMObject> MEPLighting { get; set; } = new List<IBHoMObject>();
         
         [Description("MEP Piping is a material (eg copper) that helps to convey fluids (eg water, waste) within a building")]
-        public virtual MEPPiping MEPPiping { get; set; } = new MEPPiping();
+        public virtual List<IBHoMObject> MEPPiping { get; set; } = new List<IBHoMObject>();
         
         [Description("MEP Batties are energy storage devices (eg photovoltaic panels)")]
-        public virtual MEPBatteries MEPBatteries { get; set; } = new MEPBatteries();
+        public virtual List<IBHoMObject> MEPBatteries { get; set; } = new List<IBHoMObject>();
 
         /***************************************************/
     }
