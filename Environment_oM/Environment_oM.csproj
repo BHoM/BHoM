@@ -60,7 +60,6 @@
     <Compile Include="Fragments\AnalyticalConstruction.cs" />
     <Compile Include="Fragments\LightReflectanceFragment.cs" />
     <Compile Include="Gains\Acoustics.cs" />
-    <Compile Include="Gains\Emitter.cs" />
     <Compile Include="Gains\Enums\EmitterType.cs" />
     <Compile Include="Gains\Enums\ProfileDay.cs" />
     <Compile Include="Gains\Enums\ProfileCategory.cs" />

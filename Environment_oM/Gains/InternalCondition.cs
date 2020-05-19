@@ -37,8 +37,6 @@ namespace BH.oM.Environment.Gains
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Emitter> Emitters { get; set; } = new List<Emitter>();
-
         public virtual bool IncludeSolarInMeanRadiantTemp { get; set; } = true;
 
         public virtual List<SimulationDayType> DayTypes { get; set; } = new List<SimulationDayType>();
