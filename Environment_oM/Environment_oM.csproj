@@ -45,6 +45,7 @@
     <Compile Include="Climate\IClimateObject.cs" />
     <Compile Include="Climate\Location.cs" />
     <Compile Include="Climate\SpaceTime.cs" />
+    <Compile Include="Climate\Time.cs" />
     <Compile Include="Climate\Sun.cs" />
     <Compile Include="Elements\Building.cs" />
     <Compile Include="Elements\Edge.cs" />

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -28,17 +28,34 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
+using BH.oM.Environment.Fragments;
 using System.ComponentModel;
 
 namespace BH.oM.Environment.Climate
 {
-    [Description("Represents a specific moment in time related to a specific location of Earth geometry. Used for obtaining solar positions for specific moments in time at specific points on Earth")]
-    public class SpaceTime : BHoMObject
+    [Description("An environment object used to describe time for climate analysis")]
+    public class Time : BHoMObject, IClimateObject
     {
-        [Description("Describes the location of Earth geometry using the Location object which provides longitudal and latitudal data")]
-        public virtual Location Location { get; set; } = new Location();
+        [Description("A number that represents the year (e.g. 1970)")]
+        public virtual int Year { get; set; } = 1900;
 
-        [Description("Describes a specific moment in time")]
-        public virtual Time Time { get; set; } = new Time();
+        [Description("A number between 1 to 12, where 1 is January")]
+        public virtual int Month { get; set; } = 1;
+
+        [Description("A number between 1 to 31")]
+        public virtual int Day { get; set; } = 1;
+
+        [Description("A number between 0 to 23")]
+        public virtual int Hour { get; set; } = 0;
+
+        [Description("A number between 0 to 59")]
+        public virtual int Minute { get; set; } = 0;
+
+        [Description("A number between 0 to 59")]
+        public virtual int Second { get; set; } = 0;
+
+        [Description("A number between 0 to 999")]
+        public virtual int Millisecond { get; set; } = 0;
     }
 }
+
