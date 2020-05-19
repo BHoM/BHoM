@@ -57,8 +57,6 @@
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\Space.cs" />
-    <Compile Include="Equipment\AirHandlingUnit.cs" />
-    <Compile Include="Equipment\IEquipment.cs" />
     <Compile Include="Fragments\AnalyticalConstruction.cs" />
     <Compile Include="Fragments\LightReflectanceFragment.cs" />
     <Compile Include="Gains\Acoustics.cs" />
