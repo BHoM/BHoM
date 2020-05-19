@@ -34,6 +34,8 @@ using BH.oM.Environment.Gains;
 using BH.oM.Geometry;
 using System.ComponentModel;
 
+using BH.oM.Environment.Venitlation;
+
 namespace BH.oM.Environment.Elements
 {
     [Description("A space object is an analytical depiction of a room defined by its environmental conditions (internal gains)")]
