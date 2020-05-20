@@ -34,6 +34,9 @@ namespace BH.oM.Structure.SurfaceProperties
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the SurfaceProperty, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         [Length]
         [Description("The thickness of the slab sitting on top of the ribs.")]
         public virtual double Thickness { get; set; }
