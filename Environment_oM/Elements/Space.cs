@@ -67,7 +67,7 @@ namespace BH.oM.Environment.Elements
         public virtual Point Location { get; set; } = new Point();
 
         [Description("A 2D curve defining the external boundaries of the floor of the space")]
-        public virtual ICurve PerimeterCurve { get; set; } = new Polyline();
+        public virtual ICurve Perimeter { get; set; } = new Polyline();
     }
 }
 
