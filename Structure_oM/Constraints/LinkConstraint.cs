@@ -32,6 +32,9 @@ namespace BH.oM.Structure.Constraints
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the Constraint, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         [Description("True defines a rigid connectivity between master and slave for translations along the X-axis, i.e. true prohibits relative translation along the X-axis between master and slave.")]
         public virtual bool XtoX { get; set; } = false;
 

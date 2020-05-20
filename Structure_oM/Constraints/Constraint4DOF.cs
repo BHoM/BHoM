@@ -33,6 +33,9 @@ namespace BH.oM.Structure.Constraints
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the Constraint, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         [Description("Defines the translational fixity in the X-direction.")]
         public virtual DOFType TranslationX { get; set; } = DOFType.Free;
 
