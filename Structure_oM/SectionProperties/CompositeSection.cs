@@ -39,6 +39,9 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the SectionProperty, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         public virtual SteelSection SteelSection { get; }
 
         public virtual ConcreteSection ConcreteSection { get; }

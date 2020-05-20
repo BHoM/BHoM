@@ -35,6 +35,9 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the SectionProperty, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         [Description("Homogeneous material used throughout the full section.")]
         public virtual IMaterialFragment Material { get; set; } = null;
 
