@@ -33,6 +33,9 @@ namespace BH.oM.Structure.SurfaceProperties
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the SurfaceProperty, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         [Description("Load application enum defining to which edges the load should be distributed.")]
         public virtual LoadPanelSupportConditions LoadApplication { get; set; } = LoadPanelSupportConditions.AllSides;
 

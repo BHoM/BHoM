@@ -34,6 +34,9 @@ namespace BH.oM.Structure.SurfaceProperties
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the SurfaceProperty, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         [Length]
         [Description("Defines the distance the element should be extruded along its normal. By default the element will be extruded half the thickness 'upwards' and half the thickness 'downwards' meaning the element base geoemtry will be in the centre of the extrusion.")]
         public virtual double Thickness { get; set; }
