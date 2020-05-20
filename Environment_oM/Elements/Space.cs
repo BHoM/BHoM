@@ -35,11 +35,12 @@ using BH.oM.Geometry;
 using System.ComponentModel;
 
 using BH.oM.Environment.Venitlation;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Environment.Elements
 {
     [Description("A space object is an analytical depiction of a room defined by its environmental conditions (internal gains)")]
-    public class Space : BHoMObject, IEnvironmentObject
+    public class Space : BHoMObject, IEnvironmentObject, IElement2D
     {
         [Description("Zones denotes the list of zones that this particular space is associated with. Zones are collections of spaces with similar internal gains and exterior envelope conditions.")]
         public virtual List<string> Zones { get; set; } = new List<string>();
@@ -64,6 +65,9 @@ namespace BH.oM.Environment.Elements
 
         [Description("A point in 3D space providing a location point of the space")]
         public virtual Point Location { get; set; } = new Point();
+
+        [Description("A 2D curve defining the external boundaries of the floor of the space")]
+        public virtual ICurve PerimeterCurve { get; set; } = new Polyline();
     }
 }
 
