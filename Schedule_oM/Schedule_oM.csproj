@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF11CF49-D660-4BD3-B5FF-C0D41B318EF3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Schedule_oM</RootNamespace>
+    <AssemblyName>Schedule_oM</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\CategorySpecificData.cs" />
+    <Compile Include="Components\Connection.cs" />
+    <Compile Include="Components\Duration.cs" />
+    <Compile Include="Components\Phase.cs" />
+    <Compile Include="Components\Quantity.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="ElementTask.cs" />
+    <Compile Include="Enums\ConnectionType.cs" />
+    <Compile Include="Enums\ConstraintType.cs" />
+    <Compile Include="Enums\HeadingType.cs" />
+    <Compile Include="Enums\MeasurementType.cs" />
+    <Compile Include="Enums\PhaseType.cs" />
+    <Compile Include="Enums\SchedulerApplication.cs" />
+    <Compile Include="Enums\TaskType.cs" />
+    <Compile Include="Enums\VendorApplication.cs" />
+    <Compile Include="LocalTask.cs" />
+    <Compile Include="Microsoft\Project\Desktop\Baseline.cs" />
+    <Compile Include="Microsoft\Project\Desktop\Task.cs" />
+    <Compile Include="Microsoft\Project\Online\Task.cs" />
+    <Compile Include="Microsoft\Project\Online\TaskCreationInfo.cs" />
+    <Compile Include="Microsoft\Project\Online\User.cs" />
+    <Compile Include="Microsoft\Project\Online\UserIdInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Oracle\" />
+    <Folder Include="PowerProject\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Architecture_oM\Architecture_oM.csproj">
+      <Project>{0297C5B2-5EBF-4539-9011-AFDE4366BFEF}</Project>
+      <Name>Architecture_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common_oM\Common_oM.csproj">
+      <Project>{44F6C3BC-D321-4673-8F54-674AE7B33F18}</Project>
+      <Name>Common_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
+      <Project>{5B09A2E5-CBF5-43E2-8D98-B5035391DB7B}</Project>
+      <Name>Geometry_oM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
