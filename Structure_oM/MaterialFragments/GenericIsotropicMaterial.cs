@@ -33,6 +33,9 @@ namespace BH.oM.Structure.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the material, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         [Density]
         public virtual double Density { get; set; }
 
