@@ -34,6 +34,9 @@ namespace BH.oM.Structure.Constraints
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the Constraint, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         [ForcePerUnitLength]
         [Description("Defines the stiffness in X-direction. This will only be active when corresponding degree of freedom has a DOFType with a stiffness dependency, such as Spring.")]
         public virtual double TranslationalStiffnessX { get; set; } = 0;

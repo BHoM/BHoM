@@ -33,6 +33,9 @@ namespace BH.oM.Structure.Constraints
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the BarRelease, required for various structural packages to be able to create the object.")]
+        public override string Name { get; set; }
+
         [Description("Release of the start node of the bar, in the local coordinates of the element.")]
         public virtual Constraint6DOF StartRelease { get; set; }
 
