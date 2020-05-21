@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Venitlation
+namespace BH.oM.Environment.Ventilation
 
 { 
     [Description("Ventilation defines the amount of outside air that should be introduced to a space, which is typically based on the number of occupants breathing the air and the area of the space.")]
