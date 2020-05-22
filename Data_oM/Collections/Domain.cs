@@ -27,23 +27,35 @@ using System;
 
 namespace BH.oM.Data.Collections
 {
-    public class NBound : IObject
+    public class Domain : IObject, IImmutable
     {
-        public double[] Min { get; set; } = null;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public double[] Max { get; set; } = null;
+        public double Min { get; }
 
-        public static NBound operator +(NBound a, NBound b)
+        public double Max { get; }
+
+        /***************************************************/
+
+        public Domain(double min, double max)
         {
-            if (b == null || a == null)
-                return null;
-
-            return new NBound
-            {
-                Min = a.Min.Zip(b.Min, (u, v) => Math.Min(u, v)).ToArray(),
-                Max = a.Max.Zip(b.Max, (u, v) => Math.Max(u, v)).ToArray()
-            };
+            Min = min;
+            Max = max;
         }
+
+        /***************************************************/
+
+        public static Domain operator +(Domain a, Domain b)
+        {
+            return new Domain(
+                Math.Min(a.Min, b.Min),
+                Math.Max(a.Max, b.Max)
+                );
+        }
+
+        /***************************************************/
 
     }
 }
