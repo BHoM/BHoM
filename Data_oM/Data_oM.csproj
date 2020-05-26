@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Collections\Domain.cs" />
     <Compile Include="Collections\Leaf.cs" />
+    <Compile Include="Collections\DomainTree.cs" />
+    <Compile Include="Collections\Node.cs" />
     <Compile Include="Collections\NTree.cs" />
     <Compile Include="Collections\DomainBox.cs" />
     <Compile Include="Collections\ITree.cs" />

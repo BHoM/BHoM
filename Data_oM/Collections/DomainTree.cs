@@ -20,14 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using BH.oM.Base;
 
 namespace BH.oM.Data.Collections
 {
-    public interface ITree : IDataStructure
+    public class DomainTree<T> : Node<DomainBox, T>
     {
-        NBound Bounds { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public new IEnumerable<DomainTree<T>> Children { get; set; } = new List<DomainTree<T>>();
+
+        /***************************************************/
+
     }
+
+    /***************************************************/
+    
+
 }
+
+
 

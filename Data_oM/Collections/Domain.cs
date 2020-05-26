@@ -49,6 +49,9 @@ namespace BH.oM.Data.Collections
 
         public static Domain operator +(Domain a, Domain b)
         {
+            if (a == null || b == null)
+                return null;
+
             return new Domain(
                 Math.Min(a.Min, b.Min),
                 Math.Max(a.Max, b.Max)
