@@ -24,7 +24,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Reflection.Interface
 {
-    [Description("Interface to be attached to obejcts that are to be automatically exploded when returned in any UI. Objects implementing this interface will not be constructable from the UI.")]
+    [Description("Interface to be attached to objects that are to be automatically exploded when returned in any UI. Objects implementing this interface will not be constructable from the UI.")]
     public interface IOutputObject
     {
     }
