@@ -56,6 +56,7 @@
     <Compile Include="Debugging\Event.cs" />
     <Compile Include="Debugging\EventType.cs" />
     <Compile Include="Debugging\Log.cs" />
+    <Compile Include="Interface\IOutputObject.cs" />
     <Compile Include="Interface\IOutput.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
