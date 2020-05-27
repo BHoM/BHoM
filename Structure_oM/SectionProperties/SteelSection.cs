@@ -35,7 +35,7 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Name of the SectionProperty, required for various structural packages to be able to create the object.")]
+        [Description("Unique Names are required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Description("The fabrication method used for the section.")]

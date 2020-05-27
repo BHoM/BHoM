@@ -33,7 +33,7 @@ namespace BH.oM.Structure.SurfaceProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Name of the SurfaceProperty, required for various structural packages to be able to create the object.")]
+        [Description("Unique Names are required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Description("Load application enum defining to which edges the load should be distributed.")]
