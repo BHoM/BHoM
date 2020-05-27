@@ -113,6 +113,10 @@
       <Name>Analytical_oM</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Architecture_oM\Architecture_oM.csproj">
+      <Project>{0297c5b2-5ebf-4539-9011-afde4366bfef}</Project>
+      <Name>Architecture_oM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>

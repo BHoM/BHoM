@@ -32,6 +32,7 @@ namespace BH.oM.Environment.Elements
         Door,
         Frame,
         Glazing,
+        Hole,
         Rooflight,
         RooflightWithFrame,
         Window,
