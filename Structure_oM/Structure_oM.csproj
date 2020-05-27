@@ -60,7 +60,8 @@
     <Compile Include="Elements\Surface.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\RigidLink.cs" />
-    <Compile Include="Fragments\SectionModifiers.cs" />
+    <Compile Include="Fragments\SectionModifier.cs" />
+    <Compile Include="Fragments\SurfacePropertyModifier.cs" />
     <Compile Include="IProperty.cs" />
     <Compile Include="Loads\AreaTemperatureLoad.cs" />
     <Compile Include="Loads\AreaUniformlyDistributedLoad.cs" />
