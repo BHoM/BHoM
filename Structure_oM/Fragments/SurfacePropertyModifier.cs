@@ -65,5 +65,9 @@ namespace BH.oM.Structure.Fragments
         [Ratio]
         [Description("Modifier of the mass. Value of the SurfaceProperty is multiplied by this value, hence 1 means no scaling applied.")]
         public virtual double Mass { get; set; } = 1;
+
+        [Ratio]
+        [Description("Modifier of the weight. Value of the SurfaceProperty is multiplied by this value, hence 1 means no scaling applied.")]
+        public virtual double Weight { get; set; } = 1;
     }
 }
