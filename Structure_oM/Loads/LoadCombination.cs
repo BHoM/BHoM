@@ -34,7 +34,7 @@ namespace BH.oM.Structure.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Name of the LoadCombination, required for some structural packages to be able to create and identify the object.")]
+        [Description("Unique Names are required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Description("The factored Loadcases that make up the combination. Stored as a collection of Tuple<double,ICase> where the double is the factor the case should be scaled by in this combination.")]
