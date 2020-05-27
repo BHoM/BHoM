@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
@@ -37,27 +38,26 @@ namespace BH.oM.Environment.Analysis
     public class AnalysisGrid : BHoMObject, IImmutable
     {
         [Description("The BoundaryCurve is the outer-most edges of the AnalysisGrid. Nodes should not fall outside of this curve")]
-        public virtual Polyline BoundaryCurve { get; set; } = null;
+        public virtual Polyline BoundaryCurve { get; } = null;
 
         [Description("The InnerCurves define any openings within the AnalysisGrid which should not be analysed or included in results, such as windows, doors, or atriums")]
-        public virtual List<Polyline> InnerCurves { get; set; } = null;
+        public virtual ReadOnlyCollection<Polyline> InnerCurves { get; } = null;
 
         [Description("The Nodes define the geometric points in 3D space that form the analysis points of this grid. Each node in the Nodes property will be analysed in the analysis package")]
-        public virtual List<Node> Nodes { get; set; } = null;
+        public virtual ReadOnlyCollection<Node> Nodes { get; } = null;
 
         [Description("The ID of the AnalysisGrid. This should be unique for AnalysisGrids in a collection and is used to refer to result objects in the ObjectId property of result objects")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; } = -1;
 
         [Description("The name for the AnalysisGrid to identify it for users")]
         public override string Name { get; set; } = "";
 
-        public AnalysisGrid(Polyline boundaryCurve = null, List<Polyline> innerCurves = null, List<Node> nodes = null, int id = -1, string name = "")
+        public AnalysisGrid(Polyline boundaryCurve = null, ReadOnlyCollection<Polyline> innerCurves = null, ReadOnlyCollection<Node> nodes = null, int id = -1)
         {
             BoundaryCurve = boundaryCurve;
-            InnerCurves = innerCurves ?? new List<Polyline>();
-            Nodes = nodes ?? new List<Node>();
+            InnerCurves = innerCurves ?? new ReadOnlyCollection<Polyline>(new List<Polyline>());
+            Nodes = nodes ?? new ReadOnlyCollection<Node>(new List<Node>());
             ID = id;
-            Name = name;
         }
     }
 }
