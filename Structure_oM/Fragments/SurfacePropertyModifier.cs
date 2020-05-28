@@ -55,11 +55,11 @@ namespace BH.oM.Structure.Fragments
         public virtual double MXY { get; set; } = 1;
 
         [Ratio]
-        [Description("Modifier of the out of plane shear stiffness in the local z-direction along the local x-axis. Value of the SurfaceProperty is multiplied by this value, hence 1 means no scaling applied.")]
+        [Description("Modifier of the xz-out of plane shear stiffness. Value of the SurfaceProperty is multiplied by this value, hence 1 means no scaling applied.")]
         public virtual double VXZ { get; set; } = 1;
 
         [Ratio]
-        [Description("Modifier of the out of plane shear stiffness in the local z-direction along the local y-axis. Value of the SurfaceProperty is multiplied by this value, hence 1 means no scaling applied.")]
+        [Description("Modifier of the yz-out of plane shear stiffness. Value of the SurfaceProperty is multiplied by this value, hence 1 means no scaling applied.")]
         public virtual double VYZ { get; set; } = 1;
 
         [Ratio]
