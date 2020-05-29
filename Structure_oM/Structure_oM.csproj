@@ -117,6 +117,7 @@
     <Compile Include="SectionProperties\GenericSection.cs" />
     <Compile Include="SectionProperties\IGeometricalSection.cs" />
     <Compile Include="SectionProperties\Reinforcement\IBarReinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\TransverseReinforcement.cs" />
     <Compile Include="SectionProperties\Reinforcement\LongitudinalReinforcement.cs" />
     <Compile Include="SectionProperties\TimberSection.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />
