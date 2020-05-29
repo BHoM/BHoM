@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,16 +22,20 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.Data.Requests
 {
-    public interface ILogicalRequest : IRequest
+    [Description("A logical request that inverts the query specified by the input request, i.e. any object that fits this request will be excluded from a pull.")]
+    public class LogicalNotRequest : ILogicalRequest
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
-        
-        
+
+        [Description("Request to be inverted, i.e. defining what should be excluded.")]
+        public virtual IRequest Request { get; set; } = null;
+
         /***************************************************/
     }
 }
