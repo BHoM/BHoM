@@ -43,7 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Layouts\ExplicitLayout.cs" />
+    <Compile Include="Layouts\ICurveLayout.cs" />
     <Compile Include="Layouts\ILayout2D.cs" />
+    <Compile Include="Layouts\ExplicitCurveLayout.cs" />
+    <Compile Include="Layouts\OffsetCurveLayout.cs" />
     <Compile Include="Layouts\LinearLayout.cs" />
     <Compile Include="Layouts\MultiLinearLayout.cs" />
     <Compile Include="Layouts\PerimeterLayout.cs" />
