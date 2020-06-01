@@ -40,7 +40,7 @@ namespace BH.oM.Spatial.Layouts
         /***************************************************/
 
         [Description("The explicit shape of curve in the layout")]
-        public virtual IEnumerable<ICurve> Curves { get; set; }
+        public virtual ReadOnlyCollection<ICurve> Curves { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -48,7 +48,7 @@ namespace BH.oM.Spatial.Layouts
         
         public ExplicitCurveLayout(IEnumerable<ICurve> curves)
         {
-            Curves = curves;  
+            Curves = new ReadOnlyCollection<ICurve>(curves.ToList());
         }
 
         /***************************************************/

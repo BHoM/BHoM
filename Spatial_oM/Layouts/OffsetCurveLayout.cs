@@ -40,7 +40,7 @@ namespace BH.oM.Spatial.Layouts
         /***************************************************/
 
         [Description("Offset value")]
-        public virtual double Offset { get; set; }
+        public virtual double Offset { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
