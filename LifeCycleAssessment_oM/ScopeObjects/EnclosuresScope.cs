@@ -24,6 +24,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 
+using BH.oM.Dimensional;
+
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("The Enclosures Scope object provides a template for expected objects commonly assessed within Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment.")]
@@ -34,16 +36,16 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
 
         [Description("Enclosure walls are inclusive of the opaque exterior wall assemblies of a building")]
-        public virtual List<IBHoMObject> EnclosuresCurtainWalls { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Walls { get; set; } = new List<IElementM>();
         
         [Description("Enclosure curtain walls are large sheets of transparent glazing on the building exterior")]
-        public virtual List<IBHoMObject> EnclosuresWalls { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> CurtainWalls { get; set; } = new List<IElementM>();
         
         [Description("Enclosure windows are are openings in the building exterior, which consist of framing and glazing")]
-        public virtual List<IBHoMObject> EnclosuresWindows { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Windows { get; set; } = new List<IElementM>();
         
         [Description("Enclosure doors are are openings in the building exterior, which consist of framing and panels")]
-        public virtual List<IBHoMObject> EnclosuresDoors { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Doors { get; set; } = new List<IElementM>();
 
         /***************************************************/
     }

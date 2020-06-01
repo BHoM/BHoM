@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -33,25 +34,25 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("Tenant Improvement Ceiling is a material that creates an additional upper interior surface in a room")]
-        public virtual List<IBHoMObject> TenantImprovementsCeiling { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Ceiling { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Flooring  is inclusive of the flooring materials placed on top of the structural floor (eg carpet, tile)")]
-        public virtual List<IBHoMObject> TenantImprovementsFlooring { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Flooring { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Finishes is inclusive of finishes (eg paint)")]
-        public virtual List<IBHoMObject> TenantImprovementsFinishes { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Finishes { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Interior Glazing is inclusive of windows in the interior of the building")]
-        public virtual List<IBHoMObject> TenantImprovementsInteriorGlazing { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> InteriorGlazing { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Furniture includes furnishings (eg tables, chairs, desks)")]
-        public virtual List<IBHoMObject> TenantImprovementsFurniture { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Furniture { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Interior Doors includes doors in the interior of the building")]
-        public virtual List<IBHoMObject> TenantImprovementsInteriorDoors { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> InteriorDoors { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Partition Walls includes walls in the interior of the building")]
-        public virtual List<IBHoMObject> TenantImprovementsPartitionWalls { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> PartitionWalls { get; set; } = new List<IElementM>();
 
         /***************************************************/
     }

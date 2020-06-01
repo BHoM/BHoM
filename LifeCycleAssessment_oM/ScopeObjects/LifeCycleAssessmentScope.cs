@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -38,13 +39,14 @@ namespace BH.oM.LifeCycleAssessment
         public virtual ProjectArea ProjectArea { get; set; } = ProjectArea.Undefined;
         public virtual ProjectType ProjectType { get; set; } = ProjectType.Undefined;
 
-        [Description ("The Project Name denotes the name of the project (eg Mercedes-Benz Stadium)")]
+        [Description ("The Project Name denotes the name of the project for reporting purposes")]
         public virtual string ProjectName { get; set; } = "Please provided a project name.";
         
         [Description("The Contact Name denotes the person/people who performed the LCA study.")]
         public virtual string ContactName { get; set; } = "No contact provided.";
         
-        [Description("The Actual Project Area denotes the more precise project area (m2) which will allow assessment of kgCO2eq/m2 metrics")]
+        [Description("The Actual Project Area denotes the more precise project area which will allow assessment of kgCO2eq/m2 metrics")]
+        [Area]
         public virtual double ActualProjectArea { get; set; } = double.NaN;
         
         [Description("Biogenic Carbon is a true/false that indicates that the project contains materials that originated from a biological source (trees, soil), these materials have the ability sequester/store carbon.")]
