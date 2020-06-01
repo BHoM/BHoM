@@ -28,6 +28,7 @@ namespace BH.oM.Environment.Elements
     public enum PanelType
     {
         Undefined,
+        Air,
         Ceiling,
         CurtainWall,
         Floor,
