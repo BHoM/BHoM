@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -33,28 +34,28 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("MEP Equipment is a machine that processes mechanical, electrical or plumbing loads (eg Fan, Electrical Panel, Pump")]
-        public virtual List<IBHoMObject> MEPEquipment { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
         
         [Description("MEP Ductwork is a material (eg sheet metal) that helps to convey airflow from heating, ventilation or cooling systems")]
-        public virtual List<IBHoMObject> MEPDuctwork { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Ductwork { get; set; } = new List<IElementM>();
         
         [Description("MEP Generators are devices that convert mechanical energy to electrical power")]
-        public virtual List<IBHoMObject> MEPGenerators { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Generators { get; set; } = new List<IElementM>();
         
         [Description("MEP Conduit is a tube used to route electrical wiring")]
-        public virtual List<IBHoMObject> MEPConduit { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Conduit { get; set; } = new List<IElementM>();
         
         [Description("MEP Wiring is a flexible conductor of electricity")]
-        public virtual List<IBHoMObject> MEPWiring { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Wiring { get; set; } = new List<IElementM>();
         
         [Description("MEP Lighting is inclusive of all light fixtures")]
-        public virtual List<IBHoMObject> MEPLighting { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Lighting { get; set; } = new List<IElementM>();
         
         [Description("MEP Piping is a material (eg copper) that helps to convey fluids (eg water, waste) within a building")]
-        public virtual List<IBHoMObject> MEPPiping { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Piping { get; set; } = new List<IElementM>();
         
         [Description("MEP Batties are energy storage devices (eg photovoltaic panels)")]
-        public virtual List<IBHoMObject> MEPBatteries { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Batteries { get; set; } = new List<IElementM>();
 
         /***************************************************/
     }
