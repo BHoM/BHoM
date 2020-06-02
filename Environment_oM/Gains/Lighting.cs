@@ -43,9 +43,6 @@ namespace BH.oM.Environment.Gains
         [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by the light fixtures.")]
         public virtual double RadiantFraction { get; set; } = 0.0;
 
-        [Description("The view coefficient of this lighting gain")]
-        public virtual double ViewCoefficient { get; set; } = 0.0;
-
         [Description("Luminous efficacy is a measure of how well a light fixture produces visible light")]
         public virtual double LuminousEfficacy { get; set; } = 0.0;
     }

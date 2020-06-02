@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\AnalysisGrid.cs" />
     <Compile Include="Climate\IClimateObject.cs" />
     <Compile Include="Climate\Location.cs" />
     <Compile Include="Climate\SpaceTime.cs" />
+    <Compile Include="Climate\Time.cs" />
     <Compile Include="Climate\Sun.cs" />
     <Compile Include="Elements\Building.cs" />
     <Compile Include="Elements\Edge.cs" />
@@ -51,15 +53,13 @@
     <Compile Include="Elements\Enums\OpeningType.cs" />
     <Compile Include="Elements\Enums\PanelType.cs" />
     <Compile Include="Elements\Enums\SpaceType.cs" />
+    <Compile Include="Analysis\Node.cs" />
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\Space.cs" />
-    <Compile Include="Equipment\AirHandlingUnit.cs" />
-    <Compile Include="Equipment\IEquipment.cs" />
     <Compile Include="Fragments\AnalyticalConstruction.cs" />
     <Compile Include="Fragments\LightReflectanceFragment.cs" />
     <Compile Include="Gains\Acoustics.cs" />
-    <Compile Include="Gains\Emitter.cs" />
     <Compile Include="Gains\Enums\EmitterType.cs" />
     <Compile Include="Gains\Enums\ProfileDay.cs" />
     <Compile Include="Gains\Enums\ProfileCategory.cs" />
@@ -73,7 +73,7 @@
     <Compile Include="Gains\People.cs" />
     <Compile Include="Gains\Plug.cs" />
     <Compile Include="Gains\Pollutant.cs" />
-    <Compile Include="Gains\Ventilation.cs" />
+    <Compile Include="Ventilation\Ventilation.cs" />
     <Compile Include="MaterialFragments\Enums\Function.cs" />
     <Compile Include="Fragments\BuildingAnalyticalFragment.cs" />
     <Compile Include="Fragments\BuildingContextFragment.cs" />
@@ -88,7 +88,6 @@
     <Compile Include="Fragments\RadiationFragment.cs" />
     <Compile Include="Fragments\SpaceAnalyticalFragment.cs" />
     <Compile Include="Fragments\SpaceContextFragment.cs" />
-    <Compile Include="Gains\InternalCondition.cs" />
     <Compile Include="Gains\Profile.cs" />
     <Compile Include="Gains\Thermostat.cs" />
     <Compile Include="IEnvironmentObject.cs" />
@@ -101,6 +100,9 @@
     <Compile Include="Results\Enums\ProfileResultType.cs" />
     <Compile Include="Results\Enums\ProfileResultUnit.cs" />
     <Compile Include="Results\Enums\SimulationResultType.cs" />
+    <Compile Include="Results\Illuminance\Lux.cs" />
+    <Compile Include="Results\Mesh\MeshElementResult.cs" />
+    <Compile Include="Results\Mesh\MeshResult.cs" />
     <Compile Include="Results\ProfileResult.cs" />
     <Compile Include="Results\SimulationResult.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
@@ -111,10 +113,18 @@
       <Name>Analytical_oM</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Architecture_oM\Architecture_oM.csproj">
+      <Project>{0297c5b2-5ebf-4539-9011-afde4366bfef}</Project>
+      <Name>Architecture_oM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Common_oM\Common_oM.csproj">
+      <Project>{44f6c3bc-d321-4673-8f54-674ae7b33f18}</Project>
+      <Name>Common_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
       <Project>{17141a37-4853-4558-af36-134a580bf42b}</Project>

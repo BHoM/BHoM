@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -60,6 +60,8 @@
     <Compile Include="Elements\Surface.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\RigidLink.cs" />
+    <Compile Include="Fragments\SectionModifier.cs" />
+    <Compile Include="Fragments\SurfacePropertyModifier.cs" />
     <Compile Include="IProperty.cs" />
     <Compile Include="Loads\AreaTemperatureLoad.cs" />
     <Compile Include="Loads\AreaUniformlyDistributedLoad.cs" />
@@ -114,10 +116,11 @@
     <Compile Include="Constraints\Enums\DOFType.cs" />
     <Compile Include="SectionProperties\GenericSection.cs" />
     <Compile Include="SectionProperties\IGeometricalSection.cs" />
+    <Compile Include="SectionProperties\Reinforcement\IBarReinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\LongitudinalReinforcement.cs" />
     <Compile Include="SectionProperties\TimberSection.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />
     <Compile Include="SurfaceProperties\Enums\PanelDirection.cs" />
-    <Compile Include="SurfaceProperties\Enums\PanelModifier.cs" />
     <Compile Include="SurfaceProperties\Enums\PanelType.cs" />
     <Compile Include="SectionProperties\Enums\ReinforcementPattern.cs" />
     <Compile Include="SectionProperties\Enums\SteelFabrication.cs" />
@@ -135,10 +138,10 @@
     <Compile Include="SectionProperties\ConcreteSection.cs" />
     <Compile Include="SectionProperties\ExplicitSection.cs" />
     <Compile Include="SectionProperties\ISectionProperty.cs" />
-    <Compile Include="SectionProperties\Reinforcement\LayerReinforcement.cs" />
-    <Compile Include="SectionProperties\Reinforcement\PerimeterReinforcement.cs" />
-    <Compile Include="SectionProperties\Reinforcement\Reinforcement.cs" />
-    <Compile Include="SectionProperties\Reinforcement\TieReinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\Deprecated\LayerReinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\Deprecated\PerimeterReinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\Deprecated\Reinforcement.cs" />
+    <Compile Include="SectionProperties\Reinforcement\Deprecated\TieReinforcement.cs" />
     <Compile Include="SectionProperties\SteelSection.cs" />
     <Compile Include="Results\Bar Results\BarDeformation.cs" />
     <Compile Include="Results\Bar Results\BarForce.cs" />
@@ -208,6 +211,10 @@
       <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
       <Name>Reflection_oM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Spatial_oM\Spatial_oM.csproj">
+      <Project>{789eaf6c-d68f-4770-b01b-c07bbf3d2188}</Project>
+      <Name>Spatial_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

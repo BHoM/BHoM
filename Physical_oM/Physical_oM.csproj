@@ -7,7 +7,7 @@
     <ProjectGuid>{FB790AB1-5914-4797-886F-C4CB469EC168}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>_Properties</AppDesignerFolder>
-    <RootNamespace>Physical_oM</RootNamespace>
+    <RootNamespace>BH.oM.Physical</RootNamespace>
     <AssemblyName>Physical_oM</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -65,6 +65,10 @@
     <Compile Include="Materials\IMaterialProperties.cs" />
     <Compile Include="Elements\IOpening.cs" />
     <Compile Include="IPhysical.cs" />
+    <Compile Include="Reinforcement\IReinforcingBar.cs" />
+    <Compile Include="Reinforcement\PrimaryReinforcingBar.cs" />
+    <Compile Include="Reinforcement\ReinforcementFragment.cs" />
+    <Compile Include="Reinforcement\Stirrup.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

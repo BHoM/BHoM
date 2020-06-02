@@ -68,6 +68,7 @@
     <Compile Include="Collections\VennDiagram.cs" />
     <Compile Include="Requests\IResultRequest.cs" />
     <Compile Include="Requests\LogicalAndRequest.cs" />
+    <Compile Include="Requests\LogicalNotRequest.cs" />
     <Compile Include="Requests\LogicalOrRequest.cs" />
     <Compile Include="Requests\SelectionRequest.cs" />
   </ItemGroup>

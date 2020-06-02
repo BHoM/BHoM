@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -33,25 +34,25 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("Tenant Improvement Ceiling is a material that creates an additional upper interior surface in a room")]
-        public virtual TenantImprovementsCeiling TenantImprovementsCeiling { get; set; } = new TenantImprovementsCeiling();
+        public virtual List<IElementM> Ceiling { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Flooring  is inclusive of the flooring materials placed on top of the structural floor (eg carpet, tile)")]
-        public virtual TenantImprovementsFlooring TenantImprovementsFlooring { get; set; } = new TenantImprovementsFlooring();
+        public virtual List<IElementM> Flooring { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Finishes is inclusive of finishes (eg paint)")]
-        public virtual TenantImprovementsFinishes TenantImprovementsFinishes { get; set; } = new TenantImprovementsFinishes();
+        public virtual List<IElementM> Finishes { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Interior Glazing is inclusive of windows in the interior of the building")]
-        public virtual TenantImprovementsInteriorGlazing TenantImprovementsInteriorGlazing { get; set; } = new TenantImprovementsInteriorGlazing();
+        public virtual List<IElementM> InteriorGlazing { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Furniture includes furnishings (eg tables, chairs, desks)")]
-        public virtual TenantImprovementsFurniture TenantImprovementsFurniture { get; set; } = new TenantImprovementsFurniture();
+        public virtual List<IElementM> Furniture { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Interior Doors includes doors in the interior of the building")]
-        public virtual TenantImprovementsInteriorDoors TenantImprovementsInteriorDoors { get; set; } = new TenantImprovementsInteriorDoors();
+        public virtual List<IElementM> InteriorDoors { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Partition Walls includes walls in the interior of the building")]
-        public virtual TenantImprovementsPartitionWalls TenantImprovementsPartitionWalls { get; set; } = new TenantImprovementsPartitionWalls();
+        public virtual List<IElementM> PartitionWalls { get; set; } = new List<IElementM>();
 
         /***************************************************/
     }
