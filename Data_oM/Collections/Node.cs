@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Data.Collections
 {
-    public class Node<T> : IDataStructure, IEnumerable<T>
+    public class Node<T> : IDataStructure//, IEnumerable<T>
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,7 +41,7 @@ namespace BH.oM.Data.Collections
 
         /***************************************************/
         /**** IEnumerators                              ****/
-        /***************************************************/
+        /***************************************************
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -66,7 +66,7 @@ namespace BH.oM.Data.Collections
             }
         }
 
-        /***************************************************/
+        /***************************************************
 
         IEnumerator IEnumerable.GetEnumerator()
         {

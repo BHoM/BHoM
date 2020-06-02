@@ -34,7 +34,7 @@ namespace BH.oM.Data.Collections
         /**** Properties                                ****/
         /***************************************************/
 
-        public new IEnumerable<DomainTree<T>> Children { get; set; } = new List<DomainTree<T>>();
+        public new List<DomainTree<T>> Children { get; set; } = new List<DomainTree<T>>();
 
         /***************************************************/
 
