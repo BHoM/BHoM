@@ -39,7 +39,7 @@ namespace BH.oM.Spatial.Layouts
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The explicit shape of curve in the layout")]
+        [Description("The explicit shape of curves in the layout. All curves shall be placed in the global XY plane")]
         public virtual ReadOnlyCollection<ICurve> Curves { get; }
 
         /***************************************************/

@@ -38,8 +38,9 @@ namespace BH.oM.Spatial.Layouts
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        [Description("Offset value")]
+        
+        [Length]
+        [Description("Offset value. Positive value will offset to the inside of the element")]
         public virtual double Offset { get; }
 
         /***************************************************/
