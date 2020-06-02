@@ -28,71 +28,9 @@ using BH.oM.Base;
 
 namespace BH.oM.Data.Collections
 {
-    public class Node<T> : IDataStructure//, IEnumerable<T>
-    {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual IEnumerable<Node<T>> Children { get; set; } = new List<Node<T>>();
-
-        public virtual IEnumerable<T> Values { get; set; } = new List<T>();
-
-
-        /***************************************************/
-        /**** IEnumerators                              ****/
-        /***************************************************
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            if (Values != null)
-            {
-                // Get all values in current node
-                foreach (T v in Values)
-                {
-                    yield return v;
-                }
-            }
-            if (Children != null)
-            {
-                // Get all values in child nodes
-                foreach (Node<T> child in Children)
-                {
-                    foreach (T v in child)
-                    {
-                        yield return v;
-                    }
-                }
-            }
-        }
-
-        /***************************************************
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            // Should point to the generic one
-            return this.GetEnumerator();
-        }
-
-        /***************************************************/
-
+    public interface INode<T> : IDataStructure
+    {        
     }
-
-    /***************************************************/
-
-    public class Node<R, T> : Node<T>
-    {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public new IEnumerable<Node<R, T>> Children { get; set; } = new List<Node<R, T>>();
-
-        public virtual R Relation { get; set; } = default(R);
-
-        /***************************************************/
-
-    }   
 
 }
 

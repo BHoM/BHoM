@@ -28,20 +28,59 @@ using BH.oM.Base;
 
 namespace BH.oM.Data.Collections
 {
-    public class DomainTree<T> : Node<DomainBox, T>
+    public class DomainTree<T> : INode<T>//, IEnumerable<T>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public new List<DomainTree<T>> Children { get; set; } = new List<DomainTree<T>>();
+        public virtual List<DomainTree<T>> Children { get; set; } = new List<DomainTree<T>>();
+
+        public virtual List<T> Values { get; set; } = null;
+
+        public virtual DomainBox Relation { get; set; } = null;
+
+        /***************************************************/
+        /**** IEnumerators                              ****/
+        /***************************************************
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            if (Values != null)
+            {
+                // Get all values in current node
+                foreach (T v in Values)
+                {
+                    yield return v;
+                }
+            }
+            if (Children != null)
+            {
+                // Get all values in child nodes
+                foreach (DomainTree<T> child in Children)
+                {
+                    foreach (T v in child)
+                    {
+                        yield return v;
+                    }
+                }
+            }
+        }
+
+        /***************************************************
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            // Should point to the generic one
+            return this.GetEnumerator();
+        }
 
         /***************************************************/
 
     }
 
     /***************************************************/
-    
+
 
 }
 
