@@ -49,27 +49,5 @@ namespace BH.oM.Physical.Reinforcement
         public virtual double BendRadius { get; set; }
 
         /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Stirrup(ICurve centreCurve, double diameter, Material material)
-        {
-            CentreCurve = centreCurve;
-            Diameter = diameter;
-            Material = material;
-            BendRadius = diameter < 0.02 ? 5 * diameter : 7 * diameter; //based on PN-EN 1992-1-1 to be discussed how to unify it or select specific standard
-        }
-
-        /***************************************************/
-
-        public Stirrup(ICurve centreCurve, double diameter, Material material, double bendRadius)
-        {
-            CentreCurve = centreCurve;
-            Diameter = diameter;
-            Material = material;
-            BendRadius = bendRadius;
-        }
-
-        /***************************************************/
     }
 }
