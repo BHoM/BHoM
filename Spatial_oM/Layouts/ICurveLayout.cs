@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Spatial.Layouts
 {
-    [Description("Base interface for all curve layouts")]
+    [Description("Base interface for all curve layouts.")]
     public interface ICurveLaout : IBHoMObject
     {
     }
