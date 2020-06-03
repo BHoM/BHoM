@@ -32,7 +32,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.Layouts
 {
-    [Description("Curve layout created by offsetting an element's outer and inner outlines.\nPositive offset value will offset to the inside of the element")]
+    [Description("Curve layout created by offsetting an element's outer and inner outlines.\nPositive offset value will offset to the inside of the element.")]
     public class OffsetCurveLayout : BHoMObject, ICurveLaout, IImmutable
     {
         /***************************************************/
@@ -40,7 +40,7 @@ namespace BH.oM.Spatial.Layouts
         /***************************************************/
         
         [Length]
-        [Description("Offset value. Positive value will offset to the inside of the element")]
+        [Description("Offset value. Positive value will offset to the inside of the element.")]
         public virtual double Offset { get; }
 
         /***************************************************/

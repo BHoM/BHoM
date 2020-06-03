@@ -32,14 +32,14 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.Layouts
 {
-    [Description("Layout for freeform control over the curve distribution")]
+    [Description("Layout for freeform control over the curve distribution.")]
     public class ExplicitCurveLayout : BHoMObject, ICurveLaout, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The explicit shape of curves in the layout. All curves shall be placed in the global XY plane")]
+        [Description("The explicit shape of curves in the layout. All curves should be planar curves in the global XY plane.")]
         public virtual ReadOnlyCollection<ICurve> Curves { get; }
 
         /***************************************************/
