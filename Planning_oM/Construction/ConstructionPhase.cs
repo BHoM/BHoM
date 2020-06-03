@@ -23,7 +23,7 @@
 using BH.oM.Base;
 using System;
 
-namespace BH.oM.Common.Planning
+namespace BH.oM.Planning
 {
     public class ConstructionPhase : BHoMObject, IPhase
     {

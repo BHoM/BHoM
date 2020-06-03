@@ -44,8 +44,6 @@
     <Compile Include="Interface\IObject2D.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Materials\MaterialEnums.cs" />
-    <Compile Include="Planning\Construction\ConstructionPhase.cs" />
-    <Compile Include="Planning\IPhase.cs" />
     <Compile Include="Properties\CompoundLayer.cs" />
     <Compile Include="Properties\Object2DProperties.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
@@ -71,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Physical\" />
-    <Folder Include="Planning\Project\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

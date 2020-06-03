@@ -44,7 +44,9 @@
     <Compile Include="Branch.cs" />
     <Compile Include="CodeAssembly.cs" />
     <Compile Include="Commit.cs" />
+    <Compile Include="Construction\ConstructionPhase.cs" />
     <Compile Include="Enums\ItemState.cs" />
+    <Compile Include="IPhase.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="Label.cs" />
     <Compile Include="Milestone.cs" />
