@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -33,28 +34,28 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("MEP Equipment is a machine that processes mechanical, electrical or plumbing loads (eg Fan, Electrical Panel, Pump")]
-        public virtual MEPEquipment MEPEquipment { get; set; } = new MEPEquipment();
+        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
         
         [Description("MEP Ductwork is a material (eg sheet metal) that helps to convey airflow from heating, ventilation or cooling systems")]
-        public virtual MEPDuctwork MEPDuctwork { get; set; } = new MEPDuctwork();
+        public virtual List<IElementM> Ductwork { get; set; } = new List<IElementM>();
         
         [Description("MEP Generators are devices that convert mechanical energy to electrical power")]
-        public virtual MEPGenerators MEPGenerators { get; set; } = new MEPGenerators();
+        public virtual List<IElementM> Generators { get; set; } = new List<IElementM>();
         
         [Description("MEP Conduit is a tube used to route electrical wiring")]
-        public virtual MEPConduit MEPConduit { get; set; } = new MEPConduit();
+        public virtual List<IElementM> Conduit { get; set; } = new List<IElementM>();
         
         [Description("MEP Wiring is a flexible conductor of electricity")]
-        public virtual MEPWiring MEPWiring { get; set; } = new MEPWiring();
+        public virtual List<IElementM> Wiring { get; set; } = new List<IElementM>();
         
         [Description("MEP Lighting is inclusive of all light fixtures")]
-        public virtual MEPLighting MEPLighting { get; set; } = new MEPLighting();
+        public virtual List<IElementM> Lighting { get; set; } = new List<IElementM>();
         
         [Description("MEP Piping is a material (eg copper) that helps to convey fluids (eg water, waste) within a building")]
-        public virtual MEPPiping MEPPiping { get; set; } = new MEPPiping();
+        public virtual List<IElementM> Piping { get; set; } = new List<IElementM>();
         
         [Description("MEP Batties are energy storage devices (eg photovoltaic panels)")]
-        public virtual MEPBatteries MEPBatteries { get; set; } = new MEPBatteries();
+        public virtual List<IElementM> Batteries { get; set; } = new List<IElementM>();
 
         /***************************************************/
     }

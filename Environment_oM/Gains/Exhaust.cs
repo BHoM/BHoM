@@ -34,6 +34,9 @@ namespace BH.oM.Environment.Gains
     [Description("Exhaust is indicative of the amount of air that should be extracted from a space based on the space type (eg laboratory, woodshop) or fixtures contained within the space (eg toilets, showers)")]
     public class Exhaust : BHoMObject
     {
+        [Description("The air change rate per hour (ACH) is a value that denotes the amount of air that must be removed each hour, based on the volume of the space (1 ACH would be 1x the volume of space each hour, if the space is 1m3, it would be 1m3 of extract per hour)")]
+        public virtual double AirChangeRate { get; set; } = 0.0;
+
         [Description("The continuous exhaust rate associated with a particular space type (eg pet shop, printing room) measured in m3/s*m2")]
         public virtual double SpaceTypeContinuous { get; set; } = 0.0;
 

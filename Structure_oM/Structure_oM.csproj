@@ -60,6 +60,8 @@
     <Compile Include="Elements\Surface.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\RigidLink.cs" />
+    <Compile Include="Fragments\SectionModifier.cs" />
+    <Compile Include="Fragments\SurfacePropertyModifier.cs" />
     <Compile Include="IProperty.cs" />
     <Compile Include="Loads\AreaTemperatureLoad.cs" />
     <Compile Include="Loads\AreaUniformlyDistributedLoad.cs" />
@@ -119,7 +121,6 @@
     <Compile Include="SectionProperties\TimberSection.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />
     <Compile Include="SurfaceProperties\Enums\PanelDirection.cs" />
-    <Compile Include="SurfaceProperties\Enums\PanelModifier.cs" />
     <Compile Include="SurfaceProperties\Enums\PanelType.cs" />
     <Compile Include="SectionProperties\Enums\ReinforcementPattern.cs" />
     <Compile Include="SectionProperties\Enums\SteelFabrication.cs" />

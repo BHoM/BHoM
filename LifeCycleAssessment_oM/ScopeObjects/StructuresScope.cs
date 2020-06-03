@@ -24,6 +24,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 
+using BH.oM.Dimensional;
+
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("The Structures Scope object provides a template for expected objects commonly assessed within Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment.")]
@@ -33,16 +35,16 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("Structural slabs are inclusive of the above-grade structural floors in a building")]
-        public virtual StructuresSlabs StructuresSlabs { get; set; } = new StructuresSlabs();
+        public virtual List<IElementM> Slabs { get; set; } = new List<IElementM>();
 
         [Description("Structural core walls are inclusive of the above-grade, structural-grade walls surrounding the core (elevators, building services)")]
-        public virtual StructuresCoreWalls StructuresCoreWalls { get; set; } = new StructuresCoreWalls();
+        public virtual List<IElementM> CoreWalls { get; set; } = new List<IElementM>();
 
         [Description("Structural beams are typically horizontal elements that carry the load of floors, roofs, and ceilings")]
-        public virtual StructuresBeams StructuresBeams { get; set; } = new StructuresBeams();
+        public virtual List<IElementM> Beams { get; set; } = new List<IElementM>();
 
         [Description("Structural columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
-        public virtual StructuresColumns StructuresColumns { get; set; } = new StructuresColumns();
+        public virtual List<IElementM> Columns { get; set; } = new List<IElementM>();
 
         /***************************************************/
     }
