@@ -38,7 +38,7 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         /***************************************************/
 
         [Description("Layout controlling the reinforcement shape in relation to the bar's section.")]
-        public virtual ICurveLaout CenterlineLayout { get; set; }
+        public virtual ICurveLayout CenterlineLayout { get; set; }
 
         [Length]
         [Description("Diameter of a single rebar.")]
