@@ -36,7 +36,7 @@ namespace BH.oM.Structure.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Unique Names are required for some structural packages to create and identify the object.")]
+        [Description("A unique Name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Description("Material of the cable section.")]

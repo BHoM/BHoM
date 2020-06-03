@@ -32,7 +32,7 @@ namespace BH.oM.Structure.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Unique Names are required for some structural packages to create and identify the object.")]
+        [Description("A unique Name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         public virtual LoadNature Nature { get; set; } = LoadNature.Other;

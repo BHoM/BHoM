@@ -33,7 +33,7 @@ namespace BH.oM.Structure.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Unique Names are required for some structural packages to create and identify the object.")]
+        [Description("A unique Name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Density]
