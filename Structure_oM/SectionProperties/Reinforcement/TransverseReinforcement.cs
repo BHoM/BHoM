@@ -47,7 +47,7 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         public virtual IMaterialFragment Material { get; set; }
 
         [Length]
-        [Description("Axial distance between consecutive rebars. If AdjustSpacingToFit is toggled it will become maximum distance.")]
+        [Description("Axial distance between consecutive rebars. If AdjustSpacingToFit is true it will become maximum spacing.")]
         public virtual double Spacing { get; set; }
 
         [Description("Toggles if provided spacing value should be fixed or adjusted to fit rebars from the host bar's start to end.")]
