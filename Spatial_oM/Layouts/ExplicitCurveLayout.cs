@@ -33,7 +33,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Spatial.Layouts
 {
     [Description("Layout for freeform control over the curve distribution.")]
-    public class ExplicitCurveLayout : BHoMObject, ICurveLaout, IImmutable
+    public class ExplicitCurveLayout : BHoMObject, ICurveLayout, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
