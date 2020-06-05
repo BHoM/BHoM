@@ -21,7 +21,7 @@
  */
 
 using System.ComponentModel;
-using BH.oM.Common;
+using BH.oM.Analytical.Results;
 using BH.oM.Geometry;
 using System.Collections.Generic;
 using BH.oM.Base;

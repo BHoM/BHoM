@@ -27,7 +27,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Common
+namespace BH.oM.Analytical.Results
 {
     public interface IResult : IObject, IComparable<IResult>
     {

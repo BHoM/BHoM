@@ -24,7 +24,7 @@ using BH.oM.Base;
 using System;
 using System.Collections.ObjectModel;
 
-namespace BH.oM.Common
+namespace BH.oM.Analytical.Results
 {
 
     /***************************************************/
