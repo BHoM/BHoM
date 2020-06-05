@@ -24,7 +24,7 @@
 using BH.oM.Geometry;
 using System.ComponentModel;
 using System;
-using BH.oM.Common;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Humans.ViewQuality
 {

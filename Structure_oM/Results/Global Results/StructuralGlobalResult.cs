@@ -21,7 +21,7 @@
  */
 
 using System;
-using BH.oM.Common;
+using BH.oM.Analytical.Results;
 using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
