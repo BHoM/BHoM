@@ -54,7 +54,9 @@
     <Compile Include="Results\IResult.cs" />
     <Compile Include="Results\IResultCollection.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Versioning_32.txt" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
