@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -121,10 +121,6 @@
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
       <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Common_oM\Common_oM.csproj">
-      <Project>{44f6c3bc-d321-4673-8f54-674ae7b33f18}</Project>
-      <Name>Common_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
       <Project>{17141a37-4853-4558-af36-134a580bf42b}</Project>
