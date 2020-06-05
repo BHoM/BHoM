@@ -27,7 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
 
-using BH.oM.Common;
+
 using BH.oM.Environment.Analysis;
 using BH.oM.Environment.Results.Mesh;
 
