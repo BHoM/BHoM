@@ -58,6 +58,21 @@ namespace BH.oM.Structure.Results
         public virtual double RZ { get; set; } = 0.0;
 
         /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BarDisplacement(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions, double ux, double uy, double uz, double rx, double ry, double rz)
+            :base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+        {
+            UX = ux;
+            UY = uy;
+            UZ = uz;
+            RX = rx;
+            RY = ry;
+            RZ = rz;
+        }
+
+        /***************************************************/
     }
 }
 

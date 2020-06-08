@@ -22,6 +22,7 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using System;
 
 namespace BH.oM.Structure.Results
 {
@@ -67,6 +68,33 @@ namespace BH.oM.Structure.Results
         [Strain]
         [Description("Worst case contraction (axial strain) from combined axial and bending in two directions.")]
         public virtual double CombAxialBendingNeg { get; set; } = 0.0;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BarStrain(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions,
+                        double axial,
+                        double shearY,
+                        double shearZ,
+                        double bendingY_Top,
+                        double bendingY_Bot,
+                        double bendingZ_Top,
+                        double bendingZ_Bot,
+                        double combAxialBendingPos,
+                        double combAxialBendingNeg)
+            :base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+        {
+            Axial = axial;
+            ShearY = shearY;
+            ShearZ = shearZ;
+            BendingY_Top = bendingY_Top;
+            BendingY_Bot = bendingY_Bot;
+            BendingZ_Top = bendingZ_Top;
+            BendingZ_Bot = bendingZ_Bot;
+            CombAxialBendingPos = combAxialBendingPos;
+            CombAxialBendingNeg = combAxialBendingNeg;
+        }
 
         /***************************************************/
     }

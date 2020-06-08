@@ -29,7 +29,7 @@ using System;
 namespace BH.oM.Structure.Results
 {
     [Description("Base class for all discrete mesh element results, that is a result for an individual node and/or face. Stores all identifier information and how to sort the results in a collection.")]
-    public abstract class MeshElementResult : IResult, IImmutable
+    public abstract class MeshElementResult : IStructuralResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -46,6 +46,8 @@ namespace BH.oM.Structure.Results
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public virtual IComparable ResultCase { get; } = "";
+
+        public virtual int ModeNumber { get; }
 
         [Description("Time step for time history results.")]
         public virtual double TimeStep { get; } = 0.0;
@@ -68,6 +70,7 @@ namespace BH.oM.Structure.Results
                                 IComparable nodeId,
                                 IComparable meshFaceId,
                                 IComparable resultCase,
+                                int modeNumber,
                                 double timeStep,
                                 MeshResultLayer meshResultLayer,
                                 double layerPosition,
@@ -78,6 +81,7 @@ namespace BH.oM.Structure.Results
             NodeId = nodeId;
             MeshFaceId = meshFaceId;
             ResultCase = resultCase;
+            ModeNumber = modeNumber;
             TimeStep = timeStep;
             MeshResultLayer = meshResultLayer;
             LayerPosition = layerPosition;

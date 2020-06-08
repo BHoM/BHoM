@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using BH.oM.Analytical.Results;
 using BH.oM.Geometry;
 using System.ComponentModel;
@@ -28,23 +29,37 @@ using System;
 namespace BH.oM.Structure.Results
 {
     [Description("Base class for all Node result classes. Stores all identifier information and how to sort the results in a collection.")]
-    public abstract class NodeResult :  IResult
+    public abstract class NodeResult : IStructuralResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Id of the node that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
-        public virtual IComparable ObjectId { get; set; } = "";
+        public virtual IComparable ObjectId { get;  } = "";
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public virtual IComparable ResultCase { get; set; } = "";
+        public virtual IComparable ResultCase { get;  } = "";
+
+        public virtual int ModeNumber { get; }
 
         [Description("Time step for time history results.")]
-        public virtual double TimeStep { get; set; } = 0.0;
+        public virtual double TimeStep { get;  } = 0.0;
 
         [Description("Defines the directionality of the results. Defaults to global XYZ.")]
-        public virtual Basis Orientation { get; set; } = Basis.XY;
+        public virtual Basis Orientation { get;  } = Basis.XY;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public NodeResult(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, Basis orientation)
+        {
+            ObjectId = objectId;
+            ResultCase = resultCase;
+            ModeNumber = modeNumber;
+            TimeStep = timeStep;
+        }
 
         /***************************************************/
         /**** IComparable Interface                     ****/

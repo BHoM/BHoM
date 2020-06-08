@@ -34,7 +34,7 @@ namespace BH.oM.Structure.Results
         public virtual string MinorEffectiveLength { get; set; }
 
 
-        public virtual int Class { get; set; }
+        public virtual int SteelClass { get; set; }
 
         /// <summary>
         /// EC: EN1993-1-1: 6.2.3 and 6.2.4
@@ -120,6 +120,56 @@ namespace BH.oM.Structure.Results
         /// EC:  EN1993-1-1: 6.3.3
         /// </summary>
         public virtual double MinorUniformBendingCompressionRatio { get; set; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public SteelUtilisation(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions,
+                                string majorEffectiveLength,
+                                string minorEffectiveLength,
+                                int steelClass,
+                                double tensionCompressionRatio,
+                                double majorShearRatio,
+                                double minorShearRatio,
+                                double torsionRatio,
+                                double majorTorsionShearRatio,
+                                double minorTorsionShearRatio,
+                                double majorBendingRatio,
+                                double minorBendingRatio,
+                                double majorBendingAxialRatio,
+                                double minorBendingAxialRatio,
+                                double biaxialBendingAxialRatio,
+                                double majorUniformCompressionRatio,
+                                double minorUniformCompressionRatio,
+                                double uniformBendingRatio,
+                                double majorUniformBendingCompressionRatio,
+                                double minorUniformBendingCompressionRatio)
+            : base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+        {
+            MajorEffectiveLength = majorEffectiveLength;
+            MinorEffectiveLength = minorEffectiveLength;
+            SteelClass = steelClass;
+            TensionCompressionRatio = tensionCompressionRatio;
+            MajorShearRatio = majorShearRatio;
+            MinorShearRatio = minorShearRatio;
+            TorsionRatio = torsionRatio;
+            MajorTorsionShearRatio = majorTorsionShearRatio;
+            MinorTorsionShearRatio = minorTorsionShearRatio;
+            MajorBendingRatio = majorBendingRatio;
+            MinorBendingRatio = minorBendingRatio;
+            MajorBendingAxialRatio = majorBendingAxialRatio;
+            MinorBendingAxialRatio = minorBendingAxialRatio;
+            BiaxialBendingAxialRatio = biaxialBendingAxialRatio;
+            MajorUniformCompressionRatio = majorUniformCompressionRatio;
+            MinorUniformCompressionRatio = minorUniformCompressionRatio;
+            UniformBendingRatio = uniformBendingRatio;
+            MajorUniformBendingCompressionRatio = majorUniformBendingCompressionRatio;
+            MinorUniformBendingCompressionRatio = minorUniformBendingCompressionRatio;
+
+        }
+
+        /***************************************************/
 
     }
 

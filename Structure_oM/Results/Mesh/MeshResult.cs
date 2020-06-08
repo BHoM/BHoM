@@ -27,11 +27,12 @@ using System.Collections.Generic;
 using BH.oM.Base;
 using System.Collections.ObjectModel;
 using System;
+using System.Linq;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Full collection of discrete results for a Panel/FEMesh for a specific Loadcase or LoadCombination.")]
-    public class MeshResult : IResult, IResultCollection<MeshElementResult>, IImmutable
+    public class MeshResult : IResult, IResultCollection<MeshElementResult>, IStructuralResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -42,6 +43,8 @@ namespace BH.oM.Structure.Results
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public virtual IComparable ResultCase { get; } = "";
+
+        public virtual int ModeNumber { get; }
 
         [Description("Time step for time history results.")]
         public virtual double TimeStep { get; } = 0.0;
@@ -60,15 +63,16 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, MeshResultLayer layer, double layerPosition, MeshResultSmoothingType smoothing, ReadOnlyCollection<MeshElementResult> results)
+        public MeshResult(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, MeshResultLayer layer, double layerPosition, MeshResultSmoothingType smoothing, IEnumerable<MeshElementResult> results)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
+            ModeNumber = modeNumber;
             TimeStep = timeStep;
             Layer = layer;
             LayerPosition = layerPosition;
             Smoothing = smoothing;
-            Results = results;
+            Results = new ReadOnlyCollection<MeshElementResult>(results.ToList());
         }
 
         /***************************************************/

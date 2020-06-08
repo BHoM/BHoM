@@ -21,13 +21,14 @@
  */
 
 using System;
+using BH.oM.Base;
 using BH.oM.Analytical.Results;
 using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Base class for all structural results affecting the entire structure.")]
-    public abstract class StructuralGlobalResult : IResult
+    public abstract class StructuralGlobalResult : IStructuralResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -39,8 +40,21 @@ namespace BH.oM.Structure.Results
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public virtual IComparable ResultCase { get; set; } = "";
 
+        public virtual int ModeNumber { get; }
+
         [Description("Time step for time history results.")]
         public virtual double TimeStep { get; set; } = 0.0;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public StructuralGlobalResult(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep)
+        {
+            ObjectId = objectId;
+            ResultCase = resultCase;
+            TimeStep = timeStep;
+        }
 
         /***************************************************/
         /**** IComparable Interface                     ****/

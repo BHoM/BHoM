@@ -22,6 +22,7 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using System;
 
 namespace BH.oM.Structure.Results
 {
@@ -55,6 +56,21 @@ namespace BH.oM.Structure.Results
         [Moment]
         [Description("Bending moment about the local z-axis. Generally minor axis bending moment.")]
         public virtual double MZ { get; set; } = 0.0;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BarForce(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions, double fx, double fy, double fz, double mx, double my, double mz)
+            :base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+        {
+            FX = fx;
+            FY = fy;
+            FZ = fz;
+            MX = mx;
+            MY = my;
+            MZ = mz;
+        }
 
         /***************************************************/
     }
