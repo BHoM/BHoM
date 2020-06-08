@@ -66,7 +66,7 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        protected MeshElementResult(   IComparable objectId,
+        protected MeshElementResult(IComparable objectId,
                                 IComparable nodeId,
                                 IComparable meshFaceId,
                                 IComparable resultCase,
@@ -107,17 +107,32 @@ namespace BH.oM.Structure.Results
                 int loadcase = this.ResultCase.CompareTo(otherRes.ResultCase);
                 if (loadcase == 0)
                 {
-                    int meshFaceId = this.MeshFaceId.CompareTo(otherRes.MeshFaceId);
-                    if (meshFaceId == 0)
+                    int mode = this.ModeNumber.CompareTo(otherRes.ModeNumber);
+                    if (mode == 0)
                     {
-                        int nodeId = this.NodeId.CompareTo(otherRes.NodeId);
-                        return nodeId == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : nodeId;
+
+                        int meshFaceId = this.MeshFaceId.CompareTo(otherRes.MeshFaceId);
+                        if (meshFaceId == 0)
+                        {
+                            int nodeId = this.NodeId.CompareTo(otherRes.NodeId);
+                            return nodeId == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : nodeId;
+                        }
+                        else { return meshFaceId; }
                     }
-                    else {return meshFaceId;}
+                    else
+                    {
+                        return mode;
+                    }
                 }
-                else {return loadcase;}
+                else
+                {
+                    return loadcase;
+                }
             }
-            else {return objectId;}
+            else
+            {
+                return objectId;
+            }
         }
 
         /***************************************************/

@@ -72,7 +72,15 @@ namespace BH.oM.Structure.Results
             if (n == 0)
             {
                 int l = this.ResultCase.CompareTo(otherRes.ResultCase);
-                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+                if (l == 0)
+                {
+                    int m = this.ModeNumber.CompareTo(otherRes.ModeNumber);
+                    return m == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : m;
+                }
+                else
+                {
+                    return l;
+                }
             }
             else
             {
