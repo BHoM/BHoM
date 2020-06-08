@@ -33,7 +33,6 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-
         [Frequency]
         public virtual double Frequency { get; set; } = 0.0;
 

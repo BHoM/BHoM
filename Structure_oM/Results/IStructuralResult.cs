@@ -26,8 +26,10 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
+    [Description("Base interface for all structural results. Adds ModeNumber as a property in addition to the one from the base IResult")]
     public interface IStructuralResult : IResult, IImmutable
     {
+        [Description("Positive index, starting at one. Only set for cases with modal outputs such as dynamic cases.")]
         int ModeNumber { get; }
     }
 }
