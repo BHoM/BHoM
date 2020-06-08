@@ -22,6 +22,8 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using System;
+using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
@@ -55,6 +57,21 @@ namespace BH.oM.Structure.Results
         [AngularAcceleration]
         [Description("Rotational acceleration about the Z-axis as defined by orientation basis.")]
         public virtual double RZ { get; set; } = 0.0;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public NodeAcceleration(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, Basis orientation, double ux, double uy, double uz, double rx, double ry, double rz) :
+            base(objectId, resultCase, modeNumber, timeStep, orientation)
+        {
+            UX = ux;
+            UY = uy;
+            UZ = uz;
+            RX = rx;
+            RY = ry;
+            RZ = rz;
+        }
 
         /***************************************************/
     }

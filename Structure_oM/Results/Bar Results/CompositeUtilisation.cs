@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Results
         /// <summary>
         ///  EC: EN1994-1-1: 6.7
         /// </summary>
-        public virtual double TemsionCompressionRatio { get; set; }
+        public virtual double TensionCompressionRatio { get; set; }
 
         /// <summary>
         /// EC: EN1994-1-1: 6.3 and 6.3
@@ -101,7 +101,48 @@ namespace BH.oM.Structure.Results
         /// </summary>
         public virtual double BendingCompressionBucklingRatio { get; set; }
 
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
+        public CompositeUtilisation(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions,
+                                string minorEffectiveLength,
+                                string majorEffectiveLength,
+                                int steelClass,
+                                double tensionCompressionRatio,
+                                double minorBendingRatio,
+                                double majorBendingRatio,
+                                double minorBendingAxialRatio,
+                                double majorBendingAxialRatio,
+                                double biaxialBendingAxialRatio,
+                                double minorShearRatio,
+                                double majorShearRatio,
+                                double minorBendingShearRatio,
+                                double majorBendingShearRatio,
+                                double compressionBucklingRatio,
+                                double bendingBucklingRatio,
+                                double bendingCompressionBucklingRatio)
+            :base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+        {
+            MinorEffectiveLength = minorEffectiveLength;
+            MajorEffectiveLength = majorEffectiveLength;
+            SteelClass = steelClass;
+            TensionCompressionRatio = tensionCompressionRatio;
+            MinorBendingRatio = minorBendingRatio;
+            MajorBendingRatio = majorBendingRatio;
+            MinorBendingAxialRatio = minorBendingAxialRatio;
+            MajorBendingAxialRatio = majorBendingAxialRatio;
+            BiaxialBendingAxialRatio = biaxialBendingAxialRatio;
+            MinorShearRatio = minorShearRatio;
+            MajorShearRatio = majorShearRatio;
+            MinorBendingShearRatio = minorBendingShearRatio;
+            MajorBendingShearRatio = majorBendingShearRatio;
+            CompressionBucklingRatio = compressionBucklingRatio;
+            BendingBucklingRatio = bendingBucklingRatio;
+            BendingCompressionBucklingRatio = bendingCompressionBucklingRatio;
+        }
+
+        /***************************************************/
     }
 }
 

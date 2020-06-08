@@ -21,6 +21,7 @@
  */
 
 using System;
+using BH.oM.Base;
 using BH.oM.Analytical.Results;
 using System.ComponentModel;
 
@@ -28,26 +29,42 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Results
 {
     [Description("Base class for all bar result classes. Stores all identifier information and how to sort the results in a collection.")]
-    public abstract class BarResult : IResult
+    public abstract class BarResult : IStructuralResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Id of the bar that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
-        public virtual IComparable ObjectId { get; set; } = "";
+        public virtual IComparable ObjectId { get; }
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public virtual IComparable ResultCase { get; set; } = "";
+        public virtual IComparable ResultCase { get; }
+
+        public virtual int ModeNumber { get; }
 
         [Description("Time step for time history results.")]
-        public virtual double TimeStep { get; set; } = 0.0;
+        public virtual double TimeStep { get; }
 
         [Description("Position on the bar as normalised length, i.e. 0 for start, 1 for end and 0.5 for middle.")]
-        public virtual double Position { get; set; } = 0.0;
+        public virtual double Position { get; }
 
         [Description("How many division points along the bar was used when extracting this result. This generally means that this many results with the same ObjectId, ResultCase and TimeStep was extracted.")]
-        public virtual int Divisions { get; set; } = 1;
+        public virtual int Divisions { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BarResult(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions)
+        {
+            ObjectId = objectId;
+            ResultCase = resultCase;
+            ModeNumber = modeNumber;
+            TimeStep = timeStep;
+            Position = position;
+            Divisions = divisions;
+        }
 
         /***************************************************/
         /**** IComparable Interface                     ****/

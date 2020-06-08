@@ -68,6 +68,7 @@ namespace BH.oM.Structure.Results
                                 IComparable meshFaceId,
                                 IComparable resultCase,
                                 double timeStep,
+                                int modeNumber,
                                 MeshResultLayer meshResultLayer,
                                 double layerPosition,
                                 MeshResultSmoothingType smoothing,
@@ -77,7 +78,7 @@ namespace BH.oM.Structure.Results
                                 double uZZ,
                                 double rXX,
                                 double rYY, 
-                                double rZZ) : base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
+                                double rZZ) : base(objectId, nodeId, meshFaceId, resultCase, modeNumber, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
         {            
             UXX = uXX;
             UYY = uYY;

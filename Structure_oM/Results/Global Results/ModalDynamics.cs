@@ -21,6 +21,7 @@
  */
 
 using System.ComponentModel;
+using System;
 using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
@@ -32,8 +33,6 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        
-        public virtual int ModeNumber { get; set; } = 0;
 
         [Frequency]
         public virtual double Frequency { get; set; } = 0.0;
@@ -63,6 +62,36 @@ namespace BH.oM.Structure.Results
 
         [Ratio]
         public virtual double InertiaRatioZ { get; set; } = 0.0;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ModalDynamics(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep,
+                                double frequency,
+                                double modalMass,
+                                double modalStiffness,
+                                double modalDamping,
+                                double massRatioX,
+                                double massRatioY,
+                                double massRatioZ,
+                                double inertiaRatioX,
+                                double inertiaRatioY,
+                                double inertiaRatioZ) :
+            base(objectId, resultCase, modeNumber, timeStep)
+        {
+            this.Frequency = frequency;
+            ModalMass = modalMass;
+            ModalStiffness = modalStiffness;
+            ModalDamping = modalDamping;
+            MassRatioX = massRatioX;
+            MassRatioY = massRatioY;
+            MassRatioZ = massRatioZ;
+            InertiaRatioX = inertiaRatioX;
+            InertiaRatioY = InertiaRatioY;
+            InertiaRatioZ = InertiaRatioZ;
+
+        }
 
         /***************************************************/
     }
