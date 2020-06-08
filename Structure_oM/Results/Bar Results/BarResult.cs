@@ -84,8 +84,16 @@ namespace BH.oM.Structure.Results
                 int l = this.ResultCase.CompareTo(otherRes.ResultCase);
                 if (l == 0)
                 {
-                    int t = this.TimeStep.CompareTo(otherRes.TimeStep);
-                    return t == 0 ? this.Position.CompareTo(otherRes.Position) : t;
+                    int m = this.ModeNumber.CompareTo(otherRes.ModeNumber);
+                    if (m == 0)
+                    {
+                        int t = this.TimeStep.CompareTo(otherRes.TimeStep);
+                        return t == 0 ? this.Position.CompareTo(otherRes.Position) : t;
+                    }
+                    else
+                    {
+                        return m;
+                    }
                 }
                 else
                 {
