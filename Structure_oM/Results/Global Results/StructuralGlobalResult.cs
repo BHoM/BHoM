@@ -54,6 +54,7 @@ namespace BH.oM.Structure.Results
         {
             ObjectId = objectId;
             ResultCase = resultCase;
+            ModeNumber = modeNumber;
             TimeStep = timeStep;
         }
 
