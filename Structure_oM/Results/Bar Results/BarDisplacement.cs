@@ -35,34 +35,34 @@ namespace BH.oM.Structure.Results
 
         [Length]
         [Description("Total displacement along the global X-axis.")]
-        public virtual double UX { get; set; } = 0.0;
+        public virtual double UX { get; }
 
         [Length]
         [Description("Total displacement along the global Y-axis.")]
-        public virtual double UY { get; set; } = 0.0;
+        public virtual double UY { get; }
 
         [Length]
         [Description("Total displacement along the global Z-axis.")]
-        public virtual double UZ { get; set; } = 0.0;
+        public virtual double UZ { get; }
 
         [Angle]
         [Description("Total rotation about the global X-axis.")]
-        public virtual double RX { get; set; } = 0.0;
+        public virtual double RX { get; }
 
         [Angle]
         [Description("Total rotation about the global Y-axis.")]
-        public virtual double RY { get; set; } = 0.0;
+        public virtual double RY { get; }
 
         [Angle]
         [Description("Total rotation about the global Z-axis.")]
-        public virtual double RZ { get; set; } = 0.0;
+        public virtual double RZ { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
         public BarDisplacement(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions, double ux, double uy, double uz, double rx, double ry, double rz)
-            :base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+            : base(objectId, resultCase, modeNumber, timeStep, position, divisions)
         {
             UX = ux;
             UY = uy;

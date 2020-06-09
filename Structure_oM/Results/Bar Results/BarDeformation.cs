@@ -35,34 +35,34 @@ namespace BH.oM.Structure.Results
 
         [Length]
         [Description("Local deformation of the Bar along the local x-axis. Local axial deformation of the Bar.")]
-        public virtual double UX { get; set; } = 0.0;
+        public virtual double UX { get; }
 
         [Length]
         [Description("Local deformation of the Bar along the local y-axis. Generally minor axis deformation.")]
-        public virtual double UY { get; set; } = 0.0;
+        public virtual double UY { get; }
 
         [Length]
         [Description("Local deformation of the Bar along the local z-axis. Generally major axis deformation.")]
-        public virtual double UZ { get; set; } = 0.0;
+        public virtual double UZ { get; }
 
         [Angle]
         [Description("Localised rotation of the Bar about the local x-axis. Twist of the Bar.")]
-        public virtual double RX { get; set; } = 0.0;
+        public virtual double RX { get; }
 
         [Angle]
         [Description("Localised rotation of the Bar about the local y-axis. Generally major axis rotation.")]
-        public virtual double RY { get; set; } = 0.0;
+        public virtual double RY { get; }
 
         [Angle]
         [Description("Localised rotation of the Bar about the local z-axis. Generally minor axis rotation.")]
-        public virtual double RZ { get; set; } = 0.0;
+        public virtual double RZ { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
         public BarDeformation(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions, double ux, double uy, double uz, double rx, double ry, double rz)
-            :base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+            : base(objectId, resultCase, modeNumber, timeStep, position, divisions)
         {
             UX = ux;
             UY = uy;

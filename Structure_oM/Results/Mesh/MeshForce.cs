@@ -37,41 +37,41 @@ namespace BH.oM.Structure.Results
 
         [ForcePerUnitLength]
         [Description("Axial/membrane force in x-direction.")]
-        public virtual double NXX { get; } = 0.0;
+        public virtual double NXX { get; }
 
         [ForcePerUnitLength]
         [Description("Axial/membrane force in y-direction.")]
-        public virtual double NYY { get; } = 0.0;
+        public virtual double NYY { get; }
 
         [ForcePerUnitLength]
         [Description("Axial/membrane force in xy-direction.")]
-        public virtual double NXY { get; } = 0.0;
+        public virtual double NXY { get; }
 
         [ForcePerUnitLength]
         [Description("Bending moment in x-direction.")]
-        public virtual double MXX { get; } = 0.0;
+        public virtual double MXX { get; }
 
         [MomentPerUnitLength]
         [Description("Bending moment in y-direction.")]
-        public virtual double MYY { get; } = 0.0;
+        public virtual double MYY { get; }
 
         [MomentPerUnitLength]
         [Description("Bending moment in xy-direction.")]
-        public virtual double MXY { get; } = 0.0;
+        public virtual double MXY { get; }
 
         [ForcePerUnitLength]
         [Description("Shear force in x-direction.")]
-        public virtual double VX { get; } = 0.0;
+        public virtual double VX { get; }
 
         [ForcePerUnitLength]
         [Description("Shear force in y-direction.")]
-        public virtual double VY { get; } = 0.0;
+        public virtual double VY { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshForce(   IComparable objectId,
+        public MeshForce(IComparable objectId,
                             IComparable nodeId,
                             IComparable meshFaceId,
                             IComparable resultCase,
@@ -89,7 +89,7 @@ namespace BH.oM.Structure.Results
                             double mXY,
                             double vX,
                             double vY) : base(objectId, nodeId, meshFaceId, resultCase, modeNumber, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
-        {            
+        {
             NXX = nXX;
             NYY = nYY;
             NXY = nXY;
@@ -103,4 +103,3 @@ namespace BH.oM.Structure.Results
         /***************************************************/
     }
 }
-
