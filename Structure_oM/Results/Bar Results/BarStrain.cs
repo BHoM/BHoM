@@ -35,39 +35,39 @@ namespace BH.oM.Structure.Results
 
         [Strain]
         [Description("Axial strain induced by an axial force along the Bar axis. Positive for elongation, negative for contraction.")]
-        public virtual double Axial { get; set; } = 0.0;
+        public virtual double Axial { get; }
 
         [Strain]
         [Description("Shear strain along the local y-axis. Generally minor axis shear strain.")]
-        public virtual double ShearY { get; set; } = 0.0;
+        public virtual double ShearY { get; }
 
         [Strain]
         [Description("Shear strain along the local z-axis. Generally major axis shear strain.")]
-        public virtual double ShearZ { get; set; } = 0.0;
+        public virtual double ShearZ { get; }
 
         [Strain]
         [Description("Strain induced by bending about the local y-axis at the 'uppermost' extreme fiber. Generally the major axis bending strains in one of the extreme fibers.")]
-        public virtual double BendingY_Top { get; set; } = 0.0;
+        public virtual double BendingY_Top { get; }
 
         [Strain]
         [Description("Strain induced by bending about the local y-axis at the 'lowermost' extreme fiber. Generally the major axis bending strains in one of the extreme fibers.")]
-        public virtual double BendingY_Bot { get; set; } = 0.0;
+        public virtual double BendingY_Bot { get; }
 
         [Strain]
         [Description("Strain induced by bending about the local z-axis at the 'uppermost' extreme fiber. Generally the minor axis bending strains in one of the extreme fibers.")]
-        public virtual double BendingZ_Top { get; set; } = 0.0;
+        public virtual double BendingZ_Top { get; }
 
         [Strain]
         [Description("Strain induced by bending about the local z-axis at the 'lowermost' extreme fiber. Generally the minor axis bending strains in one of the extreme fibers.")]
-        public virtual double BendingZ_Bot { get; set; } = 0.0;
+        public virtual double BendingZ_Bot { get; }
 
         [Strain]
         [Description("Worst case elongation (axial strain) from combined axial and bending in two directions.")]
-        public virtual double CombAxialBendingPos { get; set; } = 0.0;
+        public virtual double CombAxialBendingPos { get; }
 
         [Strain]
         [Description("Worst case contraction (axial strain) from combined axial and bending in two directions.")]
-        public virtual double CombAxialBendingNeg { get; set; } = 0.0;
+        public virtual double CombAxialBendingNeg { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -83,7 +83,7 @@ namespace BH.oM.Structure.Results
                         double bendingZ_Bot,
                         double combAxialBendingPos,
                         double combAxialBendingNeg)
-            :base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+            : base(objectId, resultCase, modeNumber, timeStep, position, divisions)
         {
             Axial = axial;
             ShearY = shearY;
