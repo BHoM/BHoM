@@ -24,7 +24,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Data.Collections
 {
-    interface IDataStructure  :IObject
+    public interface IDataStructure  :IObject
     {
     }
 }
