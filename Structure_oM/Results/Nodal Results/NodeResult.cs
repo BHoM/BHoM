@@ -60,6 +60,7 @@ namespace BH.oM.Structure.Results
             ResultCase = resultCase;
             ModeNumber = modeNumber;
             TimeStep = timeStep;
+            Orientation = orientation;
         }
 
         /***************************************************/
