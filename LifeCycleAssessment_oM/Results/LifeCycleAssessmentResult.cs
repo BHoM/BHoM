@@ -47,7 +47,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual double TimeStep { get; } = 0.0;
 
         [Description("A LifeCycleAssessmentScope object containing project information for the LifeCycleAssessment")]
-        public virtual LifeCycleAssessmentScope LCAScope { get; }
+        public virtual LifeCycleAssessmentScope LifeCycleAssessmentScope { get; }
 
         [Description("A collection of the per element LifeCycleAssessment results")]
         public virtual ReadOnlyCollection<LifeCycleAssessmentElementResult> Results { get; }
@@ -60,12 +60,12 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lcaScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double globalWarmingPotential)
+        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lifeCycleAssessmentScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double globalWarmingPotential)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
-            LCAScope = lcaScope;
+            LifeCycleAssessmentScope = lifeCycleAssessmentScope;
             Results = results;
             TotalGlobalWarmingPotential = globalWarmingPotential;
         }
