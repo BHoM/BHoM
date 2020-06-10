@@ -21,6 +21,7 @@
  */
 
 using System.ComponentModel;
+using System;
 using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Results
@@ -32,37 +33,64 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        
-        public virtual int ModeNumber { get; set; } = 0;
-
         [Frequency]
-        public virtual double Frequency { get; set; } = 0.0;
+        public virtual double Frequency { get; }
 
         [Mass]
-        public virtual double ModalMass { get; set; } = 0.0;
+        public virtual double ModalMass { get; }
 
         [ForcePerUnitLength]
-        public virtual double ModalStiffness { get; set; } = 0.0;
+        public virtual double ModalStiffness { get; }
 
-        public virtual double ModalDamping { get; set; } = 0.0;
-
-        [Ratio]
-        public virtual double MassRatioX { get; set; } = 0.0;
+        public virtual double ModalDamping { get; }
 
         [Ratio]
-        public virtual double MassRatioY { get; set; } = 0.0;
+        public virtual double MassRatioX { get; }
 
         [Ratio]
-        public virtual double MassRatioZ { get; set; } = 0.0;
+        public virtual double MassRatioY { get; }
 
         [Ratio]
-        public virtual double InertiaRatioX { get; set; } = 0.0;
+        public virtual double MassRatioZ { get; }
 
         [Ratio]
-        public virtual double InertiaRatioY { get; set; } = 0.0;
+        public virtual double InertiaRatioX { get; }
 
         [Ratio]
-        public virtual double InertiaRatioZ { get; set; } = 0.0;
+        public virtual double InertiaRatioY { get; }
+
+        [Ratio]
+        public virtual double InertiaRatioZ { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ModalDynamics(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep,
+                                double frequency,
+                                double modalMass,
+                                double modalStiffness,
+                                double modalDamping,
+                                double massRatioX,
+                                double massRatioY,
+                                double massRatioZ,
+                                double inertiaRatioX,
+                                double inertiaRatioY,
+                                double inertiaRatioZ) :
+            base(objectId, resultCase, modeNumber, timeStep)
+        {
+            this.Frequency = frequency;
+            ModalMass = modalMass;
+            ModalStiffness = modalStiffness;
+            ModalDamping = modalDamping;
+            MassRatioX = massRatioX;
+            MassRatioY = massRatioY;
+            MassRatioZ = massRatioZ;
+            InertiaRatioX = inertiaRatioX;
+            InertiaRatioY = InertiaRatioY;
+            InertiaRatioZ = InertiaRatioZ;
+
+        }
 
         /***************************************************/
     }

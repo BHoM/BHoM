@@ -22,6 +22,7 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using System;
 
 namespace BH.oM.Structure.Results
 {
@@ -34,27 +35,42 @@ namespace BH.oM.Structure.Results
 
         [Force]
         [Description("Total force in the global X-direction.")]
-        public virtual double FX { get; set; } = 0.0;
+        public virtual double FX { get; }
 
         [Force]
         [Description("Total force in the global Y-direction.")]
-        public virtual double FY { get; set; } = 0.0;
+        public virtual double FY { get; }
 
         [Force]
         [Description("Total force in the global Z-direction.")]
-        public virtual double FZ { get; set; } = 0.0;
+        public virtual double FZ { get; }
 
         [Moment]
         [Description("Total moment about the global X-axis.")]
-        public virtual double MX { get; set; } = 0.0;
+        public virtual double MX { get; }
 
         [Moment]
         [Description("Total moment about the global Y-axis.")]
-        public virtual double MY { get; set; } = 0.0;
+        public virtual double MY { get; }
 
         [Moment]
         [Description("Total moment about the global Z-axis.")]
-        public virtual double MZ { get; set; } = 0.0;
+        public virtual double MZ { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public GlobalReactions(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double fx, double fy, double fz, double mx, double my, double mz) :
+            base(objectId, resultCase, modeNumber, timeStep)
+        {
+            FX = fx;
+            FY = fy;
+            FZ = fz;
+            MX = mx;
+            MY = my;
+            MZ = mz;
+        }
 
         /***************************************************/
     }

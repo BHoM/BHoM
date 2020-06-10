@@ -22,6 +22,8 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using System;
+using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
@@ -34,27 +36,42 @@ namespace BH.oM.Structure.Results
 
         [Force]
         [Description("Reaction force in X-direction as defined by orientation basis.")]
-        public virtual double FX { get; set; } = 0.0;
+        public virtual double FX { get; }
 
         [Force]
         [Description("Reaction force in Y-direction as defined by orientation basis.")]
-        public virtual double FY { get; set; } = 0.0;
+        public virtual double FY { get; }
 
         [Force]
         [Description("Reaction force in Z-direction as defined by orientation basis.")]
-        public virtual double FZ { get; set; } = 0.0;
+        public virtual double FZ { get; }
 
         [Moment]
         [Description("Moment about the X-axis as defined by orientation basis.")]
-        public virtual double MX { get; set; } = 0.0;
+        public virtual double MX { get; }
 
         [Moment]
         [Description("Moment about the Y-axis as defined by orientation basis.")]
-        public virtual double MY { get; set; } = 0.0;
+        public virtual double MY { get; }
 
         [Moment]
         [Description("Moment about the Z-axis as defined by orientation basis.")]
-        public virtual double MZ { get; set; } = 0.0;
+        public virtual double MZ { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public NodeReaction(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, Basis orientation, double fx, double fy, double fz, double mx, double my, double mz) :
+            base(objectId, resultCase, modeNumber, timeStep, orientation)
+        {
+            FX = fx;
+            FY = fy;
+            FZ = fz;
+            MX = mx;
+            MY = my;
+            MZ = mz;
+        }
 
         /***************************************************/
     }

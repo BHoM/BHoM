@@ -22,6 +22,7 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using System;
 
 namespace BH.oM.Structure.Results
 {
@@ -34,39 +35,66 @@ namespace BH.oM.Structure.Results
 
         [Stress]
         [Description("Axial stress induced by an axial force along the Bar axis. Positive for tension, negative for compression.")]
-        public virtual double Axial { get; set; } = 0.0;
+        public virtual double Axial { get; }
 
         [Stress]
         [Description("Shear stress along the local y-axis. Generally minor axis shear stress.")]
-        public virtual double ShearY { get; set; } = 0.0;
+        public virtual double ShearY { get; }
 
         [Stress]
         [Description("Shear stress along the local z-axis. Generally major axis shear stress.")]
-        public virtual double ShearZ { get; set; } = 0.0;
+        public virtual double ShearZ { get; }
 
         [Stress]
         [Description("Stress induced by bending about the local y-axis at the 'uppermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers.")]
-        public virtual double BendingY_Top { get; set; } = 0.0;
+        public virtual double BendingY_Top { get; }
 
         [Stress]
         [Description("Stress induced by bending about the local y-axis at the 'lowermost' extreme fiber. Generally the major axis bending stresses in one of the extreme fibers.")]
-        public virtual double BendingY_Bot { get; set; } = 0.0;
+        public virtual double BendingY_Bot { get; }
 
         [Stress]
         [Description("Stress induced by bending about the local z-axis at the 'uppermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers.")]
-        public virtual double BendingZ_Top { get; set; } = 0.0;
+        public virtual double BendingZ_Top { get; }
 
         [Stress]
         [Description("Stress induced by bending about the local z-axis at the 'lowermost' extreme fiber. Generally the minor axis bending stresses in one of the extreme fibers.")]
-        public virtual double BendingZ_Bot { get; set; } = 0.0;
+        public virtual double BendingZ_Bot { get; }
 
         [Stress]
         [Description("Worst case tensile normal stress from combined axial and bending in two directions.")]
-        public virtual double CombAxialBendingPos { get; set; } = 0.0;
+        public virtual double CombAxialBendingPos { get; }
 
         [Stress]
         [Description("Worst case compressive normal stress from combined axial and bending in two directions.")]
-        public virtual double CombAxialBendingNeg { get; set; } = 0.0;
+        public virtual double CombAxialBendingNeg { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BarStress(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions,
+                        double axial,
+                        double shearY,
+                        double shearZ,
+                        double bendingY_Top,
+                        double bendingY_Bot,
+                        double bendingZ_Top,
+                        double bendingZ_Bot,
+                        double combAxialBendingPos,
+                        double combAxialBendingNeg)
+            : base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+        {
+            Axial = axial;
+            ShearY = shearY;
+            ShearZ = shearZ;
+            BendingY_Top = bendingY_Top;
+            BendingY_Bot = bendingY_Bot;
+            BendingZ_Top = bendingZ_Top;
+            BendingZ_Bot = bendingZ_Bot;
+            CombAxialBendingPos = combAxialBendingPos;
+            CombAxialBendingNeg = combAxialBendingNeg;
+        }
 
         /***************************************************/
     }
