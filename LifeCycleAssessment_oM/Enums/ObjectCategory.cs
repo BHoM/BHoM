@@ -24,11 +24,30 @@ namespace BH.oM.LifeCycleAssessment
 {
     public enum ObjectCategory
     {
-        Enclosure,
-        Foundation,
-        Structure,
-        MEP,
-        TenantImprovement,
+        Slab,
+        Wall,
+        Pile,
+        Footing,
+        Beam,
+        Column,
+        CurtainWall,
+        Window,
+        Door,
+        Equipment,
+        Ductwork,
+        Generators,
+        Conduit,
+        Wiring,
+        Lighting,
+        Piping,
+        Batteries,
+        Ceiling,
+        Flooring,
+        Finishes,
+        InteriorGlazing,
+        Furniture,
+        InteriorDoors,
+        PartitionWalls,
         Undefined
     }
 }
