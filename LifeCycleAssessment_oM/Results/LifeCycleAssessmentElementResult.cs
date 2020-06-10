@@ -46,13 +46,13 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual double TimeStep { get; } = 0.0;
 
         [Description("Scope the object this result was generated from belongs to, ie Foundation or Facade")]
-        public virtual ObjectScope Scope { get; }
+        public virtual ObjectScope Scope { get; } = ObjectScope.Undefined;
 
         [Description("Category of the object this result was generated from, ie Beam or Wall")]
-        public virtual ObjectCategory Category { get; }
+        public virtual ObjectCategory Category { get; } = ObjectCategory.Undefined;
 
         [Description("Quantity of metric evaluated per the ResultCase, ie total kgCO2e for GlobalWarmingPotential.")]
-        public virtual double Quantity { get; }
+        public virtual double Quantity { get; } = 0.0;
 
         [Description("The EnvironmentalProductDeclaration used to generate this result.")]
         public virtual IEnvironmentalProductDeclarationData EnvironmentalProductDeclaration{ get; }
@@ -62,7 +62,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        protected LifeCycleAssessmentElementResult(   IComparable objectId,
+        public LifeCycleAssessmentElementResult(   IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
                                 ObjectScope scope,
