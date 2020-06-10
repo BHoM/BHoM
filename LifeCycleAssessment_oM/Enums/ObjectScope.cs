@@ -24,11 +24,11 @@ namespace BH.oM.LifeCycleAssessment
 {
     public enum ObjectScope
     {
+        Undefined,
         Enclosure,
         Foundation,
-        Structure,
         MEP,
-        TenantImprovement,
-        Undefined
+        Structure,
+        TenantImprovement
     }
 }
