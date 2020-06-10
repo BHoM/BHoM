@@ -35,10 +35,10 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Description("Id of the structure. Unused for many results.")]
-        public virtual IComparable ObjectId { get; } = "";
+        public virtual IComparable ObjectId { get; }
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public virtual IComparable ResultCase { get; } = "";
+        public virtual IComparable ResultCase { get; }
 
         [Description("Positive index, starting at one. Only set for cases with modal outputs such as dynamic cases.")]
         public virtual int ModeNumber { get; }
