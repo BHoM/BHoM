@@ -29,8 +29,8 @@ using System;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Result class for a LifeCycleAssessment of a single object")]
-    public class LifeCycleAssessmentElementResult : IResult, IImmutable
+    [Description("Base class for a LifeCycleAssessment of a single object. This contains the total quantity of global warming potential, acidification potential, etc. for a whole project.")]
+    public abstract class LifeCycleAssessmentElementResult : IResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -39,20 +39,17 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Id of the BHoMObject that this result belongs to.")]
         public virtual IComparable ObjectId { get; } = "";
 
-        [Description("Identifier for the case evaluated, ie GlobalWarmingPotential or Acidification")]
+        [Description("Identifier for the case evaluated, e.g. GlobalWarmingPotential or Acidification")]
         public virtual IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results (This is unlikely for LCA).")]
         public virtual double TimeStep { get; } = 0.0;
 
-        [Description("Scope the object this result was generated from belongs to, ie Foundation or Facade")]
+        [Description("Scope the object this result was generated from belongs to, e.g. Foundation or Facade")]
         public virtual ObjectScope Scope { get; } = ObjectScope.Undefined;
 
-        [Description("Category of the object this result was generated from, ie Beam or Wall")]
+        [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
         public virtual ObjectCategory Category { get; } = ObjectCategory.Undefined;
-
-        [Description("Quantity of metric evaluated per the ResultCase, ie total kgCO2e for GlobalWarmingPotential.")]
-        public virtual double Quantity { get; } = 0.0;
 
         [Description("The EnvironmentalProductDeclaration used to generate this result.")]
         public virtual IEnvironmentalProductDeclarationData EnvironmentalProductDeclaration{ get; }
@@ -62,12 +59,11 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public LifeCycleAssessmentElementResult(   IComparable objectId,
+        protected LifeCycleAssessmentElementResult(   IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
                                 ObjectScope scope,
                                 ObjectCategory category,
-                                double quantity,
                                 IEnvironmentalProductDeclarationData environmentalProductDeclaration)
         {
             ObjectId = objectId;

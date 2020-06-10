@@ -30,7 +30,7 @@ using System.Collections.ObjectModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Result class for a LifeCycleAssessment of a whole project")]
+    [Description("Result class for a LifeCycleAssessment of a whole project. This is used to get the total quantity in terms of embodied carbon, acidification, etc. for a whole project.")]
     public class LifeCycleAssessmentResult : IResult, IResultCollection<LifeCycleAssessmentElementResult>, IImmutable
     {
         /***************************************************/
@@ -40,7 +40,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Id of the project that this result is for.")]
         public virtual IComparable ObjectId { get; } = "";
 
-        [Description("Identifier for the case evaluated, ie GlobalWarmingPotential or Acidification")]
+        [Description("Identifier for the case evaluated, e.g. GlobalWarmingPotential or Acidification")]
         public virtual IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results (This is unlikely for LCA).")]
@@ -53,7 +53,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual ReadOnlyCollection<LifeCycleAssessmentElementResult> Results { get; }
 
         [Description("The total quantity of kgCO2e for all objects in the Project within the LCA Scope.")]
-        public virtual double TotalGlobalWarmingPotential { get; } = 0.0;
+        public virtual double TotalGlobalWarmingPotential { get; }
 
 
         /***************************************************/
