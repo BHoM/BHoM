@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuildingBenchmarkingData.cs" />
+    <Compile Include="Enums\ObjectCategory.cs" />
+    <Compile Include="Enums\ObjectScope.cs" />
     <Compile Include="Enums\LevelOfDevelopment.cs" />
     <Compile Include="Enums\LifeCycleAssessmentPhases.cs" />
     <Compile Include="Enums\PrimaryStructuralMaterial.cs" />
@@ -50,6 +52,8 @@
     <Compile Include="Enums\QuantityType.cs" />
     <Compile Include="Enums\ProjectType.cs" />
     <Compile Include="Enums\EnvironmentalProductDeclarationField.cs" />
+    <Compile Include="Results\LifeCycleAssessmentElementResult.cs" />
+    <Compile Include="Results\LifeCycleAssessmentResult.cs" />
     <Compile Include="ScopeObjects\EnclosuresScope.cs" />
     <Compile Include="ScopeObjects\FoundationsScope.cs" />
     <Compile Include="ScopeObjects\LifeCycleAssessmentScope.cs" />
@@ -64,6 +68,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
+      <Project>{c91f1981-1148-4a03-b67e-c0bb42d862f4}</Project>
+      <Name>Analytical_oM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
@@ -87,6 +95,7 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

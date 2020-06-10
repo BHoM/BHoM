@@ -1,0 +1,116 @@
+/*
+ * This file is part of the Buildings and Habitats object Model (BHoM)
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ *
+ * Each contributor holds copyright over their respective contributions.
+ * The project versioning (Git) records all such contribution source information.
+ *                                           
+ *                                                                              
+ * The BHoM is free software: you can redistribute it and/or modify         
+ * it under the terms of the GNU Lesser General Public License as published by  
+ * the Free Software Foundation, either version 3.0 of the License, or          
+ * (at your option) any later version.                                          
+ *                                                                              
+ * The BHoM is distributed in the hope that it will be useful,              
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of               
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
+ * GNU Lesser General Public License for more details.                          
+ *                                                                            
+ * You should have received a copy of the GNU Lesser General Public License     
+ * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
+ */
+
+using BH.oM.Analytical.Results;
+using BH.oM.LifeCycleAssessment.MaterialFragments;
+using BH.oM.Geometry;
+using System.ComponentModel;
+using BH.oM.Base;
+using System;
+
+namespace BH.oM.LifeCycleAssessment.Results
+{
+    [Description("Result class for a LifeCycleAssessment of a single object")]
+    public class LifeCycleAssessmentElementResult : IResult, IImmutable
+    {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("Id of the BHoMObject that this result belongs to.")]
+        public virtual IComparable ObjectId { get; } = "";
+
+        [Description("Identifier for the case evaluated, ie GlobalWarmingPotential or Acidification")]
+        public virtual IComparable ResultCase { get; } = "";
+
+        [Description("Time step for time history results (This is unlikely for LCA).")]
+        public virtual double TimeStep { get; } = 0.0;
+
+        [Description("Scope the object this result was generated from belongs to, ie Foundation or Facade")]
+        public virtual ObjectScope Scope { get; }
+
+        [Description("Category of the object this result was generated from, ie Beam or Wall")]
+        public virtual ObjectCategory Category { get; }
+
+        [Description("Quantity of metric evaluated per the ResultCase, ie total kgCO2e for GlobalWarmingPotential.")]
+        public virtual double Quantity { get; }
+
+        [Description("The EnvironmentalProductDeclaration used to generate this result.")]
+        public virtual IEnvironmentalProductDeclarationData EnvironmentalProductDeclaration{ get; }
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        protected LifeCycleAssessmentElementResult(   IComparable objectId,
+                                IComparable resultCase,
+                                double timeStep,
+                                ObjectScope scope,
+                                ObjectCategory category,
+                                double quantity,
+                                IEnvironmentalProductDeclarationData environmentalProductDeclaration)
+        {
+            ObjectId = objectId;
+            ResultCase = resultCase;
+            TimeStep = timeStep;
+            Scope = scope;
+            Category = category;
+            EnvironmentalProductDeclaration = environmentalProductDeclaration;
+        }
+
+        /***************************************************/
+        /**** IComparable Interface                     ****/
+        /***************************************************/
+
+        [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, Scope, Category, TimeStep")]
+        public int CompareTo(IResult other)
+        {
+            LifeCycleAssessmentElementResult otherRes = other as LifeCycleAssessmentElementResult;
+
+            if (otherRes == null)
+                return this.GetType().Name.CompareTo(other.GetType().Name);
+
+            int objectId = this.ObjectId.CompareTo(otherRes.ObjectId);
+            if (objectId == 0)
+            {
+                int resultcase = this.ResultCase.CompareTo(otherRes.ResultCase);
+                if (resultcase == 0)
+                {
+                    int scope = this.Scope.CompareTo(otherRes.Scope);
+                    if (scope == 0)
+                    {
+                        int cat = this.Category.CompareTo(otherRes.Category);
+                        return cat == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : cat;
+                    }
+                    else { return scope; }
+                }
+                else { return resultcase; }
+            }
+            else { return objectId; }
+        }
+
+        /***************************************************/
+    }
+}
+
+

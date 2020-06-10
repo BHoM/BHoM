@@ -1,0 +1,100 @@
+/*
+ * This file is part of the Buildings and Habitats object Model (BHoM)
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ *
+ * Each contributor holds copyright over their respective contributions.
+ * The project versioning (Git) records all such contribution source information.
+ *                                           
+ *                                                                              
+ * The BHoM is free software: you can redistribute it and/or modify         
+ * it under the terms of the GNU Lesser General Public License as published by  
+ * the Free Software Foundation, either version 3.0 of the License, or          
+ * (at your option) any later version.                                          
+ *                                                                              
+ * The BHoM is distributed in the hope that it will be useful,              
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of               
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
+ * GNU Lesser General Public License for more details.                          
+ *                                                                            
+ * You should have received a copy of the GNU Lesser General Public License     
+ * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
+ */
+
+using BH.oM.Analytical.Results;
+using BH.oM.LifeCycleAssessment.MaterialFragments;
+using BH.oM.Geometry;
+using System.ComponentModel;
+using BH.oM.Base;
+using System;
+using System.Collections.ObjectModel;
+
+namespace BH.oM.LifeCycleAssessment.Results
+{
+    [Description("Result class for a LifeCycleAssessment of a whole project")]
+    public class LifeCycleAssessmentResult : IResult, IResultCollection<LifeCycleAssessmentElementResult>, IImmutable
+    {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("Id of the project that this result is for.")]
+        public virtual IComparable ObjectId { get; } = "";
+
+        [Description("Identifier for the case evaluated, ie GlobalWarmingPotential or Acidification")]
+        public virtual IComparable ResultCase { get; } = "";
+
+        [Description("Time step for time history results (This is unlikely for LCA).")]
+        public virtual double TimeStep { get; } = 0.0;
+
+        [Description("A LifeCycleAssessmentScope object containing project information for the LifeCycleAssessment")]
+        public virtual LifeCycleAssessmentScope LCAScope { get; }
+
+        [Description("A collection of the per element LifeCycleAssessment results")]
+        public virtual ReadOnlyCollection<LifeCycleAssessmentElementResult> Results { get; }
+
+        [Description("The total quantity of kgCO2e for all objects in the Project within the LCA Scope.")]
+        public virtual double TotalGlobalWarmingPotential { get; } = 0.0;
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lcaScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double globalWarmingPotential)
+        {
+            ObjectId = objectId;
+            ResultCase = resultCase;
+            TimeStep = timeStep;
+            LCAScope = lcaScope;
+            Results = results;
+            TotalGlobalWarmingPotential = globalWarmingPotential;
+        }
+
+        /***************************************************/
+        /**** IComparable Interface                     ****/
+        /***************************************************/
+
+        public int CompareTo(IResult other)
+        {
+            LifeCycleAssessmentResult otherRes = other as LifeCycleAssessmentResult;
+
+            if (otherRes == null)
+                return this.GetType().Name.CompareTo(other.GetType().Name);
+
+            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
+            if (n == 0)
+            {
+                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
+                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+            }
+            else
+            {
+                return n;
+            }
+        }
+
+        /***************************************************/
+
+    }
+}
+
