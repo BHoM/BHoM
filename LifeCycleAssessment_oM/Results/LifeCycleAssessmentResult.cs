@@ -74,6 +74,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** IComparable Interface                     ****/
         /***************************************************/
 
+        [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, TimeStep")]
         public int CompareTo(IResult other)
         {
             LifeCycleAssessmentResult otherRes = other as LifeCycleAssessmentResult;
