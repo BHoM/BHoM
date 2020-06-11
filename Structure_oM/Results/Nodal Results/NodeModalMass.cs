@@ -27,7 +27,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Modal mass and inertia for a Node.")]
+    [Description("Modal mass for a Node.")]
     public class NodeModalMass : NodeResult
     {
 
