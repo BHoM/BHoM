@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.Data.Collections
 {
     [Description("The base interface for data tree nodes. Exposes generic helper Create and Query methods for working with data trees. " +
-                 "Requires the extension methods Values() & Children() to be implemented for the methods to work.")]
+                 "Objects implementing this interface will be required to implement Values() & Children() methods for getting data from an INode.")]
     public interface INode<T> : IDataStructure
     {
     }
