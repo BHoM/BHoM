@@ -27,7 +27,8 @@ namespace BH.oM.Structure.Requests
         NodeReaction,
         NodeDisplacement,
         NodeVelocity,
-        NodeAcceleration
+        NodeAcceleration,
+        NodeModalMass
     }
 }
 
