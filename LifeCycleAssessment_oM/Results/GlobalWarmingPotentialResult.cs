@@ -25,6 +25,7 @@ using BH.oM.LifeCycleAssessment.MaterialFragments;
 using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 using System;
 
 namespace BH.oM.LifeCycleAssessment.Results
@@ -36,6 +37,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [Mass]
         [Description("The total embodied carbon of the object in kgCO2e.")]
         public virtual double GlobalWarmingPotential{ get; }
 
