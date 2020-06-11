@@ -111,6 +111,7 @@
     <Compile Include="Requests\MeshResultRequest.cs" />
     <Compile Include="Requests\NodeResultRequest.cs" />
     <Compile Include="Results\Bar Results\BarDisplacement.cs" />
+    <Compile Include="Results\IStructuralResult.cs" />
     <Compile Include="SectionProperties\AluminiumSection.cs" />
     <Compile Include="SectionProperties\Enums\CableType.cs" />
     <Compile Include="Constraints\Enums\DOFType.cs" />

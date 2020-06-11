@@ -55,7 +55,7 @@
     <Compile Include="Results\IResultCollection.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Versioning_32.txt" />
+    <None Include="Versioning_32.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">

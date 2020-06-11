@@ -27,81 +27,122 @@ namespace BH.oM.Structure.Results
 {
     [NotImplemented]
     public class CompositeUtilisation : BarResult
-    { 
-        public virtual string MinorEffectiveLength { get; set; }
+    {
+        public virtual string MinorEffectiveLength { get; }
 
-        public virtual string MajorEffectiveLength { get; set; }
+        public virtual string MajorEffectiveLength { get; }
 
-        public virtual int SteelClass { get; set; }
+        public virtual int SteelClass { get; }
 
         /// <summary>
         ///  EC: EN1994-1-1: 6.7
         /// </summary>
-        public virtual double TemsionCompressionRatio { get; set; }
+        public virtual double TensionCompressionRatio { get; }
 
         /// <summary>
         /// EC: EN1994-1-1: 6.3 and 6.3
         /// </summary>
-        public virtual double MinorBendingRatio { get; set; }
+        public virtual double MinorBendingRatio { get; }
 
         /// <summary>
         /// EC: EN1994-1-1: 6.3 and 6.3
         /// </summary>
-        public virtual double MajorBendingRatio { get; set; }
+        public virtual double MajorBendingRatio { get; }
 
         /// <summary>
         ///  EC: EN1994-1-1: 6.7
         /// </summary>
-        public virtual double MinorBendingAxialRatio { get; set; }
+        public virtual double MinorBendingAxialRatio { get; }
 
         /// <summary>
         ///  EC: EN1994-1-1: 6.7
         /// </summary>
-        public virtual double MajorBendingAxialRatio { get; set; }
+        public virtual double MajorBendingAxialRatio { get; }
 
         /// <summary>
         ///  EC: EN1994-1-1: 6.7.3
         /// </summary>
-        public virtual double BiaxialBendingAxialRatio { get; set; }
+        public virtual double BiaxialBendingAxialRatio { get; }
 
         /// <summary>
         ///  EC: EN1994-1-1: 6.5
         /// </summary>
-        public virtual double MinorShearRatio { get; set; }
+        public virtual double MinorShearRatio { get; }
 
         /// <summary>
         ///  EC: EN1994-1-1: 6.3.4
         /// </summary>
-        public virtual double MajorShearRatio { get; set; }
+        public virtual double MajorShearRatio { get; }
 
         /// <summary>
         ///  EC: EN1994-1-1: 6.5
         /// </summary>
-        public virtual double MinorBendingShearRatio { get; set; }
+        public virtual double MinorBendingShearRatio { get; }
 
         /// <summary>
         ///  EC: EN1994-1-1: 6.3.4
         /// </summary>
-        public virtual double MajorBendingShearRatio { get; set; }
+        public virtual double MajorBendingShearRatio { get; }
 
         /// <summary>
         ///  EC: EN1994-1-1: 6.4
         /// </summary>
-        public virtual double CompressionBucklingRatio { get; set; }
+        public virtual double CompressionBucklingRatio { get; }
 
         /// <summary>
         /// Buckling resistance.
         /// EC: EN1993-1-1: 6.3.1
         /// </summary>
-        public virtual double BendingBucklingRatio { get; set; }
+        public virtual double BendingBucklingRatio { get; }
 
         /// <summary>
         /// Buckling resistance.
         /// EC:  EN1993-1-1: 6.3.1
         /// </summary>
-        public virtual double BendingCompressionBucklingRatio { get; set; }
+        public virtual double BendingCompressionBucklingRatio { get; }
 
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
+        public CompositeUtilisation(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions,
+                                string minorEffectiveLength,
+                                string majorEffectiveLength,
+                                int steelClass,
+                                double tensionCompressionRatio,
+                                double minorBendingRatio,
+                                double majorBendingRatio,
+                                double minorBendingAxialRatio,
+                                double majorBendingAxialRatio,
+                                double biaxialBendingAxialRatio,
+                                double minorShearRatio,
+                                double majorShearRatio,
+                                double minorBendingShearRatio,
+                                double majorBendingShearRatio,
+                                double compressionBucklingRatio,
+                                double bendingBucklingRatio,
+                                double bendingCompressionBucklingRatio)
+            : base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+        {
+            MinorEffectiveLength = minorEffectiveLength;
+            MajorEffectiveLength = majorEffectiveLength;
+            SteelClass = steelClass;
+            TensionCompressionRatio = tensionCompressionRatio;
+            MinorBendingRatio = minorBendingRatio;
+            MajorBendingRatio = majorBendingRatio;
+            MinorBendingAxialRatio = minorBendingAxialRatio;
+            MajorBendingAxialRatio = majorBendingAxialRatio;
+            BiaxialBendingAxialRatio = biaxialBendingAxialRatio;
+            MinorShearRatio = minorShearRatio;
+            MajorShearRatio = majorShearRatio;
+            MinorBendingShearRatio = minorBendingShearRatio;
+            MajorBendingShearRatio = majorBendingShearRatio;
+            CompressionBucklingRatio = compressionBucklingRatio;
+            BendingBucklingRatio = bendingBucklingRatio;
+            BendingCompressionBucklingRatio = bendingCompressionBucklingRatio;
+        }
+
+        /***************************************************/
     }
 }
 

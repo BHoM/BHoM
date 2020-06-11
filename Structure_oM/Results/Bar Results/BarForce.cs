@@ -22,6 +22,7 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using System;
 
 namespace BH.oM.Structure.Results
 {
@@ -34,27 +35,42 @@ namespace BH.oM.Structure.Results
 
         [Force]
         [Description("Axial force along the local x-axis. Positive for tension, negative for compression.")]
-        public virtual double FX { get; set; } = 0.0;
+        public virtual double FX { get; }
 
         [Force]
         [Description("Shear force along the local y-axis. Generally minor axis shear force.")]
-        public virtual double FY { get; set; } = 0.0;
+        public virtual double FY { get; }
 
         [Force]
         [Description("Shear force along the local z-axis. Generally major axis shear force.")]
-        public virtual double FZ { get; set; } = 0.0;
+        public virtual double FZ { get; }
 
         [Moment]
         [Description("Torsional moment.")]
-        public virtual double MX { get; set; } = 0.0;
+        public virtual double MX { get; }
 
         [Moment]
         [Description("Bending moment about the local y-axis. Generally major axis bending moment.")]
-        public virtual double MY { get; set; } = 0.0;
+        public virtual double MY { get; }
 
         [Moment]
         [Description("Bending moment about the local z-axis. Generally minor axis bending moment.")]
-        public virtual double MZ { get; set; } = 0.0;
+        public virtual double MZ { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public BarForce(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions, double fx, double fy, double fz, double mx, double my, double mz)
+            : base(objectId, resultCase, modeNumber, timeStep, position, divisions)
+        {
+            FX = fx;
+            FY = fy;
+            FZ = fz;
+            MX = mx;
+            MY = my;
+            MZ = mz;
+        }
 
         /***************************************************/
     }

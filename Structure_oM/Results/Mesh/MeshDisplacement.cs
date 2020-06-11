@@ -34,30 +34,30 @@ namespace BH.oM.Structure.Results
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        
+
         [Length]
         [Description("Translation in global X-direction.")]
-        public virtual double UXX { get; } = 0.0;
+        public virtual double UXX { get; }
 
         [Length]
         [Description("Translation in global Y-direction.")]
-        public virtual double UYY { get; } = 0.0;
+        public virtual double UYY { get; }
 
         [Length]
         [Description("Translation in global Z-direction.")]
-        public virtual double UZZ { get; } = 0.0;
+        public virtual double UZZ { get; }
 
         [Angle]
         [Description("Rotation about global X-axis.")]
-        public virtual double RXX { get; } = 0.0;
+        public virtual double RXX { get; }
 
         [Angle]
         [Description("Rotation about global Y-axis.")]
-        public virtual double RYY { get; } = 0.0;
+        public virtual double RYY { get; }
 
         [Angle]
         [Description("Rotation about global Z-axis.")]
-        public virtual double RZZ { get; } = 0.0;
+        public virtual double RZZ { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -67,6 +67,7 @@ namespace BH.oM.Structure.Results
                                 IComparable nodeId,
                                 IComparable meshFaceId,
                                 IComparable resultCase,
+                                int modeNumber,
                                 double timeStep,
                                 MeshResultLayer meshResultLayer,
                                 double layerPosition,
@@ -76,9 +77,9 @@ namespace BH.oM.Structure.Results
                                 double uYY,
                                 double uZZ,
                                 double rXX,
-                                double rYY, 
-                                double rZZ) : base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
-        {            
+                                double rYY,
+                                double rZZ) : base(objectId, nodeId, meshFaceId, resultCase, modeNumber, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
+        {
             UXX = uXX;
             UYY = uYY;
             UZZ = uZZ;

@@ -21,26 +21,42 @@
  */
 
 using System;
+using BH.oM.Base;
 using BH.oM.Analytical.Results;
 using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Base class for all structural results affecting the entire structure.")]
-    public abstract class StructuralGlobalResult : IResult
+    public abstract class StructuralGlobalResult : IStructuralResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Id of the structure. Unused for many results.")]
-        public virtual IComparable ObjectId { get; set; } = "";
+        public virtual IComparable ObjectId { get; }
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public virtual IComparable ResultCase { get; set; } = "";
+        public virtual IComparable ResultCase { get; }
+
+        [Description("Positive index, starting at one. Only set for cases with modal outputs such as dynamic cases.")]
+        public virtual int ModeNumber { get; }
 
         [Description("Time step for time history results.")]
-        public virtual double TimeStep { get; set; } = 0.0;
+        public virtual double TimeStep { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public StructuralGlobalResult(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep)
+        {
+            ObjectId = objectId;
+            ResultCase = resultCase;
+            ModeNumber = modeNumber;
+            TimeStep = timeStep;
+        }
 
         /***************************************************/
         /**** IComparable Interface                     ****/
@@ -58,7 +74,15 @@ namespace BH.oM.Structure.Results
             if (n == 0)
             {
                 int l = this.ResultCase.CompareTo(otherRes.ResultCase);
-                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+                if (l == 0)
+                {
+                    int m = this.ModeNumber.CompareTo(otherRes.ModeNumber);
+                    return m == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : m;
+                }
+                else
+                {
+                    return l;
+                }
             }
             else
             {

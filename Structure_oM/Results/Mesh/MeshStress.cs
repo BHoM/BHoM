@@ -75,6 +75,7 @@ namespace BH.oM.Structure.Results
                             IComparable nodeId,
                             IComparable meshFaceId,
                             IComparable resultCase,
+                            int modeNumber,
                             double timeStep,
                             MeshResultLayer meshResultLayer,
                             double layerPosition,
@@ -87,7 +88,7 @@ namespace BH.oM.Structure.Results
                             double tYY,
                             double principal_1,
                             double principal_2,
-                            double principal_1_2): base(objectId, nodeId, meshFaceId, resultCase, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
+                            double principal_1_2): base(objectId, nodeId, meshFaceId, resultCase, modeNumber, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
         {           
             SXX = sXX;
             SYY = sYY;
