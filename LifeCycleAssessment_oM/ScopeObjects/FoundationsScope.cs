@@ -35,16 +35,16 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         
         [Description("Foundation footings (or pile caps) are mats below the buildings piles that help to distribute the load from the structure above")]
-        public virtual List<IElementM> Footings { get; set; } = new List<IElementM>();
+        public virtual List<IBHoMObject> Footings { get; set; } = new List<IBHoMObject>();
         
         [Description("Foundation piles are structural supports that are driven into the ground below a building to support the building structure")]
-        public virtual List<IElementM> Piles { get; set; } = new List<IElementM>();
+        public virtual List<IBHoMObject> Piles { get; set; } = new List<IBHoMObject>();
         
         [Description("Foundation walls are structural walls built below-grade")]
-        public virtual List<IElementM> Walls { get; set; } = new List<IElementM>();
+        public virtual List<IBHoMObject> Walls { get; set; } = new List<IBHoMObject>();
         
         [Description("Foundation slabs are structural slabs upon which the building is constructed. This category expects any type of slab, but assumes no construction properties.")]
-        public virtual List<IElementM> Slabs { get; set; } = new List<IElementM>();
+        public virtual List<IBHoMObject> Slabs { get; set; } = new List<IBHoMObject>();
 
         /***************************************************/
     }
