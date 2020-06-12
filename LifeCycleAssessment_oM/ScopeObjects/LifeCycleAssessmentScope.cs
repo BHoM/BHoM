@@ -35,7 +35,7 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         public virtual LevelOfDevelopment LevelOfDevelopment { get; set; } = LevelOfDevelopment.Undefined;
         public virtual List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; } = new List<LifeCycleAssessmentPhases>();
-        public virtual PrimaryStructuralMaterial PrimaryStructuralMaterial { get; set; } = PrimaryStructuralMaterial.Undefined;
+        public virtual List<PrimaryStructuralMaterial> PrimaryStructuralMaterial { get; set; } = new List<PrimaryStructuralMaterial>();
         public virtual ProjectArea ProjectArea { get; set; } = ProjectArea.Undefined;
         public virtual ProjectType ProjectType { get; set; } = ProjectType.Undefined;
 
