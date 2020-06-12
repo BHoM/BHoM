@@ -35,16 +35,16 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("Structural slabs are inclusive of the above-grade structural floors in a building")]
-        public virtual List<IElementM> Slabs { get; set; } = new List<IElementM>();
+        public virtual List<IBHoMObject> Slabs { get; set; } = new List<IBHoMObject>();
 
         [Description("Structural core walls are inclusive of the above-grade, structural-grade walls surrounding the core (elevators, building services)")]
-        public virtual List<IElementM> CoreWalls { get; set; } = new List<IElementM>();
+        public virtual List<IBHoMObject> CoreWalls { get; set; } = new List<IBHoMObject>();
 
         [Description("Structural beams are typically horizontal elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<IElementM> Beams { get; set; } = new List<IElementM>();
+        public virtual List<IBHoMObject> Beams { get; set; } = new List<IBHoMObject>();
 
         [Description("Structural columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<IElementM> Columns { get; set; } = new List<IElementM>();
+        public virtual List<IBHoMObject> Columns { get; set; } = new List<IBHoMObject>();
 
         /***************************************************/
     }
