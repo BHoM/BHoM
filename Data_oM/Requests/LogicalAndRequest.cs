@@ -22,15 +22,18 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.Data.Requests
 {
+    [Description("IRequest that combines a group of requests into a logical AND statement.")]
     public class LogicalAndRequest : ILogicalRequest
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
 
+        [Description("IRequests to be combined into a logical AND statement.")]
         public virtual List<IRequest> Requests { get; set; } = new List<IRequest>();
 
         /***************************************************/
