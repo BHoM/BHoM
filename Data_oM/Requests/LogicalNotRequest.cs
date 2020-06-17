@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Data.Requests
 {
-    [Description("A logical request that inverts the query specified by the input request, i.e. any object that fits this request will be excluded from a pull.")]
+    [Description("IRequest that inverts the query specified by the input request, i.e. any object that fits this request will be excluded from a pull.")]
     public class LogicalNotRequest : ILogicalRequest
     {
         /***************************************************/
