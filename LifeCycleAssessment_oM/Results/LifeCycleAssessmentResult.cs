@@ -60,14 +60,14 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lifeCycleAssessmentScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double globalWarmingPotential)
+        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lifeCycleAssessmentScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double totalGlobalWarmingPotential)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
             LifeCycleAssessmentScope = lifeCycleAssessmentScope;
             Results = results;
-            TotalGlobalWarmingPotential = globalWarmingPotential;
+            TotalGlobalWarmingPotential = totalGlobalWarmingPotential;
         }
 
         /***************************************************/
