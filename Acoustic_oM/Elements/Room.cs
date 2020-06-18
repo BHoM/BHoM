@@ -21,17 +21,19 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
 namespace BH.oM.Acoustic
 {
+    [Description("An acoustics room is defined by the criteria related to the sound within the space, as well as its geometry")]
     public class Room : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
+        
         public virtual PolySurface Boundaries { get; set; } = new PolySurface();
         
         public virtual double Area { get; set; } = 0;
@@ -39,6 +41,33 @@ namespace BH.oM.Acoustic
         public virtual double Volume { get; set; } = 0;
 
         public virtual List<Receiver> Samples { get; set; } = new List<Receiver>();
+
+        [Description("Average Indoor Ambient Noise Level is the total continuous noise level of a time-varying noise within a space; it is usually composed of noise from many sources, near and far. It is measured in A-weighted decibels (dBA).")]
+        public virtual int AverageInternalAmbientNoiseLevelRequirement { get; set; } = 0;
+
+        [Description("")]
+        public virtual int MaximumInternalAmbientNoiseLevelRequirement { get; set; } = 0;
+
+        [Description("")]
+        public virtual double ReverberationTime { get; set; } = 0.0;
+
+        [Description("")]
+        public virtual int NoiseRating { get; set; } = 0;
+
+        [Description("")]
+        public virtual int ImpactSoundInsulation { get; set; } = 0;
+
+        [Description("")]
+        public virtual double SpeechIntelligibilityIndex { get; set; } = 0.0;
+
+        [Description("")]
+        public virtual string PrivacyRequirement { get; set; } = "";
+
+        [Description("")]
+        public virtual int MinimumSoundPressureLevel { get; set; } = 0;
+
+        [Description("")]
+        public virtual double SoundPressureLevelCoverage { get; set; } = 0.0;
 
 
         /***************************************************/
