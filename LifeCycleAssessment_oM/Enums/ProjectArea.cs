@@ -28,7 +28,7 @@ namespace BH.oM.LifeCycleAssessment
     public enum ProjectArea
     {
         Undefined,
-        Under93,
+        Under94,
         Between94and465,
         Between466and929,
         Between930and2323,
