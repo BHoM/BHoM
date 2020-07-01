@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -52,6 +52,7 @@
     <Compile Include="Interface\IGeometry.cs" />
     <Compile Include="Math\IntegrationSlice.cs" />
     <Compile Include="Mesh\Face.cs" />
+    <Compile Include="Mesh\Mesh3D.cs" />
     <Compile Include="Mesh\Mesh.cs" />
     <Compile Include="Misc\BoundingBox.cs" />
     <Compile Include="Misc\CompositeGeometry.cs" />
@@ -113,7 +114,7 @@
     <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
       <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
       <Name>Reflection_oM</Name>
-	</ProjectReference>
+    </ProjectReference>
     <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj">
       <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
       <Name>Quantities_oM</Name>
