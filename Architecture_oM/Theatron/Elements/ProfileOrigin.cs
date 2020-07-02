@@ -24,9 +24,11 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 using System.ComponentModel;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Architecture.Theatron
 {
+    [Deprecated("3.2", "Superseded by objects and methods in Audience_oM and Engine")]
     [Description("Used for orientation and setting out of tier profiles")]
     public class ProfileOrigin : BHoMObject
     {

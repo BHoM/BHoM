@@ -23,10 +23,12 @@
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Architecture.Theatron
 {
     /***************************************************/
+    [Deprecated("3.2", "Superseded by objects and methods in Audience_oM and Engine")]
     public enum BayType
     {
         Side = 0,

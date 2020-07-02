@@ -19,8 +19,11 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+using BH.oM.Reflection.Attributes;
+
 namespace BH.oM.Architecture.Theatron
 {
+    [Deprecated("3.2", "Superseded by objects and methods in Audience_oM and Engine")]
     public enum SeatingBlockType
     {
         

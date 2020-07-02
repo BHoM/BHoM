@@ -24,14 +24,17 @@ using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 using System.ComponentModel;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Architecture.Theatron
 {
+    [Deprecated("3.2", "Superseded by objects and methods in Audience_oM and Engine")]
     public class ActivityArea : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        
         [Description("Closed Polyline representing a pitch, screen or any area that an audience are looking at 2d or 3d")]
         public virtual Polyline PlayingArea { get; set; } = new Polyline();
 
