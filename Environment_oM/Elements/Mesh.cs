@@ -46,21 +46,6 @@ namespace BH.oM.Environment.Elements
 
         /***************************************************/
     }
-    
-    [Description("A zone of the external faces of an Enviorment Mesh.")]
-    public class BoundaryZone : BHoMObject, IEnvironmentObject
-    {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
         
-        [Description("The indecies of the faces in the Mesh3D which this BoundaryZone is refering to.")]
-        public virtual List<int> FaceIndecies { get; set; } = new List<int>();
-        
-
-        /***************************************************/
-    }
-
-    
 }
 

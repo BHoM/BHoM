@@ -20,36 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
+using System;
 using System.Collections.Generic;
+using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.Environment.Fragments;
+using System.ComponentModel;
+using BH.oM.Dimensional;
 
-namespace BH.oM.Geometry
-{
-    [Description("A polygon mesh, defined by a list of triangular or quadrilateral Faces, Cells and their Vertices.")]
-    public class Mesh3D : IGeometry, IImmutable
+namespace BH.oM.Environment.Elements
+{    
+    [Description("A zone of the external faces of an Enviorment Mesh.")]
+    public class BoundaryZone : BHoMObject, IEnvironmentObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        [Description("Defines the three-dimensional Mesh geometry as  X, Y, Z coordinates.")]
-        public virtual IReadOnlyList<Point> Vertices { get; }
-
-        [Description("The list of polygons, defined as corner Point indices referencing the list of Vertices.")]
-        public virtual IReadOnlyList<Face> Faces { get; }
-
-        [Description("A parallel list to the Faces, details the index of the cells which is behind and infront of each Face.")]
-        public virtual IReadOnlyList<CellRelation> CellRelation { get; }
+        
+        [Description("The indecies of the faces in the Mesh3D which this BoundaryZone is refering to.")]
+        public virtual List<int> FaceIndecies { get; set; } = new List<int>();
+        
 
         /***************************************************/
-
-        public Mesh3D(List<Point> vertices, List<Face> faces, List<CellRelation> cellRelation)
-        {
-            Vertices = vertices;
-            Faces = faces;
-            CellRelation = cellRelation;
-        }
     }
+
+    
 }
 
