@@ -76,7 +76,7 @@ namespace BH.oM.Acoustic
         public virtual double SoundPressureLevelCoverage { get; set; } = 0.0;
 
         [Description("By selecting 'True' this boolean indicates the areas of a development that must utilise acoustic underlay in order to attain a suitable impact sound insulation performance (considering the activity in the source rooms and the sensitivity of the receiver room).")]
-        public virtual bool AcousticUnderlayRequirement { get; set; } = ;
+        public virtual bool AcousticUnderlayRequirement { get; set; } = false;
 
         /***************************************************/
     }
