@@ -25,31 +25,21 @@ using System.Collections.Generic;
 using BH.oM.Base;
 
 namespace BH.oM.Geometry
-{
-    [Description("A polygon mesh, defined by a list of triangular or quadrilateral Faces, Cells and their Vertices.")]
-    public class Mesh3D : IGeometry, IImmutable
+{    
+    [Description("Details the index of the cells which is behind and infront of each Face.")]
+    public class CellRelation : IGeometry
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Defines the three-dimensional Mesh geometry as  X, Y, Z coordinates.")]
-        public virtual IReadOnlyList<Point> Vertices { get; }
+        [Description("Index of the cell the Face is connected to which its normal is pointing away from.")]
+        public virtual int FromCell { get; set; } = -1;
 
-        [Description("The list of polygons, defined as corner Point indices referencing the list of Vertices.")]
-        public virtual IReadOnlyList<Face> Faces { get; }
-
-        [Description("A parallel list to the Faces, details the index of the cells which is behind and infront of each Face.")]
-        public virtual IReadOnlyList<CellRelation> CellRelation { get; }
+        [Description("Index of the cell the Face is connected to which its normal is pointing towards.")]
+        public virtual int ToCell { get; set; } = -1;
 
         /***************************************************/
-
-        public Mesh3D(List<Point> vertices, List<Face> faces, List<CellRelation> cellRelation)
-        {
-            Vertices = vertices;
-            Faces = faces;
-            CellRelation = cellRelation;
-        }
     }
 }
 

@@ -52,6 +52,7 @@
     <Compile Include="Interface\IGeometry.cs" />
     <Compile Include="Math\IntegrationSlice.cs" />
     <Compile Include="Mesh\Face.cs" />
+    <Compile Include="Mesh\CellRelation.cs" />
     <Compile Include="Mesh\Mesh3D.cs" />
     <Compile Include="Mesh\Mesh.cs" />
     <Compile Include="Misc\BoundingBox.cs" />
