@@ -31,7 +31,7 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.Environment.Elements
 {    
-    [Description("A zone of the external faces of an Enviorment Mesh.")]
+    [Description("A zone of the external faces of an Environment Mesh.")]
     public class BoundaryZone : BHoMObject, IEnvironmentObject
     {
         /***************************************************/
