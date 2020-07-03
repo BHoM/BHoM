@@ -29,7 +29,7 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Architecture.Theatron
 {
-    [Deprecated("3.2", "Superseded by objects and methods in Audience_oM and Engine")]
+    [Deprecated("3.3", "Superseded by objects and methods in Audience_oM and Engine")]
     public class TheatronPlan : BHoMObject
     {
         /***************************************************/
