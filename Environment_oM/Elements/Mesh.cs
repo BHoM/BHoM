@@ -31,7 +31,7 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.Environment.Elements
 {
-    [Description("An environment object used to define an volumetric mesh.")]
+    [Description("An environment object used to define a volumetric mesh.")]
     public class Mesh : BHoMObject, IEnvironmentObject
     {
         /***************************************************/
