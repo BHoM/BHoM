@@ -38,8 +38,8 @@ namespace BH.oM.Environment.Elements
         /**** Properties                                ****/
         /***************************************************/
         
-        [Description("The indecies of the faces in the Mesh3D which this BoundaryZone is refering to.")]
-        public virtual List<int> FaceIndecies { get; set; } = new List<int>();
+        [Description("The indices of the faces in the Mesh3D which this BoundaryZone is referring to.")]
+        public virtual List<int> FaceIndices { get; set; } = new List<int>();
         
 
         /***************************************************/
@@ -47,4 +47,3 @@ namespace BH.oM.Environment.Elements
 
     
 }
-
