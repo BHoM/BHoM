@@ -46,7 +46,8 @@ namespace BH.oM.Diffing
 
         public IEnumerable<object> UnchangedObjects { get; }
 
-        [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB.")]
+        [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB." +
+            "\nThis dictionary may be exploded by using BH.Engine.Diffing.Query.ListModifiedProperties().")]
         public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
 
         [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
