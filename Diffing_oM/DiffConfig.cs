@@ -1,6 +1,6 @@
 /*	
  * This file is part of the Buildings and Habitats object Model (BHoM)	
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.	
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.	
  *	
  * Each contributor holds copyright over their respective contributions.	
  * The project versioning (Git) records all such contribution source information.	
@@ -37,18 +37,37 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        public double NumericTolerance { get; set; } = 1e-6;
+        [Description("Tolerance used to determine numerical differences." +
+            "\nDefaults to 1e-6.")]
+        public virtual double NumericTolerance { get; set; } = 1e-6;
 
-        [Description("List of strings specifying the names of the properties that should be ignored in the diffing.\n" +
-            "This includes any sub-object or sub-property. Any property with a name matching any of this list will be ignored.\n" +
-            "By default it includes `BHoM_Guid`.")]
-        public List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid" };
+        [Description("By default, diffing considers all the properties of the objects." +
+            "\nHere you can specify a list of property names. Only the properties with a name matching any of this list will be considered for diffing." +
+            "\nE.g., if you input 'Name' only the differences in terms of name will be returned." +
+            "\nNOTE: these can be only top-level properties of the object (not the sub-properties).")]
+        public virtual List<string> PropertiesToConsider { get; set; } = new List<string>();
+
+        [Description("List of strings specifying the names of the properties that should be ignored in the diffing." +
+            "\nNOTE: This considers ALL properties AND sub-properties. Any property with a name matching any of this list will be ignored." +
+            "\nBy default it includes `BHoM_Guid`.")]
+        public virtual List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid" };
 
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
-        public bool EnablePropertyDiffing { get; set; } = true;
+        public virtual bool EnablePropertyDiffing { get; set; } = true;
+
+        [Description("If EnablePropertyDiffing is true, this sets the maximum number of differences to be determine before stopping." +
+            "\nUseful to limit the run time." +
+            "\nDefaults to 1000.")]
+        public virtual int MaxPropertyDifferences { get; set; } = 1000;
 
         [Description("If enabled, the Diff stores also the objects that did not change (`Unchanged` property).")]
-        public bool StoreUnchangedObjects { get; set; } = false;
+        public virtual bool StoreUnchangedObjects { get; set; } = false;
+
+        [Description("(Optional)Name of the key where the Id of the objects may be found in the BHoMObjects' CustomData." +
+            "\nIf specified, the diff will be attempted using the Ids found there." +
+            "\nE.g. 'Revit_UniqueId' may be used; an id must be stored under object.CustomData['Revit_UniqueId']." +
+            "\nNOTE: Not used (null) by default; the hash of the objects is used instead.")]
+        public virtual string CustomDataIdKey { get; set; } = null;
 
         /***************************************************/
     }
