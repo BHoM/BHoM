@@ -63,12 +63,6 @@ namespace BH.oM.Diffing
         [Description("If enabled, the Diff stores also the objects that did not change (`Unchanged` property).")]
         public virtual bool StoreUnchangedObjects { get; set; } = false;
 
-        [Description("(Optional)Name of the key where the Id of the objects may be found in the BHoMObjects' CustomData." +
-            "\nIf specified, the diff will be attempted using the Ids found there." +
-            "\nE.g. 'Revit_UniqueId' may be used; an id must be stored under object.CustomData['Revit_UniqueId']." +
-            "\nNOTE: Not used (null) by default; the hash of the objects is used instead.")]
-        public virtual string CustomDataIdKey { get; set; } = null;
-
         /***************************************************/
     }
 }
