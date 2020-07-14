@@ -61,7 +61,7 @@ namespace BH.oM.Diffing
         public virtual int MaxPropertyDifferences { get; set; } = 1000;
 
         [Description("If enabled, the Diff stores also the objects that did not change (`Unchanged` property).")]
-        public virtual bool StoreUnchangedObjects { get; set; } = false;
+        public virtual bool StoreUnchangedObjects { get; set; } = true;
 
         /***************************************************/
     }
