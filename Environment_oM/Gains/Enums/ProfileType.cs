@@ -25,13 +25,9 @@ namespace BH.oM.Environment.Gains
     public enum ProfileType
     {
         Undefined,
-        EquipmentGain,
-        Humidistat,
-        Infiltration,
-        LightingGain,
-        PeopleGain,
-        Thermostat,
-        Ventilation
+        Absolute,
+        ModulatingPercentage,
+        OnOff
     }
 }
 
