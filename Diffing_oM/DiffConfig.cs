@@ -55,6 +55,10 @@ namespace BH.oM.Diffing
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
         public virtual bool EnablePropertyDiffing { get; set; } = false;
 
+        [Description("If no Id or HashFragment is found on the objects, but the input lists have same length and the objects are in the same order," +
+            "\ndiffing is attempted by taking each object one by one. It will be able to tell only if the objects have been modified or not (no new or old).")]
+        public virtual bool AllowOneByOneDiffing { get; set; } = true;
+
         [Description("If EnablePropertyDiffing is true, this sets the maximum number of differences to be determine before stopping." +
             "\nUseful to limit the run time." +
             "\nDefaults to 1000.")]
