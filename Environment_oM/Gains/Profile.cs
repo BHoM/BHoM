@@ -39,7 +39,7 @@ namespace BH.oM.Environment.Gains
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Profile Type depicts the type of profile (lighting gain, equipment gain, thermostat, etc)")]
+        [Description("Profile Type depicts the type of profile (OnOff (0 or 1), ModulatingPercentage (0.0-1.0), or Absolute (-10000 to +10000))")]
         public virtual ProfileType ProfileType { get; set; } = ProfileType.Undefined;
 
         [Description("Profile Day depicts the day described in the profile, whether it's a day of the week or a holiday")]
