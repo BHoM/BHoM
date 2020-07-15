@@ -53,7 +53,7 @@ namespace BH.oM.Diffing
         public virtual List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid" };
 
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
-        public virtual bool EnablePropertyDiffing { get; set; } = true;
+        public virtual bool EnablePropertyDiffing { get; set; } = false;
 
         [Description("If EnablePropertyDiffing is true, this sets the maximum number of differences to be determine before stopping." +
             "\nUseful to limit the run time." +
