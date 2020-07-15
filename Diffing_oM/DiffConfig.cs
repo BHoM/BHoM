@@ -50,7 +50,11 @@ namespace BH.oM.Diffing
         [Description("List of strings specifying the names of the properties that should be ignored in the diffing." +
             "\nNOTE: This considers ALL properties AND sub-properties. Any property with a name matching any of this list will be ignored." +
             "\nBy default it includes `BHoM_Guid`.")]
-        public virtual List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid" };
+        public virtual List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid", };
+
+        [Description("List of names of the keys of the BHoMObjects' CustomData dictionary that should be ignored by the diffing." +
+            "\nBy default it includes `RenderMesh`.")]
+        public virtual List<string> CustomDataToIgnore { get; set; } = new List<string>() { "RenderMesh" };
 
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
         public virtual bool EnablePropertyDiffing { get; set; } = false;
