@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -40,11 +40,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\Duct.cs" />
+    <Compile Include="Elements\IFlow.cs" />
+    <Compile Include="Elements\MechanicalSystem.cs" />
+    <Compile Include="Elements\Node.cs" />
+    <Compile Include="Elements\Pipe.cs" />
+    <Compile Include="Elements\System.cs" />
+    <Compile Include="Elements\SystemType.cs" />
+    <Compile Include="Elements\Wire.cs" />
+    <Compile Include="Enums\FluidType.cs" />
     <Compile Include="Equipment\AirHandlingUnit.cs" />
     <Compile Include="Equipment\FanCoilUnit.cs" />
     <Compile Include="Equipment\IEquipment.cs" />
     <Compile Include="Fragments\GeometryFragment.cs" />
     <Compile Include="Fragments\IdentityFragment.cs" />
+    <Compile Include="MaterialFragments\DuctMaterial.cs" />
+    <Compile Include="MaterialFragments\IMEPMaterial.cs" />
+    <Compile Include="MaterialFragments\IInsulationMaterial.cs" />
+    <Compile Include="MaterialFragments\InsulationMaterial.cs" />
+    <Compile Include="MaterialFragments\LiningMaterial.cs" />
+    <Compile Include="MaterialFragments\PipeMaterial.cs" />
+    <Compile Include="MaterialFragments\WireMaterial.cs" />
     <Compile Include="Parts\AirHandlingUnitBase.cs" />
     <Compile Include="Parts\CoolingCoil.cs" />
     <Compile Include="Parts\ElectricalConnector.cs" />
@@ -54,24 +70,48 @@
     <Compile Include="Parts\Fan.cs" />
     <Compile Include="Parts\IPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionProperties\DuctSectionProperty.cs" />
+    <Compile Include="SectionProperties\IFlowSectionProperty.cs" />
+    <Compile Include="SectionProperties\PipeSectionProperty.cs" />
+    <Compile Include="SectionProperties\SectionProfile.cs" />
+    <Compile Include="SectionProperties\WireSectionProperty.cs" />
     <Compile Include="SpaceProperties\FireProtection.cs" />
+    <Compile Include="SurfaceProperties\ConstantThickness.cs" />
+    <Compile Include="SurfaceProperties\ISurfaceProperty.cs" />
     <Compile Include="Systems\Enums\PipeTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fixtures\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
+      <Project>{c91f1981-1148-4a03-b67e-c0bb42d862f4}</Project>
+      <Name>Analytical_oM</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
+      <Project>{17141a37-4853-4558-af36-134a580bf42b}</Project>
+      <Name>Dimensional_oM</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
+      <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>
+      <Name>Physical_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj">
       <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
       <Name>Quantities_oM</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
