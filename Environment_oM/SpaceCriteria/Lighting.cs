@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -29,20 +29,22 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Gains
-
+namespace BH.oM.Environment.SpaceCriteria
 {
-    [Description("The Acoustics object defines the noise criteria for an environments space, whether it's the prescribed ductwork velocity, the noise rating for the space or the dB level.")]
-    public class Acoustics : BHoMObject
+    [Description("Lighting gains are defined as the amount of heat contributed by light fixtures")]
+    public class Lighting : BHoMObject, IGain
     {
-        [Description("The prescribed velocity of the ductwork in the space (with more strict requirements for velocity in bedrooms and theatres (~3 m/s)")]
-        public virtual double DuctVelocity { get; set; } = 0.0;
+        [Description("The sensible heat contributed by light fixtures, which contributes to a rise in temperature with no change in phase.")]
+        public virtual double Sensible { get; set; } = 0.0;
 
-        [Description("The noise rating (NR), also known as noise criteria (NC) in the US, is the perceived loudness of a space")]
-        public virtual double NoiseRating { get; set; } = 0.0;
+        [Description("Profiles depict the time period (hours per day, days per week) during which the lighting gain is contributing heat to the space.")]
+        public virtual Profile Profile { get; set; } = new Profile();
 
-        [Description("The Decibel A (dBA) is the sound pressure sensed by the human ear without sensitivity to very low and very high frequencies prescribed for a space")]
-        public virtual double DecibelA { get; set; } = 0.0;
+        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by the light fixtures.")]
+        public virtual double RadiantFraction { get; set; } = 0.0;
 
+        [Description("Luminous efficacy is a measure of how well a light fixture produces visible light")]
+        public virtual double LuminousEfficacy { get; set; } = 0.0;
     }
 }
+

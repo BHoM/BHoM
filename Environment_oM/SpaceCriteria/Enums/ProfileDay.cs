@@ -20,34 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-using BH.oM.Environment.Fragments;
-using System.ComponentModel;
-
-namespace BH.oM.Environment.Gains
+namespace BH.oM.Environment.SpaceCriteria
 {
-    public class Thermostat : BHoMObject, IEnvironmentObject
+    public enum ProfileDay
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Proportional control indicates that the thermostat can modulate the voltage delivered to the heating and/or cooling device")]
-        public virtual bool ProportionalControl { get; set; } = false;
-
-        [Description("Control range indicates the range in temperature (in degrees of celsius)")]
-        public virtual double ControlRange { get; set; } = 0.0;
-
-        [Description("Profiles depict the time period (hours per day, days per week) during which the thermostat will be active.")]
-        public virtual List<Profile> Profiles { get; set; } = new List<Profile>();
-
-        /***************************************************/
+        Undefined,
+        Holiday,
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
     }
 }
 

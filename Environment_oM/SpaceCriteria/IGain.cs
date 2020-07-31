@@ -20,13 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Gains
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+
+namespace BH.oM.Environment.SpaceCriteria
 {
-    public enum EmitterType
+    public interface IGain : IBHoMObject
     {
-        Undefined,
-        Cooling,
-        Heating,
+
     }
 }
 

@@ -20,19 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Gains
+namespace BH.oM.Environment.SpaceCriteria
 {
-    public enum ProfileDay
+    public enum SimulationDayType
     {
         Undefined,
-        Holiday,
         Monday,
         Tuesday,
         Wednesday,
         Thursday,
         Friday,
         Saturday,
-        Sunday
+        Sunday,
+        Weekday,
+        Weekend,
+        PublicHoliday,
+        CoolingDesignDay,
+        HeatingDesignDay,
     }
 }
 

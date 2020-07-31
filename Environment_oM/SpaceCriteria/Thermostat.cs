@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -27,24 +27,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Environment.Fragments;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Gains
+namespace BH.oM.Environment.SpaceCriteria
 {
-    [Description("Exhaust is indicative of the amount of air that should be extracted from a space based on the space type (eg laboratory, woodshop) or fixtures contained within the space (eg toilets, showers)")]
-    public class Exhaust : BHoMObject
+    public class Thermostat : BHoMObject, IEnvironmentObject
     {
-        [Description("The air change rate per hour (ACH) is a value that denotes the amount of air that must be removed each hour, based on the volume of the space (1 ACH would be 1x the volume of space each hour, if the space is 1m3, it would be 1m3 of extract per hour)")]
-        public virtual double AirChangeRate { get; set; } = 0.0;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        [Description("The continuous exhaust rate associated with a particular space type (eg pet shop, printing room) measured in m3/s*m2")]
-        public virtual double SpaceTypeContinuous { get; set; } = 0.0;
+        [Description("Proportional control indicates that the thermostat can modulate the voltage delivered to the heating and/or cooling device")]
+        public virtual bool ProportionalControl { get; set; } = false;
 
-        [Description("The exhaust rate associated with a particular fixture type (eg toilets, showers) that is run continuously, meaning that it is not triggered by a sensor or switch and is measured in m3/s*unit")]
-        public virtual double UnitContinuous { get; set; } = 0.0;
+        [Description("Control range indicates the range in temperature (in degrees of celsius)")]
+        public virtual double ControlRange { get; set; } = 0.0;
 
-        [Description("The exhaust rate associated with a particular fixture type (eg toilets, showers) that is run intermittently, meaning that it is triggered by a sensor or switch and is measured in m3/s*unit")]
-        public virtual double UnitIntermittent { get; set; } = 0.0;
+        [Description("Profiles depict the time period (hours per day, days per week) during which the thermostat will be active.")]
+        public virtual List<Profile> Profiles { get; set; } = new List<Profile>();
 
+        /***************************************************/
     }
 }
+

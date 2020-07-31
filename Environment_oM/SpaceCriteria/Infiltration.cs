@@ -29,22 +29,22 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Gains
+namespace BH.oM.Environment.SpaceCriteria
 {
-    [Description("Equipment gains are defined as the amount of both latent and sensible heat contributed by specified equipment within the space (dishwasher, oven, etc)")]
-    public class Equipment : BHoMObject, IGain
+    [Description("Infiltration gains are defined as the amount of heat or heat loss contributed by cracks in the exterior envelope of the building which allow unconditioned outside air to be introduced to the space")]
+    public class Infiltration : BHoMObject, IGain
     {
-        [Description("The sensible heat contributed by equipment, which contributes to a rise in temperature with no change in phase.")]
-        public virtual double Sensible { get; set; } = 0.0;
+        [Description("The AirChangeRate indicates the amount of conditioned air lost by infiltration that should be replaced each hour, based on the volume of the space (1 ACH would be 1x the volume of space each hour, if the space is 1m3, it would be 1m3 of outside air per hour)")]
+        public virtual double AirChangeRate { get; set; } = 0.0;
 
-        [Description("The latent heat contributed by equipment, which contributes to a change in phase from solid to liquid.")]
-        public virtual double Latent { get; set; } = 0.0;
+        [Description("The AirflowByWallExternalArea indicates the amount of air (m3/s) lost by infiltration based on the exterior wall area, that should be replaced within the space.")]
+        public virtual double AirflowByWallExternalArea { get; set; } = 0.0;
 
-        [Description("Profiles depict the time period (hours per day, days per week) during which equipment is contributing heat to the space.")]
+        [Description("The AirflowByWallExternalCrackLength indicates the amount of air (m3/s) lost by infiltration based on the exterior wall crack length (the sum of the edge lengths), that should be replaced within the space.")]
+        public virtual double AirflowByWallExternalCrackLength { get; set; } = 0.0;
+
+        [Description("Profiles depict the time period (hours per day, days per week) during which infiltration is contributing to or causing a loss of heat to the space.")]
         public virtual Profile Profile { get; set; } = new Profile();
-
-        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by equipment.")]
-        public virtual double RadiantFraction { get; set; } = 0.0;
     }
 }
 
