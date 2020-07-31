@@ -20,31 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-using System.ComponentModel;
-
-namespace BH.oM.Environment.Gains
+namespace BH.oM.Environment.SpaceCriteria
 {
-    [Description("People gains are defined as the amount of both latent and sensible heat contributed by people based on their assumed activity level within the space (dancing, sitting, etc)")]
-    public class People : BHoMObject, IGain
+    public enum ProfileCategory
     {
-        [Description("The sensible heat contributed by people, which contributes to a rise in temperature with no change in phase.")]
-        public virtual double Sensible { get; set; } = 0.0;
-
-        [Description("The latent heat contributed by people, which contributes to a change in phase from solid to liquid.")]
-        public virtual double Latent { get; set; } = 0.0;
-
-        [Description("Profiles depict the time period (hours per day, days per week) during which people are contributing heat to the space.")]
-        public virtual Profile Profile { get; set; } = new Profile();
-
-        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by people.")]
-        public virtual double RadiantFraction { get; set; } = 0.0;
+        Undefined,
+        Gain,
+        Humidistat,
+        Thermostat,
     }
 }
 

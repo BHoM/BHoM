@@ -20,23 +20,29 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Gains
-{
-    public enum SimulationDayType
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+using System.ComponentModel;
+
+namespace BH.oM.Environment.SpaceCriteria
+
+{ 
+    [Description("Ventilation defines the amount of outside air that should be introduced to a space, which is typically based on the number of occupants breathing the air and the area of the space.")]
+    public class Ventilation : BHoMObject
     {
-        Undefined,
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday,
-        Weekday,
-        Weekend,
-        PublicHoliday,
-        CoolingDesignDay,
-        HeatingDesignDay,
+        [Description("The ventilation rate associated with the number of occupants within a space, example: 0.00025 m3/s per person")]
+        public virtual double PeopleRate { get; set; } = 0.0;
+
+        [Description("The ventilation rate associated with the area of the space, example: 0.0003 m3/s*m2")]
+        public virtual double AreaRate { get; set; } = 0.0;
+
+        [Description("The air change rate per hour (ACH) is a value that denotes the amount of air that must be replaced each hour, based on the volume of the space (1 ACH would be 1x the volume of space each hour, if the space is 1m3, it would be 1m3 of outside air per hour)")]
+        public virtual double AirChangeRate { get; set; } = 0.0;
+
     }
 }
-

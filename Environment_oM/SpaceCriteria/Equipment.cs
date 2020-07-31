@@ -20,14 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Gains
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+using System.ComponentModel;
+
+namespace BH.oM.Environment.SpaceCriteria
 {
-    public enum ProfileType
+    [Description("Equipment gains are defined as the amount of both latent and sensible heat contributed by specified equipment within the space (dishwasher, oven, etc)")]
+    public class Equipment : BHoMObject, IGain
     {
-        Undefined,
-        Absolute,
-        ModulatingPercentage,
-        OnOff
+        [Description("The sensible heat contributed by equipment, which contributes to a rise in temperature with no change in phase.")]
+        public virtual double Sensible { get; set; } = 0.0;
+
+        [Description("The latent heat contributed by equipment, which contributes to a change in phase from solid to liquid.")]
+        public virtual double Latent { get; set; } = 0.0;
+
+        [Description("Profiles depict the time period (hours per day, days per week) during which equipment is contributing heat to the space.")]
+        public virtual Profile Profile { get; set; } = new Profile();
+
+        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by equipment.")]
+        public virtual double RadiantFraction { get; set; } = 0.0;
     }
 }
 
