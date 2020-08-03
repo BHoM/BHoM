@@ -54,11 +54,17 @@ namespace BH.oM.Inspection
         [Description("Revision Number of Audit")]
         public virtual int RevisionNumber { get; set; }
 
-        [Description("Date of inspection for Audit")]
-        public virtual string InspectionDate { get; set; }
+        [Description("Date of inspection for Audit in local time.")]
+        public virtual DateTime InspectionDate { get; set; }
 
-        [Description("Date of issue corresponding to Audit")]
-        public virtual string IssueDate { get; set; }
+        [Description("Date of inspection for Audit in UTC time.")]
+        public virtual DateTime InspectionDateUtc { get; set; }
+
+        [Description("Date of issue corresponding to Audit in local time.")]
+        public virtual DateTime IssueDate { get; set; }
+
+        [Description("Date of issue corresponding to Audit in UTC time.")]
+        public virtual DateTime IssueDateUtc { get; set; }
 
         [Description("Creator of Audit")]
         public virtual string Author { get; set; }
