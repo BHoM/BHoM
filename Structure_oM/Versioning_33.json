@@ -7,7 +7,7 @@
 
     }
   },
-  "Property": {
+  "Type": {
     "ToNew": {
 	"BH.oM.Structure.Elements.FramingElement" : "BH.oM.Physical.Elements.IFramingElement"
 	"BH.oM.Structure.FramingProperties.ConstantFramingElementProperty" : "BH.oM.Physical.FramingProperties.ConstantFramingProperty"
@@ -22,8 +22,6 @@
         "BH.oM.Structure.Elements.RigidLink.SecondaryNodes" : "BH.oM.Structure.Elements.RigidLink.SlaveNodes",
     },
     "ToOld": {
-        "BH.oM.Structure.Elements.RigidLink.MasterNode" : "BH.oM.Structure.Elements.RigidLink.PrimaryNode",
-        "BH.oM.Structure.Elements.RigidLink.SlaveNodes" : "BH.oM.Structure.Elements.RigidLink.SecondaryNodes",
     }
   }
 
