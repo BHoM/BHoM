@@ -1,16 +1,16 @@
 ﻿{
   "Namespace": {
     "ToNew": {
-	"BH.oM.Structure.Elements.FramingElement" : "BH.oM.Physical.Elements.IFramingElement"
-	"BH.oM.Structure.FramingProperties.ConstantFramingElementProperty" : "BH.oM.Physical.FramingProperties.ConstantFramingProperty"
-	"BH.oM.Structure.FramingProperties.IFramingElementProperty" : "BH.oM.Physical.FramingProperties.IFramingElementProperty"
+
     },
     "ToOld": {
     }
   },
   "Type": {
     "ToNew": {
-
+	"BH.oM.Structure.Elements.FramingElement" : "BH.oM.Physical.Elements.IFramingElement"
+	"BH.oM.Structure.FramingProperties.ConstantFramingElementProperty" : "BH.oM.Physical.FramingProperties.ConstantFramingProperty"
+	"BH.oM.Structure.FramingProperties.IFramingElementProperty" : "BH.oM.Physical.FramingProperties.IFramingElementProperty"
     },
     "ToOld": {
     }
