@@ -215,9 +215,6 @@
   <ItemGroup>
     <Folder Include="Results\Building Results\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Versioning_33.json" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
