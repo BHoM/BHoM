@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,11 +50,17 @@ namespace BH.oM.Inspection
         [Description("Provide a list of assignees for the issue")]
         public virtual string Assign { get; set; }
 
+        [Description("Issue type. E.g. `for_information`.")]
+        public virtual string Type { get; set; }
+
         [Description("Provide a description for the scope of the issue")]
         public virtual string Description { get; set; }
 
         [Description("Media associated with the issue")]
         public virtual List<string> Media { get; set; }
+
+        [Description("Location of the issue. X, Y, Z coordinates.")]
+        public virtual Point Position { get; set; } 
 
         [Description("List of people issue is distributed to")]
         public virtual List<string> Distribution { get; set; }
