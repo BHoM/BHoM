@@ -18,12 +18,12 @@
   },
   "Property": {
     "ToNew": {
-    "BH.oM.Structure.Elements.RigidLink.PrimaryNode": "BH.oM.Structure.Elements.RigidLink.MasterNode"
-    "BH.oM.Structure.Elements.RigidLink.SecondaryNodes": "BH.oM.Structure.Elements.RigidLink.SlaveNodes"
-    },
-    "ToOld": {
     "BH.oM.Structure.Elements.RigidLink.MasterNode": "BH.oM.Structure.Elements.RigidLink.PrimaryNode"
     "BH.oM.Structure.Elements.RigidLink.SlaveNodes": "BH.oM.Structure.Elements.RigidLink.SecondaryNodes"
+    },
+    "ToOld": {
+    "BH.oM.Structure.Elements.RigidLink.PrimaryNode": "BH.oM.Structure.Elements.RigidLink.MasterNode"
+    "BH.oM.Structure.Elements.RigidLink.SecondaryNodes": "BH.oM.Structure.Elements.RigidLink.SlaveNodes"
     }
   }
 
