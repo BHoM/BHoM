@@ -76,7 +76,6 @@
     <Compile Include="SectionProperties\SectionProfile.cs" />
     <Compile Include="SectionProperties\WireSectionProperty.cs" />
     <Compile Include="SpaceProperties\FireProtection.cs" />
-    <Compile Include="SurfaceProperties\ConstantThickness.cs" />
     <Compile Include="SurfaceProperties\ISurfaceProperty.cs" />
     <Compile Include="Systems\Enums\PipeTypes.cs" />
   </ItemGroup>
