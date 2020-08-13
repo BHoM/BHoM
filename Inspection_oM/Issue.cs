@@ -51,7 +51,7 @@ namespace BH.oM.Inspection
         public virtual string Assign { get; set; }
 
         [Description("Issue type. E.g. `for_information`.")]
-        public virtual string Type { get; set; }
+        public virtual string Type { get; set; } = "unassigned";
 
         [Description("Provide a description for the scope of the issue")]
         public virtual string Description { get; set; }
@@ -60,7 +60,7 @@ namespace BH.oM.Inspection
         public virtual List<string> Media { get; set; }
 
         [Description("Location of the issue. X, Y, Z coordinates.")]
-        public virtual Point Position { get; set; } 
+        public virtual Point Position { get; set; } = new Point();
 
         [Description("List of people issue is distributed to")]
         public virtual List<string> Distribution { get; set; }
