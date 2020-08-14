@@ -50,7 +50,7 @@ namespace BH.oM.MEP.SectionProperties
         public virtual double CircularEquivalentDiameter { get; }
 
         [Description("The section profile of the object that will determine its use within a System.")]
-        public virtual SectionProfile SectionProfile { get; set; }
+        public virtual SectionProfile SectionProfile { get; }
 
         [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
         public virtual double ElementSolidArea { get; }

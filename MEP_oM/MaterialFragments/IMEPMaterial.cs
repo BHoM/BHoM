@@ -27,13 +27,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-using BH.oM.Physical.Materials;
-
+using BH.oM.Base;
 
 namespace BH.oM.MEP.MaterialFragments
 {
     [Description("Base interface for MEP materials used by MEP properties or as a fragment of the physical material.")]
-    public interface IMEPMaterial : IMaterialProperties
+    public interface IMEPMaterial : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

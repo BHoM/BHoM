@@ -45,7 +45,7 @@
     <Compile Include="Elements\MechanicalSystem.cs" />
     <Compile Include="Elements\Node.cs" />
     <Compile Include="Elements\Pipe.cs" />
-    <Compile Include="Elements\System.cs" />
+    <Compile Include="Elements\FlowSystem.cs" />
     <Compile Include="Elements\SystemType.cs" />
     <Compile Include="Elements\Wire.cs" />
     <Compile Include="Enums\FluidType.cs" />
@@ -76,7 +76,6 @@
     <Compile Include="SectionProperties\SectionProfile.cs" />
     <Compile Include="SectionProperties\WireSectionProperty.cs" />
     <Compile Include="SpaceProperties\FireProtection.cs" />
-    <Compile Include="SurfaceProperties\ISurfaceProperty.cs" />
     <Compile Include="Systems\Enums\PipeTypes.cs" />
   </ItemGroup>
   <ItemGroup>

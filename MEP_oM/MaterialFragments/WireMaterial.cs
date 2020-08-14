@@ -33,7 +33,7 @@ namespace BH.oM.MEP.MaterialFragments
 {
     public class WireMaterial : BHoMObject, IMEPMaterial
     {
-        [Description("This is a placeholder material property for a Wire.")]
+        [Description("The degree to which a specific material conducts electricity, calculated as the ratio of the current density and the material to the electric field that causes the flow of current.")]
         public virtual double Conductivity { get; set; } = 0;
     }
 }
