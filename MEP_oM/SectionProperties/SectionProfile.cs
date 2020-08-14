@@ -32,7 +32,7 @@ using BH.oM.Geometry.ShapeProfiles;
 
 namespace BH.oM.MEP.SectionProperties
 {
-    public class SectionProfile : BHoMObject, IBHoMObject
+    public class SectionProfile : BHoMObject, IBHoMObject, IImmutable
     {
         [Description("ShapeProfile of the element itself. This is the base ShapeProfile that determines the overall shape of the IFlow object.")]
         public virtual IProfile ElementProfile { get; set; }

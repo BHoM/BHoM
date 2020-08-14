@@ -29,11 +29,13 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using BH.oM.MEP.MaterialFragments;
+using BH.oM.Base;
+
 
 namespace BH.oM.MEP.Elements
 {
     [Description("Mechanical systems are qualified by their ability to convey air, water, etc to a building/room/area")]
-    public class MechanicalSystem : SystemType
+    public class MechanicalSystem : BHoMObject, ISystemType
     {
         /***************************************************/
         /**** Properties                                ****/

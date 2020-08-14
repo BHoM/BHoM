@@ -29,12 +29,11 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
 
 namespace BH.oM.MEP.Elements
 {
     [Description("An MEP system to determine flow types.")]
-    public class SystemType : BHoMObject, IElement1D, IElementM
+    public interface ISystemType : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
