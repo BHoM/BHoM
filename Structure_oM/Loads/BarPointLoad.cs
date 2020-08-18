@@ -24,11 +24,12 @@ using BH.oM.Structure.Elements;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Loads
 {
     [Description("Point load to be applied for Bars, positioned a set distance from the StartNode.")]
-    public class BarPointLoad : Load<Bar>
+    public class BarPointLoad : BHoMObject, IElementLoad<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -45,6 +46,18 @@ namespace BH.oM.Structure.Loads
         [Force]
         [Description("Magnitude and direction of the Moment. The load requires the Force and/or the Moment Vector to be non-zero to have any effect.")]
         public virtual Vector Moment { get; set; } = new Vector();
+
+        [Description("The Loadcase in which the load is applied.")]
+        public virtual Loadcase Loadcase { get; set; }
+
+        [Description("The group of Bars that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
+        public virtual BHoMGroup<Bar> Objects { get; set; } = new BHoMGroup<Bar>();
+
+        [Description("Defines whether the load is applied in local or global coordinates.")]
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
+
+        [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
+        public virtual bool Projected { get; set; } = false;
 
         /***************************************************/
     }
