@@ -77,7 +77,7 @@
     <Compile Include="Loads\GravityLoad.cs" />
     <Compile Include="Loads\ICase.cs" />
     <Compile Include="Loads\ILoad.cs" />
-    <Compile Include="Loads\Load.cs" />
+    <Compile Include="Loads\IElementLoad.cs" />
     <Compile Include="Loads\ContourLoad.cs" />
     <Compile Include="Loads\Loadcase.cs" />
     <Compile Include="Loads\LoadCombination.cs" />
