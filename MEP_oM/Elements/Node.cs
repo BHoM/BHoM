@@ -24,6 +24,7 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Analytical.Elements;
 using BH.oM.Dimensional;
+using System.ComponentModel;
 
 namespace BH.oM.MEP.Elements
 {
@@ -32,7 +33,7 @@ namespace BH.oM.MEP.Elements
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
+        [Description("Defines a dimensionless location in three-dimensional space..")]
         public virtual Point Position { get; set; } = null;
 
         /***************************************************/

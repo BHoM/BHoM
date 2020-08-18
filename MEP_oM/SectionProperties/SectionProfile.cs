@@ -35,12 +35,19 @@ namespace BH.oM.MEP.SectionProperties
     public class SectionProfile : BHoMObject, IBHoMObject, IImmutable
     {
         [Description("ShapeProfile of the element itself. This is the base ShapeProfile that determines the overall shape of the IFlow object.")]
-        public virtual IProfile ElementProfile { get; set; }
+        public virtual IProfile ElementProfile { get; }
 
         [Description("ShapeProfile of the element's interior lining.")]
-        public virtual IProfile LiningProfile { get; set; }
+        public virtual IProfile LiningProfile { get; }
 
         [Description("ShapeProfile of the element's exterior insulation.")]
-        public virtual IProfile InsulationProfile { get; set; }
+        public virtual IProfile InsulationProfile { get; }
+
+        public SectionProfile(IProfile elementProfile, IProfile liningProfile, IProfile insulationProfile)
+        {
+            ElementProfile = elementProfile;
+            LiningProfile = liningProfile;
+            InsulationProfile = insulationProfile;
+        }
     }
 }

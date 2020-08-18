@@ -43,7 +43,7 @@ namespace BH.oM.MEP.SectionProperties
         [Description("The section profile of the object that will determine its use within a System.")]
         public virtual SectionProfile SectionProfile { get; }
 
-        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
+        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the element's composite ShapeProfiles.")]
         public virtual double ElementSolidArea { get; }
 
         [Description("The interior area within the element's shapeProfile. This corresponds to the actual open area less any material thickness.")]
