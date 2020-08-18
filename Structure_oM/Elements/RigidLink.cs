@@ -34,13 +34,13 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Master node to which slave nodes are constrained.")]
-        public virtual Node MasterNode { get; set; } = new Node();
+        [Description("A single node to which SecondaryNodes are constrained.")]
+        public virtual Node PrimaryNode { get; set; } = new Node();
 
-        [Description("List of slave nodes which are constrained to the master node.")]
-        public virtual List<Node> SlaveNodes { get; set; } = new List<Node>();
+        [Description("List of nodes which are constrained to the PrimaryNode.")]
+        public virtual List<Node> SecondaryNodes { get; set; } = new List<Node>();
 
-        [Description("Defines how slave nodes are constrained to the master node. The LinkConstraint describes translation and rotation of slave nodes with respect to the master node's coordinate system.")]
+        [Description("Defines how SecondaryNodes are constrained to the PrimaryNode. The LinkConstraint describes translation and rotation of SecondaryNodes with respect to the MasterNode's coordinate system.")]
         public virtual LinkConstraint Constraint { get; set; } = null;
 
         /***************************************************/

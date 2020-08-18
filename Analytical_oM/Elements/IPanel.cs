@@ -26,10 +26,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Analytical.Elements
 {
-    public interface IPanel<TEdge, TOpening> : IBHoMObject, IAnalytical
+    public interface IPanel<TEdge, TOpening> : IBHoMObject, IAnalytical, IElement2D
         where TEdge : IEdge
         where TOpening : IOpening<TEdge>
     {

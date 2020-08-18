@@ -63,6 +63,10 @@
       <Name>BHoM</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
+      <Project>{17141a37-4853-4558-af36-134a580bf42b}</Project>
+      <Name>Dimensional_oM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
