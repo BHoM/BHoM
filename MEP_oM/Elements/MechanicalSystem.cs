@@ -39,9 +39,7 @@ namespace BH.oM.MEP.Elements
     {
         /***************************************************/
         /**** Properties                                ****/
-        /***************************************************/
-
-        //Temporary properties require additional user input. 
+        /***************************************************/ 
 
         [Description("Fluid type that flows throughout the specified flow objects.")]
         public virtual FluidType FluidType { get; set; } = FluidType.Undefined;

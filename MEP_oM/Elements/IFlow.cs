@@ -40,10 +40,10 @@ namespace BH.oM.MEP.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Duct object begins.")]
+        [Description("The point at which the Flow Object begins.")]
         Node StartNode { get; set; }
 
-        [Description("The point at which the Duct object ends.")]
+        [Description("The point at which the Flow Object ends.")]
         Node EndNode { get; set; }
 
         /***************************************************/

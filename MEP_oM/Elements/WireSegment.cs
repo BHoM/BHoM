@@ -36,15 +36,25 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.MEP.Elements
 {
-    [Description("Wire object to work within an MEP systems.")]
-    public class Wire : BHoMObject, IElementM
+    [Description("An object containing a collection of Wires to work within an MEP systems.")]
+    public class WireSegment : BHoMObject, IFlow, ILink<Node>, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Collection of WireSegments.")]
-        public virtual List<WireSegment> WireSegments { get; set; } = new List<WireSegment>();
+        [Description("The point at which the Wire object begins.")]
+        public virtual Node StartNode { get; set; } = null;
+
+        [Description("The point at which the Wire object ends.")]
+        public virtual Node EndNode { get; set; } = null;
+
+        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
+        public virtual double FlowRate { get; set; } = 0;
+
+        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
+        public virtual WireSectionProperty SectionProperty { get; set; } = null;
+
 
         /***************************************************/
     }
