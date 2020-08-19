@@ -43,7 +43,7 @@ namespace BH.oM.Environment.Elements
         public virtual List<Edge> Edges { get; set; } = new List<Edge>();
 
         [Description("A construction object providing construction information about the frame of the opening")]
-        public virtual IConstruction FrameConstruction { get; set; } = new Construction();
+        public virtual IConstruction FrameConstruction { get; set; } = null;
 
         [Description("The percentage of the opening that is frame")]
         public virtual double FrameFactorValue { get; set; } = 0;
@@ -52,7 +52,7 @@ namespace BH.oM.Environment.Elements
         public virtual List<Edge> InnerEdges { get; set; } = new List<Edge>();
 
         [Description("A construction object providing construction information about the opening - typically gazing construction")]
-        public virtual IConstruction OpeningConstruction { get; set; } = new Construction();
+        public virtual IConstruction OpeningConstruction { get; set; } = null;
 
         [Description("The type of opening on a panel (e.g. Window, Door). Use OpeningType enum")]
         public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
