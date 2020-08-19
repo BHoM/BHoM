@@ -26,11 +26,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 
 namespace BH.oM.Analytical.Elements
 {
-    public interface IOpening<TEdge> : IBHoMObject, IAnalytical
+    public interface IOpening<TEdge> : IBHoMObject, IAnalytical, IElement2D
         where TEdge : IEdge
     {
         /***************************************************/

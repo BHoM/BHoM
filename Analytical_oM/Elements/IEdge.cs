@@ -27,10 +27,11 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Analytical.Elements
 {
-    public interface IEdge : IBHoMObject, IAnalytical
+    public interface IEdge : IBHoMObject, IAnalytical, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/

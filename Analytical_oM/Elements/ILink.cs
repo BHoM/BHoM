@@ -26,10 +26,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Analytical.Elements
 {
-    public interface ILink<TNode> : IBHoMObject, IAnalytical
+    public interface ILink<TNode> : IBHoMObject, IAnalytical, IElement1D
         where TNode : INode
     {
         /***************************************************/
