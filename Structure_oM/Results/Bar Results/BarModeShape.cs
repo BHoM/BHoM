@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,50 +20,49 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
-using System;
-using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting displacements and rotations for a Node.")]
-    public class NodeDisplacement : NodeResult, INodeDisplacement
+    [Description("Bar mode shape in global coordinates, normalised to 1.")]
+    public class BarModeShape : BarResult, IBarDisplacement
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        [Description("Translational displacement in the X-direction as defined by orientation basis.")]
+        [Description("X component of mode shape in global coordinates.")]
         public virtual double UX { get; }
 
         [Length]
-        [Description("Translational displacement in the Y-direction as defined by orientation basis.")]
+        [Description("Y component of mode shape in global coordinates.")]
         public virtual double UY { get; }
 
         [Length]
-        [Description("Translational displacement in the Z-direction as defined by orientation basis.")]
+        [Description("Z component of mode shape in global coordinates.")]
         public virtual double UZ { get; }
 
         [Angle]
-        [Description("Rotational displacement about the X-axis as defined by orientation basis.")]
+        [Description("RX component of mode shape in global coordinates.")]
         public virtual double RX { get; }
 
         [Angle]
-        [Description("Rotational displacement about the Y-axis as defined by orientation basis.")]
+        [Description("RY component of mode shape in global coordinates.")]
         public virtual double RY { get; }
 
         [Angle]
-        [Description("Rotational displacement about the Z-axis as defined by orientation basis.")]
+        [Description("RZ component of mode shape in global coordinates.")]
         public virtual double RZ { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public NodeDisplacement(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, Basis orientation, double ux, double uy, double uz, double rx, double ry, double rz) :
-            base(objectId, resultCase, modeNumber, timeStep, orientation)
+        public BarModeShape(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions, double ux, double uy, double uz, double rx, double ry, double rz)
+            : base(objectId, resultCase, modeNumber, timeStep, position, divisions)
         {
             UX = ux;
             UY = uy;
@@ -76,4 +75,3 @@ namespace BH.oM.Structure.Results
         /***************************************************/
     }
 }
-

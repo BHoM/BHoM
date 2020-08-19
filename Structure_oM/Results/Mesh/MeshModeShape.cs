@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,57 +20,72 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using BH.oM.Base;
+using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
-using System;
-using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting displacements and rotations for a Node.")]
-    public class NodeDisplacement : NodeResult, INodeDisplacement
+    [Description("Mesh mode shape at a discrete location in the Panel/FEMesh, normalised to 1.")]
+    public class MeshModeShape : MeshElementResult, IImmutable, IMeshDisplacement
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        [Description("Translational displacement in the X-direction as defined by orientation basis.")]
-        public virtual double UX { get; }
+        [Description("X component of mode shape in global coordinates.")]
+        public virtual double UXX { get; }
 
         [Length]
-        [Description("Translational displacement in the Y-direction as defined by orientation basis.")]
-        public virtual double UY { get; }
+        [Description("Y component of mode shape in global coordinates.")]
+        public virtual double UYY { get; }
 
         [Length]
-        [Description("Translational displacement in the Z-direction as defined by orientation basis.")]
-        public virtual double UZ { get; }
+        [Description("Z component of mode shape in global coordinates.")]
+        public virtual double UZZ { get; }
 
         [Angle]
-        [Description("Rotational displacement about the X-axis as defined by orientation basis.")]
-        public virtual double RX { get; }
+        [Description("RX component of mode shape in global coordinates.")]
+        public virtual double RXX { get; }
 
         [Angle]
-        [Description("Rotational displacement about the Y-axis as defined by orientation basis.")]
-        public virtual double RY { get; }
+        [Description("RY component of mode shape in global coordinates.")]
+        public virtual double RYY { get; }
 
         [Angle]
-        [Description("Rotational displacement about the Z-axis as defined by orientation basis.")]
-        public virtual double RZ { get; }
+        [Description("RZ component of mode shape in global coordinates.")]
+        public virtual double RZZ { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public NodeDisplacement(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, Basis orientation, double ux, double uy, double uz, double rx, double ry, double rz) :
-            base(objectId, resultCase, modeNumber, timeStep, orientation)
+        public MeshModeShape(IComparable objectId,
+                                IComparable nodeId,
+                                IComparable meshFaceId,
+                                IComparable resultCase,
+                                int modeNumber,
+                                double timeStep,
+                                MeshResultLayer meshResultLayer,
+                                double layerPosition,
+                                MeshResultSmoothingType smoothing,
+                                Basis orientation,
+                                double uXX,
+                                double uYY,
+                                double uZZ,
+                                double rXX,
+                                double rYY,
+                                double rZZ) : base(objectId, nodeId, meshFaceId, resultCase, modeNumber, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
         {
-            UX = ux;
-            UY = uy;
-            UZ = uz;
-            RX = rx;
-            RY = ry;
-            RZ = rz;
+            UXX = uXX;
+            UYY = uYY;
+            UZZ = uZZ;
+            RXX = rXX;
+            RYY = rYY;
+            RZZ = rZZ;
         }
 
         /***************************************************/

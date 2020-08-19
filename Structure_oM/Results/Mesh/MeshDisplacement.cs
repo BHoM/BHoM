@@ -29,7 +29,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Structure.Results
 {
     [Description("Displacements and rotations at a discrete location in the Panel/FEMesh.")]
-    public class MeshDisplacement : MeshElementResult, IImmutable
+    public class MeshDisplacement : MeshElementResult, IImmutable, IMeshDisplacement
     {
         /***************************************************/
         /**** Properties                                ****/

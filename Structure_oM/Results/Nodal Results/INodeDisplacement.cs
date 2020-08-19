@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,22 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Analytical.Results;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.Requests
+namespace BH.oM.Structure.Results
 {
-    [Description("Defines the type of results that should be extracted for BarResultRequests.")]
-    public enum BarResultType
+    [Description("Base interface for node displacements")]
+    public interface INodeDisplacement: IResult, IImmutable
     {
-        BarForce,
-        [Description("Local deformation of the bar. All results given in local coordinates.")]
-        BarDeformation,
-        BarStress,
-        BarStrain,
-        [Description("Total displacement of the bar. All results given in global coordinates.")]
-        BarDisplacement,
-        [Description("Mode shape of the bar. All results given in global coordinates, normalised to 1.")]
-        BarModeShape
+        double UX { get; }
+
+        double UY { get; }
+
+        double UZ { get; }
+
+        double RX { get; }
+
+        double RY { get; }
+
+        double RZ { get; }
     }
 }
-
