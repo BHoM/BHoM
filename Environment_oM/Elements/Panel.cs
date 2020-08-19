@@ -47,7 +47,7 @@ namespace BH.oM.Environment.Elements
         public virtual List<Opening> Openings { get; set; } = new List<Opening>();
 
         [Description("A construction object providing layer and material information for the panel")]
-        public virtual IConstruction Construction { get; set; } = new Construction();
+        public virtual IConstruction Construction { get; set; } = null;
 
         [Description("The type of environmental surface (e.g. Wall, Floor, Roof). Use PanelType enum)")]
         public virtual PanelType Type { get; set; } = PanelType.Undefined;
