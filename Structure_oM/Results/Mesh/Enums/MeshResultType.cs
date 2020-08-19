@@ -41,6 +41,9 @@ namespace BH.oM.Structure.Results
         [Description("Von Mises stresses and forces.")]
         VonMises = 3,
 
+        [Description("Mode shape of the mesh/element nodes.")]
+        MeshModeShape = 4,
+
     }
 
     /***************************************************/

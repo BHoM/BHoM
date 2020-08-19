@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,22 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Analytical.Results;
 using System.ComponentModel;
+using System;
+using BH.oM.Geometry;
 
-namespace BH.oM.Structure.Requests
+namespace BH.oM.Structure.Results
 {
-    [Description("Defines the type of results that should be extracted for BarResultRequests.")]
-    public enum BarResultType
+    [Description("Base interface for mesh displacements")]
+    public interface IMeshDisplacement : IResult, IImmutable
     {
-        BarForce,
-        [Description("Local deformation of the bar. All results given in local coordinates.")]
-        BarDeformation,
-        BarStress,
-        BarStrain,
-        [Description("Total displacement of the bar. All results given in global coordinates.")]
-        BarDisplacement,
-        [Description("Mode shape of the bar. All results given in global coordinates, normalised to 1.")]
-        BarModeShape
+        double UXX { get; }
+
+        double UYY { get; }
+
+        double UZZ { get; }
+
+        double RXX { get; }
+
+        double RYY { get; }
+
+        double RZZ { get; }
+
+        IComparable NodeId { get; }
+
+        Basis Orientation { get; }
     }
 }
-
