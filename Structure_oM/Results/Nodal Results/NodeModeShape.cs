@@ -27,7 +27,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Bar mode shape in global coordinates, normalised to 1.")]
+    [Description("Node mode shape in global coordinates, normalised to 1.")]
     public class NodeModeShape : NodeResult, INodeDisplacement
     {
         /***************************************************/
