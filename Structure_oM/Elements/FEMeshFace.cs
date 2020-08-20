@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Elements
 {
@@ -37,6 +38,15 @@ namespace BH.oM.Structure.Elements
         [Description("List of which node indices in the host FEMesh node list that this face is connecting.")]
         public virtual List<int> NodeListIndices { get; set; } = new List<int>();
 
+
+        [Angle]
+        [Description("Defines the angle that the local x and y are rotated around the normal, local z, of the FEFace.\n" +
+                     "The normal of the FEMeshFace is determined by the right hand rule of the node list.\n" +
+                     "Local x is found by projecting the global X to the plane of the FEMeshFace and is then rotated with the OrientationAngle, " +
+                     "except for the case when the Normal is parallel with the global X. " +
+                     "For this case the local y is instead found by projecting global Y to the plane of the FEMeshFace and is then rotated with the OrientationAngle.\n" +
+                     "The remaining local axis is determained by the right hand rule.")]
+        public virtual double OrientationAngle { get; set; } = 0;
         /***************************************************/
     }
 }
