@@ -36,27 +36,27 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Length]
-        [Description("X component of mode shape in global coordinates.")]
+        [Description("Translational X component of the mode shape in global coordinates.")]
         public virtual double UXX { get; }
 
         [Length]
-        [Description("Y component of mode shape in global coordinates.")]
+        [Description("Translational Y component of the mode shape in global coordinates.")]
         public virtual double UYY { get; }
 
         [Length]
-        [Description("Z component of mode shape in global coordinates.")]
+        [Description("Translational Z component of the mode shape in global coordinates.")]
         public virtual double UZZ { get; }
 
         [Angle]
-        [Description("RX component of mode shape in global coordinates.")]
+        [Description("Rotational component about the X-axis of the mode shape in global coordinates.")]
         public virtual double RXX { get; }
 
         [Angle]
-        [Description("RY component of mode shape in global coordinates.")]
+        [Description("Rotational component about the Y-axis of the mode shape in global coordinates.")]
         public virtual double RYY { get; }
 
         [Angle]
-        [Description("RZ component of mode shape in global coordinates.")]
+        [Description("Rotational component about the Z-axis of the mode shape in global coordinates.")]
         public virtual double RZZ { get; }
 
         /***************************************************/
