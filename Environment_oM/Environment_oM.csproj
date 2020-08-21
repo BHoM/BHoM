@@ -143,8 +143,15 @@
       <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
       <Name>Quantities_oM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
+      <Project>{29e6dcd7-270a-45cc-ac0b-6c024287645e}</Project>
+      <Name>Reflection_oM</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Versioning_33.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
