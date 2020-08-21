@@ -1,0 +1,18 @@
+{
+  "Namespace": {
+    "ToNew": {
+      
+    },
+    "ToOld": {
+      
+    }
+  },
+  "Type": {
+    "ToNew": {
+      "BH.oM.Climate.WeatherFile": "BH.oM.Environment.Climate.WeatherFile",
+    },
+    "ToOld": {
+      "BH.oM.Environment.Climate.WeatherFile": "BH.oM.Climate.WeatherFile",
+    }
+  }
+}
