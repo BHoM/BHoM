@@ -35,10 +35,10 @@ namespace BH.oM.MEP.SectionProperties
     public class PipeSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
     {
         [Description("The pipe material is the primary material that the pipe is composed of (copper, black steel, PEX)")]
-        public IMEPMaterial PipeMaterial { get; set; }
+        public virtual IMEPMaterial PipeMaterial { get; set; }
 
         [Description("The insulation is the layer of material outside of the pipe material, meant to insulate the internal conditions of the material being conveyed.")]
-        public IMEPMaterial InsulationMaterial { get; set; }
+        public virtual IMEPMaterial InsulationMaterial { get; set; }
 
         [Description("The section profile of the object that will determine its use within a System.")]
         public virtual SectionProfile SectionProfile { get; }
