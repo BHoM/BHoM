@@ -24,11 +24,11 @@ using System.ComponentModel;
 
 namespace BH.oM.Facade.Elements
 {
-    [Description("The type of surface (e.g. Air, Internal Wall, External Wall, etc.)")]
+    [Description("The type of surface (e.g. AirGap, Internal Wall, External Wall, etc.)")]
     public enum PanelType
     {
         Undefined,
-        Air,
+        AirGap,
         Shade,
         WallExternal,
         WallInternal,

@@ -21,20 +21,22 @@
  */
 
 using System.ComponentModel;
+using System.Collections.Generic;
 using BH.oM.Geometry.ShapeProfiles;
 using BH.oM.Base;
+using BH.oM.Physical.FramingProperties;
 
 namespace BH.oM.Facade.SectionProperties
 {
-    [Description("Interface for sections based on Shape profiles.")]
-    public interface MullionProperty : IBHoMObject, ISectionProperty
+    [Description("Mullion property with list of Profile Section properties that make up the mullion construction.")]
+    public class MullionProperty : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Profile of the section, containing dimensions and section geometry.")]
-        IProfile SectionProfile { get; }
+        List<ConstantFramingProperty> SectionProperties { get; set; } = null;
 
         /***************************************************/
     }
