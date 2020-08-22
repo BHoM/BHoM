@@ -35,10 +35,10 @@ namespace BH.oM.MEP.SectionProperties
     public class WireSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
     {
         [Description("The wire material is the primary material that the wire is composed of (copper, aluminium).")]
-        public IMEPMaterial ConductiveMaterial { get; set; }
+        public virtual IMEPMaterial ConductiveMaterial { get; set; }
 
         [Description("The insulation is the layer of material outside of the conductive material, meant to insulate the internal conditions of the conductive material.")]
-        public IMEPMaterial InsulationMaterial { get; set; }
+        public virtual IMEPMaterial InsulationMaterial { get; set; }
 
         [Description("The section profile of the object that will determine its use within a System.")]
         public virtual SectionProfile SectionProfile { get; }
