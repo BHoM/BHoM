@@ -20,39 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
 using System.ComponentModel;
+using BH.oM.Geometry.ShapeProfiles;
+using BH.oM.Base;
 
-namespace BH.oM.Facade.MaterialFragments
+namespace BH.oM.Facade.SectionProperties
 {
-    [Description("Fragment containing gas material properties")]
-    public class GasMaterial : BHoMObject, IFacadeMaterial, IFragment
+    [Description("Interface for sections based on Shape profiles.")]
+    public interface MullionProperty : IBHoMObject, ISectionProperty
     {
-        public virtual double Density { get; set; } = 0.0;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public virtual double Conductivity { get; set; } = 0.0;
-               
-        public virtual double SpecificHeat { get; set; } = 0.0;
+        [Description("Profile of the section, containing dimensions and section geometry.")]
+        IProfile SectionProfile { get; }
 
-        public virtual double VapourResistivity { get; set; } = 0.0;
-
-        public virtual string Description { get; set; } = "";
-
-        [Description("Required for some calculations, such as determining the convective heat transfer coefficient. Use Roughness enum")]
-        public virtual Roughness Roughness { get; set; } = Roughness.Undefined;
-
-        public virtual double Refraction { get; set; } = 0.0;
-
-        public virtual double ConvectionCoefficient { get; set; } = 0.0;
-
-        [Description("The type of gas (e.g Air, Argon). Use GasType enum")]
-        public virtual Gas Gas { get; set; } = Gas.Undefined;
+        /***************************************************/
     }
 }
 

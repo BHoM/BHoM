@@ -37,10 +37,10 @@ using System.ComponentModel;
 namespace BH.oM.Facade.Elements
 {
     [Description("An environmental object used to define planar surfaces of a space (e.g. Wall, Floor, Roof)")]
-    public class Panel : BHoMObject, IPanel<Edge, Opening>, IElement2D, IElementM
+    public class Panel : BHoMObject, IPanel<IEdge, Opening>, IElement2D, IElementM
     {
         [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
-        public virtual List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+        public virtual List<IEdge> ExternalEdges { get; set; } = new List<IEdge>();
 
         [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
         public virtual List<Opening> Openings { get; set; } = new List<Opening>();

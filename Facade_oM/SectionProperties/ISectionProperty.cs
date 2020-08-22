@@ -20,20 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.Facade.MaterialFragments
+namespace BH.oM.Facade.SectionProperties
 {
-    [Description("Required for some calculations, such as determining the convective heat transfer coefficient")]
-    public enum Roughness
+    [Description("Base interface for all facade section properties.")]
+    public interface ISectionProperty : IBHoMObject
     {
-        Undefined,
-        VeryRough,
-        MediumRough,
-        Rough,
-        Smooth,
-        MediumSmooth,
-        VerySmooth,
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("Material of the section.")]
+        IMaterialProperties Material { get; set; }
+
+        /***************************************************/
     }
 }
 

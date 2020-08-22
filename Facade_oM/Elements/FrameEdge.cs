@@ -31,7 +31,7 @@ using BH.oM.Dimensional;
 namespace BH.oM.Facade.Elements
 {
     [Description("A facade object used to define an edge of a frame and the type of edge (Sill, Head, Left, or Right)")]
-    public class Edge : BHoMObject, IEdge, IElement1D
+    public class FrameEdge : BHoMObject, IEdge, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/

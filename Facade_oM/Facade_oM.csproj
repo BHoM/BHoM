@@ -81,17 +81,14 @@
   <ItemGroup>
     <Compile Include="Elements\Enums\FrameEdgeType.cs" />
     <Compile Include="Elements\Enums\PanelType.cs" />
+    <Compile Include="FrameProperties\FrameProperty.cs" />
     <Compile Include="Elements\FrameEdge.cs" />
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="IProperty.cs" />
-    <Compile Include="MaterialFragments\Enums\Function.cs" />
-    <Compile Include="MaterialFragments\Enums\Gas.cs" />
-    <Compile Include="MaterialFragments\GasMaterial.cs" />
-    <Compile Include="MaterialFragments\Enums\Roughness.cs" />
-    <Compile Include="MaterialFragments\IFacadeMaterial.cs" />
-    <Compile Include="MaterialFragments\SolidMaterial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionProperties\MullionProperty.cs" />
+    <Compile Include="SectionProperties\ISectionProperty.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

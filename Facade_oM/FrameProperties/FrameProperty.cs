@@ -22,33 +22,33 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
-
+using BH.oM.Analytical.Elements;
 using System.ComponentModel;
+using BH.oM.Dimensional;
 
-namespace BH.oM.Facade.MaterialFragments
+namespace BH.oM.Facade.SectionProperties
 {
-    public interface IFacadeMaterial : IBHoMObject, IMaterialProperties, IFragment
+    [Description("A facade frame object containing construction information about the frame of the opening")]
+    public class FrameProperty : BHoMObject
     {
-        double Density { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        [Description("Mullion property for frame sill")]
+        public virtual MullionProperty SillProperty { get; set; } = null;
 
-        double Conductivity { get; set; }
+        [Description("Mullion property for frame head")]
+        public virtual MullionProperty HeadProperty { get; set; }  = null;
 
-        double SpecificHeat { get; set; }
+        [Description("Mullion property for frame jamb (left)")]
+        public virtual MullionProperty JambLeftProperty { get; set; }  = null;
 
-        double VapourResistivity { get; set; }
+        [Description("Mullion property for frame jamb (right)")]
+        public virtual MullionProperty JambRightProperty { get; set; }  = null;
 
-        string Description { get; set; }
-
-        [Description("Required for some calculations, such as determining the convective heat transfer coefficient. Use Roughness enum")]
-        Roughness Roughness { get; set; }
-
-        double Refraction { get; set; }
+        /***************************************************/
     }
 }
 

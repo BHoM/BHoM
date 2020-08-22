@@ -28,24 +28,25 @@ using BH.oM.Base;
 using BH.oM.Analytical.Elements;
 using BH.oM.Physical.Constructions;
 using System.ComponentModel;
+using BH.oM.Facade.SectionProperties;
 
 namespace BH.oM.Facade.Elements
 {
     [Description("A cutout or hole in a building surface/panel (e.g. Window, Rooflight)")]
-    public class Opening : BHoMObject, IOpening<Edge>, IElement2D, IElementM
+    public class Opening : BHoMObject, IOpening<IEdge>, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("A collection of Edge objects which define the external boundary of the opening")]
-        public virtual List<Edge> Edges { get; set; } = new List<Edge>();
+        public virtual List<IEdge> Edges { get; set; } = new List<IEdge>();
 
         [Description("A facade frame object containing construction information about the frame of the opening")]
         public virtual FrameProperty FrameProperty { get; set; } = null;
 
         [Description("A collection of environment Edge objects which define the internal boundary of the opening")]
-        public virtual List<Edge> InnerEdges { get; set; } = new List<Edge>();
+        public virtual List<IEdge> InnerEdges { get; set; } = new List<IEdge>();
 
         [Description("A construction object providing construction information about the opening - typically glazing construction")]
         public virtual IConstruction OpeningConstruction { get; set; } = null;
