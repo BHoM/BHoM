@@ -41,7 +41,7 @@ namespace BH.oM.MEP.Elements
         /***************************************************/
 
         [Description("A collection of FlowObjects to compile within a specified systemType.")]
-        public virtual List<IFlow> FlowObjects { get; set; } = null;
+        public virtual List<IFlow> FlowObjects { get; set; } = new List<IFlow>();
 
         [Description("A specific system type to be applied to the flow objects. The system type describes the material conveyed by the system (supply air, cold water), therefore determining the behaviours of the system")]
         public virtual ISystemType SystemType { get; set; } = null;
