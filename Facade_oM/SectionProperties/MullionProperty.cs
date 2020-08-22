@@ -35,8 +35,8 @@ namespace BH.oM.Facade.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Profile of the section, containing dimensions and section geometry.")]
-        List<ConstantFramingProperty> SectionProperties { get; set; } = null;
+        [Description("Profile of the section, containing section geometry and material.")]
+        public virtual List<ConstantFramingProperty> SectionProperties { get; set; } = null;
 
         /***************************************************/
     }
