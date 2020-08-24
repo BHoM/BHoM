@@ -1,10 +1,10 @@
 {
   "Namespace": {
     "ToNew": {
-      
+      "BH.oM.Environment.Gains": "BH.oM.Environment.SpaceCriteria",
     },
     "ToOld": {
-      
+      "BH.oM.Environment.SpaceCriteria": "BH.oM.Environment.Gains",
     }
   },
   "Type": {
