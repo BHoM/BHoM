@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,29 +22,29 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Gains
+using BH.oM.Base;
+using BH.oM.Dimensional;
+
+namespace BH.oM.MEP.Elements
 {
-    [Description("Equipment gains are defined as the amount of both latent and sensible heat contributed by specified equipment within the space (dishwasher, oven, etc)")]
-    public class Equipment : BHoMObject, IGain
+    [Description("A collection of IFlow Objects to be utilised throughout a defined system.")]
+    public class FlowSystem : BHoMObject, IElement1D, IElementM
     {
-        [Description("The sensible heat contributed by equipment, which contributes to a rise in temperature with no change in phase.")]
-        public virtual double Sensible { get; set; } = 0.0;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        [Description("The latent heat contributed by equipment, which contributes to a change in phase from solid to liquid.")]
-        public virtual double Latent { get; set; } = 0.0;
+        [Description("A collection of FlowObjects to compile within a specified systemType.")]
+        public virtual List<IFlow> FlowObjects { get; set; } = new List<IFlow>();
 
-        [Description("Profiles depict the time period (hours per day, days per week) during which equipment is contributing heat to the space.")]
-        public virtual Profile Profile { get; set; } = new Profile();
-
-        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by equipment.")]
-        public virtual double RadiantFraction { get; set; } = 0.0;
+        [Description("A specific system type to be applied to the flow objects. The system type describes the material conveyed by the system (supply air, cold water), therefore determining the behaviours of the system")]
+        public virtual ISystemType SystemType { get; set; } = null;
+        /***************************************************/
     }
 }
-

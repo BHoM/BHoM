@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,23 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Gains
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+
+namespace BH.oM.MEP.MaterialFragments
 {
-    public enum SimulationDayType
+    public class WireMaterial : BHoMObject, IMEPMaterial
     {
-        Undefined,
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday,
-        Weekday,
-        Weekend,
-        PublicHoliday,
-        CoolingDesignDay,
-        HeatingDesignDay,
+        [Description("The degree to which a specific material conducts electricity, calculated as the ratio of the current density and the material to the electric field that causes the flow of current.")]
+        public virtual double Conductivity { get; set; } = 0;
     }
 }
-

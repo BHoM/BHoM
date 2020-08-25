@@ -25,24 +25,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Gains
+using BH.oM.Base;
+using BH.oM.Physical.Materials;
 
+namespace BH.oM.MEP.MaterialFragments
 {
-    [Description("The Acoustics object defines the noise criteria for an environments space, whether it's the prescribed ductwork velocity, the noise rating for the space or the dB level.")]
-    public class Acoustics : BHoMObject
+    [Description("Insulation is the material surrounding a duct, pipe or wire which mitigates the loss of the internal conditions of the fluid within the object.")]
+    public interface IInsulationMaterial : IFragment, IMaterialProperties
     {
-        [Description("The prescribed velocity of the ductwork in the space (with more strict requirements for velocity in bedrooms and theatres (~3 m/s)")]
-        public virtual double DuctVelocity { get; set; } = 0.0;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        [Description("RValue is the measure of the resistance of conductive heat loss by the insulation material.")]
+        double RValue { get; set; }
 
-        [Description("The noise rating (NR), also known as noise criteria (NC) in the US, is the perceived loudness of a space")]
-        public virtual double NoiseRating { get; set; } = 0.0;
+        [Description("KValue is the measure of the insulation material's ability to conduct heat (W/m*K), the lower the KValue the better the ability to conduct heat.")]
+        double KValue { get; set; }
 
-        [Description("The Decibel A (dBA) is the sound pressure sensed by the human ear without sensitivity to very low and very high frequencies prescribed for a space")]
-        public virtual double DecibelA { get; set; } = 0.0;
-
+        /***************************************************/
     }
 }

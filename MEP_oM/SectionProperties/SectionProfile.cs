@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Gains
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+
+using BH.oM.Base;
+using BH.oM.Geometry.ShapeProfiles;
+
+namespace BH.oM.MEP.SectionProperties
 {
-    public enum ProfileDay
+    public class SectionProfile : BHoMObject, IBHoMObject, IImmutable
     {
-        Undefined,
-        Holiday,
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday
+        [Description("ShapeProfile of the element itself. This is the base ShapeProfile that determines the overall shape of the IFlow object.")]
+        public virtual IProfile ElementProfile { get; }
+
+        [Description("ShapeProfile of the element's interior lining.")]
+        public virtual IProfile LiningProfile { get; }
+
+        [Description("ShapeProfile of the element's exterior insulation.")]
+        public virtual IProfile InsulationProfile { get; }
+
+        public SectionProfile(IProfile elementProfile, IProfile liningProfile, IProfile insulationProfile)
+        {
+            ElementProfile = elementProfile;
+            LiningProfile = liningProfile;
+            InsulationProfile = insulationProfile;
+        }
     }
 }
-

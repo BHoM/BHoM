@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -29,20 +29,20 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Ventilation
+namespace BH.oM.Environment.SpaceCriteria
 
-{ 
-    [Description("Ventilation defines the amount of outside air that should be introduced to a space, which is typically based on the number of occupants breathing the air and the area of the space.")]
-    public class Ventilation : BHoMObject
+{
+    [Description("The Acoustics object defines the noise criteria for an environments space, whether it's the prescribed ductwork velocity, the noise rating for the space or the dB level.")]
+    public class Acoustics : BHoMObject
     {
-        [Description("The ventilation rate associated with the number of occupants within a space, example: 0.00025 m3/s per person")]
-        public virtual double PeopleRate { get; set; } = 0.0;
+        [Description("The prescribed velocity of the ductwork in the space (with more strict requirements for velocity in bedrooms and theatres (~3 m/s)")]
+        public virtual double DuctVelocity { get; set; } = 0.0;
 
-        [Description("The ventilation rate associated with the area of the space, example: 0.0003 m3/s*m2")]
-        public virtual double AreaRate { get; set; } = 0.0;
+        [Description("The noise rating (NR), also known as noise criteria (NC) in the US, is the perceived loudness of a space")]
+        public virtual double NoiseRating { get; set; } = 0.0;
 
-        [Description("The air change rate per hour (ACH) is a value that denotes the amount of air that must be replaced each hour, based on the volume of the space (1 ACH would be 1x the volume of space each hour, if the space is 1m3, it would be 1m3 of outside air per hour)")]
-        public virtual double AirChangeRate { get; set; } = 0.0;
+        [Description("The Decibel A (dBA) is the sound pressure sensed by the human ear without sensitivity to very low and very high frequencies prescribed for a space")]
+        public virtual double DecibelA { get; set; } = 0.0;
 
     }
 }

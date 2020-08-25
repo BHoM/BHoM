@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,14 +20,32 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Gains
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+
+using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.MEP.SectionProperties;
+using BH.oM.Dimensional;
+
+
+namespace BH.oM.MEP.Elements
 {
-    public enum ProfileCategory
+    [Description("Wire object to work within an MEP systems.")]
+    public class Wire : BHoMObject, IElementM
     {
-        Undefined,
-        Gain,
-        Humidistat,
-        Thermostat,
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("Collection of WireSegments.")]
+        public virtual List<WireSegment> WireSegments { get; set; } = new List<WireSegment>();
+
+        /***************************************************/
     }
 }
-

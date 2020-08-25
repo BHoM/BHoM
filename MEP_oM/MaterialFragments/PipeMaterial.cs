@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,32 +22,18 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Environment.Fragments;
-using System.ComponentModel;
 
-namespace BH.oM.Environment.Gains
+namespace BH.oM.MEP.MaterialFragments
 {
-    public class Thermostat : BHoMObject, IEnvironmentObject
+    public class PipeMaterial : BHoMObject, IMEPMaterial
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Proportional control indicates that the thermostat can modulate the voltage delivered to the heating and/or cooling device")]
-        public virtual bool ProportionalControl { get; set; } = false;
-
-        [Description("Control range indicates the range in temperature (in degrees of celsius)")]
-        public virtual double ControlRange { get; set; } = 0.0;
-
-        [Description("Profiles depict the time period (hours per day, days per week) during which the thermostat will be active.")]
-        public virtual List<Profile> Profiles { get; set; } = new List<Profile>();
-
-        /***************************************************/
+        [Description("Roughness is a measure of the irregularities on the surface of a pipe.")]
+        public virtual double Roughness { get; set; } = 0;
     }
 }
-

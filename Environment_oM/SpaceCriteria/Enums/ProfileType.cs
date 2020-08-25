@@ -20,13 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Environment.Gains
+namespace BH.oM.Environment.SpaceCriteria
 {
-    public enum EmitterType
+    public enum ProfileType
     {
         Undefined,
-        Cooling,
-        Heating,
+        Absolute,
+        ModulatingPercentage,
+        OnOff
     }
 }
 

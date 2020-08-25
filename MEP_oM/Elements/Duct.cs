@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,33 +22,43 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
-using System.ComponentModel;
-using BH.oM.Environment.Fragments;
+using BH.oM.Analytical.Elements;
+using BH.oM.MEP.SectionProperties;
+using BH.oM.Dimensional;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Environment.Gains
+namespace BH.oM.MEP.Elements
 {
-    [Description("A profile object represents a gain, thermostat or humdistat as conditions vary over a 24-hour period")]
-    public class Profile : BHoMObject, IEnvironmentObject
+    [Description("A duct object is a passageway which conveys material (typically air)")]
+    public class Duct : BHoMObject, IFlow, ILink<Node>, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Profile Type depicts the type of profile (OnOff (0 or 1), ModulatingPercentage (0.0-1.0), or Absolute (-10000 to +10000))")]
-        public virtual ProfileType ProfileType { get; set; } = ProfileType.Undefined;
+        [Description("The point at which the Duct object begins.")]
+        public virtual Node StartNode { get; set; } = null;
 
-        [Description("Profile Day depicts the day described in the profile, whether it's a day of the week or a holiday")]
-        public virtual List<ProfileDay> ProfileDay { get; set; } = new List<ProfileDay>();
+        [Description("The point at which the Duct object ends.")]
+        public virtual Node EndNode { get; set; } = null;
 
-        [Description("Hourly Values denotes the hour-by-hour values for a 24-hour period. These values may be represented in temperature (degrees C) (thermostat), fraction (0.9) (lighting gain), or flow (m3/s) (ventilation)")]
-        public virtual List<double> HourlyValues { get; set; } = new List<double>();
+        [Description("The volume of fluid being conveyed by the Duct per second (m3/s).")]
+        public virtual double FlowRate { get; set; } = 0;
+
+        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
+        public virtual DuctSectionProperty SectionProperty { get; set; } = null;
+
+        [Angle]
+        [Description("This is the Duct's planometric orientation angle (the rotation around its central axis).")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

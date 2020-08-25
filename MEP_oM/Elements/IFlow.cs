@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,29 +22,30 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Gains
+using BH.oM.Base;
+using BH.oM.Dimensional;
+
+namespace BH.oM.MEP.Elements
 {
-    [Description("People gains are defined as the amount of both latent and sensible heat contributed by people based on their assumed activity level within the space (dancing, sitting, etc)")]
-    public class People : BHoMObject, IGain
+    [Description("Base interface for all flow-based objects. These objects are capable of containing a material or element that flows through the object.")]
+    public interface IFlow : IBHoMObject, IElement1D, IElementM
     {
-        [Description("The sensible heat contributed by people, which contributes to a rise in temperature with no change in phase.")]
-        public virtual double Sensible { get; set; } = 0.0;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        [Description("The latent heat contributed by people, which contributes to a change in phase from solid to liquid.")]
-        public virtual double Latent { get; set; } = 0.0;
+        [Description("The point at which the Flow Object begins.")]
+        Node StartNode { get; set; }
 
-        [Description("Profiles depict the time period (hours per day, days per week) during which people are contributing heat to the space.")]
-        public virtual Profile Profile { get; set; } = new Profile();
+        [Description("The point at which the Flow Object ends.")]
+        Node EndNode { get; set; }
 
-        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by people.")]
-        public virtual double RadiantFraction { get; set; } = 0.0;
+        /***************************************************/
     }
 }
-

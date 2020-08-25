@@ -27,24 +27,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Environment.Fragments;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Gains
+namespace BH.oM.Environment.SpaceCriteria
 {
-    [Description("Lighting gains are defined as the amount of heat contributed by light fixtures")]
-    public class Lighting : BHoMObject, IGain
+    public class Thermostat : BHoMObject, IEnvironmentObject
     {
-        [Description("The sensible heat contributed by light fixtures, which contributes to a rise in temperature with no change in phase.")]
-        public virtual double Sensible { get; set; } = 0.0;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        [Description("Profiles depict the time period (hours per day, days per week) during which the lighting gain is contributing heat to the space.")]
-        public virtual Profile Profile { get; set; } = new Profile();
+        [Description("Proportional control indicates that the thermostat can modulate the voltage delivered to the heating and/or cooling device")]
+        public virtual bool ProportionalControl { get; set; } = false;
 
-        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by the light fixtures.")]
-        public virtual double RadiantFraction { get; set; } = 0.0;
+        [Description("Control range indicates the range in temperature (in degrees of celsius)")]
+        public virtual double ControlRange { get; set; } = 0.0;
 
-        [Description("Luminous efficacy is a measure of how well a light fixture produces visible light")]
-        public virtual double LuminousEfficacy { get; set; } = 0.0;
+        [Description("Profiles depict the time period (hours per day, days per week) during which the thermostat will be active.")]
+        public virtual List<Profile> Profiles { get; set; } = new List<Profile>();
+
+        /***************************************************/
     }
 }
 
