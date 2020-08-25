@@ -71,16 +71,16 @@ namespace BH.oM.MEP.SectionProperties
         public virtual double InsulationVoidArea { get; }
 
         //Constructor
-        public DuctSectionProperty(SectionProfile ductProfile, double elementSolidArea, double liningSolidArea, double insulationSolidArea, double elementVoidArea, double liningVoidArea, double insulationVoidArea, double hydralicDiameter, double circularEquivalentDiameter)
+        public DuctSectionProperty(SectionProfile sectionProfile, double elementSolidArea, double liningSolidArea, double insulationSolidArea, double elementVoidArea, double liningVoidArea, double insulationVoidArea, double hydraulicDiameter, double circularEquivalentDiameter)
         {
-            SectionProfile = ductProfile;
+            SectionProfile = sectionProfile;
             ElementSolidArea = elementSolidArea;
             ElementVoidArea = elementVoidArea;
             LiningSolidArea = liningSolidArea;
             LiningVoidArea = liningVoidArea;
             InsulationSolidArea = insulationSolidArea;
             InsulationVoidArea = insulationVoidArea;
-            HydraulicDiameter = hydralicDiameter;
+            HydraulicDiameter = hydraulicDiameter;
             CircularEquivalentDiameter = circularEquivalentDiameter;
         }
     }
