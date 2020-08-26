@@ -56,7 +56,8 @@ namespace BH.oM.Inspection
         [Description("Provide a description for the scope of the issue")]
         public virtual string Description { get; set; }
 
-        [Description("Media associated with the issue")]
+        [Description("FileName of the Media associated with the issue." +
+            "It must NOT include the folder where it is located. It must include the extension.")]
         public virtual List<string> Media { get; set; }
 
         [Description("Location of the issue. X, Y, Z coordinates.")]
