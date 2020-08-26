@@ -40,12 +40,12 @@ namespace BH.oM.Structure.Elements
 
 
         [Angle]
-        [Description("Defines the angle that the local x and y are rotated around the normal, local z, of the FEFace.\n" +
-                     "The normal of the FEMeshFace is determined by the right hand rule of the node list.\n" +
+        [Description("Defines the angle that the local x and y axes are rotated around the normal (i.e. local z) of the FEFace.\n" +
+                     "The normal of the FEMeshFace is determined by the curl right hand rule dictated by the order of the node list.\n" +
                      "Local x is found by projecting the global X to the plane of the FEMeshFace and is then rotated with the OrientationAngle, " +
                      "except for the case when the Normal is parallel with the global X. " +
                      "For this case the local y is instead found by projecting global Y to the plane of the FEMeshFace and is then rotated with the OrientationAngle.\n" +
-                     "The remaining local axis is determained by the right hand rule.")]
+                     "The remaining local axis is determined by the right hand rule.")]
         public virtual double OrientationAngle { get; set; } = 0;
         /***************************************************/
     }
