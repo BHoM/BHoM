@@ -22,40 +22,31 @@
 
 using System;
 using System.Collections.Generic;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Base;
-using BH.oM.Analytical.Elements;
-using BH.oM.Environment.Fragments;
-using BH.oM.Physical.Constructions;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Environment.Elements
+using BH.oM.Base;
+using System.ComponentModel;
+using BH.oM.Environment.Fragments;
+
+namespace BH.oM.Environment.SpaceCriteria
 {
-    [Description("A cutout or hole in a building surface/panel (e.g. Window, Door, Rooflight)")]
-    public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D, IElementM
+    [Description("A profile object represents a gain, thermostat or humdistat as conditions vary over a 24-hour period")]
+    public class Profile : BHoMObject, IEnvironmentObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of environment Edge objects which define the external boundary of the opening")]
-        public virtual List<Edge> Edges { get; set; } = new List<Edge>();
+        [Description("Profile Type depicts the type of profile (OnOff (0 or 1), ModulatingPercentage (0.0-1.0), or Absolute (-10000 to +10000))")]
+        public virtual ProfileType ProfileType { get; set; } = ProfileType.Undefined;
 
-        [Description("A construction object providing construction information about the frame of the opening")]
-        public virtual IConstruction FrameConstruction { get; set; } = null;
+        [Description("Profile Day depicts the day described in the profile, whether it's a day of the week or a holiday")]
+        public virtual List<ProfileDay> ProfileDay { get; set; } = new List<ProfileDay>();
 
-        [Description("The percentage of the opening that is frame")]
-        public virtual double FrameFactorValue { get; set; } = 0;
-
-        [Description("A collection of environment Edge objects which define the internal boundary of the opening")]
-        public virtual List<Edge> InnerEdges { get; set; } = new List<Edge>();
-
-        [Description("A construction object providing construction information about the opening - typically gazing construction")]
-        public virtual IConstruction OpeningConstruction { get; set; } = null;
-
-        [Description("The type of opening on a panel (e.g. Window, Door). Use OpeningType enum")]
-        public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
+        [Description("Hourly Values denotes the hour-by-hour values for a 24-hour period. These values may be represented in temperature (degrees C) (thermostat), fraction (0.9) (lighting gain), or flow (m3/s) (ventilation)")]
+        public virtual List<double> HourlyValues { get; set; } = new List<double>();
 
         /***************************************************/
     }

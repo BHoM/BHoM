@@ -47,6 +47,7 @@
     <Compile Include="Climate\SpaceTime.cs" />
     <Compile Include="Climate\Time.cs" />
     <Compile Include="Climate\Sun.cs" />
+    <Compile Include="Climate\WeatherFile.cs" />
     <Compile Include="Elements\Building.cs" />
     <Compile Include="Elements\BoundaryZone.cs" />
     <Compile Include="Elements\Mesh.cs" />
@@ -61,21 +62,25 @@
     <Compile Include="Elements\Space.cs" />
     <Compile Include="Fragments\AnalyticalConstruction.cs" />
     <Compile Include="Fragments\LightReflectanceFragment.cs" />
-    <Compile Include="Gains\Acoustics.cs" />
-    <Compile Include="Gains\Enums\EmitterType.cs" />
-    <Compile Include="Gains\Enums\ProfileDay.cs" />
-    <Compile Include="Gains\Enums\ProfileCategory.cs" />
-    <Compile Include="Gains\Enums\ProfileType.cs" />
-    <Compile Include="Gains\Enums\SimulationDayType.cs" />
-    <Compile Include="Gains\Equipment.cs" />
-    <Compile Include="Gains\Exhaust.cs" />
-    <Compile Include="Gains\IGain.cs" />
-    <Compile Include="Gains\Infiltration.cs" />
-    <Compile Include="Gains\Lighting.cs" />
-    <Compile Include="Gains\People.cs" />
-    <Compile Include="Gains\Plug.cs" />
-    <Compile Include="Gains\Pollutant.cs" />
-    <Compile Include="Ventilation\Ventilation.cs" />
+    <Compile Include="SpaceCriteria\Acoustics.cs" />
+    <Compile Include="SpaceCriteria\Enums\EmitterType.cs" />
+    <Compile Include="SpaceCriteria\Enums\ProfileDay.cs" />
+    <Compile Include="SpaceCriteria\Enums\ProfileCategory.cs" />
+    <Compile Include="SpaceCriteria\Enums\HazardType.cs" />
+    <Compile Include="SpaceCriteria\Enums\SprinklerSystemType.cs" />
+    <Compile Include="SpaceCriteria\Enums\ProfileType.cs" />
+    <Compile Include="SpaceCriteria\Enums\SimulationDayType.cs" />
+    <Compile Include="SpaceCriteria\Equipment.cs" />
+    <Compile Include="SpaceCriteria\Exhaust.cs" />
+    <Compile Include="SpaceCriteria\IGain.cs" />
+    <Compile Include="SpaceCriteria\Infiltration.cs" />
+    <Compile Include="SpaceCriteria\Lighting.cs" />
+    <Compile Include="SpaceCriteria\FireProtection.cs" />
+    <Compile Include="SpaceCriteria\Plumbing.cs" />
+    <Compile Include="SpaceCriteria\People.cs" />
+    <Compile Include="SpaceCriteria\Plug.cs" />
+    <Compile Include="SpaceCriteria\Pollutant.cs" />
+    <Compile Include="SpaceCriteria\Ventilation.cs" />
     <Compile Include="MaterialFragments\Enums\Function.cs" />
     <Compile Include="Fragments\BuildingAnalyticalFragment.cs" />
     <Compile Include="Fragments\BuildingContextFragment.cs" />
@@ -90,8 +95,8 @@
     <Compile Include="Fragments\RadiationFragment.cs" />
     <Compile Include="Fragments\SpaceAnalyticalFragment.cs" />
     <Compile Include="Fragments\SpaceContextFragment.cs" />
-    <Compile Include="Gains\Profile.cs" />
-    <Compile Include="Gains\Thermostat.cs" />
+    <Compile Include="SpaceCriteria\Profile.cs" />
+    <Compile Include="SpaceCriteria\Thermostat.cs" />
     <Compile Include="IEnvironmentObject.cs" />
     <Compile Include="MaterialFragments\Enums\Gas.cs" />
     <Compile Include="MaterialFragments\Enums\Roughness.cs" />
@@ -142,8 +147,15 @@
       <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
       <Name>Quantities_oM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
+      <Project>{29e6dcd7-270a-45cc-ac0b-6c024287645e}</Project>
+      <Name>Reflection_oM</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Versioning_33.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

@@ -27,33 +27,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-
-using BH.oM.Environment.Fragments;
-using BH.oM.Analytical.Elements;
-using BH.oM.Physical.Constructions;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.SpaceCriteria
 {
-    [Description("An environmental object used to define planar surfaces of a space (e.g. Wall, Floor, Roof)")]
-    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D, IElementM
+    [Description("Infiltration gains are defined as the amount of heat or heat loss contributed by cracks in the exterior envelope of the building which allow unconditioned outside air to be introduced to the space")]
+    public class Infiltration : BHoMObject, IGain
     {
-        [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
-        public virtual List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+        [Description("The AirChangeRate indicates the amount of conditioned air lost by infiltration that should be replaced each hour, based on the volume of the space (1 ACH would be 1x the volume of space each hour, if the space is 1m3, it would be 1m3 of outside air per hour)")]
+        public virtual double AirChangeRate { get; set; } = 0.0;
 
-        [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
-        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
+        [Description("The AirflowByWallExternalArea indicates the amount of air (m3/s) lost by infiltration based on the exterior wall area, that should be replaced within the space.")]
+        public virtual double AirflowByWallExternalArea { get; set; } = 0.0;
 
-        [Description("A construction object providing layer and material information for the panel")]
-        public virtual IConstruction Construction { get; set; } = null;
+        [Description("The AirflowByWallExternalCrackLength indicates the amount of air (m3/s) lost by infiltration based on the exterior wall crack length (the sum of the edge lengths), that should be replaced within the space.")]
+        public virtual double AirflowByWallExternalCrackLength { get; set; } = 0.0;
 
-        [Description("The type of environmental surface (e.g. Wall, Floor, Roof). Use PanelType enum)")]
-        public virtual PanelType Type { get; set; } = PanelType.Undefined;
-
-        [Description("This is a list of space names for which the panel belongs to. For example, the same panel can be a ceiling for Room A while also being a floor for Room B")]
-        public virtual List<string> ConnectedSpaces { get; set; } = new List<string>();
+        [Description("Profiles depict the time period (hours per day, days per week) during which infiltration is contributing to or causing a loss of heat to the space.")]
+        public virtual Profile Profile { get; set; } = new Profile();
     }
 }
 

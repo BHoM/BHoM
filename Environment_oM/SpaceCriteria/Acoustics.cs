@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -27,33 +27,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-
-using BH.oM.Environment.Fragments;
-using BH.oM.Analytical.Elements;
-using BH.oM.Physical.Constructions;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.SpaceCriteria
+
 {
-    [Description("An environmental object used to define planar surfaces of a space (e.g. Wall, Floor, Roof)")]
-    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D, IElementM
+    [Description("The Acoustics object defines the noise criteria for an environments space, whether it's the prescribed ductwork velocity, the noise rating for the space or the dB level.")]
+    public class Acoustics : BHoMObject
     {
-        [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
-        public virtual List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+        [Description("The prescribed velocity of the ductwork in the space (with more strict requirements for velocity in bedrooms and theatres (~3 m/s)")]
+        public virtual double DuctVelocity { get; set; } = 0.0;
 
-        [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
-        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
+        [Description("The noise rating (NR), also known as noise criteria (NC) in the US, is the perceived loudness of a space")]
+        public virtual double NoiseRating { get; set; } = 0.0;
 
-        [Description("A construction object providing layer and material information for the panel")]
-        public virtual IConstruction Construction { get; set; } = null;
+        [Description("The Decibel A (dBA) is the sound pressure sensed by the human ear without sensitivity to very low and very high frequencies prescribed for a space")]
+        public virtual double DecibelA { get; set; } = 0.0;
 
-        [Description("The type of environmental surface (e.g. Wall, Floor, Roof). Use PanelType enum)")]
-        public virtual PanelType Type { get; set; } = PanelType.Undefined;
-
-        [Description("This is a list of space names for which the panel belongs to. For example, the same panel can be a ceiling for Room A while also being a floor for Room B")]
-        public virtual List<string> ConnectedSpaces { get; set; } = new List<string>();
     }
 }
-

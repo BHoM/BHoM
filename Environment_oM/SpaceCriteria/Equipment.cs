@@ -27,33 +27,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-
-using BH.oM.Environment.Fragments;
-using BH.oM.Analytical.Elements;
-using BH.oM.Physical.Constructions;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.SpaceCriteria
 {
-    [Description("An environmental object used to define planar surfaces of a space (e.g. Wall, Floor, Roof)")]
-    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D, IElementM
+    [Description("Equipment gains are defined as the amount of both latent and sensible heat contributed by specified equipment within the space (dishwasher, oven, etc)")]
+    public class Equipment : BHoMObject, IGain
     {
-        [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
-        public virtual List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+        [Description("The sensible heat contributed by equipment, which contributes to a rise in temperature with no change in phase.")]
+        public virtual double Sensible { get; set; } = 0.0;
 
-        [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
-        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
+        [Description("The latent heat contributed by equipment, which contributes to a change in phase from solid to liquid.")]
+        public virtual double Latent { get; set; } = 0.0;
 
-        [Description("A construction object providing layer and material information for the panel")]
-        public virtual IConstruction Construction { get; set; } = null;
+        [Description("Profiles depict the time period (hours per day, days per week) during which equipment is contributing heat to the space.")]
+        public virtual Profile Profile { get; set; } = new Profile();
 
-        [Description("The type of environmental surface (e.g. Wall, Floor, Roof). Use PanelType enum)")]
-        public virtual PanelType Type { get; set; } = PanelType.Undefined;
-
-        [Description("This is a list of space names for which the panel belongs to. For example, the same panel can be a ceiling for Room A while also being a floor for Room B")]
-        public virtual List<string> ConnectedSpaces { get; set; } = new List<string>();
+        [Description("The radiant fraction depicts the percentage of long wave radiant heat given off by equipment.")]
+        public virtual double RadiantFraction { get; set; } = 0.0;
     }
 }
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,42 +22,43 @@
 
 using System;
 using System.Collections.Generic;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Base;
-using BH.oM.Analytical.Elements;
-using BH.oM.Environment.Fragments;
-using BH.oM.Physical.Constructions;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Elements
+using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.MEP.SectionProperties;
+using BH.oM.Dimensional;
+using BH.oM.Quantities.Attributes;
+
+namespace BH.oM.MEP.Elements
 {
-    [Description("A cutout or hole in a building surface/panel (e.g. Window, Door, Rooflight)")]
-    public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D, IElementM
+    [Description("A duct object is a passageway which conveys material (typically air)")]
+    public class Duct : BHoMObject, IFlow, ILink<Node>, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of environment Edge objects which define the external boundary of the opening")]
-        public virtual List<Edge> Edges { get; set; } = new List<Edge>();
+        [Description("The point at which the Duct object begins.")]
+        public virtual Node StartNode { get; set; } = null;
 
-        [Description("A construction object providing construction information about the frame of the opening")]
-        public virtual IConstruction FrameConstruction { get; set; } = null;
+        [Description("The point at which the Duct object ends.")]
+        public virtual Node EndNode { get; set; } = null;
 
-        [Description("The percentage of the opening that is frame")]
-        public virtual double FrameFactorValue { get; set; } = 0;
+        [Description("The volume of fluid being conveyed by the Duct per second (m3/s).")]
+        public virtual double FlowRate { get; set; } = 0;
 
-        [Description("A collection of environment Edge objects which define the internal boundary of the opening")]
-        public virtual List<Edge> InnerEdges { get; set; } = new List<Edge>();
+        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
+        public virtual DuctSectionProperty SectionProperty { get; set; } = null;
 
-        [Description("A construction object providing construction information about the opening - typically gazing construction")]
-        public virtual IConstruction OpeningConstruction { get; set; } = null;
-
-        [Description("The type of opening on a panel (e.g. Window, Door). Use OpeningType enum")]
-        public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
+        [Angle]
+        [Description("This is the Duct's planometric orientation angle (the rotation around its central axis).")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

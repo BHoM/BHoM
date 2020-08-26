@@ -27,33 +27,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-
-using BH.oM.Environment.Fragments;
-using BH.oM.Analytical.Elements;
-using BH.oM.Physical.Constructions;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Elements
-{
-    [Description("An environmental object used to define planar surfaces of a space (e.g. Wall, Floor, Roof)")]
-    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D, IElementM
+namespace BH.oM.Environment.SpaceCriteria
+
+{ 
+    [Description("Ventilation defines the amount of outside air that should be introduced to a space, which is typically based on the number of occupants breathing the air and the area of the space.")]
+    public class Ventilation : BHoMObject
     {
-        [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
-        public virtual List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+        [Description("The ventilation rate associated with the number of occupants within a space, example: 0.00025 m3/s per person")]
+        public virtual double PeopleRate { get; set; } = 0.0;
 
-        [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
-        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
+        [Description("The ventilation rate associated with the area of the space, example: 0.0003 m3/s*m2")]
+        public virtual double AreaRate { get; set; } = 0.0;
 
-        [Description("A construction object providing layer and material information for the panel")]
-        public virtual IConstruction Construction { get; set; } = null;
+        [Description("The air change rate per hour (ACH) is a value that denotes the amount of air that must be replaced each hour, based on the volume of the space (1 ACH would be 1x the volume of space each hour, if the space is 1m3, it would be 1m3 of outside air per hour)")]
+        public virtual double AirChangeRate { get; set; } = 0.0;
 
-        [Description("The type of environmental surface (e.g. Wall, Floor, Roof). Use PanelType enum)")]
-        public virtual PanelType Type { get; set; } = PanelType.Undefined;
-
-        [Description("This is a list of space names for which the panel belongs to. For example, the same panel can be a ceiling for Room A while also being a floor for Room B")]
-        public virtual List<string> ConnectedSpaces { get; set; } = new List<string>();
     }
 }
-

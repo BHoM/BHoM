@@ -22,40 +22,30 @@
 
 using System;
 using System.Collections.Generic;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using BH.oM.Base;
-using BH.oM.Analytical.Elements;
 using BH.oM.Environment.Fragments;
-using BH.oM.Physical.Constructions;
 using System.ComponentModel;
 
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Environment.SpaceCriteria
 {
-    [Description("A cutout or hole in a building surface/panel (e.g. Window, Door, Rooflight)")]
-    public class Opening : BHoMObject, IEnvironmentObject, IOpening<Edge>, IElement2D, IElementM
+    public class Thermostat : BHoMObject, IEnvironmentObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of environment Edge objects which define the external boundary of the opening")]
-        public virtual List<Edge> Edges { get; set; } = new List<Edge>();
+        [Description("Proportional control indicates that the thermostat can modulate the voltage delivered to the heating and/or cooling device")]
+        public virtual bool ProportionalControl { get; set; } = false;
 
-        [Description("A construction object providing construction information about the frame of the opening")]
-        public virtual IConstruction FrameConstruction { get; set; } = null;
+        [Description("Control range indicates the range in temperature (in degrees of celsius)")]
+        public virtual double ControlRange { get; set; } = 0.0;
 
-        [Description("The percentage of the opening that is frame")]
-        public virtual double FrameFactorValue { get; set; } = 0;
-
-        [Description("A collection of environment Edge objects which define the internal boundary of the opening")]
-        public virtual List<Edge> InnerEdges { get; set; } = new List<Edge>();
-
-        [Description("A construction object providing construction information about the opening - typically gazing construction")]
-        public virtual IConstruction OpeningConstruction { get; set; } = null;
-
-        [Description("The type of opening on a panel (e.g. Window, Door). Use OpeningType enum")]
-        public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
+        [Description("Profiles depict the time period (hours per day, days per week) during which the thermostat will be active.")]
+        public virtual List<Profile> Profiles { get; set; } = new List<Profile>();
 
         /***************************************************/
     }

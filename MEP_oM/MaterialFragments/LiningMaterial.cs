@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,38 +22,24 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
 
-using BH.oM.Environment.Fragments;
-using BH.oM.Analytical.Elements;
-using BH.oM.Physical.Constructions;
-using System.ComponentModel;
-
-namespace BH.oM.Environment.Elements
+namespace BH.oM.MEP.MaterialFragments
 {
-    [Description("An environmental object used to define planar surfaces of a space (e.g. Wall, Floor, Roof)")]
-    public class Panel : BHoMObject, IEnvironmentObject, IPanel<Edge, Opening>, IElement2D, IElementM
+    public class LiningMaterial : BHoMObject, IMEPMaterial, IInsulationMaterial
     {
-        [Description("A collection of Environment Edge objects which defines the external boundary of the panel")]
-        public virtual List<Edge> ExternalEdges { get; set; } = new List<Edge>();
+        [Description("RValue is the measure of the resistance of conductive heat loss by the lining material.")]
+        public virtual double RValue { get; set; } = 0;
 
-        [Description("A collection of cutouts or holes in a building surface/panel (e.g. Window, Door, Rooflight)")]
-        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
+        [Description("KValue is the measure of the lining material's ability to conduct heat (W/m*K), the lower the KValue the better the ability to conduct heat.")]
+        public virtual double KValue { get; set; } = 0;
 
-        [Description("A construction object providing layer and material information for the panel")]
-        public virtual IConstruction Construction { get; set; } = null;
-
-        [Description("The type of environmental surface (e.g. Wall, Floor, Roof). Use PanelType enum)")]
-        public virtual PanelType Type { get; set; } = PanelType.Undefined;
-
-        [Description("This is a list of space names for which the panel belongs to. For example, the same panel can be a ceiling for Room A while also being a floor for Room B")]
-        public virtual List<string> ConnectedSpaces { get; set; } = new List<string>();
+        [Description("Roughness is a measure of the irregularities on the surface of the lining.")]
+        public virtual double Roughness { get; set; } = 0;
     }
 }
-
