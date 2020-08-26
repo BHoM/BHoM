@@ -24,11 +24,12 @@ using BH.oM.Structure.Elements;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Loads
 {
     [Description("Uniform area load for area elements such as Panels and FEMeshes.")]
-    public class AreaUniformlyDistributedLoad : Load<IAreaElement>  
+    public class AreaUniformlyDistributedLoad : BHoMObject, IElementLoad<IAreaElement>  
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -37,6 +38,18 @@ namespace BH.oM.Structure.Loads
         [Pressure]
         [Description("The force per area to be applied to the elements.")]
         public virtual Vector Pressure { get; set; } = new Vector();
+
+        [Description("The Loadcase in which the load is applied.")]
+        public virtual Loadcase Loadcase { get; set; }
+
+        [Description("The group of IAreaElements that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
+        public virtual BHoMGroup<IAreaElement> Objects { get; set; } = new BHoMGroup<IAreaElement>();
+
+        [Description("Defines whether the load is applied in local or global coordinates.")]
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
+
+        [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
+        public virtual bool Projected { get; set; } = false;
 
         /***************************************************/
     }

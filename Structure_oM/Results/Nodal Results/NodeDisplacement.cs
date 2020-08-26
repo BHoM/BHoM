@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting displacements and rotations for a Node.")]
-    public class NodeDisplacement : NodeResult
+    public class NodeDisplacement : NodeResult, INodeDisplacement
     {
         /***************************************************/
         /**** Properties                                ****/

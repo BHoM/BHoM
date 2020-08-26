@@ -24,11 +24,12 @@ using BH.oM.Geometry;
 using BH.oM.Structure.Elements;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Loads
 {
     [Description("Point velocity load for Nodes. This can be used to apply translational as well as angular velocity.")]
-    public class PointVelocity : Load<Node>
+    public class PointVelocity : BHoMObject, IElementLoad<Node>
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -39,6 +40,18 @@ namespace BH.oM.Structure.Loads
 
         [AngularVelocity]
         public virtual Vector RotationalVelocity { get; set; } = new Vector();
+
+        [Description("The Loadcase in which the load is applied.")]
+        public virtual Loadcase Loadcase { get; set; }
+
+        [Description("The group of Nodes that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
+        public virtual BHoMGroup<Node> Objects { get; set; } = new BHoMGroup<Node>();
+
+        [Description("Defines whether the load is applied in local or global coordinates.")]
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
+
+        [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
+        public virtual bool Projected { get; set; } = false;
 
         /***************************************************/
     }
