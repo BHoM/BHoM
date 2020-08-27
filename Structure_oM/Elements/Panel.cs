@@ -44,7 +44,7 @@ namespace BH.oM.Structure.Elements
         [Description("A list of Openings of the panel. The edges that make up the openings must be coplanar with the external edges.")]
         public virtual List<Opening> Openings { get; set; } = new List<Opening>();
 
-        [Description("Defines the thickness property and material of the Panel.")]
+        [Description("Defines the thickness property and material of the Panel. Orientation of non-isotropic properties are controlled by the OrientationAngle.")]
         public virtual ISurfaceProperty Property { get; set; } = new ConstantThickness();
 
         [Angle]
