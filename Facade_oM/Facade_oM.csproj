@@ -79,12 +79,13 @@
     <None Include="Versioning_33.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elements\Enums\FrameEdgeType.cs" />
+    <Compile Include="Elements\Enums\OpeningType.cs" />
     <Compile Include="Elements\Enums\PanelType.cs" />
+    <Compile Include="Elements\CurtainWall.cs" />
     <Compile Include="FrameProperties\FrameProperty.cs" />
-    <Compile Include="Elements\FrameEdge.cs" />
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
+    <Compile Include="IFacadeObject.cs" />
     <Compile Include="IProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SectionProperties\MullionProperty.cs" />

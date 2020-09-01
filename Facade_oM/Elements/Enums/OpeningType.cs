@@ -20,25 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
-using System.Collections.Generic;
-using BH.oM.Geometry.ShapeProfiles;
-using BH.oM.Base;
-using BH.oM.Physical.FramingProperties;
+ using System.ComponentModel;
 
-namespace BH.oM.Facade.SectionProperties
+namespace BH.oM.Facade.Elements
 {
-    [Description("Mullion property with list of Profile Section properties that make up the mullion construction.")]
-    public class MullionProperty : BHoMObject
+    [Description("The type of cutout or hole in a building surface/panel (e.g. Window, Door, Rooflight)")]
+    public enum OpeningType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Collection of profiles that make up the mullion, each containing section geometry and a material.")]
-        public virtual List<ConstantFramingProperty> SectionProperties { get; set; } = null;
-
-        /***************************************************/
+        Undefined,
+        CurtainWall,
+        Door,
+        Frame,
+        Glazing,
+        Hole,
+        Rooflight,
+        RooflightWithFrame,
+        Window,
+        WindowWithFrame,
+        VehicleDoor,
     }
 }
 
