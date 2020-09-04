@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Reflection.Attributes;
 using System.Collections.Generic;
 
-namespace BH.oM.Data.Collections
+namespace BH.oM.Analytical.Elements
 {
-    [Deprecated("3.3", "Graph representations should use node classes that implement BH.oM.Analytical.Elements.INode")]
-    public class GraphNode<T> : IDataStructure
+    public class Graph<TNode> where TNode : INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual T Value { get; set; } = default(T);
+        public virtual List<TNode> Nodes { get; set; } = new List<TNode>();
 
-        public virtual Dictionary<string, object> Attributes { get; set; } = new Dictionary<string, object>();
+        public virtual List<ILink<TNode>> Links { get; set; } = new List<ILink<TNode>>();
 
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator GraphNode<T>(T value)
-        {
-            return new GraphNode<T> { Value = value };
-        }
 
         /***************************************************/
     }
