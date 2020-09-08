@@ -23,10 +23,11 @@
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Dimensional;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Architecture.Elements
 {
-    public class Room : BHoMObject, IElement2D
+    public class Room : BHoMObject, IRegion, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
