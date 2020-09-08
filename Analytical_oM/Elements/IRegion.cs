@@ -39,7 +39,7 @@ namespace BH.oM.Analytical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        ICurve Perimiter { get; set; }
+        ICurve Perimeter { get; set; }
 
         /***************************************************/
     }
