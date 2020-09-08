@@ -65,6 +65,10 @@
     <Compile Include="Theatron\Parameters\VomitoryParameters.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
+      <Project>{c91f1981-1148-4a03-b67e-c0bb42d862f4}</Project>
+      <Name>Analytical_oM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
       <Name>BHoM</Name>
