@@ -63,9 +63,6 @@ namespace BH.oM.Inspection
         [Description("Location of the issue. X, Y, Z coordinates.")]
         public virtual Point Position { get; set; } = new Point();
 
-        [Description("List of people issue is distributed to")]
-        public virtual List<string> Distribution { get; set; }
-
         [Description("List of comments made on the issue")]
         public virtual List<Comment> Comments { get; set; }
 
