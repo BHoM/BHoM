@@ -38,7 +38,7 @@ namespace BH.oM.Inspection
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Issue number to idnetify this specific issue. This is typically a combination of the audit number and the issue number within its audit.")]
+        [Description("Issue number to identify this specific issue. This is typically a combination of the audit number and the issue number within its audit.")]
         public virtual string IssueNumber { get; set; } = "";
 
         [Description("Date the issue was initially created")]
