@@ -24,39 +24,66 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Environment;
+using BH.oM.Environment.Climate;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("The Life Cycle Assessment Scope object intends to provide a means of reporting all of the project criteria (name, area, type, location) as well as the objects that the study encompassed (structural slabs, foundation walls, etc) along with their properties for the Enviornmental Product Declarations they used (when using SetProperty), their densities and volumes. This object may be used for studies at any stage of development and can serve as a true means of 'apples to apples' comparison when catalogued.")]
+    [Description("The Life Cycle Assessment Scope object intends to provide a means of reporting all of the project criteria (name, area, type, location). This object may be used for studies at any stage of development and can serve as a true means of 'apples to apples' comparison when catalogued. The information provided within this object is utilised for database construction and organisation only, therefore all values will not effect the overall life cycle assessment results.")]
     public class LifeCycleAssessmentScope : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual LevelOfDevelopment LevelOfDevelopment { get; set; } = LevelOfDevelopment.Undefined;
-        public virtual List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; } = new List<LifeCycleAssessmentPhases>();
-        public virtual List<PrimaryStructuralMaterial> PrimaryStructuralMaterial { get; set; } = new List<PrimaryStructuralMaterial>();
-        public virtual ProjectArea ProjectArea { get; set; } = ProjectArea.Undefined;
-        public virtual ProjectType ProjectType { get; set; } = ProjectType.Undefined;
 
-        [Description ("The Project Name denotes the name of the project for reporting purposes")]
-        public virtual string ProjectName { get; set; } = "Please provided a project name.";
-        
-        [Description("The Contact Name denotes the person/people who performed the LCA study.")]
-        public virtual string ContactName { get; set; } = "No contact provided.";
-        
-        [Description("The Actual Project Area denotes the more precise project area which will allow assessment of kgCO2eq/m2 metrics")]
-        [Area]
-        public virtual double ActualProjectArea { get; set; } = double.NaN;
-        
+        [Description("Additional notes should convey project design constraints (eg design for seismic activity) that could affect the overall embodied carbon.")]
+        public virtual string AdditionalNotes { get; set; } = "None";
+
         [Description("Biogenic Carbon is a true/false that indicates that the project contains materials that originated from a biological source (trees, soil), these materials have the ability sequester/store carbon.")]
         public virtual bool BiogenicCarbon { get; set; } = false;
+
+        [Description("The assumed lifespan of the building being evaluated.  These values are for categorisation purposes only and will not effect the overall results.")]
+        public virtual int BuildingLifespan { get; set; } = 0;
+
+        [Description("Identifies the overall construction scope for the project. Set True if New Construction exists within your project.")]
+        public virtual bool ConstructionScopeNew { get; set; } = false;
+
+        [Description("Identifies the overall construction scope for the project. Set True if Renovation exists within your project.")]
+        public virtual bool ConstructionScopeRenovation { get; set; } = false;
+
+        [Description("The Contact Name denotes the person/people who performed the LCA study.")]
+        public virtual string ContactName { get; set; } = "No contact provided.";
+
+        [Description("The primary structural system providing gravity support for the building.")]
+        public virtual GravityStructuralMaterial GravityStructuralMaterial { get; set; } = GravityStructuralMaterial.Undefined;
+
+        [Description("The primary structural system providing lateral support for the building.")]
+        public virtual LateralStructuralMaterial LateralStructuralMaterial { get; set; } = LateralStructuralMaterial.Undefined;
+
+        [Description("Typically a term utilised in BIM practices to clearly identify the scope of work being account for. Equivalents for LOD classifications can offen times be linked to design and construction phases common to the projects locale.")]
+        public virtual LevelOfDevelopment LevelOfDevelopment { get; set; } = LevelOfDevelopment.Undefined;
         
-        [Description("Zip Code is the means of tracking the project's location")]
-        public virtual int ZipCode { get; set; } = 00000;
-      
-        [Description("Additional notes should convey project design constraints (eg design for seismic activity) that could affect the overall embodied carbon")]
-        public virtual string AdditionalNotes { get; set; } = "None";
+        [Description("This is a list of life cycle assessment phases to be accounted for within this assessment. These values are for categorisation purposes only and will not effect the overall results.")]
+        public virtual List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; } = new List<LifeCycleAssessmentPhases>();
+
+        [Description("A general classification of the buildings primary function. This value is for categorisation purposes only and will not effect the overall results.")]
+        public virtual ProjectType ProjectType { get; set; } = ProjectType.Undefined;
+
+        [Description ("The Project Name denotes the name of the project for reporting purposes.")]
+        public virtual string ProjectName { get; set; } = "Please provided a project name.";
+        
+        [Description("The Project Area (m2) denotes the more precise project area which will allow assessment of kgCO2eq/m2 metrics.")]
+        [Area]
+        public virtual double ProjectArea { get; set; } = double.NaN;
+
+        [Description("Seismic Design Category is a classification assigned to a structure based on it's occupancy category, and the severity of the design earthquake ground motion. These categories are currently in reference to ASCE 7-05.")]
+        public virtual SeismicDesignCategory SeismicDesignCategory { get; set; } = SeismicDesignCategory.Undefined;
+
+        [Description("Wind speed category is in reference to the Beaufort Scale of wind speeds. Values are arranged from 0-12 equivalent, 0 being Calm and 12 being Hurricane, and are used only to represent an average site-based, wind condition. Specific informaion on categorisation can be found at https://www.spc.noaa.gov/faq/tornado/beaufort.html")]
+        public virtual WindSpeedCategory WindSpeedCategory { get; set; } = WindSpeedCategory.Undefined;
+
+        [Description("Provide the projects geographic location for database organisation purposes. This value is for categorisation purposes only and will not effect the overall results.")]
+        public virtual BH.oM.Environment.Climate.Location Location { get; set; } = null;
 
         /***************************************************/
     }

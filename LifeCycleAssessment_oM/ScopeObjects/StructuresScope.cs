@@ -46,6 +46,12 @@ namespace BH.oM.LifeCycleAssessment
         [Description("Structural columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
         public virtual List<IBHoMObject> Columns { get; set; } = new List<IBHoMObject>();
 
+        [Description("Structural bracing are typically diagonal members that provide lateral support between structural bays")]
+        public virtual List<IBHoMObject> Bracing { get; set; } = new List<IBHoMObject>();
+
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+
         /***************************************************/
     }
 }

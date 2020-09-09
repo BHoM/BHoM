@@ -57,6 +57,9 @@ namespace BH.oM.LifeCycleAssessment
         [Description("MEP Batties are energy storage devices (eg photovoltaic panels)")]
         public virtual List<IBHoMObject> Batteries { get; set; } = new List<IBHoMObject>();
 
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+
         /***************************************************/
     }
 }

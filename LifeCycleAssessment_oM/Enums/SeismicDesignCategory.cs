@@ -19,38 +19,19 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    public enum ObjectCategory
+    [Description("Seismic Design Category is a classification assigned to a structure based on it's occupancy category, and the severity of the design earthquake ground motion. These categories are in reference to ASCE 7-05.")]
+    public enum SeismicDesignCategory
     {
         Undefined,
-        AdditionalObjects,
-        Battery,
-        Beam,
-        Bracing,
-        Ceiling,
-        Column,
-        Conduit,
-        CurtainWall,
-        Door,
-        Ductwork,
-        Equipment,
-        Finishes,
-        Flooring,
-        Footing,
-        Furniture,
-        Generator,
-        GradeBeam,
-        InteriorDoor,
-        InteriorGlazing,
-        Lighting,
-        PartitionWall,
-        Pile,
-        Piping,    
-        Slab,
-        Wall,
-        Window,
-        Wiring      
+        A,
+        B,
+        C,
+        D,
+        E,
+        F
     }
 }
