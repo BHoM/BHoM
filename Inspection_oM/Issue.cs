@@ -38,36 +38,36 @@ namespace BH.oM.Inspection
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Issue number supplied to audit")]
-        public virtual string IssueNumber { get; set; }
+        [Description("Issue number to idnetify this specific issue. This is typically a combination of the audit number and the issue number within its audit.")]
+        public virtual string IssueNumber { get; set; } = "";
 
-        [Description("Date issue was initially created")]
-        public virtual DateTime DateCreated { get; set; }
+        [Description("Date the issue was initially created")]
+        public virtual DateTime DateCreated { get; set; } = new DateTime();
 
-        [Description("Priority tag to better categorize your issue")]
-        public virtual string Priority { get; set; } // this could be an enum of options
+        [Description("Priority tag to better categorize your issue  identifying its urgency")]
+        public virtual string Priority { get; set; } = "";
 
-        [Description("Status description at time of observation")]
-        public virtual string Status { get; set; }
+        [Description("Status description of the issue (eg open, in progress, closed)")]
+        public virtual string Status { get; set; } = "";
 
-        [Description("Provide a list of assignees for the issue")]
-        public virtual string Assign { get; set; }
+        [Description("A list of assignees for the issue. These are the individuals / companies responsible for resolving the issue.")]
+        public virtual string Assign { get; set; } = "";
 
-        [Description("Issue type. E.g. `for_information`.")]
+        [Description("Issue type (eg For Information)")]
         public virtual string Type { get; set; } = "unassigned";
 
-        [Description("Provide a description for the scope of the issue")]
-        public virtual string Description { get; set; }
+        [Description("The scope and nature of the issue")]
+        public virtual string Description { get; set; } = "";
 
-        [Description("FileName of the Media associated with the issue." +
-            "It must NOT include the folder where it is located. It must include the extension.")]
-        public virtual List<string> Media { get; set; }
+        [Description("Filenames of the images associated with the issue." +
+            "These must include the file extension.")]
+        public virtual List<string> Media { get; set; } = new List<string>();
 
-        [Description("Location of the issue. X, Y, Z coordinates.")]
+        [Description("Location of the issue in 3D space in terms of the project's coordinates")]
         public virtual Point Position { get; set; } = new Point();
 
-        [Description("List of comments made on the issue")]
-        public virtual List<Comment> Comments { get; set; }
+        [Description("List of comments made on the issue, identifying either the nature of the issue, the actions being taken to resolve the issue, or the approval / rejection of actions taken.")]
+        public virtual List<Comment> Comments { get; set; } = new List<Comment>();
 
         /***************************************************/
     }

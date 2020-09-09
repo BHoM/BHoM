@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Inspection
 {
-    [Description("A Comment on an Issue")]
+    [Description("A comment on an Issue typically identifying either the nature of the issue, the actions being taken to resolve the issue, or the approval / rejection of actions taken.")]
     public class Comment : BHoMObject
     {
         /***************************************************/
@@ -38,13 +38,13 @@ namespace BH.oM.Inspection
         /***************************************************/
 
         [Description("Comment message")]
-        public virtual string Message { get; set; }
+        public virtual string Message { get; set; } = "";
 
-        [Description("Name of individual making the comment")]
-        public virtual string Owner { get; set; }
+        [Description("Name of the individual making the comment")]
+        public virtual string Owner { get; set; } = "";
 
-        [Description("Date of comment")]
-        public virtual string CommentDate { get; set; }
+        [Description("Date the comment was made")]
+        public virtual string CommentDate { get; set; } = "";
 
         /***************************************************/
     }

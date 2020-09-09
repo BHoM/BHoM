@@ -30,71 +30,72 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Inspection
 {
+    [Description("An audit that covers all information associated with a single inspection. This includes issues, areas inspected, project information, construction progress, and distribution information.")]
     public class Audit : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Title of Audit")]
-        public virtual string Title { get; set; }
+        [Description("Title of Audit (typically the project name or name of a specific scope of the project)")]
+        public virtual string Title { get; set; } = "";
 
-        [Description("Filename of Audit")]
-        public virtual string Filename { get; set; }
+        [Description("Filename of Audit used to identify it when saved to reports or other formats")]
+        public virtual string Filename { get; set; } = "";
 
-        [Description("ID of Audit")]
-        public virtual string AuditID { get; set; }
+        [Description("Unique ID of Audit provided by the Audit's source")]
+        public virtual string AuditID { get; set; } = "";
 
-        [Description("Site Visit Number of Audit")]
-        public virtual int SiteVisitNumber { get; set; }
+        [Description("Site Visit Number of the Audit (this is a sequential number corresponding to the amount of audits conducted for this project up to this point)")]
+        public virtual int SiteVisitNumber { get; set; } = 0;
 
         [Description("Client for which the Audit is being recorded")]
-        public virtual string Client { get; set; }
+        public virtual string Client { get; set; } = "";
 
-        [Description("Revision Number of Audit")]
-        public virtual int RevisionNumber { get; set; }
+        [Description("Revision Number of the Audit (typically 0, only used when the information related to a specific audit is revised)")]
+        public virtual int RevisionNumber { get; set; } = 0;
 
-        [Description("Date of inspection for Audit in local time.")]
-        public virtual DateTime InspectionDate { get; set; }
+        [Description("Date the Audit was conducted in local time.")]
+        public virtual DateTime InspectionDate { get; set; } = new DateTime();
 
-        [Description("Date of inspection for Audit in UTC time.")]
-        public virtual DateTime InspectionDateUtc { get; set; }
+        [Description("Date the Audit was conducted in UTC time.")]
+        public virtual DateTime InspectionDateUtc { get; set; } = new DateTime();
 
-        [Description("Date of issue corresponding to Audit in local time.")]
-        public virtual DateTime IssueDate { get; set; }
+        [Description("Date the Audit was issued in local time.")]
+        public virtual DateTime IssueDate { get; set; } = new DateTime();
 
-        [Description("Date of issue corresponding to Audit in UTC time.")]
-        public virtual DateTime IssueDateUtc { get; set; }
+        [Description("Date the Audit was issued in UTC time.")]
+        public virtual DateTime IssueDateUtc { get; set; } = new DateTime();
 
-        [Description("Creator of Audit")]
-        public virtual string Author { get; set; }
+        [Description("Creator of the Audit")]
+        public virtual string Author { get; set; } = "";
 
-        [Description("Project Number of Audit")]
-        public virtual string ProjectNumber { get; set; }
+        [Description("Project Number of the Project the Audit is for")]
+        public virtual string ProjectNumber { get; set; } = "";
 
-        [Description("Job leader of Audit")]
-        public virtual string JobLeader { get; set; }
+        [Description("Job leader of the Project the Audit is for")]
+        public virtual string JobLeader { get; set; } = "";
 
-        [Description("List of people Audit is distributed to")]
-        public virtual List<string> Distribution { get; set; }
+        [Description("List of people the Audit is distributed to")]
+        public virtual List<string> Distribution { get; set; } = new List<string>();
 
         [Description("List of people in attendance during Audit")]
-        public virtual List<string> Attendance { get; set; }
+        public virtual List<string> Attendance { get; set; } = new List<string>();
 
         [Description("Reason(s) for visit and Audit")]
-        public virtual string VisitPurpose { get; set; }
+        public virtual string VisitPurpose { get; set; } = "";
 
         [Description("List of areas inspected throughout the Audit")]
-        public virtual List<string> AreasInspected { get; set; }
+        public virtual List<string> AreasInspected { get; set; } = new List<string>();
 
-        [Description("Installation progress objects from Audit")]
-        public virtual List<InstallationProgress> InstallationProgressObjects { get; set; }
+        [Description("Installation progress objects from the Audit (Each of these corresponds to the status of a specific area inspected)")]
+        public virtual List<InstallationProgress> InstallationProgressObjects { get; set; } = new List<InstallationProgress>();
 
-        [Description("Issues from Audit")]
-        public virtual List<Issue> Issues { get; set; }
+        [Description("Issues from Audit. These are issues identified during the audit for various areas that need to be addressed, including supporting images of the work as applicable.")]
+        public virtual List<Issue> Issues { get; set; } = new List<Issue>();
 
-        [Description("Score as a percentage")]
-        public virtual string Score { get; set; }
+        [Description("Score as a percentage. This represents the amoun of issues / areas that have been resolved, and is an optional value not used by all audits.")]
+        public virtual string Score { get; set; } = "";
 
         /***************************************************/
     }
