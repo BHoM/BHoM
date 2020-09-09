@@ -42,7 +42,7 @@ namespace BH.oM.Inspection
         public virtual string IssueNumber { get; set; }
 
         [Description("Date issue was initially created")]
-        public virtual DateTime IssueDate { get; set; }
+        public virtual DateTime DateCreated { get; set; }
 
         [Description("Priority tag to better categorize your issue")]
         public virtual string Priority { get; set; } // this could be an enum of options
