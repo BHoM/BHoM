@@ -94,7 +94,7 @@ namespace BH.oM.Inspection
         [Description("Issues from Audit. These are issues identified during the audit for various areas that need to be addressed, including supporting images of the work as applicable.")]
         public virtual List<Issue> Issues { get; set; } = new List<Issue>();
 
-        [Description("Score as a percentage. This represents the amoun of issues / areas that have been resolved, and is an optional value not used by all audits.")]
+        [Description("Score as a percentage. This represents the amount of issues / areas that have been resolved, and is an optional value not used by all audits.")]
         public virtual string Score { get; set; } = "";
 
         /***************************************************/
