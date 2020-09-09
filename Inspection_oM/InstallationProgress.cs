@@ -30,21 +30,21 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Inspection
 {
-    [Description("Installation progress for a single audit, please include image filepaths as applicable")]
+    [Description("Installation progress in a specific area associated with an audit, including image filepaths as applicable")]
     public class InstallationProgress : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("General status of progress")]
-        public virtual string Status { get; set; }
+        [Description("The general status of installation progress at the time of the inspection.")]
+        public virtual string Status { get; set; } = "";
 
-        [Description("Description for the area included")]
-        public virtual string Area { get; set; }
+        [Description("Description for the area that this installation progress refers to.")]
+        public virtual string Area { get; set; } = "";
 
-        [Description("Media associated with the progress")]
-        public virtual List<string> Media { get; set; }
+        [Description("Filenames of images showing the construction progress in the area specified.")]
+        public virtual List<string> Media { get; set; } = new List<string>();
 
         /***************************************************/
     }
