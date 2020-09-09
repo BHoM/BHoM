@@ -43,11 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuildingBenchmarkingData.cs" />
+    <Compile Include="Enums\WindSpeedCategory.cs" />
+    <Compile Include="Enums\SeismicDesignCategory.cs" />
+    <Compile Include="Enums\LateralStructuralMaterial.cs" />
     <Compile Include="Enums\ObjectCategory.cs" />
     <Compile Include="Enums\ObjectScope.cs" />
     <Compile Include="Enums\LevelOfDevelopment.cs" />
     <Compile Include="Enums\LifeCycleAssessmentPhases.cs" />
-    <Compile Include="Enums\PrimaryStructuralMaterial.cs" />
+    <Compile Include="Enums\GravityStructuralMaterial.cs" />
     <Compile Include="Enums\ProjectArea.cs" />
     <Compile Include="Enums\QuantityType.cs" />
     <Compile Include="Enums\ProjectType.cs" />
@@ -80,6 +83,10 @@
     <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
       <Project>{17141a37-4853-4558-af36-134a580bf42b}</Project>
       <Name>Dimensional_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Environment_oM\Environment_oM.csproj">
+      <Project>{923a6b8b-4e31-40f3-9cbf-cebb9a190143}</Project>
+      <Name>Environment_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>

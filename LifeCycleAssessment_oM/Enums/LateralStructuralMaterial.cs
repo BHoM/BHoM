@@ -22,15 +22,9 @@
 
 namespace BH.oM.LifeCycleAssessment
 {
-    public enum PrimaryStructuralMaterial
+    public enum LateralStructuralMaterial
     {
         Undefined,
-        GravitySteelFrame,
-        GravityConcrete,
-        GravityMassTimber,
-        GravityHybrid,
-        GravityConcreteMasonryUnit,
-        GravityLightGaugeSteel,
         LateralConcrete,
         LateralSteel,
         LateralSheathedWalls,

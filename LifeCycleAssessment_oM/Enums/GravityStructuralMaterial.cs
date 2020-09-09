@@ -22,35 +22,14 @@
 
 namespace BH.oM.LifeCycleAssessment
 {
-    public enum ObjectCategory
+    public enum GravityStructuralMaterial
     {
         Undefined,
-        AdditionalObjects,
-        Battery,
-        Beam,
-        Bracing,
-        Ceiling,
-        Column,
-        Conduit,
-        CurtainWall,
-        Door,
-        Ductwork,
-        Equipment,
-        Finishes,
-        Flooring,
-        Footing,
-        Furniture,
-        Generator,
-        GradeBeam,
-        InteriorDoor,
-        InteriorGlazing,
-        Lighting,
-        PartitionWall,
-        Pile,
-        Piping,    
-        Slab,
-        Wall,
-        Window,
-        Wiring      
+        GravitySteelFrame,
+        GravityConcrete,
+        GravityMassTimber,
+        GravityHybrid,
+        GravityConcreteMasonryUnit,
+        GravityLightGaugeSteel
     }
 }

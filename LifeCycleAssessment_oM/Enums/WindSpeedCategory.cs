@@ -19,38 +19,26 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    public enum ObjectCategory
+    [Description("Wind speed category is in reference to the Beaufort Scale of wind speeds. Values are arranged from 0-12 equivalent, 0 being Calm and 12 being Hurricane, and are used only to represent an average site-based, wind condition. Specific informaion on categorisation can be found at https://www.spc.noaa.gov/faq/tornado/beaufort.html")]
+    public enum WindSpeedCategory
     {
         Undefined,
-        AdditionalObjects,
-        Battery,
-        Beam,
-        Bracing,
-        Ceiling,
-        Column,
-        Conduit,
-        CurtainWall,
-        Door,
-        Ductwork,
-        Equipment,
-        Finishes,
-        Flooring,
-        Footing,
-        Furniture,
-        Generator,
-        GradeBeam,
-        InteriorDoor,
-        InteriorGlazing,
-        Lighting,
-        PartitionWall,
-        Pile,
-        Piping,    
-        Slab,
-        Wall,
-        Window,
-        Wiring      
+        Calm,
+        LightAir,
+        LightBreeze,
+        GentleBreeze,
+        ModerateBreeze,
+        FreshBreeze,
+        StrongBreeze,
+        NearGale,
+        Gale,
+        StrongGale,
+        Storm,
+        ViolentStorm,
+        Hurricane
     }
 }
