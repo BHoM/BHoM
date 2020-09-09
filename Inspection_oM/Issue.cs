@@ -39,7 +39,10 @@ namespace BH.oM.Inspection
         /***************************************************/
 
         [Description("Issue number supplied to audit")]
-        public virtual int IssueNumber { get; set; }
+        public virtual string IssueNumber { get; set; }
+
+        [Description("Date issue was initially created")]
+        public virtual DateTime IssueDate { get; set; }
 
         [Description("Priority tag to better categorize your issue")]
         public virtual string Priority { get; set; } // this could be an enum of options
