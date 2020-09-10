@@ -79,19 +79,19 @@ namespace BH.oM.Inspection
         [Description("List of people the Audit is distributed to")]
         public virtual List<string> Distribution { get; set; } = new List<string>();
 
-        [Description("List of people in attendance during Audit")]
+        [Description("List of people in attendance during audit")]
         public virtual List<string> Attendance { get; set; } = new List<string>();
 
-        [Description("Reason(s) for visit and Audit")]
+        [Description("Reason(s) for visit and audit")]
         public virtual string VisitPurpose { get; set; } = "";
 
-        [Description("List of areas inspected throughout the Audit")]
+        [Description("List of areas inspected throughout the audit")]
         public virtual List<string> AreasInspected { get; set; } = new List<string>();
 
-        [Description("Installation progress objects from the Audit (Each of these corresponds to the status of a specific area inspected)")]
+        [Description("Installation progress objects from the audit (Each of these corresponds to the status of a specific area inspected)")]
         public virtual List<InstallationProgress> InstallationProgressObjects { get; set; } = new List<InstallationProgress>();
 
-        [Description("Issues from Audit. These are issues identified during the audit for various areas that need to be addressed, including supporting images of the work as applicable.")]
+        [Description("Issues from audit. These are issues identified during the audit for various areas that need to be addressed, including supporting images of the work as applicable.")]
         public virtual List<Issue> Issues { get; set; } = new List<Issue>();
 
         [Description("Score as a percentage. This represents the amount of issues / areas that have been resolved, and is an optional value not used by all audits.")]
