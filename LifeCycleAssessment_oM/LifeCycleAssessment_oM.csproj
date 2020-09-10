@@ -51,7 +51,6 @@
     <Compile Include="Enums\LevelOfDevelopment.cs" />
     <Compile Include="Enums\LifeCycleAssessmentPhases.cs" />
     <Compile Include="Enums\GravityStructuralMaterial.cs" />
-    <Compile Include="Enums\ProjectArea.cs" />
     <Compile Include="Enums\QuantityType.cs" />
     <Compile Include="Enums\ProjectType.cs" />
     <Compile Include="Enums\EnvironmentalProductDeclarationField.cs" />
