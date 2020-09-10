@@ -26,8 +26,8 @@ namespace BH.oM.LifeCycleAssessment
     {
         Undefined,
         LateralConcrete,
-        LateralSteel,
+        LateralConcreteMasonryUnit,
         LateralSheathedWalls,
-        LateralConcreteMasonryUnit
+        LateralSteel        
     }
 }

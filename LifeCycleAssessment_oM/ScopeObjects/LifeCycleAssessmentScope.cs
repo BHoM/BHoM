@@ -37,7 +37,7 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
 
         [Description("Additional notes should convey project design constraints (eg design for seismic activity) that could affect the overall embodied carbon.")]
-        public virtual string AdditionalNotes { get; set; } = "None";
+        public virtual string AdditionalNotes { get; set; } = "N/A";
 
         [Description("Biogenic Carbon is a true/false that indicates that the project contains materials that originated from a biological source (trees, soil), these materials have the ability sequester/store carbon.")]
         public virtual bool BiogenicCarbon { get; set; } = false;
