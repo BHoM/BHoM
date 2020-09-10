@@ -51,7 +51,7 @@ namespace BH.oM.Inspection
         public virtual string Status { get; set; } = "";
 
         [Description("A list of assignees for the issue. These are the individuals / companies responsible for resolving the issue.")]
-        public virtual string Assign { get; set; } = "";
+        public virtual List<string> Assign { get; set; } = new List<string>();
 
         [Description("Issue type (eg For Information)")]
         public virtual string Type { get; set; } = "unassigned";
@@ -63,7 +63,7 @@ namespace BH.oM.Inspection
             "These must include the file extension.")]
         public virtual List<string> Media { get; set; } = new List<string>();
 
-        [Description("Location of the issue in 3D space in terms of the project's coordinates")]
+        [Description("Location of the issue in 3D space in terms of the project's coordinate system")]
         public virtual Point Position { get; set; } = new Point();
 
         [Description("List of comments made on the issue, identifying either the nature of the issue, the actions being taken to resolve the issue, or the approval / rejection of actions taken.")]

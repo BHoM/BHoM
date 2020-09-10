@@ -44,7 +44,7 @@ namespace BH.oM.Inspection
         public virtual string Owner { get; set; } = "";
 
         [Description("Date the comment was made")]
-        public virtual string CommentDate { get; set; } = "";
+        public virtual DateTime CommentDate { get; set; } = new DateTime();
 
         /***************************************************/
     }
