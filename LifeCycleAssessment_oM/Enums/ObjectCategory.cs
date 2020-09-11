@@ -25,8 +25,10 @@ namespace BH.oM.LifeCycleAssessment
     public enum ObjectCategory
     {
         Undefined,
+        AdditionalObjects,
         Battery,
         Beam,
+        Bracing,
         Ceiling,
         Column,
         Conduit,
@@ -39,6 +41,7 @@ namespace BH.oM.LifeCycleAssessment
         Footing,
         Furniture,
         Generator,
+        GradeBeam,
         InteriorDoor,
         InteriorGlazing,
         Lighting,

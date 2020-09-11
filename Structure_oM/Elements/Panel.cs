@@ -26,6 +26,7 @@ using BH.oM.Structure.SurfaceProperties;
 using System.Collections.Generic;
 using BH.oM.Analytical.Elements;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Elements
 {
@@ -43,11 +44,19 @@ namespace BH.oM.Structure.Elements
         [Description("A list of Openings of the panel. The edges that make up the openings must be coplanar with the external edges.")]
         public virtual List<Opening> Openings { get; set; } = new List<Opening>();
 
-        [Description("Defines the thickness property and material of the Panel.")]
+        [Description("Defines the thickness property and material of the Panel. Orientation of non-isotropic properties are controlled by the OrientationAngle.")]
         public virtual ISurfaceProperty Property { get; set; } = new ConstantThickness();
 
+        [Angle]
+        [Description("Defines the angle that the local x and y axes are rotated around the normal (i.e. local z) of the Panel.\n" +
+                     "The normal of the Panel is determined by the right hand curl rule dictated by the order of the edge list.\n" +
+                     "Local x is found by projecting the global X to the plane of the Panel and is then rotated with the OrientationAngle, " +
+                     "except for the case when the Normal is parallel with the global X. " +
+                     "For this case the local y is instead found by projecting global Y to the plane of the Panel and is then rotated with the OrientationAngle.\n" +
+                     "The remaining local axis is determined by the right hand rule.")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
-        /***************************************************/ 
+        /***************************************************/
     }
 }
        

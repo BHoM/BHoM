@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,35 +20,28 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
-using BH.oM.Analytical.Elements;
-using BH.oM.Base;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel;
-using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
+using BH.oM.Geometry;
+using BH.oM.Dimensional;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Analytical.Elements
 {
-    [Description("Face of an FEMesh. The face is defined by the indices of its nodes in the node list. Geometrical information about position in space is stored on the host FEMesh.")]
-    public class FEMeshFace : BHoMObject, IFace
+    [Description("Base interface for analytical elements defined by a single closed perimiter curve.")]
+    public interface IRegion : IBHoMObject, IAnalytical, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("List of which node indices in the host FEMesh node list that this face is connecting.")]
-        public virtual List<int> NodeListIndices { get; set; } = new List<int>();
-
-        [Angle]
-        [Description("Defines the angle that the local x and y axes are rotated around the normal (i.e. local z) of the FEMeshFace.\n" +
-                     "The normal of the FEMeshFace is determined by the curl right hand rule dictated by the order of the node list.\n" +
-                     "Local x is found by projecting the global X to the plane of the FEMeshFace and is then rotated with the OrientationAngle, " +
-                     "except for the case when the Normal is parallel with the global X. " +
-                     "For this case the local y is instead found by projecting global Y to the plane of the FEMeshFace and is then rotated with the OrientationAngle.\n" +
-                     "The remaining local axis is determined by the right hand rule.")]
-        public virtual double OrientationAngle { get; set; } = 0;
+        ICurve Perimeter { get; set; }
 
         /***************************************************/
     }
 }
-     
 

@@ -47,6 +47,9 @@ namespace BH.oM.LifeCycleAssessment
         [Description("Enclosure doors are are openings in the building exterior, which consist of framing and panels")]
         public virtual List<IBHoMObject> Doors { get; set; } = new List<IBHoMObject>();
 
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+
         /***************************************************/
     }
 }

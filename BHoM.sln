@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 14 for Windows Desktop
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHoM", "BHoM\BHoM.csproj", "{94D88927-62A2-48FC-8EFE-D139B67A3373}"
 EndProject
@@ -50,6 +50,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeCycleAssessment_oM", "LifeCycleAssessment_oM\LifeCycleAssessment_oM.csproj", "{435C1343-1E64-495C-B999-49ABCB86C1B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spatial_oM", "Spatial_oM\Spatial_oM.csproj", "{789EAF6C-D68F-4770-B01B-C07BBF3D2188}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inspection_oM", "Inspection_oM\Inspection_oM.csproj", "{E86110C7-43BD-40BA-B6D6-CD144C4F1E22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,10 @@ Global
 		{789EAF6C-D68F-4770-B01B-C07BBF3D2188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{789EAF6C-D68F-4770-B01B-C07BBF3D2188}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{789EAF6C-D68F-4770-B01B-C07BBF3D2188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E86110C7-43BD-40BA-B6D6-CD144C4F1E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E86110C7-43BD-40BA-B6D6-CD144C4F1E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E86110C7-43BD-40BA-B6D6-CD144C4F1E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E86110C7-43BD-40BA-B6D6-CD144C4F1E22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

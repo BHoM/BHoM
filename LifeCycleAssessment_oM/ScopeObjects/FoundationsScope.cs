@@ -43,8 +43,14 @@ namespace BH.oM.LifeCycleAssessment
         [Description("Foundation walls are structural walls built below-grade")]
         public virtual List<IBHoMObject> Walls { get; set; } = new List<IBHoMObject>();
         
-        [Description("Foundation slabs are structural slabs upon which the building is constructed. This category expects any type of slab, but assumes no construction properties.")]
+        [Description("Foundation slabs are structural slabs upon which the building is constructed. This category expects any type of slab, but assumes no construction properties")]
         public virtual List<IBHoMObject> Slabs { get; set; } = new List<IBHoMObject>();
+
+        [Description("Foundation grade beams transmit load from a bearing wall into foundations")]
+        public virtual List<IBHoMObject> GradeBeams { get; set; } = new List<IBHoMObject>();
+
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
 
         /***************************************************/
     }

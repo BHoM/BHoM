@@ -20,32 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Reflection.Attributes;
-using System.Collections.Generic;
-
-namespace BH.oM.Data.Collections
+namespace BH.oM.LifeCycleAssessment
 {
-    [Deprecated("3.3", "Graph representations should use node classes that implement BH.oM.Analytical.Elements.INode")]
-    public class GraphNode<T> : IDataStructure
+    public enum GravityStructuralMaterial
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual T Value { get; set; } = default(T);
-
-        public virtual Dictionary<string, object> Attributes { get; set; } = new Dictionary<string, object>();
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator GraphNode<T>(T value)
-        {
-            return new GraphNode<T> { Value = value };
-        }
-
-        /***************************************************/
+        Undefined,
+        GravitySteelFrame,
+        GravityConcrete,
+        GravityMassTimber,
+        GravityHybrid,
+        GravityConcreteMasonryUnit,
+        GravityLightGaugeSteel
     }
 }
-

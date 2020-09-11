@@ -19,33 +19,26 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+using System.ComponentModel;
 
-using BH.oM.Reflection.Attributes;
-using System.Collections.Generic;
-
-namespace BH.oM.Data.Collections
+namespace BH.oM.LifeCycleAssessment
 {
-    [Deprecated("3.3", "Graph representations should use node classes that implement BH.oM.Analytical.Elements.INode")]
-    public class GraphNode<T> : IDataStructure
+    [Description("Wind speed category is in reference to the Beaufort Scale of wind speeds, and are used only to represent an average site-based, wind condition. Specific information on categorisation can be found at https://www.spc.noaa.gov/faq/tornado/beaufort.html")]
+    public enum WindSpeedCategory
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual T Value { get; set; } = default(T);
-
-        public virtual Dictionary<string, object> Attributes { get; set; } = new Dictionary<string, object>();
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator GraphNode<T>(T value)
-        {
-            return new GraphNode<T> { Value = value };
-        }
-
-        /***************************************************/
+        Undefined,
+        Calm,
+        FreshBreeze,
+        Gale,
+        GentleBreeze,
+        Hurricane,
+        LightAir,
+        LightBreeze,
+        ModerateBreeze,
+        NearGale,
+        Storm,
+        StrongBreeze,
+        StrongGale,
+        ViolentStorm        
     }
 }
-

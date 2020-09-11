@@ -19,10 +19,12 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+using BH.oM.Reflection.Attributes;
 using System.Collections.Generic;
 
 namespace BH.oM.Data.Collections
 {
+    [Deprecated("3.3", "Graph representations should use link classes that implement BH.oM.Analytical.Elements.ILink")]
     public class GraphLink<T> : IDataStructure
     {
         /***************************************************/
