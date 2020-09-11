@@ -51,8 +51,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeCycleAssessment_oM", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spatial_oM", "Spatial_oM\Spatial_oM.csproj", "{789EAF6C-D68F-4770-B01B-C07BBF3D2188}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade_oM", "Facade_oM\Facade_oM.csproj", "{D92CAFAC-D419-42BA-A9DC-4B7DAD976A8F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
