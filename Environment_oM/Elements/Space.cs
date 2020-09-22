@@ -36,11 +36,12 @@ using BH.oM.Geometry;
 using System.ComponentModel;
 
 using BH.oM.Dimensional;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Environment.Elements
 {
     [Description("A space object is an analytical depiction of a room defined by its environmental conditions (internal gains)")]
-    public class Space : BHoMObject, IEnvironmentObject, IElement2D
+    public class Space : BHoMObject, IEnvironmentObject, IRegion, IElement2D
     {
         [Description("Zones denotes the list of zones that this particular space is associated with. Zones are collections of spaces with similar internal gains and exterior envelope conditions.")]
         public virtual List<string> Zones { get; set; } = new List<string>();

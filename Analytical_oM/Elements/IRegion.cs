@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,38 +20,28 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
-
+using BH.oM.Geometry;
 using BH.oM.Dimensional;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Analytical.Elements
 {
-    [Description("The Structures Scope object provides a template for expected objects commonly assessed within Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment.")]
-    public class StructuresScope : BHoMObject
+    [Description("Base interface for analytical elements defined by a single closed perimiter curve.")]
+    public interface IRegion : IBHoMObject, IAnalytical, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Structural slabs are inclusive of the above-grade structural floors in a building")]
-        public virtual List<IBHoMObject> Slabs { get; set; } = new List<IBHoMObject>();
 
-        [Description("Structural core walls are inclusive of the above-grade, structural-grade walls surrounding the core (elevators, building services)")]
-        public virtual List<IBHoMObject> CoreWalls { get; set; } = new List<IBHoMObject>();
-
-        [Description("Structural beams are typically horizontal elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<IBHoMObject> Beams { get; set; } = new List<IBHoMObject>();
-
-        [Description("Structural columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<IBHoMObject> Columns { get; set; } = new List<IBHoMObject>();
-
-        [Description("Structural bracing are typically diagonal members that provide lateral support between structural bays")]
-        public virtual List<IBHoMObject> Bracing { get; set; } = new List<IBHoMObject>();
-
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        ICurve Perimeter { get; set; }
 
         /***************************************************/
     }
 }
+

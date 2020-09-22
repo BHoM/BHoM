@@ -54,6 +54,9 @@ namespace BH.oM.LifeCycleAssessment
         [Description("Tenant Improvements Partition Walls includes walls in the interior of the building")]
         public virtual List<IBHoMObject> PartitionWalls { get; set; } = new List<IBHoMObject>();
 
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+
         /***************************************************/
     }
 }

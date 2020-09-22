@@ -19,24 +19,19 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("ProjectArea in m2 for Life Cycle Assessment comparison.")]
-    public enum ProjectArea
+    [Description("Seismic Design Category is a classification assigned to a structure based on it's occupancy category, and the severity of the design earthquake ground motion. These categories are in reference to ASCE 7-05.")]
+    public enum SeismicDesignCategory
     {
         Undefined,
-        Under94,
-        Between94and465,
-        Between466and929,
-        Between930and2323,
-        Between2324and4645,
-        Between4646and9290,
-        Between9291and18580,
-        Between18581and46451,
-        Between46452and92903,
-        Over92903,
+        A,
+        B,
+        C,
+        D,
+        E,
+        F
     }
 }

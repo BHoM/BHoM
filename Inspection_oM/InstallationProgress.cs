@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,35 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Base;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-using BH.oM.Dimensional;
-
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Inspection
 {
-    [Description("The Enclosures Scope object provides a template for expected objects commonly assessed within Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment.")]
-    public class EnclosuresScope : BHoMObject
+    [Description("Installation progress in a specific area associated with an audit, including image filepaths as applicable")]
+    public class InstallationProgress : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Enclosure walls are inclusive of the opaque exterior wall assemblies of a building")]
-        public virtual List<IBHoMObject> Walls { get; set; } = new List<IBHoMObject>();
-        
-        [Description("Enclosure curtain walls are large sheets of transparent glazing on the building exterior")]
-        public virtual List<IBHoMObject> CurtainWalls { get; set; } = new List<IBHoMObject>();
-        
-        [Description("Enclosure windows are are openings in the building exterior, which consist of framing and glazing")]
-        public virtual List<IBHoMObject> Windows { get; set; } = new List<IBHoMObject>();
-        
-        [Description("Enclosure doors are are openings in the building exterior, which consist of framing and panels")]
-        public virtual List<IBHoMObject> Doors { get; set; } = new List<IBHoMObject>();
+        [Description("The general status of installation progress at the time of the inspection.")]
+        public virtual string Status { get; set; } = "";
 
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        [Description("Description for the area that this installation progress refers to.")]
+        public virtual string Area { get; set; } = "";
+
+        [Description("Filenames of images showing the construction progress in the area specified.")]
+        public virtual List<string> Media { get; set; } = new List<string>();
 
         /***************************************************/
     }

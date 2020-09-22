@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,20 +20,32 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.LifeCycleAssessment
+using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BH.oM.Inspection
 {
-    public enum PrimaryStructuralMaterial
+    [Description("A comment on an Issue typically identifying either the nature of the issue, the actions being taken to resolve the issue, or the approval / rejection of actions taken.")]
+    public class Comment : BHoMObject
     {
-        Undefined,
-        GravitySteelFrame,
-        GravityConcrete,
-        GravityMassTimber,
-        GravityHybrid,
-        GravityConcreteMasonryUnit,
-        GravityLightGaugeSteel,
-        LateralConcrete,
-        LateralSteel,
-        LateralSheathedWalls,
-        LateralConcreteMasonryUnit
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("Comment message")]
+        public virtual string Message { get; set; } = "";
+
+        [Description("Name of the individual making the comment")]
+        public virtual string Owner { get; set; } = "";
+
+        [Description("Date the comment was made")]
+        public virtual DateTime CommentDate { get; set; } = new DateTime();
+
+        /***************************************************/
     }
 }
