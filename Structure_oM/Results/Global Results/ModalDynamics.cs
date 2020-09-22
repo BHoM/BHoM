@@ -87,8 +87,8 @@ namespace BH.oM.Structure.Results
             MassRatioY = massRatioY;
             MassRatioZ = massRatioZ;
             InertiaRatioX = inertiaRatioX;
-            InertiaRatioY = InertiaRatioY;
-            InertiaRatioZ = InertiaRatioZ;
+            InertiaRatioY = inertiaRatioY;
+            InertiaRatioZ = inertiaRatioZ;
 
         }
 
