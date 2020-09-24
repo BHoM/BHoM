@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionProperties\CableTrayConnectionProperty.cs" />
+    <Compile Include="ConnectionProperties\IConnectionProperty.cs" />
     <Compile Include="Elements\CableTray.cs" />
     <Compile Include="Elements\Duct.cs" />
     <Compile Include="Elements\IFlow.cs" />

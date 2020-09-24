@@ -20,40 +20,29 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Analytical.Elements;
-using BH.oM.MEP.SectionProperties;
-using BH.oM.Dimensional;
-using BH.oM.MEP.ConnectionProperties;
-using BH.oM.Quantities.Attributes;
 
-
-namespace BH.oM.MEP.Elements
+namespace BH.oM.MEP.ConnectionProperties
 {
-    [Description("A Cable Tray object is a passageway which conveys material (typically cables)")]
-    public class CableTray : BHoMObject, ILink<Node>, IElement1D, IElementM
+    [Description("A Cable Tray connection property to store information about its physical connectors.")]
+    public class CableTrayConnectionProperty : BHoMObject, IConnectionProperty
     {
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The point at which the Cable Tray object begins.")]
-        public virtual Node StartNode { get; set; } = null;
+        [Description("Whether the start point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsStartConnected { get; set; }
 
-        [Description("The point at which the Cable Tray object ends.")]
-        public virtual Node EndNode { get; set; } = null;       
-
-        [Description("The Cable Tray section property defines the shape (rectangular) and its associated properties (height, width, material, thickness/gauge).")]
-        public virtual CableTraySectionProperty SectionProperty { get; set; } = null;
-
-        [Description("The Cable Tray connections properties, such as if it's connected and to what.")]
-        public virtual CableTrayConnectionProperty ConnectionProperty { get; set; } = null;
-
-        [Angle]
-        [Description("This is the Cable Tray's planometric orientation angle (the rotation around its central axis).")]
-        public virtual double OrientationAngle { get; set; } = 0;
+        [Description("Whether the end point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsEndConnected { get; set; }
 
         /***************************************************/
     }
