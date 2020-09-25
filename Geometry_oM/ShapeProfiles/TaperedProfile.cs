@@ -38,7 +38,7 @@ namespace BH.oM.Geometry.ShapeProfiles
 
         public virtual List<int> InterpolationOrder { get; set; }
 
-        public virtual ReadOnlyDictionary<decimal, IProfile> Profiles { get; }
+        public virtual ReadOnlyDictionary<double, IProfile> Profiles { get; }
 
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -47,9 +47,9 @@ namespace BH.oM.Geometry.ShapeProfiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TaperedProfile(IDictionary<decimal, IProfile> profiles, List<int> interpolationOrder, ShapeType shape)
+        public TaperedProfile(IDictionary<double, IProfile> profiles, List<int> interpolationOrder, ShapeType shape)
         {
-            Profiles = new ReadOnlyDictionary<decimal, IProfile>(profiles);
+            Profiles = new ReadOnlyDictionary<double, IProfile>(profiles);
             Edges = new ReadOnlyCollection<ICurve>(new List<ICurve>());
             InterpolationOrder = interpolationOrder;
             Shape = shape;
