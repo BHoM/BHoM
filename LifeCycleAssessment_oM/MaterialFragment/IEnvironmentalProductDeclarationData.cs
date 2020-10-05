@@ -78,6 +78,9 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Phase abreviation for the scope of the EPD. For single phase entries, please input the relevant phase of evaluation i.e. A1 or A1-A3. More information on typical LCA phases can be found in the repository wiki.")]
         string LifeCycleAssessmentPhase { get; set; }
 
+        [Description("The period of existence or duration for the product measured in whole years.")]
+        int Lifespan { get; set; }
+
         [Description("Manufacturer name.")]
         string Manufacturer { get; set; }
 
