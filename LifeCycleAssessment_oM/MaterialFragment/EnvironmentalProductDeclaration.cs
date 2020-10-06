@@ -80,7 +80,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual string LifeCycleAssessmentPhase { get; set; } = "Undefined";
 
         [Description("The period of existence or duration for the product measured in whole years.")]
-        public virtual int Lifespan { get; set; }
+        public virtual int Lifespan { get; set; } = 0;
 
         [Description("Manufacturer name.")]
         public virtual string Manufacturer { get; set; } = "";
