@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using BH.oM.Base;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
@@ -31,13 +32,14 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("The consequence of acids being emitted to the atmosphere and subsequently deposited in surface soils and waters measured in kg/SO2e.")]
+        [Description("Acidification, measured in kgSO2e, refers to emissions which increase the H+ ions in the environment causing a decrease in pH. Potential effects include fish mortality, forest decline, and the deterioration of building materials.")]
         public virtual double AcidificationPotential { get; set; } = double.NaN;
 
-        [Description("Amount of the material that comes from a biological source (trees, soil), these materials have the ability sequester/store carbon.")]
-        public virtual double BiogenicEmbodiedCarbon { get; set; } = double.NaN;
+        [Description("Biogenic carbon includes emissions, in terms of kgCO2e, related to the natural carbon cycle related to biological-based materials and may involve carbon uptake, fermentation, combustion, etc.")]
+        public virtual double BiogenicCarbon { get; set; } = double.NaN;
 
         [Description("The material density in kg/m^3.")]
+        [Density]
         public virtual double Density { get; set; } = 0;
 
         [Description("The amount of depletion of non-renewable material resources measured in Sb (Antimony).")]
@@ -61,7 +63,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Exported Thermal Energy or EET measured in MJ.")]
         public virtual double ExportedThermalEnergy { get; set; } = double.NaN;
 
-        [Description("Use of freshwater resources measured in m3.")]
+        [Description("Use of freshwater resources measured in m^3.")]
         public virtual double FreshWater { get; set; } = double.NaN;
 
         [Description("How much heat a greenhouse gas traps in the atmosphere up to a specific time horizon, relative to carbon dioxide measured in kg/CO2e.")]
@@ -80,6 +82,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual string LifeCycleAssessmentPhase { get; set; } = "Undefined";
 
         [Description("The period of existence or duration for the product measured in whole years.")]
+        [Time]
         public virtual int Lifespan { get; set; } = 0;
 
         [Description("Manufacturer name.")]
