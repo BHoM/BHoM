@@ -40,8 +40,8 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Biogenic carbon includes emissions, in terms of kgCO2e, related to the natural carbon cycle related to biological-based materials and may involve carbon uptake, fermentation, combustion, etc.")]
         double BiogenicCarbon { get; set; }
 
-        [Description("The material density in kg/m^3.")]
         [Density]
+        [Description("The material density in kg/m^3.")]
         double Density { get; set; }
 
         [Description("Depletion of Abiotic Resources refers to non-renewable resources such as minerals, clay, and peat measured in kg Sb (antimony) equivalent.")]
@@ -81,7 +81,6 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         string LifeCycleAssessmentPhase { get; set; }
 
         [Description("The period of useful life of the product measured in years.")]
-        [Time]
         int Lifespan { get; set; }
 
         [Description("Manufacturer name.")]
@@ -105,7 +104,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Photochemical Ozone Creation Potential, measured in kgO3 equivalents, refers to emissions which contribute to the formation of ground-level smog.")]
         double PhotochemicalOzoneCreationPotential { get; set; }
 
-        [Description("Plant within which the product was created.")]
+        [Description("Manufacturing facility name within which the product was created.")]
         string Plant { get; set; }
 
         [Description("Postal Code within which the product was created.")]
