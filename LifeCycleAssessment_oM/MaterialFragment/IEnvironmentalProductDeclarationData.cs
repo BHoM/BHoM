@@ -137,9 +137,6 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Use of Renewable Secondary fuels measured in megajoules.")]
         double RenewableSecondaryFuels { get; set; }
 
-        [Description("List the construction scope of the product. Examples include Structures, Foundations, or Enclosures.")]
-        string Scope { get; set; }
-
         [Description("Use of secondary materials measured in kg.")]
         double SecondaryMaterial { get; set; }
 
@@ -149,6 +146,9 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
             "The quantity type is a key metric for evaluation methods to function. " +
             "This property determines how the material is to be evaluated, based on Mass, Volume, Area, Item, or Length. ")]
         QuantityType QuantityType { get; set; }
+
+        [Description("The number of units in reference to quantity type. Example, 1000 kg per unit quantityType of Mass.")]
+        double QuantityTypeValue { get; set; }
 
         /***************************************************/
     }
