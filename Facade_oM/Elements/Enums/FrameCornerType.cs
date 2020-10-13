@@ -20,39 +20,17 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-
-using BH.oM.Analytical.Elements;
-using BH.oM.Physical.Constructions;
-using System.ComponentModel;
+ using System.ComponentModel;
 
 namespace BH.oM.Facade.Elements
 {
-    [Description("A facade object used to define a curtain wall made up of multiple openings.")]
-    public class CurtainWall : BHoMObject, IFacadeObject, IPanel<IEdge, Opening>, IElement2D, IElementM
+    [Description("The type of join at frame corners")]
+    public enum FrameCornerType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("A collection of Edge objects which defines the external boundary of the panel")]
-        public virtual List<IEdge> ExternalEdges { get; set; } = new List<IEdge>();
-
-        [Description("A collection of all panels that make up the curtain wall")]
-        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
-
-        [Description("A collection of all frame edges that make up the curtain wall in addition to any frame edges applied to the curtain wall's individual openings")]
-        public virtual List<FrameEdge> FrameEdges { get; set; } = new List<FrameEdge>();
-
-        /***************************************************/
+        Undefined,
+        HorizontalExtended,
+        Mitred,
+        VerticalExtended
     }
 }
 

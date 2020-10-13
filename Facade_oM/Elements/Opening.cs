@@ -39,17 +39,14 @@ namespace BH.oM.Facade.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of Edge objects which define the external boundary of the opening")]
+        [Description("A collection of Edge objects which define the external boundary of the opening. If including frame edge properties these edges should be FrameEdges.")]
         public virtual List<IEdge> Edges { get; set; } = new List<IEdge>();
 
         [Description("A construction object providing construction information about the opening - typically glazing construction")]
         public virtual IConstruction OpeningConstruction { get; set; } = null;
 
-        [Description("A list of frame properties per edge defining the opening")]
-        public virtual List<FrameEdgeProperty> FrameEdgeProperties { get; set; } = null;
-
-        [Description("The distance the frame extends inward (in elevation view) from opening edge per edge defining the opening")]
-        public virtual List<double> ProjectedFrameDepth { get; set; } = null;
+        [Description("Frame edge treatment at corners (ie Mitred, Vertical Extends, or Horizontal Extends)")]
+        public virtual FrameCornerType FrameCornerType { get; set; } = FrameCornerType.VerticalExtended;
 
         [Description("The type of opening on a panel (e.g. Window, Door). Use OpeningType enum")]
         public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
