@@ -28,8 +28,8 @@ using BH.oM.Physical.FramingProperties;
 
 namespace BH.oM.Facade.SectionProperties
 {
-    [Description("Mullion property with list of Profile Section properties that make up the mullion construction.")]
-    public class MullionProperty : BHoMObject
+    [Description("Frame edge (eg mullion, window jamb, curtain wall sill, etc) property with list of Profile Section properties that make up the mullion construction.")]
+    public class FrameEdgeProperty : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

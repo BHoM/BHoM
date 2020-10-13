@@ -22,25 +22,28 @@
 
 using System;
 using System.Collections.Generic;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Base;
 using BH.oM.Analytical.Elements;
+using BH.oM.Physical.Constructions;
 using System.ComponentModel;
-using BH.oM.Dimensional;
+using BH.oM.Facade.SectionProperties;
 
 namespace BH.oM.Facade.Elements
 {
-    [Description("A facade object used to define an edge of a frame and the type of edge (Sill, Head, Left, or Right)")]
-    public class FrameEdge : BHoMObject, IEdge, IElement1D
+    [Description("A frame edge (eg mullion, window jamb, curtain wall sill, etc)")]
+    public class FrameEdge : BHoMObject, IEdge
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("A BHoM Geometry planar curve object (e.g Polyline, Line, etc.)")]
-        public virtual ICurve Curve { get; set; } = new Polyline();
 
-        [Description("Type of frame edge (Sill, Head, Left, Right, or Undefined)")]
-        public virtual FrameEdgeType Type { get; set; } = FrameEdgeType.Undefined;
+        [Description("The curve representing the frame edge location")]
+        public virtual ICurve Curve { get; set; } = null;
+
+        [Description("The property assigned to this frame edge")]
+        public virtual FrameEdgeProperty FrameEdgeProperty { get; set; } = null;
 
         /***************************************************/
     }

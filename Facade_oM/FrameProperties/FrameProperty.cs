@@ -37,16 +37,16 @@ namespace BH.oM.Facade.SectionProperties
         /**** Properties                                ****/
         /***************************************************/
         [Description("Mullion property for frame sill")]
-        public virtual MullionProperty SillProperty { get; set; } = null;
+        public virtual FrameEdgeProperty SillProperty { get; set; } = null;
 
         [Description("Mullion property for frame head")]
-        public virtual MullionProperty HeadProperty { get; set; }  = null;
+        public virtual FrameEdgeProperty HeadProperty { get; set; }  = null;
 
         [Description("Mullion property for frame jamb (left)")]
-        public virtual MullionProperty JambLeftProperty { get; set; }  = null;
+        public virtual FrameEdgeProperty JambLeftProperty { get; set; }  = null;
 
         [Description("Mullion property for frame jamb (right)")]
-        public virtual MullionProperty JambRightProperty { get; set; }  = null;
+        public virtual FrameEdgeProperty JambRightProperty { get; set; }  = null;
 
         /***************************************************/
     }

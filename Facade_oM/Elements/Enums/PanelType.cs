@@ -30,8 +30,8 @@ namespace BH.oM.Facade.Elements
         Undefined,
         AirGap,
         Shade,
-        WallExternal,
-        WallInternal,
+        Spandrel,
+        WallExternal
     }
 }
 

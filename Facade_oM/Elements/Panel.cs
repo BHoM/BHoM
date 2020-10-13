@@ -39,6 +39,10 @@ namespace BH.oM.Facade.Elements
     [Description("A facade object used to define planar surfaces such as walls")]
     public class Panel : BHoMObject, IFacadeObject, IPanel<IEdge, Opening>, IElement2D, IElementM
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("A collection of Edge objects which defines the external boundary of the panel")]
         public virtual List<IEdge> ExternalEdges { get; set; } = new List<IEdge>();
 
@@ -48,8 +52,13 @@ namespace BH.oM.Facade.Elements
         [Description("A construction object providing layer and material information for the panel")]
         public virtual IConstruction Construction { get; set; } = null;
 
+        [Description("A collection of all frame edges applied to the panel")]
+        public virtual List<FrameEdge> FrameEdges { get; set; } = new List<FrameEdge>();
+
         [Description("The type of surface (e.g. Exterior wall, interior wall, air gap). Use PanelType enum")]
         public virtual PanelType Type { get; set; } = PanelType.Undefined;
+
+        /***************************************************/
     }
 }
 
