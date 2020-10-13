@@ -20,18 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
+using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.MEP.Elements;
+
 namespace BH.oM.LifeCycleAssessment
 {
-    public enum ObjectScope
+    [Description("Fire Protection Scope.")]
+    public class FireProtectionScope : BHoMObject
     {
-        Undefined,
-        Enclosure,
-        Electrical,
-        FireProtection,
-        Foundation,
-        Mechanical,
-        Plumbing,
-        Structure,
-        TenantImprovement
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        [Description("Fire protection equipment used to facilitate functionality of the overall system")]
+        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
+
+        [Description("BHoM Pipes used for fire protection")]
+        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
+
+        [Description("Sprinklers used for fire protection throughout the building")]
+        public virtual List<IBHoMObject> Sprinklers { get; set; } = new List<IBHoMObject>();
+
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        /***************************************************/
     }
 }
