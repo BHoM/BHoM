@@ -20,18 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
+using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.MEP.Elements;
+
 namespace BH.oM.LifeCycleAssessment
 {
-    public enum ObjectScope
+    [Description("Mechanical Scope")]
+    public class MechanicalScope : BHoMObject
     {
-        Undefined,
-        Enclosure,
-        Electrical,
-        FireProtection,
-        Foundation,
-        Mechanical,
-        Plumbing,
-        Structure,
-        TenantImprovement
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        [Description("MEP Ductwork is a material (eg sheet metal) that helps to convey airflow from heating, ventilation or cooling systems")]
+        public virtual List<Duct> Ducts { get; set; } = new List<Duct>();
+
+        [Description("MEP Equipment is a machine that processes mechanical, electrical or plumbing loads (eg Fan, Electrical Panel, Pump")]
+        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
+        
+        [Description("MEP Piping is a material (eg copper) that helps to convey fluids (eg water, waste) within a building")]
+        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
+
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        /***************************************************/
     }
 }
