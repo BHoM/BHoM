@@ -48,7 +48,7 @@
     <Compile Include="Attributes\ToBeRemovedAttribute.cs" />
     <Compile Include="Attributes\RequiredAttribute.cs" />
     <Compile Include="Attributes\ReplacedAttribute.cs" />
-    <Compile Include="Attributes\DoNotAutoCreateAttribute.cs" />
+    <Compile Include="Attributes\NoAutoConstructorAttribute.cs" />
     <Compile Include="Attributes\InputAttribute.cs" />
     <Compile Include="Attributes\InputFromProperty.cs" />
     <Compile Include="Attributes\MultiOutputAttribute.cs" />

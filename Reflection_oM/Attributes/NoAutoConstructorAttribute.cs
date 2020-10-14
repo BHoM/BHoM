@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Reflection.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class DoNotAutoCreateAttribute : Attribute, IImmutable
+    public class NoAutoConstructorAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -42,7 +42,7 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public DoNotAutoCreateAttribute()
+        public NoAutoConstructorAttribute()
         {
         }
 
