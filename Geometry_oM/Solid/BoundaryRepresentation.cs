@@ -25,6 +25,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Geometry
 {
@@ -38,13 +39,18 @@ namespace BH.oM.Geometry
         [Description("List of ISurfaces must form a closed volume - checks and guarantees to be performed at conversion")]
         public virtual ReadOnlyCollection<ISurface> Surfaces { get; }
 
+        [Volume]
+        [Description("The enclosed volume created by the boundary surfaces. Property is set where available at conversion. If unavailable, or invalidated, will read NaN (not a number)")]
+        public virtual double Volume { get; } = double.NaN;
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BoundaryRepresentation(IEnumerable<ISurface> surfaces)
+        public BoundaryRepresentation(IEnumerable<ISurface> surfaces, double volume)
         {
             Surfaces = new ReadOnlyCollection<ISurface>(surfaces.ToList());
+            Volume = volume;
         }
 
 
