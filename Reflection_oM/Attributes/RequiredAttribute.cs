@@ -21,38 +21,31 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Reflection.Attributes
 {
-    public class TaperedProfile : BHoMObject, IProfile, IImmutable
+    [AttributeUsage(AttributeTargets.Property)]
+    [Description("Marks a property as mandatory input when creating an instance of its containing class.")]
+    public class RequiredAttribute : Attribute, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
-
-        public virtual List<int> InterpolationOrder { get; set; }
-
-        public virtual ReadOnlyDictionary<double, IProfile> Profiles { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TaperedProfile(IDictionary<double, IProfile> profiles, List<int> interpolationOrder, ShapeType shape)
+        public RequiredAttribute()
         {
-            Profiles = new ReadOnlyDictionary<double, IProfile>(profiles);
-            Edges = new ReadOnlyCollection<ICurve>(new List<ICurve>());
-            InterpolationOrder = interpolationOrder;
-            Shape = shape;
         }
 
         /***************************************************/
