@@ -26,16 +26,16 @@ using BH.oM.Base;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("Plumbing Scope.")]
+    [Description("Plumbing Scope provides a template for expected objects to be assessed within the MEPScope")]
     public class PlumbingScope : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("MEP Equipment is a machine that processes mechanical, electrical or plumbing loads (eg Fan, Electrical Panel, Pump")]
+        [Description("Plumbing equipment includes machines or devices that pump, store or process water, waste and sewage streams, etc.")]
         public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
         
-        [Description("MEP Piping is a material (eg copper) that helps to convey fluids (eg water, waste) within a building")]
+        [Description("Plumbing pipework includes distribution systems (e.g. PVC) that convey fluids")]
         public virtual List<IBHoMObject> Pipes { get; set; } = new List<IBHoMObject>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]

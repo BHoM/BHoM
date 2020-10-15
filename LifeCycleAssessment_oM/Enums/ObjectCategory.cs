@@ -49,8 +49,8 @@ namespace BH.oM.LifeCycleAssessment
         PartitionWall,
         Pile,
         Pipes,
-        Sprinklers,
         Slab,
+        Sprinklers,
         Wall,
         Window,
         Wiring      

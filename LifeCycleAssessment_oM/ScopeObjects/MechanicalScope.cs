@@ -27,19 +27,19 @@ using BH.oM.MEP.Elements;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("Mechanical Scope")]
+    [Description("Mechanical Scope provides a template for expected objects to be assessed within the MEPScope")]
     public class MechanicalScope : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("MEP Ductwork is a material (eg sheet metal) that helps to convey airflow from heating, ventilation or cooling systems")]
+        [Description("Mechanical distribution system that convey airflow from heating, ventilation or cooling systems (e.g. sheet metal)")]
         public virtual List<Duct> Ducts { get; set; } = new List<Duct>();
 
-        [Description("MEP Equipment is a machine that processes mechanical, electrical or plumbing loads (eg Fan, Electrical Panel, Pump")]
+        [Description("Mechanical equipment includes machines and devices that provide heating, cooling, venting, pumping etc. (e.g. chillers, fans, AHUs, pumps)")]
         public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
         
-        [Description("MEP Piping is a material (eg copper) that helps to convey fluids (eg water, waste) within a building")]
+        [Description("Mechanical pipework includes distribution systems (e.g. copper) that convey fluids")]
         public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
