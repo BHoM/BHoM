@@ -27,31 +27,31 @@ using BH.oM.MEP.Elements;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("Electrical Scope.")]
+    [Description("Electrical Scope provides a template for expected objects to be assessed within the MEPScope")]
     public class ElectricalScope : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("MEP Batties are energy storage devices (eg photovoltaic panels)")]
+        [Description("Batteries include energy storage devices (e.g. lithium-ion batteries)")]
         public virtual List<IBHoMObject> Batteries { get; set; } = new List<IBHoMObject>();
 
-        [Description("MEP Cable Trays used to route electrical wiring throughout a building")]
+        [Description("Cable trays that are used to route electrical wiring throughout a building")]
         public virtual List<IBHoMObject> CableTrays { get; set; } = new List<IBHoMObject>();
 
-        [Description("MEP Conduit is a tube used to route electrical wiring")]
+        [Description("Conduit used for electrical service routing includes tubing or channel")]
         public virtual List<IBHoMObject> Conduit { get; set; } = new List<IBHoMObject>();
 
-        [Description("Electrical equipment used throughout the building")]
+        [Description("Equipment includes machines or devices that comprise the electrical infrastructure (e.g. meters, switchboards, transformers, solar panels)")]
         public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
 
-        [Description("MEP Generators are devices that convert mechanical energy to electrical power")]
+        [Description("Devices that convert mechanical energy to electrical energy")]
         public virtual List<IBHoMObject> Generators { get; set; } = new List<IBHoMObject>();
 
-        [Description("MEP Lighting is inclusive of all light fixtures")]
+        [Description("Devices that provide and distribute illumination")]
         public virtual List<IBHoMObject> LightFixtures { get; set; } = new List<IBHoMObject>();
 
-        [Description("List of BHoM WireSegments MEP Wiring is a flexible conductor of electricity")]
+        [Description("The system of distribution cabling that conveys electricy")]
         public virtual List<WireSegment> WireSegments { get; set; } = new List<WireSegment>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]

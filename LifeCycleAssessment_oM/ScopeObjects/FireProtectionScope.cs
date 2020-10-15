@@ -27,16 +27,16 @@ using BH.oM.MEP.Elements;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("Fire Protection Scope.")]
+    [Description("Fire Protection Scope provides a template for expected objects to be assessed within the MEPScope")]
     public class FireProtectionScope : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Fire protection equipment used to facilitate functionality of the overall system")]
+        [Description("Fire protection equipment includes both fire and jockey pumps which convey water through the fire protection system")]
         public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
 
-        [Description("BHoM Pipes used for fire protection")]
+        [Description("Distribution systems that convey fluids in the case of fire")]
         public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
 
         [Description("Sprinklers used for fire protection throughout the building")]
