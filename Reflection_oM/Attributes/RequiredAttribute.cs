@@ -23,6 +23,7 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -31,6 +32,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Reflection.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
+    [Description("Marks a property as mandatory input when creating an instance of its containing class.")]
     public class RequiredAttribute : Attribute, IImmutable
     {
         /***************************************************/
