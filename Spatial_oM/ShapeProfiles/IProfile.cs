@@ -20,32 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Geometry.ShapeProfiles
+using BH.oM.Base;
+using BH.oM.Geometry;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    /***************************************************/
-
-    public enum ShapeType
+    [Description("Base interface for all shape profiles.")]
+    public interface IProfile  : IBHoMObject
     {
-        Rectangle = 0,
-        Box = 1,
-        Angle = 2,
-        ISection = 3,
-        Tee = 4,
-        Channel = 5,
-        Tube = 6,
-        Circle = 7,
-        Zed = 8,
-        FreeForm = 9,
+        ShapeType Shape { get; }
 
-        DoubleAngle = 22,
-        DoubleISection = 23,
-        DoubleChannel = 25,
-
-        //Maybe should move elsewhere
-        Cable = 30,
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
+        ReadOnlyCollection<ICurve> Edges { get; }
     }
-
-    /***************************************************/
-
 }
 

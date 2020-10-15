@@ -25,37 +25,55 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class ISectionProfile : BHoMObject, IProfile, IImmutable
+    [Description("T-shaped profile with constant flange thickness.")]
+    public class TSectionProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public virtual ShapeType Shape { get; } = ShapeType.Tee;
 
-        public virtual ShapeType Shape { get; } = ShapeType.ISection;
-
+        [Length]
+        [Description("Full depth.")]
         public virtual double Height { get; }
 
+        [Length]
+        [Description("Full width of the flange.")]
         public virtual double Width { get; }
 
+        [Length]
+        [Description("Thickness of the stem of the T-shape.")]
         public virtual double WebThickness { get; }
 
+        [Length]
+        [Description("Thickness of the top of the T-shape")]
         public virtual double FlangeThickness { get; }
 
+        [Length]
+        [Description("Fillet radius between inner face of flanges and faces of the web.")]
         public virtual double RootRadius { get; }
 
+        [Length]
+        [Description("Fillet radius at the outer edge of the flanges. Value need to be smaller or equal than the flange thickness.")]
         public virtual double ToeRadius { get; }
 
+        [Description("If true, the section is mirrored about its local y-axis, resulting in upside down T-shape.")]
+        public virtual bool MirrorAboutLocalY { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ISectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
+        public TSectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
@@ -63,6 +81,7 @@ namespace BH.oM.Geometry.ShapeProfiles
             FlangeThickness = flangeThickness;
             RootRadius = rootRadius;
             ToeRadius = toeRadius;
+            MirrorAboutLocalY = mirrorAboutLocalY;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

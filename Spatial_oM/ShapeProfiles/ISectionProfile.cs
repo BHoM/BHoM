@@ -25,34 +25,61 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class TubeProfile : BHoMObject, IProfile, IImmutable
+    [Description("I-shaped profile with parallel flanges with equal thickness.")]
+    public class ISectionProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.Tube;
 
-        public virtual double Diameter { get; }
+        public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
-        public virtual double Thickness { get; }
+        [Length]
+        [Description("Full depth of the profile from bottom of the bottom flange to top of the top flange.")]
+        public virtual double Height { get; }
 
+        [Length]
+        [Description("Full width both top and bottom flanges.")]
+        public virtual double FlangeWidth { get; }
+
+        [Length]
+        public virtual double WebThickness { get; }
+
+        [Length]
+        [Description("Thickness of both flanges.")]
+        public virtual double FlangeThickness { get; }
+
+        [Length]
+        [Description("Fillet radius between inner face of the flanges and faces of the web.")]
+        public virtual double RootRadius { get; }
+
+        [Length]
+        [Description("Fillet radius at the outer edge of the flanges. Value need to be smaller or equal than the flange thickness.")]
+        public virtual double ToeRadius { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TubeProfile(double diameter, double thickness, IEnumerable<ICurve> edges)
+        public ISectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
         {
-            Diameter = diameter;
-            Thickness = thickness;
+            Height = height;
+            Width = width;
+            WebThickness = webthickness;
+            FlangeThickness = flangeThickness;
+            RootRadius = rootRadius;
+            ToeRadius = toeRadius;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
-
 
         /***************************************************/
     }

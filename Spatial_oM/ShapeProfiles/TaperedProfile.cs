@@ -25,47 +25,36 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class TSectionProfile : BHoMObject, IProfile, IImmutable
+    public class TaperedProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.Tee;
+        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
 
-        public virtual double Height { get; }
+        public virtual List<int> InterpolationOrder { get; set; }
 
-        public virtual double Width { get; }
-
-        public virtual double WebThickness { get; }
-
-        public virtual double FlangeThickness { get; }
-
-        public virtual double RootRadius { get; }
-
-        public virtual double ToeRadius { get; }
-
-        public virtual bool MirrorAboutLocalY { get; }
+        public virtual ReadOnlyDictionary<double, IProfile> Profiles { get; }
 
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TSectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
+        public TaperedProfile(IDictionary<double, IProfile> profiles, List<int> interpolationOrder, ShapeType shape)
         {
-            Height = height;
-            Width = width;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalY = mirrorAboutLocalY;
-            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
+            Profiles = new ReadOnlyDictionary<double, IProfile>(profiles);
+            Edges = new ReadOnlyCollection<ICurve>(new List<ICurve>());
+            InterpolationOrder = interpolationOrder;
+            Shape = shape;
         }
 
         /***************************************************/

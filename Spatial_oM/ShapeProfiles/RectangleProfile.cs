@@ -25,9 +25,12 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
+    [Description("Solid rectangular profile.")]
     public class RectangleProfile : BHoMObject, IProfile, IImmutable
     {
 
@@ -36,12 +39,17 @@ namespace BH.oM.Geometry.ShapeProfiles
         /***************************************************/
         public virtual ShapeType Shape { get; } = ShapeType.Rectangle;
 
+        [Length]
         public virtual double Height { get; }
 
+        [Length]
         public virtual double Width { get; }
 
+        [Length]
+        [Description("Fillet radius of all four corners of the rectangle.")]
         public virtual double CornerRadius { get; }
 
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/

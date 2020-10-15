@@ -20,54 +20,79 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class FabricatedISectionProfile : BHoMObject, IProfile, IImmutable
+    [Description("Rectangular hollow profile that allows for varying thickness of the webs and both flanges as well as freely defined outstands of the top and bottom flanges.")]
+    public class GeneralisedFabricatedBoxProfile : BHoMObject, IProfile, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
+        public virtual ShapeType Shape { get; } = ShapeType.Box;
+
+        [Length]
+        [Description("Full depth.")]
         public virtual double Height { get; }
 
-        public virtual double TopFlangeWidth { get; }
+        [Length]
+        [Description("Full width.")]
+        public virtual double Width { get; }
 
-        public virtual double BotFlangeWidth { get; }
-
+        [Length]
+        [Description("Thickness of both webs, i.e. both of the sides.")]
         public virtual double WebThickness { get; }
 
+        [Length]
         public virtual double TopFlangeThickness { get; }
 
+        [Length]
         public virtual double BotFlangeThickness { get; }
 
-        public virtual double WeldSize { get; }
+        [Length]
+        [Description("Outstand along the top flange in the top left corner of the profile.")]
+        public virtual double TopLeftCorbelWidth { get; }
 
+        [Length]
+        [Description("Outstand along the top flange in the top right corner of the profile.")]
+        public virtual double TopRightCorbelWidth { get; }
+
+        [Length]
+        [Description("Outstand along the bottom flange in the bottom left corner of the profile.")]
+        public virtual double BotLeftCorbelWidth { get; }
+
+        [Length]
+        [Description("Outstand along the bottom flange in the bottom right corner of the profile.")]
+        public virtual double BotRightCorbelWidth { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public FabricatedISectionProfile(double height, double topFlangeWidth, double botFlangeWidth, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
+        public GeneralisedFabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double topLeftCorbelWidth, double topRightCorbelWidth, double botLeftCorbelWidth, double botRightCorbelWidth, IEnumerable<ICurve> edges)
         {
             Height = height;
-            TopFlangeWidth = topFlangeWidth;
-            BotFlangeWidth = botFlangeWidth;
+            Width = width;
             WebThickness = webThickness;
-            BotFlangeThickness = botFlangeThickness;
             TopFlangeThickness = topFlangeThickness;
-            WeldSize = weldSize;
+            BotFlangeThickness = botFlangeThickness;
+            TopLeftCorbelWidth = topLeftCorbelWidth;
+            TopRightCorbelWidth = topRightCorbelWidth;
+            BotLeftCorbelWidth = botLeftCorbelWidth;
+            BotRightCorbelWidth = botRightCorbelWidth;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
-
 
         /***************************************************/
     }

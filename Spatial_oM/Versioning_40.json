@@ -1,0 +1,26 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+	"BH.oM.Geometry.ShapeProfiles" : "BH.oM.Spatial.ShapeProfiles"
+    },
+    "ToOld": {
+	"BH.oM.Spatial.ShapeProfiles" : "BH.oM.Geometry.ShapeProfiles"
+    }
+  },
+  "Type": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Property": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  }
+}

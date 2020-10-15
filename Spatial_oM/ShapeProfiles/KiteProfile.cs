@@ -20,20 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections.ObjectModel;
+using BH.oM.Base;
+using BH.oM.Geometry;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class FreeFormProfile : BHoMObject, IProfile, IImmutable
+    public class KiteProfile : BHoMObject, IProfile, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
+
+        public virtual ShapeType Shape { get; } = ShapeType.DoubleAngle;
+
+        public virtual double Width1 { get; }
+
+        public virtual double Angle1 { get; }
+
+        public virtual double Thickness { get; }
 
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
@@ -41,11 +48,13 @@ namespace BH.oM.Geometry.ShapeProfiles
         /**** Constructors                              ****/
         /***************************************************/
 
-        public FreeFormProfile(IEnumerable<ICurve> edges)
+        public KiteProfile(double width1, double angle1, double thickness, IEnumerable<ICurve> edges)
         {
+            Width1 = width1;
+            Angle1 = angle1;
+            Thickness = thickness;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
-
 
         /***************************************************/
     }
