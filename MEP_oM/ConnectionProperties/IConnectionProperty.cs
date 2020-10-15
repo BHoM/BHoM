@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using BH.oM.Base;
+using BH.oM.MEP.Elements;
 
 namespace BH.oM.MEP.ConnectionProperties
 {
@@ -35,9 +36,14 @@ namespace BH.oM.MEP.ConnectionProperties
     public interface IConnectionProperty : IBHoMObject
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
+        [Description("The point at which the Connector object begins.")]
+        Node StartNode { get; set; }
+
+        [Description("The point at which the Connector bject ends.")]
+        Node EndNode { get; set; }
 
         /***************************************************/
     }

@@ -28,29 +28,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.MEP.Elements;
 
-namespace BH.oM.MEP.ConnectionProperties
+namespace BH.oM.MEP.MaterialFragments
 {
-    [Description("A Cable Tray connection property to store information about its physical connectors.")]
-    public class CableTrayConnectionProperty : BHoMObject, IConnectionProperty
+    public class CableTrayMaterial : BHoMObject, IMEPMaterial
     {
-        /***************************************************/
-        /****                 Properties                ****/
-        /***************************************************/
-
-        [Description("The point at which the Connector object begins.")]
-        public virtual Node StartNode { get; set; }
-
-        [Description("The point at which the Connector bject ends.")]
-        public virtual Node EndNode { get; set; }
-
-        [Description("Whether the start point of the Cable Tray is connected to another segment or not.")]
-        public virtual bool IsStartConnected { get; set; }
-
-        [Description("Whether the end point of the Cable Tray is connected to another segment or not.")]
-        public virtual bool IsEndConnected { get; set; }       
-
-        /***************************************************/
+        //placeholder to hold cable tray material properties
     }
 }

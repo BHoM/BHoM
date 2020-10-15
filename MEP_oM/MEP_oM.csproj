@@ -64,6 +64,7 @@
     <Compile Include="MaterialFragments\InsulationMaterial.cs" />
     <Compile Include="MaterialFragments\LiningMaterial.cs" />
     <Compile Include="MaterialFragments\PipeMaterial.cs" />
+    <Compile Include="MaterialFragments\CableTrayMaterial.cs" />
     <Compile Include="MaterialFragments\WireMaterial.cs" />
     <Compile Include="Parts\AirHandlingUnitBase.cs" />
     <Compile Include="Parts\CoolingCoil.cs" />

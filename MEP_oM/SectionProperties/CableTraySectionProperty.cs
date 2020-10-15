@@ -33,8 +33,8 @@ namespace BH.oM.MEP.SectionProperties
         /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The duct material is the primary material that the duct is composed of (galvanized sheet metal, aluminium)")]
-        public virtual IMEPMaterial CableTrayMaterial { get; set; }     
+        [Description("The cable tray material is the primary material that the it is composed of.")]
+        public virtual IMEPMaterial Material { get; set; }     
 
         [Description("The section profile of the object that will determine its use within a System.")]
         public virtual SectionProfile SectionProfile { get; }
@@ -49,8 +49,9 @@ namespace BH.oM.MEP.SectionProperties
         /****                 Constructor               ****/
         /***************************************************/
         
-        public CableTraySectionProperty(SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
+        public CableTraySectionProperty(IMEPMaterial material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
         {
+            Material = material;
             SectionProfile = sectionProfile;
             ElementSolidArea = elementSolidArea;
             ElementVoidArea = elementVoidArea;            
