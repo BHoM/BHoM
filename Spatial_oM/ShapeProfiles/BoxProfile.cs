@@ -25,46 +25,54 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class ZSectionProfile : BHoMObject, IProfile, IImmutable
+    [Description("Rectangular hollow profile with constant thickness and optional corner radii.")]
+    public class BoxProfile : BHoMObject, IProfile, IImmutable
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public virtual ShapeType Shape { get; } = ShapeType.Box;
 
-        public virtual ShapeType Shape { get; } = ShapeType.Zed;
-
+        [Length]
+        [Description("Full depth.")]
         public virtual double Height { get; }
 
-        public virtual double FlangeWidth { get; }
+        [Length]
+        [Description("Full width.")]
+        public virtual double Width { get; }
 
-        public virtual double WebThickness { get; }
+        [Length]
+        [Description("Thickness of top and bottom as well as both sides (both webs and flanges).")]
+        public virtual double Thickness { get; }
 
-        public virtual double FlangeThickness { get; }
+        [Length]
+        [Description("Corner radius for all four sides of the outer bounding rectangle.")]
+        public virtual double OuterRadius { get; }
 
-        public virtual double RootRadius { get; }
+        [Length]
+        [Description("Corner radius for all four sides of the inner void rectangle.")]
+        public virtual double InnerRadius { get; }
 
-        public virtual double ToeRadius { get; }
-
-        public virtual bool MirrorAboutLocalZ { get; }
-
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ZSectionProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
+        public BoxProfile(double height, double width, double thickness, double outerRadius, double innerRadius, IEnumerable<ICurve> edges)
         {
             Height = height;
-            FlangeWidth = flangeWidth;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalZ = mirrorAboutLocalZ;
+            Width = width;
+            Thickness = thickness;
+            OuterRadius = outerRadius;
+            InnerRadius = innerRadius;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

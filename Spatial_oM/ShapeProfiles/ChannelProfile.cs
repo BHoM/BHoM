@@ -25,43 +25,63 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class FabricatedBoxProfile : BHoMObject, IProfile, IImmutable
+    [Description("C-shaped profile with parallel flanges of the same length and thickness.")]
+    public class ChannelProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.Box;
+        public virtual ShapeType Shape { get; } = ShapeType.Channel;
 
+        [Length]
+        [Description("Full depth of the profile from bottom of the bottom flange to top of the top flange.")]
         public virtual double Height { get; }
 
-        public virtual double Width { get; }
+        [Length]
+        [Description("Full width of the profile from the furthest side of the web to the end of the flanges.")]
+        public virtual double FlangeWidth { get; }
 
+        [Length]
+        [Description("Thickness of the stem of the C shape.")]
         public virtual double WebThickness { get; }
 
-        public virtual double TopFlangeThickness { get; }
+        [Length]
+        [Description("Thickness of the top and base of the C shape.")]
+        public virtual double FlangeThickness { get; }
 
-        public virtual double BotFlangeThickness { get; }
+        [Length]
+        [Description("Fillet radius between inner face of the flanges and the inner face of web.")]
+        public virtual double RootRadius { get; }
 
-        public virtual double WeldSize { get; }
+        [Length]
+        [Description("Fillet radius at the outer edge of the flanges. Value need to be smaller or equal than the flange thickness.")]
+        public virtual double ToeRadius { get; }
 
+        [Description("If true, the section is mirrored about its local z-axis, resulting in a backwards facing C-shape.")]
+        public virtual bool MirrorAboutLocalZ { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public FabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
+        public ChannelProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
         {
             Height = height;
-            Width = width;
-            WebThickness = webThickness;
-            BotFlangeThickness = botFlangeThickness;
-            TopFlangeThickness = topFlangeThickness;
-            WeldSize = weldSize;
+            FlangeWidth = flangeWidth;
+            WebThickness = webthickness;
+            FlangeThickness = flangeThickness;
+            RootRadius = rootRadius;
+            ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

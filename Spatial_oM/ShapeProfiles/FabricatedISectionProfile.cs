@@ -20,41 +20,69 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Collections.ObjectModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class KiteProfile : BHoMObject, IProfile, IImmutable
+    [Description("I-shaped profile with parallel flanges that allows for varying thicknesses of webs and flanges as well as different top and bottom flange widths.")]
+    public class FabricatedISectionProfile : BHoMObject, IProfile, IImmutable
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
-        public virtual ShapeType Shape { get; } = ShapeType.DoubleAngle;
+        [Length]
+        [Description("Full depth.")]
+        public virtual double Height { get; }
 
-        public virtual double Width1 { get; }
+        [Length]
+        [Description("Full width of the top flange.")]
+        public virtual double TopFlangeWidth { get; }
 
-        public virtual double Angle1 { get; }
+        [Length]
+        [Description("Full width of the bottom flange.")]
+        public virtual double BotFlangeWidth { get; }
 
-        public virtual double Thickness { get; }
+        [Length]
+        public virtual double WebThickness { get; }
 
+        [Length]
+        public virtual double TopFlangeThickness { get; }
+
+        [Length]
+        public virtual double BotFlangeThickness { get; }
+
+        [Length]
+        [Description("Fillet weld size between web and flanges. Measured as the distance between intersection of web and flange perpendicular to the edge of the weld.")]
+        public virtual double WeldSize { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public KiteProfile(double width1, double angle1, double thickness, IEnumerable<ICurve> edges)
+        public FabricatedISectionProfile(double height, double topFlangeWidth, double botFlangeWidth, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
         {
-            Width1 = width1;
-            Angle1 = angle1;
-            Thickness = thickness;
+            Height = height;
+            TopFlangeWidth = topFlangeWidth;
+            BotFlangeWidth = botFlangeWidth;
+            WebThickness = webThickness;
+            BotFlangeThickness = botFlangeThickness;
+            TopFlangeThickness = topFlangeThickness;
+            WeldSize = weldSize;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
+
 
         /***************************************************/
     }

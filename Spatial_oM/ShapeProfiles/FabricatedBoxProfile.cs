@@ -25,35 +25,60 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class TaperedProfile : BHoMObject, IProfile, IImmutable
+    [Description("Rectangular hollow profile that allows for varying thickness of the webs and both flanges.")]
+    public class FabricatedBoxProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
+        public virtual ShapeType Shape { get; } = ShapeType.Box;
 
-        public virtual List<int> InterpolationOrder { get; set; }
+        [Length]
+        [Description("Full depth.")]
+        public virtual double Height { get; }
 
-        public virtual ReadOnlyDictionary<double, IProfile> Profiles { get; }
+        [Length]
+        [Description("Full width.")]
+        public virtual double Width { get; }
 
+        [Length]
+        [Description("Thickness of both webs, i.e. both of the sides.")]
+        public virtual double WebThickness { get; }
+
+        [Length]
+        public virtual double TopFlangeThickness { get; }
+
+        [Length]
+        public virtual double BotFlangeThickness { get; }
+
+        [Length]
+        [Description("Fillet weld size between inside of webs and flanges. Measured as the distance between intersection of web and flange perpendicular to the edge of the weld.")]
+        public virtual double WeldSize { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
-
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TaperedProfile(IDictionary<double, IProfile> profiles, List<int> interpolationOrder, ShapeType shape)
+        public FabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
         {
-            Profiles = new ReadOnlyDictionary<double, IProfile>(profiles);
-            Edges = new ReadOnlyCollection<ICurve>(new List<ICurve>());
-            InterpolationOrder = interpolationOrder;
-            Shape = shape;
+            Height = height;
+            Width = width;
+            WebThickness = webThickness;
+            BotFlangeThickness = botFlangeThickness;
+            TopFlangeThickness = topFlangeThickness;
+            WeldSize = weldSize;
+            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
+
 
         /***************************************************/
     }

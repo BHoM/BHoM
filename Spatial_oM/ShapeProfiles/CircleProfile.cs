@@ -23,14 +23,39 @@
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public interface IProfile  : IBHoMObject
+    [Description("Solid circular profile")]
+    public class CircleProfile : BHoMObject, IProfile, IImmutable
     {
-        ShapeType Shape { get; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        public virtual ShapeType Shape { get; } = ShapeType.Circle;
+    
+        [Length]
+        public virtual double Diameter { get; }
 
-        ReadOnlyCollection<ICurve> Edges { get; }
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public CircleProfile(double diameter, IEnumerable<ICurve> edges)
+        {
+            Diameter = diameter;
+            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
+        }
+
+
+        /***************************************************/
     }
 }
 

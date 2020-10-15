@@ -25,56 +25,64 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class GeneralisedFabricatedBoxProfile : BHoMObject, IProfile, IImmutable
+    [Description("T-shaped profile that allows for varying outstand widths as well as varying outstand thicknesses. Outstands width varying thickness are aligned at the top.")]
+    public class GeneralisedTSectionProfile : BHoMObject, IProfile, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual ShapeType Shape { get; } = ShapeType.Box;
+        public virtual ShapeType Shape { get; } = ShapeType.Tee;
 
+        [Length]
+        [Description("Full depth.")]
         public virtual double Height { get; }
 
-        public virtual double Width { get; }
-
+        [Length]
         public virtual double WebThickness { get; }
 
-        public virtual double TopFlangeThickness { get; }
+        [Length]
+        [Description("Outstand width of the top left corner. Measured as the distance from the left side of the web to the end of the outstand.\n"
+                    + "The full width ot the top flange can be calculated as LeftOutstandWidth + WebThickness + RightOutstandWidth.")]
+        public virtual double LeftOutstandWidth { get; }
 
-        public virtual double BotFlangeThickness { get; }
+        [Length]
+        public virtual double LeftOutstandThickness { get; }
 
-        public virtual double TopLeftCorbelWidth { get; }
+        [Length]
+        [Description("Outstand width of the top right corner. Measured as the distance from the right side of the web to the end of the outstand.\n"
+                    + "The full width ot the top flange can be calculated as LeftOutstandWidth + WebThickness + RightOutstandWidth.")]
+        public virtual double RightOutstandWidth { get; }
 
-        public virtual double TopRightCorbelWidth { get; }
+        public virtual double RightOutstandThickness { get; }
 
-        public virtual double BotLeftCorbelWidth { get; }
+        [Description("If true, the section is mirrored about its local y-axis, resulting in upside down T-shape.")]
+        public virtual bool MirrorAboutLocalY { get; }
 
-        public virtual double BotRightCorbelWidth { get; }
-
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public GeneralisedFabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double topLeftCorbelWidth, double topRightCorbelWidth, double botLeftCorbelWidth, double botRightCorbelWidth, IEnumerable<ICurve> edges)
+        public GeneralisedTSectionProfile(double height, double webThickness, double leftOutstandWidth, double leftOutstandThickness, double rightOutstandWidth, double rightOutstandThickness, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
         {
             Height = height;
-            Width = width;
             WebThickness = webThickness;
-            TopFlangeThickness = topFlangeThickness;
-            BotFlangeThickness = botFlangeThickness;
-            TopLeftCorbelWidth = topLeftCorbelWidth;
-            TopRightCorbelWidth = topRightCorbelWidth;
-            BotLeftCorbelWidth = botLeftCorbelWidth;
-            BotRightCorbelWidth = botRightCorbelWidth;
+            LeftOutstandWidth = leftOutstandWidth;
+            LeftOutstandThickness = leftOutstandThickness;
+            RightOutstandWidth = rightOutstandWidth;
+            RightOutstandThickness = rightOutstandThickness;
+            MirrorAboutLocalY = mirrorAboutLocalY;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
         /***************************************************/
     }
-}
-
+}                                                   
