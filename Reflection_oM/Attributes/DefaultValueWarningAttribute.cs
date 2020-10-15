@@ -23,6 +23,7 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -31,6 +32,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Reflection.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
+    [Description("Warning to be generated when an instance of the containing class is generated with this property set to its default value.")]
     public class DefaultValueWarningAttribute : Attribute, IImmutable
     {
         /***************************************************/
