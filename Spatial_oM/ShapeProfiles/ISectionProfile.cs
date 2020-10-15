@@ -46,7 +46,7 @@ namespace BH.oM.Spatial.ShapeProfiles
 
         [Length]
         [Description("Full width both top and bottom flanges.")]
-        public virtual double FlangeWidth { get; }
+        public virtual double Width { get; }
 
         [Length]
         public virtual double WebThickness { get; }
