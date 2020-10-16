@@ -30,7 +30,8 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("T-shaped profile that allows for varying outstand widths as well as varying outstand thicknesses. Outstands width varying thickness are aligned at the top.")]
+    [Description("T-shaped profile that allows for different outsand widths and thicknesses. Outstands with different thicknesses are aligned by their top edge.\n" + 
+                 "The full width of the top flange can be calculated as LeftOutstandWidth + WebThickness + RightOutstandWidth.")]
     public class GeneralisedTSectionProfile : BHoMObject, IProfile, IImmutable
     {
         /***************************************************/
@@ -40,23 +41,21 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual ShapeType Shape { get; } = ShapeType.Tee;
 
         [Length]
-        [Description("Full depth.")]
+        [Description("Full depth between the extreme fibre of the outstand and the web.")]
         public virtual double Height { get; }
 
         [Length]
         public virtual double WebThickness { get; }
 
         [Length]
-        [Description("Outstand width of the top left corner. Measured as the distance from the left side of the web to the end of the outstand.\n"
-                    + "The full width ot the top flange can be calculated as LeftOutstandWidth + WebThickness + RightOutstandWidth.")]
+        [Description("Outstand width on the left side, measured from the outside edge of the web.")]
         public virtual double LeftOutstandWidth { get; }
 
         [Length]
         public virtual double LeftOutstandThickness { get; }
 
         [Length]
-        [Description("Outstand width of the top right corner. Measured as the distance from the right side of the web to the end of the outstand.\n"
-                    + "The full width ot the top flange can be calculated as LeftOutstandWidth + WebThickness + RightOutstandWidth.")]
+        [Description("Outstand width on the right side, measured from the outside edge of the web.")]
         public virtual double RightOutstandWidth { get; }
 
         public virtual double RightOutstandThickness { get; }

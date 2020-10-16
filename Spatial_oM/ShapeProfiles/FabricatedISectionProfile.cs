@@ -30,7 +30,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("I-shaped profile with parallel flanges that allows for varying thicknesses of webs and flanges as well as different top and bottom flange widths.")]
+    [Description("I-shaped profile with parallel flanges that allows for different thicknesses of the web, top flange and bottom flange as well as different top and bottom flange widths.")]
     public class FabricatedISectionProfile : BHoMObject, IProfile, IImmutable
     {
 
@@ -40,7 +40,7 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
         [Length]
-        [Description("Full depth.")]
+        [Description("Full width between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
         [Length]

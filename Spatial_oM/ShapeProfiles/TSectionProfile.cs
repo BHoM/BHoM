@@ -40,7 +40,7 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual ShapeType Shape { get; } = ShapeType.Tee;
 
         [Length]
-        [Description("Full depth.")]
+        [Description("Full depth between extreme fibres of the web and flange.")]
         public virtual double Height { get; }
 
         [Length]
@@ -48,11 +48,9 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual double Width { get; }
 
         [Length]
-        [Description("Thickness of the stem of the T-shape.")]
         public virtual double WebThickness { get; }
 
         [Length]
-        [Description("Thickness of the top of the T-shape")]
         public virtual double FlangeThickness { get; }
 
         [Length]
