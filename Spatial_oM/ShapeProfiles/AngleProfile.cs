@@ -30,7 +30,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("L-shaped profile")]
+    [Description("L-shaped profile.")]
     public class AngleProfile : BHoMObject, IProfile, IImmutable
     {
 
@@ -40,19 +40,17 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual ShapeType Shape { get; } = ShapeType.Angle;
 
         [Length]
-        [Description("Full depth of the profile from bottom of flange to top of the web.")]
+        [Description("Full depth between the extreme fibres of the flange and web.")]
         public virtual double Height { get; }
 
         [Length]
-        [Description("Full width of the profile from the furthest side of the web to the end of the flange.")]
+        [Description("Full width between the extreme fibres of the flange and web.")]
         public virtual double Width { get; }
 
         [Length]
-        [Description("Thickness of the stem of the L-shape.")]
         public virtual double WebThickness { get; }
 
         [Length]
-        [Description("Thickness of the base of the L-shape.")]
         public virtual double FlangeThickness { get; }
 
         [Length]
@@ -60,13 +58,13 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual double RootRadius { get; }
 
         [Length]
-        [Description("Fillet radius at the outer edge of the flange and web. Value need to be smaller or equal than the Flange and Web thicknesses")]
+        [Description("Fillet radius at the end of the flange and the end of the web. Value need to be smaller or equal than the Flange and Web thicknesses")]
         public virtual double ToeRadius { get; }
 
         [Description("If true, the section is mirrored about its local z-axis, resulting in a backwards facing L-shape.")]
         public virtual bool MirrorAboutLocalZ { get; }
 
-        [Description("If true, the section is mirrored about its local y-axis, resulting in upside down L-shape.")]
+        [Description("If true, the section is mirrored about its local y-axis, resulting in and upside down L-shape.")]
         public virtual bool MirrorAboutLocalY { get; }
 
         [Description("Edge curves that matches the dimensions in the global XY-plane.")]

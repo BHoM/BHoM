@@ -30,7 +30,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("Rectangular hollow profile that allows for varying thickness of the webs and both flanges.")]
+    [Description("Rectangular hollow profile that allows for different thicknesses of the webs, top flange and bottom flange.")]
     public class FabricatedBoxProfile : BHoMObject, IProfile, IImmutable
     {
 
@@ -40,15 +40,14 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual ShapeType Shape { get; } = ShapeType.Box;
 
         [Length]
-        [Description("Full depth.")]
+        [Description("Full depth between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
         [Length]
-        [Description("Full width.")]
+        [Description("Full width between the extreme fibres of the webs.")]
         public virtual double Width { get; }
 
         [Length]
-        [Description("Thickness of both webs, i.e. both of the sides.")]
         public virtual double WebThickness { get; }
 
         [Length]

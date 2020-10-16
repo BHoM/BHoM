@@ -30,7 +30,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("Rectangular hollow profile that allows for varying thickness of the webs and both flanges as well as freely defined outstands of the top and bottom flanges.")]
+    [Description("Rectangular hollow profile that allows for different thicknesses of the webs, top flange and bottom flange as well as defined outstands of the top and bottom flange")]
     public class GeneralisedFabricatedBoxProfile : BHoMObject, IProfile, IImmutable
     {
         /***************************************************/
@@ -40,15 +40,14 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual ShapeType Shape { get; } = ShapeType.Box;
 
         [Length]
-        [Description("Full depth.")]
+        [Description("Full depth between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
         [Length]
-        [Description("Full width.")]
+        [Description("Width between the extreme fibres of the webs, excluding corbel widths.")]
         public virtual double Width { get; }
 
         [Length]
-        [Description("Thickness of both webs, i.e. both of the sides.")]
         public virtual double WebThickness { get; }
 
         [Length]
@@ -58,19 +57,19 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual double BotFlangeThickness { get; }
 
         [Length]
-        [Description("Outstand along the top flange in the top left corner of the profile.")]
+        [Description("The additional width added to the left side of the top flange.")]
         public virtual double TopLeftCorbelWidth { get; }
 
         [Length]
-        [Description("Outstand along the top flange in the top right corner of the profile.")]
+        [Description("The additional width added to the right side of the top flange.")]
         public virtual double TopRightCorbelWidth { get; }
 
         [Length]
-        [Description("Outstand along the bottom flange in the bottom left corner of the profile.")]
+        [Description("The additional width added to the left side of the bottom flange.")]
         public virtual double BotLeftCorbelWidth { get; }
 
         [Length]
-        [Description("Outstand along the bottom flange in the bottom right corner of the profile.")]
+        [Description("The additional width added to the right side of the bottom flange.")]
         public virtual double BotRightCorbelWidth { get; }
 
         [Description("Edge curves that matches the dimensions in the global XY-plane.")]

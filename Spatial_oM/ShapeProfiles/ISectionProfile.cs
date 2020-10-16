@@ -41,11 +41,11 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
         [Length]
-        [Description("Full depth of the profile from bottom of the bottom flange to top of the top flange.")]
+        [Description("Full depth between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
         [Length]
-        [Description("Full width both top and bottom flanges.")]
+        [Description("Full width of both flanges between the extreme fibres of the flanges.")]
         public virtual double Width { get; }
 
         [Length]
@@ -60,7 +60,7 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual double RootRadius { get; }
 
         [Length]
-        [Description("Fillet radius at the outer edge of the flanges. Value need to be smaller or equal than the flange thickness.")]
+        [Description("Fillet radius at the end of the flanges. Value need to be smaller or equal than the flange thickness.")]
         public virtual double ToeRadius { get; }
 
         [Description("Edge curves that matches the dimensions in the global XY-plane.")]
