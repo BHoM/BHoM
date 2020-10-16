@@ -40,7 +40,7 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
         [Length]
-        [Description("Full width between the extreme fibres of the flanges.")]
+        [Description("Full depth between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
         [Length]

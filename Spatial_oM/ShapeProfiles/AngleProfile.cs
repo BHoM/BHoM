@@ -58,7 +58,7 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual double RootRadius { get; }
 
         [Length]
-        [Description("Fillet radius at the end of the flange and the end of the web. Value need to be smaller or equal than the Flange and Web thicknesses")]
+        [Description("Fillet radius at the end of the flange and the end of the web. Value need to be smaller or equal than the flange and web thicknesses")]
         public virtual double ToeRadius { get; }
 
         [Description("If true, the section is mirrored about its local z-axis, resulting in a backwards facing L-shape.")]
