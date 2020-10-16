@@ -23,16 +23,17 @@
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Analytical.Elements;
+using BH.oM.Geometry;
 
 namespace BH.oM.Architecture.Elements
 {
-    public class CeilingTile : BHoMObject, IElement2D
+    public class CeilingTile : BHoMObject, IRegion
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual IRegion Region { get; set; } = null;
+        public virtual ICurve Perimeter { get; set; } = null;
 
         /***************************************************/
     }
