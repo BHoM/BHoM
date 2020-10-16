@@ -57,9 +57,13 @@
     <Compile Include="Results\GlobalWarmingPotentialResult.cs" />
     <Compile Include="Results\LifeCycleAssessmentElementResult.cs" />
     <Compile Include="Results\LifeCycleAssessmentResult.cs" />
+    <Compile Include="ScopeObjects\FireProtectionScope.cs" />
     <Compile Include="ScopeObjects\EnclosuresScope.cs" />
     <Compile Include="ScopeObjects\FoundationsScope.cs" />
     <Compile Include="ScopeObjects\LifeCycleAssessmentScope.cs" />
+    <Compile Include="ScopeObjects\MechanicalScope.cs" />
+    <Compile Include="ScopeObjects\ElectricalScope.cs" />
+    <Compile Include="ScopeObjects\PlumbingScope.cs" />
     <Compile Include="ScopeObjects\MEPScope.cs" />
     <Compile Include="ScopeObjects\ProjectLifeCycleAssessment.cs" />
     <Compile Include="ScopeObjects\StructuresScope.cs" />
@@ -91,6 +95,10 @@
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MEP_oM\MEP_oM.csproj">
+      <Project>{088711c9-ac7e-409d-a1cd-a65fbabd88da}</Project>
+      <Name>MEP_oM</Name>
     </ProjectReference>
     <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
       <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>

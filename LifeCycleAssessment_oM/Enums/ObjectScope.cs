@@ -26,8 +26,11 @@ namespace BH.oM.LifeCycleAssessment
     {
         Undefined,
         Enclosure,
+        Electrical,
+        FireProtection,
         Foundation,
-        MEP,
+        Mechanical,
+        Plumbing,
         Structure,
         TenantImprovement
     }

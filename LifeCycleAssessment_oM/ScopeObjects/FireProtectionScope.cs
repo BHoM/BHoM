@@ -20,28 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.MEP.Elements;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("The MEP Scope object provides a template for expected objects to be assessed within this Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment")]
-    public class MEPScope : BHoMObject
+    [Description("Fire Protection Scope provides a template for expected objects to be assessed within the MEPScope")]
+    public class FireProtectionScope : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Mechanical Scope provides a template for expected objects to be assessed within the MEPScope")]
-        public virtual MechanicalScope MechanicalScope { get; set; } = new MechanicalScope();
+        [Description("Fire protection equipment includes both fire and jockey pumps which convey water through the fire protection system")]
+        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
 
-        [Description("Electrical Scope provides a template for expected objects to be assessed within the MEPScope")]
-        public virtual ElectricalScope ElectricalScope { get; set; } = new ElectricalScope();
+        [Description("Distribution systems that convey fluids in the case of fire")]
+        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
 
-        [Description("Plumbing Scope provides a template for expected objects to be assessed within the MEPScope")]
-        public virtual PlumbingScope PlumbingScope { get; set; } = new PlumbingScope();
+        [Description("Sprinklers used for fire protection throughout the building")]
+        public virtual List<IBHoMObject> Sprinklers { get; set; } = new List<IBHoMObject>();
 
-        [Description("Fire Protection Scope provides a template for expected objects to be assessed within the MEPScope")]
-        public virtual FireProtectionScope FireProtectionScope { get; set; } = new FireProtectionScope();
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
         /***************************************************/
     }
 }
