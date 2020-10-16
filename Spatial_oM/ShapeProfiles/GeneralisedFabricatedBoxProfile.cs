@@ -57,19 +57,19 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual double BotFlangeThickness { get; }
 
         [Length]
-        [Description("The additional width added to the left side of the top flange.")]
+        [Description("The additional width added to the left side of the top flange, measured from the outside edge of the web.")]
         public virtual double TopLeftCorbelWidth { get; }
 
         [Length]
-        [Description("The additional width added to the right side of the top flange.")]
+        [Description("The additional width added to the right side of the top flange, measured from the outside edge of the web.")]
         public virtual double TopRightCorbelWidth { get; }
 
         [Length]
-        [Description("The additional width added to the left side of the bottom flange.")]
+        [Description("The additional width added to the left side of the bottom flange, measured from the outside edge of the web.")]
         public virtual double BotLeftCorbelWidth { get; }
 
         [Length]
-        [Description("The additional width added to the right side of the bottom flange.")]
+        [Description("The additional width added to the right side of the bottom flange, measured from the outside edge of the web.")]
         public virtual double BotRightCorbelWidth { get; }
 
         [Description("Edge curves that matches the dimensions in the global XY-plane.")]
