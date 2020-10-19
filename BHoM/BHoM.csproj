@@ -59,7 +59,6 @@
   <ItemGroup>
     <Compile Include="AdapterIdFragment.cs" />
     <Compile Include="CustomObject.cs" />
-    <Compile Include="Interface\IAdapterIdFragment.cs" />
     <Compile Include="FragmentSet.cs" />
     <Compile Include="Interface\IFragment.cs" />
     <Compile Include="Interface\IBHoMGroup.cs" />
