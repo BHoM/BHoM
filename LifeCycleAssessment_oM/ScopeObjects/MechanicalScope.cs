@@ -20,41 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System.ComponentModel;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Linq;
-using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.MEP.Elements;
 
-namespace BH.oM.Geometry
+namespace BH.oM.LifeCycleAssessment
 {
-    [Description("Solid representation defined by a collection of connected surfaces forming a closed volume")]
-    public class BoundaryRepresentation : ISolid, IImmutable
+    [Description("Mechanical Scope provides a template for expected objects to be assessed within the MEPScope")]
+    public class MechanicalScope : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("Mechanical distribution system that convey airflow from heating, ventilation or cooling systems (e.g. sheet metal)")]
+        public virtual List<Duct> Ducts { get; set; } = new List<Duct>();
 
-        [Description("List of ISurfaces must form a closed volume - checks and guarantees to be performed at conversion")]
-        public virtual ReadOnlyCollection<ISurface> Surfaces { get; }
+        [Description("Mechanical equipment includes machines and devices that provide heating, cooling, venting, pumping etc. (e.g. chillers, fans, AHUs, pumps)")]
+        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
+        
+        [Description("Mechanical pipework includes distribution systems (e.g. copper) that convey fluids")]
+        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
 
-        [Volume]
-        [Description("The enclosed volume created by the boundary surfaces. Property is set where available at conversion. If unavailable, or invalidated, will read NaN (not a number)")]
-        public virtual double Volume { get; } = double.NaN;
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BoundaryRepresentation(IEnumerable<ISurface> surfaces, double volume)
-        {
-            Surfaces = new ReadOnlyCollection<ISurface>(surfaces.ToList());
-            Volume = volume;
-        }
-
-
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
         /***************************************************/
     }
 }
-

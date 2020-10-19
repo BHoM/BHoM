@@ -21,52 +21,36 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Reflection.Attributes
 {
-    public class FabricatedISectionProfile : BHoMObject, IProfile, IImmutable
+    [AttributeUsage(AttributeTargets.Property)]
+    [Description("Warning to be generated when an instance of the containing class is generated with this property set to its default value.")]
+    public class DefaultValueWarningAttribute : Attribute, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
-        public virtual double Height { get; }
+        public virtual string Warning { get; private set; } = "";
 
-        public virtual double TopFlangeWidth { get; }
-
-        public virtual double BotFlangeWidth { get; }
-
-        public virtual double WebThickness { get; }
-
-        public virtual double TopFlangeThickness { get; }
-
-        public virtual double BotFlangeThickness { get; }
-
-        public virtual double WeldSize { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public FabricatedISectionProfile(double height, double topFlangeWidth, double botFlangeWidth, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
+        public DefaultValueWarningAttribute(string warning)
         {
-            Height = height;
-            TopFlangeWidth = topFlangeWidth;
-            BotFlangeWidth = botFlangeWidth;
-            WebThickness = webThickness;
-            BotFlangeThickness = botFlangeThickness;
-            TopFlangeThickness = topFlangeThickness;
-            WeldSize = weldSize;
-            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
+            Warning = warning;
         }
+
 
 
         /***************************************************/

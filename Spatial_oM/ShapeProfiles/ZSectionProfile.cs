@@ -21,36 +21,51 @@
  */
 
 using BH.oM.Base;
-using System.ComponentModel;
+using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
-using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("Solid representation defined by a collection of connected surfaces forming a closed volume")]
-    public class BoundaryRepresentation : ISolid, IImmutable
+    public class ZSectionProfile : BHoMObject, IProfile, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("List of ISurfaces must form a closed volume - checks and guarantees to be performed at conversion")]
-        public virtual ReadOnlyCollection<ISurface> Surfaces { get; }
+        public virtual ShapeType Shape { get; } = ShapeType.Zed;
 
-        [Volume]
-        [Description("The enclosed volume created by the boundary surfaces. Property is set where available at conversion. If unavailable, or invalidated, will read NaN (not a number)")]
-        public virtual double Volume { get; } = double.NaN;
+        public virtual double Height { get; }
+
+        public virtual double FlangeWidth { get; }
+
+        public virtual double WebThickness { get; }
+
+        public virtual double FlangeThickness { get; }
+
+        public virtual double RootRadius { get; }
+
+        public virtual double ToeRadius { get; }
+
+        public virtual bool MirrorAboutLocalZ { get; }
+
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BoundaryRepresentation(IEnumerable<ISurface> surfaces, double volume)
+        public ZSectionProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
         {
-            Surfaces = new ReadOnlyCollection<ISurface>(surfaces.ToList());
-            Volume = volume;
+            Height = height;
+            FlangeWidth = flangeWidth;
+            WebThickness = webthickness;
+            FlangeThickness = flangeThickness;
+            RootRadius = rootRadius;
+            ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
+            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
 

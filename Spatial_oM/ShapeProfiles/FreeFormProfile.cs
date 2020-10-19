@@ -25,46 +25,28 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class ChannelProfile : BHoMObject, IProfile, IImmutable
+    [Description("Freeform profile only defined by its geometry without any dimensional data. To be used as a fallback for profiles not yet explicitly defined.")]
+    public class FreeFormProfile : BHoMObject, IProfile, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.Channel;
+        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
 
-        public virtual double Height { get; }
-
-        public virtual double FlangeWidth { get; }
-
-        public virtual double WebThickness { get; }
-
-        public virtual double FlangeThickness { get; }
-
-        public virtual double RootRadius { get; }
-
-        public virtual double ToeRadius { get; }
-
-        public virtual bool MirrorAboutLocalZ { get; }
-
+        [Description("Edge curves defining the section. Should be curves defined in the global XY-plane.\n" +
+                     "This assumes that the outermost curve(s) are solid. Curves inside a solid region are assumed to be openings, and curves within openings are assumed to be solid, etc.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ChannelProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
+        public FreeFormProfile(IEnumerable<ICurve> edges)
         {
-            Height = height;
-            FlangeWidth = flangeWidth;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalZ = mirrorAboutLocalZ;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

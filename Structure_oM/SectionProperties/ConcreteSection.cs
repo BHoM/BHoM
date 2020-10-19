@@ -26,7 +26,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using BH.oM.Structure.MaterialFragments;
-using BH.oM.Geometry.ShapeProfiles;
+using BH.oM.Spatial.ShapeProfiles;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 

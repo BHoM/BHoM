@@ -21,38 +21,41 @@
  */
 
 using BH.oM.Base;
-using System.ComponentModel;
+using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("Solid representation defined by a collection of connected surfaces forming a closed volume")]
-    public class BoundaryRepresentation : ISolid, IImmutable
+    public class TaperedProfile : BHoMObject, IProfile, IImmutable
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
 
-        [Description("List of ISurfaces must form a closed volume - checks and guarantees to be performed at conversion")]
-        public virtual ReadOnlyCollection<ISurface> Surfaces { get; }
+        public virtual List<int> InterpolationOrder { get; set; }
 
-        [Volume]
-        [Description("The enclosed volume created by the boundary surfaces. Property is set where available at conversion. If unavailable, or invalidated, will read NaN (not a number)")]
-        public virtual double Volume { get; } = double.NaN;
+        public virtual ReadOnlyDictionary<double, IProfile> Profiles { get; }
+
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BoundaryRepresentation(IEnumerable<ISurface> surfaces, double volume)
+        public TaperedProfile(IDictionary<double, IProfile> profiles, List<int> interpolationOrder, ShapeType shape)
         {
-            Surfaces = new ReadOnlyCollection<ISurface>(surfaces.ToList());
-            Volume = volume;
+            Profiles = new ReadOnlyDictionary<double, IProfile>(profiles);
+            Edges = new ReadOnlyCollection<ICurve>(new List<ICurve>());
+            InterpolationOrder = interpolationOrder;
+            Shape = shape;
         }
-
 
         /***************************************************/
     }

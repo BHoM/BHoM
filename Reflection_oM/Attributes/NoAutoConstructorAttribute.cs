@@ -20,32 +20,35 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Geometry.ShapeProfiles
+using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BH.oM.Reflection.Attributes
 {
-    /***************************************************/
-
-    public enum ShapeType
+    [AttributeUsage(AttributeTargets.Class)]
+    [Description("Prevents an auto-constructor component to be available in the UI for the targeted class. This means that `Engine.Create` methods will be the only option to generate instances of that class in the UI.")]
+    public class NoAutoConstructorAttribute : Attribute, IImmutable
     {
-        Rectangle = 0,
-        Box = 1,
-        Angle = 2,
-        ISection = 3,
-        Tee = 4,
-        Channel = 5,
-        Tube = 6,
-        Circle = 7,
-        Zed = 8,
-        FreeForm = 9,
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        DoubleAngle = 22,
-        DoubleISection = 23,
-        DoubleChannel = 25,
 
-        //Maybe should move elsewhere
-        Cable = 30,
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public NoAutoConstructorAttribute()
+        {
+        }
+
+        /***************************************************/
     }
-
-    /***************************************************/
-
 }
 

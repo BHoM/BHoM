@@ -21,49 +21,31 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Reflection.Attributes
 {
-    public class ISectionProfile : BHoMObject, IProfile, IImmutable
+    [AttributeUsage(AttributeTargets.Property)]
+    [Description("Marks a property as mandatory input when creating an instance of its containing class.")]
+    public class RequiredAttribute : Attribute, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual ShapeType Shape { get; } = ShapeType.ISection;
-
-        public virtual double Height { get; }
-
-        public virtual double Width { get; }
-
-        public virtual double WebThickness { get; }
-
-        public virtual double FlangeThickness { get; }
-
-        public virtual double RootRadius { get; }
-
-        public virtual double ToeRadius { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ISectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
+        public RequiredAttribute()
         {
-            Height = height;
-            Width = width;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
         /***************************************************/

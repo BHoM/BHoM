@@ -25,9 +25,12 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
+    [Description("Rectangular hollow profile with constant thickness and optional corner radii.")]
     public class BoxProfile : BHoMObject, IProfile, IImmutable
     {
 
@@ -36,16 +39,27 @@ namespace BH.oM.Geometry.ShapeProfiles
         /***************************************************/
         public virtual ShapeType Shape { get; } = ShapeType.Box;
 
+        [Length]
+        [Description("Full depth between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
+        [Length]
+        [Description("Full width between the extreme fibres of the webs.")]
         public virtual double Width { get; }
 
+        [Length]
+        [Description("Thickness of both webs and flanges.")]
         public virtual double Thickness { get; }
 
+        [Length]
+        [Description("Corner radius for all four corners of the outer bounding rectangle.")]
         public virtual double OuterRadius { get; }
 
+        [Length]
+        [Description("Corner radius for all four corners of the inner void rectangle.")]
         public virtual double InnerRadius { get; }
 
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/

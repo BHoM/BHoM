@@ -20,22 +20,32 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
-using BH.oM.Spatial.ShapeProfiles;
-
-namespace BH.oM.Structure.SectionProperties
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("Interface for sections based on Shape profiles.")]
-    public interface IGeometricalSection : ISectionProperty
+    /***************************************************/
+
+    public enum ShapeType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        Rectangle = 0,
+        Box = 1,
+        Angle = 2,
+        ISection = 3,
+        Tee = 4,
+        Channel = 5,
+        Tube = 6,
+        Circle = 7,
+        Zed = 8,
+        FreeForm = 9,
 
-        [Description("Profile of the section, containing dimensions and section geometry.")]
-        IProfile SectionProfile { get; }
+        DoubleAngle = 22,
+        DoubleISection = 23,
+        DoubleChannel = 25,
 
-        /***************************************************/
+        //Maybe should move elsewhere
+        Cable = 30,
     }
+
+    /***************************************************/
+
 }
 

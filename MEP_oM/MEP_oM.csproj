@@ -112,6 +112,10 @@
       <Name>Quantities_oM</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Spatial_oM\Spatial_oM.csproj">
+      <Project>{789eaf6c-d68f-4770-b01b-c07bbf3d2188}</Project>
+      <Name>Spatial_oM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

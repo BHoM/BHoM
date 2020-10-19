@@ -23,35 +23,17 @@
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class TaperedProfile : BHoMObject, IProfile, IImmutable
+    [Description("Base interface for all shape profiles.")]
+    public interface IProfile  : IBHoMObject
     {
+        ShapeType Shape { get; }
 
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
-
-        public virtual ReadOnlyDictionary<decimal, IProfile> Profiles { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public TaperedProfile(IDictionary<decimal, IProfile> profiles)
-        {
-            Profiles = new ReadOnlyDictionary<decimal, IProfile>(profiles);
-            Edges = new ReadOnlyCollection<ICurve>(new List<ICurve>());
-        }
-
-
-        /***************************************************/
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
+        ReadOnlyCollection<ICurve> Edges { get; }
     }
 }
 

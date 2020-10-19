@@ -28,7 +28,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using BH.oM.Base;
-using BH.oM.Geometry.ShapeProfiles;
+using BH.oM.Spatial.ShapeProfiles;
 
 namespace BH.oM.MEP.SectionProperties
 {
