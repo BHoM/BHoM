@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Base
 {
-    public class AdapterIdFragment : IAdapterIdFragment
+    public class AdapterIdFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
