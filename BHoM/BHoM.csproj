@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdapterIdFragment.cs" />
+    <Compile Include="Interface\IAdapterId.cs" />
     <Compile Include="CustomObject.cs" />
     <Compile Include="FragmentSet.cs" />
     <Compile Include="Interface\IFragment.cs" />

@@ -25,15 +25,13 @@ using System.Collections.Generic;
 
 namespace BH.oM.Base
 {
-    public class AdapterIdFragment : IFragment
+    public interface IAdapterId : IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+    }
 
-        public virtual object Id { get; set; }
-
-        /***************************************************/
+    public interface IAdapterId<T> : IAdapterId, IFragment
+    {
+        T Id { get; set; }
     }
 }
 
