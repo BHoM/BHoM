@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,56 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Programming
+using BH.oM.Base;
+using BH.oM.MEP.Elements;
+
+namespace BH.oM.MEP.ConnectionProperties
 {
-    [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
-    public class BlockNode : BHoMObject, INode, IImmutable
+    [Description("Base interface for MEP physical connection properties.")]
+    public interface IConnectionProperty : IBHoMObject
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        [Description("The point at which the Connector object begins.")]
+        Node StartNode { get; set; }
 
-        public virtual string Description { get; set; } = "";
-
-        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
-
-        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
-
-        public virtual bool IsInline { get; set; } = false;
-
-        public virtual bool IsDeclaration { get; set; } = false;
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BlockNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
-        {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
-        }
+        [Description("The point at which the Connector bject ends.")]
+        Node EndNode { get; set; }
 
         /***************************************************/
     }

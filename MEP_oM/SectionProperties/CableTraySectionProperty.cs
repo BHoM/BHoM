@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,55 +20,41 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Programming
+using BH.oM.Base;
+using BH.oM.MEP.MaterialFragments;
+
+namespace BH.oM.MEP.SectionProperties
 {
-    [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
-    public class BlockNode : BHoMObject, INode, IImmutable
+    public class CableTraySectionProperty : BHoMObject, IImmutable
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        [Description("The cable tray material is the primary material that the it is composed of.")]
+        public virtual IMEPMaterial Material { get; set; }     
 
-        public virtual string Description { get; set; } = "";
+        [Description("The section profile of the object that will determine its use within a System.")]
+        public virtual SectionProfile SectionProfile { get; }
 
-        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
+        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
+        public virtual double ElementSolidArea { get; }
 
-        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
-
-        public virtual bool IsInline { get; set; } = false;
-
-        public virtual bool IsDeclaration { get; set; } = false;
-
+        [Description("The interior area within the element's shapeProfile. This corresponds to the actual open area less any material thickness.")]
+        public virtual double ElementVoidArea { get; }
 
         /***************************************************/
-        /**** Constructors                              ****/
+        /****                 Constructor               ****/
         /***************************************************/
-
-        public BlockNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
+        
+        public CableTraySectionProperty(IMEPMaterial material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
         {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
+            Material = material;
+            SectionProfile = sectionProfile;
+            ElementSolidArea = elementSolidArea;
+            ElementVoidArea = elementVoidArea;            
         }
 
         /***************************************************/

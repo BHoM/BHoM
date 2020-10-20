@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,56 +20,40 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Programming
+using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.MEP.SectionProperties;
+using BH.oM.Dimensional;
+using BH.oM.MEP.ConnectionProperties;
+using BH.oM.Quantities.Attributes;
+
+
+namespace BH.oM.MEP.Elements
 {
-    [Description("A syntax node corresponding to a code loop.")]
-    public class LoopNode : BHoMObject, INode, IImmutable
+    [Description("A Cable Tray object is a passageway which conveys material (typically cables)")]
+    public class CableTray : BHoMObject, ILink<Node>, IElement1D, IElementM
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        [Description("The point at which the Cable Tray object begins.")]
+        public virtual Node StartNode { get; set; } = null;
 
-        public virtual string Description { get; set; } = "";
+        [Description("The point at which the Cable Tray object ends.")]
+        public virtual Node EndNode { get; set; } = null;       
 
-        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
+        [Description("The Cable Tray section property defines the shape (rectangular) and its associated properties (height, width, material, thickness/gauge).")]
+        public virtual CableTraySectionProperty SectionProperty { get; set; } = null;
 
-        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
+        [Description("The Cable Tray connections properties, such as if it's connected and to what.")]
+        public virtual CableTrayConnectionProperty ConnectionProperty { get; set; } = null;
 
-        public virtual bool IsInline { get; set; } = false;
-
-        public virtual bool IsDeclaration { get; set; } = false;
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public LoopNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
-        {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
-        }
+        [Angle]
+        [Description("This is the Cable Tray's planometric orientation angle (the rotation around its central axis).")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
         /***************************************************/
     }
