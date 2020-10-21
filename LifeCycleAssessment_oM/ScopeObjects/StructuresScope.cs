@@ -23,8 +23,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-
 using BH.oM.Dimensional;
+using BH.oM.Physical.Elements;
+using BH.oM.Structure.Elements;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -35,22 +36,22 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("Structural slabs are inclusive of the above-grade structural floors in a building")]
-        public virtual List<IBHoMObject> Slabs { get; set; } = new List<IBHoMObject>();
+        public virtual List<Panel> Slabs { get; set; } = new List<Panel>();
 
         [Description("Structural core walls are inclusive of the above-grade, structural-grade walls surrounding the core (elevators, building services)")]
-        public virtual List<IBHoMObject> CoreWalls { get; set; } = new List<IBHoMObject>();
+        public virtual List<Panel> CoreWalls { get; set; } = new List<Panel>();
 
         [Description("Structural beams are typically horizontal elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<IBHoMObject> Beams { get; set; } = new List<IBHoMObject>();
+        public virtual List<Bar> Beams { get; set; } = new List<Bar>();
 
         [Description("Structural columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<IBHoMObject> Columns { get; set; } = new List<IBHoMObject>();
+        public virtual List<Bar> Columns { get; set; } = new List<Bar>();
 
         [Description("Structural bracing are typically diagonal members that provide lateral support between structural bays")]
-        public virtual List<IBHoMObject> Bracing { get; set; } = new List<IBHoMObject>();
+        public virtual List<Bar> Bracing { get; set; } = new List<Bar>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
 
         /***************************************************/
     }
