@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,25 +21,20 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Constructions;
 using BH.oM.Dimensional;
-using System.Collections.Generic;
+using BH.oM.Analytical.Elements;
+using BH.oM.Geometry;
 
 namespace BH.oM.Architecture.Elements
 {
-    public class Ceiling : BHoMObject, IElement2D
+    public class CeilingTile : BHoMObject, IRegion
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual ISurface Surface { get; set; } = null;
-        public virtual Construction Construction { get; set; } = null;
-
-        public virtual List<CeilingTile> Tiles { get; set; } = new List<CeilingTile>();
+        public virtual ICurve Perimeter { get; set; } = null;
 
         /***************************************************/
     }
 }
-
