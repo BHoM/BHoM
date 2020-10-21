@@ -36,19 +36,19 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
 
         [Description("Enclosure walls are inclusive of the opaque exterior wall assemblies of a building")]
-        public virtual List<IBHoMObject> Walls { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Walls { get; set; } = new List<IElementM>();
         
         [Description("Enclosure curtain walls are large sheets of transparent glazing on the building exterior")]
-        public virtual List<IBHoMObject> CurtainWalls { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> CurtainWalls { get; set; } = new List<IElementM>();
         
         [Description("Enclosure windows are are openings in the building exterior, which consist of framing and glazing")]
-        public virtual List<IBHoMObject> Windows { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Windows { get; set; } = new List<IElementM>();
         
         [Description("Enclosure doors are are openings in the building exterior, which consist of framing and panels")]
-        public virtual List<IBHoMObject> Doors { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Doors { get; set; } = new List<IElementM>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
 
         /***************************************************/
     }
