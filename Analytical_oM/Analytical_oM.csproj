@@ -50,7 +50,13 @@
     <Compile Include="Elements\IOpening.cs" />
     <Compile Include="Elements\IPanel.cs" />
     <Compile Include="Elements\IRegion.cs" />
+    <Compile Include="Elements\IRelation.cs" />
     <Compile Include="Elements\ISurface.cs" />
+    <Compile Include="Elements\Relation.cs" />
+    <Compile Include="Fragments\DependencyFragment.cs" />
+    <Compile Include="Fragments\IDependencyFragment.cs" />
+    <Compile Include="Fragments\InputsFragment.cs" />
+    <Compile Include="Fragments\RoutingFragment.cs" />
     <Compile Include="IAnalytical.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\IMeshElementResult.cs" />
