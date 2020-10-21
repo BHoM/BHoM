@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.Physical.Elements;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -49,10 +50,10 @@ namespace BH.oM.LifeCycleAssessment
         public virtual List<IElementM> Furniture { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Interior Doors includes doors in the interior of the building")]
-        public virtual List<IElementM> InteriorDoors { get; set; } = new List<IElementM>();
+        public virtual List<Door> InteriorDoors { get; set; } = new List<Door>();
         
         [Description("Tenant Improvements Partition Walls includes walls in the interior of the building")]
-        public virtual List<IElementM> PartitionWalls { get; set; } = new List<IElementM>();
+        public virtual List<Wall> PartitionWalls { get; set; } = new List<Wall>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
         public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();

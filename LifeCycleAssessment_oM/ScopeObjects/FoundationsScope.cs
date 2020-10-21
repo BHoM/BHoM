@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.Physical.Elements;
 using BH.oM.Structure.Elements;
 
 namespace BH.oM.LifeCycleAssessment
@@ -39,16 +40,16 @@ namespace BH.oM.LifeCycleAssessment
         public virtual List<IElementM> Footings { get; set; } = new List<IElementM>();
         
         [Description("Foundation piles are structural supports that are driven into the ground below a building to support the building structure")]
-        public virtual List<Bar> Piles { get; set; } = new List<Bar>();
+        public virtual List<Pile> Piles { get; set; } = new List<Pile>();
         
         [Description("Foundation walls are structural walls built below-grade")]
-        public virtual List<Panel> Walls { get; set; } = new List<Panel>();
+        public virtual List<Wall> Walls { get; set; } = new List<Wall>();
         
         [Description("Foundation slabs are structural slabs upon which the building is constructed. This category expects any type of slab, but assumes no construction properties")]
-        public virtual List<Panel> Slabs { get; set; } = new List<Panel>();
+        public virtual List<Floor> Slabs { get; set; } = new List<Floor>();
 
         [Description("Foundation grade beams transmit load from a bearing wall into foundations")]
-        public virtual List<Bar> GradeBeams { get; set; } = new List<Bar>();
+        public virtual List<Beam> GradeBeams { get; set; } = new List<Beam>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
         public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
