@@ -45,6 +45,7 @@
     <Compile Include="Elements\IFace.cs" />
     <Compile Include="Elements\Graph.cs" />
     <Compile Include="Elements\ILink.cs" />
+    <Compile Include="Elements\ILinkDirection.cs" />
     <Compile Include="Elements\IMesh.cs" />
     <Compile Include="Elements\INode.cs" />
     <Compile Include="Elements\IOpening.cs" />
@@ -55,12 +56,14 @@
     <Compile Include="Elements\Relation.cs" />
     <Compile Include="Fragments\DependencyFragment.cs" />
     <Compile Include="Fragments\IDependencyFragment.cs" />
+    <Compile Include="Fragments\InputOutputFragment.cs" />
     <Compile Include="Fragments\InputsFragment.cs" />
     <Compile Include="Fragments\RoutingFragment.cs" />
     <Compile Include="IAnalytical.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\IResult.cs" />
     <Compile Include="Results\IResultCollection.cs" />
+    <Compile Include="Results\ShortestPathResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Versioning_32.json" />
