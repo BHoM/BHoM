@@ -36,19 +36,19 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("Structural slabs are inclusive of the above-grade structural floors in a building")]
-        public virtual List<Panel> Slabs { get; set; } = new List<Panel>();
+        public virtual List<Floor> Slabs { get; set; } = new List<Floor>();
 
         [Description("Structural core walls are inclusive of the above-grade, structural-grade walls surrounding the core (elevators, building services)")]
-        public virtual List<Panel> CoreWalls { get; set; } = new List<Panel>();
+        public virtual List<Wall> CoreWalls { get; set; } = new List<Wall>();
 
         [Description("Structural beams are typically horizontal elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<Bar> Beams { get; set; } = new List<Bar>();
+        public virtual List<Beam> Beams { get; set; } = new List<Beam>();
 
         [Description("Structural columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<Bar> Columns { get; set; } = new List<Bar>();
+        public virtual List<Column> Columns { get; set; } = new List<Column>();
 
         [Description("Structural bracing are typically diagonal members that provide lateral support between structural bays")]
-        public virtual List<Bar> Bracing { get; set; } = new List<Bar>();
+        public virtual List<Bracing> Bracing { get; set; } = new List<Bracing>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
         public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
