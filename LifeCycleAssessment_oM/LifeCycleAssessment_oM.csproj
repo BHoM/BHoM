@@ -109,10 +109,6 @@
       <Name>Quantities_oM</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Structure_oM\Structure_oM.csproj">
-      <Project>{65022ae9-da4b-49c0-b1a9-ce94058c0c86}</Project>
-      <Name>Structure_oM</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
