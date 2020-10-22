@@ -23,7 +23,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.Elements;
 using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
