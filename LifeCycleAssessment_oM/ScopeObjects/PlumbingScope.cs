@@ -24,7 +24,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
-using BH.oM.MEP.Elements;
 
 namespace BH.oM.LifeCycleAssessment
 {
