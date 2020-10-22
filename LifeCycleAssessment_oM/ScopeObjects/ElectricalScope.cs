@@ -53,7 +53,7 @@ namespace BH.oM.LifeCycleAssessment
         public virtual List<IElementM> LightFixtures { get; set; } = new List<IElementM>();
 
         [Description("The system of distribution cabling that conveys electricy")]
-        public virtual List<WireSegment> WireSegments { get; set; } = new List<WireSegment>();
+        public virtual List<IElementM> WireSegments { get; set; } = new List<IElementM>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
         public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
