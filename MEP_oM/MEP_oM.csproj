@@ -43,6 +43,7 @@
     <Compile Include="ConnectionProperties\CableTrayConnectionProperty.cs" />
     <Compile Include="ConnectionProperties\IConnectionProperty.cs" />
     <Compile Include="Elements\CableTray.cs" />
+    <Compile Include="Elements\VolumeDamper.cs" />
     <Compile Include="Elements\Duct.cs" />
     <Compile Include="Elements\IFlow.cs" />
     <Compile Include="Elements\MechanicalSystem.cs" />
