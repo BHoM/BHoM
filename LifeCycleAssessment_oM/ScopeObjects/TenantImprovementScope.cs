@@ -50,10 +50,10 @@ namespace BH.oM.LifeCycleAssessment
         public virtual List<IElementM> Furniture { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Interior Doors includes doors in the interior of the building")]
-        public virtual List<Door> InteriorDoors { get; set; } = new List<Door>();
+        public virtual List<IElementM> InteriorDoors { get; set; } = new List<IElementM>();
         
         [Description("Tenant Improvements Partition Walls includes walls in the interior of the building")]
-        public virtual List<Wall> PartitionWalls { get; set; } = new List<Wall>();
+        public virtual List<IElementM> PartitionWalls { get; set; } = new List<IElementM>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
         public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();

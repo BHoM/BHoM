@@ -38,7 +38,7 @@ namespace BH.oM.LifeCycleAssessment
         public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
         
         [Description("Plumbing pipework includes distribution systems (e.g. PVC) that convey fluids")]
-        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
+        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
         public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();

@@ -40,16 +40,16 @@ namespace BH.oM.LifeCycleAssessment
         public virtual List<IElementM> Footings { get; set; } = new List<IElementM>();
         
         [Description("Foundation piles are structural supports that are driven into the ground below a building to support the building structure")]
-        public virtual List<Pile> Piles { get; set; } = new List<Pile>();
+        public virtual List<IElementM> Piles { get; set; } = new List<IElementM>();
         
         [Description("Foundation walls are structural walls built below-grade")]
-        public virtual List<Wall> Walls { get; set; } = new List<Wall>();
+        public virtual List<IElementM> Walls { get; set; } = new List<IElementM>();
         
         [Description("Foundation slabs are structural slabs upon which the building is constructed. This category expects any type of slab, but assumes no construction properties")]
-        public virtual List<Floor> Slabs { get; set; } = new List<Floor>();
+        public virtual List<IElementM> Slabs { get; set; } = new List<IElementM>();
 
         [Description("Foundation grade beams transmit load from a bearing wall into foundations")]
-        public virtual List<Beam> GradeBeams { get; set; } = new List<Beam>();
+        public virtual List<IElementM> GradeBeams { get; set; } = new List<IElementM>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
         public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();

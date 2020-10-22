@@ -38,7 +38,7 @@ namespace BH.oM.LifeCycleAssessment
         public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
 
         [Description("Distribution systems that convey fluids in the case of fire")]
-        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
+        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
 
         [Description("Sprinklers used for fire protection throughout the building")]
         public virtual List<IElementM> Sprinklers { get; set; } = new List<IElementM>();
