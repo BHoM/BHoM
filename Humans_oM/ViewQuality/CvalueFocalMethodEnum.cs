@@ -31,7 +31,8 @@ namespace BH.oM.Humans.ViewQuality
         OffsetThroughCorners=0,
         Closest =1,
         Perpendicular=2,
-        Undefined =3,
+        ActivityFocalPoint =3,
+        Undefined =4,
     }
 }
 
