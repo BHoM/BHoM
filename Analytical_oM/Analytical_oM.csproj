@@ -45,7 +45,7 @@
     <Compile Include="Elements\IFace.cs" />
     <Compile Include="Elements\Graph.cs" />
     <Compile Include="Elements\ILink.cs" />
-    <Compile Include="Elements\ILinkDirection.cs" />
+    <Compile Include="Elements\RelationDirection.cs" />
     <Compile Include="Elements\IMesh.cs" />
     <Compile Include="Elements\INode.cs" />
     <Compile Include="Elements\IOpening.cs" />

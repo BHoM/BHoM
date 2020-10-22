@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    public enum ILinkDirection
+    public enum RelationDirection
     {
         Forwards = 0,
         Backwards = 1,
