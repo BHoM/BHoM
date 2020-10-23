@@ -41,19 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\Graph\ColumnGridValidator.cs" />
+    <Compile Include="Elements\Graph\Graph.cs" />
+    <Compile Include="Elements\Graph\IRelation.cs" />
+    <Compile Include="Elements\Graph\IValidator.cs" />
+    <Compile Include="Elements\Graph\Relation.cs" />
+    <Compile Include="Elements\Graph\RelationDirection.cs" />
+    <Compile Include="Elements\Graph\ValidationRelation.cs" />
     <Compile Include="Elements\IEdge.cs" />
     <Compile Include="Elements\IFace.cs" />
-    <Compile Include="Elements\Graph.cs" />
     <Compile Include="Elements\ILink.cs" />
-    <Compile Include="Elements\RelationDirection.cs" />
     <Compile Include="Elements\IMesh.cs" />
     <Compile Include="Elements\INode.cs" />
     <Compile Include="Elements\IOpening.cs" />
     <Compile Include="Elements\IPanel.cs" />
     <Compile Include="Elements\IRegion.cs" />
-    <Compile Include="Elements\IRelation.cs" />
     <Compile Include="Elements\ISurface.cs" />
-    <Compile Include="Elements\Relation.cs" />
     <Compile Include="Fragments\DependencyFragment.cs" />
     <Compile Include="Fragments\IDependencyFragment.cs" />
     <Compile Include="Fragments\InputOutputFragment.cs" />
@@ -86,6 +89,7 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
