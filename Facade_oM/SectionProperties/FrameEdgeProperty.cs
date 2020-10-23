@@ -22,7 +22,6 @@
 
 using System.ComponentModel;
 using System.Collections.Generic;
-using BH.oM.Geometry.ShapeProfiles;
 using BH.oM.Base;
 using BH.oM.Physical.FramingProperties;
 
