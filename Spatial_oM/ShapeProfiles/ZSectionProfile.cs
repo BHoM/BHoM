@@ -21,56 +21,55 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
-using System;
+using BH.oM.Geometry;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Programming
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
-    public class BlockNode : BHoMObject, INode, IImmutable
+    public class ZSectionProfile : BHoMObject, IProfile, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        public virtual ShapeType Shape { get; } = ShapeType.Zed;
 
-        public virtual string Description { get; set; } = "";
+        public virtual double Height { get; }
 
-        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
+        public virtual double FlangeWidth { get; }
 
-        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
+        public virtual double WebThickness { get; }
 
-        public virtual bool IsInline { get; set; } = false;
+        public virtual double FlangeThickness { get; }
 
-        public virtual bool IsDeclaration { get; set; } = false;
+        public virtual double RootRadius { get; }
 
+        public virtual double ToeRadius { get; }
+
+        public virtual bool MirrorAboutLocalZ { get; }
+
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BlockNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
+        public ZSectionProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
         {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
+            Height = height;
+            FlangeWidth = flangeWidth;
+            WebThickness = webthickness;
+            FlangeThickness = flangeThickness;
+            RootRadius = rootRadius;
+            ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
+            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
+
 
         /***************************************************/
     }
 }
+

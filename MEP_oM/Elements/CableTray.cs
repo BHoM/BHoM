@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,56 +20,41 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.Linq;
+using BH.oM.Analytical.Elements;
+using BH.oM.MEP.SectionProperties;
+using BH.oM.Dimensional;
+using BH.oM.MEP.ConnectionProperties;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+
+namespace BH.oM.MEP.Elements
 {
-    public class ChannelProfile : BHoMObject, IProfile, IImmutable
+    [Description("A Cable Tray object is a passageway which conveys material (typically cables)")]
+    public class CableTray : BHoMObject, ILink<Node>, IElement1D, IElementM
     {
-
         /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.Channel;
-
-        public virtual double Height { get; }
-
-        public virtual double FlangeWidth { get; }
-
-        public virtual double WebThickness { get; }
-
-        public virtual double FlangeThickness { get; }
-
-        public virtual double RootRadius { get; }
-
-        public virtual double ToeRadius { get; }
-
-        public virtual bool MirrorAboutLocalZ { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
-
-        /***************************************************/
-        /**** Constructors                              ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        public ChannelProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
-        {
-            Height = height;
-            FlangeWidth = flangeWidth;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalZ = mirrorAboutLocalZ;
-            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
-        }
+        [Description("The point at which the Cable Tray object begins.")]
+        public virtual Node StartNode { get; set; } = null;
 
+        [Description("The point at which the Cable Tray object ends.")]
+        public virtual Node EndNode { get; set; } = null;       
+
+        [Description("The Cable Tray section property defines the shape (rectangular) and its associated properties (height, width, material, thickness/gauge).")]
+        public virtual CableTraySectionProperty SectionProperty { get; set; } = null;
+
+        [Description("The Cable Tray connections properties, such as if it's connected and to what.")]
+        public virtual CableTrayConnectionProperty ConnectionProperty { get; set; } = null;
+
+        [Angle]
+        [Description("This is the Cable Tray's planometric orientation angle (the rotation around its central axis).")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

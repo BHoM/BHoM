@@ -21,56 +21,43 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
-using System;
+using BH.oM.Geometry;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Programming
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
-    public class BlockNode : BHoMObject, INode, IImmutable
+    public class TaperedProfile : BHoMObject, IProfile, IImmutable
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        public virtual List<int> InterpolationOrder { get; set; }
 
-        public virtual string Description { get; set; } = "";
+        public virtual ReadOnlyDictionary<double, IProfile> Profiles { get; }
 
-        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
-
-        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
-
-        public virtual bool IsInline { get; set; } = false;
-
-        public virtual bool IsDeclaration { get; set; } = false;
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BlockNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
+        public TaperedProfile(IDictionary<double, IProfile> profiles, List<int> interpolationOrder, ShapeType shape)
         {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
+            Profiles = new ReadOnlyDictionary<double, IProfile>(profiles);
+            Edges = new ReadOnlyCollection<ICurve>(new List<ICurve>());
+            InterpolationOrder = interpolationOrder;
+            Shape = shape;
         }
 
         /***************************************************/
     }
 }
+

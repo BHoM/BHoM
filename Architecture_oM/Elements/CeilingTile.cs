@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,55 +21,20 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.Analytical.Elements;
 using BH.oM.Geometry;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Architecture.Elements
 {
-    public class FabricatedISectionProfile : BHoMObject, IProfile, IImmutable
+    public class CeilingTile : BHoMObject, IRegion
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
-        public virtual double Height { get; }
-
-        public virtual double TopFlangeWidth { get; }
-
-        public virtual double BotFlangeWidth { get; }
-
-        public virtual double WebThickness { get; }
-
-        public virtual double TopFlangeThickness { get; }
-
-        public virtual double BotFlangeThickness { get; }
-
-        public virtual double WeldSize { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public FabricatedISectionProfile(double height, double topFlangeWidth, double botFlangeWidth, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
-        {
-            Height = height;
-            TopFlangeWidth = topFlangeWidth;
-            BotFlangeWidth = botFlangeWidth;
-            WebThickness = webThickness;
-            BotFlangeThickness = botFlangeThickness;
-            TopFlangeThickness = topFlangeThickness;
-            WeldSize = weldSize;
-            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
-        }
-
+        public virtual ICurve Perimeter { get; set; } = null;
 
         /***************************************************/
     }
 }
-

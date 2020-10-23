@@ -25,10 +25,13 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class BoxProfile : BHoMObject, IProfile, IImmutable
+    [Description("Rectangular hollow profile that allows for different thicknesses of the webs, top flange and bottom flange.")]
+    public class FabricatedBoxProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
@@ -36,29 +39,42 @@ namespace BH.oM.Geometry.ShapeProfiles
         /***************************************************/
         public virtual ShapeType Shape { get; } = ShapeType.Box;
 
+        [Length]
+        [Description("Full depth between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
+        [Length]
+        [Description("Full width between the extreme fibres of the webs.")]
         public virtual double Width { get; }
 
-        public virtual double Thickness { get; }
+        [Length]
+        public virtual double WebThickness { get; }
 
-        public virtual double OuterRadius { get; }
+        [Length]
+        public virtual double TopFlangeThickness { get; }
 
-        public virtual double InnerRadius { get; }
+        [Length]
+        public virtual double BotFlangeThickness { get; }
 
+        [Length]
+        [Description("Fillet weld size between inside of webs and flanges. Measured as the distance between intersection of web and flange perpendicular to the edge of the weld.")]
+        public virtual double WeldSize { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BoxProfile(double height, double width, double thickness, double outerRadius, double innerRadius, IEnumerable<ICurve> edges)
+        public FabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
-            Thickness = thickness;
-            OuterRadius = outerRadius;
-            InnerRadius = innerRadius;
+            WebThickness = webThickness;
+            BotFlangeThickness = botFlangeThickness;
+            TopFlangeThickness = topFlangeThickness;
+            WeldSize = weldSize;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

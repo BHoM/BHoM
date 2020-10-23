@@ -21,53 +21,32 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Reflection.Attributes
 {
-    public class ZSectionProfile : BHoMObject, IProfile, IImmutable
+    [AttributeUsage(AttributeTargets.Class)]
+    [Description("Prevents an auto-constructor component to be available in the UI for the targeted class. This means that `Engine.Create` methods will be the only option to generate instances of that class in the UI.")]
+    public class NoAutoConstructorAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual ShapeType Shape { get; } = ShapeType.Zed;
-
-        public virtual double Height { get; }
-
-        public virtual double FlangeWidth { get; }
-
-        public virtual double WebThickness { get; }
-
-        public virtual double FlangeThickness { get; }
-
-        public virtual double RootRadius { get; }
-
-        public virtual double ToeRadius { get; }
-
-        public virtual bool MirrorAboutLocalZ { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ZSectionProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
+        public NoAutoConstructorAttribute()
         {
-            Height = height;
-            FlangeWidth = flangeWidth;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalZ = mirrorAboutLocalZ;
-            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
-
 
         /***************************************************/
     }

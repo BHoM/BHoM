@@ -20,54 +20,71 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class GeneralisedTSectionProfile : BHoMObject, IProfile, IImmutable
+    [Description("I-shaped profile with parallel flanges that allows for different thicknesses of the web, top flange and bottom flange as well as different top and bottom flange widths.")]
+    public class FabricatedISectionProfile : BHoMObject, IProfile, IImmutable
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
-        public virtual ShapeType Shape { get; } = ShapeType.Tee;
-
+        [Length]
+        [Description("Full depth between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
+        [Length]
+        [Description("Full width of the top flange.")]
+        public virtual double TopFlangeWidth { get; }
+
+        [Length]
+        [Description("Full width of the bottom flange.")]
+        public virtual double BotFlangeWidth { get; }
+
+        [Length]
         public virtual double WebThickness { get; }
 
-        public virtual double LeftOutstandWidth { get; }
+        [Length]
+        public virtual double TopFlangeThickness { get; }
 
-        public virtual double LeftOutstandThickness { get; }
+        [Length]
+        public virtual double BotFlangeThickness { get; }
 
-        public virtual double RightOutstandWidth { get; }
+        [Length]
+        [Description("Fillet weld size between web and flanges. Measured as the distance between intersection of web and flange perpendicular to the edge of the weld.")]
+        public virtual double WeldSize { get; }
 
-        public virtual double RightOutstandThickness { get; }
-
-        public virtual bool MirrorAboutLocalY { get; }
-
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public GeneralisedTSectionProfile(double height, double webThickness, double leftOutstandWidth, double leftOutstandThickness, double rightOutstandWidth, double rightOutstandThickness, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
+        public FabricatedISectionProfile(double height, double topFlangeWidth, double botFlangeWidth, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
         {
             Height = height;
+            TopFlangeWidth = topFlangeWidth;
+            BotFlangeWidth = botFlangeWidth;
             WebThickness = webThickness;
-            LeftOutstandWidth = leftOutstandWidth;
-            LeftOutstandThickness = leftOutstandThickness;
-            RightOutstandWidth = rightOutstandWidth;
-            RightOutstandThickness = rightOutstandThickness;
-            MirrorAboutLocalY = mirrorAboutLocalY;
+            BotFlangeThickness = botFlangeThickness;
+            TopFlangeThickness = topFlangeThickness;
+            WeldSize = weldSize;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
+
         /***************************************************/
     }
-}                                                   
+}
+

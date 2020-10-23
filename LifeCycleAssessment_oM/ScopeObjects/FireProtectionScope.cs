@@ -20,32 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Geometry.ShapeProfiles
+using System.Collections.Generic;
+using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.MEP.Elements;
+
+namespace BH.oM.LifeCycleAssessment
 {
-    /***************************************************/
-
-    public enum ShapeType
+    [Description("Fire Protection Scope provides a template for expected objects to be assessed within the MEPScope")]
+    public class FireProtectionScope : BHoMObject
     {
-        Rectangle = 0,
-        Box = 1,
-        Angle = 2,
-        ISection = 3,
-        Tee = 4,
-        Channel = 5,
-        Tube = 6,
-        Circle = 7,
-        Zed = 8,
-        FreeForm = 9,
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        [Description("Fire protection equipment includes both fire and jockey pumps which convey water through the fire protection system")]
+        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
 
-        DoubleAngle = 22,
-        DoubleISection = 23,
-        DoubleChannel = 25,
+        [Description("Distribution systems that convey fluids in the case of fire")]
+        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
 
-        //Maybe should move elsewhere
-        Cable = 30,
+        [Description("Sprinklers used for fire protection throughout the building")]
+        public virtual List<IBHoMObject> Sprinklers { get; set; } = new List<IBHoMObject>();
+
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        /***************************************************/
     }
-
-    /***************************************************/
-
 }
-

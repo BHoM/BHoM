@@ -22,7 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
-using BH.oM.Geometry.ShapeProfiles;
+using BH.oM.Spatial.ShapeProfiles;
 using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
 

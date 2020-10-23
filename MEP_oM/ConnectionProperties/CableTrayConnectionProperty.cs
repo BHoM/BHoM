@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,17 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
+using BH.oM.MEP.Elements;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.MEP.ConnectionProperties
 {
-    public interface IProfile  : IBHoMObject
+    [Description("A Cable Tray connection property to store information about its physical connectors.")]
+    public class CableTrayConnectionProperty : BHoMObject, IConnectionProperty
     {
-        ShapeType Shape { get; }
+        /***************************************************/
+        /****                 Properties                ****/
+        /***************************************************/
 
-        ReadOnlyCollection<ICurve> Edges { get; }
+        [Description("The point at which the Connector object begins.")]
+        public virtual Node StartNode { get; set; }
+
+        [Description("The point at which the Connector bject ends.")]
+        public virtual Node EndNode { get; set; }
+
+        [Description("Whether the start point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsStartConnected { get; set; }
+
+        [Description("Whether the end point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsEndConnected { get; set; }       
+
+        /***************************************************/
     }
 }
-

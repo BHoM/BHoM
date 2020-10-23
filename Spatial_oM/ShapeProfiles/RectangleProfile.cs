@@ -25,48 +25,45 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class TSectionProfile : BHoMObject, IProfile, IImmutable
+    [Description("Solid rectangular profile.")]
+    public class RectangleProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.Tee;
+        public virtual ShapeType Shape { get; } = ShapeType.Rectangle;
 
+        [Length]
         public virtual double Height { get; }
 
+        [Length]
         public virtual double Width { get; }
 
-        public virtual double WebThickness { get; }
+        [Length]
+        [Description("Fillet radius of all four corners of the rectangle.")]
+        public virtual double CornerRadius { get; }
 
-        public virtual double FlangeThickness { get; }
-
-        public virtual double RootRadius { get; }
-
-        public virtual double ToeRadius { get; }
-
-        public virtual bool MirrorAboutLocalY { get; }
-
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TSectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, bool mirrorAboutLocalY, IEnumerable<ICurve> edges)
+        public RectangleProfile(double height, double width, double cornerRadius, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
-            MirrorAboutLocalY = mirrorAboutLocalY;
+            CornerRadius = cornerRadius;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
+
 
         /***************************************************/
     }

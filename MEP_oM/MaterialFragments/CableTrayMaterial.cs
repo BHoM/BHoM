@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,41 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System.ComponentModel;
-using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
-using BH.oM.Quantities.Attributes;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Geometry
+using BH.oM.Base;
+
+namespace BH.oM.MEP.MaterialFragments
 {
-    [Description("Solid representation defined by a collection of connected surfaces forming a closed volume")]
-    public class BoundaryRepresentation : ISolid, IImmutable
+    public class CableTrayMaterial : BHoMObject, IMEPMaterial
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("List of ISurfaces must form a closed volume - checks and guarantees to be performed at conversion")]
-        public virtual ReadOnlyCollection<ISurface> Surfaces { get; }
-
-        [Volume]
-        [Description("The enclosed volume created by the boundary surfaces. Property is set where available at conversion. If unavailable, or invalidated, will read NaN (not a number)")]
-        public virtual double Volume { get; } = double.NaN;
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BoundaryRepresentation(IEnumerable<ISurface> surfaces, double volume)
-        {
-            Surfaces = new ReadOnlyCollection<ISurface>(surfaces.ToList());
-            Volume = volume;
-        }
-
-
-        /***************************************************/
+        //placeholder to hold cable tray material properties
     }
 }
-

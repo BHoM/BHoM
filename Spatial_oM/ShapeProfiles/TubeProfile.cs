@@ -25,24 +25,38 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class FreeFormProfile : BHoMObject, IProfile, IImmutable
+    [Description("Circular hollow profile.")]
+    public class TubeProfile : BHoMObject, IProfile, IImmutable
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
+        public virtual ShapeType Shape { get; } = ShapeType.Tube;
 
+        [Length]
+        [Description("Outer diameter.")]
+        public virtual double Diameter { get; }
+
+        [Length]
+        public virtual double Thickness { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public FreeFormProfile(IEnumerable<ICurve> edges)
+        public TubeProfile(double diameter, double thickness, IEnumerable<ICurve> edges)
         {
+            Diameter = diameter;
+            Thickness = thickness;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

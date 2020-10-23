@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,43 +20,43 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Collections.ObjectModel;
-using BH.oM.Base;
-using BH.oM.Geometry;
+using System.ComponentModel;
 
-namespace BH.oM.Geometry.ShapeProfiles
+using BH.oM.Base;
+using BH.oM.MEP.MaterialFragments;
+
+namespace BH.oM.MEP.SectionProperties
 {
-    public class KiteProfile : BHoMObject, IProfile, IImmutable
+    public class CableTraySectionProperty : BHoMObject, IImmutable
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        public virtual ShapeType Shape { get; } = ShapeType.DoubleAngle;
+        [Description("The cable tray material is the primary material that the it is composed of.")]
+        public virtual IMEPMaterial Material { get; set; }     
 
-        public virtual double Width1 { get; }
+        [Description("The section profile of the object that will determine its use within a System.")]
+        public virtual SectionProfile SectionProfile { get; }
 
-        public virtual double Angle1 { get; }
+        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
+        public virtual double ElementSolidArea { get; }
 
-        public virtual double Thickness { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
+        [Description("The interior area within the element's shapeProfile. This corresponds to the actual open area less any material thickness.")]
+        public virtual double ElementVoidArea { get; }
 
         /***************************************************/
-        /**** Constructors                              ****/
+        /****                 Constructor               ****/
         /***************************************************/
-
-        public KiteProfile(double width1, double angle1, double thickness, IEnumerable<ICurve> edges)
+        
+        public CableTraySectionProperty(IMEPMaterial material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
         {
-            Width1 = width1;
-            Angle1 = angle1;
-            Thickness = thickness;
-            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
+            Material = material;
+            SectionProfile = sectionProfile;
+            ElementSolidArea = elementSolidArea;
+            ElementVoidArea = elementVoidArea;            
         }
 
         /***************************************************/
     }
 }
-

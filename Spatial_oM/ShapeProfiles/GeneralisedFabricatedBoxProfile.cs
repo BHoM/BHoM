@@ -20,51 +20,78 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using BH.oM.Base;
 using BH.oM.Geometry;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class FabricatedBoxProfile : BHoMObject, IProfile, IImmutable
+    [Description("Rectangular hollow profile that allows for different thicknesses of the webs, top flange and bottom flange as well as defined outstands of the top and bottom flange")]
+    public class GeneralisedFabricatedBoxProfile : BHoMObject, IProfile, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         public virtual ShapeType Shape { get; } = ShapeType.Box;
 
+        [Length]
+        [Description("Full depth between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
+        [Length]
+        [Description("Width between the extreme fibres of the webs, excluding corbel widths.")]
         public virtual double Width { get; }
 
+        [Length]
         public virtual double WebThickness { get; }
 
+        [Length]
         public virtual double TopFlangeThickness { get; }
 
+        [Length]
         public virtual double BotFlangeThickness { get; }
 
-        public virtual double WeldSize { get; }
+        [Length]
+        [Description("The additional width added to the left side of the top flange, measured from the outside edge of the web.")]
+        public virtual double TopLeftCorbelWidth { get; }
 
+        [Length]
+        [Description("The additional width added to the right side of the top flange, measured from the outside edge of the web.")]
+        public virtual double TopRightCorbelWidth { get; }
+
+        [Length]
+        [Description("The additional width added to the left side of the bottom flange, measured from the outside edge of the web.")]
+        public virtual double BotLeftCorbelWidth { get; }
+
+        [Length]
+        [Description("The additional width added to the right side of the bottom flange, measured from the outside edge of the web.")]
+        public virtual double BotRightCorbelWidth { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public FabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double weldSize, IEnumerable<ICurve> edges)
+        public GeneralisedFabricatedBoxProfile(double height, double width, double webThickness, double topFlangeThickness, double botFlangeThickness, double topLeftCorbelWidth, double topRightCorbelWidth, double botLeftCorbelWidth, double botRightCorbelWidth, IEnumerable<ICurve> edges)
         {
             Height = height;
             Width = width;
             WebThickness = webThickness;
-            BotFlangeThickness = botFlangeThickness;
             TopFlangeThickness = topFlangeThickness;
-            WeldSize = weldSize;
+            BotFlangeThickness = botFlangeThickness;
+            TopLeftCorbelWidth = topLeftCorbelWidth;
+            TopRightCorbelWidth = topRightCorbelWidth;
+            BotLeftCorbelWidth = botLeftCorbelWidth;
+            BotRightCorbelWidth = botRightCorbelWidth;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
-
 
         /***************************************************/
     }

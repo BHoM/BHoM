@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,38 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Geometry.ShapeProfiles
+using BH.oM.Base;
+using BH.oM.MEP.Elements;
+
+namespace BH.oM.MEP.ConnectionProperties
 {
-    public class TaperedProfile : BHoMObject, IProfile, IImmutable
+    [Description("Base interface for MEP physical connection properties.")]
+    public interface IConnectionProperty : IBHoMObject
     {
-
         /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
-
-        public virtual ReadOnlyDictionary<decimal, IProfile> Profiles { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
-
-        /***************************************************/
-        /**** Constructors                              ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        public TaperedProfile(IDictionary<decimal, IProfile> profiles)
-        {
-            Profiles = new ReadOnlyDictionary<decimal, IProfile>(profiles);
-            Edges = new ReadOnlyCollection<ICurve>(new List<ICurve>());
-        }
+        [Description("The point at which the Connector object begins.")]
+        Node StartNode { get; set; }
 
+        [Description("The point at which the Connector bject ends.")]
+        Node EndNode { get; set; }
 
         /***************************************************/
     }
 }
-

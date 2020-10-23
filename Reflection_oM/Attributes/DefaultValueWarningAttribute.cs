@@ -21,7 +21,6 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,47 +29,31 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Programming
+namespace BH.oM.Reflection.Attributes
 {
-    [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
-    public class BlockNode : BHoMObject, INode, IImmutable
+    [AttributeUsage(AttributeTargets.Property)]
+    [Description("Warning to be generated when an instance of the containing class is generated with this property set to its default value.")]
+    public class DefaultValueWarningAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
-
-        public virtual string Description { get; set; } = "";
-
-        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
-
-        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
-
-        public virtual bool IsInline { get; set; } = false;
-
-        public virtual bool IsDeclaration { get; set; } = false;
+        public virtual string Warning { get; private set; } = "";
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BlockNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
+        public DefaultValueWarningAttribute(string warning)
         {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
+            Warning = warning;
         }
+
+
 
         /***************************************************/
     }
 }
+

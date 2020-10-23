@@ -20,37 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using BH.oM.Base;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.LifeCycleAssessment
 {
-    public class CircleProfile : BHoMObject, IProfile, IImmutable
+    [Description("Plumbing Scope provides a template for expected objects to be assessed within the MEPScope")]
+    public class PlumbingScope : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.Circle;
+        [Description("Plumbing equipment includes machines or devices that pump, store or process water, waste and sewage streams, etc.")]
+        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
+        
+        [Description("Plumbing pipework includes distribution systems (e.g. PVC) that convey fluids")]
+        public virtual List<IBHoMObject> Pipes { get; set; } = new List<IBHoMObject>();
 
-        public virtual double Diameter { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public CircleProfile(double diameter, IEnumerable<ICurve> edges)
-        {
-            Diameter = diameter;
-            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
-        }
-
-
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
         /***************************************************/
     }
 }
-

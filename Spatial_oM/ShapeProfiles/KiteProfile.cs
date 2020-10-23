@@ -20,57 +20,43 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using BH.oM.Base;
+using BH.oM.Geometry;
 
-namespace BH.oM.Programming
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
-    public class BlockNode : BHoMObject, INode, IImmutable
+    public class KiteProfile : BHoMObject, IProfile, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        public virtual ShapeType Shape { get; } = ShapeType.DoubleAngle;
 
-        public virtual string Description { get; set; } = "";
+        public virtual double Width1 { get; }
 
-        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
+        public virtual double Angle1 { get; }
 
-        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
+        public virtual double Thickness { get; }
 
-        public virtual bool IsInline { get; set; } = false;
-
-        public virtual bool IsDeclaration { get; set; } = false;
-
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BlockNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
+        public KiteProfile(double width1, double angle1, double thickness, IEnumerable<ICurve> edges)
         {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
+            Width1 = width1;
+            Angle1 = angle1;
+            Thickness = thickness;
+            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
         /***************************************************/
     }
 }
+

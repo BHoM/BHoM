@@ -25,46 +25,35 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class ISectionProfile : BHoMObject, IProfile, IImmutable
+    [Description("Solid circular profile")]
+    public class CircleProfile : BHoMObject, IProfile, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public virtual ShapeType Shape { get; } = ShapeType.Circle;
+    
+        [Length]
+        public virtual double Diameter { get; }
 
-        public virtual ShapeType Shape { get; } = ShapeType.ISection;
-
-        public virtual double Height { get; }
-
-        public virtual double Width { get; }
-
-        public virtual double WebThickness { get; }
-
-        public virtual double FlangeThickness { get; }
-
-        public virtual double RootRadius { get; }
-
-        public virtual double ToeRadius { get; }
-
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ISectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
+        public CircleProfile(double diameter, IEnumerable<ICurve> edges)
         {
-            Height = height;
-            Width = width;
-            WebThickness = webthickness;
-            FlangeThickness = flangeThickness;
-            RootRadius = rootRadius;
-            ToeRadius = toeRadius;
+            Diameter = diameter;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
+
 
         /***************************************************/
     }

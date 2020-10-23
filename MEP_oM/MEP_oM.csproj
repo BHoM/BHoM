@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionProperties\CableTrayConnectionProperty.cs" />
+    <Compile Include="ConnectionProperties\IConnectionProperty.cs" />
+    <Compile Include="Elements\CableTray.cs" />
     <Compile Include="Elements\Duct.cs" />
     <Compile Include="Elements\IFlow.cs" />
     <Compile Include="Elements\MechanicalSystem.cs" />
@@ -61,6 +64,7 @@
     <Compile Include="MaterialFragments\InsulationMaterial.cs" />
     <Compile Include="MaterialFragments\LiningMaterial.cs" />
     <Compile Include="MaterialFragments\PipeMaterial.cs" />
+    <Compile Include="MaterialFragments\CableTrayMaterial.cs" />
     <Compile Include="MaterialFragments\WireMaterial.cs" />
     <Compile Include="Parts\AirHandlingUnitBase.cs" />
     <Compile Include="Parts\CoolingCoil.cs" />
@@ -71,6 +75,7 @@
     <Compile Include="Parts\Fan.cs" />
     <Compile Include="Parts\IPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionProperties\CableTraySectionProperty.cs" />
     <Compile Include="SectionProperties\DuctSectionProperty.cs" />
     <Compile Include="SectionProperties\IFlowSectionProperty.cs" />
     <Compile Include="SectionProperties\PipeSectionProperty.cs" />
@@ -111,6 +116,10 @@
       <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
       <Name>Quantities_oM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Spatial_oM\Spatial_oM.csproj">
+      <Project>{789eaf6c-d68f-4770-b01b-c07bbf3d2188}</Project>
+      <Name>Spatial_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

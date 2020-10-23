@@ -20,57 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using BH.oM.Base;
+using BH.oM.MEP.Elements;
 
-namespace BH.oM.Programming
+namespace BH.oM.LifeCycleAssessment
 {
-    [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
-    public class BlockNode : BHoMObject, INode, IImmutable
+    [Description("Mechanical Scope provides a template for expected objects to be assessed within the MEPScope")]
+    public class MechanicalScope : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("Mechanical distribution system that convey airflow from heating, ventilation or cooling systems (e.g. sheet metal)")]
+        public virtual List<Duct> Ducts { get; set; } = new List<Duct>();
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        [Description("Mechanical equipment includes machines and devices that provide heating, cooling, venting, pumping etc. (e.g. chillers, fans, AHUs, pumps)")]
+        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
+        
+        [Description("Mechanical pipework includes distribution systems (e.g. copper) that convey fluids")]
+        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
 
-        public virtual string Description { get; set; } = "";
-
-        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
-
-        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
-
-        public virtual bool IsInline { get; set; } = false;
-
-        public virtual bool IsDeclaration { get; set; } = false;
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BlockNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
-        {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
-        }
-
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
         /***************************************************/
     }
 }

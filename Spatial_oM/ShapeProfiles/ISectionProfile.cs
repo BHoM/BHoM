@@ -21,56 +21,67 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
-using System;
+using BH.oM.Geometry;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Programming
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
-    public class BlockNode : BHoMObject, INode, IImmutable
+    [Description("I-shaped profile with parallel flanges with equal thickness.")]
+    public class ISectionProfile : BHoMObject, IProfile, IImmutable
     {
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        public virtual ShapeType Shape { get; } = ShapeType.ISection;
 
-        public virtual string Description { get; set; } = "";
+        [Length]
+        [Description("Full depth between the extreme fibres of the flanges.")]
+        public virtual double Height { get; }
 
-        public virtual List<DataParam> Outputs { get; set; } = new List<DataParam>();
+        [Length]
+        [Description("Full width of both flanges between the extreme fibres of the flanges.")]
+        public virtual double Width { get; }
 
-        public virtual List<ReceiverParam> Inputs { get; set; } = new List<ReceiverParam>();
+        [Length]
+        public virtual double WebThickness { get; }
 
-        public virtual bool IsInline { get; set; } = false;
+        [Length]
+        [Description("Thickness of both flanges.")]
+        public virtual double FlangeThickness { get; }
 
-        public virtual bool IsDeclaration { get; set; } = false;
+        [Length]
+        [Description("Fillet radius between inner face of the flanges and faces of the web.")]
+        public virtual double RootRadius { get; }
 
+        [Length]
+        [Description("Fillet radius at the end of the flanges. Value need to be smaller or equal than the flange thickness.")]
+        public virtual double ToeRadius { get; }
+
+        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
+        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public BlockNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
+        public ISectionProfile(double height, double width, double webthickness, double flangeThickness, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
         {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
+            Height = height;
+            Width = width;
+            WebThickness = webthickness;
+            FlangeThickness = flangeThickness;
+            RootRadius = rootRadius;
+            ToeRadius = toeRadius;
+            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 
         /***************************************************/
     }
 }
+

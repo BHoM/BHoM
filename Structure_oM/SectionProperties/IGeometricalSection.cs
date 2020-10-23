@@ -21,7 +21,7 @@
  */
 
 using System.ComponentModel;
-using BH.oM.Geometry.ShapeProfiles;
+using BH.oM.Spatial.ShapeProfiles;
 
 namespace BH.oM.Structure.SectionProperties
 {

@@ -25,31 +25,28 @@ using BH.oM.Geometry;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Spatial.ShapeProfiles
 {
-    public class TubeProfile : BHoMObject, IProfile, IImmutable
+    [Description("Freeform profile only defined by its geometry without any dimensional data. To be used as a fallback for profiles not yet explicitly defined.")]
+    public class FreeFormProfile : BHoMObject, IProfile, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.Tube;
+        public virtual ShapeType Shape { get; } = ShapeType.FreeForm;
 
-        public virtual double Diameter { get; }
-
-        public virtual double Thickness { get; }
-
+        [Description("Edge curves defining the section. Should be curves defined in the global XY-plane.\n" +
+                     "This assumes that the outermost curve(s) are solid. Curves inside a solid region are assumed to be openings, and curves within openings are assumed to be solid, etc.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TubeProfile(double diameter, double thickness, IEnumerable<ICurve> edges)
+        public FreeFormProfile(IEnumerable<ICurve> edges)
         {
-            Diameter = diameter;
-            Thickness = thickness;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
 

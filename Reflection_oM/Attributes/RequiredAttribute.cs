@@ -21,41 +21,32 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Geometry.ShapeProfiles
+namespace BH.oM.Reflection.Attributes
 {
-    public class RectangleProfile : BHoMObject, IProfile, IImmutable
+    [AttributeUsage(AttributeTargets.Property)]
+    [Description("Marks a property as mandatory input when creating an instance of its containing class.")]
+    public class RequiredAttribute : Attribute, IImmutable
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ShapeType Shape { get; } = ShapeType.Rectangle;
 
-        public virtual double Height { get; }
-
-        public virtual double Width { get; }
-
-        public virtual double CornerRadius { get; }
-
-        public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public RectangleProfile(double height, double width, double cornerRadius, IEnumerable<ICurve> edges)
+        public RequiredAttribute()
         {
-            Height = height;
-            Width = width;
-            CornerRadius = cornerRadius;
-            Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
-
 
         /***************************************************/
     }
