@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Analytical.Results;
+using BH.oM.Geometry;
 
 namespace BH.oM.Analytical.Elements
 {
@@ -24,6 +25,9 @@ namespace BH.oM.Analytical.Elements
         [Description("Shortest path as an ordered collection of entities.")]
         public virtual List<IBHoMObject> Path { get; set; } = new List<IBHoMObject>();
 
+        [Description("Shortest path as an ordered collection of ICurves.")]
+        public virtual List<ICurve> Curves { get; set; } = new List<ICurve>();
+
         [Description("Total length of the shortest path. If the graph contained spatial entities and relations the distance traversed. If the graph is non spatial a count of traversed relations.")]
         public virtual double Length { get; set; } = 0.0;
 
@@ -36,7 +40,7 @@ namespace BH.oM.Analytical.Elements
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
-        public ShortestPathResult(IComparable objectId, IComparable resultCase, double timeStep, List<IBHoMObject> path, double length, double cost, List<IBHoMObject> entitiesVisited) 
+        public ShortestPathResult(IComparable objectId, IComparable resultCase, double timeStep, List<IBHoMObject> path, double length, double cost, List<IBHoMObject> entitiesVisited, List<ICurve> curves = null) 
         {
             ObjectId = objectId;
             ResultCase = resultCase;
@@ -45,6 +49,7 @@ namespace BH.oM.Analytical.Elements
             Length = length;
             Cost = cost;
             EntitiesVisited = entitiesVisited;
+            Curves = curves;
         }
         /***************************************************/
         /**** IComparable Interface                     ****/
