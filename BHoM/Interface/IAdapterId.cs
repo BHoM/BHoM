@@ -22,16 +22,20 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.Base
 {
     public interface IAdapterId : IFragment
     {
+        [Description("Identifier of the object in the external software.")]
+        object Id { get; set; }
     }
 
-    public interface IAdapterId<T> : IAdapterId, IFragment
+    public interface IPersistentAdapterId : IFragment
     {
-        T Id { get; set; }
+        [Description("Globally unique and generated upon object creation in the external software; it never changes throughout the life of the object.")]
+        object PersistentId { get; set; }
     }
 }
 
