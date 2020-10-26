@@ -46,7 +46,6 @@
     <Compile Include="Diff.cs" />
     <Compile Include="HashFragment.cs" />
     <Compile Include="DiffConfig.cs" />
-    <Compile Include="IPersistentId.cs" />
     <Compile Include="StreamPointer.cs" />
     <Compile Include="Revision.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
