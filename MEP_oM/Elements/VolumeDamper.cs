@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,26 +20,32 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Constructions;
+using BH.oM.MEP.SectionProperties;
 using BH.oM.Dimensional;
-using System.Collections.Generic;
 
-namespace BH.oM.Architecture.Elements
+namespace BH.oM.MEP.Elements
 {
-    public class Ceiling : BHoMObject, IElement2D
+    [Description("A type of damper used to control the flow of air in a mechanical system.")]
+    public class VolumeDamper : BHoMObject, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual ISurface Surface { get; set; } = null;
-        public virtual Construction Construction { get; set; } = null;
+        [Description("The point in space for the location of the VolumeDamper.")]
+        public virtual Node Location { get; set; } = new Node();
 
-        public virtual List<CeilingTile> Tiles { get; set; } = new List<CeilingTile>();
+        [Description("The DuctSectionProperties for the duct connected to the inlet face of the VolumeDamper.")]
+        public virtual DuctSectionProperty InletDuctProperties { get; set; } = null;
+
+        [Description("The DuctSectionProperties for the duct connected to the outlet face of the VolumeDamper.")]
+        public virtual DuctSectionProperty OutletDuctProperties { get; set; } = null;
+
+        [Description("The difference in total pressure between two points of a fluid carrying network.")]
+        public virtual double PressureDrop { get; set; } = 0;
 
         /***************************************************/
     }
 }
-
