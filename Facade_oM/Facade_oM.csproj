@@ -76,9 +76,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Versioning_33.json" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Elements\Enums\FrameCornerType.cs" />
     <Compile Include="Elements\FrameEdge.cs" />
     <Compile Include="Elements\Enums\OpeningType.cs" />
