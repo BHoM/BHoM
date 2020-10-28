@@ -36,8 +36,8 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.MEP.Elements
 {
-    [Description("A lighting fixture is an electrical device that provides illumination.")]
-    public class LightingFixture : BHoMObject, IElement1D, IElementM
+    [Description("A light fixture is an electrical device that provides illumination.")]
+    public class LightFixture : BHoMObject, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
