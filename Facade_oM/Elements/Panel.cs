@@ -52,9 +52,6 @@ namespace BH.oM.Facade.Elements
         [Description("A construction object providing layer and material information for the panel")]
         public virtual IConstruction Construction { get; set; } = null;
 
-        [Description("A collection of all frame edges applied to the panel")]
-        public virtual List<FrameEdge> FrameEdges { get; set; } = new List<FrameEdge>();
-
         [Description("The type of surface (e.g. Exterior wall, interior wall, air gap). Use PanelType enum")]
         public virtual PanelType Type { get; set; } = PanelType.Undefined;
 
