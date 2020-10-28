@@ -43,6 +43,8 @@ namespace BH.oM.Analytical.Elements
         Graph Subgraph { get; set; }
 
         double Weight { get; set; }
+
+        List<IProcess> Processes { get; set; }
         /***************************************************/
     }
 

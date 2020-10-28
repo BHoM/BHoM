@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,6 @@ namespace BH.oM.Analytical.Fragments
     [Description("Interface common to all DependencyFragments.")]
     public interface IDependencyFragment : IFragment
     {
-
+        List<IProcess> Processes { get; set; }
     }
 }
