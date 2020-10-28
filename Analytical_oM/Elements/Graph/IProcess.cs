@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    [Description("Interface common to all relation process objects.")]
+    [Description("Interface common to all Relation Process objects.")]
     public interface IProcess : IBHoMObject
     {
     }
