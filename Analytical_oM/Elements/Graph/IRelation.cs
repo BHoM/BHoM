@@ -30,15 +30,14 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
+    [Description("Interface common to all relation objects.")]
     public interface IRelation : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Reference Guid to source entity")]
         Guid Source { get; set; }
 
-        [Description("Reference Guid to target entity")]
         Guid Target { get; set; }
 
         Graph Subgraph { get; set; }

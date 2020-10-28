@@ -32,7 +32,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    public class SpatialRelation : Relation, IRelation, IElement1D
+    [Description("Relation used to define the curve connecting two spatial entities.")]
+    public class SpatialRelation : Relation
     {
         public virtual ICurve Curve { get; set; }
 

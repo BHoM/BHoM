@@ -23,12 +23,14 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
+    [Description("Interface common to all relation process objects.")]
     public interface IProcess : IBHoMObject
     {
     }

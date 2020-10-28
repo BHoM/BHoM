@@ -30,6 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
+    [Description("Base class for all relation classes.")]
     public class Relation : BHoMObject, IRelation
     {
         [Description("Reference Guid to source entity")]
@@ -43,6 +44,9 @@ namespace BH.oM.Analytical.Elements
 
         [Description("Weight of the relation")]
         public virtual double Weight { get; set; } = 1.0;
+
+        [Description("Collection of processes associated with this relation.")]
+        public virtual List<IProcess> Processes { get; set; }
 
     }
     

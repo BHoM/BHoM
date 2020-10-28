@@ -32,6 +32,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
+    [Description("Results associated with a ColumnGridProcess.")]
     public class ColumnGridResult : ProcessResult
     {
         public virtual double Distance { get; set; } = 0;

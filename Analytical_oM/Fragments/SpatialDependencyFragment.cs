@@ -24,13 +24,15 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
-    public class SpatialDependencyFragment : DependencyFragment, IDependencyFragment
+    [Description("Fragment used to define the curve connecting two spatial entities.")]
+    public class SpatialDependencyFragment : DependencyFragment
     {
         /***************************************************/
         /**** Properties                                ****/

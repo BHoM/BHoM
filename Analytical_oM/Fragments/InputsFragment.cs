@@ -23,12 +23,14 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
+    [Description("Stores the set of an entity's incoming entities.")]
     public class InputsFragment : IDependencyFragment
     {
         /***************************************************/
