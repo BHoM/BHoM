@@ -24,12 +24,14 @@ using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
+    [Description("Fragment used in the computation of shortest paths.")]
     public class RoutingFragment : IFragment
     {
         /***************************************************/

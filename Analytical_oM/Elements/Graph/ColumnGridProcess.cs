@@ -23,14 +23,19 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
+    [Description("Process to validate the relation between a column and grid.")]
     public class ColumnGridProcess : BHoMObject, IProcess
     {
-        public virtual double Tolerance { get; set; } = 1e-6;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        public virtual double Tolerance { get; set; } = Geometry.Tolerance.Distance;
     }
 }
