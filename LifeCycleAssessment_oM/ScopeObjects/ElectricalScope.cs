@@ -23,7 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.Elements;
+using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -34,28 +34,28 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("Batteries include energy storage devices (e.g. lithium-ion batteries)")]
-        public virtual List<IBHoMObject> Batteries { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Batteries { get; set; } = new List<IElementM>();
 
         [Description("Cable trays that are used to route electrical wiring throughout a building")]
-        public virtual List<IBHoMObject> CableTrays { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> CableTrays { get; set; } = new List<IElementM>();
 
         [Description("Conduit used for electrical service routing includes tubing or channel")]
-        public virtual List<IBHoMObject> Conduit { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Conduit { get; set; } = new List<IElementM>();
 
         [Description("Equipment includes machines or devices that comprise the electrical infrastructure (e.g. meters, switchboards, transformers, solar panels)")]
-        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
 
         [Description("Devices that convert mechanical energy to electrical energy")]
-        public virtual List<IBHoMObject> Generators { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Generators { get; set; } = new List<IElementM>();
 
         [Description("Devices that provide and distribute illumination")]
-        public virtual List<IBHoMObject> LightFixtures { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> LightFixtures { get; set; } = new List<IElementM>();
 
         [Description("The system of distribution cabling that conveys electricy")]
-        public virtual List<WireSegment> WireSegments { get; set; } = new List<WireSegment>();
+        public virtual List<IElementM> WireSegments { get; set; } = new List<IElementM>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
         /***************************************************/
     }
 }

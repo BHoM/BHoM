@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,32 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.MEP.SectionProperties;
 using BH.oM.Dimensional;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.MEP.Elements
 {
-    [Description("Mechanical Scope provides a template for expected objects to be assessed within the MEPScope")]
-    public class MechanicalScope : BHoMObject
+    [Description("A type of damper used to control the flow of air in a mechanical system.")]
+    public class VolumeDamper : BHoMObject, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Mechanical distribution system that convey airflow from heating, ventilation or cooling systems (e.g. sheet metal)")]
-        public virtual List<IElementM> Ducts { get; set; } = new List<IElementM>();
 
-        [Description("Mechanical equipment includes machines and devices that provide heating, cooling, venting, pumping etc. (e.g. chillers, fans, AHUs, pumps)")]
-        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
-        
-        [Description("Mechanical pipework includes distribution systems (e.g. copper) that convey fluids")]
-        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
+        [Description("The point in space for the location of the VolumeDamper.")]
+        public virtual Node Location { get; set; } = new Node();
 
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
+        [Description("The DuctSectionProperties for the duct connected to the inlet face of the VolumeDamper.")]
+        public virtual DuctSectionProperty InletDuctProperties { get; set; } = null;
+
+        [Description("The DuctSectionProperties for the duct connected to the outlet face of the VolumeDamper.")]
+        public virtual DuctSectionProperty OutletDuctProperties { get; set; } = null;
+
+        [Description("The difference in total pressure between two points of a fluid carrying network.")]
+        public virtual double PressureDrop { get; set; } = 0;
+
         /***************************************************/
     }
 }

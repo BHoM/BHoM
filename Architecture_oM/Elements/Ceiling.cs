@@ -24,6 +24,7 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Physical.Constructions;
 using BH.oM.Dimensional;
+using System.Collections.Generic;
 
 namespace BH.oM.Architecture.Elements
 {
@@ -35,6 +36,8 @@ namespace BH.oM.Architecture.Elements
 
         public virtual ISurface Surface { get; set; } = null;
         public virtual Construction Construction { get; set; } = null;
+
+        public virtual List<CeilingTile> Tiles { get; set; } = new List<CeilingTile>();
 
         /***************************************************/
     }
