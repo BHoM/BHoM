@@ -48,6 +48,7 @@
     <Compile Include="Elements\ResidentialFixtureUsage.cs" />
     <Compile Include="Elements\CommercialFixtureUsage.cs" />
     <Compile Include="Elements\IFixtureUsage.cs" />
+    <Compile Include="Elements\LightFixture.cs" />
     <Compile Include="Elements\VolumeDamper.cs" />
     <Compile Include="Elements\Duct.cs" />
     <Compile Include="Elements\IFlow.cs" />
