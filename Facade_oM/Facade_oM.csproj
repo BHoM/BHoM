@@ -81,7 +81,6 @@
     <Compile Include="Elements\Enums\OpeningType.cs" />
     <Compile Include="Elements\Enums\PanelType.cs" />
     <Compile Include="Elements\CurtainWall.cs" />
-    <Compile Include="FrameProperties\FrameProperty.cs" />
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="IFacadeObject.cs" />
