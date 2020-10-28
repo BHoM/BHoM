@@ -36,7 +36,7 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.MEP.Elements
 {
-    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
+    [Description("A lighting fixture is an electrical device that provides illumination.")]
     public class LightingFixture : BHoMObject, IElement1D, IElementM
     {
         /***************************************************/
