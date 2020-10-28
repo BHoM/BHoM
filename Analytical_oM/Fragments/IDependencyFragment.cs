@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
-    [Description("Interface common to all dependency fragments.")]
+    [Description("Interface common to all DependencyFragments.")]
     public interface IDependencyFragment : IFragment
     {
 

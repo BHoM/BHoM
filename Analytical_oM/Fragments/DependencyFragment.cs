@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
-    [Description("Base class for all dependency fragments.")]
+    [Description("Base class for all DependencyFragments.")]
     public class DependencyFragment : IDependencyFragment
     {
         /***************************************************/
