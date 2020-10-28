@@ -46,7 +46,7 @@ namespace BH.oM.Facade.Elements
         [Description("A collection of Edge objects which defines the external boundary of the panel")]
         public virtual List<IEdge> ExternalEdges { get; set; } = new List<IEdge>();
 
-        [Description("A collection of all panels that make up the curtain wall")]
+        [Description("A collection of all openings that make up the curtain wall")]
         public virtual List<Opening> Openings { get; set; } = new List<Opening>();
 
         [Description("A collection of all frame edges that make up the curtain wall in addition to any frame edges applied to the curtain wall's individual openings")]
