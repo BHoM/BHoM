@@ -37,14 +37,14 @@ using System.ComponentModel;
 namespace BH.oM.Facade.Elements
 {
     [Description("A facade object used to define a curtain wall made up of multiple openings.")]
-    public class CurtainWall : BHoMObject, IFacadeObject, IPanel<IEdge, Opening>, IElement2D, IElementM
+    public class CurtainWall : BHoMObject, IFacadeObject, IPanel<FrameEdge, Opening>, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of Edge objects which defines the external boundary of the panel")]
-        public virtual List<IEdge> ExternalEdges { get; set; } = new List<IEdge>();
+        [Description("A collection of FrameEdge objects which defines the external boundary of the CurtainWall")]
+        public virtual List<FrameEdge> ExternalEdges { get; set; } = new List<FrameEdge>();
 
         [Description("A collection of all openings that make up the curtain wall")]
         public virtual List<Opening> Openings { get; set; } = new List<Opening>();

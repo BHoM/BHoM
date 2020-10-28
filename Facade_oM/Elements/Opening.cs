@@ -33,14 +33,14 @@ using BH.oM.Facade.SectionProperties;
 namespace BH.oM.Facade.Elements
 {
     [Description("A cutout or hole in a building surface/panel (e.g. Window, Rooflight)")]
-    public class Opening : BHoMObject, IFacadeObject, IOpening<IEdge>, IElement2D, IElementM
+    public class Opening : BHoMObject, IFacadeObject, IOpening<FrameEdge>, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of Edge objects which define the external boundary of the opening. If including frame edge properties these edges should be FrameEdges.")]
-        public virtual List<IEdge> Edges { get; set; } = new List<IEdge>();
+        [Description("A collection of FrameEdges which define the external boundary of the opening.")]
+        public virtual List<FrameEdge> Edges { get; set; } = new List<FrameEdge>();
 
         [Description("A construction object providing construction information about the opening - typically glazing construction")]
         public virtual IConstruction OpeningConstruction { get; set; } = null;
