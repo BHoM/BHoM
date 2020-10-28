@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BH.oM.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    public interface IValidator
+    public class ColumnGridProcess : BHoMObject, IProcess
     {
-        bool Valid { get; set; }
+        public virtual double Tolerance { get; set; } = 1e-6;
     }
 }
