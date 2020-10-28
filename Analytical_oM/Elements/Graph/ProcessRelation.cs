@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    public class ValidationRelation : Relation, IRelation
+    public class ProcessRelation : Relation, IRelation
     {
-
+        public virtual List<IProcess> Processes { get; set; }
 
     }
 }

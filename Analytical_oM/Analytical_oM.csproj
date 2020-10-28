@@ -41,14 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elements\Graph\ColumnGridValidator.cs" />
+    <Compile Include="Elements\Graph\ColumnGridProcess.cs" />
     <Compile Include="Elements\Graph\Graph.cs" />
     <Compile Include="Elements\Graph\IRelation.cs" />
-    <Compile Include="Elements\Graph\IValidator.cs" />
+    <Compile Include="Elements\Graph\IProcess.cs" />
     <Compile Include="Elements\Graph\Relation.cs" />
     <Compile Include="Elements\Graph\RelationDirection.cs" />
     <Compile Include="Elements\Graph\SpatialRelation.cs" />
-    <Compile Include="Elements\Graph\ValidationRelation.cs" />
+    <Compile Include="Elements\Graph\ProcessRelation.cs" />
     <Compile Include="Elements\IEdge.cs" />
     <Compile Include="Elements\IFace.cs" />
     <Compile Include="Elements\ILink.cs" />
@@ -62,12 +62,16 @@
     <Compile Include="Fragments\IDependencyFragment.cs" />
     <Compile Include="Fragments\InputOutputFragment.cs" />
     <Compile Include="Fragments\InputsFragment.cs" />
+    <Compile Include="Fragments\ProcessViewFragment.cs" />
     <Compile Include="Fragments\RoutingFragment.cs" />
     <Compile Include="Fragments\SpatialDependencyFragment.cs" />
+    <Compile Include="Fragments\ProcessDependencyFragment.cs" />
     <Compile Include="IAnalytical.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\IMeshElementResult.cs" />
     <Compile Include="Results\IMeshResult.cs" />
+    <Compile Include="Results\ColumnGridResult.cs" />
+    <Compile Include="Results\ProcessResult.cs" />
     <Compile Include="Results\IResult.cs" />
     <Compile Include="Results\IResultCollection.cs" />
     <Compile Include="Results\ShortestPathResult.cs" />
