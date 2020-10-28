@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    [Description("Process to validate the relation between a column and grid.")]
+    [Description("Process to validate the Relation between a column and grid.")]
     public class ColumnGridProcess : BHoMObject, IProcess
     {
         /***************************************************/

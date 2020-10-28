@@ -32,7 +32,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.Analytical.Elements
 {
-    [Description("Base class for all relation process classes.")]
+    [Description("Base class for all Relation Process classes.")]
     public class ProcessResult : IResult, IImmutable
     {
         [Description("ID of the object that this result belongs to.")]
