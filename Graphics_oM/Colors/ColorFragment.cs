@@ -29,13 +29,13 @@ using System.Drawing;
 namespace BH.oM.Graphics
 {
     [Description("Indicates a colour associable with a BHoMObject.")]
-    public class ColorFragment : IFragment
+    public class ColourFragment : IFragment
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        public Color Color { get; set; }
+        public Color Colour { get; set; }
 
         /***************************************************/
     }
