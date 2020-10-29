@@ -23,7 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.Elements;
+using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -34,16 +34,16 @@ namespace BH.oM.LifeCycleAssessment
         /**** Properties                                ****/
         /***************************************************/
         [Description("Fire protection equipment includes both fire and jockey pumps which convey water through the fire protection system")]
-        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
 
         [Description("Distribution systems that convey fluids in the case of fire")]
-        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
+        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
 
         [Description("Sprinklers used for fire protection throughout the building")]
-        public virtual List<IBHoMObject> Sprinklers { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> Sprinklers { get; set; } = new List<IElementM>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
         /***************************************************/
     }
 }
