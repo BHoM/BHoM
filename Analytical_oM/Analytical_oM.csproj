@@ -43,8 +43,13 @@
   <ItemGroup>
     <Compile Include="Elements\Graph\ColumnGridProcess.cs" />
     <Compile Include="Elements\Graph\Graph.cs" />
+    <Compile Include="Elements\Graph\Layout\Columns.cs" />
+    <Compile Include="Elements\Graph\Layout\ILayout.cs" />
     <Compile Include="Elements\Graph\IRelation.cs" />
     <Compile Include="Elements\Graph\IProcess.cs" />
+    <Compile Include="Elements\Graph\Layout\Radial.cs" />
+    <Compile Include="Elements\Graph\Layout\Stack.cs" />
+    <Compile Include="Elements\Graph\ProcessRelation.cs" />
     <Compile Include="Elements\Graph\Relation.cs" />
     <Compile Include="Elements\Graph\RelationDirection.cs" />
     <Compile Include="Elements\Graph\SpatialRelation.cs" />
@@ -57,6 +62,7 @@
     <Compile Include="Elements\IPanel.cs" />
     <Compile Include="Elements\IRegion.cs" />
     <Compile Include="Elements\ISurface.cs" />
+    <Compile Include="Fragments\ClusterFragment.cs" />
     <Compile Include="Fragments\DependencyFragment.cs" />
     <Compile Include="Fragments\IDependencyFragment.cs" />
     <Compile Include="Fragments\InputsFragment.cs" />
