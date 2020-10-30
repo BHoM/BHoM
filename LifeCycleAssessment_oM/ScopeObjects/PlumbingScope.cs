@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -32,14 +33,23 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Plumbing equipment includes machines or devices that pump, store or process water, waste and sewage streams, etc.")]
-        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
+        [Description("Plumbing equipment includes machines or devices that pump, store or process water, gas or waste.")]
+        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
         
-        [Description("Plumbing pipework includes distribution systems (e.g. PVC) that convey fluids")]
-        public virtual List<IBHoMObject> Pipes { get; set; } = new List<IBHoMObject>();
+        [Description("Plumbing pipework includes distribution systems that convey fluids (e.g. domestic cold water, hot water, gas, vent, waste).")]
+        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
+
+        [Description("Plumbing fixtures are devices that convey and/or accept water, waste or gas (e.g. toilets, lavatories, urinals, drinking fountains).")]
+        public virtual List<IElementM> PlumbingFixtures { get; set; } = new List<IElementM>();
+
+        [Description("Tanks are containers for plumbing fluids (e.g. storm detention tanks, domestic water tanks).")]
+        public virtual List<IElementM> Tanks { get; set; } = new List<IElementM>();
+
+        [Description("Valves are devices that control the flow or pressure within a plumbing piping system (e.g. ball valve, globe valve, gate valve).")]
+        public virtual List<IElementM> Valves { get; set; } = new List<IElementM>();
 
         [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
         /***************************************************/
     }
 }

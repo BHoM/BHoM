@@ -24,8 +24,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Environment;
-using BH.oM.Environment.Climate;
 
 namespace BH.oM.LifeCycleAssessment
 {

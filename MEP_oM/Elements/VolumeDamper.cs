@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,35 +20,32 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.Generic;
-using System.Linq;
+using BH.oM.MEP.SectionProperties;
+using BH.oM.Dimensional;
 
-namespace BH.oM.Graphics
+namespace BH.oM.MEP.Elements
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("A type of damper used to control the flow of air in a mechanical system.")]
+    public class VolumeDamper : BHoMObject, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        [Description("The point in space for the location of the VolumeDamper.")]
+        public virtual Node Location { get; set; } = new Node();
 
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
+        [Description("The DuctSectionProperties for the duct connected to the inlet face of the VolumeDamper.")]
+        public virtual DuctSectionProperty InletDuctProperties { get; set; } = null;
 
-        /***************************************************/
+        [Description("The DuctSectionProperties for the duct connected to the outlet face of the VolumeDamper.")]
+        public virtual DuctSectionProperty OutletDuctProperties { get; set; } = null;
 
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
+        [Description("The difference in total pressure between two points of a fluid carrying network.")]
+        public virtual double PressureDrop { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

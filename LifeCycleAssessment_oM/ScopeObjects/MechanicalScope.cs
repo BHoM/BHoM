@@ -23,7 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.Elements;
+using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
@@ -33,17 +33,32 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Mechanical distribution system that convey airflow from heating, ventilation or cooling systems (e.g. sheet metal)")]
-        public virtual List<Duct> Ducts { get; set; } = new List<Duct>();
+        [Description("Air terminals are the terminal devices for airflow systems (e.g. grilles, diffusers, registers)")]
+        public virtual List<IElementM> AirTerminals { get; set; } = new List<IElementM>();
+
+        [Description("Dampers are devices that control the flow within a mechanical duct system (e.g. fire smoke dampers, volume dampers)")]
+        public virtual List<IElementM> Dampers { get; set; } = new List<IElementM>();
+
+        [Description("Mechanical distribution system that convey airflow from heating, ventilation or cooling systems (e.g. supply air, extract air, return air)")]
+        public virtual List<IElementM> Ducts { get; set; } = new List<IElementM>();
 
         [Description("Mechanical equipment includes machines and devices that provide heating, cooling, venting, pumping etc. (e.g. chillers, fans, AHUs, pumps)")]
-        public virtual List<IBHoMObject> Equipment { get; set; } = new List<IBHoMObject>();
-        
-        [Description("Mechanical pipework includes distribution systems (e.g. copper) that convey fluids")]
-        public virtual List<Pipe> Pipes { get; set; } = new List<Pipe>();
+        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
 
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IBHoMObject> AdditionalObjects { get; set; } = new List<IBHoMObject>();
+        [Description("Mechanical pipework includes distribution systems that convey fluids for mechanical heating or cooling (e.g. chilled water, heating hot water, refrigerant)")]
+        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
+
+        [Description("Refrigerant is a fluid conveyed in refrigeration systems, it is generally a CFC or HCFC laden material (e.g. R-410A, R-22)")]
+        public virtual List<IElementM> Refrigerants { get; set; } = new List<IElementM>();
+
+        [Description("Tanks are containers for mechanically conveyed fluids (e.g. diesel tanks that store fuel for generators).")]
+        public virtual List<IElementM> Tanks { get; set; } = new List<IElementM>();
+
+        [Description("Valves are devices that control the flow or pressure within a mechanical piping system (e.g. ball valve, globe valve, gate valve).")]
+        public virtual List<IElementM> Valves { get; set; } = new List<IElementM>();
+
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled (e.g. hangers, brackets, filters)")]
+        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
         /***************************************************/
     }
 }
