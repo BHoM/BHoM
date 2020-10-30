@@ -22,6 +22,7 @@
 
 using BH.oM.Analytical.Elements;
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,6 +43,8 @@ namespace BH.oM.Analytical.Fragments
         public virtual Guid Target { get; set; }
 
         public virtual List<IProcess> Processes { get; set; } = new List<IProcess>();
+
+        public virtual ICurve Curve { get; set; }
         /***************************************************/
 
     }

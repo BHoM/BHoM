@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,9 +31,11 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    [Description("Stacked layout for Graphs.")]
-    public class Stack : BHoMObject, ILayout
+    [Description("Cluster information for ProcessView of Graphs.")]
+    public class EntityCluster : BHoMObject
     {
-        public virtual double HorizontalSpace { get; set; } = 1;
+        public virtual Point Postion { get; set; } = new Point();
+
+        public List<Guid> EntityGuids { get; set; } = new List<Guid>();
     }
 }
