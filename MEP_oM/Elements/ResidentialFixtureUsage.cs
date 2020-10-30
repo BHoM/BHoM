@@ -19,36 +19,31 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
 
+using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.Architecture.Elements
+namespace BH.oM.MEP.Elements
 {
-    public class Occupancy : BHoMObject
+    [Description("Fixture Usage data for residential plumbing fixtures.")]
+    public class ResidentialFixtureUsage : BHoMObject, IFixtureUsage
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("The area per person is representative of the square meters each person occupies within the building or space.")]
-        public virtual double AreaPerPerson { get; set; } = 0.0;
-
-        [Description("Percentage of Females of the total occupant count of the building or space.")]
-        public virtual double FemalePercentage { get; set; } = 0.5;
-
-        [Description("Percentage of Gender Neutral of the total occupant count of the building or space.")]
-        public virtual double GenderNeutralPercentage { get; set; } = 0.0;
-
-        [Description("Percentage of Males of the total occupant count of the building or space.")]
-        public virtual double MalePercentage { get; set; } = 0.5;
-
-        [Description("The total number of people that occupy the building or space.")]
-        public virtual int OccupantCount { get; set; } = 0;
+        public virtual double KitchenFaucetNumberOfUsesMale { get; set; } = 0;
+        public virtual double KitchenFaucetNumberOfUsesFemale { get; set; } = 0;
+        public virtual double KitchenFaucetNumberOfUsesGenderNeutral { get; set; } = 0;
+        public virtual double LavatoryNumberOfUsesMale { get; set; } = 0;
+        public virtual double LavatoryNumberOfUsesFemale { get; set; } = 0;
+        public virtual double LavatoryNumberOfUsesGenderNeutral { get; set; } = 0;
+        public virtual double ShowerNumberOfUsesMale { get; set; } = 0;
+        public virtual double ShowerNumberOfUsesFemale { get; set; } = 0;
+        public virtual double ShowerNumberOfUsesGenderNeutral { get; set; } = 0;
+        public virtual double ToiletNumberOfUsesMale { get; set; } = 0;
+        public virtual double ToiletNumberOfUsesFemale { get; set; } = 0;
+        public virtual double ToiletNumberOfUsesGenderNeutral { get; set; } = 0;
+        public virtual double UrinalNumberOfUsesMale { get; set; } = 0;
 
         /***************************************************/
     }
