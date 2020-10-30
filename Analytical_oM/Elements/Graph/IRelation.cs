@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +46,9 @@ namespace BH.oM.Analytical.Elements
         double Weight { get; set; }
 
         List<IProcess> Processes { get; set; }
+
+        ICurve Curve { get; set; }
+
         /***************************************************/
     }
 

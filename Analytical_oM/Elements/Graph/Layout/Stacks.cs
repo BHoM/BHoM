@@ -21,21 +21,18 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    [Description("Relation used to provide the ICurve that connects two entities with a ProcessViewFragments.")]
-    public class ProcessRelation : Relation
+    [Description("Stacked layout for Graphs.")]
+    public class Stacks : BHoMObject, ILayout
     {
-        public virtual ICurve Curve { get; set; }
+        public virtual double HorizontalSpace { get; set; } = 1;
 
+        public virtual List<Point> ClusterPoints { get; set; } = new List<Point>();
     }
 }

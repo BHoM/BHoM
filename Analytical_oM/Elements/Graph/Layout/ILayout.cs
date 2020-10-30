@@ -21,17 +21,16 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
     [Description("Interface common to all Layout objects.")]
     public interface ILayout : IBHoMObject
     {
+        List<Point> ClusterPoints { get; set; }
     }
 }

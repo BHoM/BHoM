@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System;
@@ -31,15 +32,16 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
-    [Description("Fragment used to provide the ICurve that connects two spatial entities.")]
-    public class SpatialDependencyFragment : DependencyFragment
+    [Description("Fragment used to cluster and position Graph entities.")]
+    public class EntityViewFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual ICurve Curve { get; set; }
+        public virtual string ClusterName { get; set; } = "";
+
+        public virtual Point Position { get; set; } = new Point();
 
         /***************************************************/
-
     }
 }

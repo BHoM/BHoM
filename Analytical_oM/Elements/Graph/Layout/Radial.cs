@@ -21,12 +21,10 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
@@ -34,5 +32,7 @@ namespace BH.oM.Analytical.Elements
     public class Radial : BHoMObject, ILayout
     {
         public virtual double SweepAngle { get; set; } = 2 * Math.PI;
+        public virtual List<Point> ClusterPoints { get; set; } = new List<Point>();
+        public virtual Point Centre { get; set; } = new Point();
     }
 }

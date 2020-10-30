@@ -21,12 +21,10 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
@@ -34,5 +32,7 @@ namespace BH.oM.Analytical.Elements
     public class Columns : BHoMObject, ILayout
     {
         public virtual double VerticalSpace { get; set; } = 1;
+
+        public virtual List<Point> ClusterPoints { get; set; } = new List<Point>();
     }
 }

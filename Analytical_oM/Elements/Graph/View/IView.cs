@@ -20,7 +20,6 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
@@ -29,16 +28,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Fragments
+namespace BH.oM.Analytical.Elements
 {
-    [Description("Fragment used to cluster Graph entities.")]
-    public class ClusterFragment : IFragment
+    [Description("Interface common to all View objects.")]
+    public interface IView : IBHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        public virtual string ClusterName { get; set; } = "";
-
-        /***************************************************/
+        
     }
 }
