@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System;
@@ -31,15 +32,14 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
-    [Description("Process view position of an entity.")]
+    [Description("Fragment used to store EntityClusters on a Graph with ProcessViews.")]
     public class ProcessViewFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual Point Position { get; set; }
+        public virtual List<EntityCluster> EntityClusters { get; set; } = new List<EntityCluster>();
 
         /***************************************************/
-
     }
 }

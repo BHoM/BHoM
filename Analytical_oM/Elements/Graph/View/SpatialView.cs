@@ -21,8 +21,6 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,10 +30,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    [Description("Relation used to provide the ICurve that connects two spatial entities.")]
-    public class SpatialRelation : Relation
+    [Description("Spatial View for Graphs.")]
+    public class SpatialView : BHoMObject, IView
     {
-        public virtual ICurve Curve { get; set; }
-
     }
 }
