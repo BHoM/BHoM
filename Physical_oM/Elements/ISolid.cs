@@ -22,7 +22,6 @@
 
 using BH.oM.Base;
 using BH.oM.Dimensional;
-using BH.oM.Physical.Materials;
 using System.Collections.Generic;
 
 namespace BH.oM.Physical.Elements
@@ -33,7 +32,6 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
         List<BH.oM.Geometry.ISolid> Geometry { get; set; }
-        MaterialComposition MaterialComposition { get; set; }
 
         /***************************************************/
     }
