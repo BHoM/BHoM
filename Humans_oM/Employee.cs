@@ -22,6 +22,7 @@
 
 using BH.oM.Base;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.Humans
 {
@@ -31,22 +32,33 @@ namespace BH.oM.Humans
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Company the Employee works for.")]
         public virtual string Company { get; set; }
 
+        [Description("Office assigned to the Employee.")]
         public virtual string Office { get; set; }
 
+        [Description("Discipline the Employee works in.")]
         public virtual string Discipline { get; set; }
 
+        [Description("Team the Employee belongs to.")]
         public virtual string Team { get; set; }
 
+        [Description("Manager of the Employee.")]
+        public virtual Employee Manager { get; set; }
+
+        [Description("Seniority of the Employee.")]
         public virtual string Grade { get; set; }
 
+        [Description("Company email of the Employee.")]
         public virtual string Email { get; set; }
 
+        [Description("Company phone number of the Employee.")]
         public virtual string Phone { get; set; }
 
         public virtual string CodeDevelopmentRole { get; set; }
 
+        [Description("Business Unit the Employee is assigned to.")]
         public virtual string BusinessUnit { get; set; }
 
         /***************************************************/
