@@ -32,19 +32,20 @@ using BH.oM.Base;
 using BH.oM.Analytical.Elements;
 using BH.oM.MEP.SectionProperties;
 using BH.oM.MEP.Parts;
+using BH.oM.Geometry;
 using BH.oM.Dimensional;
 
 namespace BH.oM.MEP.Elements
 {
     [Description("A light fixture is an electrical device that provides illumination.")]
-    public class LightFixture : BHoMObject, IElement1D, IElementM
+    public class LightFixture : BHoMObject, IElement0D, IElementM, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("The point in space for the location of the LightFixture.")]
-        public virtual Node Location { get; set; } = new Node();
+        public virtual Point Position { get; set; } = new Point();
 
         [Description("The luminous flux is the measure of the perceived power of light.")]
         public virtual double LuminousFlux { get; set; } = 0;
