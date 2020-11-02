@@ -50,11 +50,11 @@ namespace BH.oM.MEP.Elements
         [Description("The luminous flux is the measure of the perceived power of light.")]
         public virtual double LuminousFlux { get; set; } = 0;
 
-        [Description("The color temperature is a means of describing the light fixture's appearance, measured in degrees Kelvin")]
-        public virtual double ColorTemperature { get; set; } = 0;
+        [Description("The colour temperature is a means of describing the light fixture's appearance, measured in degrees Kelvin")]
+        public virtual double ColourTemperature { get; set; } = 0;
 
         [Description("A means of denoting light fixtures that should be controlled in a similar manner.")]
-        public virtual double ControlZone { get; set; } = 0;
+        public virtual string ControlZone { get; set; } = "";
 
         [Description("A means of adding an electrical connector part to the light fixture's properties. Gives the ability to add the voltage, amps, and denotes if the fixture should be on emergency power.")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
