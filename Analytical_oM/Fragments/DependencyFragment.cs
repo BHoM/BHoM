@@ -45,6 +45,9 @@ namespace BH.oM.Analytical.Fragments
         public virtual List<IProcess> Processes { get; set; } = new List<IProcess>();
 
         public virtual ICurve Curve { get; set; }
+
+        public virtual IView View { get; set; }
+
         /***************************************************/
 
     }

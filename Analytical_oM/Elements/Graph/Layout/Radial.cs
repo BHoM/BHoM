@@ -32,7 +32,7 @@ namespace BH.oM.Analytical.Elements
     public class Radial : BHoMObject, ILayout
     {
         public virtual double SweepAngle { get; set; } = 2 * Math.PI;
-        public virtual List<Point> ClusterPoints { get; set; } = new List<Point>();
+        public virtual List<Point> GroupPoints { get; set; } = new List<Point>();
         public virtual Point Centre { get; set; } = new Point();
     }
 }

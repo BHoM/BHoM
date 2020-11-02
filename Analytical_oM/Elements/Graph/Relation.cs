@@ -34,16 +34,16 @@ namespace BH.oM.Analytical.Elements
     [Description("Base class for all Relation classes.")]
     public class Relation : BHoMObject, IRelation
     {
-        [Description("Reference Guid to source entity")]
+        [Description("Reference Guid to source entity.")]
         public virtual Guid Source { get; set; } = Guid.Empty;
 
-        [Description("Reference Guid to target entity")]
+        [Description("Reference Guid to target entity.")]
         public virtual Guid Target { get; set; } = Guid.Empty;
 
-        [Description("This Relation's sub Graph")]
+        [Description("This Relation's sub Graph.")]
         public virtual Graph Subgraph { get; set; } = new Graph();
 
-        [Description("Weight of the Relation")]
+        [Description("Weight of the Relation.")]
         public virtual double Weight { get; set; } = 1.0;
 
         [Description("Collection of processes associated with this Relation.")]

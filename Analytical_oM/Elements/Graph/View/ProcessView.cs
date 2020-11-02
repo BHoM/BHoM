@@ -34,9 +34,12 @@ namespace BH.oM.Analytical.Elements
     [Description("Process View for Graphs.")]
     public class ProcessView : BHoMObject, IView
     {
-        public virtual ILayout layout { get; set; }
+        public virtual ILayout Layout { get; set; }
 
-        public virtual List<string> ClustersToIgnore { get; set; } = new List<string>();
-        
+        public virtual List<string> GroupsToIgnore { get; set; } = new List<string>();
+
+        public virtual double EntityBoxX { get; set; } = 10;
+
+        public virtual double EntityBoxY { get; set; } = 5;
     }
 }
