@@ -33,6 +33,6 @@ namespace BH.oM.Analytical.Elements
     {
         public virtual double HorizontalSpace { get; set; } = 1;
 
-        public virtual List<Point> ClusterPoints { get; set; } = new List<Point>();
+        public virtual List<Point> GroupPoints { get; set; } = new List<Point>();
     }
 }

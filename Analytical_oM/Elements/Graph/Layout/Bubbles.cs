@@ -20,28 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Fragments
+namespace BH.oM.Analytical.Elements
 {
-    [Description("Fragment used to cluster and position Graph entities.")]
-    public class EntityViewFragment : IFragment
+    [Description("Bubbles layout for Graphs.")]
+    public class Bubbles : BHoMObject, ILayout
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        public virtual string ClusterName { get; set; } = "";
+        public virtual double Radius { get; set; } = 1;
 
-        public virtual Point Position { get; set; } = new Point();
+        public virtual List<Point> GroupPoints { get; set; } = new List<Point>();
 
-        /***************************************************/
+        public virtual double SweepAngle { get; set; } = 2 * Math.PI;
     }
 }
