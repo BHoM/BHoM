@@ -32,13 +32,15 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
-    [Description("Fragment used to store EntityClusters on a Graph with ProcessViews.")]
+    [Description("Fragment used to store EntityGroups on a Graph with ProcessViews.")]
     public class ProcessViewFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual List<EntityCluster> EntityClusters { get; set; } = new List<EntityCluster>();
+        public virtual List<string> GroupNames { get; set; } = new List<string>();
+
+        public virtual Point Position { get; set; } = new Point();
 
         /***************************************************/
     }

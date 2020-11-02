@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Elements\Graph\ColumnGridProcess.cs" />
     <Compile Include="Elements\Graph\Graph.cs" />
+    <Compile Include="Elements\Graph\Layout\Bubbles.cs" />
     <Compile Include="Elements\Graph\Layout\Columns.cs" />
     <Compile Include="Elements\Graph\Layout\ILayout.cs" />
     <Compile Include="Elements\Graph\IRelation.cs" />
@@ -51,7 +52,7 @@
     <Compile Include="Elements\Graph\Layout\Stacks.cs" />
     <Compile Include="Elements\Graph\Relation.cs" />
     <Compile Include="Elements\Graph\RelationDirection.cs" />
-    <Compile Include="Elements\Graph\View\EntityCluster.cs" />
+    <Compile Include="Elements\Graph\View\EntityGroup.cs" />
     <Compile Include="Elements\Graph\View\IView.cs" />
     <Compile Include="Elements\Graph\View\ProcessView.cs" />
     <Compile Include="Elements\Graph\View\SpatialView.cs" />
@@ -64,10 +65,9 @@
     <Compile Include="Elements\IPanel.cs" />
     <Compile Include="Elements\IRegion.cs" />
     <Compile Include="Elements\ISurface.cs" />
-    <Compile Include="Fragments\EntityViewFragment.cs" />
     <Compile Include="Fragments\DependencyFragment.cs" />
     <Compile Include="Fragments\IDependencyFragment.cs" />
-    <Compile Include="Fragments\InputsFragment.cs" />
+    <Compile Include="Fragments\LayoutHelperFragment.cs" />
     <Compile Include="Fragments\ProcessViewFragment.cs" />
     <Compile Include="Fragments\RoutingFragment.cs" />
     <Compile Include="IAnalytical.cs" />

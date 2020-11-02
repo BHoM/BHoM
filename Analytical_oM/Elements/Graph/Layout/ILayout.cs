@@ -31,6 +31,6 @@ namespace BH.oM.Analytical.Elements
     [Description("Interface common to all Layout objects.")]
     public interface ILayout : IBHoMObject
     {
-        List<Point> ClusterPoints { get; set; }
+        List<Point> GroupPoints { get; set; }
     }
 }
