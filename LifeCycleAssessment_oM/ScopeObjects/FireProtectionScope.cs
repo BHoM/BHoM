@@ -36,13 +36,16 @@ namespace BH.oM.LifeCycleAssessment
         [Description("Fire protection equipment includes both fire and jockey pumps which convey water through the fire protection system")]
         public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
 
-        [Description("Distribution systems that convey fluids in the case of fire")]
+        [Description("Distribution systems that convey fluids in the case of fire (e.g. domestic cold water).")]
         public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
 
-        [Description("Sprinklers used for fire protection throughout the building")]
+        [Description("Sprinklers are devices that release water upon the detection of a fire.")]
         public virtual List<IElementM> Sprinklers { get; set; } = new List<IElementM>();
 
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
+        [Description("Tanks are containers that store water for fire protection.")]
+        public virtual List<IElementM> Tanks { get; set; } = new List<IElementM>();
+
+        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled (e.g. fire hose valve cabinets)")]
         public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
         /***************************************************/
     }

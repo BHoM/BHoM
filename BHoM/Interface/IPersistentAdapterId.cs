@@ -20,35 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Base
 {
-    public class RenderMesh : IGeometry, IFragment
+    public interface IPersistentAdapterId : IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
-
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
-
-        /***************************************************/
+        [Description("Globally unique and generated upon object creation in the external software; it never changes throughout the life of the object.")]
+        object PersistentId { get; set; }
     }
 }
 
