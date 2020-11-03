@@ -63,6 +63,7 @@
     <Compile Include="Elements\ISurface.cs" />
     <Compile Include="Fragments\DependencyFragment.cs" />
     <Compile Include="Fragments\IDependencyFragment.cs" />
+    <Compile Include="Fragments\IViewFragment.cs" />
     <Compile Include="Fragments\ProcessViewFragment.cs" />
     <Compile Include="Fragments\RoutingFragment.cs" />
     <Compile Include="IAnalytical.cs" />
