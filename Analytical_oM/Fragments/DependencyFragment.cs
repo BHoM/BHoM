@@ -38,17 +38,15 @@ namespace BH.oM.Analytical.Fragments
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         public virtual Guid Source { get; set; }
 
         public virtual Guid Target { get; set; }
-
-        public virtual List<IProcess> Processes { get; set; } = new List<IProcess>();
 
         public virtual ICurve Curve { get; set; }
 
         public virtual IView View { get; set; }
 
         /***************************************************/
-
     }
 }

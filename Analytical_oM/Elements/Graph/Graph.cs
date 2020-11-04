@@ -36,8 +36,11 @@ namespace BH.oM.Analytical.Elements
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
+        [Description("Dictionary of IBHoMObject entities.")]
         public virtual Dictionary<Guid, IBHoMObject> Entities { get; set; } = new Dictionary<Guid, IBHoMObject>();
 
+        [Description("Collection of relations between IBHoMObject entities.")]
         public virtual List<IRelation> Relations { get; set; } = new List<IRelation>();
 
     }

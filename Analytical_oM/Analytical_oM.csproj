@@ -41,11 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elements\Graph\ColumnGridProcess.cs" />
     <Compile Include="Elements\Graph\Graph.cs" />
     <Compile Include="Elements\Graph\Layout\ILayout.cs" />
     <Compile Include="Elements\Graph\IRelation.cs" />
-    <Compile Include="Elements\Graph\IProcess.cs" />
     <Compile Include="Elements\Graph\Relation.cs" />
     <Compile Include="Elements\Graph\RelationDirection.cs" />
     <Compile Include="Elements\Graph\View\EntityGroup.cs" />
@@ -70,8 +68,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\IMeshElementResult.cs" />
     <Compile Include="Results\IMeshResult.cs" />
-    <Compile Include="Results\ColumnGridResult.cs" />
-    <Compile Include="Results\ProcessResult.cs" />
     <Compile Include="Results\IResult.cs" />
     <Compile Include="Results\IResultCollection.cs" />
     <Compile Include="Results\ShortestPathResult.cs" />
