@@ -34,6 +34,10 @@ namespace BH.oM.Analytical.Elements
     [Description("Base class for all Relation classes.")]
     public class Relation : BHoMObject, IRelation
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Reference Guid to source entity.")]
         public virtual Guid Source { get; set; } = Guid.Empty;
 
@@ -46,13 +50,8 @@ namespace BH.oM.Analytical.Elements
         [Description("Weight of the Relation.")]
         public virtual double Weight { get; set; } = 1.0;
 
-        [Description("Collection of processes associated with this Relation.")]
-        public virtual List<IProcess> Processes { get; set; }
-
-        [Description("Curve that links the source and target entities.")]
+        [Description("Curve that represents the link between the source and target entities.")]
         public virtual ICurve Curve { get; set; }
 
     }
-    
-
 }

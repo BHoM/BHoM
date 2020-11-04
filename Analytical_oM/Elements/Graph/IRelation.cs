@@ -37,6 +37,7 @@ namespace BH.oM.Analytical.Elements
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         Guid Source { get; set; }
 
         Guid Target { get; set; }
@@ -44,8 +45,6 @@ namespace BH.oM.Analytical.Elements
         Graph Subgraph { get; set; }
 
         double Weight { get; set; }
-
-        List<IProcess> Processes { get; set; }
 
         ICurve Curve { get; set; }
 

@@ -37,11 +37,17 @@ namespace BH.oM.Analytical.Fragments
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         public virtual double? MinCostToSource { get; set; } = null;
+
         public virtual double? Cost { get; set; } = null;
+
         public virtual bool Visited { get; set; } = false;
+
         public virtual Guid NearestToSource { get; set; }
+
         public virtual double? StraightLineDistanceToTarget { get; set; } = null;
+
         /***************************************************/
     }
 }
