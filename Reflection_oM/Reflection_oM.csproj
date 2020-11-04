@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Attributes\AbbreviationAttribute.cs" />
     <Compile Include="Attributes\DeprecatedAttribute.cs" />
+    <Compile Include="Attributes\PreviousInputNames.cs" />
     <Compile Include="Attributes\PreviousVersionAttribute.cs" />
     <Compile Include="Attributes\DefaultValueWarningAttribute.cs" />
     <Compile Include="Attributes\ToBeRemovedAttribute.cs" />
