@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,28 +22,35 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
-
+using BH.oM.Geometry;
 using BH.oM.Base;
+using BH.oM.MEP.System.ConnectionProperties;
 
-using BH.oM.MEP.Equipment.Parts;
-
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System.ConnectionProperties
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("A Cable Tray connection property to store information about its physical connectors.")]
+    public class CableTrayConnectionProperty : BHoMObject, IConnectionProperty
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        [Description("The point at which the Connector object begins.")]
+        public virtual Point StartPoint { get; set; }
+
+        [Description("The point at which the Connector bject ends.")]
+        public virtual Point EndPoint { get; set; }
+
+        [Description("Whether the start point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsStartConnected { get; set; }
+
+        [Description("Whether the end point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsEndConnected { get; set; }       
 
         /***************************************************/
     }
 }
-

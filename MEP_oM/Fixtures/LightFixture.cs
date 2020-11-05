@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,28 +22,44 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
 using BH.oM.Base;
-
+using BH.oM.Analytical.Elements;
+using BH.oM.MEP.System.SectionProperties;
 using BH.oM.MEP.Equipment.Parts;
+using BH.oM.Geometry;
+using BH.oM.Dimensional;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.Fixtures
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("A light fixture is an electrical device that provides illumination.")]
+    public class LightFixture : BHoMObject, IElement0D, IElementM, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
+        [Description("The point in space for the location of the LightFixture.")]
+        public virtual Point Position { get; set; } = new Point();
+
+        [Description("The luminous flux is the measure of the perceived power of light.")]
+        public virtual double LuminousFlux { get; set; } = 0;
+
+        [Description("The colour temperature is a means of describing the light fixture's appearance, measured in degrees Kelvin")]
+        public virtual double ColourTemperature { get; set; } = 0;
+
+        [Description("A means of denoting light fixtures that should be controlled in a similar manner.")]
+        public virtual string ControlZone { get; set; } = "";
+
+        [Description("A means of adding an electrical connector part to the light fixture's properties. Gives the ability to add the voltage, amps, and denotes if the fixture should be on emergency power.")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+
 
         /***************************************************/
     }
 }
-

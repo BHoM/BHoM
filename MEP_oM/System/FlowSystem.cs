@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,28 +22,29 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
-using BH.oM.MEP.Equipment.Parts;
-
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("A collection of IFlow Objects to be utilised throughout a defined system.")]
+    public class FlowSystem : BHoMObject, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        [Description("A collection of FlowObjects to compile within a specified systemType.")]
+        public virtual List<IFlow> FlowObjects { get; set; } = new List<IFlow>();
 
+        [Description("A specific system type to be applied to the flow objects. The system type describes the material conveyed by the system (supply air, cold water), therefore determining the behaviours of the system")]
+        public virtual ISystemType SystemType { get; set; } = null;
         /***************************************************/
     }
 }
-

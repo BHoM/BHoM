@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,28 +22,39 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
 using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.MEP.System.SectionProperties;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
 
-using BH.oM.MEP.Equipment.Parts;
-
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
+    public class Pipe : BHoMObject, IFlow, IElement0D, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        [Description("The point at which the Pipe object begins.")]
+        public virtual Point StartPoint { get; set; } = null;
+
+        [Description("The point at which the Pipe object ends.")]
+        public virtual Point EndPoint { get; set; } = null;
+
+        [Description("The volume of fluid being conveyed by the pipe per second (m3/s).")]
+        public virtual double FlowRate { get; set; } = 0;
+
+        [Description("The pipe section property defines the shape and its associated properties (radius, material, thickness).")]
+        public virtual PipeSectionProperty SectionProperty { get; set; } = null;
 
         /***************************************************/
     }
 }
-
