@@ -66,7 +66,6 @@ namespace BH.oM.LifeCycleAssessment
         Valves,
         Wall,
         Window,
-        WireSegments,
         Wiring      
     }
 }
