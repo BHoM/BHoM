@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-
 using BH.oM.Base;
+using BH.oM.MEP.System.SectionProperties;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
 
-using BH.oM.MEP.Equipment.Parts;
-
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System.Dampers
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("A type of damper used to control the flow of air in a mechanical system.")]
+    public class VolumeDamper : BHoMObject, IElement0D, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        [Description("The point in space for the location of the VolumeDamper.")]
+        public virtual Point Location { get; set; } = new Point();
+
+        [Description("The DuctSectionProperties for the duct connected to the inlet face of the VolumeDamper.")]
+        public virtual DuctSectionProperty InletDuctProperties { get; set; } = null;
+
+        [Description("The DuctSectionProperties for the duct connected to the outlet face of the VolumeDamper.")]
+        public virtual DuctSectionProperty OutletDuctProperties { get; set; } = null;
+
+        [Description("The difference in total pressure between two points of a fluid carrying network.")]
+        public virtual double PressureDrop { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

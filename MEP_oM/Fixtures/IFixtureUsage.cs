@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-
 using BH.oM.Base;
 
-using BH.oM.MEP.Equipment.Parts;
-
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.Fixtures
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("Base interface for all Fixture objects. These objects are capable of containing a material or element that flows through the object.")]
+    public interface IFixtureUsage : IBHoMObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
-
         /***************************************************/
     }
 }
-

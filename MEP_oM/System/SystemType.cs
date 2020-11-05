@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,21 +30,16 @@ using System.ComponentModel;
 
 using BH.oM.Base;
 
-using BH.oM.MEP.Equipment.Parts;
-
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("An MEP system to determine flow types.")]
+    public interface ISystemType : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
         /***************************************************/
     }
 }
-

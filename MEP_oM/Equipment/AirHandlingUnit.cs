@@ -29,7 +29,7 @@ using System.ComponentModel;
 
 using BH.oM.Base;
 
-using BH.oM.MEP.Parts;
+using BH.oM.MEP.Equipment.Parts;
 
 namespace BH.oM.MEP.Equipment
 {

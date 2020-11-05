@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-
 using BH.oM.Base;
 
-using BH.oM.MEP.Equipment.Parts;
-
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.Fixtures
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("Fixture Usage data for commercial plumbing fixtures.")]
+    public class CommercialFixtureUsage : BHoMObject, IFixtureUsage
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        public virtual double KitchenFaucetNumberOfUsesMale { get; set; } = 0;
+        public virtual double KitchenFaucetNumberOfUsesFemale { get; set; } = 0;
+        public virtual double KitchenFaucetNumberOfUsesGenderNeutral { get; set; } = 0;
+        public virtual double LavatoryNumberOfUsesMale { get; set; } = 0;
+        public virtual double LavatoryNumberOfUsesFemale { get; set; } = 0;
+        public virtual double LavatoryNumberOfUsesGenderNeutral { get; set; } = 0;
+        public virtual double ShowerNumberOfUsesMale { get; set; } = 0;
+        public virtual double ShowerNumberOfUsesFemale { get; set; } = 0;
+        public virtual double ShowerNumberOfUsesGenderNeutral { get; set; } = 0;
+        public virtual double ToiletNumberOfUsesMale { get; set; } = 0;
+        public virtual double ToiletNumberOfUsesFemale { get; set; } = 0;
+        public virtual double ToiletNumberOfUsesGenderNeutral { get; set; } = 0;
+        public virtual double UrinalNumberOfUsesMale { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

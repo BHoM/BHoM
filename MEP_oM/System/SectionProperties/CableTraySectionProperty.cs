@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,43 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 
 using BH.oM.Base;
+using BH.oM.MEP.MaterialFragments;
 
-using BH.oM.MEP.Equipment.Parts;
-
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System.SectionProperties
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    public class CableTraySectionProperty : BHoMObject, IImmutable
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        [Description("The cable tray material is the primary material that the it is composed of.")]
+        public virtual IMEPMaterial Material { get; set; }     
+
+        [Description("The section profile of the object that will determine its use within a System.")]
+        public virtual SectionProfile SectionProfile { get; }
+
+        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
+        public virtual double ElementSolidArea { get; }
+
+        [Description("The interior area within the element's shapeProfile. This corresponds to the actual open area less any material thickness.")]
+        public virtual double ElementVoidArea { get; }
+
+        /***************************************************/
+        /****                 Constructor               ****/
+        /***************************************************/
+        
+        public CableTraySectionProperty(IMEPMaterial material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
+        {
+            Material = material;
+            SectionProfile = sectionProfile;
+            ElementSolidArea = elementSolidArea;
+            ElementVoidArea = elementVoidArea;            
+        }
 
         /***************************************************/
     }
 }
-

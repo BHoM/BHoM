@@ -29,19 +29,36 @@ using System.ComponentModel;
 
 using BH.oM.Base;
 
-using BH.oM.MEP.Equipment.Parts;
-
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.Equipment.Parts
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("Fans are devices that create a current of air (used for ventilation and cooling) by rotating blades")]
+    public class Fan : BHoMObject, IPart
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        [Description("Flow Rate denotes the amount of air that is drawn across the fan, measured in m3/s")]
+        public virtual double FlowRate { get; set; } = 0.0;
+        
+        [Description("External static pressure denotes the resistance within the system that the fan has to overcome from filters, grilles, coils, etc")]
+        public virtual double ExternalStaticPressure { get; set; } = 0.0;
+        
+        [Description("Speed denotes the rotational speed of the fan blades")]
+        public virtual double Speed { get; set; } = 0.0;
+        
+        [Description("Drive type denotes the drive type as either direct or belt")]
+        public virtual string DriveType { get; set; } = "";
+        
+        [Description("A device for controlling the fan speed.")]
+        public virtual string SpeedControl { get; set; } = "";
+        
+        public virtual double BrakeHorsePower { get; set; } = 0.0;
+        
+        public virtual double HorsePower { get; set; } = 0.0;
+        
+        [Description("Efficiency denotes the ratio between the power transferred to airflow produced by the fan and the power used by the fan")]
+        public virtual double Efficiency { get; set; } = 0.0;
 
         /***************************************************/
     }

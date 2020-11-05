@@ -40,25 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionProperties\CableTrayConnectionProperty.cs" />
-    <Compile Include="ConnectionProperties\IConnectionProperty.cs" />
-    <Compile Include="Elements\CableTray.cs" />
-    <Compile Include="Elements\PlumbingFixtureFlow.cs" />
-    <Compile Include="Elements\IFixtureFlow.cs" />
-    <Compile Include="Elements\ResidentialFixtureUsage.cs" />
-    <Compile Include="Elements\CommercialFixtureUsage.cs" />
-    <Compile Include="Elements\IFixtureUsage.cs" />
-    <Compile Include="Elements\LightFixture.cs" />
-    <Compile Include="Elements\VolumeDamper.cs" />
-    <Compile Include="Elements\Duct.cs" />
-    <Compile Include="Elements\IFlow.cs" />
-    <Compile Include="Elements\MechanicalSystem.cs" />
-    <Compile Include="Elements\Node.cs" />
-    <Compile Include="Elements\Pipe.cs" />
-    <Compile Include="Elements\FlowSystem.cs" />
-    <Compile Include="Elements\SystemType.cs" />
-    <Compile Include="Elements\WireSegment.cs" />
-    <Compile Include="Elements\Wire.cs" />
+    <Compile Include="System\ConnectionProperties\CableTrayConnectionProperty.cs" />
+    <Compile Include="System\ConnectionProperties\IConnectionProperty.cs" />
+    <Compile Include="System\CableTray.cs" />
+    <Compile Include="Fixtures\PlumbingFixtureFlow.cs" />
+    <Compile Include="Fixtures\IFixtureFlow.cs" />
+    <Compile Include="Fixtures\ResidentialFixtureUsage.cs" />
+    <Compile Include="Fixtures\CommercialFixtureUsage.cs" />
+    <Compile Include="Fixtures\IFixtureUsage.cs" />
+    <Compile Include="Fixtures\LightFixture.cs" />
+    <Compile Include="System\Dampers\VolumeDamper.cs" />
+    <Compile Include="System\Duct.cs" />
+    <Compile Include="System\IFlow.cs" />
+    <Compile Include="System\MechanicalSystem.cs" />
+    <Compile Include="System\Pipe.cs" />
+    <Compile Include="System\FlowSystem.cs" />
+    <Compile Include="System\SystemType.cs" />
+    <Compile Include="System\WireSegment.cs" />
+    <Compile Include="System\Wire.cs" />
     <Compile Include="Enums\FluidType.cs" />
     <Compile Include="Equipment\AirHandlingUnit.cs" />
     <Compile Include="Equipment\FanCoilUnit.cs" />
@@ -73,26 +72,25 @@
     <Compile Include="MaterialFragments\PipeMaterial.cs" />
     <Compile Include="MaterialFragments\CableTrayMaterial.cs" />
     <Compile Include="MaterialFragments\WireMaterial.cs" />
-    <Compile Include="Parts\AirHandlingUnitBase.cs" />
-    <Compile Include="Parts\CoolingCoil.cs" />
-    <Compile Include="Parts\ElectricalConnector.cs" />
-    <Compile Include="Parts\EnergyWheel.cs" />
-    <Compile Include="Parts\Filter.cs" />
-    <Compile Include="Parts\HeatingCoil.cs" />
-    <Compile Include="Parts\Fan.cs" />
-    <Compile Include="Parts\IPart.cs" />
+    <Compile Include="Equipment\Parts\AirHandlingUnitBase.cs" />
+    <Compile Include="Equipment\Parts\CoolingCoil.cs" />
+    <Compile Include="Equipment\Parts\ElectricalConnector.cs" />
+    <Compile Include="Equipment\Parts\EnergyWheel.cs" />
+    <Compile Include="Equipment\Parts\Filter.cs" />
+    <Compile Include="Equipment\Parts\HeatingCoil.cs" />
+    <Compile Include="Equipment\Parts\Fan.cs" />
+    <Compile Include="Equipment\Parts\IPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SectionProperties\CableTraySectionProperty.cs" />
-    <Compile Include="SectionProperties\DuctSectionProperty.cs" />
-    <Compile Include="SectionProperties\IFlowSectionProperty.cs" />
-    <Compile Include="SectionProperties\PipeSectionProperty.cs" />
-    <Compile Include="SectionProperties\SectionProfile.cs" />
-    <Compile Include="SectionProperties\WireSectionProperty.cs" />
-    <Compile Include="SpaceProperties\FireProtection.cs" />
-    <Compile Include="Systems\Enums\PipeTypes.cs" />
+    <Compile Include="System\SectionProperties\CableTraySectionProperty.cs" />
+    <Compile Include="System\SectionProperties\DuctSectionProperty.cs" />
+    <Compile Include="System\SectionProperties\IFlowSectionProperty.cs" />
+    <Compile Include="System\SectionProperties\PipeSectionProperty.cs" />
+    <Compile Include="System\SectionProperties\SectionProfile.cs" />
+    <Compile Include="System\SectionProperties\WireSectionProperty.cs" />
+    <Compile Include="Enums\PipeTypes.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Fixtures\" />
+    <Folder Include="System\Fittings\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
