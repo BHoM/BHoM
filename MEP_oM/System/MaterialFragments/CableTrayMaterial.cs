@@ -20,20 +20,12 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using BH.oM.Base;
 
-namespace BH.oM.MEP.MaterialFragments
+namespace BH.oM.MEP.System.MaterialFragments
 {
-    public class WireMaterial : BHoMObject, IMEPMaterial
+    public class CableTrayMaterial : BHoMObject, IMEPMaterial
     {
-        [Description("The degree to which a specific material conducts electricity, calculated as the ratio of the current density and the material to the electric field that causes the flow of current.")]
-        public virtual double Conductivity { get; set; } = 0;
+        //placeholder to hold cable tray material properties
     }
 }

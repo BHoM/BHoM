@@ -23,7 +23,7 @@
 using System.ComponentModel;
 
 using BH.oM.Base;
-using BH.oM.MEP.MaterialFragments;
+using BH.oM.MEP.System.MaterialFragments;
 
 namespace BH.oM.MEP.System.SectionProperties
 {

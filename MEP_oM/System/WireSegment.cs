@@ -20,21 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-
 using BH.oM.Base;
-using BH.oM.Analytical.Elements;
 using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
-using BH.oM.MEP.System;
 using BH.oM.Geometry;
-
 
 namespace BH.oM.MEP.System
 {

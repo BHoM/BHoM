@@ -20,19 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using BH.oM.Base;
 
-namespace BH.oM.MEP.MaterialFragments
+namespace BH.oM.MEP.System.MaterialFragments
 {
-    public class CableTrayMaterial : BHoMObject, IMEPMaterial
+    [Description("Base interface for MEP materials used by MEP properties or as a fragment of the physical material.")]
+    public interface IMEPMaterial : IBHoMObject
     {
-        //placeholder to hold cable tray material properties
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+
+        /***************************************************/
     }
 }
