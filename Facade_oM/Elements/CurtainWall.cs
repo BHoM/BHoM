@@ -20,33 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.Geometry;
 
-namespace BH.oM.LifeCycleAssessment
+using BH.oM.Analytical.Elements;
+using BH.oM.Physical.Constructions;
+using System.ComponentModel;
+
+namespace BH.oM.Facade.Elements
 {
-    [Description("Fire Protection Scope provides a template for expected objects to be assessed within the MEPScope")]
-    public class FireProtectionScope : BHoMObject
+    [Description("A facade object used to define a curtain wall made up of multiple openings.")]
+    public class CurtainWall : BHoMObject, IFacadeObject, IPanel<FrameEdge, Opening>, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Fire protection equipment includes both fire and jockey pumps which convey water through the fire protection system")]
-        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
 
-        [Description("Distribution systems that convey fluids in the case of fire (e.g. domestic cold water).")]
-        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
+        [Description("A collection of FrameEdge objects which defines the external boundary of the CurtainWall")]
+        public virtual List<FrameEdge> ExternalEdges { get; set; } = new List<FrameEdge>();
 
-        [Description("Sprinklers are devices that release water upon the detection of a fire.")]
-        public virtual List<IElementM> Sprinklers { get; set; } = new List<IElementM>();
+        [Description("A collection of all openings that make up the curtain wall")]
+        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
 
-        [Description("Tanks are containers that store water for fire protection.")]
-        public virtual List<IElementM> Tanks { get; set; } = new List<IElementM>();
 
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled (e.g. fire hose valve cabinets)")]
-        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
         /***************************************************/
     }
 }
+

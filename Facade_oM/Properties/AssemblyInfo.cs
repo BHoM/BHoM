@@ -19,37 +19,41 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
 
-using BH.oM.Base;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
-namespace BH.oM.Architecture.Elements
-{
-    public class Occupancy : BHoMObject
-    {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        [Description("The area per person is representative of the square meters each person occupies within the building or space.")]
-        public virtual double AreaPerPerson { get; set; } = 0.0;
+// General Information about an assembly is controlled through the following
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[assembly: AssemblyTitle("Facade_oM")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Facade_oM")]
+[assembly: AssemblyCopyright("Copyright © https://github.com/BHoM")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
 
-        [Description("Percentage of Females of the total occupant count of the building or space.")]
-        public virtual double FemalePercentage { get; set; } = 0.5;
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
 
-        [Description("Percentage of Gender Neutral of the total occupant count of the building or space.")]
-        public virtual double GenderNeutralPercentage { get; set; } = 0.0;
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("bfb61138-8861-4422-b157-5ca4177dec6e")]
 
-        [Description("Percentage of Males of the total occupant count of the building or space.")]
-        public virtual double MalePercentage { get; set; } = 0.5;
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Build and Revision Numbers
+// by using the '*' as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("4.0.0.0")]
+[assembly: AssemblyFileVersion("4.0.0.0")]
 
-        [Description("The total number of people that occupy the building or space.")]
-        public virtual int OccupantCount { get; set; } = 0;
-
-        /***************************************************/
-    }
-}

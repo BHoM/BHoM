@@ -43,6 +43,12 @@
     <Compile Include="ConnectionProperties\CableTrayConnectionProperty.cs" />
     <Compile Include="ConnectionProperties\IConnectionProperty.cs" />
     <Compile Include="Elements\CableTray.cs" />
+    <Compile Include="Elements\PlumbingFixtureFlow.cs" />
+    <Compile Include="Elements\IFixtureFlow.cs" />
+    <Compile Include="Elements\ResidentialFixtureUsage.cs" />
+    <Compile Include="Elements\CommercialFixtureUsage.cs" />
+    <Compile Include="Elements\IFixtureUsage.cs" />
+    <Compile Include="Elements\LightFixture.cs" />
     <Compile Include="Elements\VolumeDamper.cs" />
     <Compile Include="Elements\Duct.cs" />
     <Compile Include="Elements\IFlow.cs" />
@@ -112,6 +118,7 @@
     <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
       <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>
       <Name>Physical_oM</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj">
       <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
@@ -121,6 +128,7 @@
     <ProjectReference Include="..\Spatial_oM\Spatial_oM.csproj">
       <Project>{789eaf6c-d68f-4770-b01b-c07bbf3d2188}</Project>
       <Name>Spatial_oM</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

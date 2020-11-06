@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,33 +20,46 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel;
+
 using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.MEP.SectionProperties;
+using BH.oM.MEP.Parts;
+using BH.oM.Geometry;
 using BH.oM.Dimensional;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.MEP.Elements
 {
-    [Description("Fire Protection Scope provides a template for expected objects to be assessed within the MEPScope")]
-    public class FireProtectionScope : BHoMObject
+    [Description("A light fixture is an electrical device that provides illumination.")]
+    public class LightFixture : BHoMObject, IElement0D, IElementM, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Fire protection equipment includes both fire and jockey pumps which convey water through the fire protection system")]
-        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
 
-        [Description("Distribution systems that convey fluids in the case of fire (e.g. domestic cold water).")]
-        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
+        [Description("The point in space for the location of the LightFixture.")]
+        public virtual Point Position { get; set; } = new Point();
 
-        [Description("Sprinklers are devices that release water upon the detection of a fire.")]
-        public virtual List<IElementM> Sprinklers { get; set; } = new List<IElementM>();
+        [Description("The luminous flux is the measure of the perceived power of light.")]
+        public virtual double LuminousFlux { get; set; } = 0;
 
-        [Description("Tanks are containers that store water for fire protection.")]
-        public virtual List<IElementM> Tanks { get; set; } = new List<IElementM>();
+        [Description("The colour temperature is a means of describing the light fixture's appearance, measured in degrees Kelvin")]
+        public virtual double ColourTemperature { get; set; } = 0;
 
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled (e.g. fire hose valve cabinets)")]
-        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
+        [Description("A means of denoting light fixtures that should be controlled in a similar manner.")]
+        public virtual string ControlZone { get; set; } = "";
+
+        [Description("A means of adding an electrical connector part to the light fixture's properties. Gives the ability to add the voltage, amps, and denotes if the fixture should be on emergency power.")]
+        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+
+
         /***************************************************/
     }
 }

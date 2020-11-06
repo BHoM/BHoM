@@ -20,33 +20,41 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Dimensional;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Reflection.Attributes
 {
-    [Description("Fire Protection Scope provides a template for expected objects to be assessed within the MEPScope")]
-    public class FireProtectionScope : BHoMObject
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+    [Description("Provides the names that were previously used for a given input. If multiple names, use a ',' to separate them.")]
+    public class PreviousInputNamesAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Fire protection equipment includes both fire and jockey pumps which convey water through the fire protection system")]
-        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
 
-        [Description("Distribution systems that convey fluids in the case of fire (e.g. domestic cold water).")]
-        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
+        public virtual string Name { get; private set; } = "";
 
-        [Description("Sprinklers are devices that release water upon the detection of a fire.")]
-        public virtual List<IElementM> Sprinklers { get; set; } = new List<IElementM>();
+        public virtual List<string> PreviousNames { get; private set; } = new List<string>();
 
-        [Description("Tanks are containers that store water for fire protection.")]
-        public virtual List<IElementM> Tanks { get; set; } = new List<IElementM>();
 
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled (e.g. fire hose valve cabinets)")]
-        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public PreviousInputNamesAttribute(string name, string previousNames)
+        {
+            Name = name;
+            PreviousNames = previousNames.Split(new char[] { ',' }).Select(x => x.Trim()).ToList();
+        }
+
         /***************************************************/
     }
 }
+

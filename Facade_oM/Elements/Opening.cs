@@ -20,33 +20,38 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.Geometry;
+using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.Physical.Constructions;
+using System.ComponentModel;
+using BH.oM.Facade.SectionProperties;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Facade.Elements
 {
-    [Description("Fire Protection Scope provides a template for expected objects to be assessed within the MEPScope")]
-    public class FireProtectionScope : BHoMObject
+    [Description("A cutout or hole in a building surface/panel (e.g. Window, Rooflight)")]
+    public class Opening : BHoMObject, IFacadeObject, IOpening<FrameEdge>, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Fire protection equipment includes both fire and jockey pumps which convey water through the fire protection system")]
-        public virtual List<IElementM> Equipment { get; set; } = new List<IElementM>();
 
-        [Description("Distribution systems that convey fluids in the case of fire (e.g. domestic cold water).")]
-        public virtual List<IElementM> Pipes { get; set; } = new List<IElementM>();
+        [Description("A collection of FrameEdges which define the external boundary of the opening.")]
+        public virtual List<FrameEdge> Edges { get; set; } = new List<FrameEdge>();
 
-        [Description("Sprinklers are devices that release water upon the detection of a fire.")]
-        public virtual List<IElementM> Sprinklers { get; set; } = new List<IElementM>();
+        [Description("A construction object providing construction information about the opening - typically glazing construction")]
+        public virtual IConstruction OpeningConstruction { get; set; } = null;
 
-        [Description("Tanks are containers that store water for fire protection.")]
-        public virtual List<IElementM> Tanks { get; set; } = new List<IElementM>();
+        [Description("Frame edge treatment at corners (ie Mitred, Vertical Extends, or Horizontal Extends)")]
+        public virtual FrameCornerType FrameCornerType { get; set; } = FrameCornerType.VerticalExtended;
 
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled (e.g. fire hose valve cabinets)")]
-        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
+        [Description("The type of opening on a panel (e.g. Window, Door). Use OpeningType enum")]
+        public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
+
         /***************************************************/
     }
 }
+
