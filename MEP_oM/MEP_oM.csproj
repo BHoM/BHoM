@@ -64,14 +64,14 @@
     <Compile Include="Equipment\IEquipment.cs" />
     <Compile Include="Fragments\GeometryFragment.cs" />
     <Compile Include="Fragments\IdentityFragment.cs" />
-    <Compile Include="MaterialFragments\DuctMaterial.cs" />
-    <Compile Include="MaterialFragments\IMEPMaterial.cs" />
-    <Compile Include="MaterialFragments\IInsulationMaterial.cs" />
-    <Compile Include="MaterialFragments\InsulationMaterial.cs" />
-    <Compile Include="MaterialFragments\LiningMaterial.cs" />
-    <Compile Include="MaterialFragments\PipeMaterial.cs" />
-    <Compile Include="MaterialFragments\CableTrayMaterial.cs" />
-    <Compile Include="MaterialFragments\WireMaterial.cs" />
+    <Compile Include="System\MaterialFragments\DuctMaterial.cs" />
+    <Compile Include="System\MaterialFragments\IMEPMaterial.cs" />
+    <Compile Include="System\MaterialFragments\IInsulationMaterial.cs" />
+    <Compile Include="System\MaterialFragments\InsulationMaterial.cs" />
+    <Compile Include="System\MaterialFragments\LiningMaterial.cs" />
+    <Compile Include="System\MaterialFragments\PipeMaterial.cs" />
+    <Compile Include="System\MaterialFragments\CableTrayMaterial.cs" />
+    <Compile Include="System\MaterialFragments\WireMaterial.cs" />
     <Compile Include="Equipment\Parts\AirHandlingUnitBase.cs" />
     <Compile Include="Equipment\Parts\CoolingCoil.cs" />
     <Compile Include="Equipment\Parts\ElectricalConnector.cs" />
@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="System\Fittings\" />
+    <Folder Include="System\Valves\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">

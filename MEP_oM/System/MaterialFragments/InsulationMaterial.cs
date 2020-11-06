@@ -20,25 +20,17 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-
 using BH.oM.Base;
 
-namespace BH.oM.MEP.MaterialFragments
+namespace BH.oM.MEP.System.MaterialFragments
 {
-    [Description("Base interface for MEP materials used by MEP properties or as a fragment of the physical material.")]
-    public interface IMEPMaterial : IBHoMObject
+    public class InsulationMaterial : BHoMObject, IMEPMaterial, IInsulationMaterial
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("RValue is the measure of the resistance of conductive heat loss by the insulation material.")]
+        public virtual double RValue { get; set; } = 0;
 
-
-        /***************************************************/
+        [Description("KValue is the measure of the insulation material's ability to conduct heat (W/m*K), the lower the KValue the better the ability to conduct heat.")]
+        public virtual double KValue { get; set; } = 0;
     }
 }

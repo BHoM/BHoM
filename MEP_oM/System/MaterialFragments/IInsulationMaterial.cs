@@ -20,20 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using BH.oM.Base;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.MEP.MaterialFragments
+namespace BH.oM.MEP.System.MaterialFragments
 {
-    public class DuctMaterial : BHoMObject, IMEPMaterial
+    [Description("Insulation is the material surrounding a duct, pipe or wire which mitigates the loss of the internal conditions of the fluid within the object.")]
+    public interface IInsulationMaterial : IFragment, IMaterialProperties
     {
-        [Description("Roughness is a measure of the irregularities on the surface of a duct.")]
-        public virtual double Roughness { get; set; } = 0;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        [Description("RValue is the measure of the resistance of conductive heat loss by the insulation material.")]
+        double RValue { get; set; }
+
+        [Description("KValue is the measure of the insulation material's ability to conduct heat (W/m*K), the lower the KValue the better the ability to conduct heat.")]
+        double KValue { get; set; }
+
+        /***************************************************/
     }
 }

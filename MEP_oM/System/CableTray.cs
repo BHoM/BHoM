@@ -21,15 +21,12 @@
  */
 
 using System.ComponentModel;
-
 using BH.oM.Base;
-using BH.oM.Analytical.Elements;
 using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
 using BH.oM.MEP.System.ConnectionProperties;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
-
 
 namespace BH.oM.MEP.System
 {
