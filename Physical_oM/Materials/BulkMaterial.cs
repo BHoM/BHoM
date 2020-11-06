@@ -36,7 +36,7 @@ namespace BH.oM.Physical.Materials
         [Description("A list of geometric solids to be considered as bulk geometry.")]
         public virtual List<BH.oM.Geometry.ISolid> Geometry { get; set; }
 
-        public virtual MaterialComposition MaterialComposition { get; set; }
+        public virtual Material Material { get; set; }
 
         /***************************************************/
     }
