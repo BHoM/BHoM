@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,52 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.LifeCycleAssessment
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+
+namespace BH.oM.Analytical.Results
 {
-    public enum ObjectCategory
+    [Description("Base interface for any Mesh result class which is a collection of discrete MeshElementResults.")]
+    public interface IMeshResult<T> : IResultCollection<T> where T : IMeshElementResult
     {
-        Undefined,
-        AirTerminals,
-        AdditionalObjects,
-        Battery,
-        Beam,
-        Bracing,
-        CableTray,
-        Ceiling,
-        Column,
-        Conduit,
-        CurtainWall,
-        Dampers,
-        Door,
-        Ducts,
-        Equipment,
-        Finishes,
-        FireAlarmDevices,
-        Flooring,
-        Footing,
-        Furniture,
-        Generator,
-        GradeBeam,
-        InformationCommunicationDevices,
-        InteriorDoor,
-        InteriorGlazing,
-        LightFixtures,
-        LightingControls,
-        Meters,
-        PartitionWall,
-        Pile,
-        Pipes,
-        PlumbingFixtures,
-        Refrigerants,
-        SecurityDevices,
-        Slab,
-        Sockets,
-        SolarPanels,
-        Sprinklers,
-        Tanks,
-        Valves,
-        Wall,
-        Window,
-        Wiring      
+
     }
 }
