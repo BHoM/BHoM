@@ -45,7 +45,7 @@
     <Compile Include="Attributes\DeprecatedAttribute.cs" />
     <Compile Include="Attributes\FilePathAttribute.cs" />
     <Compile Include="Attributes\FolderPathAttribute.cs" />
-    <Compile Include="Attributes\IInputClassificationAttribute.cs" />
+    <Compile Include="Attributes\InputClassificationAttribute.cs" />
     <Compile Include="Attributes\PreviousInputNames.cs" />
     <Compile Include="Attributes\PreviousVersionAttribute.cs" />
     <Compile Include="Attributes\DefaultValueWarningAttribute.cs" />
