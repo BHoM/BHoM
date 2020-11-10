@@ -56,13 +56,16 @@ namespace BH.oM.Analytical.Elements
         [Description("Total cost of the shortest path. Sum of each relation weight multiplied by its the length.")]
         public virtual double Cost { get; set; } = 0.0;
 
-        [Description("All entities visited in searching for the path")]
+        [Description("All entities visited in searching for the path.")]
         public virtual List<IBHoMObject> EntitiesVisited { get; set; } = new List<IBHoMObject>();
+
+        [Description("Shortest path as an ordered collection of IRelations.")]
+        public virtual List<IRelation> Relations{ get; set; } = new List<IRelation>();
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
-        public ShortestPathResult(IComparable objectId, IComparable resultCase, double timeStep, List<IBHoMObject> path, double length, double cost, List<IBHoMObject> entitiesVisited, List<ICurve> curves = null) 
+        public ShortestPathResult(IComparable objectId, IComparable resultCase, double timeStep, List<IBHoMObject> path, double length, double cost, List<IBHoMObject> entitiesVisited, List<IRelation> relations, List<ICurve> curves = null) 
         {
             ObjectId = objectId;
             ResultCase = resultCase;
@@ -72,6 +75,7 @@ namespace BH.oM.Analytical.Elements
             Cost = cost;
             EntitiesVisited = entitiesVisited;
             Curves = curves;
+            Relations = relations;
         }
         /***************************************************/
         /**** IComparable Interface                     ****/
