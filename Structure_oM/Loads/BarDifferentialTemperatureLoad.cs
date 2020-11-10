@@ -24,19 +24,21 @@ using BH.oM.Structure.Elements;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Uniform temperature load for Bars.")]
-    public class BarTemperatureLoad : BHoMObject, IElementLoad<Bar>
+    [Description("Differential temperature load for Bars.")]
+    public class BarDifferentialTemperatureLoad : BHoMObject, IElementLoad<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Temperature]
-        [Description("Uniform temperature change of the Bar.")]
-        public virtual double TemperatureChange { get; set; } = 0;
+        [Description("Differential temperature profile of the Bar expressed as a Dictionary of it's position from the top and the temperature at each loca.")]
+        public virtual Dictionary<double,double> TemperatureProfile { get; }
 
         [Description("The Loadcase in which the load is applied.")]
         public virtual Loadcase Loadcase { get; set; }
@@ -45,7 +47,7 @@ namespace BH.oM.Structure.Loads
         public virtual BHoMGroup<Bar> Objects { get; set; } = new BHoMGroup<Bar>();
 
         [Description("Defines whether the load is applied in local or global coordinates.")]
-        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Local;
 
         [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
         public virtual bool Projected { get; set; } = false;
