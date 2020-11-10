@@ -62,7 +62,8 @@
     <Compile Include="Fragments\SectionModifier.cs" />
     <Compile Include="Fragments\SurfacePropertyModifier.cs" />
     <Compile Include="IProperty.cs" />
-    <Compile Include="Loads\AreaTemperatureLoad.cs" />
+    <Compile Include="Loads\AreaDifferentialTemperatureLoad.cs" />
+    <Compile Include="Loads\AreaUniformTemperatureLoad.cs" />
     <Compile Include="Loads\AreaUniformlyDistributedLoad.cs" />
     <Compile Include="Loads\BarPointLoad.cs" />
     <Compile Include="Loads\BarPrestressLoad.cs" />
