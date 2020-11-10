@@ -20,52 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.LifeCycleAssessment
+using BH.oM.Base;
+using BH.oM.Geometry;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+
+namespace BH.oM.Graphics
 {
-    public enum ObjectCategory
+    [Description("Indicates a colour associable with a BHoMObject.")]
+    public class ColourFragment : IFragment
     {
-        Undefined,
-        AirTerminals,
-        AdditionalObjects,
-        Battery,
-        Beam,
-        Bracing,
-        CableTray,
-        Ceiling,
-        Column,
-        Conduit,
-        CurtainWall,
-        Dampers,
-        Door,
-        Ducts,
-        Equipment,
-        Finishes,
-        FireAlarmDevices,
-        Flooring,
-        Footing,
-        Furniture,
-        Generator,
-        GradeBeam,
-        InformationCommunicationDevices,
-        InteriorDoor,
-        InteriorGlazing,
-        LightFixtures,
-        LightingControls,
-        Meters,
-        PartitionWall,
-        Pile,
-        Pipes,
-        PlumbingFixtures,
-        Refrigerants,
-        SecurityDevices,
-        Slab,
-        Sockets,
-        SolarPanels,
-        Sprinklers,
-        Tanks,
-        Valves,
-        Wall,
-        Window,
-        Wiring      
+        /***************************************************/
+        /****            Public Properties              ****/
+        /***************************************************/
+
+        public Color Colour { get; set; }
+
+        /***************************************************/
     }
 }
+

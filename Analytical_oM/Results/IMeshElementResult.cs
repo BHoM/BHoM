@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,52 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.LifeCycleAssessment
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+
+namespace BH.oM.Analytical.Results
 {
-    public enum ObjectCategory
+    [Description("Base interface for mesh element results. This is the result for a single discrete node or face of the mesh the result aligns with.")]
+    public interface IMeshElementResult : IResult
     {
-        Undefined,
-        AirTerminals,
-        AdditionalObjects,
-        Battery,
-        Beam,
-        Bracing,
-        CableTray,
-        Ceiling,
-        Column,
-        Conduit,
-        CurtainWall,
-        Dampers,
-        Door,
-        Ducts,
-        Equipment,
-        Finishes,
-        FireAlarmDevices,
-        Flooring,
-        Footing,
-        Furniture,
-        Generator,
-        GradeBeam,
-        InformationCommunicationDevices,
-        InteriorDoor,
-        InteriorGlazing,
-        LightFixtures,
-        LightingControls,
-        Meters,
-        PartitionWall,
-        Pile,
-        Pipes,
-        PlumbingFixtures,
-        Refrigerants,
-        SecurityDevices,
-        Slab,
-        Sockets,
-        SolarPanels,
-        Sprinklers,
-        Tanks,
-        Valves,
-        Wall,
-        Window,
-        Wiring      
+        [Description("ID of the Node in the mesh that this result belongs to.")]
+        IComparable NodeId { get; }
+
+        [Description("ID of the MeshFace that this result belongs to.")]
+        IComparable MeshFaceId { get; }
     }
 }
