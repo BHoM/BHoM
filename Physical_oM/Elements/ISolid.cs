@@ -23,10 +23,11 @@
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using System.Collections.Generic;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.Physical.Elements
 {
-    public interface ISolid : IBHoMObject, IPhysical, IElementM //, IElement3D
+    public interface ISolid : IBHoMObject, IPhysical, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
