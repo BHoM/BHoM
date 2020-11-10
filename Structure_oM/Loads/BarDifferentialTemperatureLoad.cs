@@ -26,6 +26,7 @@ using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Loads
 {
@@ -37,8 +38,11 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Temperature]
-        [Description("Differential temperature profile of the Bar expressed as a Dictionary of it's position from the top and the temperature at each loca.")]
-        public virtual Dictionary<double,double> TemperatureProfile { get; }
+        [Description("Differential temperature profile of the Bar expressed as a Dictionary of the parametric position from the top of the profile and the temperature at each location.")]
+        public virtual Dictionary<double,double> TemperatureProfile { get; set; }
+
+        [Description("The direction of the temperature variation, relative to the local axis of the profile. For most analysis packages this is limit to local y or local z.")]
+        public virtual Vector LocalDirection { get; set; }
 
         [Description("The Loadcase in which the load is applied.")]
         public virtual Loadcase Loadcase { get; set; }
