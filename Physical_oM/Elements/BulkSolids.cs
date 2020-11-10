@@ -23,19 +23,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Physical.Elements;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.Physical.Materials
+namespace BH.oM.Physical.Elements
 {
-    public class BulkMaterial : BHoMObject, ISolid
+    public class BulkSolids : BHoMObject, ISolid
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A list of geometric solids to be considered as bulk geometry.")]
+        [Description("A list of geometric solids defining the bulk geometry.")]
         public virtual List<BH.oM.Geometry.ISolid> Geometry { get; set; }
-
         public virtual MaterialComposition MaterialComposition { get; set; }
 
         /***************************************************/
