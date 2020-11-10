@@ -28,7 +28,7 @@ using BH.oM.Base;
 namespace BH.oM.Structure.Loads
 {
     [Description("Uniform temperature load for area elements such as Panels and FEMeshes.")]
-    public class AreaTemperatureLoad : BHoMObject, IElementLoad<IAreaElement>
+    public class AreaUniformTemperatureLoad : BHoMObject, IElementLoad<IAreaElement>
     {
         /***************************************************/
         /**** Properties                                ****/
