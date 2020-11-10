@@ -54,6 +54,7 @@
     <Compile Include="Elements\Door.cs" />
     <Compile Include="Elements\Beam.cs" />
     <Compile Include="Constructions\Layer.cs" />
+    <Compile Include="Fragments\VolumeFragment.cs" />
     <Compile Include="FramingProperties\ConstantFramingProperty.cs" />
     <Compile Include="Elements\BulkSolids.cs" />
     <Compile Include="Materials\MaterialComposition.cs" />
@@ -73,9 +74,7 @@
     <Compile Include="Reinforcement\Stirrup.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fragments\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj">
       <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
