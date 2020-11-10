@@ -38,7 +38,7 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Temperature]
-        [Description("Differential temperature profile of the Bar expressed as a Dictionary of the parametric position from the top of the profile and the temperature at each location.")]
+        [Description("Differential temperature profile of the Bar expressed as a Dictionary of the parametric position from the top (local z) or left (local y) face of the profile and the temperature at each increment.")]
         public virtual Dictionary<double,double> TemperatureProfile { get; set; }
 
         [Description("The direction of the temperature variation, relative to the local axis of the profile. For most analysis packages this is limited to local y or local z.")]

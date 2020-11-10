@@ -37,7 +37,7 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Temperature]
-        [Description("Differential temperature profile of the area element expressed as a Dictionary of the parametric position from the top of the surface and the temperature at each location.")]
+        [Description("Differential temperature profile of the area element expressed as a Dictionary of the parametric position from the top (local z) or left (local y) face of the surface property and the temperature at each increment.")]
         public virtual Dictionary<double,double> TemperatureProfile { get; set; }
 
         [Description("The direction of the temperature variation, relative to the local axis of the surface property. For most analysis packages this is limited to local y or local z.")]
