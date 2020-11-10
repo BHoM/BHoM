@@ -29,7 +29,7 @@ using System;
 namespace BH.oM.Structure.Results
 {
     [Description("Base class for all discrete mesh element results, that is a result for an individual node and/or face. Stores all identifier information and how to sort the results in a collection.")]
-    public abstract class MeshElementResult : IStructuralResult, IImmutable
+    public abstract class MeshElementResult : IMeshElementResult, IStructuralResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

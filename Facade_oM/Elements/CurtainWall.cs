@@ -20,33 +20,35 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Graphics
+using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
+
+using BH.oM.Analytical.Elements;
+using BH.oM.Physical.Constructions;
+using System.ComponentModel;
+
+namespace BH.oM.Facade.Elements
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("A facade object used to define a curtain wall made up of multiple openings.")]
+    public class CurtainWall : BHoMObject, IFacadeObject, IPanel<FrameEdge, Opening>, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        [Description("A collection of FrameEdge objects which defines the external boundary of the CurtainWall")]
+        public virtual List<FrameEdge> ExternalEdges { get; set; } = new List<FrameEdge>();
 
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
+        [Description("A collection of all openings that make up the curtain wall")]
+        public virtual List<Opening> Openings { get; set; } = new List<Opening>();
 
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
 
         /***************************************************/
     }

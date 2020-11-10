@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,35 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Analytical.Results
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("Base interface for mesh element results. This is the result for a single discrete node or face of the mesh the result aligns with.")]
+    public interface IMeshElementResult : IResult
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("ID of the Node in the mesh that this result belongs to.")]
+        IComparable NodeId { get; }
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
-
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
-
-        /***************************************************/
+        [Description("ID of the MeshFace that this result belongs to.")]
+        IComparable MeshFaceId { get; }
     }
 }
-

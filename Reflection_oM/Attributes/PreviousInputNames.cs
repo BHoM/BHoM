@@ -21,31 +21,37 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Reflection.Attributes
 {
-    public class RenderMesh : IGeometry, IFragment
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+    [Description("Provides the names that were previously used for a given input. If multiple names, use a ',' to separate them.")]
+    public class PreviousInputNamesAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        public virtual string Name { get; private set; } = "";
 
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
+        public virtual List<string> PreviousNames { get; private set; } = new List<string>();
+
 
         /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Constructors                              ****/
         /***************************************************/
 
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
+        public PreviousInputNamesAttribute(string name, string previousNames)
         {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
+            Name = name;
+            PreviousNames = previousNames.Split(new char[] { ',' }).Select(x => x.Trim()).ToList();
         }
 
         /***************************************************/

@@ -20,33 +20,36 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
+using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.Physical.Constructions;
+using System.ComponentModel;
+using BH.oM.Facade.SectionProperties;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Facade.Elements
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("A cutout or hole in a building surface/panel (e.g. Window, Rooflight)")]
+    public class Opening : BHoMObject, IFacadeObject, IOpening<FrameEdge>, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        [Description("A collection of FrameEdges which define the external boundary of the opening.")]
+        public virtual List<FrameEdge> Edges { get; set; } = new List<FrameEdge>();
 
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
+        [Description("A construction object providing construction information about the opening - typically glazing construction")]
+        public virtual IConstruction OpeningConstruction { get; set; } = null;
 
-        /***************************************************/
+        [Description("Frame edge treatment at corners (ie Mitred, Vertical Extends, or Horizontal Extends)")]
+        public virtual FrameCornerType FrameCornerType { get; set; } = FrameCornerType.VerticalExtended;
 
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
+        [Description("The type of opening on a panel (e.g. Window, Door). Use OpeningType enum")]
+        public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
 
         /***************************************************/
     }

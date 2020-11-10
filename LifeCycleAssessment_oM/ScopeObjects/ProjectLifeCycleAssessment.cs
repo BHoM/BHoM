@@ -20,7 +20,6 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 

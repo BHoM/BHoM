@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,35 +20,46 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Graphics
+using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.MEP.SectionProperties;
+using BH.oM.MEP.Parts;
+using BH.oM.Geometry;
+using BH.oM.Dimensional;
+
+namespace BH.oM.MEP.Elements
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("A light fixture is an electrical device that provides illumination.")]
+    public class LightFixture : BHoMObject, IElement0D, IElementM, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        [Description("The point in space for the location of the LightFixture.")]
+        public virtual Point Position { get; set; } = new Point();
 
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
+        [Description("The luminous flux is the measure of the perceived power of light.")]
+        public virtual double LuminousFlux { get; set; } = 0;
 
-        /***************************************************/
+        [Description("The colour temperature is a means of describing the light fixture's appearance, measured in degrees Kelvin")]
+        public virtual double ColourTemperature { get; set; } = 0;
 
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
+        [Description("A means of denoting light fixtures that should be controlled in a similar manner.")]
+        public virtual string ControlZone { get; set; } = "";
 
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
+        [Description("A means of adding an electrical connector part to the light fixture's properties. Gives the ability to add the voltage, amps, and denotes if the fixture should be on emergency power.")]
+        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+
 
         /***************************************************/
     }
 }
-

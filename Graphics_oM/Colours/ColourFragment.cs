@@ -23,30 +23,19 @@
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using System.Drawing;
 
 namespace BH.oM.Graphics
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("Indicates a colour associable with a BHoMObject.")]
+    public class ColourFragment : IFragment
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****            Public Properties              ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
-
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
+        public Color Colour { get; set; }
 
         /***************************************************/
     }

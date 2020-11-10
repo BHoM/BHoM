@@ -38,6 +38,18 @@ namespace BH.oM.Architecture.Elements
         [Description("The area per person is representative of the square meters each person occupies within the building or space.")]
         public virtual double AreaPerPerson { get; set; } = 0.0;
 
+        [Description("Percentage of Females of the total occupant count of the building or space.")]
+        public virtual double FemalePercentage { get; set; } = 0.5;
+
+        [Description("Percentage of Gender Neutral of the total occupant count of the building or space.")]
+        public virtual double GenderNeutralPercentage { get; set; } = 0.0;
+
+        [Description("Percentage of Males of the total occupant count of the building or space.")]
+        public virtual double MalePercentage { get; set; } = 0.5;
+
+        [Description("The total number of people that occupy the building or space.")]
+        public virtual int OccupantCount { get; set; } = 0;
+
         /***************************************************/
     }
 }

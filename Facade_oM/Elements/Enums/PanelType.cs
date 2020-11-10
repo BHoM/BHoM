@@ -20,35 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Facade.Elements
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("The type of surface (e.g. AirGap, Internal Wall, External Wall, etc.)")]
+    public enum PanelType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
-
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
-
-        /***************************************************/
+        Undefined,
+        AirGap,
+        Shade,
+        Spandrel,
+        WallExternal
     }
 }
 

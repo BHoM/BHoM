@@ -20,33 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
+using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.Physical.Constructions;
+using System.ComponentModel;
+using BH.oM.Facade.SectionProperties;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Facade.Elements
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("A frame edge (eg mullion, window jamb, curtain wall sill, etc)")]
+    public class FrameEdge : BHoMObject, IEdge
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        [Description("The curve representing the frame edge location")]
+        public virtual ICurve Curve { get; set; } = null;
 
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
+        [Description("The property assigned to this frame edge")]
+        public virtual FrameEdgeProperty FrameEdgeProperty { get; set; } = null;
 
         /***************************************************/
     }

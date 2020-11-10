@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,35 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Analytical.Results
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("Base interface for any Mesh result class which is a collection of discrete MeshElementResults.")]
+    public interface IMeshResult<T> : IResultCollection<T> where T : IMeshElementResult
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
-
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
-
-        /***************************************************/
     }
 }
-

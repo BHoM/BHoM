@@ -20,33 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
+using System.ComponentModel;
 using System.Collections.Generic;
-using System.Linq;
+using BH.oM.Base;
+using BH.oM.Physical.FramingProperties;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Facade.SectionProperties
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("Frame edge (eg mullion, window jamb, curtain wall sill, etc) property with list of Profile Section properties that make up the mullion construction.")]
+    public class FrameEdgeProperty : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
-
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
+        [Description("Collection of profiles that make up the mullion, each containing section geometry and a material.")]
+        public virtual List<ConstantFramingProperty> SectionProperties { get; set; } = null;
 
         /***************************************************/
     }

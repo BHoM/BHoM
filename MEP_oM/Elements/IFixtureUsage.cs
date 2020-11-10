@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,35 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace BH.oM.Graphics
+namespace BH.oM.MEP.Elements
 {
-    public class RenderMesh : IGeometry, IFragment
+    [Description("Base interface for all Fixture objects. These objects are capable of containing a material or element that flows through the object.")]
+    public interface IFixtureUsage : IBHoMObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
-
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
-
         /***************************************************/
     }
 }
-

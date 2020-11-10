@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,34 +21,20 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.Analytical.Elements;
 using BH.oM.Geometry;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Architecture.Elements
 {
-    public class RenderMesh : IGeometry, IFragment
+    public class CeilingTile : BHoMObject, IRegion
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
-
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
-        {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
-        }
+        public virtual ICurve Perimeter { get; set; } = null;
 
         /***************************************************/
     }
 }
-
