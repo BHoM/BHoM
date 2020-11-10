@@ -41,7 +41,7 @@ namespace BH.oM.Structure.Elements
         public virtual List<FEMeshFace> Faces { get; set; } = new List<FEMeshFace>();
 
         [Description("Defines the thickness property and material of the FEMesh.")]
-        public virtual ISurfaceProperty Property { get; set; } = new ConstantThickness();
+        public virtual ISurfaceProperty Property { get; set; } = null;
 
         /***************************************************/
     }

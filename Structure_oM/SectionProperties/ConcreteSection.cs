@@ -43,7 +43,7 @@ namespace BH.oM.Structure.SectionProperties
         public override string Name { get; set; }
 
         [Description("List of Reinforcement of the concrete section.")]
-        public virtual List<Reinforcement.IBarReinforcement> Reinforcement { get; set; }
+        public virtual List<Reinforcement.IBarReinforcement> Reinforcement { get; set; } = new List<Reinforcement.IBarReinforcement>();
 
         [Length]
         [Description("Minimum reinforcement cover of the section.")]
