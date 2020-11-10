@@ -1,0 +1,26 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Type": {
+    "ToNew": {
+	"BH.oM.Structure.Loads.BarTemperatureLoad" : "BH.oM.Structure.Loads.BarUniformTemperatureLoad"
+    },
+    "ToOld": {
+	"BH.oM.Structure.Loads.BarUniformTemperatureLoad" : "BH.oM.Structure.Loads.BarTemperatureLoad"
+    }
+  },
+  "Property": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  }
+}
