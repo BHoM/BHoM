@@ -44,14 +44,20 @@ namespace BH.oM.Analytical.Elements
         [Description("Time step for time history results.")]
         public virtual double TimeStep { get; }
 
+        public virtual List<object> Result { get; }
+
+        public virtual List<string> Errors { get; }
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
-        public ProcessResult(IComparable objectId, IComparable resultCase, double timeStep)
+        public ProcessResult(IComparable objectId, IComparable resultCase, double timeStep, List<object> result, List<string> errors)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
+            Result = result;
+            Errors = errors;
         }
         /***************************************************/
         /**** IComparable Interface                     ****/

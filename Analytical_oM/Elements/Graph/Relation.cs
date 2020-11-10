@@ -47,7 +47,7 @@ namespace BH.oM.Analytical.Elements
         public virtual double Weight { get; set; } = 1.0;
 
         [Description("Collection of processes associated with this Relation.")]
-        public virtual List<IProcess> Processes { get; set; }
+        public virtual List<Process> Processes { get; set; }
 
         [Description("Curve that links the source and target entities.")]
         public virtual ICurve Curve { get; set; }

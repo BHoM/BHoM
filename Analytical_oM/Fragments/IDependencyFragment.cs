@@ -34,7 +34,7 @@ namespace BH.oM.Analytical.Fragments
     [Description("Interface common to all DependencyFragments.")]
     public interface IDependencyFragment : IFragment
     {
-        List<IProcess> Processes { get; set; }
+        List<Process> Processes { get; set; }
 
     }
 }

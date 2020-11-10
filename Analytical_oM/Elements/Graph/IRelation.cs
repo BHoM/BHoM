@@ -45,7 +45,7 @@ namespace BH.oM.Analytical.Elements
 
         double Weight { get; set; }
 
-        List<IProcess> Processes { get; set; }
+        List<Process> Processes { get; set; }
 
         ICurve Curve { get; set; }
 

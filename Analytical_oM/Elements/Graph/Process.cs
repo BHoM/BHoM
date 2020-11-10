@@ -25,17 +25,25 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    [Description("Process to validate the Relation between a column and grid.")]
-    public class ColumnGridProcess : BHoMObject, IProcess
+    [Description("Class for Relation Process objects.")]
+    public class Process : BHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        public virtual double Tolerance { get; set; } = Geometry.Tolerance.Distance;
+        [Description("The process method. For BHoM methods this can be extracted from the BHoMMethodList method in the Reflection_Engine.")]
+        public virtual MethodBase Method { get; set; } = null;
+
+        [Description("List of input/output pairs to test the method for. Each ProcessData item corresponds to one run of the method.")]
+        public virtual List<ProcessData> Data { get; set; } = new List<ProcessData>();
+
+        [Description("Index of the source in the method parameters. Default is 0. Set to -1 if the source is not used as a parameter.")]
+        public virtual int SourceParameterIndex { get; set; } = 0;
+
+        [Description("Index of the target in the method parameters. Default is 1. Set to -1 if the target is not used as a parameter.")]
+        public virtual int TargetParameterIndex { get; set; } = 1;
     }
 }

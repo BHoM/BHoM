@@ -42,7 +42,7 @@ namespace BH.oM.Analytical.Fragments
 
         public virtual Guid Target { get; set; }
 
-        public virtual List<IProcess> Processes { get; set; } = new List<IProcess>();
+        public virtual List<Process> Processes { get; set; } = new List<Process>();
 
         public virtual ICurve Curve { get; set; }
 
