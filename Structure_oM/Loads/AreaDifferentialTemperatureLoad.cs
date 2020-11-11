@@ -26,10 +26,12 @@ using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System.Collections.Generic;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Differential temperature load for area elements such as Panels and FEMeshes.")]
+    [Description("Vertical differential temperature load for area elements such as Panels and FEMeshes.")]
+    [NoAutoConstructor()]
     public class AreaDifferentialTemperatureLoad : BHoMObject, IElementLoad<IAreaElement>
     {
         /***************************************************/
@@ -37,11 +39,8 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Temperature]
-        [Description("Differential temperature profile of the area element expressed as a Dictionary of the parametric position from the top (local z) or left (local y) face of the surface property and the temperature at each increment.")]
+        [Description("Vertical differential temperature profile of the area element expressed as a Dictionary of the normalised position from the bottom face of the surface property and the temperature at each increment.")]
         public virtual Dictionary<double,double> TemperatureProfile { get; set; }
-
-        [Description("The direction of the temperature variation, relative to the local axis of the surface property. For most analysis packages this is limited to local y or local z.")]
-        public virtual LocalLoadDirection LocalLoadDirection { get; set; }
 
         [Description("The Loadcase in which the load is applied.")]
         public virtual Loadcase Loadcase { get; set; }
