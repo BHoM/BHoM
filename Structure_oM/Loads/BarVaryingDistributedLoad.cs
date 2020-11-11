@@ -35,29 +35,31 @@ namespace BH.oM.Structure.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        [Length]
-        [Description("Distance along the bar between the start node and the start of the loaded region.")]
-        public virtual double DistanceFromA { get; set; } = 0;
+        [Description("Distance along the bar between the start node and the start of the loaded region.\n" + 
+                     "If RelativeDistance is true, this value will be a normalised length where 0 means start and 1 means end, which means this value needs to be within this range.\n" +
+                     "If RelativeDistance is false, this value will be in meters.")]
+        public virtual double StartPosition { get; set; } = 0;
 
         [ForcePerUnitLength]
         [Description("Direction and magnitude of the force at the start of the loaded region.")]
-        public virtual Vector ForceA { get; set; } = new Vector();
+        public virtual Vector ForceAtStart { get; set; } = new Vector();
 
         [MomentPerUnitLength]
         [Description("Direction and magnitude of the moment at the start of the loaded region.")]
-        public virtual Vector MomentA { get; set; } = new Vector();
+        public virtual Vector MomentAtStart { get; set; } = new Vector();
 
-        [Length]
-        [Description("Distance along the bar between the end node and the end of the loaded region.")]
-        public virtual double DistanceFromB { get; set; } = 0;
+        [Description("Distance along the bar between the start node and the end of the loaded region.\n" +
+                     "If RelativeDistance is true, this value will be a normalised length where 0 means start and 1 means end, which means this value needs to be within this range.\n" +
+                     "If RelativeDistance is false, this value will be in meters.")]
+        public virtual double EndPosition { get; set; } = 0;
 
         [ForcePerUnitLength]
         [Description("Direction and magnitude of the force at the end of the loaded region.")]
-        public virtual Vector ForceB { get; set; } = new Vector();
+        public virtual Vector ForceAtEnd { get; set; } = new Vector();
 
         [MomentPerUnitLength]
         [Description("Direction and magnitude of the moment at the end of the loaded region.")]
-        public virtual Vector MomentB { get; set; } = new Vector();
+        public virtual Vector MomentAtEnd { get; set; } = new Vector();
 
         [Description("The Loadcase in which the load is applied.")]
         public virtual Loadcase Loadcase { get; set; }
@@ -70,6 +72,10 @@ namespace BH.oM.Structure.Loads
 
         [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
         public virtual bool Projected { get; set; } = false;
+
+        [Description("If true, the StartPosition and EndPosition will be normalised lengths where 0 means start and 1 means end.\n" +
+                     "If false, the StartPosition and EndPosition will be meassured in metres. ")]
+        public virtual bool RelativeDistance { get; set; } = false;
 
         /***************************************************/
     }
