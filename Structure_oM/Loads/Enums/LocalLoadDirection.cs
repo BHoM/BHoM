@@ -24,11 +24,10 @@ namespace BH.oM.Structure.Loads
 {
     /***************************************************/
 
-    public enum LocalLoadDirection
+    public enum DifferentialTemperatureLoadDirection
     {
-        localx,
-        localy,
-        localz
+        LocalY,
+        LocalZ
     }
 
     /***************************************************/
