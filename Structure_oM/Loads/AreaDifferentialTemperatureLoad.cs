@@ -41,7 +41,7 @@ namespace BH.oM.Structure.Loads
         public virtual Dictionary<double,double> TemperatureProfile { get; set; }
 
         [Description("The direction of the temperature variation, relative to the local axis of the surface property. For most analysis packages this is limited to local y or local z.")]
-        public virtual Vector LocalDirection { get; set; }
+        public virtual LocalLoadDirection LocalLoadDirection { get; set; }
 
         [Description("The Loadcase in which the load is applied.")]
         public virtual Loadcase Loadcase { get; set; }

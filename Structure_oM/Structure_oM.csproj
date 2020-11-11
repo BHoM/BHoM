@@ -71,6 +71,7 @@
     <Compile Include="Loads\BarUniformTemperatureLoad.cs" />
     <Compile Include="Loads\BarUniformlyDistributedLoad.cs" />
     <Compile Include="Loads\BarVaryingDistributedLoad.cs" />
+    <Compile Include="Loads\Enums\LocalLoadDirection.cs" />
     <Compile Include="Loads\GeometricalLineLoad.cs" />
     <Compile Include="Loads\Enums\CaseType.cs" />
     <Compile Include="Loads\Enums\LoadAxis.cs" />
