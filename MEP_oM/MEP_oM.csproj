@@ -55,7 +55,7 @@
     <Compile Include="System\MechanicalSystem.cs" />
     <Compile Include="System\Pipe.cs" />
     <Compile Include="System\FlowSystem.cs" />
-    <Compile Include="System\SystemType.cs" />
+    <Compile Include="System\ISystemType.cs" />
     <Compile Include="System\WireSegment.cs" />
     <Compile Include="System\Wire.cs" />
     <Compile Include="Enums\FluidType.cs" />
