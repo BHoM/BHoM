@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.852
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHoM", "BHoM\BHoM.csproj", "{94D88927-62A2-48FC-8EFE-D139B67A3373}"
 EndProject
@@ -54,6 +54,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inspection_oM", "Inspection_oM\Inspection_oM.csproj", "{E86110C7-43BD-40BA-B6D6-CD144C4F1E22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade_oM", "Facade_oM\Facade_oM.csproj", "{D92CAFAC-D419-42BA-A9DC-4B7DAD976A8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_oM", "Test_oM\Test_oM.csproj", "{360F27AF-6A77-4718-8B44-A4B62F0E44FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{D92CAFAC-D419-42BA-A9DC-4B7DAD976A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D92CAFAC-D419-42BA-A9DC-4B7DAD976A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D92CAFAC-D419-42BA-A9DC-4B7DAD976A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360F27AF-6A77-4718-8B44-A4B62F0E44FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360F27AF-6A77-4718-8B44-A4B62F0E44FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360F27AF-6A77-4718-8B44-A4B62F0E44FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360F27AF-6A77-4718-8B44-A4B62F0E44FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
