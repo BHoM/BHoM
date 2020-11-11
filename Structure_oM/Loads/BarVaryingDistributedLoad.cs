@@ -35,9 +35,9 @@ namespace BH.oM.Structure.Loads
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Distance along the bar between the start node and the start of the loaded region.\n" + 
-                     "If RelativeDistance is true, this value will be a normalised length where 0 means start and 1 means end, which means this value needs to be within this range.\n" +
-                     "If RelativeDistance is false, this value will be in meters.")]
+        [Description("Distance along the bar between the start node and the start of the loaded region.\n" +
+                     "If RelativePositions is true, this value will be a normalised length where 0 means start and 1 means end, which means this value needs to be within this range.\n" +
+                     "If RelativePositions is false, this value will be in absolute distances.")]
         public virtual double StartPosition { get; set; } = 0;
 
         [ForcePerUnitLength]
@@ -49,8 +49,8 @@ namespace BH.oM.Structure.Loads
         public virtual Vector MomentAtStart { get; set; } = new Vector();
 
         [Description("Distance along the bar between the start node and the end of the loaded region.\n" +
-                     "If RelativeDistance is true, this value will be a normalised length where 0 means start and 1 means end, which means this value needs to be within this range.\n" +
-                     "If RelativeDistance is false, this value will be in meters.")]
+                     "If RelativePositions is true, this value will be a normalised length where 0 means start and 1 means end, which means this value needs to be within this range.\n" +
+                     "If RelativePositions is false, this value will be in absolute distances.")]
         public virtual double EndPosition { get; set; } = 0;
 
         [ForcePerUnitLength]
@@ -74,8 +74,8 @@ namespace BH.oM.Structure.Loads
         public virtual bool Projected { get; set; } = false;
 
         [Description("If true, the StartPosition and EndPosition will be normalised lengths where 0 means start and 1 means end.\n" +
-                     "If false, the StartPosition and EndPosition will be meassured in metres. ")]
-        public virtual bool RelativeDistance { get; set; } = false;
+                     "If false, the StartPosition and EndPosition will be absolute distances.")]
+        public virtual bool RelativePositions { get; set; } = true;
 
         /***************************************************/
     }
