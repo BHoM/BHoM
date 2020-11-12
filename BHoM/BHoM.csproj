@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HashConfig.cs" />
     <Compile Include="Interface\IPersistentAdapterId.cs" />
     <Compile Include="Interface\IAdapterId.cs" />
     <Compile Include="CustomObject.cs" />
