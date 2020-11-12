@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,44 +20,28 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Analytical.Fragments
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class MultiOutputAttribute : Attribute, IImmutable
+    [Description("Fragment used to store EntityGroups on a Graph with ProcessViews.")]
+    public class ProcessViewFragment : IViewFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public virtual List<string> GroupNames { get; set; } = new List<string>();
 
-        public virtual int Index { get; private set; } = 0;
-
-        public virtual string Name { get; private set; } = "";
-
-        public virtual string Description { get; private set; } = "";
-
-        public virtual InputClassificationAttribute Classification { get; } = null;
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
-        {
-            Index = index;
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-        }
+        public virtual Point Position { get; set; } = new Point();
 
         /***************************************************/
     }
 }
-
