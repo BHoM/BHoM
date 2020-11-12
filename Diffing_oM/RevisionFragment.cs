@@ -30,15 +30,30 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    [Description("Stores the hash of the parent BHoMObject.")]
-    public class HashFragment : IHashFragment, IImmutable
+    [Description("Stores the current and previous Hash of the parent BHoMObject, as assigned after the inclusion in a Revision.")]
+    public class RevisionFragment : IHashFragment, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Hash of the parent BHoMObject.")]
-        public string CurrentHash { get; set;  }
+        [Description("Current object Hash.")]
+        public string CurrentHash { get; }
+
+        [Description("Previous object Hash, typically the one it had in its previous Revision.")]
+        public string PreviousHash { get; } = null;
+
+        /***************************************************/
+        /**** Constructor                               ****/
+        /***************************************************/
+
+        public RevisionFragment(string currentHash, string previousHash = null)
+        {
+            CurrentHash = currentHash;
+            PreviousHash = previousHash;
+        }
+
+        /***************************************************/
     }
 }
 
