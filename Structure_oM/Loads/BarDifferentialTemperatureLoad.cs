@@ -24,28 +24,36 @@ using BH.oM.Structure.Elements;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Uniform temperature load for area elements such as Panels and FEMeshes.")]
-    public class AreaTemperatureLoad : BHoMObject, IElementLoad<IAreaElement>
+    [Description("Differential temperature load for Bars.")]
+    [NoAutoConstructor()]
+    public class BarDifferentialTemperatureLoad : BHoMObject, IElementLoad<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Temperature]
-        [Description("Uniform change of temperature of the element.")]
-        public virtual double TemperatureChange { get; set; } = 0;
+        [Description("Differential temperature profile of the Bar expressed as a Dictionary of the parametric position from the bottom (local z) or left (local y) face of the profile and the temperature at each increment.")]
+        public virtual Dictionary<double,double> TemperatureProfile { get; set; }
+
+        [Description("The direction of the temperature variation, relative to the local axis of the profile.")]
+        public virtual DifferentialTemperatureLoadDirection LoadDirection { get; set; }
 
         [Description("The Loadcase in which the load is applied.")]
         public virtual Loadcase Loadcase { get; set; }
 
-        [Description("The group of IAreaElements that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
-        public virtual BHoMGroup<IAreaElement> Objects { get; set; } = new BHoMGroup<IAreaElement>();
+        [Description("The group of Bars that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
+        public virtual BHoMGroup<Bar> Objects { get; set; } = new BHoMGroup<Bar>();
 
         [Description("Defines whether the load is applied in local or global coordinates.")]
-        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Local;
 
         [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
         public virtual bool Projected { get; set; } = false;

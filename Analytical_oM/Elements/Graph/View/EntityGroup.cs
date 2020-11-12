@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,43 +21,23 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Analytical.Elements
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class MultiOutputAttribute : Attribute, IImmutable
+    [Description("Group information for ProcessView of Graphs.")]
+    public class EntityGroup : BHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        public virtual Point Position { get; set; } = new Point();
 
-        public virtual int Index { get; private set; } = 0;
+        public virtual List<Guid> EntityGuids { get; set; } = new List<Guid>();
 
-        public virtual string Name { get; private set; } = "";
-
-        public virtual string Description { get; private set; } = "";
-
-        public virtual InputClassificationAttribute Classification { get; } = null;
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
-        {
-            Index = index;
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-        }
-
-        /***************************************************/
+        public virtual ICurve Boundary { get; set; }
     }
 }
-

@@ -20,22 +20,28 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    public class Graph<TNode> where TNode : INode
+    [Description("A set of IBHoMObject entities and the relations between them.")]
+    public class Graph : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<TNode> Nodes { get; set; } = new List<TNode>();
+        [Description("Dictionary of IBHoMObject entities.")]
+        public virtual Dictionary<Guid, IBHoMObject> Entities { get; set; } = new Dictionary<Guid, IBHoMObject>();
 
-        public virtual List<ILink<TNode>> Links { get; set; } = new List<ILink<TNode>>();
+        [Description("Collection of relations between IBHoMObject entities.")]
+        public virtual List<IRelation> Relations { get; set; } = new List<IRelation>();
 
-
-        /***************************************************/
     }
 }
-

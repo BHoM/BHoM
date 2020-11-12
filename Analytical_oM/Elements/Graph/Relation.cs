@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,43 +21,37 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Analytical.Elements
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class MultiOutputAttribute : Attribute, IImmutable
+    [Description("Base class for all Relation classes.")]
+    public class Relation : BHoMObject, IRelation
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual int Index { get; private set; } = 0;
+        [Description("Reference Guid to source entity.")]
+        public virtual Guid Source { get; set; } = Guid.Empty;
 
-        public virtual string Name { get; private set; } = "";
+        [Description("Reference Guid to target entity.")]
+        public virtual Guid Target { get; set; } = Guid.Empty;
 
-        public virtual string Description { get; private set; } = "";
+        [Description("This Relation's sub Graph.")]
+        public virtual Graph Subgraph { get; set; } = new Graph();
 
-        public virtual InputClassificationAttribute Classification { get; } = null;
+        [Description("Weight of the Relation.")]
+        public virtual double Weight { get; set; } = 1.0;
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
+        [Description("Curve that represents the link between the source and target entities.")]
+        public virtual ICurve Curve { get; set; }
 
-        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
-        {
-            Index = index;
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-        }
-
-        /***************************************************/
     }
 }
-

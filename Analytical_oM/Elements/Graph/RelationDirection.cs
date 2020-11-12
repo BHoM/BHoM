@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,44 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Analytical.Elements
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class MultiOutputAttribute : Attribute, IImmutable
+    public enum RelationDirection
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual int Index { get; private set; } = 0;
-
-        public virtual string Name { get; private set; } = "";
-
-        public virtual string Description { get; private set; } = "";
-
-        public virtual InputClassificationAttribute Classification { get; } = null;
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
-        {
-            Index = index;
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-        }
-
-        /***************************************************/
+        Forwards = 0,
+        Backwards = 1,
+        Both = 2
     }
 }
-

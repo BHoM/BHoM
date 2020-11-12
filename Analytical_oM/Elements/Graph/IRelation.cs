@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,43 +21,35 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Analytical.Elements
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class MultiOutputAttribute : Attribute, IImmutable
+    [Description("Interface common to all Relation objects.")]
+    public interface IRelation : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual int Index { get; private set; } = 0;
+        Guid Source { get; set; }
 
-        public virtual string Name { get; private set; } = "";
+        Guid Target { get; set; }
 
-        public virtual string Description { get; private set; } = "";
+        Graph Subgraph { get; set; }
 
-        public virtual InputClassificationAttribute Classification { get; } = null;
+        double Weight { get; set; }
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
-        {
-            Index = index;
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-        }
+        ICurve Curve { get; set; }
 
         /***************************************************/
     }
-}
 
+
+}

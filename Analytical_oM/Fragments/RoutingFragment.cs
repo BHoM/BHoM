@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,37 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Structure.Elements;
-using System.ComponentModel;
-using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Structure.Loads
+namespace BH.oM.Analytical.Fragments
 {
-    [Description("Uniform temperature load for Bars.")]
-    public class BarTemperatureLoad : BHoMObject, IElementLoad<Bar>
+    [Description("Fragment used in the computation of shortest paths.")]
+    public class RoutingFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Temperature]
-        [Description("Uniform temperature change of the Bar.")]
-        public virtual double TemperatureChange { get; set; } = 0;
+        public virtual double? MinCostToSource { get; set; } = null;
 
-        [Description("The Loadcase in which the load is applied.")]
-        public virtual Loadcase Loadcase { get; set; }
+        public virtual double? Cost { get; set; } = null;
 
-        [Description("The group of Bars that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
-        public virtual BHoMGroup<Bar> Objects { get; set; } = new BHoMGroup<Bar>();
+        public virtual bool Visited { get; set; } = false;
 
-        [Description("Defines whether the load is applied in local or global coordinates.")]
-        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
+        public virtual Guid NearestToSource { get; set; }
 
-        [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
-        public virtual bool Projected { get; set; } = false;
+        public virtual double? StraightLineDistanceToTarget { get; set; } = null;
 
         /***************************************************/
     }
 }
-
