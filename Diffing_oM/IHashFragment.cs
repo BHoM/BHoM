@@ -31,14 +31,14 @@ using System.Threading.Tasks;
 namespace BH.oM.Diffing
 {
     [Description("Stores the hash of the parent BHoMObject.")]
-    public class HashFragment : IHashFragment, IImmutable
+    public interface IHashFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Hash of the parent BHoMObject.")]
-        public string CurrentHash { get; set;  }
+        string CurrentHash { get; }
     }
 }
 
