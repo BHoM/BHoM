@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.MEP.Equipment
+using BH.oM.Base;
+using BH.oM.Geometry;
+
+namespace BH.oM.MEP.System.ConnectionProperties
 {
-    public interface IEquipment : IBHoMObject
+    [Description("Base interface for MEP physical connection properties.")]
+    public interface IConnectionProperty : IBHoMObject
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
+        [Description("The point at which the Connector object begins.")]
+        Point StartPoint { get; set; }
 
+        [Description("The point at which the Connector bject ends.")]
+        Point EndPoint { get; set; }
 
         /***************************************************/
     }
 }
-

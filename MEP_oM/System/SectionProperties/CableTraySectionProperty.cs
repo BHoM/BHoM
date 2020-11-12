@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,43 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using System.ComponentModel;
 
-namespace BH.oM.MEP.Equipment
+using BH.oM.Base;
+using BH.oM.MEP.System.MaterialFragments;
+
+namespace BH.oM.MEP.System.SectionProperties
 {
-    public interface IEquipment : IBHoMObject
+    public class CableTraySectionProperty : BHoMObject, IImmutable
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
+        [Description("The cable tray material is the primary material that the it is composed of.")]
+        public virtual IMEPMaterial Material { get; set; }     
 
+        [Description("The section profile of the object that will determine its use within a System.")]
+        public virtual SectionProfile SectionProfile { get; }
+
+        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
+        public virtual double ElementSolidArea { get; }
+
+        [Description("The interior area within the element's shapeProfile. This corresponds to the actual open area less any material thickness.")]
+        public virtual double ElementVoidArea { get; }
+
+        /***************************************************/
+        /****                 Constructor               ****/
+        /***************************************************/
+        
+        public CableTraySectionProperty(IMEPMaterial material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
+        {
+            Material = material;
+            SectionProfile = sectionProfile;
+            ElementSolidArea = elementSolidArea;
+            ElementVoidArea = elementVoidArea;            
+        }
 
         /***************************************************/
     }
 }
-

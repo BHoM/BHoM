@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.Fixtures
 {
-    public interface IEquipment : IBHoMObject
+    [Description("Base interface for all Fixture objects. These objects are capable of containing a material or element that flows through the object.")]
+    public interface IFixtureUsage : IBHoMObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-
-
         /***************************************************/
     }
 }
-

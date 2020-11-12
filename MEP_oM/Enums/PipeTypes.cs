@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using System.ComponentModel;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.Enums
 {
-    public interface IEquipment : IBHoMObject
+    [Description("The type of pipe (e.g. Sanitary, Storm, Domestic Cold Water)")]
+    public enum PipeTypes
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-
-
-        /***************************************************/
+            Undefined,
+            ChilledWaterSupply,
+            ChilledWaterReturn,
+            Condensate,
+            CondenserWaterSupply,
+            CondenserWaterReturn,
+            DomesticColdWater,
+            DomesticHotWater,
+            DomesticHotWaterRecirculation,
+            FuelOilSupply,
+            FuelOilReturn,
+            Gas,
+            HeatingHotWaterSupply,
+            HeatingHotWaterReturn,
+            HeatRecoveryWaterSupply,
+            HeatRecoveryWaterReturn,
+            Sanitary,
+            Sprinkler,
+            Storm,
+            Vent,
+            Waste
     }
 }
-

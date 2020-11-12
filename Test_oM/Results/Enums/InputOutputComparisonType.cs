@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.Test.Results
 {
-    public interface IEquipment : IBHoMObject
+    [Description("Type of difference or error of the result.")]
+    public enum InputOutputComparisonType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("Pulled object is identical to pushed obejct")]
+        Equal = 0,
+        [Description("Something in the process went wrong, making it impossible to compare the object before and after. For example an exception")]
+        Exception = 1,
+        [Description("Difference between a pushed and pulled property.")]
+        Difference = 2,
 
-
-
-        /***************************************************/
     }
 }
-

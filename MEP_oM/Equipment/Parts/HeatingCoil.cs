@@ -20,22 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.Equipment.Parts;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.Equipment.Parts
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    [Description("Heating coils allow fluids (air) to raise their temperature as they pass through the coil")]
+    public class HeatingCoil : BHoMObject, IPart
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        [Description("Sensible capacity indicates the ability for the heating coil to change the temperature of the fluid (air).")]
+        public virtual double SensibleCapacity { get; set; } = 0.0;
+        
+        [Description("Entering Dry Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius")]
+        public virtual double EnteringDryBulbAirTemperature { get; set; } = 0.0;
+        
+        [Description("Leaving Dry Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius")]
+        public virtual double LeavingDryBulbAirTemperature { get; set; } = 0.0;
+        
+        [Description("Entering Water Temperature indicates the heat intensity of the water entering the system in degrees Celsius")]
+        public virtual double EnteringWaterTemperature { get; set; } = 0.0;
+        
+        [Description("Leaving Water Temperature indicates the heat intensity of the water leaving the system in degrees Celsius")]
+        public virtual double LeavingWaterTemperature { get; set; } = 0.0;
+        
+        [Description("Pressure Drop indicates the amount of resistance created by the coil which creates a loss in pressure of the fluid (air)")]
+        public virtual double PressureDrop { get; set; } = 0.0;
+        
+        [Description("Number of Rows indicates the number of rows of coils that the fluid (air) passes through")]
+        public virtual int NumberOfRows { get; set; } = 0;
 
         /***************************************************/
     }

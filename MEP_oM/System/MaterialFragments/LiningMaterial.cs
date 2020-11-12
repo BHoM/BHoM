@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System.MaterialFragments
 {
-    public interface IEquipment : IBHoMObject
+    public class LiningMaterial : BHoMObject, IMEPMaterial, IInsulationMaterial
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("RValue is the measure of the resistance of conductive heat loss by the lining material.")]
+        public virtual double RValue { get; set; } = 0;
 
+        [Description("KValue is the measure of the lining material's ability to conduct heat (W/m*K), the lower the KValue the better the ability to conduct heat.")]
+        public virtual double KValue { get; set; } = 0;
 
-
-        /***************************************************/
+        [Description("Roughness is a measure of the irregularities on the surface of the lining.")]
+        public virtual double Roughness { get; set; } = 0;
     }
 }
-

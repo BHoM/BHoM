@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -22,17 +22,10 @@
 
 using BH.oM.Base;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System.MaterialFragments
 {
-    public interface IEquipment : IBHoMObject
+    public class CableTrayMaterial : BHoMObject, IMEPMaterial
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-
-
-        /***************************************************/
+        //placeholder to hold cable tray material properties
     }
 }
-

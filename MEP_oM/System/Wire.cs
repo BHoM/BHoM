@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
+using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System
 {
-    public interface IEquipment : IBHoMObject
+    [Description("Wire object to work within an MEP systems.")]
+    public class Wire : BHoMObject, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-
+        [Description("Collection of WireSegments.")]
+        public virtual List<WireSegment> WireSegments { get; set; } = new List<WireSegment>();
 
         /***************************************************/
     }
 }
-

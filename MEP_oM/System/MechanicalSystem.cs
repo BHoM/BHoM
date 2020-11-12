@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+using BH.oM.MEP.Enums;
 using BH.oM.Base;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System
 {
-    public interface IEquipment : IBHoMObject
+    [Description("Mechanical systems are qualified by their ability to convey air, water, etc to a building/room/area")]
+    public class MechanicalSystem : BHoMObject, ISystemType
     {
         /***************************************************/
         /**** Properties                                ****/
-        /***************************************************/
+        /***************************************************/ 
 
+        [Description("Fluid type that flows throughout the specified flow objects.")]
+        public virtual FluidType FluidType { get; set; } = FluidType.Undefined;
 
+        [Description("The mean temperature of the fluid within the mechanical system (degrees Celsius).")]
+        public virtual double FluidTemperature { get; set; } = 0;
+
+        [Description("The viscosity of the fluid is the measure of its resistance to flow.")]
+        public virtual double FluidViscosity { get; set; } = 0;
+
+        [Description("The mass per unit volume of the fluid within the mechanical system.")]
+        public virtual double FluidDensity { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

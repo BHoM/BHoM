@@ -22,9 +22,9 @@
 
 using BH.oM.Base;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.Equipment.Parts
 {
-    public interface IEquipment : IBHoMObject
+    public interface IPart : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

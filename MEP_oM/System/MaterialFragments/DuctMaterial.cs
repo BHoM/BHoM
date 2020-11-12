@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System.MaterialFragments
 {
-    public interface IEquipment : IBHoMObject
+    public class DuctMaterial : BHoMObject, IMEPMaterial
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-
-
-        /***************************************************/
+        [Description("Roughness is a measure of the irregularities on the surface of a duct.")]
+        public virtual double Roughness { get; set; } = 0;
     }
 }
-

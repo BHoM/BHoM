@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.MEP.System.SectionProperties;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System
 {
-    public interface IEquipment : IBHoMObject
+    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
+    public class Pipe : BHoMObject, IFlow, IElement0D, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The point at which the Pipe object begins.")]
+        public virtual Point StartPoint { get; set; } = null;
 
+        [Description("The point at which the Pipe object ends.")]
+        public virtual Point EndPoint { get; set; } = null;
+
+        [Description("The volume of fluid being conveyed by the pipe per second (m3/s).")]
+        public virtual double FlowRate { get; set; } = 0;
+
+        [Description("The pipe section property defines the shape and its associated properties (radius, material, thickness).")]
+        public virtual PipeSectionProperty SectionProperty { get; set; } = null;
 
         /***************************************************/
     }
 }
-

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
 
-namespace BH.oM.MEP.Equipment
-{
-    public interface IEquipment : IBHoMObject
+namespace BH.oM.MEP.System
+{ 
+    [Description("Base interface for all flow-based objects. These objects are capable of containing a material or element that flows through the object.")]
+    public interface IFlow : IBHoMObject, IElement0D, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The point at which the Flow Object begins.")]
+        Point StartPoint { get; set; }
 
+        [Description("The point at which the Flow Object ends.")]
+        Point EndPoint { get; set; }
 
         /***************************************************/
     }
 }
-
