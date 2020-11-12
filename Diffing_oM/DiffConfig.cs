@@ -39,21 +39,6 @@ namespace BH.oM.Diffing
 
         public virtual HashConfig HashConfig { get; set; } = new HashConfig();
 
-        //[Description("Tolerance used to determine numerical differences." +
-        //    "\nDefaults to 1e-6.")]
-        //public virtual double NumericTolerance { get; set; } = 1e-6;
-
-        //[Description("By default, diffing considers all the properties of the objects." +
-        //    "\nHere you can specify a list of property names. Only the properties with a name matching any of this list will be considered for diffing." +
-        //    "\nE.g., if you input 'Name' only the differences in terms of name will be returned." +
-        //    "\nNOTE: these can be only top-level properties of the object (not the sub-properties).")]
-        //public virtual List<string> PropertiesToConsider { get; set; } = new List<string>();
-
-        //[Description("List of strings specifying the names of the properties that should be ignored in the diffing." +
-        //    "\nNOTE: This considers ALL properties AND sub-properties. Any property with a name matching any of this list will be ignored." +
-        //    "\nBy default it includes `BHoM_Guid`.")]
-        //public virtual List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid" };
-
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
         public virtual bool EnablePropertyDiffing { get; set; } = false;
 
