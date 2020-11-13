@@ -37,7 +37,7 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Settings to determine the unique signature of an Object.")]
+        [Description("Settings to determine the uniqueness of an Object.")]
         public virtual DistinctConfig DistinctConfig { get; set; }
 
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
