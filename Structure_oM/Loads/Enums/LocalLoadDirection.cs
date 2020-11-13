@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,38 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ComponentModel;
-
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Structure.Loads
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    [Description("Provides the names that were previously used for a given input. If multiple names, use a ',' to separate them.")]
-    public class PreviousInputNamesAttribute : Attribute, IImmutable
+    /***************************************************/
+
+    public enum DifferentialTemperatureLoadDirection
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual string Name { get; private set; } = "";
-
-        public virtual List<string> PreviousNames { get; private set; } = new List<string>();
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public PreviousInputNamesAttribute(string name, string previousNames)
-        {
-            Name = name;
-            PreviousNames = previousNames.Split(new char[] { ',' }).Select(x => x.Trim()).ToList();
-        }
-
-        /***************************************************/
+        LocalY,
+        LocalZ
     }
+
+    /***************************************************/
 }
 
