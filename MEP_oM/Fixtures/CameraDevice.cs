@@ -27,6 +27,7 @@ using BH.oM.MEP.Equipment.Parts;
 using BH.oM.MEP.Enums;
 using BH.oM.Geometry;
 using BH.oM.Dimensional;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.MEP.Fixtures
 {
@@ -43,7 +44,8 @@ namespace BH.oM.MEP.Fixtures
         [Description("The point at which the Camera is looking at, known as the target position.")]
         public Point TargetPosition { get; set; } = new Point();
         
-        [Description("The horizontal field of view of the Camera.")]
+        [Length]
+        [Description("The horizontal field of view of the Camera, known as the real-world width length of what the camera views.")]
         public double HorizontalFieldOfView { get; set; } = 0;               
 
         [Description("The Camera mounting type that describes how it's installed.")]
