@@ -27,22 +27,22 @@ using BH.oM.Base;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Uniform temperature load for Bars.")]
-    public class BarTemperatureLoad : BHoMObject, IElementLoad<Bar>
+    [Description("Uniform temperature load for area elements such as Panels and FEMeshes.")]
+    public class AreaUniformTemperatureLoad : BHoMObject, IElementLoad<IAreaElement>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Temperature]
-        [Description("Uniform temperature change of the Bar.")]
+        [Description("Uniform change of temperature of the element.")]
         public virtual double TemperatureChange { get; set; } = 0;
 
         [Description("The Loadcase in which the load is applied.")]
         public virtual Loadcase Loadcase { get; set; }
 
-        [Description("The group of Bars that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
-        public virtual BHoMGroup<Bar> Objects { get; set; } = new BHoMGroup<Bar>();
+        [Description("The group of IAreaElements that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
+        public virtual BHoMGroup<IAreaElement> Objects { get; set; } = new BHoMGroup<IAreaElement>();
 
         [Description("Defines whether the load is applied in local or global coordinates.")]
         public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;

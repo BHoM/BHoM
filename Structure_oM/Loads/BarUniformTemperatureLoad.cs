@@ -20,42 +20,35 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Structure.Elements;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Structure.Loads
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class MultiOutputAttribute : Attribute, IImmutable
+    [Description("Uniform temperature load for Bars.")]
+    public class BarUniformTemperatureLoad : BHoMObject, IElementLoad<Bar>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual int Index { get; private set; } = 0;
+        [Temperature]
+        [Description("Uniform temperature change of the Bar.")]
+        public virtual double TemperatureChange { get; set; } = 0;
 
-        public virtual string Name { get; private set; } = "";
+        [Description("The Loadcase in which the load is applied.")]
+        public virtual Loadcase Loadcase { get; set; }
 
-        public virtual string Description { get; private set; } = "";
+        [Description("The group of Bars that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
+        public virtual BHoMGroup<Bar> Objects { get; set; } = new BHoMGroup<Bar>();
 
-        public virtual InputClassificationAttribute Classification { get; } = null;
+        [Description("Defines whether the load is applied in local or global coordinates.")]
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
-        {
-            Index = index;
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-        }
+        [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
+        public virtual bool Projected { get; set; } = false;
 
         /***************************************************/
     }
