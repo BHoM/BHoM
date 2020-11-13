@@ -38,7 +38,7 @@ namespace BH.oM.Diffing
         /***************************************************/
 
         [Description("Current object Hash.")]
-        public string CurrentHash { get; }
+        public string Hash { get; }
 
         [Description("Previous object Hash, typically the one it had in its previous Revision.")]
         public string PreviousHash { get; } = null;
@@ -49,7 +49,7 @@ namespace BH.oM.Diffing
 
         public RevisionFragment(string currentHash, string previousHash = null)
         {
-            CurrentHash = currentHash;
+            Hash = currentHash;
             PreviousHash = previousHash;
         }
 

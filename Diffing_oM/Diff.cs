@@ -51,7 +51,7 @@ namespace BH.oM.Diffing
         public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
 
         [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
-        public DiffConfig DiffConfig { get; }
+        public DiffingConfig DiffingConfig { get; }
 
         /***************************************************/
         /**** Constructor                               ****/
@@ -62,12 +62,12 @@ namespace BH.oM.Diffing
         [Input("removedObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
         [Input("modifiedObjects", "Objects existing in both sets that have some differences in their properties.")]
         [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
-        public Diff(IEnumerable<object> addedObjects, IEnumerable<object> removedObjects, IEnumerable<object> modifiedObjects, DiffConfig diffConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, IEnumerable<object> unchangedObjects = null)
+        public Diff(IEnumerable<object> addedObjects, IEnumerable<object> removedObjects, IEnumerable<object> modifiedObjects, DiffingConfig diffConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, IEnumerable<object> unchangedObjects = null)
         {
             AddedObjects = addedObjects;
             RemovedObjects = removedObjects;
             ModifiedObjects = modifiedObjects;
-            DiffConfig = diffConfig;
+            DiffingConfig = diffConfig;
             ModifiedPropsPerObject = modifiedPropsPerObject;
             UnchangedObjects = unchangedObjects;
         }

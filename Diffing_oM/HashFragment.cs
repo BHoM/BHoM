@@ -38,7 +38,7 @@ namespace BH.oM.Diffing
         /***************************************************/
 
         [Description("Hash of the parent BHoMObject.")]
-        public string CurrentHash { get; set;  }
+        public string Hash { get; set;  }
     }
 }
 

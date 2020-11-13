@@ -31,32 +31,31 @@ using System.ComponentModel;
 namespace BH.oM.Diffing
 {
     [Description("General configurations for the Diffing process, including settings for the Hash computation.")]
-    public class DiffConfig : BHoMObject
+    public class DiffingConfig : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual HashConfig HashConfig { get; set; } = new HashConfig();
+        [Description("Settings to determine the unique signature of an Object.")]
+        public virtual DistinctConfig DistinctConfig { get; set; }
 
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
         public virtual bool EnablePropertyDiffing { get; set; } = false;
-
-        [Description("List of names of the keys of the BHoMObjects' CustomData dictionary that should be ignored when doing the property-level diffing." +
-            "\nBy default it includes `RenderMesh`.")]
-        public virtual List<string> CustomDataToIgnore { get; set; } = new List<string>() { "RenderMesh" };
-
-        [Description("If no Id or HashFragment is found on the objects, but the input lists have same length and the objects are in the same order," +
-            "\ndiffing is attempted by taking each object one by one. It will be able to tell only if the objects have been modified or not (no new or old).")]
-        public virtual bool AllowOneByOneDiffing { get; set; } = false;
 
         [Description("If EnablePropertyDiffing is true, this sets the maximum number of differences to be determine before stopping." +
             "\nUseful to limit the run time." +
             "\nDefaults to 1000.")]
         public virtual int MaxPropertyDifferences { get; set; } = 1000;
 
-        [Description("If enabled, the Diff stores also the objects that did not change (`Unchanged` property).")]
-        public virtual bool StoreUnchangedObjects { get; set; } = true;
+        [Description("If enabled, the Diff includes also the objects that did not change (`Unchanged`).")]
+        public virtual bool IncludeUnchangedObjects { get; set; } = true;
+
+        [Description("Type of PersistentId that should be used to perform the Diffing.")]
+        public virtual Type PersistentIdType { get; set; }
+
+        [Description("Key of the CustomData dictionary where to look for an Id to use for the Diffing.")]
+        public virtual string CustomDataKey { get; set; }
 
         /***************************************************/
     }
