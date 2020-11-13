@@ -59,14 +59,14 @@ namespace BH.oM.Diffing
         public IEnumerable<object> Objects { get; }
 
         [Description("Diffing settings for this Revision. Hashes of objects contained in this stream will be computed based on these configs.")]
-        public DiffConfig RevisionDiffConfing { get; }
+        public DiffingConfig RevisionDiffConfing { get; }
 
         /***************************************************/
         /**** Constructor                               ****/
         /***************************************************/
 
 
-        public Revision(IEnumerable<object> objects, Guid streamId, DiffConfig revisionDiffConfing = null, string revisionName = null, string comment = null, Guid revisionId = default(Guid),  long timestamp = default(long), string author = null)
+        public Revision(IEnumerable<object> objects, Guid streamId, DiffingConfig revisionDiffConfing = null, string revisionName = null, string comment = null, Guid revisionId = default(Guid),  long timestamp = default(long), string author = null)
         {
             StreamId = streamId;
             RevisionId = (revisionId == default(Guid)) ? Guid.NewGuid() : revisionId;
@@ -75,7 +75,7 @@ namespace BH.oM.Diffing
             Author = String.IsNullOrWhiteSpace(author) ? Environment.UserDomainName + "/" + Environment.UserName : author;
             Comment = comment;
             Objects = objects;
-            RevisionDiffConfing = revisionDiffConfing == null ? new DiffConfig() : revisionDiffConfing;
+            RevisionDiffConfing = revisionDiffConfing == null ? new DiffingConfig() : revisionDiffConfing;
         }
 
         /***************************************************/

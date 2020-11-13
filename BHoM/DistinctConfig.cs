@@ -26,7 +26,8 @@ using System.ComponentModel;
 
 namespace BH.oM.Base
 {
-    public class HashConfig : IObject
+    [Description("Settings to determine the uniqueness of an Object.")]
+    public class DistinctConfig : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -43,6 +44,9 @@ namespace BH.oM.Base
 
         [Description("Any corresponding type is ignored. E.g. `typeof(Guid)`.")]
         public List<Type> TypeExceptions { get; set; } = new List<Type>(); //e.g. `typeof(Guid)`
+
+        [Description("Keys of the BHoMObjects' CustomData dictionary that should be ignored.\nBy default it includes `RenderMesh`.")]
+        public virtual List<string> CustomdataKeysExceptions { get; set; } = new List<string>() { "RenderMesh" };
 
         [Description("If any name is specified here, only properties corresponding to that name will be considered in the hash."
             + "\nThis has higher priority than Property Exceptions.")]

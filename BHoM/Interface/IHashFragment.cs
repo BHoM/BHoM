@@ -28,7 +28,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Diffing
+namespace BH.oM.Base
 {
     [Description("Stores the hash of the parent BHoMObject.")]
     public interface IHashFragment : IFragment
@@ -38,7 +38,7 @@ namespace BH.oM.Diffing
         /***************************************************/
 
         [Description("Hash of the parent BHoMObject.")]
-        string CurrentHash { get; }
+        string Hash { get; }
     }
 }
 
