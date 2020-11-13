@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,15 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
-using System;
+using BH.oM.Structure.Elements;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Structure.Loads
 {
-    [Description("Path to a folder in the client's file system.")]
-    public class FilePathAttribute : InputClassificationAttribute
+    [Description("Uniform temperature load for Bars.")]
+    public class BarTemperatureLoad : BHoMObject, IElementLoad<Bar>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Temperature]
+        [Description("Uniform temperature change of the Bar.")]
+        public virtual double TemperatureChange { get; set; } = 0;
+
+        [Description("The Loadcase in which the load is applied.")]
+        public virtual Loadcase Loadcase { get; set; }
+
+        [Description("The group of Bars that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
+        public virtual BHoMGroup<Bar> Objects { get; set; } = new BHoMGroup<Bar>();
+
+        [Description("Defines whether the load is applied in local or global coordinates.")]
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
+
+        [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
+        public virtual bool Projected { get; set; } = false;
+
+        /***************************************************/
     }
 }
+

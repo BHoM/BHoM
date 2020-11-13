@@ -21,14 +21,13 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
 using System;
 using System.ComponentModel;
 
 namespace BH.oM.Quantities.Attributes
 {
     [Description("Dimensional quantity as defined by the International System of Quantities")]
-    public abstract class QuantityAttribute : InputClassificationAttribute, IImmutable
+    public abstract class QuantityAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

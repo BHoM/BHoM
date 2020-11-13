@@ -127,10 +127,6 @@
       <Name>Quantities_oM</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
-      <Project>{29e6dcd7-270a-45cc-ac0b-6c024287645e}</Project>
-      <Name>Reflection_oM</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Spatial_oM\Spatial_oM.csproj">
       <Project>{789eaf6c-d68f-4770-b01b-c07bbf3d2188}</Project>
       <Name>Spatial_oM</Name>
