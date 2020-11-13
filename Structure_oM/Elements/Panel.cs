@@ -45,7 +45,7 @@ namespace BH.oM.Structure.Elements
         public virtual List<Opening> Openings { get; set; } = new List<Opening>();
 
         [Description("Defines the thickness property and material of the Panel. Orientation of non-isotropic properties are controlled by the OrientationAngle.")]
-        public virtual ISurfaceProperty Property { get; set; } = new ConstantThickness();
+        public virtual ISurfaceProperty Property { get; set; } = null;
 
         [Angle]
         [Description("Defines the angle that the local x and y axes are rotated around the normal (i.e. local z) of the Panel.\n" +
