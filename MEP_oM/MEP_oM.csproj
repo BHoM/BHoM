@@ -50,6 +50,7 @@
     <Compile Include="Fixtures\IFixtureUsage.cs" />
     <Compile Include="Fixtures\LightFixture.cs" />
     <Compile Include="System\Dampers\VolumeDamper.cs" />
+    <Compile Include="System\AirTerminal.cs" />
     <Compile Include="System\Duct.cs" />
     <Compile Include="System\IFlow.cs" />
     <Compile Include="System\MechanicalSystem.cs" />
