@@ -31,7 +31,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Security.Elements
 {
     [Description("A camera object is a electronic security device typically used in closed-circuit television (CCTV) systems.")]
-    public class CameraDevice : BHoMObject, IElement0D, IElement1D, IElementM
+    public class CameraDevice : BHoMObject, IElement0D, IElementM
     {
         /***************************************************/
         /****                Properties                 ****/
@@ -55,9 +55,6 @@ namespace BH.oM.Security.Elements
 
         [Description("The Camera megapixels that determines its image quality.")]
         public virtual double Megapixels { get; set; } = 0;
-
-        [Description("A means of adding an electrical connector part to the camera's properties. Gives the ability to add the voltage, amps, and denotes if the fixture should be on emergency power.")]
-        public virtual List<IBHoMObject> Parts { get; set; } = new List<IBHoMObject>();
 
         /***************************************************/
     }
