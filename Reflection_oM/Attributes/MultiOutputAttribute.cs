@@ -24,9 +24,6 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Reflection.Attributes
 {
@@ -43,20 +40,20 @@ namespace BH.oM.Reflection.Attributes
 
         public virtual string Description { get; private set; } = "";
 
-        public virtual QuantityAttribute Quantity { get; set; } = null;
+        public virtual InputClassificationAttribute Classification { get; } = null;
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MultiOutputAttribute(int index, string name, string description, Type quantity = null)
+        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
         {
             Index = index;
             Name = name;
             Description = description;
-            if (quantity != null && typeof(QuantityAttribute).IsAssignableFrom(quantity) && quantity != typeof(QuantityAttribute))
+            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
             {
-                Quantity = (QuantityAttribute)Activator.CreateInstance(quantity);
+                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
             }
         }
 

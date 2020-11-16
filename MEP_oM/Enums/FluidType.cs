@@ -22,7 +22,7 @@
 
 using System.ComponentModel;
 
-namespace BH.oM.MEP.MaterialFragments
+namespace BH.oM.MEP.Enums
 {
     /***************************************************/
 
