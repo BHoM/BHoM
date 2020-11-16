@@ -29,14 +29,14 @@ namespace BH.oM.MEP.Enums
     [Description("A mounting type that describes how a fitting is installed.")]
     public enum MountingType
     {
-        Wall,
-        Soffit,
+        Undefined,
         Ceiling,
-        Pendant,
-        Column, 
-        Floor,
+        Column,
         Facade,
-        Undefined       
+        Floor,
+        Pendant,
+        Soffit,
+        Wall   
     }
 
     /***************************************************/

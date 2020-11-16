@@ -39,23 +39,23 @@ namespace BH.oM.MEP.Fixtures
         /***************************************************/
 
         [Description("The point at which the Camera is installed, known as the eye position.")]
-        public Point EyePosition { get; set; } = new Point();
+        public virtual Point EyePosition { get; set; } = new Point();
 
         [Description("The point at which the Camera is looking at, known as the target position.")]
-        public Point TargetPosition { get; set; } = new Point();
+        public virtual Point TargetPosition { get; set; } = new Point();
         
         [Length]
         [Description("The horizontal field of view of the Camera, known as the real-world width length of what the camera views.")]
-        public double HorizontalFieldOfView { get; set; } = 0;               
+        public virtual double HorizontalFieldOfView { get; set; } = 0;               
 
         [Description("The Camera mounting type that describes how it's installed.")]
-        public MountingType Mounting { get; set; } = MountingType.Undefined;
+        public virtual MountingType Mounting { get; set; } = MountingType.Undefined;
 
         [Description("The Camera type that describes its characteristics.")]
-        public CameraType Type { get; set; } = CameraType.Undefined;        
+        public virtual CameraType Type { get; set; } = CameraType.Undefined;        
 
         [Description("The Camera megapixels that determines its image quality.")]
-        public double Megapixels { get; set; } = 0;
+        public virtual double Megapixels { get; set; } = 0;
 
         [Description("A means of adding an electrical connector part to the camera's properties. Gives the ability to add the voltage, amps, and denotes if the fixture should be on emergency power.")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();

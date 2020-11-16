@@ -29,13 +29,13 @@ namespace BH.oM.MEP.Enums
     [Description("A camera type that describes its basic characteristcs.")]
     public enum CameraType
     {
-        Domed,
+        Undefined,
+        Bullet,        
         Covert,
-        Bullet,
+        Domed,
         Fisheye,
         MultiMegapixels,
-        PanTiltZoom,
-        Undefined       
+        PanTiltZoom        
     }
 
     /***************************************************/
