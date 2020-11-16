@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.MEP.System
 { 
     [Description("Base interface for all flow-based objects. These objects are capable of containing a material or element that flows through the object.")]
-    public interface IFlow : IBHoMObject, IElement0D, IElement1D, IElementM
+    public interface IFlow : IBHoMObject, IElement1D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/

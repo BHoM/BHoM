@@ -24,29 +24,26 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
-using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.MEP.System
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IFlow
+    [Description("A device used to regulate the volume of conditioned primary air from the central air handler to the occupied space.")]
+    public class AirTerminal : BHoMObject, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Wire object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
-
-        [Description("The point at which the Wire object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
-
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
+        [VolumetricFlowRate]
+        [Description("The volume of fluid being conveyed by the Duct per second (m3/s).")]
         public virtual double FlowRate { get; set; } = 0;
 
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
+        [Description("The difference in total pressure between two points of a fluid carrying network measured in Millibar.")]
+        public virtual double PressureDrop { get; set; } = 0;
 
+        [Description("The DuctSectionProperties for the air terminal connected to the inlet of the unit.")]
+        public virtual DuctSectionProperty InletDuctProperties { get; set; } = null;
 
         /***************************************************/
     }
