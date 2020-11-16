@@ -24,26 +24,33 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
+using BH.oM.Geometry;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical.Elements;
 
-namespace BH.oM.MEP.System
+
+namespace BH.oM.MEP.Fixtures
 {
-    [Description("A device used to regulate the volume of conditioned primary air from the central air handler to the occupied space.")]
-    public class AirTerminal : BHoMObject, IElementM
+    [Description("A device used to regulate the volume of air to or from an air handling unit, variable air volume device or similar, to or from the occupied space. These devices may be ducted or connect directly to a plenum, in which case no duct connection will be present.")]
+    public class AirTerminal : BHoMObject, IElementM, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The point in space for the location of the Air Terminal.")]
+        public virtual Point Position { get; set; } = new Point();
+
         [VolumetricFlowRate]
-        [Description("The volume of fluid being conveyed by the Duct per second (m3/s).")]
+        [Description("The volume of air being conveyed by the Duct per second (m3/s).")]
         public virtual double FlowRate { get; set; } = 0;
 
-        [Description("The difference in total pressure between two points of a fluid carrying network measured in Millibar.")]
+        [Pressure]
+        [Description("The difference in total pressure between two points of a system measured in Pascals.")]
         public virtual double PressureDrop { get; set; } = 0;
 
-        [Description("The DuctSectionProperties for the air terminal connected to the inlet of the unit.")]
-        public virtual DuctSectionProperty InletDuctProperties { get; set; } = null;
+        [Description("The DuctSectionProperties for the duct connected to the air terminal.")]
+        public virtual DuctSectionProperty ConnectedDuctProperties { get; set; } = null;
 
         /***************************************************/
     }
