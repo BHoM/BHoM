@@ -55,10 +55,11 @@ namespace BH.oM.Base
         [Description("If any property is nested into the object over that level, it is ignored. Defaults to 100.")]
         public int MaxNesting = 100;
 
-        [Description("Determines the number of digits retained after the comma; applies rounding. Defaults to 1E-12, which corresponds to 12 digits.")]
+        [Description("Numeric tolerance for property values, applied to all numerical properties. Applies rounding for numbers smaller than this. Defaults to 1E-12.")]
         public double NumericTolerance = 1E-12;
 
-        [Description("If a property name matches this, applies a rounding to the corresponding number of digits specified.\nSupports * wildcard. E.g. e.g. `{ { StartNode.Point.X, 2 } }`.")]
+        [Description("Number of fractional digits retained for individual property. If a property name matches a key in the dictionary, applies a rounding to the corresponding number of digits."
+            + "\nSupports * wildcard in the property name matching. E.g. `{ { StartNode.Point.*, 2 } }`.")]
         public Dictionary<string, int> FractionalDigitsPerProperty = null; // e.g. { { StartNode.Point.X, 2 } } – can use * wildcard here.
 
         /***************************************************/
