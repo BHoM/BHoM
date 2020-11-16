@@ -25,9 +25,11 @@ using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
+    [NoAutoConstructor]
     [Description("Varying distributed load for bar elements. Can be used to apply force and/or moments.")]
     public class BarVaryingDistributedLoad : BHoMObject, IElementLoad<Bar>
     {
