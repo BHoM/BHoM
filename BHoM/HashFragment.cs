@@ -28,7 +28,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Diffing
+namespace BH.oM.Base
 {
     [Description("Stores the hash of the parent BHoMObject.")]
     public class HashFragment : IHashFragment, IImmutable
