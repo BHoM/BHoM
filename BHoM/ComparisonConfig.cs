@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.Base
 {
     [Description("Settings to determine the uniqueness of an Object.")]
-    public class DistinctConfig : IObject
+    public class ComparisonConfig : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
