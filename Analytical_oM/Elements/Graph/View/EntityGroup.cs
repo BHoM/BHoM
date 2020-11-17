@@ -31,13 +31,21 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    [Description("Group information for ProcessView of Graphs.")]
+    [Description("Entity Group information for view of Graphs.")]
     public class EntityGroup : BHoMObject
     {
-        public virtual Point Position { get; set; } = new Point();
-
-        public virtual List<Guid> EntityGuids { get; set; } = new List<Guid>();
+        public virtual List<Guid> Members { get; set; } = new List<Guid>();
 
         public virtual ICurve Boundary { get; set; }
+
+        public List<ICurve> EntityBoundaries { get; set; } = new List<ICurve>();
+
+        public List<string> EntityNames { get; set; } = new List<string>();
+
+        public List<Point> EntityLabelPosition { get; set; } = new List<Point>();
+
+        public List<Vector> EntityLabelDirection { get; set; } = new List<Vector>();
+
+        public Point LabelPosition { get; set; } = new Point();
     }
 }

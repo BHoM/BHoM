@@ -54,6 +54,7 @@
     <Compile Include="Elements\Graph\View\IView.cs" />
     <Compile Include="Elements\Graph\View\ProcessView.cs" />
     <Compile Include="Elements\Graph\View\SpatialView.cs" />
+    <Compile Include="Elements\Graph\View\ViewConfig.cs" />
     <Compile Include="Elements\IEdge.cs" />
     <Compile Include="Elements\IFace.cs" />
     <Compile Include="Elements\ILink.cs" />
@@ -63,10 +64,10 @@
     <Compile Include="Elements\IPanel.cs" />
     <Compile Include="Elements\IRegion.cs" />
     <Compile Include="Elements\ISurface.cs" />
+    <Compile Include="Fragments\GraphViewFragment.cs" />
     <Compile Include="Fragments\IDependencyFragment.cs" />
     <Compile Include="Fragments\IViewFragment.cs" />
-    <Compile Include="Fragments\LayoutHelperFragment.cs" />
-    <Compile Include="Fragments\ProcessViewFragment.cs" />
+    <Compile Include="Fragments\EntityViewFragment.cs" />
     <Compile Include="Fragments\RoutingFragment.cs" />
     <Compile Include="Fragments\SourcesDependencyFragment.cs" />
     <Compile Include="Fragments\TargetsDependencyFragment.cs" />

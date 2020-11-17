@@ -36,10 +36,7 @@ namespace BH.oM.Analytical.Elements
     {
         public virtual ILayout Layout { get; set; }
 
-        public virtual List<string> GroupsToIgnore { get; set; } = new List<string>();
+        public virtual ViewConfig ViewConfig { get; set; }
 
-        public virtual double EntityBoxX { get; set; } = 10;
-
-        public virtual double EntityBoxY { get; set; } = 5;
     }
 }

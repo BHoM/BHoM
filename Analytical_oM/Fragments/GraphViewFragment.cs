@@ -20,17 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Analytical.Fragments
 {
-    [Description("Stacked layout for Graphs.")]
-    public class Stacks : BHoMObject, ILayout
+    [Description("Fragment used to define graph view.")]
+    public class GraphViewFragment : IViewFragment
     {
-        public virtual List<Point> GroupPoints { get; set; } = new List<Point>();
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        public virtual List<EntityGroup> EntityGroups { get; set; } = new List<EntityGroup>();
+
+        /***************************************************/
     }
 }
