@@ -31,8 +31,6 @@ namespace BH.oM.Analytical.Elements
     [Description("Columns layout for Graphs.")]
     public class Columns : BHoMObject, ILayout
     {
-        public virtual double VerticalSpace { get; set; } = 1;
-
         public virtual List<Point> GroupPoints { get; set; } = new List<Point>();
     }
 }

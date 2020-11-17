@@ -32,8 +32,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
-    [Description("Fragment used to store EntityGroups on a Graph with ProcessViews.")]
-    public class ProcessViewFragment : IViewFragment
+    [Description("Fragment used to define graph view.")]
+    public class EntityViewFragment : IViewFragment
     {
         /***************************************************/
         /**** Properties                                ****/

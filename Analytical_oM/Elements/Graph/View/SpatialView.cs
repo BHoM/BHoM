@@ -33,6 +33,6 @@ namespace BH.oM.Analytical.Elements
     [Description("Spatial View for Graphs.")]
     public class SpatialView : BHoMObject, IView
     {
-
+        public virtual ViewConfig ViewConfig { get; set; }
     }
 }

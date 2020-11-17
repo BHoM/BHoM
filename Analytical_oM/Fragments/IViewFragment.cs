@@ -34,6 +34,6 @@ namespace BH.oM.Analytical.Fragments
     [Description("Interface common to all ViewFragments.")]
     public interface IViewFragment : IFragment
     {
-        Point Position { get; set; }
+
     }
 }
