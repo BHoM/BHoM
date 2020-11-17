@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\UniqueAttribute.cs" />
     <Compile Include="Attributes\TargetsAttribute.cs" />
     <Compile Include="Attributes\AbbreviationAttribute.cs" />
     <Compile Include="Attributes\DeprecatedAttribute.cs" />
