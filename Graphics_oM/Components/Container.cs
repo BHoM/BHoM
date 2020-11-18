@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,16 +21,32 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Graphics.Components
 {
-    [Description("Interface common to all Layout objects.")]
-    public interface ILayout : IBHoMObject
+    public class Container : BHoMObject, IComponent
     {
-        List<Point> GroupPoints { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public virtual List<IComponent> Children { get; set; } = new List<IComponent>();
+
+        public virtual double X { get; set; } = 0;
+
+        public virtual double Y { get; set; } = 0;
+
+        public virtual double Width { get; set; } = 0;
+
+        public virtual double Height { get; set; } = 0;
+
+        public virtual double Opacity { get; set; } = 1.0;
+
+        /***************************************************/
     }
 }

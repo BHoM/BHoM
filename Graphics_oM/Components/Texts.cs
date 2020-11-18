@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,20 +21,41 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
+using BH.oM.Graphics.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Graphics.Components
 {
-    [Description("Bubbles layout for Graphs.")]
-    public class Bubbles : BHoMObject, ILayout
+    public class Texts : BHoMObject, IComponent
     {
-        public virtual double Radius { get; set; } = 1;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        public virtual List<Point> GroupPoints { get; set; } = new List<Point>();
+        public virtual Dataset Dataset { get; set; } = null;
 
-        public virtual double SweepAngle { get; set; } = 2 * Math.PI;
+        public virtual string X { get; set; } = "";
+
+        public virtual string Y { get; set; } = "";
+
+        public virtual string Label { get; set; } = "";
+
+        public virtual string Colour { get; set; } = "";
+
+        public virtual TextAnchor Anchor { get; set; } = TextAnchor.middle;
+
+        public virtual TextBaseline Baseline { get; set; } = TextBaseline.middle;
+
+        public virtual double FontSize { get; set; } = 16;
+
+        public virtual double OffsetX { get; set; } = 0;
+
+        public virtual double OffsetY { get; set; } = 0;
+
+        /***************************************************/
     }
 }
