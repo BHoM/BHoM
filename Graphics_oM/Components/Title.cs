@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,16 +21,38 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Graphics.Components
 {
-    [Description("Columns layout for Graphs.")]
-    public class Columns : BHoMObject, ILayout
+    public class Title : BHoMObject, IComponent
     {
-        public virtual List<Point> GroupPoints { get; set; } = new List<Point>();
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public virtual string Text { get; set; } = "";
+
+        public virtual double X { get; set; } = 0.5;
+
+        public virtual double Y { get; set; } = 1.0;
+
+        public virtual double FontSize { get; set; } = 24;
+
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator Title(string text)
+        {
+            return new Title { Text = text };
+        }
+
+        /***************************************************/
     }
 }

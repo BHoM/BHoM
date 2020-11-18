@@ -42,12 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elements\Graph\Graph.cs" />
-    <Compile Include="Elements\Graph\Layout\Bubbles.cs" />
-    <Compile Include="Elements\Graph\Layout\Columns.cs" />
-    <Compile Include="Elements\Graph\Layout\ILayout.cs" />
     <Compile Include="Elements\Graph\IRelation.cs" />
-    <Compile Include="Elements\Graph\Layout\Radial.cs" />
-    <Compile Include="Elements\Graph\Layout\Stacks.cs" />
     <Compile Include="Elements\Graph\Relation.cs" />
     <Compile Include="Elements\Graph\RelationDirection.cs" />
     <Compile Include="Elements\Graph\View\EntityGroup.cs" />
