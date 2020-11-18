@@ -23,6 +23,8 @@ namespace BH.oM.MEP.Enums
         Pump,
         UnitHeater,
         VariableAirVolumeBox,
+        VariableRefrigerantFlowCondenserIndoor,
+        VariableRefrigerantFlowEvaporatorOutdoor,
         WaterSourceHeatPump,
         WaterStorageTank,
     }
