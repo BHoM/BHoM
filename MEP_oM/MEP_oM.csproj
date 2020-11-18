@@ -43,6 +43,7 @@
     <Compile Include="System\ConnectionProperties\CableTrayConnectionProperty.cs" />
     <Compile Include="System\ConnectionProperties\IConnectionProperty.cs" />
     <Compile Include="System\CableTray.cs" />
+    <Compile Include="Fixtures\AirTerminal.cs" />
     <Compile Include="Fixtures\PlumbingFixtureFlow.cs" />
     <Compile Include="Fixtures\IFixtureFlow.cs" />
     <Compile Include="Fixtures\ResidentialFixtureUsage.cs" />
@@ -50,7 +51,6 @@
     <Compile Include="Fixtures\IFixtureUsage.cs" />
     <Compile Include="Fixtures\LightFixture.cs" />
     <Compile Include="System\Dampers\VolumeDamper.cs" />
-    <Compile Include="System\AirTerminal.cs" />
     <Compile Include="System\Duct.cs" />
     <Compile Include="System\IFlow.cs" />
     <Compile Include="System\MechanicalSystem.cs" />
