@@ -32,16 +32,9 @@ namespace BH.oM.Base
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        [Description("If any name is specified here, only properties corresponding to that name will be considered in the hash."
-            + "\nThis has higher priority than PropertyNameExceptions.")]
-        public List<string> PropertyNamesToConsider { get; set; } = new List<string>(); //e.g. `{ StartNode, EndNode }`
-
-        [Description("Names of properties you want to disregard in defining the uniqueness of an object. `BHoM_Guid` is always added by default.")]
-        public List<string> PropertyNameExceptions { get; set; } = new List<string>() { "BHoM_Guid" }; //e.g. `BHoM_Guid`
-
-        [Description("If you want to exclude a specific property of an object. E.g. `BH.oM.Structure.Elements.Bar.Fragments`.")]
-        public List<string> PropertyFullNameExceptions { get; set; } = new List<string>(); //e.g. `BH.oM.Structure.Elements.Bar.Fragments` – can use * wildcard here.
+        [Description("Names of properties you want to disregard in defining the uniqueness of an object. `BHoM_Guid` is always added by default. Supports * wildcard (see examples below)."
+            + "\nExamples of valid values: `BHoM_Guid`, `StartNode`, `Bar.StartNode.Point.X`, `Bar.*.Point.Y`")] 
+        public List<string> PropertyExceptions { get; set; } = new List<string>() { "BHoM_Guid" }; //e.g. `BHoM_Guid`
 
         [Description("Any corresponding namespace is ignored. E.g. `BH.oM.Structure`.")]
         public List<string> NamespaceExceptions { get; set; } = new List<string>(); //e.g. `BH.oM.Structure`
@@ -51,6 +44,11 @@ namespace BH.oM.Base
 
         [Description("Keys of the BHoMObjects' CustomData dictionary that should be ignored.\nBy default it includes `RenderMesh`.")]
         public virtual List<string> CustomdataKeysExceptions { get; set; } = new List<string>() { "RenderMesh" };
+
+        [Description("If any name is specified here, only properties corresponding to that name will be considered in the hash."
+            + "\nThis has higher priority than `PropertyExceptions`."
+            + "\nWorks only for top-level properties (not subclass properties).")]
+        public List<string> PropertiesToConsider { get; set; } = new List<string>(); //e.g. `{ StartNode, EndNode }`
 
         [Description("If any property is nested into the object over that level, it is ignored. Defaults to 100.")]
         public int MaxNesting = 100;
