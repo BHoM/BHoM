@@ -31,8 +31,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Fragments
 {
-    [Description("Interface common to all ViewFragments.")]
-    public interface IViewFragment : IFragment
+    [Description("Interface common to all ProjectionFragments.")]
+    public interface IProjectionFragment : IFragment
     {
 
     }

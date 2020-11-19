@@ -1,6 +1,6 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2019, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,41 +21,20 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Graphics.Enums;
+using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Graphics.Components
+namespace BH.oM.Analytical.Elements
 {
-    public class Texts : BHoMObject, IComponent
+    [Description("Graphical projection for Graphs.")]
+    public class GraphicalProjection : BHoMObject, IProjection
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        
 
-        public virtual Dataset Dataset { get; set; } = null;
-
-        public virtual string X { get; set; } = "";
-
-        public virtual string Y { get; set; } = "";
-
-        public virtual string Label { get; set; } = "";
-
-        public virtual string Colour { get; set; } = "";
-
-        public virtual TextAnchor Anchor { get; set; } = TextAnchor.middle;
-
-        public virtual TextBaseline Baseline { get; set; } = TextBaseline.middle;
-
-        public virtual double FontSize { get; set; } = 16;
-
-        public virtual double OffsetX { get; set; } = 0;
-
-        public virtual double OffsetY { get; set; } = 0;
-
-        /***************************************************/
     }
 }

@@ -46,7 +46,6 @@
     <Compile Include="Colours\Gradient.cs" />
     <Compile Include="Components\Container.cs" />
     <Compile Include="Components\IComponent.cs" />
-    <Compile Include="Components\Texts.cs" />
     <Compile Include="Components\Title.cs" />
     <Compile Include="Enums\TextAnchor.cs" />
     <Compile Include="Enums\TextBaseline.cs" />

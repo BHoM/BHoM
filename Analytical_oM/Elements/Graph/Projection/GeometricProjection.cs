@@ -21,7 +21,6 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,12 +30,9 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Elements
 {
-    [Description("Process View for Graphs.")]
-    public class ProcessView : BHoMObject, IView
+    [Description("Geometry projection for Graphs.")]
+    public class GeometricProjection : BHoMObject, IProjection
     {
-        public virtual ILayout Layout { get; set; }
-
-        public virtual ViewConfig ViewConfig { get; set; }
 
     }
 }
