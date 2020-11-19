@@ -43,6 +43,7 @@
     <Compile Include="System\ConnectionProperties\CableTrayConnectionProperty.cs" />
     <Compile Include="System\ConnectionProperties\IConnectionProperty.cs" />
     <Compile Include="System\CableTray.cs" />
+    <Compile Include="Fixtures\AirTerminal.cs" />
     <Compile Include="Fixtures\PlumbingFixtureFlow.cs" />
     <Compile Include="Fixtures\IFixtureFlow.cs" />
     <Compile Include="Fixtures\ResidentialFixtureUsage.cs" />

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elements\Bracing.cs" />
+    <Compile Include="Elements\ISolid.cs" />
     <Compile Include="Elements\Pile.cs" />
     <Compile Include="Elements\Column.cs" />
     <Compile Include="Elements\Cable.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Elements\Beam.cs" />
     <Compile Include="Constructions\Layer.cs" />
     <Compile Include="FramingProperties\ConstantFramingProperty.cs" />
+    <Compile Include="Elements\BulkSolids.cs" />
     <Compile Include="Materials\MaterialComposition.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Elements\Wall.cs" />

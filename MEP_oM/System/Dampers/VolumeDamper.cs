@@ -29,7 +29,7 @@ using BH.oM.Geometry;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A type of damper used to control the flow of air in a mechanical system.")]
-    public class VolumeDamper : BHoMObject, IElement0D, IElement1D, IElementM
+    public class VolumeDamper : BHoMObject, IElement0D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/

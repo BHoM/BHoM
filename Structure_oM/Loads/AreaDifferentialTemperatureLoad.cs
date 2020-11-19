@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,34 +20,41 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Structure.Elements;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
-using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using System.Collections.Generic;
+using BH.oM.Reflection.Attributes;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.Structure.Loads
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IFlow
+    [Description("Vertical differential temperature load for area elements such as Panels and FEMeshes.")]
+    [NoAutoConstructor()]
+    public class AreaDifferentialTemperatureLoad : BHoMObject, IElementLoad<IAreaElement>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Wire object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        [Temperature]
+        [Description("Vertical differential temperature profile of the area element expressed as a Dictionary of the normalised position from the bottom face of the surface property and the temperature at each increment.")]
+        public virtual Dictionary<double,double> TemperatureProfile { get; set; }
 
-        [Description("The point at which the Wire object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
+        [Description("The Loadcase in which the load is applied.")]
+        public virtual Loadcase Loadcase { get; set; }
 
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
-        public virtual double FlowRate { get; set; } = 0;
+        [Description("The group of IAreaElements that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
+        public virtual BHoMGroup<IAreaElement> Objects { get; set; } = new BHoMGroup<IAreaElement>();
 
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
+        [Description("Defines whether the load is applied in local or global coordinates.")]
+        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
 
+        [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
+        public virtual bool Projected { get; set; } = false;
 
         /***************************************************/
     }
 }
+

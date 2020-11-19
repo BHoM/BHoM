@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,37 +20,42 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Structure.Elements;
+using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
+using BH.oM.Security.Enums;
+using BH.oM.Geometry;
+using BH.oM.Dimensional;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Structure.Loads
+namespace BH.oM.Security.Elements
 {
-    [Description("Uniform temperature load for area elements such as Panels and FEMeshes.")]
-    public class AreaTemperatureLoad : BHoMObject, IElementLoad<IAreaElement>
+    [Description("A camera object is a electronic security device typically used in closed-circuit television (CCTV) systems.")]
+    public class CameraDevice : BHoMObject, IElement0D, IElementM
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                Properties                 ****/
         /***************************************************/
 
-        [Temperature]
-        [Description("Uniform change of temperature of the element.")]
-        public virtual double TemperatureChange { get; set; } = 0;
+        [Description("The point at which the Camera is installed, known as the eye position.")]
+        public virtual Point EyePosition { get; set; } = new Point();
 
-        [Description("The Loadcase in which the load is applied.")]
-        public virtual Loadcase Loadcase { get; set; }
+        [Description("The point at which the Camera is looking at, known as the target position.")]
+        public virtual Point TargetPosition { get; set; } = new Point();
+        
+        [Length]
+        [Description("The horizontal field of view of the Camera, known as the real-world width length of what the camera views.")]
+        public virtual double HorizontalFieldOfView { get; set; } = 0;               
 
-        [Description("The group of IAreaElements that the load should be applied to. For most analysis packages the objects added here need to be pulled from the analysis package before being assigned to the load.")]
-        public virtual BHoMGroup<IAreaElement> Objects { get; set; } = new BHoMGroup<IAreaElement>();
+        [Description("The Camera mounting type that describes how it's installed.")]
+        public virtual MountingType Mounting { get; set; } = MountingType.Undefined;
 
-        [Description("Defines whether the load is applied in local or global coordinates.")]
-        public virtual LoadAxis Axis { get; set; } = LoadAxis.Global;
+        [Description("The Camera type that describes its characteristics.")]
+        public virtual CameraType Type { get; set; } = CameraType.Undefined;        
 
-        [Description("If true the load is projected to the element. This means that the load will be reduced when its direction is at an angle to the element.")]
-        public virtual bool Projected { get; set; } = false;
+        [Description("The Camera megapixels that determines its image quality.")]
+        public virtual double Megapixels { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

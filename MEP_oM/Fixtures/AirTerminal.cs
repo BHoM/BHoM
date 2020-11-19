@@ -25,28 +25,32 @@ using BH.oM.Base;
 using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical.Elements;
 
-namespace BH.oM.MEP.System
+
+namespace BH.oM.MEP.Fixtures
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IFlow
+    [Description("A device used to regulate the volume of air to or from an air handling unit, variable air volume device or similar, to or from the occupied space. These devices may be ducted or connect directly to a plenum, in which case no duct connection will be present.")]
+    public class AirTerminal : BHoMObject, IElementM, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Wire object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        [Description("The point in space for the location of the Air Terminal.")]
+        public virtual Point Position { get; set; } = new Point();
 
-        [Description("The point at which the Wire object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
-
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
+        [VolumetricFlowRate]
+        [Description("The volume of air being conveyed by the Duct per second (m3/s).")]
         public virtual double FlowRate { get; set; } = 0;
 
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
+        [Pressure]
+        [Description("The difference in total pressure between two points of a system measured in Pascals.")]
+        public virtual double PressureDrop { get; set; } = 0;
 
+        [Description("The DuctSectionProperties for the duct connected to the air terminal.")]
+        public virtual DuctSectionProperty ConnectedDuctProperties { get; set; } = null;
 
         /***************************************************/
     }

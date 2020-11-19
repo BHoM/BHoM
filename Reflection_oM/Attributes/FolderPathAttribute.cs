@@ -28,7 +28,7 @@ using System.ComponentModel;
 namespace BH.oM.Reflection.Attributes
 {
     [Description("Path to a folder in the client's file system.")]
-    public abstract class FolderPathAttribute : InputClassificationAttribute
+    public class FolderPathAttribute : InputClassificationAttribute
     {
     }
 }
