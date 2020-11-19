@@ -20,9 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Elements;
 using BH.oM.Base;
-using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,18 +28,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Fragments
+namespace BH.oM.Analytical.Elements
 {
-    [Description("Fragment used to define graph view.")]
-    public class EntityViewFragment : IViewFragment
+    [Description("Interface common to all graph projections.")]
+    public interface IProjection : IBHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        public virtual List<string> GroupNames { get; set; } = new List<string>();
-
-        public virtual Point Position { get; set; } = new Point();
-
-        /***************************************************/
+        
     }
 }
