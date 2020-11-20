@@ -29,6 +29,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Physical.Constructions;
 
 namespace BH.oM.Physical.Elements
 {
@@ -39,6 +40,8 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
 
         public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
+
+        public virtual IConstruction Construction { get; set; } = new Construction();
 
         /***************************************************/
     }
