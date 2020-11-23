@@ -30,10 +30,11 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Physical.Constructions;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Physical.Elements
 {
-    public class Door : BHoMObject, IOpening
+    public class Door : BHoMObject, IOpening, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,7 +42,7 @@ namespace BH.oM.Physical.Elements
 
         public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
 
-        public virtual IConstruction Construction { get; set; } = new Construction();
+        public virtual IConstruction Construction { get; set; } = null;
 
         /***************************************************/
     }
