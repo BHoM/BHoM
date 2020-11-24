@@ -54,8 +54,9 @@
     <Compile Include="Elements\Door.cs" />
     <Compile Include="Elements\Beam.cs" />
     <Compile Include="Constructions\Layer.cs" />
+    <Compile Include="Elements\ExplicitBulk.cs" />
     <Compile Include="FramingProperties\ConstantFramingProperty.cs" />
-    <Compile Include="Elements\BulkSolids.cs" />
+    <Compile Include="Elements\SolidBulk.cs" />
     <Compile Include="Materials\MaterialComposition.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Elements\Wall.cs" />
