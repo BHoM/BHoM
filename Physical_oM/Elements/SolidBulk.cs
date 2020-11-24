@@ -27,7 +27,7 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Physical.Elements
 {
-    public class BulkSolids : BHoMObject, ISolid
+    public class SolidBulk : BHoMObject, ISolid
     {
         /***************************************************/
         /**** Properties                                ****/
