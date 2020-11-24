@@ -90,6 +90,10 @@
       <Name>Geometry_oM</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Graphics_oM\Graphics_oM.csproj">
+      <Project>{466884F8-6BC5-4977-9F7F-D5233C4B66FF}</Project>
+      <Name>Graphics_oM</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

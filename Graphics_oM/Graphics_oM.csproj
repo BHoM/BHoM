@@ -45,6 +45,8 @@
     <Compile Include="Colours\ColourFragment.cs" />
     <Compile Include="Colours\Gradient.cs" />
     <Compile Include="Components\Container.cs" />
+    <Compile Include="Components\DependencyLines.cs" />
+    <Compile Include="Components\DependencyShapes.cs" />
     <Compile Include="Components\IComponent.cs" />
     <Compile Include="Components\Title.cs" />
     <Compile Include="Enums\TextAnchor.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="SVG\SVGObject.cs" />
     <Compile Include="SVG\SVGStyle.cs" />
     <Compile Include="Views\CustomView.cs" />
+    <Compile Include="Views\DependencyChart.cs" />
     <Compile Include="Views\IView.cs" />
     <Compile Include="Views\TextView.cs" />
     <Compile Include="Views\ViewConfig.cs" />
