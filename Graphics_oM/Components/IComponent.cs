@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Graphics.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,5 +32,6 @@ namespace BH.oM.Graphics.Components
 {
     public interface IComponent : IBHoMObject
     {
+        Dataset Dataset { get; set; }
     }
 }

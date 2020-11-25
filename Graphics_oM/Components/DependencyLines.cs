@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Graphics.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace BH.oM.Graphics.Components
         /**** Properties                                ****/
         /***************************************************/
 
+        public virtual Dataset Dataset { get; set; } = null;
         public virtual string Text { get; set; } = "";
 
         public virtual string Start { get; set; } = "";
