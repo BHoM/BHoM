@@ -21,37 +21,34 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Graphics.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Graphics.Components
+namespace BH.oM.Graphics.Data
 {
-    public class Title : BHoMObject, IComponent
+    public class Dataset : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public virtual Dataset Dataset { get; set; } = null;
-        public virtual string Text { get; set; } = "";
 
-        public virtual double X { get; set; } = 0.5;
+        public virtual string Database { get; set; } = "";
 
-        public virtual double Y { get; set; } = 1.0;
+        public virtual string Collection { get; set; } = "";
 
-        public virtual double FontSize { get; set; } = 24;
+        //public virtual ITransform Transform { get; set; } = null;
 
 
         /***************************************************/
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-        public static explicit operator Title(string text)
+        public static explicit operator Dataset(string name)
         {
-            return new Title { Text = text };
+            return new Dataset { Collection = name };
         }
 
         /***************************************************/

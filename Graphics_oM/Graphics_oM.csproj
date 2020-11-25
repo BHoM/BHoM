@@ -49,16 +49,11 @@
     <Compile Include="Components\DependencyShapes.cs" />
     <Compile Include="Components\IComponent.cs" />
     <Compile Include="Components\Title.cs" />
+    <Compile Include="Data\Dataset.cs" />
     <Compile Include="Enums\TextAnchor.cs" />
     <Compile Include="Enums\TextBaseline.cs" />
     <Compile Include="Fragments\IRepresentationFragment.cs" />
     <Compile Include="Fragments\RepresentationFragment.cs" />
-    <Compile Include="Layouts\FullFrameLayout.cs" />
-    <Compile Include="Layouts\GridItem.cs" />
-    <Compile Include="Layouts\GridLayout.cs" />
-    <Compile Include="Layouts\HorizontalLayout.cs" />
-    <Compile Include="Layouts\MultiColumnsLayout .cs" />
-    <Compile Include="Layouts\VerticalLayout.cs" />
     <Compile Include="Misc\Padding.cs" />
     <Compile Include="Render\RepresentationOptions.cs" />
     <Compile Include="Render\RenderMeshOptions.cs" />
@@ -69,7 +64,6 @@
     <Compile Include="SVG\SVGObject.cs" />
     <Compile Include="SVG\SVGStyle.cs" />
     <Compile Include="Views\CustomView.cs" />
-    <Compile Include="Views\DependencyChart.cs" />
     <Compile Include="Views\IView.cs" />
     <Compile Include="Views\TextView.cs" />
     <Compile Include="Views\ViewConfig.cs" />
