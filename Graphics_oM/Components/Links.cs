@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics.Components
 {
-    public class DependencyLines : BHoMObject, IComponent
+    public class Links : BHoMObject, IComponent
     {
         /***************************************************/
         /**** Properties                                ****/

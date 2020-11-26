@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics.Components
 {
-    public class DependencyShapes : BHoMObject, IComponent
+    public class Boxes : BHoMObject, IComponent
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -48,5 +48,7 @@ namespace BH.oM.Graphics.Components
         public virtual string Group { get; set; } = "";
 
         public virtual int Marker { get; set; } = 0;
+
+        public virtual double Padding { get; set; } = 0;
     }
 }
