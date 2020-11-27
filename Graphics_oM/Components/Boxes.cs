@@ -47,8 +47,8 @@ namespace BH.oM.Graphics.Components
 
         public virtual string Group { get; set; } = "";
 
-        public virtual int Marker { get; set; } = 0;
-
         public virtual double Padding { get; set; } = 0;
+
+        public virtual bool IsHorizontal { get; set; } = false;
     }
 }
