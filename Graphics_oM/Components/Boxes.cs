@@ -37,18 +37,19 @@ namespace BH.oM.Graphics.Components
         /***************************************************/
 
         public virtual Dataset Dataset { get; set; } = null;
+
         public virtual string Text { get; set; } = "";
-
-        public virtual string X { get; set; } = "";
-
-        public virtual string Y { get; set; } = "";
 
         public virtual string Colour { get; set; } = "";
 
         public virtual string Group { get; set; } = "";
 
+        public virtual string GroupOrder { get; set; } = "";
+
         public virtual double Padding { get; set; } = 0;
 
         public virtual bool IsHorizontal { get; set; } = false;
+
+        public virtual List<string> GroupsToIgnore { get; set; } = new List<string>();
     }
 }

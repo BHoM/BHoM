@@ -37,6 +37,7 @@ namespace BH.oM.Graphics.Components
         /***************************************************/
 
         public virtual Dataset Dataset { get; set; } = null;
+
         public virtual string Text { get; set; } = "";
 
         public virtual string Start { get; set; } = "";
@@ -45,6 +46,6 @@ namespace BH.oM.Graphics.Components
 
         public virtual string Colour { get; set; } = "";
 
-        public virtual int Marker { get; set; } = 0;
+        public virtual IMarker Marker { get; set; } = null;
     }
 }

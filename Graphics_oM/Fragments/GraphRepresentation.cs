@@ -8,19 +8,15 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics.Fragments
 {
-    public class EntityRepresentation : IRepresentationFragment
+    public class GraphRepresentation : IRepresentationFragment
     {
-        public virtual ICurve Boundary { get; set; }
+        public virtual List<GroupRepresentation> Groups { get; set; } = new List<GroupRepresentation>();
 
         public virtual string Text { get; set; } = "";
 
         public virtual Point TextPosition { get; set; } = new Point();
 
         public virtual Vector TextDirection { get; set; } = new Vector();
-
-        public virtual Point IncomingRelationPoint { get; set; } = new Point();
-
-        public virtual Point OutgoingRelationPoint { get; set; } = new Point();
 
         public virtual System.Drawing.Color Colour { get; set; } = new System.Drawing.Color();
     }

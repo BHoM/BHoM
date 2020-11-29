@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics.Fragments
 {
-    class RelationRepresentation: IRepresentationFragment
+    public class RelationRepresentation : IRepresentationFragment
     {
         public virtual List<ICurve> Curves { get; set; } = new List<ICurve>();
 
@@ -17,5 +17,7 @@ namespace BH.oM.Graphics.Fragments
         public virtual Point TextPosition { get; set; } = new Point();
 
         public virtual Vector TextDirection { get; set; } = new Vector();
+
+        public virtual System.Drawing.Color Colour { get; set; } = new System.Drawing.Color();
     }
 }
