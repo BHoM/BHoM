@@ -44,7 +44,7 @@ namespace BH.oM.Lighting.Results.Mesh
         [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
         public virtual IComparable ResultCase { get; } = "";
 
-        [Description("Time step for time history results. Typically this will be hour intervals for most Environment Analysis")]
+        [Description("Time step for time history results. Typically this will be hour intervals for most analysis")]
         public virtual double TimeStep { get; } = 0.0;
 
         /***************************************************/

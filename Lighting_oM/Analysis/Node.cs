@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Lighting.Analysis
 {
-    [Description("0D finite element for environmental analysis. Node class contains positional information and is used to build AnalysisGrids and provide links between model geometry and analytical results")]
+    [Description("0D finite element for lighting analysis. Node class contains positional information and is used to build AnalysisGrids and provide links between model geometry and analytical results")]
     public class Node : BHoMObject, IElement0D, INode
     {
         /***************************************************/
