@@ -34,8 +34,8 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual double Volume { get; set; }
-        public virtual MaterialComposition MaterialComposition { get; set; }
+        public virtual double Volume { get; set; } = 0;
+        public virtual MaterialComposition MaterialComposition { get; set; } = null;
 
         /***************************************************/
     }
