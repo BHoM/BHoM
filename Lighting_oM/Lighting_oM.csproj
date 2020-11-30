@@ -7,8 +7,8 @@
     <ProjectGuid>{1698931E-0BF1-4E41-BF09-EDD84AFF44D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BH.oM.Facade</RootNamespace>
-    <AssemblyName>Facade_oM</AssemblyName>
+    <RootNamespace>BH.oM.Lighting</RootNamespace>
+    <AssemblyName>Lighting_oM</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
