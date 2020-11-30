@@ -26,7 +26,7 @@ namespace BH.oM.Lighting.Enums
 {
     /***************************************************/
 
-    [Description("The standard mounting type for a luminaire type (eg CeilingMounted, Recessed, Pendant, etc), ")]
+    [Description("The mounting method used for a specific luminaire type (eg CeilingMounted, Recessed, Pendant, etc) ")]
     public enum MountingType
     {
         Undefined,
