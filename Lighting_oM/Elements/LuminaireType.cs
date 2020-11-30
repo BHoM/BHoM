@@ -47,7 +47,7 @@ namespace BH.oM.Lighting.Elements
         public virtual double Flux { get; set; } = 0.0;
 
         [Description("Number of lamps included in this LuminaireType")]
-        public virtual int NumberLamps { get; set; } = 1;
+        public virtual int NumberOfLamps { get; set; } = 1;
 
         [Description("Mounting type eg Wall-Mounted, Ceiling Recessed, etc)")]
         public virtual string MountingType { get; set; } = "";
