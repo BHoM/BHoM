@@ -21,22 +21,21 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Graphics.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Graphics.Components
 {
+    [Description("Basic link representation for relationships between entities.")]
     public class Links : BHoMObject, IComponent
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public virtual Dataset Dataset { get; set; } = null;
 
         public virtual string Text { get; set; } = "";
 

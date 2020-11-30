@@ -2,12 +2,14 @@
 using BH.oM.Graphics.Fragments;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Graphics.Fragments
 {
+    [Description("Fragment for entity representation.")]
     public class EntityRepresentation : IRepresentationFragment
     {
         public virtual ICurve Boundary { get; set; }
