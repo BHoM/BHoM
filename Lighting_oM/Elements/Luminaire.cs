@@ -41,7 +41,7 @@ namespace BH.oM.Lighting.Elements
         [Description("Position of the Luminaire in global Cartesian 3D space.")]
         public virtual Point Position { get; set; } = null;
 
-        [Description("The type of the Luminaire.")]
+        [Description("The type of the Luminaire (e.g. recessed cove, task lighting, etc)")]
         public virtual string Type { get; set; } = "";
 
         [Description("The direction that the Luminaire is oriented towards.")]
