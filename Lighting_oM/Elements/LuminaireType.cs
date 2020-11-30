@@ -55,9 +55,6 @@ namespace BH.oM.Lighting.Elements
         [Description("General description")]
         public virtual string Description { get; set; } = "";
 
-        [Description("Path to an image of the Luminaire")]
-        public virtual string Picture { get; set; } = "";
-
         [Description("Model name of the LuminaireType as per the Manufacturer")]
         public virtual string Model { get; set; } = "";
     }
