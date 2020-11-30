@@ -58,11 +58,9 @@
     <Compile Include="Elements\IPanel.cs" />
     <Compile Include="Elements\IRegion.cs" />
     <Compile Include="Elements\ISurface.cs" />
-    <Compile Include="Fragments\EntityRepresentation.cs" />
     <Compile Include="Fragments\IDependencyFragment.cs" />
     <Compile Include="Fragments\IProjectionFragment.cs" />
     <Compile Include="Fragments\ProjectionFragment.cs" />
-    <Compile Include="Fragments\RelationRepresentation.cs" />
     <Compile Include="Fragments\RoutingFragment.cs" />
     <Compile Include="Fragments\SourcesDependencyFragment.cs" />
     <Compile Include="Fragments\TargetsDependencyFragment.cs" />
