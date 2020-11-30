@@ -20,30 +20,42 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BH.oM.Base;
-using BH.oM.Structure.Constraints;
+using BH.oM.Geometry;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Lighting.Elements
 {
-    [Description("A rigid link object defining rigid constraints between two or more nodes.")]
-    public class RigidLink : BHoMObject
+    [Description("A LuminaireType containing manufacturer, dimensional, and other property data applied to a Luminaire.")]
+    public class LuminaireType : BHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("Name of the Manufacturer of this LuminaireType")]
+        public virtual string Manufacturer { get; set; } = "";
 
-        [Description("A single node to which SecondaryNodes are constrained.")]
-        public virtual Node PrimaryNode { get; set; } = new Node();
+        [Description("Boundary Representation of the LuminaireType's Geometry")]
+        public virtual BoundaryRepresentation LuminaireGeometry { get; set; } = null;
 
-        [Description("List of nodes which are constrained to the PrimaryNode.")]
-        public virtual List<Node> SecondaryNodes { get; set; } = new List<Node>();
+        [Description("Total Load of the LuminaireType")]
+        public virtual double Load { get; set; } = 0.0;
 
-        [Description("Defines how SecondaryNodes are constrained to the PrimaryNode. The LinkConstraint describes translation and rotation of SecondaryNodes with respect to the PrimaryNode's coordinate system.")]
-        public virtual LinkConstraint Constraint { get; set; } = null;
+        [Description("Total Flux of the LuminaireType")]
+        public virtual double Flux { get; set; } = 0.0;
 
-        /***************************************************/
+        [Description("Number of lamps included in this LuminaireType")]
+        public virtual int NumberOfLamps { get; set; } = 1;
+
+        [Description("Mounting type eg Wall-Mounted, Ceiling Recessed, etc)")]
+        public virtual string MountingType { get; set; } = "";
+
+        [Description("General description")]
+        public virtual string Description { get; set; } = "";
+
+        [Description("Model name of the LuminaireType as per the Manufacturer")]
+        public virtual string Model { get; set; } = "";
     }
 }
-

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -21,27 +21,21 @@
  */
 
 using System.Collections.Generic;
-using BH.oM.Base;
-using BH.oM.Structure.Constraints;
 using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Physical.Elements
 {
-    [Description("A rigid link object defining rigid constraints between two or more nodes.")]
-    public class RigidLink : BHoMObject
+    public class SolidBulk : BHoMObject, ISolid
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A single node to which SecondaryNodes are constrained.")]
-        public virtual Node PrimaryNode { get; set; } = new Node();
-
-        [Description("List of nodes which are constrained to the PrimaryNode.")]
-        public virtual List<Node> SecondaryNodes { get; set; } = new List<Node>();
-
-        [Description("Defines how SecondaryNodes are constrained to the PrimaryNode. The LinkConstraint describes translation and rotation of SecondaryNodes with respect to the PrimaryNode's coordinate system.")]
-        public virtual LinkConstraint Constraint { get; set; } = null;
+        [Description("A list of geometric solids defining the bulk geometry.")]
+        public virtual List<BH.oM.Geometry.ISolid> Geometry { get; set; } = new List<Geometry.ISolid>();
+        public virtual MaterialComposition MaterialComposition { get; set; } = null;
 
         /***************************************************/
     }

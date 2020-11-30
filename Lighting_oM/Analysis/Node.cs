@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Structure.Constraints;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
+using BH.oM.Analytical.Elements;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Lighting.Analysis
 {
-    [Description("A rigid link object defining rigid constraints between two or more nodes.")]
-    public class RigidLink : BHoMObject
+    [Description("0D finite element for lighting analysis. Node class contains positional information and is used to build AnalysisGrids and provide links between model geometry and analytical results")]
+    public class Node : BHoMObject, IElement0D, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A single node to which SecondaryNodes are constrained.")]
-        public virtual Node PrimaryNode { get; set; } = new Node();
+        [Description("Position of the node in global Cartesian 3D space.")]
+        public virtual Point Position { get; set; } = null;
 
-        [Description("List of nodes which are constrained to the PrimaryNode.")]
-        public virtual List<Node> SecondaryNodes { get; set; } = new List<Node>();
+        [Description("An ID for this node to identify it within result lists and on an analysis grid. ID should be unique and not shared with other nodes in the same grid")]
+        public virtual int ID { get; set; } = -1;
 
-        [Description("Defines how SecondaryNodes are constrained to the PrimaryNode. The LinkConstraint describes translation and rotation of SecondaryNodes with respect to the PrimaryNode's coordinate system.")]
-        public virtual LinkConstraint Constraint { get; set; } = null;
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        [Description("Converts a Point to a Node, setting the position to the provided point. All other properties are set to default values.")]
+        public static explicit operator Node(Point point)
+        {
+            return new Node { Position = point };
+        }
 
         /***************************************************/
     }
 }
+
 

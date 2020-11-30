@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using BH.oM.Base;
-using BH.oM.Structure.Constraints;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Lighting.Enums
 {
-    [Description("A rigid link object defining rigid constraints between two or more nodes.")]
-    public class RigidLink : BHoMObject
+    /***************************************************/
+
+    [Description("The mounting method used for a specific luminaire type (eg CeilingMounted, Recessed, Pendant, etc) ")]
+    public enum MountingType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("A single node to which SecondaryNodes are constrained.")]
-        public virtual Node PrimaryNode { get; set; } = new Node();
-
-        [Description("List of nodes which are constrained to the PrimaryNode.")]
-        public virtual List<Node> SecondaryNodes { get; set; } = new List<Node>();
-
-        [Description("Defines how SecondaryNodes are constrained to the PrimaryNode. The LinkConstraint describes translation and rotation of SecondaryNodes with respect to the PrimaryNode's coordinate system.")]
-        public virtual LinkConstraint Constraint { get; set; } = null;
-
-        /***************************************************/
+        Undefined,
+        CeilingMounted,
+        Cove,
+        FloorMounted,
+        Pendant,
+        Recessed,
+        WallMounted
     }
-}
 
+    /***************************************************/
+}

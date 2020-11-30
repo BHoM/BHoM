@@ -20,30 +20,36 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Dimensional;
 using BH.oM.Base;
-using BH.oM.Structure.Constraints;
+using BH.oM.Geometry;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Lighting.Elements
 {
-    [Description("A rigid link object defining rigid constraints between two or more nodes.")]
-    public class RigidLink : BHoMObject
+    public class Luminaire : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A single node to which SecondaryNodes are constrained.")]
-        public virtual Node PrimaryNode { get; set; } = new Node();
+        [Description("Position of the Luminaire in global Cartesian 3D space.")]
+        public virtual Point Position { get; set; } = null;
 
-        [Description("List of nodes which are constrained to the PrimaryNode.")]
-        public virtual List<Node> SecondaryNodes { get; set; } = new List<Node>();
+        [Description("The type of the Luminaire (e.g. recessed cove, task lighting, etc)")]
+        public virtual string Type { get; set; } = "";
 
-        [Description("Defines how SecondaryNodes are constrained to the PrimaryNode. The LinkConstraint describes translation and rotation of SecondaryNodes with respect to the PrimaryNode's coordinate system.")]
-        public virtual LinkConstraint Constraint { get; set; } = null;
+        [Description("The direction that the Luminaire is oriented towards.")]
+        public virtual Vector Direction { get; set; } = new Vector();
+
+        [Description("The Luminaire Type applied to the Luminaire.")]
+        public virtual LuminaireType LuminaireType { get; set; } = new LuminaireType();
 
         /***************************************************/
     }
 }
-
