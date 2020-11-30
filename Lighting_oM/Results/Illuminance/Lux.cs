@@ -35,13 +35,24 @@ namespace BH.oM.Lighting.Results.Illuminance
     [Description("Lux contains results for Lux analysis. Inherits from MeshElementResult which provides properties related to which node this Lux is recorded for")]
     public class Lux : MeshElementResult, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [BH.oM.Quantities.Attributes.Illuminance]
         [Description("The amount of lux recorded for the given analysis node")]
-        public virtual double LuxLevel { get; set; } = -1;
+        public virtual double LuxLevel { get; } = -1;
 
-        public Lux(IComparable objectId, IComparable nodeId, IComparable resultCase, double timeStep, double luxLevel) : base(objectId, nodeId, resultCase, timeStep)
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        protected Lux(IComparable objectId, IComparable nodeId, IComparable resultCase, double timeStep, double luxLevel) : base(objectId, nodeId, resultCase, timeStep)
         {
             LuxLevel = luxLevel;
         }
+
+        /***************************************************/
+
     }
 }
