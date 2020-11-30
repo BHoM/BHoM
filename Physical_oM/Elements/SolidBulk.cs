@@ -34,7 +34,7 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
 
         [Description("A list of geometric solids defining the bulk geometry.")]
-        public virtual List<BH.oM.Geometry.ISolid> Geometry { get; set; } = null;
+        public virtual List<BH.oM.Geometry.ISolid> Geometry { get; set; } = new List<Geometry.ISolid>();
         public virtual MaterialComposition MaterialComposition { get; set; } = null;
 
         /***************************************************/
