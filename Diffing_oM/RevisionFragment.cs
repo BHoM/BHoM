@@ -47,9 +47,9 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        public RevisionFragment(string currentHash, string previousHash = null)
+        public RevisionFragment(string hash, string previousHash = null)
         {
-            Hash = currentHash;
+            Hash = hash;
             PreviousHash = previousHash;
         }
 
