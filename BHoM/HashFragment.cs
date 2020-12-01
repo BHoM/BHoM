@@ -31,14 +31,14 @@ using System.Threading.Tasks;
 namespace BH.oM.Base
 {
     [Description("Stores the hash of the parent BHoMObject.")]
-    public class HashFragment : IHashFragment, IImmutable
+    public class HashFragment : IHashFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Hash of the parent BHoMObject.")]
-        public virtual string Hash { get; }
+        public virtual string Hash { get; set; }
     }
 }
 
