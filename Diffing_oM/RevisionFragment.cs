@@ -38,10 +38,10 @@ namespace BH.oM.Diffing
         /***************************************************/
 
         [Description("Current object Hash.")]
-        public string Hash { get; }
+        public virtual string Hash { get; }
 
         [Description("Previous object Hash, typically the one it had in its previous Revision.")]
-        public string PreviousHash { get; } = null;
+        public virtual string PreviousHash { get; } = null;
 
         /***************************************************/
         /**** Constructor                               ****/

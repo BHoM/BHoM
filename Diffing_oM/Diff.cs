@@ -39,24 +39,24 @@ namespace BH.oM.Diffing
         /***************************************************/
 
         [Description("Objects present in the second set that are not present in the first set.")]
-        public IEnumerable<object> AddedObjects { get; }
+        public virtual IEnumerable<object> AddedObjects { get; }
 
         [Description("Objects not present in the second set that were present in the first set.")]
-        public IEnumerable<object> RemovedObjects { get; }
+        public virtual IEnumerable<object> RemovedObjects { get; }
 
         [Description("Objects that are recognised as present both in the first set and the second set, but that have some property that is different."
             + "\nThe rules that were used to recognise modification are in the `DiffingConfig.ComparisonConfig`.")]
-        public IEnumerable<object> ModifiedObjects { get; }
+        public virtual IEnumerable<object> ModifiedObjects { get; }
 
         [Description("Objects that are recognised as the same in the first and second set.")]
-        public IEnumerable<object> UnchangedObjects { get; }
+        public virtual IEnumerable<object> UnchangedObjects { get; }
 
         [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB." +
             "\nThis dictionary may be exploded by using BH.Engine.Diffing.Query.ListModifiedProperties().")]
-        public Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
+        public virtual Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
 
         [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
-        public DiffingConfig DiffingConfig { get; }
+        public virtual DiffingConfig DiffingConfig { get; }
 
         /***************************************************/
         /**** Constructor                               ****/

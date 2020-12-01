@@ -38,7 +38,7 @@ namespace BH.oM.Base
         /***************************************************/
 
         [Description("Hash of the parent BHoMObject.")]
-        public string Hash { get; set;  }
+        public virtual string Hash { get; }
     }
 }
 
