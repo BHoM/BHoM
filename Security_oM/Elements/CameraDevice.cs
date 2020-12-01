@@ -20,33 +20,41 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
-using BH.oM.Dimensional;
+using BH.oM.Security.Enums;
 using BH.oM.Geometry;
+using BH.oM.Dimensional;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.Security.Elements
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IFlow
+    [Description("A camera object is a electronic security device typically used in closed-circuit television (CCTV) systems.")]
+    public class CameraDevice : BHoMObject, IElement0D, IElementM
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                Properties                 ****/
         /***************************************************/
 
-        [Description("The point at which the Wire object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        [Description("The point at which the Camera is installed, known as the eye position.")]
+        public virtual Point EyePosition { get; set; } = new Point();
 
-        [Description("The point at which the Wire object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
+        [Description("The point at which the Camera is looking at, known as the target position.")]
+        public virtual Point TargetPosition { get; set; } = new Point();
+        
+        [Length]
+        [Description("The horizontal field of view of the Camera, known as the real-world width length of what the camera views.")]
+        public virtual double HorizontalFieldOfView { get; set; } = 0;               
 
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
-        public virtual double FlowRate { get; set; } = 0;
+        [Description("The Camera mounting type that describes how it's installed.")]
+        public virtual MountingType Mounting { get; set; } = MountingType.Undefined;
 
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
+        [Description("The Camera type that describes its characteristics.")]
+        public virtual CameraType Type { get; set; } = CameraType.Undefined;        
 
+        [Description("The Camera megapixels that determines its image quality.")]
+        public virtual double Megapixels { get; set; } = 0;
 
         /***************************************************/
     }
