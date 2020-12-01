@@ -51,10 +51,10 @@ namespace BH.oM.Base
         public List<string> PropertiesToConsider { get; set; } = new List<string>(); //e.g. `{ StartNode, EndNode }`
 
         [Description("If any property is nested into the object over that level, it is ignored. Defaults to 100.")]
-        public int MaxNesting = 100;
+        public virtual int MaxNesting { get; set; } = 100;
 
         [Description("Numeric tolerance for property values, applied to all numerical properties. Applies rounding for numbers smaller than this. Defaults to 1E-12.")]
-        public double NumericTolerance = 1E-12;
+        public virtual double NumericTolerance { get; set; } = 1E-12;
 
         [Description("Number of fractional digits retained for individual property. If a property name matches a key in the dictionary, applies a rounding to the corresponding number of digits."
             + "\nSupports * wildcard in the property name matching. E.g. `{ { StartNode.Point.*, 2 } }`.")]
