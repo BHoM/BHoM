@@ -20,34 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
+using BH.oM.Lighting.Results.Mesh;
 
-namespace BH.oM.MEP.System
+using System.ComponentModel;
+
+namespace BH.oM.Lighting.Results.Illuminance
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IFlow
+    [Description("Lux contains results for Lux analysis. Inherits from MeshElementResult which provides properties related to which node this Lux is recorded for")]
+    public class Lux : MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Wire object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
-
-        [Description("The point at which the Wire object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
-
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
-        public virtual double FlowRate { get; set; } = 0;
-
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
-
+        [BH.oM.Quantities.Attributes.Illuminance]
+        [Description("The amount of lux recorded for the given analysis node")]
+        public virtual double LuxLevel { get; } = -1;
 
         /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        protected Lux(IComparable objectId, IComparable nodeId, IComparable resultCase, double timeStep, double luxLevel) : base(objectId, nodeId, resultCase, timeStep)
+        {
+            LuxLevel = luxLevel;
+        }
+
+        /***************************************************/
+
     }
 }

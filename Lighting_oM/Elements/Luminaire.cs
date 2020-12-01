@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,33 +20,35 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BH.oM.Dimensional;
+using BH.oM.Base;
 using BH.oM.Geometry;
+using System.ComponentModel;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.Lighting.Elements
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IFlow
+    public class Luminaire : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Wire object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        [Description("Position of the Luminaire in global Cartesian 3D space.")]
+        public virtual Point Position { get; set; } = null;
 
-        [Description("The point at which the Wire object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
+        [Description("The type of the Luminaire (e.g. recessed cove, task lighting, etc)")]
+        public virtual string Type { get; set; } = "";
 
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
-        public virtual double FlowRate { get; set; } = 0;
+        [Description("The direction that the Luminaire is oriented towards.")]
+        public virtual Vector Direction { get; set; } = new Vector();
 
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
-
+        [Description("The Luminaire Type applied to the Luminaire.")]
+        public virtual LuminaireType LuminaireType { get; set; } = new LuminaireType();
 
         /***************************************************/
     }

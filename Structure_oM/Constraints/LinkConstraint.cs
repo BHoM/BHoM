@@ -25,7 +25,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structure.Constraints
 {
-    [Description("Defines the rigid connectivity between a master and set of slave nodes.")]
+    [Description("Defines the rigid connectivity between a primary and set of secondary nodes.")]
     public class LinkConstraint : BHoMObject, IProperty
     {
         /***************************************************/
@@ -35,13 +35,13 @@ namespace BH.oM.Structure.Constraints
         [Description("A unique Name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
-        [Description("True defines a rigid connectivity between master and slave for translations along the X-axis, i.e. true prohibits relative translation along the X-axis between master and slave.")]
+        [Description("True defines a rigid connectivity between primary and secondary nodes for translations along the X-axis, i.e. true prohibits relative translation along the X-axis between primary and secondary nodes.")]
         public virtual bool XtoX { get; set; } = false;
 
-        [Description("True defines a rigid connectivity between master and slave for translations along the Y-axis, i.e. true prohibits relative translation along the Y-axis between master and slave.")]
+        [Description("True defines a rigid connectivity between primary and secondary nodes for translations along the Y-axis, i.e. true prohibits relative translation along the Y-axis between primary and secondary nodes.")]
         public virtual bool YtoY { get; set; } = false;
 
-        [Description("True defines a rigid connectivity between master and slave for translations along the Z-axis, i.e. true prohibits relative translation along the Z-axis between master and slave.")]
+        [Description("True defines a rigid connectivity between primary and secondary nodes for translations along the Z-axis, i.e. true prohibits relative translation along the Z-axis between primary and secondary nodes.")]
         public virtual bool ZtoZ { get; set; } = false;
 
         [Description("True means that a X-translation imposes a rigid Y-axis rotation.")]
@@ -62,13 +62,13 @@ namespace BH.oM.Structure.Constraints
         [Description("True means that a Z-translation imposes a rigid Y-axis rotation.")]
         public virtual bool ZtoYY { get; set; } = false;
 
-        [Description("True defines a rigid connectivity between master and slave for rotations about the X-axis, i.e. true prohibits relative rotation about the X-axis between master and slave.")]
+        [Description("True defines a rigid connectivity between primary and secondary nodes for rotations about the X-axis, i.e. true prohibits relative rotation about the X-axis between primary and secondary nodes.")]
         public virtual bool XXtoXX { get; set; } = false;
 
-        [Description("True defines a rigid connectivity between master and slave for rotations about the Y-axis, i.e. true prohibits relative rotation about the Y-axis between master and slave.")]
+        [Description("True defines a rigid connectivity between primary and secondary nodes for rotations about the Y-axis, i.e. true prohibits relative rotation about the Y-axis between primary and secondary nodes.")]
         public virtual bool YYtoYY { get; set; } = false;
 
-        [Description("True defines a rigid connectivity between master and slave for rotations about the Z-axis, i.e. true prohibits relative rotation about the Z-axis between master and slave.")]
+        [Description("True defines a rigid connectivity between primary and secondary nodes for rotations about the Z-axis, i.e. true prohibits relative rotation about the Z-axis between primary and secondary nodes.")]
         public virtual bool ZZtoZZ { get; set; } = false;
 
 

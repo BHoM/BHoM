@@ -20,34 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.Physical.Elements
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IFlow
+    public class SolidBulk : BHoMObject, ISolid
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Wire object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
-
-        [Description("The point at which the Wire object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
-
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
-        public virtual double FlowRate { get; set; } = 0;
-
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
-
+        [Description("A list of geometric solids defining the bulk geometry.")]
+        public virtual List<BH.oM.Geometry.ISolid> Geometry { get; set; } = new List<Geometry.ISolid>();
+        public virtual MaterialComposition MaterialComposition { get; set; } = null;
 
         /***************************************************/
     }
 }
+

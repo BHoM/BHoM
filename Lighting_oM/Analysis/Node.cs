@@ -20,34 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.Analytical.Elements;
+using System.ComponentModel;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.Lighting.Analysis
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IFlow
+    [Description("0D finite element for lighting analysis. Node class contains positional information and is used to build AnalysisGrids and provide links between model geometry and analytical results")]
+    public class Node : BHoMObject, IElement0D, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Wire object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        [Description("Position of the node in global Cartesian 3D space.")]
+        public virtual Point Position { get; set; } = null;
 
-        [Description("The point at which the Wire object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
+        [Description("An ID for this node to identify it within result lists and on an analysis grid. ID should be unique and not shared with other nodes in the same grid")]
+        public virtual int ID { get; set; } = -1;
 
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
-        public virtual double FlowRate { get; set; } = 0;
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
 
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
-
+        [Description("Converts a Point to a Node, setting the position to the provided point. All other properties are set to default values.")]
+        public static explicit operator Node(Point point)
+        {
+            return new Node { Position = point };
+        }
 
         /***************************************************/
     }
 }
+
+

@@ -37,6 +37,8 @@ namespace BH.oM.Reflection.Debugging
 
         public virtual DateTime Time { get; set; } = DateTime.Now;
 
+        public virtual DateTime UtcTime { get; set; } = DateTime.UtcNow;
+
         public virtual string StackTrace { get; set; } = "";
 
         public virtual string Message { get; set; } = "";

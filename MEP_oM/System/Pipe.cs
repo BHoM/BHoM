@@ -29,7 +29,7 @@ using BH.oM.Geometry;
 namespace BH.oM.MEP.System
 {
     [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IFlow, IElement0D, IElement1D, IElementM
+    public class Pipe : BHoMObject, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/
