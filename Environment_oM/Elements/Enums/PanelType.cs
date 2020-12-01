@@ -28,6 +28,7 @@ namespace BH.oM.Environment.Elements
     public enum PanelType
     {
         Undefined,
+        Adiabatic,
         Air,
         Ceiling,
         CurtainWall,
