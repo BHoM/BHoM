@@ -67,12 +67,12 @@ namespace BH.oM.Diffing
         [Input("removedObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
         [Input("modifiedObjects", "Objects existing in both sets that have some differences in their properties.")]
         [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
-        public Diff(IEnumerable<object> addedObjects, IEnumerable<object> removedObjects, IEnumerable<object> modifiedObjects, DiffingConfig diffConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, IEnumerable<object> unchangedObjects = null)
+        public Diff(IEnumerable<object> addedObjects, IEnumerable<object> removedObjects, IEnumerable<object> modifiedObjects, DiffingConfig diffingConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, IEnumerable<object> unchangedObjects = null)
         {
             AddedObjects = addedObjects;
             RemovedObjects = removedObjects;
             ModifiedObjects = modifiedObjects;
-            DiffingConfig = diffConfig;
+            DiffingConfig = diffingConfig;
             ModifiedPropsPerObject = modifiedPropsPerObject;
             UnchangedObjects = unchangedObjects;
         }
