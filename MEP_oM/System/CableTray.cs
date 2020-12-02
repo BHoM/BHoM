@@ -31,7 +31,7 @@ using BH.oM.Geometry;
 namespace BH.oM.MEP.System
 {
     [Description("A Cable Tray object is a passageway which conveys material (typically cables)")]
-    public class CableTray : BHoMObject, IElement1D, IElementM
+    public class CableTray : BHoMObject, IElement1D, IElementM, IFlow
     {
         /***************************************************/
         /****                 Properties                ****/

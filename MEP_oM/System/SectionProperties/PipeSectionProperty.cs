@@ -23,16 +23,17 @@
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.MEP.System.MaterialFragments;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.MEP.System.SectionProperties
 {
     public class PipeSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
     {
         [Description("The pipe material is the primary material that the pipe is composed of (copper, black steel, PEX)")]
-        public virtual IMEPMaterial PipeMaterial { get; set; }
+        public virtual Material PipeMaterial { get; set; }
 
         [Description("The insulation is the layer of material outside of the pipe material, meant to insulate the internal conditions of the material being conveyed.")]
-        public virtual IMEPMaterial InsulationMaterial { get; set; }
+        public virtual Material InsulationMaterial { get; set; }
 
         [Description("The section profile of the object that will determine its use within a System.")]
         public virtual SectionProfile SectionProfile { get; }
