@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.ComponentModel;
+using BH.oM.MEP.Equipment.Parts;
+using BH.oM.MEP.Enums;
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.Physical.Constructions;
-using BH.oM.Dimensional;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.MEP.Equipment
 {
-    public class Window : BHoMObject, IOpening, IElementM
+    public class MechanicalEquipment : BHoMObject, IEquipment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("A type which describes the mechanical equipment more specifically whether it's an air handling unit, fan coil unit, boiler or chiller.")]
+        public virtual MechanicalEquipmentType MechanicalEquipmentType { get; set; } = MechanicalEquipmentType.Undefined;
 
-        public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
+        [Description("A collection of the parts (Air Handling Unit, Fans, Coils, Energy Wheel, Filters, Electrical Connectors) that make up the Air Handling Unit")]
+        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
-        public virtual IConstruction Construction { get; set; } = null;
-
-        /***************************************************/
+        [Description("The point in space for the location of the mechanical equipment.")]
+        public virtual Point Position { get; set; } = new Point();
     }
 }
-

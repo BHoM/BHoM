@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,36 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Constructions;
-using BH.oM.Dimensional;
-
-namespace BH.oM.Physical.Elements
+namespace BH.oM.MEP.Enums
 {
-    public class Window : BHoMObject, IOpening, IElementM
+    /***************************************************/
+
+    [Description("A type of mechanical equipment (air handling unit, boiler, chiller, fan coil unit.)")]
+    public enum MechanicalEquipmentType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
-
-        public virtual IConstruction Construction { get; set; } = null;
-
-        /***************************************************/
+        Undefined,
+        AirHandlingUnit,
+        AirSeparator,
+        AirSourceHeatPump,
+        Boiler,
+        CabinetUnitHeater,
+        Chiller,
+        CoolingTower,
+        ExpansionTankVessel,
+        Fan,
+        FanCoilUnit,
+        HeatExchanger,
+        HeatingAndVentilationUnit,
+        Pump,
+        UnitHeater,
+        VariableAirVolumeBox,
+        VariableRefrigerantFlowCondenserIndoor,
+        VariableRefrigerantFlowEvaporatorOutdoor,
+        WaterSourceHeatPump,
+        WaterStorageTank,
     }
-}
 
+    /***************************************************/
+}
