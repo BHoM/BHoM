@@ -24,6 +24,7 @@ using System.ComponentModel;
 
 using BH.oM.Base;
 using BH.oM.MEP.System.MaterialFragments;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.MEP.System.SectionProperties
 {
@@ -34,7 +35,7 @@ namespace BH.oM.MEP.System.SectionProperties
         /***************************************************/
 
         [Description("The cable tray material is the primary material that the it is composed of.")]
-        public virtual IMEPMaterial Material { get; set; }     
+        public virtual Material Material { get; set; }     
 
         [Description("The section profile of the object that will determine its use within a System.")]
         public virtual SectionProfile SectionProfile { get; }
@@ -49,7 +50,7 @@ namespace BH.oM.MEP.System.SectionProperties
         /****                 Constructor               ****/
         /***************************************************/
         
-        public CableTraySectionProperty(IMEPMaterial material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
+        public CableTraySectionProperty(Material material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
         {
             Material = material;
             SectionProfile = sectionProfile;
