@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\DamperType.cs" />
+    <Compile Include="Enums\ValveType.cs" />
+    <Compile Include="Enums\FireAlarmDeviceType.cs" />
+    <Compile Include="Enums\ElectricalFixtureType.cs" />
+    <Compile Include="Enums\ElectricalEquipmentType.cs" />
+    <Compile Include="Enums\PlumbingFixtureType.cs" />
     <Compile Include="Enums\MechanicalEquipmentType.cs" />
+    <Compile Include="Equipment\ElectricalEquipment.cs" />
     <Compile Include="Equipment\MechanicalEquipment.cs" />
+    <Compile Include="Fixtures\FireAlarmDevice.cs" />
+    <Compile Include="Fixtures\ElectricalFixture.cs" />
+    <Compile Include="Fixtures\PlumbingFixture.cs" />
     <Compile Include="System\ConnectionProperties\CableTrayConnectionProperty.cs" />
     <Compile Include="System\ConnectionProperties\IConnectionProperty.cs" />
     <Compile Include="System\CableTray.cs" />
@@ -52,6 +62,7 @@
     <Compile Include="Fixtures\CommercialFixtureUsage.cs" />
     <Compile Include="Fixtures\IFixtureUsage.cs" />
     <Compile Include="Fixtures\LightFixture.cs" />
+    <Compile Include="System\Dampers\Damper.cs" />
     <Compile Include="System\Dampers\VolumeDamper.cs" />
     <Compile Include="System\Duct.cs" />
     <Compile Include="System\IFlow.cs" />
@@ -59,6 +70,7 @@
     <Compile Include="System\Pipe.cs" />
     <Compile Include="System\FlowSystem.cs" />
     <Compile Include="System\ISystemType.cs" />
+    <Compile Include="System\Valves\Valve.cs" />
     <Compile Include="System\WireSegment.cs" />
     <Compile Include="System\Wire.cs" />
     <Compile Include="Enums\FluidType.cs" />
@@ -94,7 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="System\Fittings\" />
-    <Folder Include="System\Valves\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
