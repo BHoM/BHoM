@@ -32,6 +32,7 @@ namespace BH.oM.MEP.Enums
         Undefined,
         AutomaticTransferSwitch,
         DisconnectSwitch,
+        Generator,
         Panelboard,
         Substation,
         Switchboard,
