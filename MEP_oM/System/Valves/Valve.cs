@@ -31,7 +31,7 @@ using BH.oM.Geometry;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a piping system (ball valve, check valve, etc.)")]
-    public class Valve : BHoMObject, IElement0D, IElementM
+    public class Valve : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/

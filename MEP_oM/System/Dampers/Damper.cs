@@ -31,7 +31,7 @@ using BH.oM.Geometry;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a duct system (fire smoke damper, volume damper, etc.)")]
-    public class Damper : BHoMObject, IElement0D, IElementM
+    public class Damper : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
