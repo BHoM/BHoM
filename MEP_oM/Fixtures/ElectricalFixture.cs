@@ -33,7 +33,7 @@ using BH.oM.MEP.Enums;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to convey electricity e.g. duplex sockets/receptacles, disconnect/isolator switches (for electrified mechanical equipment), floors boxes.")]
-    public class ElectricalFixture : BHoMObject, IElementM, INode
+    public class ElectricalFixture : BHoMObject, INode
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -45,9 +45,9 @@ namespace BH.oM.MEP.Fixtures
         public virtual Point Position { get; set; } = new Point();
 
         [Description("Ground Fault Circuit Interrupter (GFCI) is a boolean value (true/false) that denotes whether a device is a fast acting circuit breaker designed to shut off power in the event of a ground fault.")]
-        public virtual bool GFCI { get; set; } = false;
+        public virtual bool GroundFaultCircuitInterrupter { get; set; } = false;
 
-        [Description("Weather Proof is a boolean value (true/false) that denotes whether a device has water tight casting.")]
+        [Description("Weather Proof is a boolean value (true/false) that denotes whether a device has water/weather tight casting.")]
         public virtual bool WeatherProof { get; set; } = false;
         /***************************************************/
     }

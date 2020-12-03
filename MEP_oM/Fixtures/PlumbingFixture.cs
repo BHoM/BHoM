@@ -29,11 +29,10 @@ using BH.oM.Quantities.Attributes;
 using BH.oM.Analytical.Elements;
 using BH.oM.MEP.Enums;
 
-
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to convey public health (plumbing) fluids (water, waste.)")]
-    public class PlumbingFixture : BHoMObject, IElementM, INode
+    public class PlumbingFixture : BHoMObject, INode
     {
         /***************************************************/
         /**** Properties                                ****/
