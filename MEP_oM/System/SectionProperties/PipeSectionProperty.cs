@@ -56,9 +56,9 @@ namespace BH.oM.MEP.System.SectionProperties
         [Description("The interior area within the Insulation. This should correspond to the element's height and width properties.")]
         public virtual double InsulationVoidArea { get; }
 
-        public PipeSectionProperty(SectionProfile pipeProfile, double elementSolidArea, double liningSolidArea, double insulationSolidArea, double elementVoidArea, double liningVoidArea, double insulationVoidArea)
+        public PipeSectionProperty(SectionProfile sectionProfile, double elementSolidArea, double liningSolidArea, double insulationSolidArea, double elementVoidArea, double liningVoidArea, double insulationVoidArea)
         {
-            SectionProfile = pipeProfile;
+            SectionProfile = sectionProfile;
             ElementSolidArea = elementSolidArea;
             ElementVoidArea = elementVoidArea;
             LiningSolidArea = liningSolidArea;
