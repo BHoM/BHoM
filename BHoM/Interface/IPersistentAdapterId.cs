@@ -29,7 +29,7 @@ namespace BH.oM.Base
     public interface IPersistentAdapterId : IFragment
     {
         [Description("Globally unique and generated upon object creation in the external software; it never changes throughout the life of the object.")]
-        object PersistentId { get; set; }
+        object PersistentId { get; }
     }
 }
 
