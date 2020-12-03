@@ -29,7 +29,7 @@ namespace BH.oM.Base
     public interface IAdapterId : IFragment
     {
         [Description("Identifier of the object in the external software.")]
-        object Id { get; set; }
+        object Id { get; }
     }
 }
 
