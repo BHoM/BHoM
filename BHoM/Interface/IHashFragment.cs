@@ -20,30 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Constructions;
-using BH.oM.Dimensional;
-
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Base
 {
-    public class Window : BHoMObject, IOpening, IElementM
+    [Description("Stores the hash of the parent BHoMObject.")]
+    public interface IHashFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
-
-        public virtual IConstruction Construction { get; set; } = null;
-
-        /***************************************************/
+        [Description("Hash of the parent BHoMObject.")]
+        string Hash { get; }
     }
 }
 

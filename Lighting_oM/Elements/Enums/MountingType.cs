@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,40 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Diffing
+namespace BH.oM.Lighting.Enums
 {
-    [Description("Stores the current object Hash and its previous Hash.")]
-    public class HashFragment : IFragment, IImmutable
+    /***************************************************/
+
+    [Description("The mounting method used for a specific luminaire type (eg CeilingMounted, Recessed, Pendant, etc) ")]
+    public enum MountingType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Current object Hash.")]
-        public string CurrentHash { get; }
-
-        [Description("Previous object Hash, typically the one it had in its previous Revision.")]
-        public string PreviousHash { get; } = null;
-
-        /***************************************************/
-        /**** Constructor                               ****/
-        /***************************************************/
-
-        public HashFragment(string currentHash, string previousHash = null)
-        {
-            CurrentHash = currentHash;
-            PreviousHash = previousHash;
-        }
-
-        /***************************************************/
+        Undefined,
+        CeilingMounted,
+        Cove,
+        FloorMounted,
+        Pendant,
+        Recessed,
+        WallMounted
     }
-}
 
+    /***************************************************/
+}

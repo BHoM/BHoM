@@ -25,25 +25,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BH.oM.Dimensional;
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.Physical.Constructions;
-using BH.oM.Dimensional;
+using System.ComponentModel;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Lighting.Elements
 {
-    public class Window : BHoMObject, IOpening, IElementM
+    public class Luminaire : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
+        [Description("Position of the Luminaire in global Cartesian 3D space.")]
+        public virtual Point Position { get; set; } = null;
 
-        public virtual IConstruction Construction { get; set; } = null;
+        [Description("The type of the Luminaire (e.g. recessed cove, task lighting, etc)")]
+        public virtual string Type { get; set; } = "";
+
+        [Description("The direction that the Luminaire is oriented towards.")]
+        public virtual Vector Direction { get; set; } = new Vector();
+
+        [Description("The Luminaire Type applied to the Luminaire.")]
+        public virtual LuminaireType LuminaireType { get; set; } = new LuminaireType();
 
         /***************************************************/
     }
 }
-

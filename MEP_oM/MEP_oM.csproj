@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\MechanicalEquipmentType.cs" />
+    <Compile Include="Equipment\MechanicalEquipment.cs" />
     <Compile Include="System\ConnectionProperties\CableTrayConnectionProperty.cs" />
     <Compile Include="System\ConnectionProperties\IConnectionProperty.cs" />
     <Compile Include="System\CableTray.cs" />

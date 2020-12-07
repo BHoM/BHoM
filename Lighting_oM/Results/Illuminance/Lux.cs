@@ -20,24 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
+using BH.oM.Lighting.Results.Mesh;
 
-namespace BH.oM.Physical.Elements
+using System.ComponentModel;
+
+namespace BH.oM.Lighting.Results.Illuminance
 {
-    public class BulkSolids : BHoMObject, ISolid
+    [Description("Lux contains results for Lux analysis. Inherits from MeshElementResult which provides properties related to which node this Lux is recorded for")]
+    public class Lux : MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A list of geometric solids defining the bulk geometry.")]
-        public virtual List<BH.oM.Geometry.ISolid> Geometry { get; set; }
-        public virtual MaterialComposition MaterialComposition { get; set; }
+        [BH.oM.Quantities.Attributes.Illuminance]
+        [Description("The amount of lux recorded for the given analysis node")]
+        public virtual double LuxLevel { get; } = -1;
 
         /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        protected Lux(IComparable objectId, IComparable nodeId, IComparable resultCase, double timeStep, double luxLevel) : base(objectId, nodeId, resultCase, timeStep)
+        {
+            LuxLevel = luxLevel;
+        }
+
+        /***************************************************/
+
     }
 }
-

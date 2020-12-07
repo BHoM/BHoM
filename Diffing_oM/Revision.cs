@@ -38,35 +38,35 @@ namespace BH.oM.Diffing
         /***************************************************/
 
         [Description("Id of the Stream that owns this Revision.")]
-        public Guid StreamId { get; }
+        public virtual Guid StreamId { get; }
 
         [Description("Unique GUID of this Revision.")]
-        public Guid RevisionId { get; } = Guid.NewGuid();
+        public virtual Guid RevisionId { get; } = Guid.NewGuid();
 
         [Description("Name assigned to this Revision. It may be descriptive of the changes included in this Revision, e.g. AddedBasementColumns.")]
-        public string RevisionName { get; }
+        public virtual string RevisionName { get; }
 
         [Description("In UTC.Now ticks. Automatically defined when creating a new Revision.")]
-        public long Timestamp { get; } 
+        public virtual long Timestamp { get; } 
 
         [Description("Author of the Stream Revision. Automatically calculated as it should be univocally defined.")]
-        public string Author { get; }
+        public virtual string Author { get; }
 
         [Description("Any comment to be added on this this Revision.")]
-        public string Comment { get; }
+        public virtual string Comment { get; }
 
         [Description("Objects to be included in this Revision.")]
-        public IEnumerable<object> Objects { get; }
+        public virtual IEnumerable<object> Objects { get; }
 
         [Description("Diffing settings for this Revision. Hashes of objects contained in this stream will be computed based on these configs.")]
-        public DiffConfig RevisionDiffConfing { get; }
+        public virtual DiffingConfig RevisionDiffConfing { get; }
 
         /***************************************************/
         /**** Constructor                               ****/
         /***************************************************/
 
 
-        public Revision(IEnumerable<object> objects, Guid streamId, DiffConfig revisionDiffConfing = null, string revisionName = null, string comment = null, Guid revisionId = default(Guid),  long timestamp = default(long), string author = null)
+        public Revision(IEnumerable<object> objects, Guid streamId, DiffingConfig revisionDiffConfing = null, string revisionName = null, string comment = null, Guid revisionId = default(Guid),  long timestamp = default(long), string author = null)
         {
             StreamId = streamId;
             RevisionId = (revisionId == default(Guid)) ? Guid.NewGuid() : revisionId;
@@ -75,7 +75,7 @@ namespace BH.oM.Diffing
             Author = String.IsNullOrWhiteSpace(author) ? Environment.UserDomainName + "/" + Environment.UserName : author;
             Comment = comment;
             Objects = objects;
-            RevisionDiffConfing = revisionDiffConfing == null ? new DiffConfig() : revisionDiffConfing;
+            RevisionDiffConfing = revisionDiffConfing == null ? new DiffingConfig() : revisionDiffConfing;
         }
 
         /***************************************************/

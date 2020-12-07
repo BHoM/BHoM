@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
  *
@@ -20,28 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Constructions;
+using BH.oM.Physical.Materials;
 using BH.oM.Dimensional;
 
 namespace BH.oM.Physical.Elements
 {
-    public class Window : BHoMObject, IOpening, IElementM
+    public class ExplicitBulk : BHoMObject, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
-
-        public virtual IConstruction Construction { get; set; } = null;
+        public virtual double Volume { get; set; } = 0;
+        public virtual MaterialComposition MaterialComposition { get; set; } = null;
 
         /***************************************************/
     }

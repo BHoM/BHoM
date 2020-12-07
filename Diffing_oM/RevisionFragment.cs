@@ -20,28 +20,38 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Constructions;
-using BH.oM.Dimensional;
-
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Diffing
 {
-    public class Window : BHoMObject, IOpening, IElementM
+    [Description("Stores the current and previous Hash of the parent BHoMObject, as assigned after the inclusion in a Revision.")]
+    public class RevisionFragment : IHashFragment, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
+        [Description("Current object Hash.")]
+        public virtual string Hash { get; }
 
-        public virtual IConstruction Construction { get; set; } = null;
+        [Description("Previous object Hash, typically the one it had in its previous Revision.")]
+        public virtual string PreviousHash { get; } = null;
+
+        /***************************************************/
+        /**** Constructor                               ****/
+        /***************************************************/
+
+        public RevisionFragment(string hash, string previousHash = null)
+        {
+            Hash = hash;
+            PreviousHash = previousHash;
+        }
 
         /***************************************************/
     }
