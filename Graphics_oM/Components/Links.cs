@@ -46,5 +46,8 @@ namespace BH.oM.Graphics.Components
         public virtual string Colour { get; set; } = "";
 
         public virtual IMarker Marker { get; set; } = null;
+
+        public virtual FontConfig FontConfig { get; set; } = new FontConfig();
+
     }
 }

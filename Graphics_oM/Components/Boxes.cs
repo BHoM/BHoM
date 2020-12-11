@@ -50,5 +50,7 @@ namespace BH.oM.Graphics.Components
         public virtual bool IsHorizontal { get; set; } = false;
 
         public virtual List<string> GroupsToIgnore { get; set; } = new List<string>();
+
+        public virtual FontConfig FontConfig { get; set; } = new FontConfig();
     }
 }
