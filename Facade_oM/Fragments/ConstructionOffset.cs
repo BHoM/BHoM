@@ -32,9 +32,16 @@ using System.ComponentModel;
 
 namespace BH.oM.Facade.Fragments
 {
-    [Description("Fragment containing the offset distance of a construction type from the center line")]
-    public class ConstructionOffsetFragment : IFragment
+    [Description("Fragment containing the offset distance of a construction type from the facade center line")]
+    public class ConstructionOffset : IFragment
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("Offset distance from centerline of wall type or glazing section from centerline of facade section")]
         public virtual double OffsetDistance { get; set; } = 0;
+
+        /***************************************************/
     }
 }
