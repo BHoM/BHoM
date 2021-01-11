@@ -83,7 +83,7 @@
     <Compile Include="Elements\CurtainWall.cs" />
     <Compile Include="Elements\Opening.cs" />
     <Compile Include="Elements\Panel.cs" />
-    <Compile Include="Fragments\ConstructionOffsetFragment.cs" />
+    <Compile Include="Fragments\ConstructionOffset.cs" />
     <Compile Include="IFacadeObject.cs" />
     <Compile Include="IProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
