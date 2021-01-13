@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,19 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.MEP.Enums
 {
-    [Description("Spatial View for Graphs.")]
-    public class SpatialView : BHoMObject, IView
-    {
+    /***************************************************/
 
+    [Description("A type of mechanical equipment (air handling unit, boiler, chiller, fan coil unit.)")]
+    public enum MechanicalEquipmentType
+    {
+        Undefined,
+        AirHandlingUnit,
+        AirSeparator,
+        AirSourceHeatPump,
+        Boiler,
+        CabinetUnitHeater,
+        Chiller,
+        CoolingTower,
+        ExpansionTankVessel,
+        Fan,
+        FanCoilUnit,
+        HeatExchanger,
+        HeatingAndVentilationUnit,
+        Pump,
+        UnitHeater,
+        VariableAirVolumeBox,
+        VariableRefrigerantFlowCondenserIndoor,
+        VariableRefrigerantFlowEvaporatorOutdoor,
+        WaterSourceHeatPump,
+        WaterStorageTank,
     }
+
+    /***************************************************/
 }
+

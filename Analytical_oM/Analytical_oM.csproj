@@ -42,14 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elements\Graph\Graph.cs" />
-    <Compile Include="Elements\Graph\Layout\ILayout.cs" />
     <Compile Include="Elements\Graph\IRelation.cs" />
+    <Compile Include="Elements\Graph\Projection\GeometricProjection.cs" />
     <Compile Include="Elements\Graph\Relation.cs" />
     <Compile Include="Elements\Graph\RelationDirection.cs" />
-    <Compile Include="Elements\Graph\View\EntityGroup.cs" />
-    <Compile Include="Elements\Graph\View\IView.cs" />
-    <Compile Include="Elements\Graph\View\ProcessView.cs" />
-    <Compile Include="Elements\Graph\View\SpatialView.cs" />
+    <Compile Include="Elements\Graph\Projection\IProjection.cs" />
+    <Compile Include="Elements\Graph\Projection\GraphicalProjection.cs" />
+    <Compile Include="Elements\Graph\Projection\SpatialProjection.cs" />
     <Compile Include="Elements\IEdge.cs" />
     <Compile Include="Elements\IFace.cs" />
     <Compile Include="Elements\ILink.cs" />
@@ -60,8 +59,8 @@
     <Compile Include="Elements\IRegion.cs" />
     <Compile Include="Elements\ISurface.cs" />
     <Compile Include="Fragments\IDependencyFragment.cs" />
-    <Compile Include="Fragments\IViewFragment.cs" />
-    <Compile Include="Fragments\ProcessViewFragment.cs" />
+    <Compile Include="Fragments\IProjectionFragment.cs" />
+    <Compile Include="Fragments\ProjectionFragment.cs" />
     <Compile Include="Fragments\RoutingFragment.cs" />
     <Compile Include="Fragments\SourcesDependencyFragment.cs" />
     <Compile Include="Fragments\TargetsDependencyFragment.cs" />
@@ -90,6 +89,10 @@
       <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
       <Name>Geometry_oM</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Graphics_oM\Graphics_oM.csproj">
+      <Project>{466884F8-6BC5-4977-9F7F-D5233C4B66FF}</Project>
+      <Name>Graphics_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

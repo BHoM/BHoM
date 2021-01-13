@@ -44,8 +44,9 @@
     <Compile Include="AECDeltas\DeltaPayload.cs" />
     <Compile Include="Delta.cs" />
     <Compile Include="Diff.cs" />
-    <Compile Include="HashFragment.cs" />
-    <Compile Include="DiffConfig.cs" />
+    <Compile Include="DiffingType.cs" />
+    <Compile Include="RevisionFragment.cs" />
+    <Compile Include="DiffingConfig.cs" />
     <Compile Include="StreamPointer.cs" />
     <Compile Include="Revision.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

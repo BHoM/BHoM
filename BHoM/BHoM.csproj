@@ -57,6 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComparisonConfig.cs" />
+    <Compile Include="HashFragment.cs" />
+    <Compile Include="Interface\IHashFragment.cs" />
     <Compile Include="Interface\IPersistentAdapterId.cs" />
     <Compile Include="Interface\IAdapterId.cs" />
     <Compile Include="CustomObject.cs" />

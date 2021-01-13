@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -40,10 +40,11 @@ namespace BH.oM.Structure.Elements
         [Description("List of nodes which are constrained to the PrimaryNode.")]
         public virtual List<Node> SecondaryNodes { get; set; } = new List<Node>();
 
-        [Description("Defines how SecondaryNodes are constrained to the PrimaryNode. The LinkConstraint describes translation and rotation of SecondaryNodes with respect to the MasterNode's coordinate system.")]
+        [Description("Defines how SecondaryNodes are constrained to the PrimaryNode. The LinkConstraint describes translation and rotation of SecondaryNodes with respect to the PrimaryNode's coordinate system.")]
         public virtual LinkConstraint Constraint { get; set; } = null;
 
         /***************************************************/
     }
 }
+
 

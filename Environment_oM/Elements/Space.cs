@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -47,22 +47,22 @@ namespace BH.oM.Environment.Elements
         public virtual List<string> Zones { get; set; } = new List<string>();
 
         [Description("Lighting gains are objects that are defined as the amount of heat contributed by light fixtures within the space")]
-        public virtual SpaceCriteria.Lighting LightingGain { get; set; } = new SpaceCriteria.Lighting();
+        public virtual List<SpaceCriteria.Lighting> LightingGain { get; set; } = new List<SpaceCriteria.Lighting>();
 
         [Description("Equipment gains are objects that are defined as the amount of heat contributed by equipment within the space")]
-        public virtual SpaceCriteria.Equipment EquipmentGain { get; set; } = new SpaceCriteria.Equipment();
+        public virtual List<SpaceCriteria.Equipment> EquipmentGain { get; set; } = new List<SpaceCriteria.Equipment>();
 
         [Description("People gains are objects that are defined as the amount of heat contributed by people based on their assumed activity level within the space (dancing, sitting, etc)")]
-        public virtual SpaceCriteria.People PeopleGain { get; set; } = new SpaceCriteria.People();
+        public virtual List<SpaceCriteria.People> PeopleGain { get; set; } = new List<SpaceCriteria.People>();
 
         [Description("Infiltration gains are objects that are defined as the amount of heat or heat loss contributed by cracks in the exterior envelope of the building which allow unconditioned outside air to be introduced to the space")]
-        public virtual SpaceCriteria.Infiltration Infiltration { get; set; } = new SpaceCriteria.Infiltration();
+        public virtual List<SpaceCriteria.Infiltration> Infiltration { get; set; } = new List<SpaceCriteria.Infiltration>();
 
-        [Description("Ventilation is an object that defines the amount of outside air that should be introduced to a space, which is typically based on the number of occupants breathing the air and the area of the space.")]
-        public virtual SpaceCriteria.Ventilation Ventilation { get; set; } = new SpaceCriteria.Ventilation();
+        [Description("Ventilation are objects that define the amount of outside air that should be introduced to a space, which is typically based on the number of occupants breathing the air and the area of the space.")]
+        public virtual List<SpaceCriteria.Ventilation> Ventilation { get; set; } = new List<SpaceCriteria.Ventilation>();
 
-        [Description("Exhaust is an object that defines the amount of air that should be extracted from a space, which is either based on the objects within the space (toilets, showers) or the space type (kitchen, bathroom).")]
-        public virtual SpaceCriteria.Exhaust Exhaust { get; set; } = new SpaceCriteria.Exhaust();
+        [Description("Exhaust are objects that define the amount of air that should be extracted from a space, which is either based on the objects within the space (toilets, showers) or the space type (kitchen, bathroom).")]
+        public virtual List<SpaceCriteria.Exhaust> Exhaust { get; set; } = new List<SpaceCriteria.Exhaust>();
 
         [Description("Occupant Density is an object that defines the area occupied by each individual in a space (2 m2 per person).")]
         public virtual Occupancy OccupantDensity { get; set; } = new Occupancy();
@@ -76,7 +76,7 @@ namespace BH.oM.Environment.Elements
         [Description("The fire protection attributes of a space are indicative of the hazard level of the space (which influences the sprinkler count), the sprinkler system type required, and the presence of combustible materials or sloped ceilings.")]
         public virtual SpaceCriteria.FireProtection FireProtection { get; set; } = new SpaceCriteria.FireProtection();
 
-        [Description("Project Space Type is a string that defines how the space is used on a given project(Museum, Corridor, etc)")]
+        [Description("Project Space Type is a string that defines how the space is used on a given project (Museum, Corridor, etc)")]
         public virtual string ProjectSpaceType { get; set; } = "";
 
         [Description("Space Type is an enum that defines how the space is used (Museum, Corridor, etc)")]
@@ -89,4 +89,5 @@ namespace BH.oM.Environment.Elements
         public virtual ICurve Perimeter { get; set; } = new Polyline();
     }
 }
+
 

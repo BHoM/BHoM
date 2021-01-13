@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,24 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.Physical.Materials;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Analytical.Elements
 {
-    public class BulkSolids : BHoMObject, ISolid
+    [Description("Geometry projection for Graphs.")]
+    public class GeometricProjection : BHoMObject, IProjection
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        [Description("A list of geometric solids defining the bulk geometry.")]
-        public virtual List<BH.oM.Geometry.ISolid> Geometry { get; set; }
-        public virtual MaterialComposition MaterialComposition { get; set; }
-
-        /***************************************************/
     }
 }
 

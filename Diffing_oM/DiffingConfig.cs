@@ -1,6 +1,6 @@
-/*	
- * This file is part of the Buildings and Habitats object Model (BHoM)	
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.	
+/*
+ * This file is part of the Buildings and Habitats object Model (BHoM)
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *	
  * Each contributor holds copyright over their respective contributions.	
  * The project versioning (Git) records all such contribution source information.	
@@ -31,45 +31,31 @@ using System.ComponentModel;
 namespace BH.oM.Diffing
 {
     [Description("General configurations for the Diffing process, including settings for the Hash computation.")]
-    public class DiffConfig : BHoMObject
+    public class DiffingConfig : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Tolerance used to determine numerical differences." +
-            "\nDefaults to 1e-6.")]
-        public virtual double NumericTolerance { get; set; } = 1e-6;
-
-        [Description("By default, diffing considers all the properties of the objects." +
-            "\nHere you can specify a list of property names. Only the properties with a name matching any of this list will be considered for diffing." +
-            "\nE.g., if you input 'Name' only the differences in terms of name will be returned." +
-            "\nNOTE: these can be only top-level properties of the object (not the sub-properties).")]
-        public virtual List<string> PropertiesToConsider { get; set; } = new List<string>();
-
-        [Description("List of strings specifying the names of the properties that should be ignored in the diffing." +
-            "\nNOTE: This considers ALL properties AND sub-properties. Any property with a name matching any of this list will be ignored." +
-            "\nBy default it includes `BHoM_Guid`.")]
-        public virtual List<string> PropertiesToIgnore { get; set; } = new List<string>() { "BHoM_Guid" };
-
-        [Description("List of names of the keys of the BHoMObjects' CustomData dictionary that should be ignored by the diffing." +
-            "\nBy default it includes `RenderMesh`.")]
-        public virtual List<string> CustomDataToIgnore { get; set; } = new List<string>() { "RenderMesh" };
+        [Description("Settings to determine the uniqueness of an Object.")]
+        public virtual ComparisonConfig ComparisonConfig { get; set; } = new ComparisonConfig();
 
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
         public virtual bool EnablePropertyDiffing { get; set; } = false;
-
-        [Description("If no Id or HashFragment is found on the objects, but the input lists have same length and the objects are in the same order," +
-            "\ndiffing is attempted by taking each object one by one. It will be able to tell only if the objects have been modified or not (no new or old).")]
-        public virtual bool AllowOneByOneDiffing { get; set; } = true;
 
         [Description("If EnablePropertyDiffing is true, this sets the maximum number of differences to be determine before stopping." +
             "\nUseful to limit the run time." +
             "\nDefaults to 1000.")]
         public virtual int MaxPropertyDifferences { get; set; } = 1000;
 
-        [Description("If enabled, the Diff stores also the objects that did not change (`Unchanged` property).")]
-        public virtual bool StoreUnchangedObjects { get; set; } = true;
+        [Description("If enabled, the Diff includes also the objects that did not change (`Unchanged`).")]
+        public virtual bool IncludeUnchangedObjects { get; set; } = true;
+
+        [Description("Type of PersistentId that should be used to perform the Diffing.")]
+        public virtual Type PersistentIdType { get; set; }
+
+        [Description("Key of the CustomData dictionary where to look for an Id to use for the Diffing.")]
+        public virtual string CustomDataKey { get; set; }
 
         /***************************************************/
     }

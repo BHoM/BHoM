@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -23,16 +23,17 @@
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.MEP.System.MaterialFragments;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.MEP.System.SectionProperties
 {
     public class PipeSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
     {
         [Description("The pipe material is the primary material that the pipe is composed of (copper, black steel, PEX)")]
-        public virtual IMEPMaterial PipeMaterial { get; set; }
+        public virtual Material PipeMaterial { get; set; }
 
         [Description("The insulation is the layer of material outside of the pipe material, meant to insulate the internal conditions of the material being conveyed.")]
-        public virtual IMEPMaterial InsulationMaterial { get; set; }
+        public virtual Material InsulationMaterial { get; set; }
 
         [Description("The section profile of the object that will determine its use within a System.")]
         public virtual SectionProfile SectionProfile { get; }
@@ -55,9 +56,9 @@ namespace BH.oM.MEP.System.SectionProperties
         [Description("The interior area within the Insulation. This should correspond to the element's height and width properties.")]
         public virtual double InsulationVoidArea { get; }
 
-        public PipeSectionProperty(SectionProfile pipeProfile, double elementSolidArea, double liningSolidArea, double insulationSolidArea, double elementVoidArea, double liningVoidArea, double insulationVoidArea)
+        public PipeSectionProperty(SectionProfile sectionProfile, double elementSolidArea, double liningSolidArea, double insulationSolidArea, double elementVoidArea, double liningVoidArea, double insulationVoidArea)
         {
-            SectionProfile = pipeProfile;
+            SectionProfile = sectionProfile;
             ElementSolidArea = elementSolidArea;
             ElementVoidArea = elementVoidArea;
             LiningSolidArea = liningSolidArea;

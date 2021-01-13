@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -28,10 +28,12 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Physical.Constructions;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Physical.Elements
 {
-    public class Window : BHoMObject, IOpening
+    public class Window : BHoMObject, IOpening, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -39,7 +41,10 @@ namespace BH.oM.Physical.Elements
 
         public virtual BH.oM.Geometry.ISurface Location { get; set; } = null;
 
+        public virtual IConstruction Construction { get; set; } = null;
+
         /***************************************************/
     }
 }
+
 

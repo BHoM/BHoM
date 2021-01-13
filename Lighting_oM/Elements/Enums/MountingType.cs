@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,28 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Elements;
-using BH.oM.Base;
-using BH.oM.Geometry;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Fragments
+namespace BH.oM.Lighting.Enums
 {
-    [Description("Fragment used to store EntityGroups on a Graph with ProcessViews.")]
-    public class ProcessViewFragment : IViewFragment
+    /***************************************************/
+
+    [Description("The mounting method used for a specific luminaire type (eg CeilingMounted, Recessed, Pendant, etc) ")]
+    public enum MountingType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        public virtual List<string> GroupNames { get; set; } = new List<string>();
-
-        public virtual Point Position { get; set; } = new Point();
-
-        /***************************************************/
+        Undefined,
+        CeilingMounted,
+        Cove,
+        FloorMounted,
+        Pendant,
+        Recessed,
+        WallMounted
     }
+
+    /***************************************************/
 }

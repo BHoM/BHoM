@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,7 +20,8 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using BH.oM.Geometry;
+using BH.oM.Graphics.Fragments;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,32 +29,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Diffing
+namespace BH.oM.Graphics.Fragments
 {
-    [Description("Stores the current object Hash and its previous Hash.")]
-    public class HashFragment : IFragment, IImmutable
+    [Description("Fragment for graph representation.")]
+    public class GraphRepresentation : IRepresentationFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        public virtual List<GroupRepresentation> Groups { get; set; } = new List<GroupRepresentation>();
 
-        [Description("Current object Hash.")]
-        public string CurrentHash { get; }
+        public virtual string Text { get; set; } = "";
 
-        [Description("Previous object Hash, typically the one it had in its previous Revision.")]
-        public string PreviousHash { get; } = null;
+        public virtual Point TextPosition { get; set; } = new Point();
 
-        /***************************************************/
-        /**** Constructor                               ****/
-        /***************************************************/
+        public virtual Vector TextDirection { get; set; } = new Vector();
 
-        public HashFragment(string currentHash, string previousHash = null)
-        {
-            CurrentHash = currentHash;
-            PreviousHash = previousHash;
-        }
-
-        /***************************************************/
+        public virtual System.Drawing.Color Colour { get; set; } = new System.Drawing.Color();
     }
 }
-

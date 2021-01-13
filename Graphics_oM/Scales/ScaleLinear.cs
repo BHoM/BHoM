@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,7 +21,7 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
+using BH.oM.Data.Collections;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,11 +29,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Fragments
+namespace BH.oM.Graphics.Scales
 {
-    [Description("Interface common to all ViewFragments.")]
-    public interface IViewFragment : IFragment
+    [Description("Scale for mapping a continuous, quantitative input domain to a continuous output range.")]
+    public class ScaleLinear:  IScale
     {
-        Point Position { get; set; }
+        public virtual Domain Domain { get; set; } = new Domain(0, 1);
+
+        public virtual Domain Range { get; set; } = new Domain(0, 1);
+
+        public virtual bool Clamp { get; set; } = false;
+
+        public virtual bool Nice { get; set; } = false;
+
+        public virtual string Name { get; set; } = "";
     }
+    
 }

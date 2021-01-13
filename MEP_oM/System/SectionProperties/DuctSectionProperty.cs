@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -23,19 +23,20 @@
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.MEP.System.MaterialFragments;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.MEP.System.SectionProperties
 {
     public class DuctSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
     {
         [Description("The duct material is the primary material that the duct is composed of (galvanized sheet metal, aluminium)")]
-        public virtual IMEPMaterial DuctMaterial { get; set; }
+        public virtual Material DuctMaterial { get; set; }
 
         [Description("The insulation is the layer of material outside of the duct material, meant to insulate the internal conditions of the material being conveyed.")]
-        public virtual IMEPMaterial InsulationMaterial { get; set; }
+        public virtual Material InsulationMaterial { get; set; }
 
         [Description("The lining is the layer of material inside of the duct material, meant to insulate the internal conditions of the material being conveyed.")]
-        public virtual IMEPMaterial LiningMaterial { get; set; }
+        public virtual Material LiningMaterial { get; set; }
 
         [Description("Hydraulic Diameter allows you to calculate the round equivalent hydraulic diameter for a non-round duct (rectangular/square).")]
         public virtual double HydraulicDiameter { get; }
@@ -79,3 +80,4 @@ namespace BH.oM.MEP.System.SectionProperties
         }
     }
 }
+

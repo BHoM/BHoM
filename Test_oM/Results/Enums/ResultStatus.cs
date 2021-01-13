@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,24 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Test.Results
 {
-    [Description("Group information for ProcessView of Graphs.")]
-    public class EntityGroup : BHoMObject
+    [Description("Outcome of a test (e.g. Pass or Fail).")]
+    public enum ResultStatus
     {
-        public virtual Point Position { get; set; } = new Point();
-
-        public virtual List<Guid> EntityGuids { get; set; } = new List<Guid>();
-
-        public virtual ICurve Boundary { get; set; }
+        Undefined,
+        Pass,
+        Fail,
+        CriticalFail,
     }
 }
+

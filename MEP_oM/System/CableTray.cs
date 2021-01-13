@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2020, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -31,7 +31,7 @@ using BH.oM.Geometry;
 namespace BH.oM.MEP.System
 {
     [Description("A Cable Tray object is a passageway which conveys material (typically cables)")]
-    public class CableTray : BHoMObject, IElement0D, IElement1D, IElementM
+    public class CableTray : BHoMObject, IElement1D, IElementM, IFlow
     {
         /***************************************************/
         /****                 Properties                ****/
@@ -56,3 +56,4 @@ namespace BH.oM.MEP.System
         /***************************************************/
     }
 }
+
