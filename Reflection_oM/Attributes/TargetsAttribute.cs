@@ -45,18 +45,10 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TargetsAttribute(Type type)
-        {
-            ValidTypes = new List<Type> { type };
-        }
-
-        /***************************************************/
-
-        public TargetsAttribute(Type[] types)
+        public TargetsAttribute(params Type[] types)
         {
             ValidTypes = types.ToList();
         }
-
 
         /***************************************************/
     }
