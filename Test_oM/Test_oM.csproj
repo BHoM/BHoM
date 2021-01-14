@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventType.cs" />
+    <Compile Include="IEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\Enums\ResultStatus.cs" />
     <Compile Include="Results\Enums\InputOutputComparisonDiffingType.cs" />
