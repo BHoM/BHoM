@@ -43,9 +43,6 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public UniqueAttribute()
-        {
-        }
 
         /***************************************************/
     }
