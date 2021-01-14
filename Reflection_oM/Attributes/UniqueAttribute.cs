@@ -32,7 +32,7 @@ namespace BH.oM.Reflection.Attributes
 {
     [AttributeUsage(AttributeTargets.Interface | AttributeTargets.Class)]
     [Description("Means that there can only be one instance of that type in a collection. This is currently used specifically for the case of fragments.")]
-    public class UniqueAttribute : Attribute, IImmutable
+    public class UniqueAttribute : Attribute
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -50,4 +50,3 @@ namespace BH.oM.Reflection.Attributes
         /***************************************************/
     }
 }
-
