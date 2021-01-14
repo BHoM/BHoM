@@ -29,14 +29,14 @@ using System;
 
 namespace BH.oM.Test
 {
-    public interface IEvent : IBHoMObject
+    public interface IEvent : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         string Message { get; set; }
-        EventType Type { get; set; }
+        EventStatus Status { get; set; }
         DateTime Time { get; set; }
 
 

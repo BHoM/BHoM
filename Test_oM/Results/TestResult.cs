@@ -33,7 +33,7 @@ using BH.oM.Reflection.Debugging;
 
 namespace BH.oM.Test.Results
 {
-    public class TestResult : IImmutable
+    public class TestResult : IEvent, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -43,21 +43,32 @@ namespace BH.oM.Test.Results
         public virtual string Description { get; } = "";
 
         [Description("States whether the test was a success or not.")]
-        public virtual ResultStatus Status { get; } = ResultStatus.Undefined;
+        public virtual EventStatus Status { get; set; } = EventStatus.Undefined;
 
         [Description("Events generated during the test.")]
-        public virtual List<Event> Events { get; }
+        public virtual List<IEvent> Events { get; } = new List<IEvent>();
+
+        [Description("A human readable message explaining why this Test Result has turned out the way it has.")]
+        public virtual string Message { get; set; } = "";
+
+        [Description("Provides the UTC time of when the Test Result was executed.")]
+        public virtual DateTime Time { get; set; } = DateTime.UtcNow;
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TestResult(ResultStatus status, List<Event> events, string description = "")
+        public TestResult(EventStatus status, List<IEvent> events, string description = "", string message = "", DateTime? time = null)
         {
             Status = status;
             Events = events;
             Description = description;
+            Message = message;
+            if (time == null)
+                Time = DateTime.UtcNow;
+            else
+                Time = time.Value;
         }
 
         /***************************************************/
