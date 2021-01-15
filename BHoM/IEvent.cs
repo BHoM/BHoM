@@ -27,7 +27,7 @@ using System.ComponentModel;
 using System.Linq;
 using System;
 
-namespace BH.oM.Test
+namespace BH.oM.Base
 {
     public interface IEvent : IObject
     {
@@ -37,7 +37,7 @@ namespace BH.oM.Test
 
         string Message { get; set; }
         EventStatus Status { get; set; }
-        DateTime Time { get; set; }
+        DateTime UTCTime { get; set; }
 
 
         /***************************************************/
