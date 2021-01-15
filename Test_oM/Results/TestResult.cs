@@ -55,6 +55,9 @@ namespace BH.oM.Test.Results
         [Description("Provides the UTC time of when the Test Result was executed.")]
         public virtual DateTime UTCTime { get; set; } = DateTime.UtcNow;
 
+        [Description("Machine readable identifier for the Test Result.")]
+        public virtual string ID { get; set; } = "";
+
 
         /***************************************************/
         /**** Constructors                              ****/
