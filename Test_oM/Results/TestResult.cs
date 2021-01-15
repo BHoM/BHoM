@@ -30,6 +30,7 @@ using System.ComponentModel;
 using BH.oM.Base;
 using System.Collections.ObjectModel;
 using BH.oM.Reflection.Debugging;
+using BH.oM.Base;
 
 namespace BH.oM.Test.Results
 {
@@ -39,7 +40,7 @@ namespace BH.oM.Test.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Describes the focus of the test.")]
+        [Description("Describes the focus of the test that this Test Result answers. This is typically for CI processes but should be human readable for ease of use.")]
         public virtual string Description { get; } = "";
 
         [Description("States whether the test was a success or not.")]
@@ -48,27 +49,27 @@ namespace BH.oM.Test.Results
         [Description("Events generated during the test.")]
         public virtual List<IEvent> Events { get; } = new List<IEvent>();
 
-        [Description("A human readable message explaining why this Test Result has turned out the way it has.")]
+        [Description("A human readable message explaining why this Test Result has turned out the way it has, with potential solutions or links to associated wiki pages.")]
         public virtual string Message { get; set; } = "";
 
         [Description("Provides the UTC time of when the Test Result was executed.")]
-        public virtual DateTime Time { get; set; } = DateTime.UtcNow;
+        public virtual DateTime UTCTime { get; set; } = DateTime.UtcNow;
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TestResult(EventStatus status, List<IEvent> events, string description = "", string message = "", DateTime? time = null)
+        public TestResult(EventStatus status, List<IEvent> events, string description = "", string message = "", DateTime? utcTime = null)
         {
             Status = status;
             Events = events;
             Description = description;
             Message = message;
-            if (time == null)
-                Time = DateTime.UtcNow;
+            if (utcTime == null)
+                UTCTime = DateTime.UtcNow;
             else
-                Time = time.Value;
+                UTCTime = utcTime.Value;
         }
 
         /***************************************************/

@@ -26,12 +26,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
-namespace BH.oM.Test
+namespace BH.oM.Base
 {
     public enum EventStatus
     {
         Undefined,
-        Fail,
+        Error,
+        Note,
         Pass,
         Warning,
     }
