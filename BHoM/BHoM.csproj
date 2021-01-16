@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComparisonConfig.cs" />
-    <Compile Include="EventStatus.cs" />
+    <Compile Include="EventType.cs" />
     <Compile Include="HashFragment.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="Interface\IHashFragment.cs" />

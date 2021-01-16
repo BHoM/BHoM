@@ -29,8 +29,6 @@ using BH.oM.Analytical.Results;
 using System.ComponentModel;
 using BH.oM.Base;
 using System.Collections.ObjectModel;
-using BH.oM.Reflection.Debugging;
-using BH.oM.Base;
 
 namespace BH.oM.Test.Results
 {
@@ -44,7 +42,7 @@ namespace BH.oM.Test.Results
         public virtual string Description { get; } = "";
 
         [Description("States whether the test was a success or not.")]
-        public virtual EventStatus Status { get; set; } = EventStatus.Undefined;
+        public virtual EventType Type { get; set; } = EventType.Undefined;
 
         [Description("Events generated during the test.")]
         public virtual List<IEvent> Events { get; } = new List<IEvent>();
@@ -53,7 +51,7 @@ namespace BH.oM.Test.Results
         public virtual string Message { get; set; } = "";
 
         [Description("Provides the UTC time of when the Test Result was executed.")]
-        public virtual DateTime UTCTime { get; set; } = DateTime.UtcNow;
+        public virtual DateTime UtcTime { get; set; } = DateTime.UtcNow;
 
         [Description("Machine readable identifier for the Test Result.")]
         public virtual string ID { get; set; } = "";
@@ -63,16 +61,16 @@ namespace BH.oM.Test.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TestResult(EventStatus status, List<IEvent> events, string description = "", string message = "", DateTime? utcTime = null)
+        public TestResult(Base.EventType status, List<IEvent> events, string description = "", string message = "", DateTime? utcTime = null)
         {
-            Status = status;
+            Type = status;
             Events = events;
             Description = description;
             Message = message;
             if (utcTime == null)
-                UTCTime = DateTime.UtcNow;
+                UtcTime = DateTime.UtcNow;
             else
-                UTCTime = utcTime.Value;
+                UtcTime = utcTime.Value;
         }
 
         /***************************************************/
