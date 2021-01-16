@@ -28,7 +28,7 @@ using System.Linq;
 
 namespace BH.oM.Base
 {
-    public enum EventStatus
+    public enum EventType
     {
         Undefined,
         Error,
