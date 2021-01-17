@@ -42,7 +42,7 @@ namespace BH.oM.Test.Results
         public virtual string Description { get; } = "";
 
         [Description("States whether the test was a success or not.")]
-        public virtual EventType Type { get; set; } = EventType.Undefined;
+        public virtual EventStatus Type { get; set; } = EventStatus.Undefined;
 
         [Description("Events generated during the test.")]
         public virtual List<IEvent> Events { get; } = new List<IEvent>();
@@ -61,7 +61,7 @@ namespace BH.oM.Test.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TestResult(Base.EventType status, List<IEvent> events, string description = "", string message = "", DateTime? utcTime = null)
+        public TestResult(Base.EventStatus status, List<IEvent> events, string description = "", string message = "", DateTime? utcTime = null)
         {
             Type = status;
             Events = events;

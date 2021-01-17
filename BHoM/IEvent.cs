@@ -36,7 +36,7 @@ namespace BH.oM.Base
         /***************************************************/
 
         string Message { get; set; }
-        EventType Type { get; set; }
+        EventStatus Type { get; set; }
         DateTime UtcTime { get; set; }
 
 
