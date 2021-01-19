@@ -27,17 +27,17 @@ using System.ComponentModel;
 using System.Linq;
 using System;
 
-namespace BH.oM.Base
+namespace BH.oM.Test
 {
-    public interface IEvent : IObject
+    public interface ITestInformation : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        string Message { get; set; }
-        EventStatus Type { get; set; }
-        DateTime UtcTime { get; set; }
+        string Message { get; }
+        TestInformationStatus Status { get; set; }
+        DateTime UTCTime { get; }
 
 
         /***************************************************/
