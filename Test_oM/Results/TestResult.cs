@@ -32,7 +32,7 @@ using System.Collections.ObjectModel;
 
 namespace BH.oM.Test.Results
 {
-    public class TestResult : IEvent, IImmutable
+    public class TestResult : ITestInformation, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,36 +41,36 @@ namespace BH.oM.Test.Results
         [Description("Describes the focus of the test that this Test Result answers. This is typically for CI processes but should be human readable for ease of use.")]
         public virtual string Description { get; } = "";
 
-        [Description("States whether the test was a success or not.")]
-        public virtual EventStatus Type { get; set; } = EventStatus.Undefined;
+        [Description("States whether the test was a success or not. Defaults to Error to ensure any defaults are investigated appropriately.")]
+        public virtual TestInformationStatus Status { get; set; } = TestInformationStatus.Error;
 
         [Description("Events generated during the test.")]
-        public virtual List<IEvent> Events { get; } = new List<IEvent>();
+        public virtual List<ITestInformation> Events { get; } = new List<ITestInformation>();
 
         [Description("A human readable message explaining why this Test Result has turned out the way it has, with potential solutions or links to associated wiki pages.")]
-        public virtual string Message { get; set; } = "";
+        public virtual string Message { get; } = "";
 
         [Description("Provides the UTC time of when the Test Result was executed.")]
-        public virtual DateTime UtcTime { get; set; } = DateTime.UtcNow;
+        public virtual DateTime UTCTime { get; } = DateTime.UtcNow;
 
         [Description("Machine readable identifier for the Test Result.")]
-        public virtual string ID { get; set; } = "";
+        public virtual string ID { get; } = "";
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TestResult(Base.EventStatus status, List<IEvent> events, string description = "", string message = "", DateTime? utcTime = null)
+        public TestResult(TestInformationStatus status, List<ITestInformation> events, string description = "", string message = "", DateTime? utcTime = null, string id = "")
         {
-            Type = status;
+            Status = status;
             Events = events;
             Description = description;
             Message = message;
             if (utcTime == null)
-                UtcTime = DateTime.UtcNow;
+                UTCTime = DateTime.UtcNow;
             else
-                UtcTime = utcTime.Value;
+                UTCTime = utcTime.Value;
         }
 
         /***************************************************/

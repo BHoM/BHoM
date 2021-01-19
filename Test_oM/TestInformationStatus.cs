@@ -26,14 +26,18 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
-namespace BH.oM.Base
+namespace BH.oM.Test
 {
-    public enum EventStatus
+    [Description("Defines the status of the Test Information. Designed to be very clear, concrete statuses, with minimal ambiguity.")]
+    public enum TestInformationStatus
     {
-        Undefined,
+        [Description("The status is such that immediate action should be taken, and workflows should not continue further until this is addressed.")]
         Error,
-        Note,
+
+        [Description("Everything is good, as close to perfect as we can get, with no further action needing to be taken.")]
         Pass,
+
+        [Description("Something hasn't quite gone to plan, but is not sufficient enough to stop everything. It is advised to investigate further before continuing, but you can continue before addressing this.")]
         Warning,
     }
 }
