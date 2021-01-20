@@ -39,7 +39,7 @@ namespace BH.oM.LifeCycleAssessment.Results
 
         [Mass]
         [Description("The total embodied carbon of the object in kgCO2e.")]
-        public virtual double GlobalWarmingPotential{ get; }
+        public virtual double GlobalWarmingPotential { get; set; }
 
 
         /***************************************************/
