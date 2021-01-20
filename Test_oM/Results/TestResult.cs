@@ -45,7 +45,7 @@ namespace BH.oM.Test.Results
         public virtual TestStatus Status { get; set; } = TestStatus.Error;
 
         [Description("Events generated during the test.")]
-        public virtual List<ITestInformation> Information { get; } = new List<ITestInformation>();
+        public virtual List<ITestInformation> Information { get; set; } = new List<ITestInformation>();
 
         [Description("A human readable message explaining why this Test Result has turned out the way it has, with potential solutions or links to associated wiki pages.")]
         public virtual string Message { get; } = "";
