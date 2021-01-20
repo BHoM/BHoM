@@ -28,6 +28,7 @@ using BH.oM.Geometry;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Analytical.Elements;
 using BH.oM.MEP.Enums;
+using BH.oM.MEP.Fragments;
 
 namespace BH.oM.MEP.Fixtures
 {
@@ -43,26 +44,11 @@ namespace BH.oM.MEP.Fixtures
         [Description("The point in space for the location of the Plumbing Fixture.")]
         public virtual Point Position { get; set; } = new Point();
 
-        [VolumetricFlowRate]
-        [Description("The volume of cold water being conveyed by the Plumbing Fixture per second (m3/s).")]
-        public virtual double ColdWaterFlowRate { get; set; } = 0;
+        [Description("Depiction of the plumbing flow associated with the plumbing fixture (cold water, hot water and drainage.)")]
+        public virtual PlumbingFlowFragment Flow { get; set; } = new PlumbingFlowFragment();
 
-        [VolumetricFlowRate]
-        [Description("The volume of hot water being conveyed by the Plumbing Fixture per second (m3/s).")]
-        public virtual double HotWaterFlowRate { get; set; } = 0;
-
-        [VolumetricFlowRate]
-        [Description("The volume of waste/drainage being conveyed by the Plumbing Fixture per second (m3/s).")]
-        public virtual double DrainageFlowRate { get; set; } = 0;
-
-        [Description("The number of cold water fixture or loading units for the plumbing fixture which denote the hydraulic load imposed based on flow rate, time of operation and frequency of use.")]
-        public virtual double ColdWaterLoadingFixtureUnits { get; set; } = 0.0;
-
-        [Description("The number of hot water fixture or loading units for the plumbing fixture which denote the hydraulic load imposed based on flow rate, time of operation and frequency of use.")]
-        public virtual double HotWaterLoadingFixtureUnits { get; set; } = 0.0;
-
-        [Description("The number of waste/drainage fixture or loading units for the plumbing fixture which denote the hydraulic load imposed based on flow rate, time of operation and frequency of use.")]
-        public virtual double DrainageLoadingFixtureUnits { get; set; } = 0.0;
+        [Description("Depiction of the plumbing loading/fixture units associated with the plumbing fixture (cold water, hot water and drainage.)")]
+        public virtual PlumbingLoadingFixtureUnitFragment LoadingFixtureUnits { get; set; } = new PlumbingLoadingFixtureUnitFragment();
 
         [Description("The PipeSectionProperties for the cold water pipe connected to the plumbing fixture.")]
         public virtual PipeSectionProperty ConnectedColdWaterPipeProperties { get; set; } = null;
