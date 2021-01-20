@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.MEP.Equipment.Parts;
+using BH.oM.Quantities.Attributes;
 using BH.oM.MEP.Enums;
 using BH.oM.Base;
 using BH.oM.Geometry;
@@ -36,6 +37,10 @@ namespace BH.oM.MEP.Equipment
 
         [Description("A collection of the parts (Electrical Connector) that make up the Electrical Equipment")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+
+        [Power]
+        [Description("The power of the electrical equipment described in kilowatts.")]
+        public virtual double Power { get; set; } = 0;
 
         [Description("The point in space for the location of the electrical equipment.")]
         public virtual Point Position { get; set; } = new Point();

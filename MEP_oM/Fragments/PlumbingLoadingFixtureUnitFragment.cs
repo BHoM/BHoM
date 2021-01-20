@@ -27,19 +27,16 @@ using System.ComponentModel;
 
 namespace BH.oM.MEP.Fragments
 {
-    public class PlumbingFlowFragment : IFragment
+    public class PlumbingLoadingFixtureUnitFragment : IFragment
     {
-        [VolumetricFlowRate]
-        [Description("The volume of cold water being conveyed by the Plumbing Fixture per second (m3/s).")]
-        public virtual double ColdWaterFlowRate { get; set; } = 0;
+        [Description("The number of cold water fixture or loading units for the plumbing fixture which denote the hydraulic load imposed based on flow rate, time of operation and frequency of use.")]
+        public virtual double ColdWaterLoadingFixtureUnits { get; set; } = 0.0;
 
-        [VolumetricFlowRate]
-        [Description("The volume of hot water being conveyed by the Plumbing Fixture per second (m3/s).")]
-        public virtual double HotWaterFlowRate { get; set; } = 0;
+        [Description("The number of hot water fixture or loading units for the plumbing fixture which denote the hydraulic load imposed based on flow rate, time of operation and frequency of use.")]
+        public virtual double HotWaterLoadingFixtureUnits { get; set; } = 0.0;
 
-        [VolumetricFlowRate]
-        [Description("The volume of waste/drainage being conveyed by the Plumbing Fixture per second (m3/s).")]
-        public virtual double DrainageFlowRate { get; set; } = 0;
+        [Description("The number of waste/drainage fixture or loading units for the plumbing fixture which denote the hydraulic load imposed based on flow rate, time of operation and frequency of use.")]
+        public virtual double DrainageLoadingFixtureUnits { get; set; } = 0.0;
     }
 }
 

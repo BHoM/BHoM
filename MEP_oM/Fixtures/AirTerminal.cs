@@ -43,7 +43,7 @@ namespace BH.oM.MEP.Fixtures
 
         [VolumetricFlowRate]
         [Description("The volume of air being conveyed by the Duct per second (m3/s).")]
-        public virtual double FlowRate { get; set; } = 0;
+        public virtual double AirFlowRate { get; set; } = 0;
 
         [Pressure]
         [Description("The difference in total pressure between two points of a system measured in Pascals.")]

@@ -42,11 +42,7 @@ namespace BH.oM.MEP.System.Dampers
         [Description("The point in space for the location of the valve.")]
         public virtual Point Location { get; set; } = new Point();
 
-        [Description("The DuctSectionProperties for the pipe connected to the inlet face of the valve.")]
-        public virtual PipeSectionProperty InletPipeProperties { get; set; } = null;
-
-        [Description("The DuctSectionProperties for the pipe connected to the outlet face of the valve.")]
-        public virtual PipeSectionProperty OutletPipeProperties { get; set; } = null;
+        //pipe connection properties to be added at a later date
 
         [Pressure]
         [Description("The difference in total pressure between two points of a fluid carrying network.")]

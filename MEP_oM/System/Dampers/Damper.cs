@@ -42,11 +42,7 @@ namespace BH.oM.MEP.System.Dampers
         [Description("The point in space for the location of the damper.")]
         public virtual Point Location { get; set; } = new Point();
 
-        [Description("The DuctSectionProperties for the duct connected to the inlet face of the damper.")]
-        public virtual DuctSectionProperty InletDuctProperties { get; set; } = null;
-
-        [Description("The DuctSectionProperties for the duct connected to the outlet face of the damper.")]
-        public virtual DuctSectionProperty OutletDuctProperties { get; set; } = null;
+        //Duct connection properties to be added at a later date
 
         [Pressure]
         [Description("The difference in total pressure between two points of a fluid carrying network.")]

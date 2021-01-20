@@ -52,6 +52,8 @@
     <Compile Include="Fixtures\FireAlarmDevice.cs" />
     <Compile Include="Fixtures\ElectricalFixture.cs" />
     <Compile Include="Fixtures\PlumbingFixture.cs" />
+    <Compile Include="Fragments\PlumbingLoadingFixtureUnitFragment.cs" />
+    <Compile Include="Fragments\PlumbingFlowFragment.cs" />
     <Compile Include="System\ConnectionProperties\CableTrayConnectionProperty.cs" />
     <Compile Include="System\ConnectionProperties\IConnectionProperty.cs" />
     <Compile Include="System\CableTray.cs" />
