@@ -50,14 +50,7 @@ namespace BH.oM.MEP.Fixtures
         [Description("Depiction of the plumbing loading/fixture units associated with the plumbing fixture (cold water, hot water and drainage.)")]
         public virtual PlumbingLoadingFixtureUnitFragment LoadingFixtureUnits { get; set; } = new PlumbingLoadingFixtureUnitFragment();
 
-        [Description("The PipeSectionProperties for the cold water pipe connected to the plumbing fixture.")]
-        public virtual PipeSectionProperty ConnectedColdWaterPipeProperties { get; set; } = null;
-
-        [Description("The PipeSectionProperties for the hot water pipe connected to the plumbing fixture.")]
-        public virtual PipeSectionProperty ConnectedHotWaterPipeProperties { get; set; } = null;
-
-        [Description("The PipeSectionProperties for the drainage pipe connected to the plumbing fixture.")]
-        public virtual PipeSectionProperty ConnectedDrainagePipeProperties { get; set; } = null;
+        //pipe connection properties to be added at a later date
 
         /***************************************************/
     }

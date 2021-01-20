@@ -49,6 +49,10 @@ namespace BH.oM.MEP.Fixtures
 
         [Description("Weather Proof is a boolean value (true/false) that denotes whether a device has water/weather tight casting.")]
         public virtual bool WeatherProof { get; set; } = false;
+
+        [Power]
+        [Description("The power of the electrical fixture described in kilowatts.")]
+        public virtual double Power { get; set; } = 0;
         /***************************************************/
     }
 }
