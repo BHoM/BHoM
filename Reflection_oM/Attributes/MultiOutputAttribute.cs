@@ -58,6 +58,16 @@ namespace BH.oM.Reflection.Attributes
         }
 
         /***************************************************/
+
+        public MultiOutputAttribute(int index, string name, string description, InputClassificationAttribute classification, Type typeId)
+        {
+            Index = index;
+            Name = name;
+            Description = description;
+            Classification = classification;
+        }
+
+        /***************************************************/
     }
 }
 
