@@ -32,14 +32,14 @@ using System.Collections.ObjectModel;
 
 namespace BH.oM.Test.Results
 {
-    public class TestResult : ITestInformation, IImmutable
+    public class TestResult : ITestInformation
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Describes the focus of the test that this Test Result answers. This is typically for CI processes but should be human readable for ease of use.")]
-        public virtual string Description { get; } = "";
+        public virtual string Description { get; set; } = "";
 
         [Description("States whether the test was a success or not. Defaults to Error to ensure any defaults are investigated appropriately.")]
         public virtual TestStatus Status { get; set; } = TestStatus.Error;
@@ -48,32 +48,14 @@ namespace BH.oM.Test.Results
         public virtual List<ITestInformation> Information { get; set; } = new List<ITestInformation>();
 
         [Description("A human readable message explaining why this Test Result has turned out the way it has, with potential solutions or links to associated wiki pages.")]
-        public virtual string Message { get; } = "";
+        public virtual string Message { get; set; } = "";
 
         [Description("Provides the UTC time of when the Test Result was executed.")]
-        public virtual DateTime UTCTime { get; } = DateTime.UtcNow;
+        public virtual DateTime UTCTime { get; set; } = DateTime.UtcNow;
 
         [Description("Machine readable identifier for the Test Result.")]
-        public virtual string ID { get; } = "";
+        public virtual string ID { get; set; } = "";
 
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public TestResult(TestStatus status, List<ITestInformation> information, string description = "", string message = "", DateTime? utcTime = null, string id = "")
-        {
-            Status = status;
-            Information = information;
-            Description = description;
-            Message = message;
-            if (utcTime == null)
-                UTCTime = DateTime.UtcNow;
-            else
-                UTCTime = utcTime.Value;
-        }
-
-        /***************************************************/
     }
 }
 
