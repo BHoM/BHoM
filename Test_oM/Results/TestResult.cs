@@ -45,7 +45,7 @@ namespace BH.oM.Test.Results
         public virtual TestInformationStatus Status { get; set; } = TestInformationStatus.Error;
 
         [Description("Events generated during the test.")]
-        public virtual List<ITestInformation> Events { get; } = new List<ITestInformation>();
+        public virtual List<ITestInformation> Information { get; } = new List<ITestInformation>();
 
         [Description("A human readable message explaining why this Test Result has turned out the way it has, with potential solutions or links to associated wiki pages.")]
         public virtual string Message { get; } = "";
@@ -61,10 +61,10 @@ namespace BH.oM.Test.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TestResult(TestInformationStatus status, List<ITestInformation> events, string description = "", string message = "", DateTime? utcTime = null, string id = "")
+        public TestResult(TestInformationStatus status, List<ITestInformation> information, string description = "", string message = "", DateTime? utcTime = null, string id = "")
         {
             Status = status;
-            Events = events;
+            Information = events;
             Description = description;
             Message = message;
             if (utcTime == null)
