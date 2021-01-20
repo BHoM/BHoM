@@ -42,7 +42,7 @@ namespace BH.oM.Test.Results
         public virtual string Description { get; } = "";
 
         [Description("States whether the test was a success or not. Defaults to Error to ensure any defaults are investigated appropriately.")]
-        public virtual TestInformationStatus Status { get; set; } = TestInformationStatus.Error;
+        public virtual TestStatus Status { get; set; } = TestStatus.Error;
 
         [Description("Events generated during the test.")]
         public virtual List<ITestInformation> Information { get; } = new List<ITestInformation>();
@@ -61,7 +61,7 @@ namespace BH.oM.Test.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TestResult(TestInformationStatus status, List<ITestInformation> information, string description = "", string message = "", DateTime? utcTime = null, string id = "")
+        public TestResult(TestStatus status, List<ITestInformation> information, string description = "", string message = "", DateTime? utcTime = null, string id = "")
         {
             Status = status;
             Information = information;

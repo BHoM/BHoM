@@ -29,7 +29,7 @@ using System.Linq;
 namespace BH.oM.Test
 {
     [Description("Defines the status of the Test Information. Designed to be very clear, concrete statuses, with minimal ambiguity.")]
-    public enum TestInformationStatus
+    public enum TestStatus
     {
         [Description("The status is such that immediate action should be taken, and workflows should not continue further until this is addressed.")]
         Error,
