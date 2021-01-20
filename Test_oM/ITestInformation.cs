@@ -36,7 +36,7 @@ namespace BH.oM.Test
         /***************************************************/
 
         string Message { get; }
-        TestStatus Status { get; set; }
+        TestStatus Status { get; }
         DateTime UTCTime { get; }
 
 
