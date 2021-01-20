@@ -64,7 +64,7 @@ namespace BH.oM.Test.Results
         public TestResult(TestInformationStatus status, List<ITestInformation> information, string description = "", string message = "", DateTime? utcTime = null, string id = "")
         {
             Status = status;
-            Information = events;
+            Information = information;
             Description = description;
             Message = message;
             if (utcTime == null)
