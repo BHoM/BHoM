@@ -20,52 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
-using System.ComponentModel;
-
-namespace BH.oM.Data.Collections
+namespace BH.oM.Data
 {
-    [Description("A numerical domain defined by a minimum and maximum value.")]
-    public class Domain : IObject, IImmutable
+    public enum DomainExtremesInclusion
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("The lowest bound of the domain.")]
-        public double Min { get; }
-
-        [Description("The highest bound of the domain.")]
-        public double Max { get; }
-
-        [Description("Whether the Min and Max extremes are included in the Domain or not. `IncludeBoth` by default.")]
-        public DomainExtremesInclusion ExtremesInclusion { get; } = DomainExtremesInclusion.IncludeBoth;
-
-        /***************************************************/
-
-        public Domain(double min, double max)
-        {
-            Min = min;
-            Max = max;
-        }
-
-        /***************************************************/
-
-        public static Domain operator +(Domain a, Domain b)
-        {
-            if (a == null || b == null)
-                return null;
-
-            return new Domain(
-                Math.Min(a.Min, b.Min),
-                Math.Max(a.Max, b.Max)
-                );
-        }
-
-        /***************************************************/
-
+        IncludeBoth,
+        IncludeMin,
+        IncludeMax,
+        ExcludeBoth
     }
 }
-
 
