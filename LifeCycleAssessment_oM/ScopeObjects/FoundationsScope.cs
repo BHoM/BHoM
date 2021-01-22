@@ -33,7 +33,10 @@ namespace BH.oM.LifeCycleAssessment
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        
+
+        [Description("Foundation columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
+        public virtual List<IElementM> Columns { get; set; } = new List<IElementM>();
+
         [Description("Foundation footings (or pile caps) are mats below the buildings piles that help to distribute the load from the structure above")]
         public virtual List<IElementM> Footings { get; set; } = new List<IElementM>();
         
