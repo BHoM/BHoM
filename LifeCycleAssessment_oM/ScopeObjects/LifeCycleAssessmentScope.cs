@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("The Life Cycle Assessment Scope object intends to provide a means of reporting all of the project criteria (name, area, type, location). This object may be used for studies at any stage of development and can serve as a true means of 'apples to apples' comparison when catalogued. The information provided within this object is utilised for database construction and organisation only, therefore all values will not effect the overall life cycle assessment results.")]
-    public class LifeCycleAssessmentScope : BHoMObject
+    public class LifeCycleAssessmentScope : BHoMObject, IScope
     {
         /***************************************************/
         /**** Properties                                ****/
