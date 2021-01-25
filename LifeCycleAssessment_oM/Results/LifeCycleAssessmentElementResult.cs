@@ -26,6 +26,7 @@ using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Base;
 using System;
+using System.Collections.Generic;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
@@ -52,7 +53,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual ObjectCategory Category { get; } = ObjectCategory.Undefined;
 
         [Description("The EnvironmentalProductDeclaration used to generate this result.")]
-        public virtual IEnvironmentalProductDeclarationData EnvironmentalProductDeclaration{ get; }
+        public virtual List<IEnvironmentalProductDeclarationData> EnvironmentalProductDeclaration{ get; set;  }
 
 
         /***************************************************/
@@ -64,7 +65,7 @@ namespace BH.oM.LifeCycleAssessment.Results
                                 double timeStep,
                                 ObjectScope scope,
                                 ObjectCategory category,
-                                IEnvironmentalProductDeclarationData environmentalProductDeclaration)
+                                List<IEnvironmentalProductDeclarationData> environmentalProductDeclaration)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
