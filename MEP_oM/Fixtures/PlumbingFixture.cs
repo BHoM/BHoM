@@ -20,37 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Quantities.Attributes;
-using BH.oM.Analytical.Elements;
 using BH.oM.MEP.Enums;
 using BH.oM.MEP.Fragments;
+using BH.oM.MEP.System;
+using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to convey public health (plumbing) fluids (water, waste.)")]
-    public class PlumbingFixture : BHoMObject, INode
+    public class PlumbingFixture : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
+
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
+
         [Description("A type which describes the plumbing fixture more specifically whether it's a water closet (toilet), urinal or lavatory.")]
         public virtual PlumbingFixtureType PlumbingFixtureType { get; set; } = PlumbingFixtureType.Undefined;
-
-        [Description("The point in space for the location of the Plumbing Fixture.")]
-        public virtual Point Position { get; set; } = new Point();
 
         [Description("Depiction of the plumbing flow associated with the plumbing fixture (cold water, hot water and drainage.)")]
         public virtual PlumbingFlowFragment Flow { get; set; } = new PlumbingFlowFragment();
 
         [Description("Depiction of the plumbing loading/fixture units associated with the plumbing fixture (cold water, hot water and drainage.)")]
         public virtual PlumbingLoadingFixtureUnitFragment LoadingFixtureUnits { get; set; } = new PlumbingLoadingFixtureUnitFragment();
-
-        //pipe connection properties to be added at a later date
 
         /***************************************************/
     }

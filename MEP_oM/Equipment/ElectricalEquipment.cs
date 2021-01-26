@@ -20,29 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.MEP.Enums;
+using BH.oM.MEP.Equipment.Parts;
+using BH.oM.MEP.System;
+using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.MEP.Equipment.Parts;
-using BH.oM.Quantities.Attributes;
-using BH.oM.MEP.Enums;
-using BH.oM.Base;
-using BH.oM.Geometry;
 
 namespace BH.oM.MEP.Equipment
 {
-    public class ElectricalEquipment : BHoMObject, IEquipment
+    public class ElectricalEquipment : BHoMObject, IEquipment, IElement0D
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
+
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
+
         [Description("A type which describes the electrical equipment, more specifically whether it's switchgear, panelboard, transformer, etc.")]
         public virtual ElectricalEquipmentType ElectricalEquipmentType { get; set; } = ElectricalEquipmentType.Undefined;
 
         [Description("A collection of the parts (Electrical Connector) that make up the Electrical Equipment")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
-        [Power]
         [Description("The power of the electrical equipment described in kilowatts.")]
         public virtual double Power { get; set; } = 0;
 
-        [Description("The point in space for the location of the electrical equipment.")]
-        public virtual Point Position { get; set; } = new Point();
+        /***************************************************/
     }
 }
