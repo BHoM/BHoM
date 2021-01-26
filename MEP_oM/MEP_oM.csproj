@@ -69,6 +69,7 @@
     <Compile Include="System\Duct.cs" />
     <Compile Include="System\IFlow.cs" />
     <Compile Include="System\MechanicalSystem.cs" />
+    <Compile Include="System\Node.cs" />
     <Compile Include="System\Pipe.cs" />
     <Compile Include="System\FlowSystem.cs" />
     <Compile Include="System\ISystemType.cs" />

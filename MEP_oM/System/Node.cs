@@ -22,42 +22,36 @@
 
 using BH.oM.Base;
 using BH.oM.Dimensional;
-using BH.oM.MEP.Enums;
-using BH.oM.MEP.Equipment.Parts;
-using BH.oM.MEP.System;
-using BH.oM.Quantities.Attributes;
-using System.Collections.Generic;
+using BH.oM.Geometry;
+using BH.oM.Analytical.Elements;
 using System.ComponentModel;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.System
 {
-    public class MechanicalEquipment : BHoMObject, IEquipment, IElement0D
+    [Description("0D finite element for structural analysis. Node class contains positional information as well as orientation and support.")]
+    public class Node : BHoMObject, IElement0D, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point in space for the location of the object.")]
-        public virtual Node Location { get; set; } = new Node();
+        [Description("Position of the node in global Cartesian 3D space.")]
+        public virtual Point Position { get; set; } = null;
 
-        [Angle]
-        [Description("Controls the local plan orientation of the object.")]
-        public virtual double OrientationAngle { get; set; } = 0;
 
-        [Description("A type which describes the mechanical equipment more specifically whether it's an air handling unit, fan coil unit, boiler or chiller.")]
-        public virtual MechanicalEquipmentType MechanicalEquipmentType { get; set; } = MechanicalEquipmentType.Undefined;
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
 
-        [Description("A collection of the parts (Air Handling Unit, Fans, Coils, Energy Wheel, Filters, Electrical Connectors) that make up the Air Handling Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
-
-        [VolumetricFlowRate]
-        [Description("The primary volume of fluid being conveyed by the mechanical equipment per second (m3/s). For an air handling unit it would be the largest air volume (supply air for example.)")]
-        public virtual double FlowRate { get; set; } = 0;
-
-        [Description("The power of the mechanical equipment described in kilowatts.")]
-        public virtual double Power { get; set; } = 0;
+        [Description("Converts a Point to a Node, setting the position to the provided point. All other properties are set to default values.")]
+        public static explicit operator Node(Point point)
+        {
+            return new Node { Position = point };
+        }
 
         /***************************************************/
     }
 }
+    
+
 

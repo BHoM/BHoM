@@ -20,29 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
-using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A type of damper used to control the flow of air in a mechanical system.")]
-    public class VolumeDamper : BHoMObject, IElement0D, IElementM
+    public class VolumeDamper : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point in space for the location of the VolumeDamper.")]
-        public virtual Point Location { get; set; } = new Point();
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
 
-        [Description("The DuctSectionProperties for the duct connected to the inlet face of the VolumeDamper.")]
-        public virtual DuctSectionProperty InletDuctProperties { get; set; } = null;
-
-        [Description("The DuctSectionProperties for the duct connected to the outlet face of the VolumeDamper.")]
-        public virtual DuctSectionProperty OutletDuctProperties { get; set; } = null;
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
         [Description("The difference in total pressure between two points of a fluid carrying network.")]
         public virtual double PressureDrop { get; set; } = 0;

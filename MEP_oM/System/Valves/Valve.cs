@@ -20,29 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
-using BH.oM.MEP.Enums;
 using BH.oM.Dimensional;
+using BH.oM.MEP.Enums;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Geometry;
+using System.ComponentModel;
 
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a piping system (ball valve, check valve, etc.)")]
-    public class Valve : BHoMObject
+    public class Valve : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
+
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
+
         [Description("A type which describes the valve, more specifically whether it's a check valve, gate valve, etc.")]
         public virtual ValveType ValveType { get; set; } = ValveType.Undefined;
-
-        [Description("The point in space for the location of the valve.")]
-        public virtual Point Location { get; set; } = new Point();
-
-        //pipe connection properties to be added at a later date
 
         [Pressure]
         [Description("The difference in total pressure between two points of a fluid carrying network.")]

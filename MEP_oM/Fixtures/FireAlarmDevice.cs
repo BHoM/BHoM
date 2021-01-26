@@ -20,28 +20,32 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Quantities.Attributes;
-using BH.oM.Analytical.Elements;
 using BH.oM.MEP.Enums;
+using BH.oM.MEP.System;
+using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to warn building occupants of emergencies (smoke, fire, carbon monoxide) by means of audio or visual appliances (smoke detectors, speaker strobes, heat detectors.)")]
-    public class FireAlarmDevice : BHoMObject, INode
+    public class FireAlarmDevice : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
+
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
+
         [Description("A type which describes the fire alarm device more specifically whether it's a smoke detector, carbon monoxide detector or speaker strobe.")]
         public virtual FireAlarmDeviceType FireAlarmDeviceType { get; set; } = FireAlarmDeviceType.Undefined;
 
-        [Description("The point in space for the location of the Electrical Fixture.")]
-        public virtual Point Position { get; set; } = new Point();
         /***************************************************/
     }
 }
