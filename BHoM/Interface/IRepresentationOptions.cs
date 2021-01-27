@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base
 {
-    [Description("Identifies an object that is a Representation of another object.")]
-    public interface IRepresentation : IObject
+    [Description("Options to define a Representation.")]
+    public interface IRepresentationOptions : IObject
     {
     }
 }
