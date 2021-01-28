@@ -40,9 +40,6 @@ namespace BH.oM.Programming
         [Description("Guids of the connected data parameters feeding into this.")]
         public virtual Guid SourceId { get; set; } = Guid.Empty;
 
-        [Description("Guids of the parent syntax node.")]
-        public virtual Guid ParentId { get; set; } = Guid.Empty;
-
         [Description("Type of data expected by this parameter.")]
         public virtual Type DataType { get; set; } = typeof(object);
 

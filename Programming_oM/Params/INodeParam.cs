@@ -36,8 +36,6 @@ namespace BH.oM.Programming
         /**** Properties                                ****/
         /***************************************************/
 
-        Guid ParentId { get; set; }
-
         Type DataType { get; set; }
 
         string Description { get; set; }
