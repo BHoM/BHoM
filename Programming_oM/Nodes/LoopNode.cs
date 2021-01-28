@@ -33,13 +33,13 @@ using System.Threading.Tasks;
 namespace BH.oM.Programming
 {
     [Description("A syntax node corresponding to a code loop.")]
-    public class LoopNode : BHoMObject, INode, IImmutable
+    public class LoopNode : BHoMObject, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        public virtual List<INode> InternalNodes { get; set; } = new List<INode>();
 
         public virtual string Description { get; set; } = "";
 
@@ -51,25 +51,6 @@ namespace BH.oM.Programming
 
         public virtual bool IsDeclaration { get; set; } = false;
 
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public LoopNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
-        {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
-        }
 
         /***************************************************/
     }
