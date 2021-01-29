@@ -50,8 +50,9 @@
     <Compile Include="Curve\NurbsCurve.cs" />
     <Compile Include="Curve\PolyCurve.cs" />
     <Compile Include="Curve\Polyline.cs" />
-    <Compile Include="Misc\GeometricalRepresentationOptions.cs" />
-    <Compile Include="Misc\GeometricalRepresentation.cs" />
+    <Compile Include="Representation\ElementRepresentationOptions.cs" />
+    <Compile Include="Representation\GeometricalRepresentationOptions.cs" />
+    <Compile Include="Representation\GeometricalRepresentation.cs" />
     <Compile Include="Interface\IGeometry.cs" />
     <Compile Include="Math\IntegrationSlice.cs" />
     <Compile Include="Mesh\Face.cs" />

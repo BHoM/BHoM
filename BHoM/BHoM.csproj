@@ -72,7 +72,6 @@
     <Compile Include="BHoMObject.cs" />
     <Compile Include="BHoMGroup.cs" />
     <Compile Include="Interface\IRepresentationOptions.cs" />
-    <Compile Include="Interface\IRepresentation.cs" />
     <Compile Include="Interface\ISpecification.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

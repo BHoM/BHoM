@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Geometry
 {
-    public class GeometricalRepresentationOptions : IRepresentationOptions
+    public class ElementRepresentationOptions : GeometricalRepresentationOptions
     {
         [Description("Scale of the Geometrical representation. E.g. for a Point, the scale of the resulting sphere.")]
         public virtual int Scale { get; set; } = 1;
