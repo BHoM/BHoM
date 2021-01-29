@@ -45,6 +45,14 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
+        public PreviousInputNamesAttribute(string name, List<string> previousNames)
+        {
+            Name = name;
+            PreviousNames = previousNames.ToList();
+        }
+
+        /***************************************************/
+
         public PreviousInputNamesAttribute(string name, string previousNames)
         {
             Name = name;
