@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Results\EventMessage.cs" />
     <Compile Include="TestStatus.cs" />
     <Compile Include="ITestInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
