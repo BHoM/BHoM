@@ -48,7 +48,7 @@
     <Compile Include="Attributes\FilePathAttribute.cs" />
     <Compile Include="Attributes\FolderPathAttribute.cs" />
     <Compile Include="Attributes\InputClassificationAttribute.cs" />
-    <Compile Include="Attributes\PreviousInputNames.cs" />
+    <Compile Include="Attributes\PreviousInputNamesAttribute.cs" />
     <Compile Include="Attributes\PreviousVersionAttribute.cs" />
     <Compile Include="Attributes\DefaultValueWarningAttribute.cs" />
     <Compile Include="Attributes\ToBeRemovedAttribute.cs" />
