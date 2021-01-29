@@ -44,6 +44,9 @@ namespace BH.oM.Inspection
         [Description("Date the issue was initially created")]
         public virtual DateTime DateCreated { get; set; } = new DateTime();
 
+        [Description("Date the issue was Closed")]
+        public virtual DateTime DateClosed { get; set; } = new DateTime();
+
         [Description("Priority tag to better categorize your issue  identifying its urgency")]
         public virtual string Priority { get; set; } = "";
 
@@ -68,6 +71,9 @@ namespace BH.oM.Inspection
 
         [Description("List of comments made on the issue, identifying either the nature of the issue, the actions being taken to resolve the issue, or the approval / rejection of actions taken.")]
         public virtual List<Comment> Comments { get; set; } = new List<Comment>();
+
+        [Description("Unique ID of Audit the Issue was originally recorded within.")]
+        public virtual string AuditID { get; set; } = "";
 
         /***************************************************/
     }
