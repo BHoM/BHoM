@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,38 +21,39 @@
  */
 
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using BH.oM.Dimensional;
+using BH.oM.MEP.Enums;
+using BH.oM.MEP.System;
+using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.MEP.Fixtures
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    [Description("Provides the names that were previously used for a given input. If multiple names, use a ',' to separate them.")]
-    public class PreviousInputNamesAttribute : Attribute, IImmutable
+    [Description("A device used to convey electricity e.g. duplex sockets/receptacles, disconnect/isolator switches (for electrified mechanical equipment), floors boxes.")]
+    public class ElectricalFixture : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Name { get; private set; } = "";
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
 
-        public virtual List<string> PreviousNames { get; private set; } = new List<string>();
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
+        [Description("A type which describes the electrical fixture more specifically whether it's a duplex or quad receptacle/socket, a floor box or a disconnect/isolator switch.")]
+        public virtual ElectricalFixtureType ElectricalFixtureType { get; set; } = ElectricalFixtureType.Undefined;
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
+        [Description("Ground Fault Circuit Interrupter (GFCI) is a boolean value (true/false) that denotes whether a device is a fast acting circuit breaker designed to shut off power in the event of a ground fault.")]
+        public virtual bool GroundFaultCircuitInterrupter { get; set; } = false;
 
-        public PreviousInputNamesAttribute(string name, string previousNames)
-        {
-            Name = name;
-            PreviousNames = previousNames.Split(new char[] { ',' }).Select(x => x.Trim()).ToList();
-        }
+        [Description("Weather Proof is a boolean value (true/false) that denotes whether a device has water/weather tight casting.")]
+        public virtual bool WeatherProof { get; set; } = false;
 
+        [Description("The power of the electrical fixture described in kilowatts.")]
+        public virtual double Power { get; set; } = 0;
         /***************************************************/
     }
 }
-
-

@@ -21,43 +21,37 @@
  */
 
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
+using BH.oM.Analytical.Elements;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.MEP.System
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    [Description("0D finite element for structural analysis. Node class contains positional information as well as orientation and support.")]
+    public class Node : BHoMObject, IElement0D, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+        [Description("Position of the node in global Cartesian 3D space.")]
+        public virtual Point Position { get; set; } = null;
 
 
         /***************************************************/
-        /**** Constructors                              ****/
+        /**** Explicit Casting                          ****/
         /***************************************************/
 
-        public TargetsAttribute(List<Type> validTypes)
+        [Description("Converts a Point to a Node, setting the position to the provided point. All other properties are set to default values.")]
+        public static explicit operator Node(Point point)
         {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
-
-        public TargetsAttribute(params Type[] validTypes)
-        {
-            ValidTypes = validTypes.ToList();
+            return new Node { Position = point };
         }
 
         /***************************************************/
     }
 }
+    
+
 

@@ -33,13 +33,13 @@ using System.Threading.Tasks;
 namespace BH.oM.Programming
 {
     [Description("Represents a group of syntax nodes covered by a common description. This is equivalent to a block of code inside a method.")]
-    public class BlockNode : BHoMObject, INode, IImmutable
+    public class BlockNode : BHoMObject, INode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<INode> InternalNodes { get; } = new List<INode>();
+        public virtual List<INode> InternalNodes { get; set; } = new List<INode>();
 
         public virtual string Description { get; set; } = "";
 
@@ -50,26 +50,6 @@ namespace BH.oM.Programming
         public virtual bool IsInline { get; set; } = false;
 
         public virtual bool IsDeclaration { get; set; } = false;
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public BlockNode(List<INode> internalNodes, List<ReceiverParam> inputs, List<DataParam> outputs, Guid bhomGuid, string description = "")
-        {
-            InternalNodes = internalNodes;
-            Inputs = inputs;
-            Outputs = outputs;
-            Description = description;
-            BHoM_Guid = bhomGuid;
-
-            foreach (ReceiverParam input in inputs)
-                input.ParentId = BHoM_Guid;
-
-            foreach (DataParam output in outputs)
-                output.ParentId = BHoM_Guid;
-        }
 
         /***************************************************/
     }

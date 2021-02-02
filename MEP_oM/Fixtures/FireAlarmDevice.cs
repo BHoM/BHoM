@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,43 +21,31 @@
  */
 
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
+using BH.oM.Dimensional;
+using BH.oM.MEP.Enums;
+using BH.oM.MEP.System;
+using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.MEP.Fixtures
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    [Description("A device used to warn building occupants of emergencies (smoke, fire, carbon monoxide) by means of audio or visual appliances (smoke detectors, speaker strobes, heat detectors.)")]
+    public class FireAlarmDevice : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
 
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public TargetsAttribute(List<Type> validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
-
-        public TargetsAttribute(params Type[] validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
+        [Description("A type which describes the fire alarm device more specifically whether it's a smoke detector, carbon monoxide detector or speaker strobe.")]
+        public virtual FireAlarmDeviceType FireAlarmDeviceType { get; set; } = FireAlarmDeviceType.Undefined;
 
         /***************************************************/
     }
 }
-

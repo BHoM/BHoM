@@ -42,9 +42,6 @@ namespace BH.oM.Programming
         [Description("Guids of the connected Receiver parameters.")]
         public virtual List<Guid> TargetIds { get; set; } = new List<Guid>();
 
-        [Description("Guids of the parent syntax node.")]
-        public virtual Guid ParentId { get; set; } = Guid.Empty;
-
         [Description("Type of data expected by this parameter.")]
         public virtual Type DataType { get; set; } = typeof(object);
 

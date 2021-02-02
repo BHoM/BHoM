@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,43 +21,34 @@
  */
 
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
+using BH.oM.Dimensional;
+using BH.oM.MEP.Enums;
+using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.MEP.System.Dampers
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    [Description("A device used to control the flow within a piping system (ball valve, check valve, etc.)")]
+    public class Valve : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
 
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
+        [Description("A type which describes the valve, more specifically whether it's a check valve, gate valve, etc.")]
+        public virtual ValveType ValveType { get; set; } = ValveType.Undefined;
 
-        public TargetsAttribute(List<Type> validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
-
-        public TargetsAttribute(params Type[] validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
+        [Pressure]
+        [Description("The difference in total pressure between two points of a fluid carrying network.")]
+        public virtual double PressureDrop { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

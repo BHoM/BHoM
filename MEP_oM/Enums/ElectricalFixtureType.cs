@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,44 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.MEP.Enums
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    /***************************************************/
+
+    [Description("A type of electrical fixture (duplex/quad socket/receptacle, floor box, or disconnect/isolator switch.)")]
+    public enum ElectricalFixtureType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public TargetsAttribute(List<Type> validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
-
-        public TargetsAttribute(params Type[] validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
+        Undefined,
+        CeilingBox,
+        DuplexSocketReceptacle,
+        FloorBox,
+        FusedDisconnectIsolator,
+        JunctionBox,
+        QuadSocketReceptacle,
+        SimplexSocketReceptacle,
+        ToggleSwitch
     }
-}
 
+    /***************************************************/
+}

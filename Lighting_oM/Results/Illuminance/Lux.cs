@@ -47,7 +47,7 @@ namespace BH.oM.Lighting.Results.Illuminance
         /**** Constructors                              ****/
         /***************************************************/
 
-        protected Lux(IComparable objectId, IComparable nodeId, IComparable resultCase, double timeStep, double luxLevel) : base(objectId, nodeId, resultCase, timeStep)
+        public Lux(IComparable objectId, IComparable nodeId, IComparable resultCase, double timeStep, double luxLevel) : base(objectId, nodeId, resultCase, timeStep)
         {
             LuxLevel = luxLevel;
         }

@@ -23,41 +23,44 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BH.oM.Reflection.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+    [Description("Provides the names that were previously used for a given input. If multiple names, use a ',' to separate them.")]
+    public class PreviousInputNamesAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+        public virtual string Name { get; private set; } = "";
+
+        public virtual List<string> PreviousNames { get; private set; } = new List<string>();
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TargetsAttribute(List<Type> validTypes)
+        public PreviousInputNamesAttribute(string name, List<string> previousNames)
         {
-            ValidTypes = validTypes.ToList();
+            Name = name;
+            PreviousNames = previousNames.ToList();
         }
 
         /***************************************************/
 
-        public TargetsAttribute(params Type[] validTypes)
+        public PreviousInputNamesAttribute(string name, string previousNames)
         {
-            ValidTypes = validTypes.ToList();
+            Name = name;
+            PreviousNames = previousNames.Split(new char[] { ',' }).Select(x => x.Trim()).ToList();
         }
 
         /***************************************************/
     }
 }
+
 

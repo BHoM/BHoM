@@ -20,44 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
 using System.Collections.Generic;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.MEP.Fragments
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    public class PlumbingFlowFragment : IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [VolumetricFlowRate]
+        [Description("The volume of cold water being conveyed by the Plumbing Fixture per second (m3/s).")]
+        public virtual double ColdWaterFlowRate { get; set; } = 0;
 
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+        [VolumetricFlowRate]
+        [Description("The volume of hot water being conveyed by the Plumbing Fixture per second (m3/s).")]
+        public virtual double HotWaterFlowRate { get; set; } = 0;
 
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public TargetsAttribute(List<Type> validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
-
-        public TargetsAttribute(params Type[] validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
+        [VolumetricFlowRate]
+        [Description("The volume of waste/drainage being conveyed by the Plumbing Fixture per second (m3/s).")]
+        public virtual double DrainageFlowRate { get; set; } = 0;
     }
 }
 

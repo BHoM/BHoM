@@ -91,8 +91,8 @@ namespace BH.oM.Inspection
         [Description("Installation progress objects from the audit (Each of these corresponds to the status of a specific area inspected)")]
         public virtual List<InstallationProgress> InstallationProgressObjects { get; set; } = new List<InstallationProgress>();
 
-        [Description("Issues from audit. These are issues identified during the audit for various areas that need to be addressed, including supporting images of the work as applicable.")]
-        public virtual List<Issue> Issues { get; set; } = new List<Issue>();
+        [Description("Issues from audit. These are reference IssueNumbers to corresponding issues identified during the audit for various areas that need to be addressed, which can include supporting images of the work as applicable.")]
+        public virtual List<string> IssueNumbers { get; set; } = new List<string>();
 
         [Description("Score as a percentage. This represents the amount of issues / areas that have been resolved, and is an optional value not used by all audits.")]
         public virtual string Score { get; set; } = "";

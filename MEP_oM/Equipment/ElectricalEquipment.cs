@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,43 +21,38 @@
  */
 
 using BH.oM.Base;
-using System;
+using BH.oM.Dimensional;
+using BH.oM.MEP.Enums;
+using BH.oM.MEP.Equipment.Parts;
+using BH.oM.MEP.System;
+using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.MEP.Equipment
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    public class ElectricalEquipment : BHoMObject, IEquipment, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
 
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
+        [Description("A type which describes the electrical equipment, more specifically whether it's switchgear, panelboard, transformer, etc.")]
+        public virtual ElectricalEquipmentType ElectricalEquipmentType { get; set; } = ElectricalEquipmentType.Undefined;
 
-        public TargetsAttribute(List<Type> validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
+        [Description("A collection of the parts (Electrical Connector) that make up the Electrical Equipment")]
+        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
-        /***************************************************/
-
-        public TargetsAttribute(params Type[] validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
+        [Description("The power of the electrical equipment described in kilowatts.")]
+        public virtual double Power { get; set; } = 0;
 
         /***************************************************/
     }
 }
-

@@ -20,44 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
 using System.Collections.Generic;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.MEP.Fragments
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    public class PlumbingLoadingFixtureUnitFragment : IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("The number of cold water fixture or loading units for the plumbing fixture which denote the hydraulic load imposed based on flow rate, time of operation and frequency of use.")]
+        public virtual double ColdWaterLoadingFixtureUnits { get; set; } = 0.0;
 
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+        [Description("The number of hot water fixture or loading units for the plumbing fixture which denote the hydraulic load imposed based on flow rate, time of operation and frequency of use.")]
+        public virtual double HotWaterLoadingFixtureUnits { get; set; } = 0.0;
 
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public TargetsAttribute(List<Type> validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
-
-        public TargetsAttribute(params Type[] validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
+        [Description("The number of waste/drainage fixture or loading units for the plumbing fixture which denote the hydraulic load imposed based on flow rate, time of operation and frequency of use.")]
+        public virtual double DrainageLoadingFixtureUnits { get; set; } = 0.0;
     }
 }
 

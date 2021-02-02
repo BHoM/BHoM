@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,43 +21,37 @@
  */
 
 using BH.oM.Base;
-using System;
-using System.Collections.Generic;
+using BH.oM.Dimensional;
+using BH.oM.MEP.Enums;
+using BH.oM.MEP.Fragments;
+using BH.oM.MEP.System;
+using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.MEP.Fixtures
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    [Description("A device used to convey public health (plumbing) fluids (water, waste.)")]
+    public class PlumbingFixture : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("The point in space for the location of the object.")]
+        public virtual Node Location { get; set; } = new Node();
 
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
+        [Description("A type which describes the plumbing fixture more specifically whether it's a water closet (toilet), urinal or lavatory.")]
+        public virtual PlumbingFixtureType PlumbingFixtureType { get; set; } = PlumbingFixtureType.Undefined;
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
+        [Description("Depiction of the plumbing flow associated with the plumbing fixture (cold water, hot water and drainage.)")]
+        public virtual PlumbingFlowFragment Flow { get; set; } = new PlumbingFlowFragment();
 
-        public TargetsAttribute(List<Type> validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
-
-        /***************************************************/
-
-        public TargetsAttribute(params Type[] validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
+        [Description("Depiction of the plumbing loading/fixture units associated with the plumbing fixture (cold water, hot water and drainage.)")]
+        public virtual PlumbingLoadingFixtureUnitFragment LoadingFixtureUnits { get; set; } = new PlumbingLoadingFixtureUnitFragment();
 
         /***************************************************/
     }
 }
-
