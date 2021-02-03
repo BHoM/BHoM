@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ProfileType.cs" />
     <Compile Include="Enums\DamperType.cs" />
     <Compile Include="Enums\ValveType.cs" />
     <Compile Include="Enums\FireAlarmDeviceType.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="System\Dampers\VolumeDamper.cs" />
     <Compile Include="System\Duct.cs" />
     <Compile Include="System\IFlow.cs" />
+    <Compile Include="System\MaterialFragments\SystemMaterialFragment.cs" />
     <Compile Include="System\MechanicalSystem.cs" />
     <Compile Include="System\Node.cs" />
     <Compile Include="System\Pipe.cs" />
@@ -100,7 +102,7 @@
     <Compile Include="Equipment\Parts\IPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\SectionProperties\CableTraySectionProperty.cs" />
-    <Compile Include="System\SectionProperties\DuctSectionProperty.cs" />
+    <Compile Include="System\SectionProperties\SectionProperty.cs" />
     <Compile Include="System\SectionProperties\IFlowSectionProperty.cs" />
     <Compile Include="System\SectionProperties\PipeSectionProperty.cs" />
     <Compile Include="System\SectionProperties\SectionProfile.cs" />

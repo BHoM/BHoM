@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,20 +21,19 @@
  */
 
 using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.Physical.Constructions;
-using BH.oM.MEP.Enums;
-using System.Collections.Generic;
 
-namespace BH.oM.MEP.System.SectionProperties
+namespace BH.oM.MEP.Enums
 {
-    public class SectionProfile : BHoMObject, IBHoMObject
+    /***************************************************/
+
+    [Description("A type of SectionProfile used in determining the element's construction and layer properties.")]
+    public enum ProfileType
     {
-        [Description("The ShapeType of the object.")]
-        public virtual ProfileType Type { get; set; }
-
-        [Description("The list of material layers comprising the element.")]
-        public virtual List<Layer> Layer { get; set; }
+        Undefined,
+        Element,
+        Insulation,
+        Lining
     }
-}
 
+    /***************************************************/
+}

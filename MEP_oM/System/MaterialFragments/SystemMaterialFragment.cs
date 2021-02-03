@@ -22,19 +22,26 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Physical.Constructions;
-using BH.oM.MEP.Enums;
-using System.Collections.Generic;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.MEP.System.SectionProperties
+namespace BH.oM.MEP.System.MaterialFragments
 {
-    public class SectionProfile : BHoMObject, IBHoMObject
+    public class SystemMaterialFragment : BHoMObject, IMEPMaterial
     {
-        [Description("The ShapeType of the object.")]
-        public virtual ProfileType Type { get; set; }
+        [Description("Element material.")]
+        public virtual Material ElementMaterial { get; set; }
 
-        [Description("The list of material layers comprising the element.")]
-        public virtual List<Layer> Layer { get; set; }
+        [Description("Lining material.")]
+        public virtual Material LiningMaterial { get; set; }
+
+        [Description("Lining material thickness.")]
+        public virtual double LiningThickness { get; set; }
+
+        [Description("Insulation material.")]
+        public virtual Material InsulationMaterial { get; set; }
+
+        [Description("Insulation material thickness.")]
+        public virtual double InsulationThickness { get; set; }
     }
 }
 

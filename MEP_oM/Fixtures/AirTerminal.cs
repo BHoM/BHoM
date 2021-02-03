@@ -51,8 +51,8 @@ namespace BH.oM.MEP.Fixtures
         [Description("The difference in total pressure between two points of a system measured in Pascals.")]
         public virtual double PressureDrop { get; set; } = 0;
 
-        [Description("The DuctSectionProperties for the duct connected to the air terminal.")]
-        public virtual DuctSectionProperty ConnectedDuctProperties { get; set; } = null;
+        //[Description("The DuctSectionProperties for the duct connected to the air terminal.")]
+        //public virtual DuctSectionProperty ConnectedDuctProperties { get; set; } = null;
 
         /***************************************************/
     }

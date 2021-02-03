@@ -23,29 +23,29 @@
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.MEP.System.MaterialFragments;
-using BH.oM.Physical.Materials;
+using BH.oM.Spatial.ShapeProfiles;
 
 namespace BH.oM.MEP.System.SectionProperties
 {
-    public class DuctSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
+    public class SectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
     {
-        [Description("The duct material is the primary material that the duct is composed of (galvanized sheet metal, aluminium)")]
-        public virtual Material DuctMaterial { get; set; }
+        [Description("ShapeProfile of the element itself. This is the base ShapeProfile that determines the overall shape of the IFlow object.")]
+        public virtual IProfile Profile { get; set; }
 
-        [Description("The insulation is the layer of material outside of the duct material, meant to insulate the internal conditions of the material being conveyed.")]
-        public virtual Material InsulationMaterial { get; set; }
+        [Description("The materials of the object.")]
+        public virtual SystemMaterialFragment Materials { get; set; }
 
-        [Description("The lining is the layer of material inside of the duct material, meant to insulate the internal conditions of the material being conveyed.")]
-        public virtual Material LiningMaterial { get; set; }
+        [Description("Lining thickness if being utilised within the element.")]
+        public virtual double LiningThickness { get; set; }
+
+        [Description("Insulation thickness if being utilised within the element.")]
+        public virtual double InsulationThickness { get; set; }
 
         [Description("Hydraulic Diameter allows you to calculate the round equivalent hydraulic diameter for a non-round duct (rectangular/square).")]
         public virtual double HydraulicDiameter { get; }
 
         [Description("CircularEquivalentDiameter is the equivalent size for a duct if it were to be round (for size/capacity comparison).")]
         public virtual double CircularEquivalentDiameter { get; }
-
-        [Description("The section profile of the object that will determine its use within a System.")]
-        public virtual SectionProfile SectionProfile { get; }
 
         [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
         public virtual double ElementSolidArea { get; }
@@ -66,9 +66,9 @@ namespace BH.oM.MEP.System.SectionProperties
         public virtual double InsulationVoidArea { get; }
 
         //Constructor
-        public DuctSectionProperty(SectionProfile sectionProfile, double elementSolidArea, double liningSolidArea, double insulationSolidArea, double elementVoidArea, double liningVoidArea, double insulationVoidArea, double hydraulicDiameter, double circularEquivalentDiameter)
+        public SectionProperty(IProfile elementProfile, double elementSolidArea, double liningSolidArea, double insulationSolidArea, double elementVoidArea, double liningVoidArea, double insulationVoidArea, double hydraulicDiameter, double circularEquivalentDiameter)
         {
-            SectionProfile = sectionProfile;
+            Profile = elementProfile;
             ElementSolidArea = elementSolidArea;
             ElementVoidArea = elementVoidArea;
             LiningSolidArea = liningSolidArea;

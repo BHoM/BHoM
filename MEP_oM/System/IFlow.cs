@@ -24,21 +24,26 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.MEP.System.SectionProperties;
+using System.Collections.Generic;
 
 namespace BH.oM.MEP.System
 { 
     [Description("Base interface for all flow-based objects. These objects are capable of containing a material or element that flows through the object.")]
-    public interface IFlow : IBHoMObject, IElement1D, IElementM
+    public interface IFlow : IBHoMObject, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("The point at which the Flow Object begins.")]
-        Point StartPoint { get; set; }
+        Node StartPoint { get; set; }
 
         [Description("The point at which the Flow Object ends.")]
-        Point EndPoint { get; set; }
+        Node EndPoint { get; set; }
+
+        [Description("The section property defines the shape and its associated properties.")]
+        List<SectionProfile> SectionProfile { get; set; }
 
         /***************************************************/
     }

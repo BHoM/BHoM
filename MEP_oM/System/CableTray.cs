@@ -27,24 +27,25 @@ using BH.oM.Dimensional;
 using BH.oM.MEP.System.ConnectionProperties;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
+using System.Collections.Generic;
 
 namespace BH.oM.MEP.System
 {
     [Description("A Cable Tray object is a passageway which conveys material (typically cables)")]
-    public class CableTray : BHoMObject, IElement1D, IElementM, IFlow
+    public class CableTray : BHoMObject, IElementM, IFlow
     {
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
 
         [Description("The point at which the Cable Tray object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        public virtual Node StartPoint { get; set; } = null;
 
         [Description("The point at which the Cable Tray object ends.")]
-        public virtual Point EndPoint { get; set; } = null;       
+        public virtual Node EndPoint { get; set; } = null;       
 
         [Description("The Cable Tray section property defines the shape (rectangular) and its associated properties (height, width, material, thickness/gauge).")]
-        public virtual CableTraySectionProperty SectionProperty { get; set; } = null;
+        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
 
         [Description("The Cable Tray connections properties, such as if it's connected and to what.")]
         public virtual CableTrayConnectionProperty ConnectionProperty { get; set; } = null;
