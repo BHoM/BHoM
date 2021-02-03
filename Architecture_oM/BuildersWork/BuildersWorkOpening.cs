@@ -21,27 +21,29 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Spatial.ShapeProfiles;
 using System.ComponentModel;
 
 namespace BH.oM.Architecture.BuildersWork
 {
     [Description("Object representing a builders work opening as an entity independent of its host.")]
-    public class BuildersWorkOpening : BHoMObject
+    public class Opening : BHoMObject
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
 
         [Description("Profile of the opening.")]
-        public virtual BH.oM.Spatial.ShapeProfiles.IProfile Profile { get; set; } = null;
+        public virtual IProfile Profile { get; set; } = null;
 
         [Length]
         [Description("Total depth of the opening, distributed equally from the origin in both directions along the local z axis.")]
-        public virtual double Depth { get; set; } = double.NaN;
+        public virtual double Depth { get; set; } = 0;
 
         [Description("Local coordinate system of the opening with local z being the direction along the opening, local x representing direction along width in plane and y along height respectively.")]
-        public virtual BH.oM.Geometry.CoordinateSystem.Cartesian CoordinateSystem { get; set; } = new Geometry.CoordinateSystem.Cartesian();
+        public virtual Cartesian CoordinateSystem { get; set; } = new Geometry.CoordinateSystem.Cartesian();
 
         /***************************************************/
     }
