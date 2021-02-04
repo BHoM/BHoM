@@ -34,12 +34,15 @@ namespace BH.oM.Test.Results
     public class EventMessage : ITestInformation
     {
         [Description("Message raised during the execution.")]
-        public virtual string Message { get; set; }
+        public virtual string Message { get; set; } = "";
 
         [Description("Severity of the message.")]
-        public virtual TestStatus Status { get; set; }
+        public virtual TestStatus Status { get; set; } = TestStatus.Error;
 
         [Description("Provides the UTC time of when the event was raised.")]
         public virtual DateTime UTCTime { get; set; } = DateTime.UtcNow;
+
+        [Description("Original location where the event was generated.")]
+        public virtual string StackTrace { get; set; } = "";
     }
 }
