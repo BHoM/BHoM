@@ -22,12 +22,16 @@
 
 using BH.oM.Base;
 using System.ComponentModel;
+using System.Drawing;
 
 namespace BH.oM.Geometry
 {
-    public abstract class GeometricalRepresentationOptions : IRepresentationOptions
+    public interface IGeometricalRepresentationOptions : IRepresentationOptions
     {
-        public object Colour { get; set; }
+        [Description("Scale of the Geometrical representation. E.g. for a Point, the scale of the resulting sphere.")]
+        int Scale { get; set; }
+
+        Color Colour { get; set; }
     }
 }
 

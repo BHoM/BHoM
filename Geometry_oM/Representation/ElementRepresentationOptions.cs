@@ -22,16 +22,20 @@
 
 using BH.oM.Base;
 using System.ComponentModel;
+using System;
+using System.Drawing;
 
 namespace BH.oM.Geometry
 {
-    public class ElementRepresentationOptions : GeometricalRepresentationOptions
+    public class ElementRepresentationOptions : IGeometricalRepresentationOptions
     {
-        [Description("Scale of the Geometrical representation. E.g. for a Point, the scale of the resulting sphere.")]
+        [Description("Scale of the Geometrical representation, if applicable. E.g. for a Point, the scale of the resulting sphere.")]
         public virtual int Scale { get; set; } = 1;
 
         [Description("Cap 1D elements, if applicable.\nE.g. for a Line, this caps the computed Pipe.\nFor discipline-specific objects, it may e.g. cap the Extrusions of their cross section.")]
         public virtual bool Cap1DElements { get; set; } = false;
+
+        public Color Colour { get; set; }
     }
 }
 
