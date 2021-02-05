@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildersWork\BuildersWorkOpening.cs" />
+    <Compile Include="BuildersWork\Opening.cs" />
     <Compile Include="Elements\Ceiling.cs" />
     <Compile Include="Elements\CeilingTile.cs" />
     <Compile Include="Elements\Grid.cs" />
