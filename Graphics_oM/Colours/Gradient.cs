@@ -36,6 +36,7 @@ namespace BH.oM.Graphics
 
         [Description("A SortedDictionary of 'Color's using a 'decimal' between 0 and 1 as Key. Is used to get a interpolated 'Color' from a value between 0 and 1")]
         public virtual SortedDictionary<decimal, Color> Markers { get; set; } = new SortedDictionary<decimal, Color>();
+        
 
         /***************************************************/
 

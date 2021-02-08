@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Geometry
 {
     [Description("A geometrical object that is the representation of another object.")]
-    public class GeometricalRepresentation : IGeometry
+    public class GeometricalRepresentation : IRepresentation
     {
         [Description("A geometry (or many geometry objects collected into a single `CompositeGeometry` object) that is the representation of another object." +
             "Examples: for a Point, this could be a Sphere. For a Vector, this could be a CompositeGeometry containing multiple lines for arrow head and stem." +
