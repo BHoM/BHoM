@@ -18,6 +18,6 @@ namespace BH.oM.Geometry
         public virtual IGeometry Geometry { get; set; }
 
         [Description("Colour information applicable to the Geometry.")]
-        public virtual Color Colour { get; set; }
+        public virtual Color Colour { get; set; } = Color.FromArgb(80, 255, 41, 105);//BHoM pink!
     }
 }
