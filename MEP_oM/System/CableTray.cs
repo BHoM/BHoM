@@ -20,14 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
 using BH.oM.MEP.System.ConnectionProperties;
+using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Geometry;
 using System.Collections.Generic;
+using System.ComponentModel;
+using BH.oM.MEP.Fragments;
 
 namespace BH.oM.MEP.System
 {
@@ -37,6 +37,9 @@ namespace BH.oM.MEP.System
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
+
+        [Description("A DimensionalFragment containing spatial properties of the element.")]
+        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
 
         [Description("The point at which the Cable Tray object begins.")]
         public virtual Node StartPoint { get; set; } = null;

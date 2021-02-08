@@ -20,15 +20,15 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
-using BH.oM.Geometry;
 using BH.oM.MEP.System.SectionProperties;
 using System.Collections.Generic;
+using System.ComponentModel;
+using BH.oM.MEP.Fragments;
 
 namespace BH.oM.MEP.System
-{ 
+{
     [Description("Base interface for all flow-based objects. These objects are capable of containing a material or element that flows through the object.")]
     public interface IFlow : IBHoMObject, IElement1D
     {
@@ -44,6 +44,9 @@ namespace BH.oM.MEP.System
 
         [Description("The section property defines the shape and its associated properties.")]
         List<SectionProfile> SectionProfile { get; set; }
+
+        [Description("A DimensionalFragment containing spatial properties of the element.")]
+        DimensionalFragment ElementSize { get; set; }
 
         /***************************************************/
     }

@@ -28,6 +28,7 @@ using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
 using BH.oM.Spatial.ShapeProfiles;
 using System.Collections.Generic;
+using BH.oM.MEP.Fragments;
 
 namespace BH.oM.MEP.System
 {
@@ -38,8 +39,8 @@ namespace BH.oM.MEP.System
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Duct object begins.")]
-        public virtual ShapeType Shape { get; set; } = ShapeType.Box;
+        [Description("A DimensionalFragment containing spatial properties of the element.")]
+        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
 
         [Description("The point at which the Duct object begins.")]
         public virtual Node StartPoint { get; set; } = null;

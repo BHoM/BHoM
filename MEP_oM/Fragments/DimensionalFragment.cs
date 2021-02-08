@@ -21,37 +21,25 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.MEP.System.SectionProperties;
-using System.Collections.Generic;
-using System.ComponentModel;
-using BH.oM.MEP.Fragments;
+using BH.oM.Spatial.ShapeProfiles;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.MEP.Fragments
 {
-    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IElementM, IFlow
+    public class DimensionalFragment : IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        public virtual ShapeType Shape { get; set; } = ShapeType.Box;
 
-        [Description("A DimensionalFragment containing spatial properties of the element.")]
-        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
+        public virtual double Height { get; set; } = 0;
 
-        [Description("The point at which the Pipe object begins.")]
-        public virtual Node StartPoint { get; set; } = null;
+        public virtual double Width { get; set; } = 0;
 
-        [Description("The point at which the Pipe object ends.")]
-        public virtual Node EndPoint { get; set; } = null;
+        public virtual double Diameter { get; set; } = 0;
 
-        [Description("The volume of fluid being conveyed by the pipe per second (m3/s).")]
-        public virtual double FlowRate { get; set; } = 0;
+        public virtual double InnerRadius { get; set; } = 0;
 
-        [Description("The pipe section property defines the shape and its associated properties (radius, material, thickness).")]
-        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
+        public virtual double OuterRadius { get; set; } = 0;
 
-        /***************************************************/
     }
 }
+
 
