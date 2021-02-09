@@ -24,11 +24,14 @@ using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
+using BH.oM.MEP.Fragments;
+using BH.oM.MEP.System.SectionProperties;
+using System.Collections.Generic;
 
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A type of damper used to control the flow of air in a mechanical system.")]
-    public class VolumeDamper : BHoMObject, IElement0D
+    public class VolumeDamper : BHoMObject, ICoincident, IElementM, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -36,6 +39,12 @@ namespace BH.oM.MEP.System.Dampers
 
         [Description("The point in space for the location of the object.")]
         public virtual Node Location { get; set; } = new Node();
+
+        [Description("A DimensionalFragment containing spatial properties of the element.")]
+        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
+
+        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
+        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
 
         [Angle]
         [Description("Controls the local plan orientation of the object.")]

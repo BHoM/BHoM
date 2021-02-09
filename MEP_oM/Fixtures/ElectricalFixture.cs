@@ -23,14 +23,16 @@
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.MEP.Enums;
+using BH.oM.MEP.Fragments;
 using BH.oM.MEP.System;
 using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to convey electricity e.g. duplex sockets/receptacles, disconnect/isolator switches (for electrified mechanical equipment), floors boxes.")]
-    public class ElectricalFixture : BHoMObject, IElement0D
+    public class ElectricalFixture : BHoMObject, IElement0D, IElementC, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -52,8 +54,9 @@ namespace BH.oM.MEP.Fixtures
         [Description("Weather Proof is a boolean value (true/false) that denotes whether a device has water/weather tight casting.")]
         public virtual bool WeatherProof { get; set; } = false;
 
-        [Description("The power of the electrical fixture described in kilowatts.")]
-        public virtual double Power { get; set; } = 0;
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<ConsumptionFragment> Consumption { get; set; }
+
         /***************************************************/
     }
 }

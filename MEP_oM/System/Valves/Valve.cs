@@ -25,11 +25,14 @@ using BH.oM.Dimensional;
 using BH.oM.MEP.Enums;
 using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
+using BH.oM.MEP.Fragments;
+using BH.oM.MEP.System.SectionProperties;
+using System.Collections.Generic;
 
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a piping system (ball valve, check valve, etc.)")]
-    public class Valve : BHoMObject, IElement0D
+    public class Valve : BHoMObject, ICoincident, IElementM, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -37,6 +40,12 @@ namespace BH.oM.MEP.System.Dampers
 
         [Description("The point in space for the location of the object.")]
         public virtual Node Location { get; set; } = new Node();
+
+        [Description("A DimensionalFragment containing spatial properties of the element.")]
+        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
+
+        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
+        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
 
         [Angle]
         [Description("Controls the local plan orientation of the object.")]

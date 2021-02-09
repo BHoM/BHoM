@@ -23,6 +23,7 @@
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.MEP.Equipment.Parts;
+using BH.oM.MEP.Fragments;
 using BH.oM.MEP.System;
 using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A light fixture is an electrical device that provides illumination.")]
-    public class LightFixture : BHoMObject, IElement0D
+    public class LightFixture : BHoMObject, IElement0D, IElementM, IElementC
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -52,12 +53,11 @@ namespace BH.oM.MEP.Fixtures
         [Description("A means of denoting light fixtures that should be controlled in a similar manner.")]
         public virtual string ControlZone { get; set; } = "";
 
-        [Description("The power of the light fixture described in kilowatts.")]
-        public virtual double Power { get; set; } = 0;
-
         [Description("A means of adding an electrical connector part to the light fixture's properties. Gives the ability to add the voltage, amps, and denotes if the fixture should be on emergency power.")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<ConsumptionFragment> Consumption { get; set; }
 
         /***************************************************/
     }

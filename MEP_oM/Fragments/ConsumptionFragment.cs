@@ -21,37 +21,19 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.MEP.Fragments;
-using BH.oM.MEP.System.SectionProperties;
-using System.Collections.Generic;
+using BH.oM.MEP.Enums;
 using System.ComponentModel;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.MEP.Fragments
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IElementM, IElementC, IFlow
+    public class ConsumptionFragment : IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("The type of Consumption being utilised by the object.")]
+        public virtual ConsumptionType Type { get; set; } = ConsumptionType.Undefined;
 
-        [Description("A DimensionalFragment containing spatial properties of the element.")]
-        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
-
-        [Description("The point at which the Wire object begins.")]
-        public virtual Node StartPoint { get; set; } = null;
-
-        [Description("The point at which the Wire object ends.")]
-        public virtual Node EndPoint { get; set; } = null;
-
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
-
-        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<ConsumptionFragment> Consumption { get; set; }
-
-        /***************************************************/
+        [Description("The rate of which the material is being consumed.")]
+        public virtual double ConsumptionRate { get; set; } = 0;
     }
 }
+
 

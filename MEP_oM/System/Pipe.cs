@@ -22,15 +22,15 @@
 
 using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.MEP.Fragments;
 using BH.oM.MEP.System.SectionProperties;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.MEP.Fragments;
 
 namespace BH.oM.MEP.System
 {
     [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IElementM, IFlow
+    public class Pipe : BHoMObject, IElementM, IElementC, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -45,11 +45,14 @@ namespace BH.oM.MEP.System
         [Description("The point at which the Pipe object ends.")]
         public virtual Node EndPoint { get; set; } = null;
 
-        [Description("The volume of fluid being conveyed by the pipe per second (m3/s).")]
-        public virtual double FlowRate { get; set; } = 0;
-
         [Description("The pipe section property defines the shape and its associated properties (radius, material, thickness).")]
         public virtual List<SectionProfile> SectionProfile { get; set; } = null;
+
+        [Description("Coincident elements along the linear MEP element such as a VolumeDamper or Valve.")]
+        public virtual List<ICoincident> CoincidentElements { get; set; } = null;
+
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<ConsumptionFragment> Consumption { get; set; }
 
         /***************************************************/
     }

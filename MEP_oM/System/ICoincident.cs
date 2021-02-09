@@ -22,34 +22,25 @@
 
 using BH.oM.Base;
 using BH.oM.Dimensional;
-using BH.oM.MEP.Fragments;
 using BH.oM.MEP.System.SectionProperties;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.MEP.Fragments;
 
 namespace BH.oM.MEP.System
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IElementM, IElementC, IFlow
+    [Description("Base interface for all flow-based, coincident elements that can exist along any linear MEP System Element.")]
+    public interface ICoincident : IBHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The point at which the Coincident object resides along the linear MEP element.")]
+        Node Location { get; set; }
+
         [Description("A DimensionalFragment containing spatial properties of the element.")]
-        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
-
-        [Description("The point at which the Wire object begins.")]
-        public virtual Node StartPoint { get; set; } = null;
-
-        [Description("The point at which the Wire object ends.")]
-        public virtual Node EndPoint { get; set; } = null;
-
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
-
-        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<ConsumptionFragment> Consumption { get; set; }
+        DimensionalFragment ElementSize { get; set; }
 
         /***************************************************/
     }

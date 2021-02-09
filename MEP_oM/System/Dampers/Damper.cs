@@ -25,29 +25,41 @@ using BH.oM.Dimensional;
 using BH.oM.MEP.Enums;
 using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
+using BH.oM.MEP.Fragments;
+using BH.oM.MEP.System.SectionProperties;
+using System.Collections.Generic;
 
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a duct system (fire smoke damper, volume damper, etc.)")]
-    public class Damper : BHoMObject, IElement0D
+    public class Damper : BHoMObject, ICoincident, IFlow, IElementM, IElementC
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("A type which describes the damper more specifically whether it's a fire smoke damper, volume damper or balancing damper.")]
+        public virtual DamperType DamperType { get; set; } = DamperType.Undefined;
+
         [Description("The point in space for the location of the object.")]
         public virtual Node Location { get; set; } = new Node();
+
+        [Description("A DimensionalFragment containing spatial properties of the element.")]
+        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
+
+        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
+        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
 
         [Angle]
         [Description("Controls the local plan orientation of the object.")]
         public virtual double OrientationAngle { get; set; } = 0;
 
-        [Description("A type which describes the damper more specifically whether it's a fire smoke damper, volume damper or balancing damper.")]
-        public virtual DamperType DamperType { get; set; } = DamperType.Undefined;
-
         [Pressure]
         [Description("The difference in total pressure between two points of a fluid carrying network.")]
         public virtual double PressureDrop { get; set; } = 0;
+
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<ConsumptionFragment> Consumption { get; set; }
 
         /***************************************************/
     }

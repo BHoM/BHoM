@@ -28,10 +28,11 @@ using BH.oM.MEP.System;
 using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.MEP.Fragments;
 
 namespace BH.oM.MEP.Equipment
 {
-    public class ElectricalEquipment : BHoMObject, IEquipment, IElement0D
+    public class ElectricalEquipment : BHoMObject, IEquipment, IElement0D, IElementC
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -50,8 +51,8 @@ namespace BH.oM.MEP.Equipment
         [Description("A collection of the parts (Electrical Connector) that make up the Electrical Equipment")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
-        [Description("The power of the electrical equipment described in kilowatts.")]
-        public virtual double Power { get; set; } = 0;
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<ConsumptionFragment> Consumption { get; set; }
 
         /***************************************************/
     }

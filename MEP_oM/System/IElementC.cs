@@ -21,37 +21,20 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Dimensional;
 using BH.oM.MEP.Fragments;
-using BH.oM.MEP.System.SectionProperties;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.MEP.System
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IElementM, IElementC, IFlow
+    [Description("Enables Consumption based operations to be performed on elements that consume resources\n" +
+                 "Ensures the material composition of a physical object is represented, defined as proportions of discrete types of material forming the object's total solid volume.\n" +
+                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n" +
+                 "Documentation detailing required extension methods can be found here: https://github.com/BHoM/documentation/wiki/IElement-required-extension-methods")]
+    public interface IElementC : IObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("A DimensionalFragment containing spatial properties of the element.")]
-        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
-
-        [Description("The point at which the Wire object begins.")]
-        public virtual Node StartPoint { get; set; } = null;
-
-        [Description("The point at which the Wire object ends.")]
-        public virtual Node EndPoint { get; set; } = null;
-
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
-
         [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<ConsumptionFragment> Consumption { get; set; }
-
-        /***************************************************/
+        List<ConsumptionFragment> Consumption { get; set; }
     }
 }
 

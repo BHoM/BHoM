@@ -22,15 +22,16 @@
 
 using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.MEP.Fragments;
 using BH.oM.MEP.System;
-using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to regulate the volume of air to or from an air handling unit, variable air volume device or similar, to or from the occupied space. These devices may be ducted or connect directly to a plenum, in which case no duct connection will be present.")]
-    public class AirTerminal : BHoMObject, IElement0D
+    public class AirTerminal : BHoMObject, IElement0D, IElementM, IElementC
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -43,16 +44,15 @@ namespace BH.oM.MEP.Fixtures
         [Description("Controls the local plan orientation of the object.")]
         public virtual double OrientationAngle { get; set; } = 0;
 
-        [VolumetricFlowRate]
-        [Description("The volume of air being conveyed by the Duct per second (m3/s).")]
-        public virtual double AirFlowRate { get; set; } = 0;
-
         [Pressure]
         [Description("The difference in total pressure between two points of a system measured in Pascals.")]
         public virtual double PressureDrop { get; set; } = 0;
 
-        //[Description("The DuctSectionProperties for the duct connected to the air terminal.")]
-        //public virtual DuctSectionProperty ConnectedDuctProperties { get; set; } = null;
+        [Description("Elements directly connected to the AirTerminal.")]
+        public virtual List<Duct> ConnectedElements { get; set; } = new List<Duct>();
+
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<ConsumptionFragment> Consumption { get; set; }
 
         /***************************************************/
     }
