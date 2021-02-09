@@ -20,43 +20,36 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.MEP.System.MaterialFragments;
-using BH.oM.Physical.Materials;
+using BH.oM.MEP.System.ConnectionProperties;
 
-namespace BH.oM.MEP.System.SectionProperties
+namespace BH.oM.MEP.System.ConnectionProperties
 {
-    public class CableTraySectionProperty : BHoMObject, IImmutable
+    [Description("A Cable Tray connection property to store information about its physical connectors.")]
+    public class ConnectionProperty : BHoMObject
     {
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The cable tray material is the primary material that the it is composed of.")]
-        public virtual Material Material { get; set; }     
+        [Description("The point at which the Connector object begins.")]
+        public virtual Fitting StartFitting { get; set; }
 
-        [Description("The section profile of the object that will determine its use within a System.")]
-        public virtual SectionProfile SectionProfile { get; }
+        [Description("The point at which the Connector bject ends.")]
+        public virtual Fitting EndFitting { get; set; }
 
-        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
-        public virtual double ElementSolidArea { get; }
+        [Description("Whether the start point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsStartConnected { get; set; }
 
-        [Description("The interior area within the element's shapeProfile. This corresponds to the actual open area less any material thickness.")]
-        public virtual double ElementVoidArea { get; }
-
-        /***************************************************/
-        /****                 Constructor               ****/
-        /***************************************************/
-        
-        public CableTraySectionProperty(Material material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
-        {
-            Material = material;
-            SectionProfile = sectionProfile;
-            ElementSolidArea = elementSolidArea;
-            ElementVoidArea = elementVoidArea;            
-        }
+        [Description("Whether the end point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsEndConnected { get; set; }       
 
         /***************************************************/
     }

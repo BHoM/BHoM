@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\FittingType.cs" />
     <Compile Include="Enums\ConsumptionType.cs" />
     <Compile Include="Enums\ProfileType.cs" />
     <Compile Include="Enums\DamperType.cs" />
@@ -58,8 +59,8 @@
     <Compile Include="Fragments\DimensionalFragment.cs" />
     <Compile Include="Fragments\PlumbingLoadingFixtureUnitFragment.cs" />
     <Compile Include="Fragments\PlumbingFlowFragment.cs" />
-    <Compile Include="System\ConnectionProperties\CableTrayConnectionProperty.cs" />
-    <Compile Include="System\ConnectionProperties\IConnectionProperty.cs" />
+    <Compile Include="System\Fittings\Fitting.cs" />
+    <Compile Include="System\ConnectionProperties\ConnectionProperty.cs" />
     <Compile Include="System\CableTray.cs" />
     <Compile Include="Fixtures\AirTerminal.cs" />
     <Compile Include="Fixtures\PlumbingFixtureFlow.cs" />
@@ -106,17 +107,10 @@
     <Compile Include="Equipment\Parts\Fan.cs" />
     <Compile Include="Equipment\Parts\IPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="System\SectionProperties\CableTraySectionProperty.cs" />
-    <Compile Include="System\SectionProperties\SectionProperty.cs" />
-    <Compile Include="System\SectionProperties\IFlowSectionProperty.cs" />
-    <Compile Include="System\SectionProperties\PipeSectionProperty.cs" />
     <Compile Include="System\SectionProperties\SectionProfile.cs" />
-    <Compile Include="System\SectionProperties\WireSectionProperty.cs" />
     <Compile Include="Enums\PipeTypes.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="System\Fittings\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
       <Project>{c91f1981-1148-4a03-b67e-c0bb42d862f4}</Project>

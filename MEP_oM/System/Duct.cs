@@ -28,6 +28,7 @@ using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.MEP.Enums;
+using BH.oM.MEP.System.ConnectionProperties;
 
 namespace BH.oM.MEP.System
 {
@@ -59,6 +60,9 @@ namespace BH.oM.MEP.System
 
         [Description("A data fragment that contains information regarding the consumption properties of the object.")]
         public virtual List<ConsumptionFragment> Consumption { get; set; }
+
+        [Description("The Cable Tray connections properties, such as if it's connected and to what.")]
+        public virtual ConnectionProperty ConnectionProperty { get; set; } = null;
 
         /***************************************************/
     }

@@ -51,7 +51,7 @@ namespace BH.oM.MEP.System
         public virtual List<SectionProfile> SectionProfile { get; set; } = null;
 
         [Description("The Cable Tray connections properties, such as if it's connected and to what.")]
-        public virtual CableTrayConnectionProperty ConnectionProperty { get; set; } = null;
+        public virtual ConnectionProperty ConnectionProperty { get; set; } = null;
 
         [Angle]
         [Description("This is the Cable Tray's planometric orientation angle (the rotation around its central axis).")]

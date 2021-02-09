@@ -26,6 +26,7 @@ using BH.oM.MEP.System.SectionProperties;
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.MEP.Fragments;
+using BH.oM.MEP.System.ConnectionProperties;
 
 namespace BH.oM.MEP.System
 {
@@ -41,6 +42,9 @@ namespace BH.oM.MEP.System
 
         [Description("A DimensionalFragment containing spatial properties of the element.")]
         DimensionalFragment ElementSize { get; set; }
+
+        [Description("The connections properties, such as if it's connected and to what.")]
+        ConnectionProperty ConnectionProperty { get; set; }
 
         /***************************************************/
     }
