@@ -50,6 +50,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +72,8 @@
     <Compile Include="Interface\IBHoMObject.cs" />
     <Compile Include="BHoMObject.cs" />
     <Compile Include="BHoMGroup.cs" />
+    <Compile Include="Interface\IRepresentation.cs" />
+    <Compile Include="Interface\IRepresentationOptions.cs" />
     <Compile Include="Interface\ISpecification.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

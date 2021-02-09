@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +50,10 @@
     <Compile Include="Curve\NurbsCurve.cs" />
     <Compile Include="Curve\PolyCurve.cs" />
     <Compile Include="Curve\Polyline.cs" />
+    <Compile Include="Representation\TextRepresentation.cs" />
+    <Compile Include="Representation\ElementRepresentationOptions.cs" />
+    <Compile Include="Representation\GeometricalRepresentationOptions.cs" />
+    <Compile Include="Representation\GeometricalRepresentation.cs" />
     <Compile Include="Interface\IGeometry.cs" />
     <Compile Include="Math\IntegrationSlice.cs" />
     <Compile Include="Mesh\Face.cs" />

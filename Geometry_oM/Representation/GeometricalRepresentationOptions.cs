@@ -21,26 +21,17 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace BH.oM.Graphics
+namespace BH.oM.Geometry
 {
-    public class Gradient : BHoMObject
+    public interface IGeometricalRepresentationOptions : IRepresentationOptions
     {
-        /***************************************************/
-        /****            Public Properties              ****/
-        /***************************************************/
+        [Description("Scale of the Geometrical representation. E.g. for a Point, the scale of the resulting sphere.")]
+        int Scale { get; set; }
 
-        [Description("A SortedDictionary of 'Color's using a 'decimal' between 0 and 1 as Key. Is used to get a interpolated 'Color' from a value between 0 and 1")]
-        public virtual SortedDictionary<decimal, Color> Markers { get; set; } = new SortedDictionary<decimal, Color>();
-        
-
-        /***************************************************/
-
+        Color Colour { get; set; }
     }
 }
-
 
