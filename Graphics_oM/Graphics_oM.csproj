@@ -55,6 +55,9 @@
     <Compile Include="Fragments\IRepresentationFragment.cs" />
     <Compile Include="Fragments\RelationRepresentation.cs" />
     <Compile Include="Misc\Padding.cs" />
+    <Compile Include="Render\IRender.cs" />
+    <Compile Include="Render\RenderGeometry.cs" />
+    <Compile Include="Render\RenderText.cs" />
     <Compile Include="Render\RepresentationOptions.cs" />
     <Compile Include="Render\RenderMeshOptions.cs" />
     <Compile Include="Render\RenderMesh.cs" />
