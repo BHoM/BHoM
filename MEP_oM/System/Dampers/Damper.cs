@@ -32,7 +32,7 @@ using System.Collections.Generic;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a duct system (fire smoke damper, volume damper, etc.)")]
-    public class Damper : BHoMObject, ICoincident, IElementM, IElementF
+    public class Damper : BHoMObject, ICoincident, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/

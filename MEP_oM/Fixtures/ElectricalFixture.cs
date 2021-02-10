@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to convey electricity e.g. duplex sockets/receptacles, disconnect/isolator switches (for electrified mechanical equipment), floors boxes.")]
-    public class ElectricalFixture : BHoMObject, IElement0D, IElementF, IElementM
+    public class ElectricalFixture : BHoMObject, IElement0D, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/

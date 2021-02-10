@@ -31,7 +31,7 @@ using System.Collections.Generic;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A type of damper used to control the flow of air in a mechanical system.")]
-    public class VolumeDamper : BHoMObject, ICoincident, IElementM, IElementF
+    public class VolumeDamper : BHoMObject, ICoincident, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/

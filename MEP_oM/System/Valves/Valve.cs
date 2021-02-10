@@ -32,7 +32,7 @@ using System.Collections.Generic;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a piping system (ball valve, check valve, etc.)")]
-    public class Valve : BHoMObject, ICoincident, IElementM
+    public class Valve : BHoMObject, ICoincident, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/
