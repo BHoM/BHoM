@@ -38,6 +38,9 @@ namespace BH.oM.MEP.Fragments
         [Pressure]
         [Description("The difference in total pressure between two points of a fluid carrying network.")]
         public virtual double PressureDrop { get; set; } = 0;
+
+        [Description("Measures the loss to the change in velocity due to friction through MEP elements.")]
+        public virtual double LossCoefficient { get; set; } = 0;
     }
 }
 
