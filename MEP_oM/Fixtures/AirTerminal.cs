@@ -31,7 +31,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to regulate the volume of air to or from an air handling unit, variable air volume device or similar, to or from the occupied space. These devices may be ducted or connect directly to a plenum, in which case no duct connection will be present.")]
-    public class AirTerminal : BHoMObject, IElement0D, IElementM, IElementC
+    public class AirTerminal : BHoMObject, IElement0D, IElementM, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -52,7 +52,7 @@ namespace BH.oM.MEP.Fixtures
         public virtual List<Duct> ConnectedElements { get; set; } = new List<Duct>();
 
         [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<ConsumptionFragment> Consumption { get; set; }
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }

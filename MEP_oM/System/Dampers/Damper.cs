@@ -32,7 +32,7 @@ using System.Collections.Generic;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a duct system (fire smoke damper, volume damper, etc.)")]
-    public class Damper : BHoMObject, ICoincident, IElementM, IElementC
+    public class Damper : BHoMObject, ICoincident, IElementM, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -54,12 +54,8 @@ namespace BH.oM.MEP.System.Dampers
         [Description("Controls the local plan orientation of the object.")]
         public virtual double OrientationAngle { get; set; } = 0;
 
-        [Pressure]
-        [Description("The difference in total pressure between two points of a fluid carrying network.")]
-        public virtual double PressureDrop { get; set; } = 0;
-
         [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<ConsumptionFragment> Consumption { get; set; }
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }

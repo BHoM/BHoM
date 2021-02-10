@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,21 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.MEP.Fragments;
-using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.MEP.Enums
 {
-    [Description("Enables Consumption based operations to be performed on elements that consume resources\n" +
-                 "Ensures the material composition of a physical object is represented, defined as proportions of discrete types of material forming the object's total solid volume.\n" +
-                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n" +
-                 "Documentation detailing required extension methods can be found here: https://github.com/BHoM/documentation/wiki/IElement-required-extension-methods")]
-    public interface IElementC : IObject
-    {
-        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        List<ConsumptionFragment> Consumption { get; set; }
-    }
-}
+    /***************************************************/
 
+    [Description("The type of Flow-based consumption being utilised by the object.")]
+    public enum FlowType
+    {
+        Undefined,
+        Air,
+        Fuel,
+        Power,
+        Refrigerant,
+        Water
+    }
+
+    /***************************************************/
+}

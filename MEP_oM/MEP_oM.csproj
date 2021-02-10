@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\FittingType.cs" />
-    <Compile Include="Enums\ConsumptionType.cs" />
+    <Compile Include="Enums\FlowType.cs" />
     <Compile Include="Enums\ProfileType.cs" />
     <Compile Include="Enums\DamperType.cs" />
     <Compile Include="Enums\ValveType.cs" />
@@ -55,7 +55,7 @@
     <Compile Include="Fixtures\FireAlarmDevice.cs" />
     <Compile Include="Fixtures\ElectricalFixture.cs" />
     <Compile Include="Fixtures\PlumbingFixture.cs" />
-    <Compile Include="Fragments\ConsumptionFragment.cs" />
+    <Compile Include="Fragments\FlowFragment.cs" />
     <Compile Include="Fragments\DimensionalFragment.cs" />
     <Compile Include="Fragments\PlumbingLoadingFixtureUnitFragment.cs" />
     <Compile Include="Fragments\PlumbingFlowFragment.cs" />
@@ -72,7 +72,7 @@
     <Compile Include="System\Dampers\Damper.cs" />
     <Compile Include="System\Dampers\VolumeDamper.cs" />
     <Compile Include="System\Duct.cs" />
-    <Compile Include="System\IElementC.cs" />
+    <Compile Include="System\IElementF.cs" />
     <Compile Include="System\ICoincident.cs" />
     <Compile Include="System\IFlow.cs" />
     <Compile Include="System\MaterialFragments\SystemMaterialFragment.cs" />

@@ -31,7 +31,7 @@ using System.Collections.Generic;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A type of damper used to control the flow of air in a mechanical system.")]
-    public class VolumeDamper : BHoMObject, ICoincident, IElementM
+    public class VolumeDamper : BHoMObject, ICoincident, IElementM, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -50,8 +50,8 @@ namespace BH.oM.MEP.System.Dampers
         [Description("Controls the local plan orientation of the object.")]
         public virtual double OrientationAngle { get; set; } = 0;
 
-        [Description("The difference in total pressure between two points of a fluid carrying network.")]
-        public virtual double PressureDrop { get; set; } = 0;
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }

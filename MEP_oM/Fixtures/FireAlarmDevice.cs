@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to warn building occupants of emergencies (smoke, fire, carbon monoxide) by means of audio or visual appliances (smoke detectors, speaker strobes, heat detectors.)")]
-    public class FireAlarmDevice : BHoMObject, IElement0D, IElementC
+    public class FireAlarmDevice : BHoMObject, IElement0D, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -49,7 +49,7 @@ namespace BH.oM.MEP.Fixtures
         public virtual FireAlarmDeviceType FireAlarmDeviceType { get; set; } = FireAlarmDeviceType.Undefined;
 
         [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<ConsumptionFragment> Consumption { get; set; }
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }

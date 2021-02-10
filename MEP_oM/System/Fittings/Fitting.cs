@@ -20,17 +20,17 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
-using BH.oM.Analytical.Elements;
 using BH.oM.MEP.Enums;
 using BH.oM.MEP.Fragments;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.MEP.System.ConnectionProperties
 {
     [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
-    public class Fitting : BHoMObject, IElement0D, ICoincident
+    public class Fitting : BHoMObject, IElement0D, ICoincident, IElementF
     {
         /***************************************************/
         /****                 Properties                ****/
@@ -44,6 +44,9 @@ namespace BH.oM.MEP.System.ConnectionProperties
 
         [Description("A DimensionalFragment containing spatial properties of the element.")]
         public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
+
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }

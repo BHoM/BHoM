@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,22 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.MEP.Fragments;
+using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.MEP.Enums
+namespace BH.oM.MEP.System
 {
-    /***************************************************/
-
-    [Description("The type of Consumption being utilised by the object.")]
-    public enum ConsumptionType
+    [Description("Enables Flow based operations to be performed on elements that transport resources through itself.\n" +
+                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n" +
+                 "Documentation detailing required extension methods can be found here: https://github.com/BHoM/documentation/wiki/IElement-required-extension-methods")]
+    public interface IElementF : IObject
     {
-        Undefined,
-        Air,
-        Fuel,
-        Power,
-        Refrigerant,
-        Water
     }
-
-    /***************************************************/
 }
+

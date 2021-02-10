@@ -23,16 +23,21 @@
 using BH.oM.Base;
 using BH.oM.MEP.Enums;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.MEP.Fragments
 {
-    public class ConsumptionFragment : IFragment
+    public class FlowFragment : IFragment
     {
         [Description("The type of Consumption being utilised by the object.")]
-        public virtual ConsumptionType Type { get; set; } = ConsumptionType.Undefined;
+        public virtual FlowType Type { get; set; } = FlowType.Undefined;
 
-        [Description("The rate of which the material is being consumed.")]
-        public virtual double ConsumptionRate { get; set; } = 0;
+        [Description("The rate of which the material is flowing through the object.")]
+        public virtual double FlowRate { get; set; } = 0;
+
+        [Pressure]
+        [Description("The difference in total pressure between two points of a fluid carrying network.")]
+        public virtual double PressureDrop { get; set; } = 0;
     }
 }
 

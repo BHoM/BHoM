@@ -32,7 +32,7 @@ using BH.oM.MEP.Fragments;
 
 namespace BH.oM.MEP.Equipment
 {
-    public class ElectricalEquipment : BHoMObject, IEquipment, IElement0D, IElementC
+    public class ElectricalEquipment : BHoMObject, IEquipment, IElement0D, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -52,7 +52,7 @@ namespace BH.oM.MEP.Equipment
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
 
         [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<ConsumptionFragment> Consumption { get; set; }
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }

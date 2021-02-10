@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to convey electricity e.g. duplex sockets/receptacles, disconnect/isolator switches (for electrified mechanical equipment), floors boxes.")]
-    public class ElectricalFixture : BHoMObject, IElement0D, IElementC, IElementM
+    public class ElectricalFixture : BHoMObject, IElement0D, IElementF, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -55,7 +55,7 @@ namespace BH.oM.MEP.Fixtures
         public virtual bool WeatherProof { get; set; } = false;
 
         [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<ConsumptionFragment> Consumption { get; set; }
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }

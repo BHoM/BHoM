@@ -46,6 +46,9 @@ namespace BH.oM.MEP.System
         [Description("The connections properties, such as if it's connected and to what.")]
         ConnectionProperty ConnectionProperty { get; set; }
 
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        List<FlowFragment> Flow { get; set; }
+
         /***************************************************/
     }
 }

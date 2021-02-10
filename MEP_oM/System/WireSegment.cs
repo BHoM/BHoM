@@ -31,7 +31,7 @@ using BH.oM.MEP.System.ConnectionProperties;
 namespace BH.oM.MEP.System
 {
     [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IElementM, IElementC, IFlow
+    public class WireSegment : BHoMObject, IElementM, IElementF, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -50,9 +50,9 @@ namespace BH.oM.MEP.System
         public virtual List<SectionProfile> SectionProfile { get; set; } = null;
 
         [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<ConsumptionFragment> Consumption { get; set; }
+        public virtual List<FlowFragment> Flow { get; set; }
 
-        [Description("The Cable Tray connections properties, such as if it's connected and to what.")]
+        [Description("The element's connection properties, such as if it's connected and to what.")]
         public virtual ConnectionProperty ConnectionProperty { get; set; } = null;
 
         /***************************************************/
