@@ -22,19 +22,20 @@
 
 
 using System.Collections.Generic;
+using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [ToBeRemoved("4.1", "Replaced with IReinforcementFragment interface.")]
-    public class ReinforcementFragment : IFragment
+    [Description("Base interface for reinforcement fragments.")]
+    public interface IReinforcementFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public virtual List<IReinforcingBar> ReinforcingBars { get; set; } = new List<IReinforcingBar>();
+        
+        [Description("List of physical reinforcement bars contained in the fragment.")]
+        List<IReinforcingBar> ReinforcingBars { get; set; }
 
         /***************************************************/
     }

@@ -21,20 +21,24 @@
  */
 
 
+using BH.oM.Spatial.Layouts;
 using System.Collections.Generic;
-using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [ToBeRemoved("4.1", "Replaced with IReinforcementFragment interface.")]
-    public class ReinforcementFragment : IFragment
+    [Description("Fragment containing physical reinforcement distrubuted along the host element.")]
+    public class LinearReinforcementFragment : IReinforcementFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        
+        [Description("List of physical reinforcement bars contained in the fragment.")]
+        public virtual List<IReinforcingBar> ReinforcingBars { get; set; }
 
-        public virtual List<IReinforcingBar> ReinforcingBars { get; set; } = new List<IReinforcingBar>();
+        [Description("Layout controlling the reinforcement alongside the host element.")]
+        public virtual LinearLayout Layout { get; set; }
 
         /***************************************************/
     }

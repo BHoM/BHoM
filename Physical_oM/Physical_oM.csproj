@@ -68,8 +68,12 @@
     <Compile Include="Materials\IMaterialProperties.cs" />
     <Compile Include="Elements\IOpening.cs" />
     <Compile Include="IPhysical.cs" />
+    <Compile Include="Reinforcement\FreeFormReinforcementFragment.cs" />
     <Compile Include="Reinforcement\IReinforcingBar.cs" />
+    <Compile Include="Reinforcement\LinearReinforcementFragment.cs" />
+    <Compile Include="Reinforcement\PlanarReinforcementFragment.cs" />
     <Compile Include="Reinforcement\PrimaryReinforcingBar.cs" />
+    <Compile Include="Reinforcement\IReinforcementFragment.cs" />
     <Compile Include="Reinforcement\ReinforcementFragment.cs" />
     <Compile Include="Reinforcement\Stirrup.cs" />
     <Compile Include="_Properties\AssemblyInfo.cs" />
