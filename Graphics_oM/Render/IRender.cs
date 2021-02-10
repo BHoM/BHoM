@@ -24,6 +24,7 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,5 +36,8 @@ namespace BH.oM.Graphics
 
     public interface IRender : IObject
     {
+
+        Color Colour { get; set; }
+
     }
 }

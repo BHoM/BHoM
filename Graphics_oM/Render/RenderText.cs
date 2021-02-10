@@ -34,7 +34,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Graphics
 {
     [Description("Render text at a location and orientation in space with specified height, font and colour.")]
-    public class TextRepresentation : IRender
+    public class RenderText : IRender
     {
 
         /***************************************************/
