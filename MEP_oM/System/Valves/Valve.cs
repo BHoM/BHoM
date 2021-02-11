@@ -32,7 +32,7 @@ using System.Collections.Generic;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a piping system (ball valve, check valve, etc.)")]
-    public class Valve : BHoMObject, ICoincident, IElementF
+    public class Valve : BHoMObject, ICoincident
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -44,7 +44,7 @@ namespace BH.oM.MEP.System.Dampers
         [Description("A DimensionalFragment containing spatial properties of the element.")]
         public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
 
-        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
+        [Description("The element section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
         public virtual List<SectionProfile> SectionProfile { get; set; } = null;
 
         [Angle]

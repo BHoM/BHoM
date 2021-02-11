@@ -32,7 +32,7 @@ using BH.oM.MEP.Fragments;
 
 namespace BH.oM.MEP.Equipment
 {
-    public class ElectricalEquipment : BHoMObject, IEquipment, IElement0D, IElementF
+    public class ElectricalEquipment : BHoMObject, IEquipment, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/

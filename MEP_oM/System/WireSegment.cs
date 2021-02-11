@@ -31,7 +31,7 @@ using BH.oM.MEP.System.ConnectionProperties;
 namespace BH.oM.MEP.System
 {
     [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IElementM, IElementF, IFlow
+    public class WireSegment : BHoMObject, IElementM, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/

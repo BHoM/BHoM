@@ -32,7 +32,7 @@ using BH.oM.MEP.Fragments;
 namespace BH.oM.MEP.System
 {
     [Description("A Cable Tray object is a passageway which conveys material (typically cables)")]
-    public class CableTray : BHoMObject, IElementM, IFlow, IElementF
+    public class CableTray : BHoMObject, IElementM, IFlow
     {
         /***************************************************/
         /****                 Properties                ****/

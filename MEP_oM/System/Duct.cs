@@ -33,7 +33,7 @@ using BH.oM.MEP.System.ConnectionProperties;
 namespace BH.oM.MEP.System
 {
     [Description("A duct object is a passageway which conveys material (typically air)")]
-    public class Duct : BHoMObject, IElement1D, IElementM, IElementF, IFlow
+    public class Duct : BHoMObject, IElement1D, IElementM, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/

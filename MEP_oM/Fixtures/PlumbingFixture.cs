@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to convey public health (plumbing) fluids (water, waste.)")]
-    public class PlumbingFixture : BHoMObject, IElement0D, IElementF
+    public class PlumbingFixture : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/

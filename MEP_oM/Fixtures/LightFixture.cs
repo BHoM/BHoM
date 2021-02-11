@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A light fixture is an electrical device that provides illumination.")]
-    public class LightFixture : BHoMObject, IElement0D, IElementF
+    public class LightFixture : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/

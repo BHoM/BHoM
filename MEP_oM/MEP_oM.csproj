@@ -72,7 +72,6 @@
     <Compile Include="System\Dampers\Damper.cs" />
     <Compile Include="System\Dampers\VolumeDamper.cs" />
     <Compile Include="System\Duct.cs" />
-    <Compile Include="System\IElementF.cs" />
     <Compile Include="System\ICoincident.cs" />
     <Compile Include="System\IFlow.cs" />
     <Compile Include="System\MaterialFragments\SystemMaterialFragment.cs" />

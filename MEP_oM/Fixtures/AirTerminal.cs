@@ -31,7 +31,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to regulate the volume of air to or from an air handling unit, variable air volume device or similar, to or from the occupied space. These devices may be ducted or connect directly to a plenum, in which case no duct connection will be present.")]
-    public class AirTerminal : BHoMObject, IElement0D, IElementF
+    public class AirTerminal : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/

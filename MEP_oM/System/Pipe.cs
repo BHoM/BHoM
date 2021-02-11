@@ -31,7 +31,7 @@ using BH.oM.MEP.System.ConnectionProperties;
 namespace BH.oM.MEP.System
 {
     [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IElementM, IElementF, IFlow
+    public class Pipe : BHoMObject, IElementM, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/

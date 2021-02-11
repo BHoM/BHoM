@@ -31,7 +31,7 @@ using System.Collections.Generic;
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A type of damper used to control the flow of air in a mechanical system.")]
-    public class VolumeDamper : BHoMObject, ICoincident, IElementF
+    public class VolumeDamper : BHoMObject, ICoincident
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -43,7 +43,7 @@ namespace BH.oM.MEP.System.Dampers
         [Description("A DimensionalFragment containing spatial properties of the element.")]
         public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
 
-        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
+        [Description("The element section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
         public virtual List<SectionProfile> SectionProfile { get; set; } = null;
 
         [Angle]

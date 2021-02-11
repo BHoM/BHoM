@@ -32,7 +32,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to warn building occupants of emergencies (smoke, fire, carbon monoxide) by means of audio or visual appliances (smoke detectors, speaker strobes, heat detectors.)")]
-    public class FireAlarmDevice : BHoMObject, IElement0D, IElementF
+    public class FireAlarmDevice : BHoMObject, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/

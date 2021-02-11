@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.MEP.System.ConnectionProperties
 {
     [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
-    public class Fitting : BHoMObject, IElement0D, ICoincident, IElementF
+    public class Fitting : BHoMObject, IElement0D, ICoincident
     {
         /***************************************************/
         /****                 Properties                ****/
