@@ -24,7 +24,7 @@ using BH.oM.Base;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    public interface IScope : IFragment
+    public interface IScope : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
