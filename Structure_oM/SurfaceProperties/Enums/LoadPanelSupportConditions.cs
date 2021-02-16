@@ -26,6 +26,7 @@ namespace BH.oM.Structure.SurfaceProperties
     public enum LoadPanelSupportConditions
     {
         AllSides,
+        Auto,
         ThreeSides,
         TwoSides,
         TwoAdjacentSides,
