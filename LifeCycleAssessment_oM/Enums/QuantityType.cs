@@ -30,10 +30,9 @@ namespace BH.oM.LifeCycleAssessment
         Item,
         Length,
         Mass,
-        Watt,
         VoltAmps,
         Volume,
-        VolumetricFlowRate
+        VolumetricFlowRate,
+        Watt,
     }
 }
-
