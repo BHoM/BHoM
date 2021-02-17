@@ -32,7 +32,7 @@ using System.Collections.Generic;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Gives the total GlobalWarmingPotential of an object based on its EnvironmentalProductDeclaration.")]
-    public class GlobalWarmingPotentialResult : LifeCycleAssessmentElementResult
+    public class GlobalWarmingPotentialResult : LifeCycleAssessmentElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
