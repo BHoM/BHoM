@@ -26,22 +26,23 @@ using System.ComponentModel;
 
 namespace BH.oM.Graphics.Colours
 {
+    [Description("Defines options for range and centering for a Gradient.")]
     public class GradientOptions : IObject
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("The Gradient to colour by")]
+        [Description("The Gradient to colour by.")]
         public virtual Gradient Gradient { get; set; } = null;
 
-        [Description("Lower bound of colour gradient, auto-generated if 'NaN'")]
+        [Description("The lower bound of the Gradient. Leave empty to allow other methods to set automatically.")]
         public virtual double From { get; set; } = double.NaN;
 
-        [Description("Upper bound of colour gradient, auto-generated if 'NaN'")]
+        [Description("The upper bound of the Gradient. Leave empty to allow other methods to set automatically.")]
         public virtual double To { get; set; } = double.NaN;
 
-        [Description("Either centre to & from around 0, or make the midpoint of the gradient relate to 0 while the ends still relate to to & from")]
+        [Description("A GradientCenteringOptions enum to set centering options. Defaults to no centering.")]
         public virtual GradientCenteringOptions GradientCenteringOptions { get; set; } = GradientCenteringOptions.None;
 
         /***************************************************/
