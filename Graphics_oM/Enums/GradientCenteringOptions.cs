@@ -24,14 +24,14 @@ using System.ComponentModel;
 
 namespace BH.oM.Graphics.Enums
 {
-    [Description("Either centre to & from around 0, or make the midpoint of the gradient relate to 0 while the ends still relate to to & from")]
+    [Description("Either do not centre the range of the gratient, centre To and From around 0, or make the midpoint of the gradient relate to 0 while the ends still relate to To and From.")]
     public enum GradientCenteringOptions
     {
-        [Description("No change to the gradient")]
+        [Description("No change to the gradient.")]
         None,
-        [Description("Zero value is forced to mid point of range by using symmetric extreme values")]
+        [Description("Zero value is forced to mid point of range by using symmetric extreme values.")]
         Symmetric,
-        [Description("Make the midpoint of the gradient relate to 0 while the ends still relate to To & From")]
+        [Description("Make the midpoint of the gradient relate to 0 while the ends still relate to To & From.")]
         Asymmetric
     }
 }
