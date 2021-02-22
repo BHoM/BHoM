@@ -25,6 +25,8 @@ using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Analytical.Elements;
 using System.ComponentModel;
+using System.Collections.Generic;
+using BH.oM.Environment.Results;
 
 namespace BH.oM.Environment.Analysis
 {
@@ -40,6 +42,9 @@ namespace BH.oM.Environment.Analysis
 
         [Description("An ID for this node to identify it within result lists and on an analysis grid. ID should be unique and not shared with other nodes in the same grid")]
         public virtual int ID { get; set; } = -1;
+
+        [Description("A list of TimeIndexResults for nodes with time dependent results")]
+        public virtual List<TimeIndexResult> Results { get; set; } = new List<TimeIndexResult>();
 
         /***************************************************/
         /**** Explicit Casting                          ****/
