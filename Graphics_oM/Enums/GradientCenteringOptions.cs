@@ -24,7 +24,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Graphics.Enums
 {
-    [Description("Either do not centre the range of the gratient, centre To and From around 0, or make the midpoint of the gradient relate to 0 while the ends still relate to To and From.")]
+    [Description("Either do not centre the range of the gradient, centre To and From around 0, or make the midpoint of the gradient relate to 0 while the ends still relate to To and From.")]
     public enum GradientCenteringOptions
     {
         [Description("No change to the gradient.")]
