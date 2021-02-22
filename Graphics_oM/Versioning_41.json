@@ -1,0 +1,22 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+    "BH.oM.Graphics.GradientOptions": "BH.oM.Graphics.Colours.GradientOptions",
+    "BH.oM.Graphics.GradientCenteringOptions": "BH.oM.Graphics.Enums.GradientOptions"
+    },
+    "ToOld": {
+    }
+  },
+  "Property": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  }
+}
