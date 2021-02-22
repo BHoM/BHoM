@@ -22,6 +22,7 @@
 
 
 using BH.oM.Base;
+using System;
 using System.ComponentModel;
 
 namespace BH.oM.Humans.ViewQuality
@@ -34,11 +35,14 @@ namespace BH.oM.Humans.ViewQuality
 
         public virtual CvalueFocalMethodEnum FocalMethod { get; set; } = CvalueFocalMethodEnum.Undefined;
 
-        [Description("Value assigned to speatators where Cvalue cannot be calculated, for example on a front row")]
+        [Description("Value assigned to spectators where Cvalue cannot be calculated, for example on a front row.")]
         public virtual double DefaultCValue { get; set; } =  0;
 
-        [Description("Row tolerance is used to identify discontinuities in the spectators such as a gap between tiers")]
+        [Description("Row tolerance is used to identify discontinuities in the spectators such as a gap between tiers.")]
         public virtual double RowTolerance  { get; set; } =  2;
+
+        [Description("View cone angle in radians. Default is approximately 2.0944 radians or 120 degrees. Field of view for a spectator, within which spectators in front are consider to be effectively blocking the view and used for the Cvalue calcualtion. ")]
+        public virtual double ViewConeAngle { get; set; } = Math.PI * 2/3;
 
         /***************************************************/
     }
