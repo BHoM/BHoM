@@ -64,6 +64,8 @@
     <Compile Include="Elements\Space.cs" />
     <Compile Include="Fragments\AnalyticalConstruction.cs" />
     <Compile Include="Fragments\LightReflectanceFragment.cs" />
+    <Compile Include="Results\IAnalysisResult.cs" />
+    <Compile Include="Results\TimeIndexResult.cs" />
     <Compile Include="SpaceCriteria\Acoustics.cs" />
     <Compile Include="SpaceCriteria\Enums\EmitterType.cs" />
     <Compile Include="SpaceCriteria\Enums\ProfileDay.cs" />
