@@ -48,7 +48,7 @@ namespace BH.oM.Graphics
 
         public virtual Cartesian Cartesian { get; set; } = new Cartesian();
 
-        [Description("Height of the text. Default is 1.")]
+        [Description("Height of the text. Default is 1. Units will be determined by the setting of the user interface that renders the text.")]
 
         public virtual double Height { get; set; } = 1;
 
