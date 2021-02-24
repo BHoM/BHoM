@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,10 +21,23 @@
  */
 
 using BH.oM.Base;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    public interface IAnalysisResult : IBHoMObject
+    [Description("A results object containing UTCI temperature data")]
+    public class UniversalThermalClimateIndexTemperatureResult : TemperatureResult
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("The value associated with the results object")]
+        public override List<double> Result { get; set; } = new List<double>();
+
+        /***************************************************/
     }
 }
+
+
