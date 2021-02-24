@@ -1,4 +1,4 @@
-ï»¿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,11 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using System;
 
-namespace BH.oM.Environment.Results
+namespace BH.oM.Quantities.Attributes
 {
-    public interface IAnalysisResult : IBHoMObject
+    [AttributeUsage(AttributeTargets.Property)]
+    public class EnergyPerUnitArea : QuantityAttribute
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public override int M { get; } = 1;
+
+        public override int T { get; } = -3;
+
+        public override string SIUnit { get; } = "W/m²";
+
+        /***************************************************/
     }
 }
+
+
