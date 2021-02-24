@@ -39,7 +39,7 @@ namespace BH.oM.Graphics
         [Description("A geometry (or many geometry objects collected into a single `CompositeGeometry` object).")]
         public virtual IGeometry Geometry { get; set; }
 
-        [Description("Colour used to render the Geometry. Default is Color.FromArgb(80, 255, 41, 105) BHoM pink.")]
+        [Description("Colour used to render the Geometry. Default is BHoM pink (Color.FromArgb(80, 255, 41, 105)).")]
         public virtual Color Colour { get; set; } = Color.FromArgb(80, 255, 41, 105);
 
         /***************************************************/
