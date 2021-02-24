@@ -31,13 +31,9 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics
 {
-
     [Description("Base interface for rendered objects.")]
-
     public interface IRender : IObject
     {
-
         Color Colour { get; set; }
-
     }
 }
