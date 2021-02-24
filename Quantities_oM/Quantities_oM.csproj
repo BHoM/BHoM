@@ -50,6 +50,9 @@
     <Compile Include="Attributes\Abstract\QuantityAttribute.cs" />
     <Compile Include="Attributes\Density.cs" />
     <Compile Include="Attributes\ElectricCurrent.cs" />
+    <Compile Include="Attributes\SpecificEnergy.cs" />
+    <Compile Include="Attributes\EnergyPerUnitArea.cs" />
+    <Compile Include="Attributes\EnergyPerUnitTime.cs" />
     <Compile Include="Attributes\Energy.cs" />
     <Compile Include="Attributes\Force.cs" />
     <Compile Include="Attributes\ForcePerUnitLength.cs" />
