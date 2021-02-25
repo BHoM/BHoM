@@ -51,16 +51,16 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual string GravityStructuralMaterial { get; } = "";
 
         [Description("The project total GlobalWarmingPotential (kgCO2e).")]
-        public virtual double Gwp { get; } = double.NaN;
+        public virtual double GlobalWarmingPotential { get; } = double.NaN;
 
         [Description("The project's GWP/m2 (kgCO2e/m2).")]
-        public virtual double GwpPerArea { get; } = double.NaN;
+        public virtual double GlobalWarmingPotentialPerArea { get; } = double.NaN;
 
         [Description("The primary structural system providing lateral support for the building.")]
         public virtual string LateralStructuralMaterial { get; } = "";
 
         [Description("Phases included in the LCA concatenated (A1A2A3).")]
-        public virtual string LcaPhases { get; } = "";
+        public virtual string Phases { get; } = "";
 
         [Description("Typically a term utilised in BIM practices to clearly identify the scope of work being account for. Equivalents for LOD classifications can offen times be linked to design and construction phases common to the projects locale.")]
         public virtual string LevelOfDevelopment { get; } = "";
@@ -70,7 +70,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual double ProjectArea { get; } = double.NaN;
 
         [Description("The project's unique identifier.")]
-        public virtual string ProjectId { get; } = "";
+        public virtual string ProjectID { get; } = "";
 
         [Description("The project's location in Lat Long format.")]
         public virtual string ProjectLocation { get; } = "";
@@ -81,7 +81,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("A general classification of the buildings primary function. This value is for categorisation purposes only and will not effect the overall results.")]
         public virtual string ProjectType { get; } = "";
 
-        [Description("Id of the BHoMObject that this result belongs to.")]
+        [Description("ID of the BHoMObject that this result belongs to.")]
         public virtual IComparable ObjectId { get; } = "";
 
         [Description("Identifier for the case evaluated, e.g. GlobalWarmingPotential or Acidification")]
@@ -90,8 +90,8 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Time step for time history results (This is unlikely for LCA).")]
         public virtual double TimeStep { get; } = 0.0;
 
-        [Description("Time step for time history results (This is unlikely for LCA).")]
-        public virtual string Date { get; } = "";
+        [Description("Time that the result was generated.")]
+        public virtual System.DateTime DateTime { get; } = System.DateTime.Now;
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -115,34 +115,32 @@ namespace BH.oM.LifeCycleAssessment.Results
                                 IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
-                                string date)
+                                DateTime date)
         {
             BuildingLifespan = buildingLifespan;
             ConstructionScope = constructionScope;
             ContactName = contactName;
             ElementScope = elementScope;
             GravityStructuralMaterial = gravityStructuralMaterial;
-            Gwp = gwp;
-            GwpPerArea = gwpPerArea;
+            GlobalWarmingPotential = gwp;
+            GlobalWarmingPotentialPerArea = gwpPerArea;
             LateralStructuralMaterial = lateralStructuralMaterial;
-            LcaPhases = lcaPhases;
+            Phases = lcaPhases;
             LevelOfDevelopment = levelOfDevelopment;
             ProjectArea = projectArea;
-            ProjectId = projectId;
+            ProjectID = projectId;
             ProjectLocation = projectLocation;
             ProjectName = projectName;
             ProjectType = projectType;
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
-            Date = date;
+            DateTime = date;
         }
 
         /***************************************************/
         /**** IComparable Interface                     ****/
         /***************************************************/
-
-        // TODO - Edit
 
         [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, Scope, Category, TimeStep")]
         public int CompareTo(IResult other)
