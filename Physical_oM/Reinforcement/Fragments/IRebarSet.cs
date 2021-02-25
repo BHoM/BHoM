@@ -21,23 +21,22 @@
  */
 
 
-using System.Collections.Generic;
-using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Physical.Elements;
+using System.ComponentModel;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [Description("Base interface for reinforcement fragments.")]
-    public interface IReinforcementFragment : IFragment
+    [Description("Base interface for rebar sets.")]
+    public interface IRebarSet : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        
-        [Description("List of physical reinforcement bars contained in the fragment.")]
-        List<IReinforcingBar> ReinforcingBars { get; set; }
+
+        [Description("Main function of reinforcement in the set.")]
+        ReinforcementFunction Function { get; set; }
 
         /***************************************************/
     }
 }
-

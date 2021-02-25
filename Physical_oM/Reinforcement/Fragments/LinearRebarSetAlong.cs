@@ -21,22 +21,42 @@
  */
 
 
-using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Physical.Elements;
+using BH.oM.Physical.Materials;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Spatial.Layouts;
+using System.ComponentModel;
+
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [ToBeRemoved("4.1", "Replaced with IReinforcementFragment interface.")]
-    public class ReinforcementFragment : IFragment
+    [Description("Parametric set of physical bars distributed along the 1D host element. This is a physical equivalent of a structural LongitudinalReinforcement class.")]
+    public class LinearRebarSetAlong : BHoMObject, IParametricRebarSet
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<IReinforcingBar> ReinforcingBars { get; set; } = new List<IReinforcingBar>();
+        [Description("Main function of reinforcement in the set.")]
+        public ReinforcementFunction Function { get; set; }
+
+        [Length]
+        [Description("Diameter of a single rebar.")]
+        public double Diameter { get; set; }
+
+        public Material Material { get; set; }
+
+        [Description("Normalised length (0 means start, 1 means end) along the element where the rebars start.")]
+        public double StartLocation { get; set; }
+
+        [Description("Normalised length (0 means start, 1 means end) along the element where the rebars ends.")]
+        public double EndLocation { get; set; }
+
+        [Description("Layout controlling the distribution of the rebars across the host's section.")]
+        public ILayout2D RebarLayout { get; set; }
 
         /***************************************************/
+
     }
 }
-

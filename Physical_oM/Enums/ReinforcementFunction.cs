@@ -19,28 +19,17 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+ 
 
-
-using BH.oM.Spatial.Layouts;
-using System.Collections.Generic;
-using System.ComponentModel;
-
-namespace BH.oM.Physical.Reinforcement
+namespace BH.oM.Physical.Elements
 {
-    [Description("Fragment containing physical reinforcement distrubuted along the host element.")]
-    public class PlanarReinforcementFragment : IReinforcementFragment
+    public enum ReinforcementFunction
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        
-        [Description("List of physical reinforcement bars contained in the fragment.")]
-        public virtual List<IReinforcingBar> ReinforcingBars { get; set; }
-
-        [Description("Layout controlling the reinforcement distribution across the host element.")]
-        public virtual ILayout2D Layout { get; set; }
-
-        /***************************************************/
+        Undefined,
+        Primary,
+        Stirrups,
+        Anchoring,
     }
 }
+
 

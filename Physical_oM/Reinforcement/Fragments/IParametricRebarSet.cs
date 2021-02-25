@@ -21,26 +21,28 @@
  */
 
 
-using BH.oM.Spatial.Layouts;
-using System.Collections.Generic;
+using BH.oM.Base;
+using BH.oM.Physical.Elements;
+using BH.oM.Physical.Materials;
+using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
+
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [Description("Fragment containing physical reinforcement distrubuted along the host element.")]
-    public class LinearReinforcementFragment : IReinforcementFragment
+    [Description("Base interface for parametric rebar sets.")]
+    public interface IParametricRebarSet : IRebarSet
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        
-        [Description("List of physical reinforcement bars contained in the fragment.")]
-        public virtual List<IReinforcingBar> ReinforcingBars { get; set; }
 
-        [Description("Layout controlling the reinforcement alongside the host element.")]
-        public virtual LinearLayout Layout { get; set; }
+        [Length]
+        [Description("Diameter of a single rebar.")]
+        double Diameter { get; set; }
+
+        Material Material { get; set; }
 
         /***************************************************/
     }
 }
-
