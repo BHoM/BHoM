@@ -56,7 +56,7 @@ namespace BH.oM.Graphics
 
         public virtual string FontName { get; set; } = "Arial";
 
-        [Description("Colour used to render the text. Default is BHoM pink (Color.FromArgb(80, 255, 41, 105)).")]
+        [Description("Colour used to render the text. Default is BHoM Coral with a subtle transparency (Color.FromArgb(80, 255, 41, 105)).")]
 
         public virtual Color Colour { get; set; } = Color.FromArgb(80, 255, 41, 105);
 
