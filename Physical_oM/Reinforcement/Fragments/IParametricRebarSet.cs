@@ -21,8 +21,6 @@
  */
 
 
-using BH.oM.Base;
-using BH.oM.Physical.Elements;
 using BH.oM.Physical.Materials;
 using BH.oM.Quantities.Attributes;
 using System.ComponentModel;

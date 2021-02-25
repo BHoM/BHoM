@@ -22,16 +22,19 @@
 
 
 using System.Collections.Generic;
+using System.ComponentModel;
 using BH.oM.Base;
 
 namespace BH.oM.Physical.Reinforcement
 {
+    [Description("Fragment containing the reinforcement of physical elements.")]
     public class ReinforcementFragment : IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("List of rebar sets hosted by the element.")]
         public virtual List<IRebarSet> RebarSets { get; set; } = new List<IRebarSet>();
 
         /***************************************************/
