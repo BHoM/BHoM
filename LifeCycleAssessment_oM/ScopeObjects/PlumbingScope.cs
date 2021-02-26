@@ -28,7 +28,7 @@ using BH.oM.Dimensional;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Plumbing Scope provides a template for expected objects to be assessed within the MEPScope")]
-    public class PlumbingScope : BHoMObject
+    public class PlumbingScope : BHoMObject, IScope
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -25,11 +25,14 @@ namespace BH.oM.LifeCycleAssessment
     public enum QuantityType
     {
         Undefined,
+        Ampere,
         Area,
         Item,
         Length,
         Mass,
-        Volume
+        VoltAmps,
+        Volume,
+        VolumetricFlowRate,
+        Watt,
     }
 }
-

@@ -26,7 +26,7 @@ using BH.oM.Base;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("The MEP Scope object provides a template for expected objects to be assessed within this Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment")]
-    public class MEPScope : BHoMObject
+    public class MEPScope : BHoMObject, IScope
     {
         /***************************************************/
         /**** Properties                                ****/

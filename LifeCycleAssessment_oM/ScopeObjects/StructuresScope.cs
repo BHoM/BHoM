@@ -28,7 +28,7 @@ using BH.oM.Dimensional;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("The Structures Scope object provides a template for expected objects commonly assessed within Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment.")]
-    public class StructuresScope : BHoMObject
+    public class StructuresScope : BHoMObject, IScope
     {
         /***************************************************/
         /**** Properties                                ****/

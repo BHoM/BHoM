@@ -28,12 +28,15 @@ using BH.oM.Dimensional;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("The Foundations Scope object provides a template for expected objects commonly assessed within Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment.")]
-    public class FoundationsScope : BHoMObject
+    public class FoundationsScope : BHoMObject, IScope
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        
+
+        [Description("Foundation columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
+        public virtual List<IElementM> Columns { get; set; } = new List<IElementM>();
+
         [Description("Foundation footings (or pile caps) are mats below the buildings piles that help to distribute the load from the structure above")]
         public virtual List<IElementM> Footings { get; set; } = new List<IElementM>();
         
