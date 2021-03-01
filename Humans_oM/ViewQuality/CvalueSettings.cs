@@ -38,10 +38,10 @@ namespace BH.oM.Humans.ViewQuality
         [Description("Value assigned to spectators where Cvalue cannot be calculated, for example on a front row.")]
         public virtual double DefaultCValue { get; set; } =  0;
 
-        [Description("Row tolerance is used to identify discontinuities in the spectators such as a gap between tiers.")]
-        public virtual double RowTolerance  { get; set; } =  2;
+        [Description("The distance from a spectator to the far clipping plane of their view frustum. Spectators in front of this plane will not be used in the Cvalue calculation.")]
+        public virtual double FarClippingPlaneDistance  { get; set; } =  2;
 
-        [Description("View cone angle in radians. Default is approximately 2.0944 radians or 120 degrees. Field of view for a spectator, within which spectators in front are consider to be effectively blocking the view and used for the Cvalue calcualtion. ")]
+        [Description("Spectator view cone angle in radians. Default is approximately 2.0944 radians or 120 degrees. Field of view for a spectator, within which spectators in front are consider to be effectively blocking the view and used for the Cvalue calcualtion. ")]
         public virtual double ViewConeAngle { get; set; } = Math.PI * 2/3;
 
         /***************************************************/
