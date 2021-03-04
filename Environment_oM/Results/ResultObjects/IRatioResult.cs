@@ -21,26 +21,13 @@
  */
 
 using BH.oM.Base;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
     [Description("A results object containing ratio data")]
-    public class RatioResult : BHoMObject, IAnalysisResult
+    public interface IRatioResult : IBHoMObject, IAnalysisResult
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        [Description("The unit measurement for the results object")]
-        public virtual Quantities.Attributes.Ratio Unit { get; } = new Quantities.Attributes.Ratio();
-
-        [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
-
-        /***************************************************/
     }
 }
-
-
