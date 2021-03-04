@@ -23,18 +23,20 @@
 using BH.oM.Base;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Results
 {
     [Description("A results object containing relative humidity data")]
-    public class HumidityRatioResult : RatioResult
+    public class HumidityRatioResult : BHoMObject, IRatioResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Ratio]
         [Description("The value associated with the results object")]
-        public override List<double> Result { get; set; } = new List<double>();
+        public virtual List<double> Result { get; set; } = new List<double>();
 
         /***************************************************/
     }

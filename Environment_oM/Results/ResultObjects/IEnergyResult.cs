@@ -27,21 +27,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing energy-flux data")]
-    public class EnergyPerUnitAreaResult : BHoMObject, IAnalysisResult
+    [Description("A results object containing energy/power data")]
+    public interface IEnergyResult : IBHoMObject, IAnalysisResult
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        [Description("The unit measurement for the results object")]
-        public virtual QuantityAttribute Unit { get; } = new EnergyPerUnitArea();
-
-        [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
-
-        /***************************************************/
     }
 }
-
-
