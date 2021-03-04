@@ -21,10 +21,12 @@
  */
 
 using BH.oM.Base;
+using System.Collections.Generic;
 
 namespace BH.oM.Environment.Results
 {
     public interface IAnalysisResult : IBHoMObject
     {
+        List<double> Result { get; set; }
     }
 }

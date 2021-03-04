@@ -27,14 +27,14 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Results
 {
     [Description("A results object containing radiant temperature data")]
-    public class DryBulbTemperatureResult : TemperatureResult
+    public class DryBulbTemperatureResult : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("The value associated with the results object")]
-        public override List<double> Result { get; set; } = new List<double>();
+        public virtual List<double> Result { get; set; } = new List<double>();
 
         /***************************************************/
     }
