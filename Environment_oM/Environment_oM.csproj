@@ -89,7 +89,7 @@
     <Compile Include="Results\ResultObjects\WetBulbTemperatureResult.cs" />
     <Compile Include="Results\ResultObjects\MeanRadiantTemperatureResult.cs" />
     <Compile Include="Results\ResultObjects\RelativeHumidityResult.cs" />
-    <Compile Include="Results\ResultObjects\TemperatureResult.cs" />
+    <Compile Include="Results\ResultObjects\ITemperatureResult.cs" />
     <Compile Include="Results\ResultObjects\IlluminanceResult.cs" />
     <Compile Include="Results\TimeIndexResult.cs" />
     <Compile Include="SpaceCriteria\Acoustics.cs" />

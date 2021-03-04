@@ -24,17 +24,20 @@ using BH.oM.Base;
 using System.Collections.Generic;
 using System.ComponentModel;
 
+using BH.oM.Quantities.Attributes;
+
 namespace BH.oM.Environment.Results
 {
     [Description("A results object containing radiant temperature data")]
-    public class MeanTemperatureResult : TemperatureResult
+    public class MeanTemperatureResult : BHoMObject, ITemperatureResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Temperature]
         [Description("The value associated with the results object")]
-        public override List<double> Result { get; set; } = new List<double>();
+        public virtual List<double> Result { get; set; } = new List<double>();
 
         /***************************************************/
     }
