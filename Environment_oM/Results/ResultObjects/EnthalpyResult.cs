@@ -20,20 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
     [Description("A results object containing specific energy data")]
-    public class EnthalpyResult : SpecificEnergyResult
+    public class EnthalpyResult : BHoMObject, ISpecificEnergyResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [SpecificEnergy]
         [Description("The value associated with the results object")]
-        public override List<double> Result { get; set; } = new List<double>();
+        public virtual List<double> Result { get; set; } = new List<double>();
 
         /***************************************************/
     }

@@ -23,24 +23,21 @@
 using BH.oM.Base;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing angle data")]
-    public class AngleResult : BHoMObject, IAnalysisResult
+    [Description("A results object containing power data")]
+    public class PowerResult : BHoMObject, IEnergyPerUnitTimeResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The unit measurement for the results object")]
-        public virtual Quantities.Attributes.Angle Unit { get; } = new Quantities.Attributes.Angle();
-
+        [EnergyPerUnitTime]
         [Description("The value associated with the results object")]
         public virtual List<double> Result { get; set; } = new List<double>();
 
         /***************************************************/
     }
 }
-
-

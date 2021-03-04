@@ -21,26 +21,13 @@
  */
 
 using BH.oM.Base;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
     [Description("A results object containing velocity data")]
-    public class SpecificEnergyResult : BHoMObject, IAnalysisResult
+    public interface ISpecificEnergyResult : IBHoMObject, IAnalysisResult
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        [Description("The unit measurement for the results object")]
-        public virtual Quantities.Attributes.SpecificEnergy Unit { get; } = new Quantities.Attributes.SpecificEnergy();
-
-        [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
-
-        /***************************************************/
     }
 }
-
-

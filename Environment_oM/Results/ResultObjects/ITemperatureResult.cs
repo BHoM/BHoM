@@ -20,11 +20,9 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using BH.oM.Quantities.Attributes;
+
+using BH.oM.Base;
 
 namespace BH.oM.Environment.Results
 {
@@ -35,5 +33,3 @@ namespace BH.oM.Environment.Results
 
     }
 }
-
-

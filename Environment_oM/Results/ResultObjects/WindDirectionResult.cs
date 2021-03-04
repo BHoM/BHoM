@@ -23,20 +23,22 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+
 namespace BH.oM.Environment.Results
 {
     [Description("A results object containing wind-direction data")]
-    public class WindDirectionResult : AngleResult
+    public class WindDirectionResult : BHoMObject, IAngleResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Angle]
         [Description("The value associated with the results object")]
-        public override List<double> Result { get; set; } = new List<double>();
+        public virtual List<double> Result { get; set; } = new List<double>();
 
         /***************************************************/
     }
 }
-
-
