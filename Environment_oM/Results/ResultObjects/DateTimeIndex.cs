@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,14 +20,15 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
+
 using BH.oM.Base;
-using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing velocity data")]
-    public interface ISpecificEnergyResult : IBHoMObject, IAnalysisResult
+    public class DateTimeIndex : BHoMObject
     {
-
+        public virtual List<DateTime> Values { get; set; } = new List<DateTime>();
     }
 }

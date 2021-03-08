@@ -20,23 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System.Collections.Generic;
 using System.ComponentModel;
+
+using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing illuminance data")]
-    public class IlluminanceResult : BHoMObject, IAnalysisResult
+    [Description("A results object containing dew-point temperature data")]
+    public class DewPointTemperatureResult : BHoMObject, ITemperatureResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Quantities.Attributes.Illuminance] // TODO - for some reason not including traceback to Quantities results in error here
+        [Temperature]
         [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
+        public virtual double Result { get; set; } = new double();
 
         /***************************************************/
     }

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,23 +21,12 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing energy-flux data")]
-    public class DiffuseHorizontalRadiationResult : BHoMObject, IEnergyPerUnitAreaResult
+    public interface IAnalysisResult : IBHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [EnergyPerUnitArea]
-        [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
-
-        /***************************************************/
+        double Result { get; set; }
     }
 }

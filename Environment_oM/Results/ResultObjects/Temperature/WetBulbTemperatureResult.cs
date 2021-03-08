@@ -20,15 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System.Collections.Generic;
 using System.ComponentModel;
+
+using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing UTCI temperature data")]
-    public class UniversalThermalClimateIndexTemperatureResult : BHoMObject, ITemperatureResult
+    [Description("A results object containing wet-bulb temperature data")]
+    public class WetBulbTemperatureResult : BHoMObject, ITemperatureResult
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -36,7 +37,7 @@ namespace BH.oM.Environment.Results
 
         [Temperature]
         [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
+        public virtual double Result { get; set; } = new double();
 
         /***************************************************/
     }
