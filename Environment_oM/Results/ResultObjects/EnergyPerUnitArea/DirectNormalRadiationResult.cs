@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,12 +21,23 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    public interface IAnalysisResult : IBHoMObject
+    [Description("A results object containing direct normal radiation data")]
+    public class DirectNormalRadiationResult : BHoMObject, IEnergyPerUnitAreaResult
     {
-        List<double> Result { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [EnergyPerUnitArea]
+        [Description("The value associated with the results object")]
+        public virtual double Result { get; set; } = new double();
+
+        /***************************************************/
     }
 }

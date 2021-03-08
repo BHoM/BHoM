@@ -20,25 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using System.ComponentModel;
-
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing wet-bulb temperature data")]
-    public class WetBulbTemperatureResult : BHoMObject, ITemperatureResult
+    [Description("A results object containing energy per unit area data")]
+    public interface IEnergyPerUnitAreaResult : IBHoMObject, IAnalysisResult
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        [Temperature]
-        [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
-
-        /***************************************************/
     }
 }

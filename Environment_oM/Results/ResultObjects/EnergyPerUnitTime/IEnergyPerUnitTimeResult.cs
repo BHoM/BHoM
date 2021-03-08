@@ -21,23 +21,13 @@
  */
 
 using BH.oM.Base;
-using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing power data")]
-    public class PowerResult : BHoMObject, IEnergyPerUnitTimeResult
+    [Description("A results object containing energy per unit time data")]
+    public interface IEnergyPerUnitTimeResult : IBHoMObject, IAnalysisResult
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        [EnergyPerUnitTime]
-        [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
-
-        /***************************************************/
     }
 }

@@ -27,17 +27,19 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing energy-flux data")]
-    public class InsolationResult : BHoMObject, IEnergyPerUnitAreaResult
+    [Description("A results object containing enthalpy data")]
+    public class EnthalpyResult : BHoMObject, ISpecificEnergyResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [EnergyPerUnitArea]
+        [SpecificEnergy]
         [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
+        public virtual double Result { get; set; } = new double();
 
         /***************************************************/
     }
 }
+
+
