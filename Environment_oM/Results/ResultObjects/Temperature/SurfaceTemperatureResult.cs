@@ -28,8 +28,8 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing dew-point temperature data")]
-    public class DewPointTemperatureResult : BHoMObject, ITemperatureResult
+    [Description("A results object containing surface temperature data")]
+    public class SurfaceTemperatureResult : BHoMObject, ITemperatureResult
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -37,7 +37,7 @@ namespace BH.oM.Environment.Results
 
         [Temperature]
         [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
+        public virtual double Result { get; set; } = new double();
 
         /***************************************************/
     }

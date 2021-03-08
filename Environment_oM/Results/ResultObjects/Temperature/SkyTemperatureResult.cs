@@ -20,23 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
 
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing wind-speed data")]
-    public class WindSpeedResult : BHoMObject, IVelocityResult
+    [Description("A results object containing sky temperature data")]
+    public class SkyTemperatureResult : BHoMObject, ITemperatureResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Velocity]
+        [Temperature]
         [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
+        public virtual double Result { get; set; } = new double();
 
         /***************************************************/
     }

@@ -21,25 +21,23 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing energy-flux data")]
-    public class GlobalHorizontalRadiationResult : BHoMObject, IEnergyPerUnitAreaResult
+    [Description("A results object containing UTCI temperature data")]
+    public class UniversalThermalClimateIndexTemperatureResult : BHoMObject, ITemperatureResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [EnergyPerUnitArea]
+        [Temperature]
         [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
+        public virtual double Result { get; set; } = new double();
 
         /***************************************************/
     }
 }
-
-

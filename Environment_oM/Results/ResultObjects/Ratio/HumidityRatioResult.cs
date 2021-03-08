@@ -21,22 +21,22 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing radiant temperature data")]
-    public class DryBulbTemperatureResult : BHoMObject, ITemperatureResult
+    [Description("A results object containing humidity ratio data")]
+    public class HumidityRatioResult : BHoMObject, IRatioResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Temperature]
+        [Ratio]
         [Description("The value associated with the results object")]
-        public virtual List<double> Result { get; set; } = new List<double>();
+        public virtual double Result { get; set; } = new double();
 
         /***************************************************/
     }
