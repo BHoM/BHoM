@@ -48,6 +48,9 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Name of the individual compiling the results.")]
         public virtual string ContactName { get; } = "";
 
+        [Description("Time that the result was generated.")]
+        public virtual System.DateTime DateTime { get; } = System.DateTime.Now;
+
         [Description("Discipline scopes included in the LCA.")]
         public virtual string ElementScope { get; } = "";
 
@@ -63,26 +66,23 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("The primary structural system providing lateral support for the building.")]
         public virtual string LateralStructuralMaterial { get; } = "";
 
-        [Description("Phases included in the LCA concatenated (A1A2A3).")]
-        public virtual string Phases { get; } = "";
-
         [Description("Typically a term utilised in BIM practices to clearly identify the scope of work being account for. Equivalents for LOD classifications can offen times be linked to design and construction phases common to the projects locale.")]
         public virtual string LevelOfDevelopment { get; } = "";
 
-        [Description("The project number or other unique identifier.")]
-        public virtual string ProjectID { get; } = "";
-
         [Description("ID of the BHoMObject that this result belongs to.")]
         public virtual IComparable ObjectId { get; } = "";
+
+        [Description("Phases included in the LCA concatenated (A1A2A3).")]
+        public virtual string Phases { get; } = "";
+
+        [Description("The project number or other unique identifier.")]
+        public virtual string ProjectID { get; } = "";
 
         [Description("Identifier for the case evaluated, e.g. GlobalWarmingPotential or Acidification")]
         public virtual IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results (This is unlikely for LCA).")]
         public virtual double TimeStep { get; } = 0.0;
-
-        [Description("Time that the result was generated.")]
-        public virtual System.DateTime DateTime { get; } = System.DateTime.Now;
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -92,35 +92,35 @@ namespace BH.oM.LifeCycleAssessment.Results
                                 double buildingLifespan,
                                 string constructionScope,
                                 string contactName,
+                                DateTime date,
                                 string elementScope,
                                 string gravityStructuralMaterial,
-                                double gwp,
-                                double gwpPerArea,
+                                double globalWarmingPotential,
+                                double globalWarmingPotentialPerArea,
                                 string lateralStructuralMaterial,
-                                string lcaPhases,
                                 string levelOfDevelopment,
-                                string projectId,
                                 IComparable objectId,
+                                string phases,
+                                string projectID,                      
                                 IComparable resultCase,
-                                double timeStep,
-                                DateTime date)
+                                double timeStep)
         {
             Area = area;
             BuildingLifespan = buildingLifespan;
             ConstructionScope = constructionScope;
             ContactName = contactName;
+            DateTime = date;
             ElementScope = elementScope;
             GravityStructuralMaterial = gravityStructuralMaterial;
-            GlobalWarmingPotential = gwp;
-            GlobalWarmingPotentialPerArea = gwpPerArea;
+            GlobalWarmingPotential = globalWarmingPotential;
+            GlobalWarmingPotentialPerArea = globalWarmingPotentialPerArea;
             LateralStructuralMaterial = lateralStructuralMaterial;
-            Phases = lcaPhases;
             LevelOfDevelopment = levelOfDevelopment;
-            ProjectID = projectId;
             ObjectId = objectId;
+            Phases = phases;
+            ProjectID = projectID;
             ResultCase = resultCase;
             TimeStep = timeStep;
-            DateTime = date;
         }
 
         /***************************************************/
