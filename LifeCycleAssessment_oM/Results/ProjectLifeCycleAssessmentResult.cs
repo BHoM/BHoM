@@ -65,21 +65,12 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Typically a term utilised in BIM practices to clearly identify the scope of work being account for. Equivalents for LOD classifications can offen times be linked to design and construction phases common to the projects locale.")]
         public virtual string LevelOfDevelopment { get; } = "";
 
-        [Description("The Project Area (m2) denotes the more precise project area which will allow assessment of kgCO2eq/m2 metrics.")]
+        [Description("The Area (m2) to used for the basis of kgCO2eq/m2 metrics.")]
         [Area]
-        public virtual double ProjectArea { get; } = double.NaN;
+        public virtual double Area { get; } = double.NaN;
 
-        [Description("The project's unique identifier.")]
+        [Description("The project number or other unique identifier.")]
         public virtual string ProjectID { get; } = "";
-
-        [Description("The project's location in Lat Long format.")]
-        public virtual string ProjectLocation { get; } = "";
-
-        [Description("The project's name.")]
-        public virtual string ProjectName { get; } = "";
-
-        [Description("A general classification of the buildings primary function. This value is for categorisation purposes only and will not effect the overall results.")]
-        public virtual string ProjectType { get; } = "";
 
         [Description("ID of the BHoMObject that this result belongs to.")]
         public virtual IComparable ObjectId { get; } = "";
@@ -158,6 +149,5 @@ namespace BH.oM.LifeCycleAssessment.Results
         /***************************************************/
     }
 }
-
 
 
