@@ -92,7 +92,7 @@ namespace BH.oM.LifeCycleAssessment.Results
                                 double buildingLifespan,
                                 string constructionScope,
                                 string contactName,
-                                DateTime date,
+                                DateTime dateTime,
                                 string elementScope,
                                 string gravityStructuralMaterial,
                                 double globalWarmingPotential,
@@ -109,7 +109,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             BuildingLifespan = buildingLifespan;
             ConstructionScope = constructionScope;
             ContactName = contactName;
-            DateTime = date;
+            DateTime = dateTime;
             ElementScope = elementScope;
             GravityStructuralMaterial = gravityStructuralMaterial;
             GlobalWarmingPotential = globalWarmingPotential;
