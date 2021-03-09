@@ -35,6 +35,10 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The Area (m2) to used for the basis of kgCO2eq/m2 metrics.")]
+        [Area]
+        public virtual double Area { get; } = double.NaN;
+
         [Description("The proposed lifespan of the project scope after completion.")]
         public virtual double BuildingLifespan { get; } = double.NaN;
 
@@ -65,10 +69,6 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Typically a term utilised in BIM practices to clearly identify the scope of work being account for. Equivalents for LOD classifications can offen times be linked to design and construction phases common to the projects locale.")]
         public virtual string LevelOfDevelopment { get; } = "";
 
-        [Description("The Area (m2) to used for the basis of kgCO2eq/m2 metrics.")]
-        [Area]
-        public virtual double Area { get; } = double.NaN;
-
         [Description("The project number or other unique identifier.")]
         public virtual string ProjectID { get; } = "";
 
@@ -88,7 +88,8 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ProjectLifeCycleAssessmentResult(double buildingLifespan,
+        public ProjectLifeCycleAssessmentResult(double area,
+                                double buildingLifespan,
                                 string constructionScope,
                                 string contactName,
                                 string elementScope,
@@ -104,6 +105,7 @@ namespace BH.oM.LifeCycleAssessment.Results
                                 double timeStep,
                                 DateTime date)
         {
+            Area = area;
             BuildingLifespan = buildingLifespan;
             ConstructionScope = constructionScope;
             ContactName = contactName;
