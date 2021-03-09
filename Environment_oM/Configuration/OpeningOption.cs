@@ -20,16 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.Physical.Materials;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.MEP.System.MaterialFragments
+using BH.oM.Base;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
+
+namespace BH.oM.Environment.Configuration
 {
-    public class PipeMaterial : BHoMObject, IMEPMaterial, IMaterialProperties
+    [Description("Defines the design options for Openings.")]
+    public class OpeningOption : BHoMObject
     {
-        [Description("Roughness is a measure of the irregularities on the surface of a pipe.")]
-        public virtual double Roughness { get; set; } = 0;
+        [Length]
+        [Description("Defines the height the opening should be.")]
+        public virtual double Height { get; set; } = 0;
+        
+        [Length]
+        [Description("Defines the width the opening should be.")]
+        public virtual double Width { get; set; } = 0;
+
+        [Length]
+        [Description("The distance between the base of the panel and the bottom of the opening.")]
+        public virtual double SillHeight { get; set; } = 0;
     }
 }
-

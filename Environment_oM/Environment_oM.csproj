@@ -48,6 +48,7 @@
     <Compile Include="Climate\Time.cs" />
     <Compile Include="Climate\Sun.cs" />
     <Compile Include="Climate\WeatherFile.cs" />
+    <Compile Include="Configuration\OpeningOption.cs" />
     <Compile Include="Elements\Building.cs" />
     <Compile Include="Elements\BoundaryZone.cs" />
     <Compile Include="Elements\Mesh.cs" />

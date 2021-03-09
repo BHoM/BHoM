@@ -22,10 +22,11 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.MEP.System.MaterialFragments
 {
-    public class WireMaterial : BHoMObject, IMEPMaterial
+    public class WireMaterial : BHoMObject, IMEPMaterial, IMaterialProperties
     {
         [Description("The degree to which a specific material conducts electricity, calculated as the ratio of the current density and the material to the electric field that causes the flow of current.")]
         public virtual double Conductivity { get; set; } = 0;
