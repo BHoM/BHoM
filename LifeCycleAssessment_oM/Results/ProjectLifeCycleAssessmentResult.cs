@@ -98,11 +98,7 @@ namespace BH.oM.LifeCycleAssessment.Results
                                 string lateralStructuralMaterial,
                                 string lcaPhases,
                                 string levelOfDevelopment,
-                                double projectArea,
                                 string projectId,
-                                string projectLocation,
-                                string projectName,
-                                string projectType,
                                 IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
@@ -118,11 +114,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             LateralStructuralMaterial = lateralStructuralMaterial;
             Phases = lcaPhases;
             LevelOfDevelopment = levelOfDevelopment;
-            ProjectArea = projectArea;
             ProjectID = projectId;
-            ProjectLocation = projectLocation;
-            ProjectName = projectName;
-            ProjectType = projectType;
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
