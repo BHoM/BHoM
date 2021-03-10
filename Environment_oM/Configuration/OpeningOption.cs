@@ -29,6 +29,7 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Environment.Elements;
 
 namespace BH.oM.Environment.Configuration
 {
@@ -46,5 +47,8 @@ namespace BH.oM.Environment.Configuration
         [Length]
         [Description("The distance between the base of the panel and the bottom of the opening.")]
         public virtual double SillHeight { get; set; } = 0;
+
+        [Description("The type of opening that should be created from this opening configuration.")]
+        public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
     }
 }
