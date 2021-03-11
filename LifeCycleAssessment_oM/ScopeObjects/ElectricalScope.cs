@@ -28,7 +28,7 @@ using BH.oM.Dimensional;
 namespace BH.oM.LifeCycleAssessment
 {
     [Description("Electrical Scope provides a template for expected objects to be assessed within the MEPScope")]
-    public class ElectricalScope : BHoMObject
+    public class ElectricalScope : BHoMObject, IScope
     {
         /***************************************************/
         /**** Properties                                ****/

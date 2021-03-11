@@ -27,6 +27,7 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
 using System;
+using System.Collections.Generic;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
@@ -46,12 +47,12 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public GlobalWarmingPotentialResult(   IComparable objectId,
+        public GlobalWarmingPotentialResult(IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
                                 ObjectScope scope,
                                 ObjectCategory category,
-                                IEnvironmentalProductDeclarationData environmentalProductDeclaration,
+                                List<IEnvironmentalProductDeclarationData> environmentalProductDeclaration,
                                 double globalWarmingPotential): base(objectId, resultCase, timeStep, scope, category, environmentalProductDeclaration)
         {
             GlobalWarmingPotential = globalWarmingPotential;

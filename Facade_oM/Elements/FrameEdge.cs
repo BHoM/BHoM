@@ -33,7 +33,7 @@ using BH.oM.Facade.SectionProperties;
 namespace BH.oM.Facade.Elements
 {
     [Description("A frame edge (eg mullion, window jamb, curtain wall sill, etc)")]
-    public class FrameEdge : BHoMObject, IEdge
+    public class FrameEdge : BHoMObject, IEdge, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/

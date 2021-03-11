@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,19 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.LifeCycleAssessment
+using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BH.oM.Graphics
 {
-    public enum QuantityType
+    [Description("Base interface for rendered objects.")]
+    public interface IRender : IObject
     {
-        Undefined,
-        Ampere,
-        Area,
-        Item,
-        Length,
-        Mass,
-        VoltAmps,
-        Volume,
-        VolumetricFlowRate,
-        Watt,
+        Color Colour { get; set; }
     }
 }

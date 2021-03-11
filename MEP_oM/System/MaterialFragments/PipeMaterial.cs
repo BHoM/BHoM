@@ -22,10 +22,11 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.MEP.System.MaterialFragments
 {
-    public class PipeMaterial : BHoMObject, IMEPMaterial
+    public class PipeMaterial : BHoMObject, IMEPMaterial, IMaterialProperties
     {
         [Description("Roughness is a measure of the irregularities on the surface of a pipe.")]
         public virtual double Roughness { get; set; } = 0;

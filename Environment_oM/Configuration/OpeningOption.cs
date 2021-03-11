@@ -20,19 +20,35 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.LifeCycleAssessment
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Environment.Elements;
+
+namespace BH.oM.Environment.Configuration
 {
-    public enum QuantityType
+    [Description("Defines the design options for Openings.")]
+    public class OpeningOption : BHoMObject
     {
-        Undefined,
-        Ampere,
-        Area,
-        Item,
-        Length,
-        Mass,
-        VoltAmps,
-        Volume,
-        VolumetricFlowRate,
-        Watt,
+        [Length]
+        [Description("Defines the height the opening should be.")]
+        public virtual double Height { get; set; } = 0;
+        
+        [Length]
+        [Description("Defines the width the opening should be.")]
+        public virtual double Width { get; set; } = 0;
+
+        [Length]
+        [Description("The distance between the base of the panel and the bottom of the opening.")]
+        public virtual double SillHeight { get; set; } = 0;
+
+        [Description("The type of opening that should be created from this opening configuration.")]
+        public virtual OpeningType Type { get; set; } = OpeningType.Undefined;
     }
 }
