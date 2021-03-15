@@ -1,0 +1,25 @@
+{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+
+    }
+  },
+  "Type": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Property": {
+    "ToNew": {
+      "BH.oM.Humans.ViewQuality.CvalueSettings.RowTolerance": "BH.oM.Humans.ViewQuality.CvalueSettings.FarClippingPlaneDistance"
+    },
+    "ToOld": {
+      "BH.oM.Humans.ViewQuality.CvalueSettings.FarClippingPlaneDistance": "BH.oM.Structure.Elements.RigidLink.MasterNode.RowTolerance"
+    }
+  }
+}
