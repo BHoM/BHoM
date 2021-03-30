@@ -42,7 +42,7 @@ namespace BH.oM.Humans.ViewQuality
 
         public virtual ViewCone ViewCone { get; set; } = new ViewCone();
 
-        public List<Polyline> Heads = new List<Polyline>();
+        public virtual List<Polyline> Heads { get; set; } = new List<Polyline>();
 
         /***************************************************/
     }
