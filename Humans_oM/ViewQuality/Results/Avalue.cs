@@ -38,9 +38,9 @@ namespace BH.oM.Humans.ViewQuality
 
         public virtual Polyline FullActivityArea { get; set; } = new Polyline();
 
-        public virtual List<Polyline> ClippedActivityArea { get; set; } = new List<Polyline>();
+        public virtual Polyline ClippedActivityArea { get; set; } = new Polyline();
 
-        public virtual ViewCone ViewCone { get; set; } = new ViewCone();
+        public virtual Polyline ViewCone { get; set; } = new Polyline();
 
         public virtual List<Polyline> Heads { get; set; } = new List<Polyline>();
 

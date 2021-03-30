@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using System;
 using System.ComponentModel;
 
 namespace BH.oM.Humans.ViewQuality
@@ -38,10 +39,11 @@ namespace BH.oM.Humans.ViewQuality
         [Description("Distance from eye ref point to the plane where the Avalue is calculated")]
         public virtual double EyeFrameDist { get; set; } = 0.1;
 
-        public virtual double ForeheadSize { get; set; } = 0.120;
+        [Description("The distance from a spectator to the far clipping plane of their view frustum. Spectators in front of this plane will not be used in the Cvalue calculation.")]
+        public virtual double FarClippingPlaneDistance { get; set; } = 1.0;
 
-        [Description("Radius from viewplane centre for finding nearest potentially occulding heads")]
-        public virtual double NearHeadRange { get; set; } = 0.100;
+        [Description("Spectator view cone angle in radians. Default is approximately 2.0944 radians or 120 degrees. Field of view for a spectator, within which spectators in front are consider to be effectively blocking the view and used for the Cvalue calcualtion. ")]
+        public virtual double ViewConeAngle { get; set; } = Math.PI * 2 / 3;
 
         /***************************************************/
     }
