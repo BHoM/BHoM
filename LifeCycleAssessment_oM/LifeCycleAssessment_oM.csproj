@@ -58,6 +58,7 @@
     <Compile Include="Results\GlobalWarmingPotentialResult.cs" />
     <Compile Include="Results\LifeCycleAssessmentElementResult.cs" />
     <Compile Include="Results\LifeCycleAssessmentResult.cs" />
+    <Compile Include="Results\ProjectLifeCycleAssessmentResult.cs" />
     <Compile Include="ScopeObjects\FireProtectionScope.cs" />
     <Compile Include="ScopeObjects\EnclosuresScope.cs" />
     <Compile Include="ScopeObjects\FoundationsScope.cs" />
