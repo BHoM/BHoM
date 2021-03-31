@@ -92,7 +92,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Versioning_41.json" />
+    <None Include="Versioning_42.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
