@@ -65,9 +65,7 @@
     <Compile Include="BodyParts\RightUpperLeg.cs" />
     <Compile Include="BodyParts\Spine.cs" />
     <Compile Include="ViewQuality\Audience.cs" />
-    <Compile Include="ViewQuality\EffectiveBinocularFieldOfVision.cs" />
     <Compile Include="ViewQuality\EyePositionParameters.cs" />
-    <Compile Include="ViewQuality\ViewCone.cs" />
     <Compile Include="Enums\HandStateName.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Human.cs" />
@@ -87,7 +85,6 @@
     <Compile Include="ViewQuality\Results\Cvalue.cs" />
     <Compile Include="ViewQuality\Results\Evalue.cs" />
     <Compile Include="ViewQuality\Results\ViewQualityResult.cs" />
-    <Compile Include="ViewQuality\ViewConeEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
