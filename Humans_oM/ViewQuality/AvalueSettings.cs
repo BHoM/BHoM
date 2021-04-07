@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 using System;
 using System.ComponentModel;
 
@@ -32,11 +33,13 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual ViewConeEnum ConeType { get; set; } = ViewConeEnum.Undefined;
+        [Description("Closed Polyline defining the Spectators Cone of Vision. This is the boundary of the near clipping plane of the viewing frustum. Default value is a 0.115 * 0.115 square 0.1 from the eye reference location. ")]
+        public virtual Polyline EffectiveConeOfVision { get; set; } = new Polyline();
 
+        [Description("Calculate proportion of playing area obstructed by heads of Spectators in front. Default value is false")]
         public virtual bool CalculateOcclusion { get; set; } =  false;
 
-        [Description("Distance from eye ref point to the plane where the Avalue is calculated")]
+        [Description("Distance from eye reference point to the plane where the Avalue is calculated.")]
         public virtual double EyeFrameDist { get; set; } = 0.1;
 
         [Description("The distance from a spectator to the far clipping plane of their view frustum. Spectators in front of this plane will not be used in the Cvalue calculation.")]
