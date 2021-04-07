@@ -38,7 +38,7 @@ namespace BH.oM.Humans.ViewQuality
             "Default value is a 0.115 * 0.115 square 0.1 from the eye reference location.")]
         public virtual Polyline EffectiveConeOfVision { get; set; } = new Polyline();
 
-        [Description("The distance from a spectator to the far clipping plane of their view frustum. Spectators in front of this plane will not be used in the Avalue calculation.")]
+        [Description("The distance from a spectator to the far clipping plane of their view frustum. Spectators in front of this plane will not be used in the occlusion part of the Avalue calculation.")]
         public virtual double FarClippingPlaneDistance { get; set; } = 1.0;
 
         [Description("Calculate proportion of playing area obstructed by heads of Spectators in front. Default value is false")]
