@@ -33,7 +33,9 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Closed Polyline defining the Spectators Cone of Vision. This is the boundary of the near clipping plane of the viewing frustum. Default value is a 0.115 * 0.115 square 0.1 from the eye reference location.")]
+        [Description("Reference Cone of Vision used for all Spectators. This is the boundary of the near clipping plane of the viewing frustum." +
+            "It should be planar and closed and in a plane parallel to the global XY Plane." +
+            "Default value is a 0.115 * 0.115 square 0.1 from the eye reference location.")]
         public virtual Polyline EffectiveConeOfVision { get; set; } = new Polyline();
 
         [Description("The distance from a spectator to the far clipping plane of their view frustum. Spectators in front of this plane will not be used in the Avalue calculation.")]
