@@ -1,0 +1,25 @@
+{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+
+    }
+  },
+  "Type": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Property": {
+    "ToNew": {
+      "BH.oM.Humans.ViewQuality.AvalueSettings.NearHeadRange": "BH.oM.Humans.ViewQuality.AvalueSettings.FarClippingPlaneDistance"
+    },
+    "ToOld": {
+      "BH.oM.Humans.ViewQuality.AvalueSettings.FarClippingPlaneDistance": "BH.oM.Humans.ViewQuality.AvalueSettings.NearHeadRange"
+    }
+  }
+}
