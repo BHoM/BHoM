@@ -1,0 +1,24 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Type": {
+    "ToNew": {
+      "BH.oM.Adapters.RAM.ContourLoadSet": "BH.oM.Structure.Loads.ContourLoadSet"
+    },
+    "ToOld": {
+      "BH.oM.Structure.Loads.ContourLoadSet": "BH.oM.Adapters.RAM.ContourLoadSet"
+    }
+  },
+  "Property": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  }
+}

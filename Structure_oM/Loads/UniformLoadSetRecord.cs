@@ -29,18 +29,23 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
-    [Description("Definition of a set of uniform loads in the gravity direction (-Z).")]
-    public class UniformLoadSet : BHoMObject
+    [Description("Definition of a single uniform load in the gravity direction (-Z), to be added to a UniformLoadSet.")]
+    public class UniformLoadSetRecord : BHoMObject
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("Description of this set of loads, as would appear on a load map")]
+        [Description("Description of the source of this load, such as: 'Partitions', 'Occupancy', or 'MEP & Ceiling'")]
         public override string Name { get; set; } = "";
 
-        [Description("The individual load items for the load set")]
-        public virtual List<UniformLoadSetRecord> Loads { get; set; } = new List<UniformLoadSetRecord>();
+        [Description("The Loadcase in which to apply this load.")]
+        public virtual Loadcase Loadcase { get; set; } = null;
+
+        [Description("The magnitude of this load, generally to be applied as an AreaUniformLoad in the gravity direction (-Z)")]
+        [Pressure]
+        public virtual double Load { get; set; } = 0;
         /***************************************************/
     }
+
 }
