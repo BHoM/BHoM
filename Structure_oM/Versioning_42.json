@@ -9,7 +9,8 @@
   },
   "Type": {
     "ToNew": {
-      "BH.oM.Adapters.RAM.ContourLoadSet": "BH.oM.Structure.Loads.ContourLoadSet"
+      "BH.oM.Adapters.RAM.ContourLoadSet": "BH.oM.Structure.Loads.ContourLoadSet",
+      "BH.oM.Adapters.RAM.UniformLoadSet": "BH.oM.Structure.Loads.UniformLoadSet"
     },
     "ToOld": {
       "BH.oM.Structure.Loads.ContourLoadSet": "BH.oM.Adapters.RAM.ContourLoadSet"
