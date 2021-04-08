@@ -33,16 +33,16 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Reference Cone of Vision used for all Spectators. This is the boundary of the near clipping plane of the viewing frustum." +
+        [Description("Reference Cone of Vision used for all Spectators. This is equivalent to the curve generated from the intersection of the near clipping plane and the viewing frustum." +
             "It should be planar and closed and in a plane parallel to the global XY Plane." +
-            "Default value is a 0.115 * 0.115 square 0.1 from the eye reference location.")]
+            "Default value is a square based frustum with 30 degree field of view. The near clipping plane is 1.0 from the eye reference location giving a a 0.115 * 0.115 square EffectiveConeOfVision.")]
         public virtual Polyline EffectiveConeOfVision { get; set; } = new Polyline();
 
-        [Description("The distance from a spectator to the far clipping plane of their view frustum. Spectators in front of this plane will not be used in the occlusion part of the Avalue calculation.")]
+        [Description("The distance from a spectator to the far clipping plane of their view frustum. Spectators in front of this plane will not be used in the occlusion part of the Avalue calculation. Default value is 1.")]
         public virtual double FarClippingPlaneDistance { get; set; } = 1.0;
 
         [Description("Calculate proportion of playing area obstructed by heads of Spectators in front. Default value is false")]
-        public virtual bool CalculateOcclusion { get; set; } =  false;
+        public virtual bool CalculateOcclusion { get; set; } = false;
 
         /***************************************************/
     }
