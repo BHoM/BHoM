@@ -42,6 +42,8 @@ namespace BH.oM.Humans.ViewQuality
 
         public virtual Polyline ViewCone { get; set; } = new Polyline();
 
+        public virtual Point ReferencePoint { get; set; } = new Point();
+
         public virtual List<Polyline> Heads { get; set; } = new List<Polyline>();
 
         /***************************************************/
