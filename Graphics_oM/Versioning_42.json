@@ -11,6 +11,8 @@
     "BH.oM.Graphics.GradientCenteringOptions": "BH.oM.Graphics.Enums.GradientCenteringOptions"
     },
     "ToOld": {
+    "BH.oM.Graphics.Colours.GradientOptions": "BH.oM.Graphics.GradientOptions",
+    "BH.oM.Graphics.Enums.GradientCenteringOptions": "BH.oM.Graphics.GradientCenteringOptions"
     }
   },
   "Property": {
@@ -19,6 +21,8 @@
     "BH.oM.Graphics.GradientCenteringOptions.To": "BH.oM.Graphics.Enums.GradientCenteringOptions.UpperBound"
     },
     "ToOld": {
+    "BH.oM.Graphics.Colours.GradientOptions.LowerBound": "BH.oM.Graphics.GradientOptions.From",
+    "BH.oM.Graphics.Colours.GradientOptions.UpperBound" : "BH.oM.Graphics.GradientOptions.To"
     }
   }
 }
