@@ -37,10 +37,10 @@ namespace BH.oM.Graphics.Colours
         public virtual Gradient Gradient { get; set; } = null;
 
         [Description("The lower bound of the Gradient. Leave empty to allow other methods to set automatically.")]
-        public virtual double From { get; set; } = double.NaN;
+        public virtual double LowerBound { get; set; } = double.NaN;
 
         [Description("The upper bound of the Gradient. Leave empty to allow other methods to set automatically.")]
-        public virtual double To { get; set; } = double.NaN;
+        public virtual double UpperBound { get; set; } = double.NaN;
 
         [Description("A GradientCenteringOptions enum to set centering options. Defaults to no centering.")]
         public virtual GradientCenteringOptions GradientCenteringOptions { get; set; } = GradientCenteringOptions.None;
