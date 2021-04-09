@@ -29,9 +29,9 @@ namespace BH.oM.Graphics.Enums
     {
         [Description("No change to the gradient range.")]
         None,
-        [Description("Extend range to be centred around 0.")]
-        Symmetric,
         [Description("Make 0 the midpoint of the gradient while keeping UpperBound and LowerBound as the ends.")]
-        Asymmetric
+        Asymmetric,
+        [Description("Extend range to be centred around 0.")]
+        Symmetric
     }
 }
