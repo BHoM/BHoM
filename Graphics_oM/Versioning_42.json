@@ -15,6 +15,8 @@
   },
   "Property": {
     "ToNew": {
+    "BH.oM.Graphics.GradientOptions.From": "BH.oM.Graphics.Colours.GradientOptions.LowerBound",
+    "BH.oM.Graphics.GradientCenteringOptions.To": "BH.oM.Graphics.Enums.GradientCenteringOptions.UpperBound"
     },
     "ToOld": {
     }
