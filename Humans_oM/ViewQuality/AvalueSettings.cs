@@ -53,6 +53,9 @@ namespace BH.oM.Humans.ViewQuality
         [Description("The distance from a spectator to the near clipping plane of their view frustum. Default value is 0.1. Used only when no EffectiveConeOfVision is provided.")]
         public virtual double NearClippingPlaneDistance { get; set; } = 0.1;
 
+        [Description("Optional focal point to set the view direction of the spectators. If none provided the Avalue is calculated using the neutral viewing direction of each spectator.")]
+        public virtual Point FocalPoint { get; set; } = null;
+
         /***************************************************/
     }
 }
