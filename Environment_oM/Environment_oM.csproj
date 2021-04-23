@@ -51,6 +51,7 @@
     <Compile Include="Configuration\OpeningOption.cs" />
     <Compile Include="Elements\Building.cs" />
     <Compile Include="Elements\BoundaryZone.cs" />
+    <Compile Include="Elements\Dwelling.cs" />
     <Compile Include="Elements\Mesh.cs" />
     <Compile Include="Elements\Edge.cs" />
     <Compile Include="Elements\Enums\BuildingType.cs" />
