@@ -71,6 +71,7 @@
     <Compile Include="Loads\BarUniformTemperatureLoad.cs" />
     <Compile Include="Loads\BarUniformlyDistributedLoad.cs" />
     <Compile Include="Loads\BarVaryingDistributedLoad.cs" />
+    <Compile Include="Loads\ContourLoadSet.cs" />
     <Compile Include="Loads\Enums\LocalLoadDirection.cs" />
     <Compile Include="Loads\GeometricalLineLoad.cs" />
     <Compile Include="Loads\Enums\CaseType.cs" />
@@ -93,6 +94,8 @@
     <Compile Include="Constraints\Constraint4DOF.cs" />
     <Compile Include="Constraints\Constraint6DOF.cs" />
     <Compile Include="Constraints\LinkConstraint.cs" />
+    <Compile Include="Loads\UniformLoadSetRecord.cs" />
+    <Compile Include="Loads\UniformLoadSet.cs" />
     <Compile Include="MaterialFragments\Aluminium.cs" />
     <Compile Include="MaterialFragments\Concrete.cs" />
     <Compile Include="MaterialFragments\Enums\MaterialType.cs" />
@@ -226,6 +229,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Versioning_33.json" />
+    <None Include="Versioning_42.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
