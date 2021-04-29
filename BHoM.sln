@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30503.244
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1500
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHoM", "BHoM\BHoM.csproj", "{94D88927-62A2-48FC-8EFE-D139B67A3373}"
 EndProject
@@ -60,6 +60,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security_oM", "Security_oM\Security_oM.csproj", "{0B4A43AD-DF52-49C2-B507-8B4D971B235C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lighting_oM", "Lighting_oM\Lighting_oM.csproj", "{1698931E-0BF1-4E41-BF09-EDD84AFF44D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Versioning_oM", "Versioning_oM\Versioning_oM.csproj", "{3B4BCCBC-DBB9-4DB6-A5F1-C59359892D9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +173,10 @@ Global
 		{1698931E-0BF1-4E41-BF09-EDD84AFF44D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1698931E-0BF1-4E41-BF09-EDD84AFF44D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1698931E-0BF1-4E41-BF09-EDD84AFF44D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B4BCCBC-DBB9-4DB6-A5F1-C59359892D9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B4BCCBC-DBB9-4DB6-A5F1-C59359892D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B4BCCBC-DBB9-4DB6-A5F1-C59359892D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B4BCCBC-DBB9-4DB6-A5F1-C59359892D9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
