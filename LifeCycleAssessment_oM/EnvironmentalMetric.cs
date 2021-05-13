@@ -20,51 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
+using BH.oM.Base;
 using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    public enum LifeCycleAssessmentPhases
+    [Description("An Environmental Metric is used to store data regarding the environmental impacts of a given Environmental Product Declaration. \n"
+        + "An EPD can host multiple EnvironmentalMetrics to describe the overall impact which will be used in any LCA calculation.")]
+    public class EnvironmentalMetric : BHoMObject
     {
-        Undefined,
-        [Description("A1 Description")]
-        A1,
-        [Description("A2 Description")]
-        A2,
-        [Description("A3 Description")]
-        A3,
-        [Description("A4 Description")]
-        A4,
-        [Description("A5 Description")]
-        A5,
-        [Description("B1 Description")]
-        B1,
-        [Description("B2 Description")]
-        B2,
-        [Description("B3 Description")]
-        B3,
-        [Description("B4 Description")]
-        B4,
-        [Description("B5 Description")]
-        B5,
-        [Description("B6 Description")]
-        B6,
-        [Description("B7 Description")]
-        B7,
-        [Description("C1 Description")]
-        C1,
-        [Description("C2 Description")]
-        C2,
-        [Description("C3 Description")]
-        C3,
-        [Description("C4 Description")]
-        C4,
-        [Description("D1 Description")]
-        D1,
-        [Description("D2 Description")]
-        D2,
-        [Description("D3 Description")]
-        D3,
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("An Environmental Impact Metric filter used to classify the Environmental Metric that is being stored on the EPD.")]
+        public virtual EnvironmentalProductDeclarationField Field { get; set; } = EnvironmentalProductDeclarationField.GlobalWarmingPotential;
+
+        [Description("Phase of life abbreviation for the scope of the EPD. A single EnvironmentalMetric can contain either a single Phase or a list of Phases i.e. A1, A2, A3.")]
+        public virtual List<LifeCycleAssessmentPhases> Phases { get; set; } = new List<LifeCycleAssessmentPhases>();
+
+        [Description("The amount of the specified Field.")]
+        public virtual double Quantity { get; set; } = 0;
+
+        /***************************************************/
     }
 }
 

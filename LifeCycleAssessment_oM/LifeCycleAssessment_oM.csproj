@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\EPDType.cs" />
+    <Compile Include="EnvironmentalMetric.cs" />
     <Compile Include="BuildingBenchmarkingData.cs" />
     <Compile Include="Enums\WindSpeedCategory.cs" />
     <Compile Include="Enums\SeismicDesignCategory.cs" />
@@ -54,6 +56,11 @@
     <Compile Include="Enums\QuantityType.cs" />
     <Compile Include="Enums\ProjectType.cs" />
     <Compile Include="Enums\EnvironmentalProductDeclarationField.cs" />
+    <Compile Include="Fragments\EPDDensity.cs" />
+    <Compile Include="Fragments\EPDDimension.cs" />
+    <Compile Include="Fragments\AdditionalEPDData.cs" />
+    <Compile Include="MaterialFragments\EnvironmentalProductDeclaration.cs" />
+    <Compile Include="Results\EnvironmentalMetricResult.cs" />
     <Compile Include="ScopeObjects\IScope.cs" />
     <Compile Include="Results\GlobalWarmingPotentialResult.cs" />
     <Compile Include="Results\LifeCycleAssessmentElementResult.cs" />
@@ -70,10 +77,7 @@
     <Compile Include="ScopeObjects\ProjectLifeCycleAssessment.cs" />
     <Compile Include="ScopeObjects\StructuresScope.cs" />
     <Compile Include="ScopeObjects\TenantImprovementScope.cs" />
-    <Compile Include="MaterialFragment\SectorEnvironmentalProductDeclaration.cs" />
-    <Compile Include="MaterialFragment\IEnvironmentalProductDeclarationData.cs" />
     <Compile Include="HealthProductDeclaration.cs" />
-    <Compile Include="MaterialFragment\EnvironmentalProductDeclaration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

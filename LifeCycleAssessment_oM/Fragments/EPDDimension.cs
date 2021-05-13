@@ -21,50 +21,21 @@
  */
 
 using System.ComponentModel;
+using BH.oM.Base;
+using System.Collections.Generic;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.LifeCycleAssessment.Fragments
 {
-    public enum LifeCycleAssessmentPhases
+    [Description("A data fragment used to store irregular scaling values for EPDs. \n" +
+        "Note this fragment is typically reserved for special circumstances requiring user override of documented EPD information. \n" +
+        "Use AddFragment() to combine this information with any EPD for continuous integration.")]
+    public class EPDDimension : IFragment
     {
-        Undefined,
-        [Description("A1 Description")]
-        A1,
-        [Description("A2 Description")]
-        A2,
-        [Description("A3 Description")]
-        A3,
-        [Description("A4 Description")]
-        A4,
-        [Description("A5 Description")]
-        A5,
-        [Description("B1 Description")]
-        B1,
-        [Description("B2 Description")]
-        B2,
-        [Description("B3 Description")]
-        B3,
-        [Description("B4 Description")]
-        B4,
-        [Description("B5 Description")]
-        B5,
-        [Description("B6 Description")]
-        B6,
-        [Description("B7 Description")]
-        B7,
-        [Description("C1 Description")]
-        C1,
-        [Description("C2 Description")]
-        C2,
-        [Description("C3 Description")]
-        C3,
-        [Description("C4 Description")]
-        C4,
-        [Description("D1 Description")]
-        D1,
-        [Description("D2 Description")]
-        D2,
-        [Description("D3 Description")]
-        D3,
+        [Description("The standard dimension for the EPD being used for LCA calculations.")]
+        public double Dimension { get; set; } = 1;
+
+        [Description("A user-provided scaling dimension that is derived from an EPD.")]
+        public double SpecifiedDimension { get; set; } = 1;
     }
 }
 
