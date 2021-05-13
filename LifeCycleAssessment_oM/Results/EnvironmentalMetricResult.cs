@@ -31,32 +31,35 @@ using System.Collections.Generic;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Gives the total GlobalWarmingPotential of an object based on its EnvironmentalProductDeclaration.")]
-    public class GlobalWarmingPotentialResult : LifeCycleAssessmentElementResult, IImmutable
+    [Description("Gives the total quantity of the specified Environmental Product Declaration Field of an object based on its EnvironmentalProductDeclaration.")]
+    public class EnvironmentalMetricResult : LifeCycleAssessmentElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Mass]
-        [Description("The total embodied carbon of the object in kgCO2e.")]
-        public virtual double GlobalWarmingPotential { get; set; }
+        [Description("The total quantity of the specified Field within the object.")]
+        public virtual double Quantity { get; set; }
 
+        [Description("The EPD Field selected for evaluation.")]
+        public virtual EnvironmentalProductDeclarationField Metric { get; set; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public GlobalWarmingPotentialResult(IComparable objectId,
+        public EnvironmentalMetricResult(IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
                                 ObjectScope scope,
                                 ObjectCategory category,
                                 List<LifeCycleAssessmentPhases> phases,
                                 List<EnvironmentalProductDeclaration> environmentalProductDeclaration,
-                                double globalWarmingPotential): base(objectId, resultCase, timeStep, scope, category, phases, environmentalProductDeclaration)
+                                double quantity,
+                                EnvironmentalProductDeclarationField metric): base(objectId, resultCase, timeStep, scope, category, phases, environmentalProductDeclaration)
         {
-            GlobalWarmingPotential = globalWarmingPotential;
+            Quantity = quantity;
+            Metric = metric;
         }
 
         /***************************************************/

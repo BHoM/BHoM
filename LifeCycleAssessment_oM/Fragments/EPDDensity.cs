@@ -21,50 +21,20 @@
  */
 
 using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.LifeCycleAssessment.Fragments
 {
-    public enum LifeCycleAssessmentPhases
+    [Description("A data fragment used to store Density values if provided from the EPD source. \n" +
+        "Density is a required property for all Evaluations of EPDs with Mass-QuantityType." +
+        "Density can be changed by the user by adding this fragment to an EPD. \n" +
+        "The user accepts responsibility for any changes beyond the given dataset information as not all EPDs will contain Density values.")]
+    public class EPDDensity : IFragment
     {
-        Undefined,
-        [Description("A1 Description")]
-        A1,
-        [Description("A2 Description")]
-        A2,
-        [Description("A3 Description")]
-        A3,
-        [Description("A4 Description")]
-        A4,
-        [Description("A5 Description")]
-        A5,
-        [Description("B1 Description")]
-        B1,
-        [Description("B2 Description")]
-        B2,
-        [Description("B3 Description")]
-        B3,
-        [Description("B4 Description")]
-        B4,
-        [Description("B5 Description")]
-        B5,
-        [Description("B6 Description")]
-        B6,
-        [Description("B7 Description")]
-        B7,
-        [Description("C1 Description")]
-        C1,
-        [Description("C2 Description")]
-        C2,
-        [Description("C3 Description")]
-        C3,
-        [Description("C4 Description")]
-        C4,
-        [Description("D1 Description")]
-        D1,
-        [Description("D2 Description")]
-        D2,
-        [Description("D3 Description")]
-        D3,
+        [Density]
+        [Description("The material density in kg/m^3.")]
+        public virtual double Density { get; set; } = 0;
     }
 }
 
