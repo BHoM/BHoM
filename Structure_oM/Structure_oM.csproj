@@ -59,6 +59,7 @@
     <Compile Include="Elements\Surface.cs" />
     <Compile Include="Elements\Panel.cs" />
     <Compile Include="Elements\RigidLink.cs" />
+    <Compile Include="Fragments\ReinforcementDensity.cs" />
     <Compile Include="Fragments\SectionModifier.cs" />
     <Compile Include="Fragments\SurfacePropertyModifier.cs" />
     <Compile Include="IProperty.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Results\IStructuralResult.cs" />
     <Compile Include="Results\Mesh\IMeshDisplacement.cs" />
     <Compile Include="Results\Mesh\MeshModeShape.cs" />
+    <Compile Include="Results\Mesh\MeshRequiredArea.cs" />
     <Compile Include="Results\Nodal Results\INodeDisplacement.cs" />
     <Compile Include="Results\Nodal Results\NodeModalMass.cs" />
     <Compile Include="Results\Nodal Results\NodeModeShape.cs" />
