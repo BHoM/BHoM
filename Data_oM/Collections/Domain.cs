@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 using System;
 using System.ComponentModel;
 
@@ -44,6 +45,7 @@ namespace BH.oM.Data.Collections
 
         /***************************************************/
 
+        [PreviousVersion("4.2", "BH.oM.Data.Collections.Domain(System.Double, System.Double)")]
         public Domain(double min, double max, DomainExtremesInclusion extremesInclusion = DomainExtremesInclusion.IncludeBoth)
         {
             Min = min;
