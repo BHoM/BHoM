@@ -24,7 +24,7 @@ using System;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Structure;
-using System.ComponentModel;
+using BH.oM.Structure.MaterialFragments;
 using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
@@ -56,8 +56,8 @@ namespace BH.oM.Structure.Results
         [Description("Minimum required area of torsion reinforcement.")]
         public virtual double Torsion { get; }
 
-        [Description("Homogeneous material of the reinforcement.")]
-        public virtual IMaterialFragment Material { get; set; }
+        [Description("Material name for the reinforcement.")]
+        public virtual string MaterialName { get; }
 
 
         /***************************************************/
@@ -65,7 +65,7 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         public BarRequiredArea(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double position, int divisions, 
-            double top, double bottom, double perimeter, double shear, double torsion, IMaterialFragment material)
+            double top, double bottom, double perimeter, double shear, double torsion, string materialName)
             : base(objectId, resultCase, modeNumber, timeStep, position, divisions)
         {
             Top = top;
@@ -73,7 +73,7 @@ namespace BH.oM.Structure.Results
             Perimeter = perimeter;
             Shear = shear;
             Torsion = torsion;
-            Material = material;
+            MaterialName = materialName;
         }
 
         /***************************************************/
