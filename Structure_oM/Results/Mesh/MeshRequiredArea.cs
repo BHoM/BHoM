@@ -56,8 +56,8 @@ namespace BH.oM.Structure.Results
         [Description("Minimum required area of torsion reinforcement.")]
         public virtual double Torsion { get; }
 
-        [Description("Homogeneous material of the reinforcement.")]
-        public virtual IMaterialFragment Material { get; set; }
+        [Description("Material name for the reinforcement.")]
+        public virtual string MaterialName { get; }
 
 
         /***************************************************/
@@ -74,7 +74,7 @@ namespace BH.oM.Structure.Results
                                 double layerPosition,
                                 MeshResultSmoothingType smoothing,
                                 Basis orientation,
-                                double top, double bottom, double perimeter, double shear, double torsion, IMaterialFragment material) 
+                                double top, double bottom, double perimeter, double shear, double torsion, string materialName) 
             : base(objectId, nodeId, meshFaceId, resultCase, modeNumber, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
         {
             Top = top;
@@ -82,6 +82,7 @@ namespace BH.oM.Structure.Results
             Perimeter = perimeter;
             Shear = shear;
             Torsion = torsion;
+            MaterialName = materialName;
         }
 
         /***************************************************/

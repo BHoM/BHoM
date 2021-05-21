@@ -118,6 +118,7 @@
     <Compile Include="Requests\NodeResultRequest.cs" />
     <Compile Include="Results\Bar Results\BarDisplacement.cs" />
     <Compile Include="Results\Bar Results\BarModeShape.cs" />
+    <Compile Include="Results\Bar Results\BarRequiredArea.cs" />
     <Compile Include="Results\Bar Results\IBarDisplacement.cs" />
     <Compile Include="Results\IStructuralResult.cs" />
     <Compile Include="Results\Mesh\IMeshDisplacement.cs" />
