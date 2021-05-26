@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.Environment.Results
 {
     [Description("A results object containing mean radiant temperature data.")]
-    public class MeanTemperatureResult : BHoMObject, ITemperatureResult
+    public class MeanRadiantTemperatureResult : BHoMObject, ITemperatureResult
     {
         /***************************************************/
         /**** Properties                                ****/
