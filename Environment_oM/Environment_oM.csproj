@@ -66,7 +66,7 @@
     <Compile Include="Fragments\LightReflectanceFragment.cs" />
     <Compile Include="Results\Enums\ResultType.cs" />
     <Compile Include="Results\ResultObjects\IAnalysisResult.cs" />
-    <Compile Include="Results\ResultObjects\EnergyPerUnitArea\DiffuseHorizontalRadiation.cs" />
+    <Compile Include="Results\ResultObjects\EnergyPerUnitArea\DiffuseHorizontalRadiationResult.cs" />
     <Compile Include="Results\ResultObjects\EnergyPerUnitArea\DirectNormalRadiationResult.cs" />
     <Compile Include="Results\ResultObjects\Ratio\HumidityRatioResult.cs" />
     <Compile Include="Results\ResultObjects\EnergyPerUnitTime\PowerResult.cs" />
@@ -77,7 +77,7 @@
     <Compile Include="Results\ResultObjects\EnergyPerUnitArea\IEnergyPerUnitAreaResult.cs" />
     <Compile Include="Results\ResultObjects\Temperature\DryBulbTemperatureResult.cs" />
     <Compile Include="Results\ResultObjects\Illuminance\IlluminanceResult.cs" />
-    <Compile Include="Results\ResultObjects\Temperature\UniversalThermalClimateIndexTemperatureResult.cs" />
+    <Compile Include="Results\ResultObjects\Temperature\UniversalThermalClimateIndexResult.cs" />
     <Compile Include="Results\ResultObjects\Ratio\IRatioResult.cs" />
     <Compile Include="Results\ResultObjects\Temperature\SkyTemperatureResult.cs" />
     <Compile Include="Results\ResultObjects\Angle\IAngleResult.cs" />
