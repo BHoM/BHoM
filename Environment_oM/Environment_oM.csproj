@@ -64,6 +64,7 @@
     <Compile Include="Elements\Space.cs" />
     <Compile Include="Fragments\AnalyticalConstruction.cs" />
     <Compile Include="Fragments\LightReflectanceFragment.cs" />
+    <Compile Include="Results\Enums\ResultType.cs" />
     <Compile Include="Results\ResultObjects\IAnalysisResult.cs" />
     <Compile Include="Results\ResultObjects\EnergyPerUnitArea\DiffuseHorizontalRadiation.cs" />
     <Compile Include="Results\ResultObjects\EnergyPerUnitArea\DirectNormalRadiationResult.cs" />

@@ -20,13 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-
 using BH.oM.Base;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System;
 
 namespace BH.oM.Environment.Results
 {
+    [Description("A collection of DateTimes associated with a time-series result.")]
     public class DateTimeIndex : BHoMObject
     {
         public virtual List<DateTime> Values { get; set; } = new List<DateTime>();

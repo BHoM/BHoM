@@ -20,13 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
-
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    
     [Description("A results object containing temperature data.")]
     public interface ITemperatureResult : IBHoMObject, IAnalysisResult
     {
