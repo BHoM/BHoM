@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing pressure data")]
+    [Description("A results object containing pressure data.")]
     public interface IPressureResult : IBHoMObject, IAnalysisResult
     {
 

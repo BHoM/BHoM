@@ -21,12 +21,11 @@
  */
 
 using BH.oM.Base;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing velocity data")]
+    [Description("A results object containing velocity data.")]
     public interface IVelocityResult : IBHoMObject, IAnalysisResult
     {
 

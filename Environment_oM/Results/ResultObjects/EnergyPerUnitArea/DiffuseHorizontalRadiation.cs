@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing diffuse horizontal radiation data")]
+    [Description("A results object containing diffuse horizontal radiation data.")]
     public class DiffuseHorizontalRadiationResult : BHoMObject, IEnergyPerUnitAreaResult
     {
         /***************************************************/
@@ -35,7 +35,7 @@ namespace BH.oM.Environment.Results
         /***************************************************/
 
         [EnergyPerUnitArea]
-        [Description("The value associated with the results object")]
+        [Description("The value associated with the results object.")]
         public virtual double Result { get; set; } = new double();
 
         /***************************************************/

@@ -21,21 +21,20 @@
  */
 
 using BH.oM.Base;
-using System.Collections.Generic;
-using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing UTCI temperature data")]
-    public class UniversalThermalClimateIndexTemperatureResult : BHoMObject, ITemperatureResult
+    [Description("A results object containing Universal Thermal Climate Index data.")]
+    public class UniversalThermalClimateIndexResult : BHoMObject, ITemperatureResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Temperature]
-        [Description("The value associated with the results object")]
+        [Description("The value associated with the results object.")]
         public virtual double Result { get; set; } = new double();
 
         /***************************************************/

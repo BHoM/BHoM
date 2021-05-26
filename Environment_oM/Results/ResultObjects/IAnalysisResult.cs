@@ -21,10 +21,11 @@
  */
 
 using BH.oM.Base;
-using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
+    [Description("Interface for all AnalysisResult objects.")]
     public interface IAnalysisResult : IBHoMObject
     {
         double Result { get; set; }

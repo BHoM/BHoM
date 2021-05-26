@@ -21,13 +21,11 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing energy data")]
+    [Description("A results object containing energy data.")]
     public interface IEnergyResult : IBHoMObject, IAnalysisResult
     {
 

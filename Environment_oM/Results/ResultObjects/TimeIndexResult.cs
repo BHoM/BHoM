@@ -20,12 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-
 using BH.oM.Base;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
+    [Description("A collection of results associated with a point-in-time.")]
     public class TimeIndexResult : BHoMObject
     {
         public virtual List<IAnalysisResult> Results { get; set; } = new List<IAnalysisResult>();

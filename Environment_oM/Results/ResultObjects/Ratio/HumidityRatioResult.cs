@@ -21,13 +21,12 @@
  */
 
 using BH.oM.Base;
-using System.Collections.Generic;
-using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing humidity ratio data")]
+    [Description("A results object containing humidity ratio data.")]
     public class HumidityRatioResult : BHoMObject, IRatioResult
     {
         /***************************************************/
@@ -35,7 +34,7 @@ namespace BH.oM.Environment.Results
         /***************************************************/
 
         [Ratio]
-        [Description("The value associated with the results object")]
+        [Description("The value associated with the results object.")]
         public virtual double Result { get; set; } = new double();
 
         /***************************************************/

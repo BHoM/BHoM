@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing ratio data")]
+    [Description("A results object containing ratio data.")]
     public interface IRatioResult : IBHoMObject, IAnalysisResult
     {
 

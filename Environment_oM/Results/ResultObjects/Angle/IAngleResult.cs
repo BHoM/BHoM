@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing angle data")]
+    [Description("A results object containing angle data.")]
     public interface IAngleResult : IBHoMObject, IAnalysisResult
     {
 

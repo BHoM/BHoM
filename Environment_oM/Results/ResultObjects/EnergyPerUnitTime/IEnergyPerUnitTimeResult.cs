@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing energy per unit time data")]
+    [Description("A results object containing energy per unit time data.")]
     public interface IEnergyPerUnitTimeResult : IBHoMObject, IAnalysisResult
     {
 

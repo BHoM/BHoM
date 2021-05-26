@@ -20,15 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
-using System.ComponentModel;
-
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing wind-direction data")]
+    [Description("A results object containing wind-direction data.")]
     public class WindDirectionResult : BHoMObject, IAngleResult
     {
         /***************************************************/
@@ -36,7 +34,7 @@ namespace BH.oM.Environment.Results
         /***************************************************/
 
         [Angle]
-        [Description("The value associated with the results object")]
+        [Description("The value associated with the results object.")]
         public virtual double Result { get; set; } = new double();
 
         /***************************************************/

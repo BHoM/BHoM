@@ -21,13 +21,11 @@
  */
 
 using BH.oM.Base;
-using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing illuminance data")]
+    [Description("A results object containing illuminance data.")]
     public class IlluminanceResult : BHoMObject, IAnalysisResult
     {
         /***************************************************/
@@ -35,7 +33,7 @@ namespace BH.oM.Environment.Results
         /***************************************************/
 
         [Quantities.Attributes.Illuminance] // TODO - for some reason not including traceback to Quantities results in error here
-        [Description("The value associated with the results object")]
+        [Description("The value associated with the results object.")]
         public virtual double Result { get; set; } = new double();
 
         /***************************************************/
