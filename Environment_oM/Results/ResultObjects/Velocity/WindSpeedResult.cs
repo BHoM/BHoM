@@ -22,12 +22,11 @@
 
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing wind-speed data")]
+    [Description("A results object containing wind speed data")]
     public class WindSpeedResult : BHoMObject, IVelocityResult
     {
         /***************************************************/
@@ -35,7 +34,7 @@ namespace BH.oM.Environment.Results
         /***************************************************/
 
         [Velocity]
-        [Description("The value associated with the results object")]
+        [Description("The value associated with the results object.")]
         public virtual double Result { get; set; } = new double();
 
         /***************************************************/

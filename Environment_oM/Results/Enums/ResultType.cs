@@ -20,14 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System.ComponentModel;
-
 namespace BH.oM.Environment.Results
 {
-    [Description("A results object containing specific energy data.")]
-    public interface ISpecificEnergyResult : IBHoMObject, IAnalysisResult
+    public enum ResultType
     {
-
+        Undefined,
+        AtmosphericPressure,
+        DewPointTemperature,
+        DiffuseHorizontalRadiation,
+        DirectNormalRadiation,
+        DryBulbTemperature,
+        Enthalpy,
+        GlobalHorizontalRadiation,
+        HumidityRatio,
+        Illuminance,
+        Insolation,
+        MeanRadiantTemperature,
+        Power,
+        RelativeHumidity,
+        SkyTemperature,
+        SurfaceTemperature,
+        UniversalThermalClimateIndex,
+        WetBulbTemperature,
+        WindDirection,
+        WindSpeed,
     }
 }
+
+
