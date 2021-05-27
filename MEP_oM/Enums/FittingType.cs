@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,32 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-
-namespace BH.oM.MEP.System.ConnectionProperties
+namespace BH.oM.MEP.Enums
 {
-    [Description("Base interface for MEP physical connection properties.")]
-    public interface IConnectionProperty : IBHoMObject
+    /***************************************************/
+
+    [Description("A type of fitting used to transition from one segment of linear MEP object to another (cable trays, ducts or pipes)")]
+    public enum FittingType
     {
-        /***************************************************/
-        /****                 Properties                ****/
-        /***************************************************/
-
-        [Description("The point at which the Connector object begins.")]
-        Point StartPoint { get; set; }
-
-        [Description("The point at which the Connector bject ends.")]
-        Point EndPoint { get; set; }
-
-        /***************************************************/
+        Undefined,
+        Adaptor,
+        Cap,
+        Coupling,
+        Cross,
+        Elbow,
+        Olet,
+        Plug,
+        Reducer,
+        Tee,
+        Union
     }
-}
 
+    /***************************************************/
+}

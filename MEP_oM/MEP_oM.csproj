@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\DamperType.cs" />
+    <Compile Include="Enums\FittingType.cs" />
     <Compile Include="Enums\ValveType.cs" />
     <Compile Include="Enums\FireAlarmDeviceType.cs" />
     <Compile Include="Enums\ElectricalFixtureType.cs" />
@@ -54,8 +55,6 @@
     <Compile Include="Fixtures\PlumbingFixture.cs" />
     <Compile Include="Fragments\PlumbingLoadingFixtureUnitFragment.cs" />
     <Compile Include="Fragments\PlumbingFlowFragment.cs" />
-    <Compile Include="System\ConnectionProperties\CableTrayConnectionProperty.cs" />
-    <Compile Include="System\ConnectionProperties\IConnectionProperty.cs" />
     <Compile Include="System\CableTray.cs" />
     <Compile Include="Fixtures\AirTerminal.cs" />
     <Compile Include="Fixtures\PlumbingFixtureFlow.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="System\Dampers\Damper.cs" />
     <Compile Include="System\Dampers\VolumeDamper.cs" />
     <Compile Include="System\Duct.cs" />
+    <Compile Include="System\Fittings\Fitting.cs" />
     <Compile Include="System\IFlow.cs" />
     <Compile Include="System\MechanicalSystem.cs" />
     <Compile Include="System\Node.cs" />
@@ -106,9 +106,6 @@
     <Compile Include="System\SectionProperties\SectionProfile.cs" />
     <Compile Include="System\SectionProperties\WireSectionProperty.cs" />
     <Compile Include="Enums\PipeTypes.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="System\Fittings\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">

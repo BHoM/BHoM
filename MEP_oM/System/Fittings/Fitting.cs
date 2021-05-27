@@ -20,36 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.MEP.System.ConnectionProperties;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
+using BH.oM.MEP.Enums;
 
-namespace BH.oM.MEP.System.ConnectionProperties
+namespace BH.oM.MEP.System.Fittings
 {
-    [Description("A Cable Tray connection property to store information about its physical connectors.")]
-    public class CableTrayConnectionProperty : BHoMObject, IConnectionProperty
+    [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
+    public class Fitting : BHoMObject, IElement0D
     {
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The point at which the Connector object begins.")]
-        public virtual Point StartPoint { get; set; }
+        [Description("The point represented as a node at which the Fitting occurs.")]
+        public virtual Point Location { get; set; } = null;
+        
+        [Description("The points represented as nodes at which the Fitting physically connects to other MEP segments.")]
+        public virtual List<Point> ConnectionsLocation { get; set; } = null;
 
-        [Description("The point at which the Connector bject ends.")]
-        public virtual Point EndPoint { get; set; }
-
-        [Description("Whether the start point of the Cable Tray is connected to another segment or not.")]
-        public virtual bool IsStartConnected { get; set; }
-
-        [Description("Whether the end point of the Cable Tray is connected to another segment or not.")]
-        public virtual bool IsEndConnected { get; set; }       
+        [Description("The type of fitting connected to an element.")]
+        public virtual FittingType Type { get; set; } = FittingType.Undefined;
 
         /***************************************************/
     }
