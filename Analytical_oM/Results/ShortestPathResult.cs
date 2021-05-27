@@ -60,12 +60,12 @@ namespace BH.oM.Analytical.Elements
         public virtual List<IBHoMObject> EntitiesVisited { get; set; } = new List<IBHoMObject>();
 
         [Description("Shortest path as an ordered collection of IRelations.")]
-        public virtual List<IRelation> Relations{ get; set; } = new List<IRelation>();
+        public virtual List<IRelation<IBHoMObject>> Relations{ get; set; } = new List<IRelation<IBHoMObject>>();
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
-        public ShortestPathResult(IComparable objectId, IComparable resultCase, double timeStep, List<IBHoMObject> path, double length, double cost, List<IBHoMObject> entitiesVisited, List<IRelation> relations, List<ICurve> curves = null) 
+        public ShortestPathResult(IComparable objectId, IComparable resultCase, double timeStep, List<IBHoMObject> path, double length, double cost, List<IBHoMObject> entitiesVisited, List<IRelation<IBHoMObject>> relations, List<ICurve> curves = null) 
         {
             ObjectId = objectId;
             ResultCase = resultCase;

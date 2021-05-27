@@ -32,7 +32,8 @@ using System.Threading.Tasks;
 namespace BH.oM.Analytical.Elements
 {
     [Description("Base class for all Relation classes.")]
-    public class Relation : BHoMObject, IRelation
+    public class Relation<T> : BHoMObject, IRelation<T>
+        where T : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -45,7 +46,7 @@ namespace BH.oM.Analytical.Elements
         public virtual Guid Target { get; set; } = Guid.Empty;
 
         [Description("This Relation's sub Graph.")]
-        public virtual Graph Subgraph { get; set; } = new Graph();
+        public virtual Graph<T> Subgraph { get; set; } = new Graph<T>();
 
         [Description("Weight of the Relation.")]
         public virtual double Weight { get; set; } = 1.0;

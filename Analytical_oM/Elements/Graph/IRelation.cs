@@ -32,7 +32,8 @@ using System.Threading.Tasks;
 namespace BH.oM.Analytical.Elements
 {
     [Description("Interface common to all Relation objects.")]
-    public interface IRelation : IBHoMObject
+    public interface IRelation<T> : IBHoMObject
+        where T : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -42,7 +43,7 @@ namespace BH.oM.Analytical.Elements
 
         Guid Target { get; set; }
 
-        Graph Subgraph { get; set; }
+        Graph<T> Subgraph { get; set; }
 
         double Weight { get; set; }
 

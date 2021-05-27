@@ -31,17 +31,18 @@ using System.Threading.Tasks;
 namespace BH.oM.Analytical.Elements
 {
     [Description("A set of IBHoMObject entities and the relations between them.")]
-    public class Graph : BHoMObject
+    public class Graph<T> : BHoMObject
+        where T : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Dictionary of IBHoMObject entities.")]
-        public virtual Dictionary<Guid, IBHoMObject> Entities { get; set; } = new Dictionary<Guid, IBHoMObject>();
+        public virtual Dictionary<Guid, T> Entities { get; set; } = new Dictionary<Guid, T>();
 
         [Description("Collection of relations between IBHoMObject entities.")]
-        public virtual List<IRelation> Relations { get; set; } = new List<IRelation>();
+        public virtual List<IRelation<T>> Relations { get; set; } = new List<IRelation<T>>();
 
     }
 }
