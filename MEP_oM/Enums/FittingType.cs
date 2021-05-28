@@ -38,8 +38,11 @@ namespace BH.oM.MEP.Enums
         Olet,
         Plug,
         Reducer,
+        Tap,
+        Transition,
         Tee,
-        Union
+        Union,
+        Wye
     }
 
     /***************************************************/
