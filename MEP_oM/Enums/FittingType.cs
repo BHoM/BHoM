@@ -26,12 +26,12 @@ namespace BH.oM.MEP.Enums
 {
     /***************************************************/
 
-    [Description("A type of fitting used to transition from one segment of linear MEP object to another (cable trays, ducts or pipes)")]
+    [Description("A type of fitting used to transition from one segment of linear MEP object to another.")]
     public enum FittingType
     {
         Undefined,
         [Description("A fitting that allows you to change the size/shape of the linear MEP segment at a given juncture.")]
-        Adaptor,
+        Adapter,
         [Description("A fitting that is placed at the end of a linear MEP segment.")]
         Cap,
         [Description("A fitting that joins two linear MEP segments of the same size and shape.")]
