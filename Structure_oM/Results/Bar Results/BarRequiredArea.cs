@@ -30,7 +30,7 @@ using BH.oM.Base;
 namespace BH.oM.Structure.Results
 {
     [Description("Minimum required area of reinforcement for a Bar.")]
-    public class BarRequiredArea : BarResult
+    public class BarRequiredArea : BarResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

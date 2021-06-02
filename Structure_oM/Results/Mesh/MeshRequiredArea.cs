@@ -30,7 +30,7 @@ using BH.oM.Base;
 namespace BH.oM.Structure.Results
 {
     [Description("Minimum required area of reinforcement for an AreaElement.")]
-    public class MeshRequiredArea : MeshElementResult
+    public class MeshRequiredArea : MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
