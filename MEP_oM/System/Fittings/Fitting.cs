@@ -36,10 +36,10 @@ namespace BH.oM.MEP.System.Fittings
         /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The point represented as a node at which the Fitting occurs.")]
+        [Description("The point at which the Fitting occurs.")]
         public virtual Point Location { get; set; } = null;
         
-        [Description("The points represented as nodes at which the Fitting physically connects to other MEP segments.")]
+        [Description("The points at which the Fitting physically connects to other MEP segments.")]
         public virtual List<Point> ConnectionsLocation { get; set; } = null;
 
         [Description("The type of fitting connected to an element.")]
