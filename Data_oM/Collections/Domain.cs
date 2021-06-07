@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Reflection.Attributes;
 using System;
 using System.ComponentModel;
 
@@ -39,12 +40,17 @@ namespace BH.oM.Data.Collections
         [Description("The highest bound of the domain.")]
         public double Max { get; }
 
+        [Description("Whether the Min and Max extremes are included in the Domain or not.")]
+        public DomainExtremesInclusion ExtremesInclusion { get; } = DomainExtremesInclusion.IncludeBoth;
+
         /***************************************************/
 
-        public Domain(double min, double max)
+        [PreviousVersion("4.2", "BH.oM.Data.Collections.Domain(System.Double, System.Double)")]
+        public Domain(double min, double max, DomainExtremesInclusion extremesInclusion = DomainExtremesInclusion.IncludeBoth)
         {
             Min = min;
             Max = max;
+            ExtremesInclusion = extremesInclusion;
         }
 
         /***************************************************/
@@ -61,7 +67,13 @@ namespace BH.oM.Data.Collections
         }
 
         /***************************************************/
-
+        public override string ToString()
+        {
+            return $"{(this.ExtremesInclusion == DomainExtremesInclusion.IncludeBoth || this.ExtremesInclusion == DomainExtremesInclusion.IncludeMin ? "[" : "(")}" +
+                $"{ (this.Min == double.MinValue ? "-∞" : this.Min.ToString())}" + "," +
+                $"{(this.Max == double.MaxValue ? "+∞" : this.Max.ToString())}" +
+                $"{(this.ExtremesInclusion == DomainExtremesInclusion.IncludeBoth || this.ExtremesInclusion == DomainExtremesInclusion.IncludeMax ? "]" : ")")}";
+        }
     }
 }
 
