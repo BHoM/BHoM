@@ -88,6 +88,8 @@
     <Compile Include="IProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SectionProperties\FrameEdgeProperty.cs" />
+	<Compile Include="Results\ComponentUFactor.cs" />
+	<Compile Include="Results\ObjectUFactor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
