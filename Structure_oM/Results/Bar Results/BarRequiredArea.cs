@@ -48,7 +48,7 @@ namespace BH.oM.Structure.Results
         [Description("Minimum required area of perimeter reinforcement.")]
         public virtual double Perimeter { get; }
 
-        [Length]
+        [AreaPerUnitLength]
         [Description("Minimum required area of shear reinforcement expressed as an area per unit length.")]
         public virtual double Shear { get; }
 

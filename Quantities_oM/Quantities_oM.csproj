@@ -73,6 +73,7 @@
     <Compile Include="Attributes\ThermalExpansionCoefficient.cs" />
     <Compile Include="Attributes\TorsionConstant.cs" />
     <Compile Include="Attributes\Velocity.cs" />
+    <Compile Include="Attributes\AreaPerUnitLength.cs" />
     <Compile Include="Attributes\Volume.cs" />
     <Compile Include="Attributes\VolumetricFlowRate.cs" />
     <Compile Include="Attributes\WarpingConstant.cs" />
