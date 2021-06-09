@@ -87,9 +87,13 @@
     <Compile Include="IFacadeObject.cs" />
     <Compile Include="IProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Fragments\PsiJointFragment.cs" />
+    <Compile Include="Fragments\PsiGlassEdgeFragment.cs" />
+    <Compile Include="Results\EffectiveUValue.cs" />
+    <Compile Include="Fragments\UValueGlassCentreFragment.cs" />
+    <Compile Include="Fragments\UValueGlassEdgeFragment.cs" />
     <Compile Include="SectionProperties\FrameEdgeProperty.cs" />
-	<Compile Include="Results\ComponentUFactor.cs" />
-	<Compile Include="Results\ObjectUFactor.cs" />
+    <Compile Include="Fragments\UValueFrameFragment.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

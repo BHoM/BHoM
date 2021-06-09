@@ -31,17 +31,14 @@ using System.ComponentModel;
 
 namespace BH.oM.Facade.Results
 {
-    [Description("A facade component UFactor Result object")]
-    public class ComponentUFactor : BHoMObject
+    [Description("An overall thermal transmittance result representing the effective U-Value of an object or collection of objects.")]
+    public class OverallUValue : BHoMObject
     {
-        [Description("The U Factor of the frame region of the analyzed thermal section.")]
-        public virtual double UFactorFrame { get; set; } = double.NaN;
+        [Description("The U-Value of the result.")]
+        public virtual double UValue { get; set; } = double.NaN;
 
-        [Description("The U Factor of the edge of glass region of the analyzed thermal section.")]
-        public virtual double UFactorEdgeOfGlass { get; set; } = double.NaN;
-
-        [Description("The U Factor of the center of glass region of the analyzed thermal section.")]
-        public virtual double UFactorCenterOfGlass { get; set; } = double.NaN;
+        [Description("Id(s) of the objects that this overall effective U-Value is for.")]
+        public virtual List<IComparable> ObjectIds { get; set; }
     }
 }
 
