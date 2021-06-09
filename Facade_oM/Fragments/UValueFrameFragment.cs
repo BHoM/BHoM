@@ -29,13 +29,13 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BH.oM.Facade.Results
+namespace BH.oM.Facade.Fragments
 {
-    [Description("A facade UFactor Result object corresponding to a single Facade object's property (a FrameEdgeProperty, Construction, or OpeningConstruction).")]
-    public class ObjectUFactor : BHoMObject
+    [Description("A U-Value representing the effective U-Value of a frame.")]
+    public class UValueFrame : IFragment
     {
-        [Description("The U Factor of the property.")]
-        public virtual double UFactor { get; set; } = double.NaN;
+        [Description("The U-Value of the frame.")]
+        public virtual double UValue { get; set; } = double.NaN;
     }
 }
 
