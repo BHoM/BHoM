@@ -89,7 +89,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Fragments\PsiJoint.cs" />
     <Compile Include="Fragments\PsiGlassEdge.cs" />
-    <Compile Include="Results\EffectiveUValue.cs" />
+    <Compile Include="Results\OverallUValue.cs" />
     <Compile Include="Fragments\UValueGlassCentre.cs" />
     <Compile Include="Fragments\UValueGlassEdge.cs" />
     <Compile Include="SectionProperties\FrameEdgeProperty.cs" />
