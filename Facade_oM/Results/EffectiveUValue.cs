@@ -40,6 +40,19 @@ namespace BH.oM.Facade.Results
 
         [Description("Id(s) of the objects that this overall effective U-Value is for.")]
         public virtual List<IComparable> ObjectIds { get; set; }
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public OverallUValue(double uValue, List<IComparable> objectIds)
+        {
+            UValue = uValue;
+            ObjectIds = objectIds;
+        }
+
+        /***************************************************/
     }
 }
 
