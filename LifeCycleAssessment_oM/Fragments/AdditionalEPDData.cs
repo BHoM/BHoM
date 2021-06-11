@@ -31,37 +31,37 @@ namespace BH.oM.LifeCycleAssessment.Fragments
     public class AdditionalEPDData : IFragment
     {
         [Description("Brief summary of the EPD from the data source.")]
-        public string Description { get; set; } = "";
+        public virtual string Description { get; set; } = "";
 
         [Description("Description of the material's treatment after its useful life.")]
-        public string EndOfLifeTreatment { get; set; } = "";
+        public virtual string EndOfLifeTreatment { get; set; } = "";
 
         [Description("Unique identifier of the EPD from the source of the information.")]
-        public string Id { get; set; } = "";
+        public virtual string Id { get; set; } = "";
 
         [Description("Industry Standards referenced in creating the product.")]
-        public List<string> IndustryStandards { get; set; } = new List<string>();
+        public virtual List<string> IndustryStandards { get; set; } = new List<string>();
 
         [Description("Jurisdiction within which the sector based product EPD originates.")]
-        public string Jurisdiction { get; set; } = "";
+        public virtual string Jurisdiction { get; set; } = "";
 
         [Description("The period of useful life of the product measured in years.")]
-        public int LifeSpan { get; set; } = 20;
+        public virtual int LifeSpan { get; set; } = 20;
 
         [Description("Manufacturer name responsible for the product being documented.")]
-        public string Manufacturer { get; set; } = "";
+        public virtual string Manufacturer { get; set; } = "";
 
         [Description("Manufacturing facility name within which the product was created.")]
-        public string PlantName { get; set; } = "";
+        public virtual string PlantName { get; set; } = "";
 
         [Description("Postal Code within which the product was created.")]
-        public int PostalCode { get; set; } = 00000;
+        public virtual int PostalCode { get; set; } = 00000;
 
         [Description("Publisher responsible for recording and presenting all EPD information.")]
-        public string Publisher { get; set; } = "";
+        public virtual string Publisher { get; set; } = "";
 
         [Description("Year in which the EPD was created. Default set to the current year, please override if creating an EPD from legacy information.")]
-        public int ReferenceYear { get; set; } = System.DateTime.Today.Year;
+        public virtual int ReferenceYear { get; set; } = System.DateTime.Today.Year;
     }
 }
 
