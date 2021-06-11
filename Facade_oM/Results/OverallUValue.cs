@@ -36,10 +36,10 @@ namespace BH.oM.Facade.Results
     public class OverallUValue : BHoMObject, IImmutable
     {
         [Description("The U-Value of the result.")]
-        public virtual double UValue { get; set; } = double.NaN;
+        public virtual double UValue { get; } = double.NaN;
 
         [Description("Id(s) of the objects that this overall effective U-Value is for.")]
-        public virtual List<IComparable> ObjectIds { get; set; }
+        public virtual List<IComparable> ObjectIds { get; }
 
 
         /***************************************************/
