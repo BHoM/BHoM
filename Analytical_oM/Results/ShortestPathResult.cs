@@ -33,7 +33,8 @@ using BH.oM.Geometry;
 namespace BH.oM.Analytical.Elements
 {
     [Description("Results associated with the computation of shortest paths.")]
-    public class ShortestPathResult : IResult, IImmutable
+    public class ShortestPathResult<T> : IResult, IImmutable
+        where T : IBHoMObject
     {
         [Description("ID of the object that this result belongs to.")]
         public virtual IComparable ObjectId { get; }
@@ -45,7 +46,7 @@ namespace BH.oM.Analytical.Elements
         public virtual double TimeStep { get; }
 
         [Description("Shortest path as an ordered collection of entities.")]
-        public virtual List<IBHoMObject> Path { get; set; } = new List<IBHoMObject>();
+        public virtual List<T> Path { get; set; } = new List<T>();
 
         [Description("Shortest path as an ordered collection of ICurves.")]
         public virtual List<ICurve> Curves { get; set; } = new List<ICurve>();
@@ -57,15 +58,16 @@ namespace BH.oM.Analytical.Elements
         public virtual double Cost { get; set; } = 0.0;
 
         [Description("All entities visited in searching for the path.")]
-        public virtual List<IBHoMObject> EntitiesVisited { get; set; } = new List<IBHoMObject>();
+        public virtual List<T> EntitiesVisited { get; set; } = new List<T>();
 
         [Description("Shortest path as an ordered collection of IRelations.")]
-        public virtual List<IRelation<IBHoMObject>> Relations{ get; set; } = new List<IRelation<IBHoMObject>>();
+        public virtual List<IRelation<T>> Relations{ get; set; } = new List<IRelation<T>>();
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
-        public ShortestPathResult(IComparable objectId, IComparable resultCase, double timeStep, List<IBHoMObject> path, double length, double cost, List<IBHoMObject> entitiesVisited, List<IRelation<IBHoMObject>> relations, List<ICurve> curves = null) 
+        public ShortestPathResult(IComparable objectId, IComparable resultCase, double timeStep, List<T> path, double length, double cost, List<T> entitiesVisited, List<IRelation<T>> relations, List<ICurve> curves = null) 
+         
         {
             ObjectId = objectId;
             ResultCase = resultCase;
@@ -83,7 +85,7 @@ namespace BH.oM.Analytical.Elements
 
         public int CompareTo(IResult other)
         {
-            ShortestPathResult otherRes = other as ShortestPathResult;
+            ShortestPathResult<T> otherRes = other as ShortestPathResult<T>;
 
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
