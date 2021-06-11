@@ -27,12 +27,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Analytical.Results;
 using System.ComponentModel;
 
 namespace BH.oM.Facade.Results
 {
     [Description("An overall thermal transmittance result representing the effective U-Value of an object or collection of objects.")]
-    public class OverallUValue : BHoMObject
+    public class OverallUValue : BHoMObject, IImmutable
     {
         [Description("The U-Value of the result.")]
         public virtual double UValue { get; set; } = double.NaN;
