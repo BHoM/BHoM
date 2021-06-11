@@ -32,10 +32,10 @@ namespace BH.oM.LifeCycleAssessment.Fragments
     public class EPDDimension : IFragment
     {
         [Description("The standard dimension for the EPD being used for LCA calculations.")]
-        public double Dimension { get; set; } = 1;
+        public virtual double Dimension { get; set; } = 1;
 
         [Description("A user-provided scaling dimension that is derived from an EPD.")]
-        public double SpecifiedDimension { get; set; } = 1;
+        public virtual double SpecifiedDimension { get; set; } = 1;
     }
 }
 
