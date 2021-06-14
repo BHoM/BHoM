@@ -20,19 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Results;
 using BH.oM.LifeCycleAssessment.MaterialFragments;
-using BH.oM.Geometry;
-using System.ComponentModel;
-using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Gives the total GlobalWarmingPotential of an object based on its EnvironmentalProductDeclaration.")]
-    public class GlobalWarmingPotentialResult : LifeCycleAssessmentElementResult, IImmutable
+    public class GlobalWarmingPotentialResult : LifeCycleAssessmentElementResult
     {
         /***************************************************/
         /**** Properties                                ****/
