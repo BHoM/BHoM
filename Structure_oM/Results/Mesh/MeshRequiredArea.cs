@@ -36,19 +36,27 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        [Area]
-        [Description("Minimum required area of reinforcement in the top layer.")]
-        public virtual double Top { get; }
-
-        [Area]
-        [Description("Minimum required area of reinforcement in the bottom layer.")]
-        public virtual double Bottom { get; }
+        [AreaPerUnitLength]
+        [Description("Minimum required area of reinforcement in the top layer in the local x direction of the Panel.")]
+        public virtual double TopPrimary { get; }
 
         [AreaPerUnitLength]
-        [Description("Minimum required area of shear reinforcement expressed as an area per unit length.")]
+        [Description("Minimum required area of reinforcement in the top layer in the local y direction of the Panel.")]
+        public virtual double TopSecondary { get; }
+
+        [AreaPerUnitLength]
+        [Description("Minimum required area of reinforcement in the bottom layer in the local x direction of the Panel.")]
+        public virtual double BottomPrimary { get; }
+
+        [AreaPerUnitLength]
+        [Description("Minimum required area of reinforcement in the bottom layer in the local y direction of the Panel.")]
+        public virtual double BottomSecondary { get; }
+
+        [AreaPerUnitLength]
+        [Description("Minimum required area of shear reinforcement.")]
         public virtual double Shear { get; }
 
-        [Area]
+        [AreaPerUnitLength]
         [Description("Minimum required area of torsion reinforcement.")]
         public virtual double Torsion { get; }
 
@@ -70,11 +78,13 @@ namespace BH.oM.Structure.Results
                                 double layerPosition,
                                 MeshResultSmoothingType smoothing,
                                 Basis orientation,
-                                double top, double bottom, double perimeter, double shear, double torsion, string materialName) 
+                                double topPrimary, double topSecondary, double bottomPrimary, double bottomSecondary, double shear, double torsion, string materialName) 
             : base(objectId, nodeId, meshFaceId, resultCase, modeNumber, timeStep, meshResultLayer, layerPosition, smoothing, orientation)
         {
-            Top = top;
-            Bottom = bottom;
+            TopPrimary = topPrimary;
+            TopSecondary = topSecondary;
+            BottomPrimary = bottomPrimary;
+            BottomSecondary = BottomSecondary;
             Shear = shear;
             Torsion = torsion;
             MaterialName = materialName;
