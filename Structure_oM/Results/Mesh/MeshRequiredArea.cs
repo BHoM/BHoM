@@ -84,7 +84,7 @@ namespace BH.oM.Structure.Results
             TopPrimary = topPrimary;
             TopSecondary = topSecondary;
             BottomPrimary = bottomPrimary;
-            BottomSecondary = BottomSecondary;
+            BottomSecondary = bottomSecondary;
             Shear = shear;
             Torsion = torsion;
             MaterialName = materialName;
