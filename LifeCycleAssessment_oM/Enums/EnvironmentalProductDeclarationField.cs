@@ -29,11 +29,29 @@ namespace BH.oM.LifeCycleAssessment
     {
         Undefined,
         AcidificationPotential,
+        BiogenicCarbon,
+        DepletionOfAbioticResources,
         DepletionOfAbioticResourcesFossilFuels,
         EutrophicationPotential,
+        ExportedElectricalEnergy,
+        ExportedThermalEnergy,
+        FreshWater,
         GlobalWarmingPotential,
+        HazardousWasteDisposed,
+        MaterialForEnergyRecovery,
+        NonHazardousWasteDisposed,
+        NonRenewableSecondaryFuels,
         OzoneDepletionPotential,
         PhotochemicalOzoneCreationPotential,
+        PostConsumerRecycledContent,
+        PrimaryEnergyNonRenewableEnergy,
+        PrimaryEnergyNonRenewableResource,
+        PrimaryEnergyRenewableEnergy,
+        PrimaryEnergyRenewableTotal,
+        PrimaryEnergyResourcesRawMaterials,
+        RadioActiveWasteDisposed,
+        RenewableSecondaryFuels,
+        SecondaryMaterial
     }
 }
 
