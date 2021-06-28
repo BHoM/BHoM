@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,51 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment
-{
-    public enum LifeCycleAssessmentPhases
-    {
-        Undefined,
-        [Description("A1 Description")]
-        A1,
-        [Description("A2 Description")]
-        A2,
-        [Description("A3 Description")]
-        A3,
-        [Description("A4 Description")]
-        A4,
-        [Description("A5 Description")]
-        A5,
-        [Description("B1 Description")]
-        B1,
-        [Description("B2 Description")]
-        B2,
-        [Description("B3 Description")]
-        B3,
-        [Description("B4 Description")]
-        B4,
-        [Description("B5 Description")]
-        B5,
-        [Description("B6 Description")]
-        B6,
-        [Description("B7 Description")]
-        B7,
-        [Description("C1 Description")]
-        C1,
-        [Description("C2 Description")]
-        C2,
-        [Description("C3 Description")]
-        C3,
-        [Description("C4 Description")]
-        C4,
-        [Description("D1 Description")]
-        D1,
-        [Description("D2 Description")]
-        D2,
-        [Description("D3 Description")]
-        D3,
-    }
-}
+using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.Geometry;
 
+namespace BH.oM.Environment.Elements
+{
+    [Description("A self-contained unit of accommodation, that could contain smaller spaces")]
+    public class Dwelling : BHoMObject, IRegion
+    {
+        [Description("An ID string used for reference")]
+        public virtual string Reference { get; set; } = "";
+
+        [Description("A 2D curve defining the external boundaries of the floor of the region.")]
+        public virtual ICurve Perimeter { get; set; } = new Polyline();
+    }
+
+}
