@@ -20,51 +20,40 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+using BH.oM.Analytical.Results;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Facade.Results
 {
-    public enum LifeCycleAssessmentPhases
+    [Description("An overall thermal transmittance result representing the effective U-Value of an object or collection of objects.")]
+    public class OverallUValue : BHoMObject, IImmutable
     {
-        Undefined,
-        [Description("A1 Description")]
-        A1,
-        [Description("A2 Description")]
-        A2,
-        [Description("A3 Description")]
-        A3,
-        [Description("A4 Description")]
-        A4,
-        [Description("A5 Description")]
-        A5,
-        [Description("B1 Description")]
-        B1,
-        [Description("B2 Description")]
-        B2,
-        [Description("B3 Description")]
-        B3,
-        [Description("B4 Description")]
-        B4,
-        [Description("B5 Description")]
-        B5,
-        [Description("B6 Description")]
-        B6,
-        [Description("B7 Description")]
-        B7,
-        [Description("C1 Description")]
-        C1,
-        [Description("C2 Description")]
-        C2,
-        [Description("C3 Description")]
-        C3,
-        [Description("C4 Description")]
-        C4,
-        [Description("D1 Description")]
-        D1,
-        [Description("D2 Description")]
-        D2,
-        [Description("D3 Description")]
-        D3,
+        [Description("The U-Value of the result.")]
+        public virtual double UValue { get; } = double.NaN;
+
+        [Description("Id(s) of the objects that this overall effective U-Value is for.")]
+        public virtual List<IComparable> ObjectIds { get; }
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public OverallUValue(double uValue, List<IComparable> objectIds)
+        {
+            UValue = uValue;
+            ObjectIds = objectIds;
+        }
+
+        /***************************************************/
     }
 }
+
 
