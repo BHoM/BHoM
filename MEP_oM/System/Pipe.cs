@@ -20,32 +20,43 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
-using BH.oM.Geometry;
+using BH.oM.MEP.Fragments;
+using BH.oM.MEP.System.SectionProperties;
+using System.Collections.Generic;
+using System.ComponentModel;
+using BH.oM.MEP.System.ConnectionProperties;
 
 namespace BH.oM.MEP.System
 {
     [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IFlow
+    public class Pipe : BHoMObject, IElementM, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("A DimensionalFragment containing spatial properties of the element.")]
+        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
+
         [Description("The point at which the Pipe object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        public virtual Node StartPoint { get; set; } = null;
 
         [Description("The point at which the Pipe object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
-
-        [Description("The volume of fluid being conveyed by the pipe per second (m3/s).")]
-        public virtual double FlowRate { get; set; } = 0;
+        public virtual Node EndPoint { get; set; } = null;
 
         [Description("The pipe section property defines the shape and its associated properties (radius, material, thickness).")]
-        public virtual PipeSectionProperty SectionProperty { get; set; } = null;
+        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
+
+        [Description("Coincident elements along the linear MEP element such as a VolumeDamper or Valve.")]
+        public virtual List<ICoincident> CoincidentElements { get; set; } = null;
+
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<FlowFragment> Flow { get; set; }
+
+        [Description("The element's connection properties, such as if it's connected and to what.")]
+        public virtual ConnectionProperty ConnectionProperty { get; set; } = null;
 
         /***************************************************/
     }

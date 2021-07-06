@@ -20,40 +20,36 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.MEP.Fragments;
-using BH.oM.MEP.System.SectionProperties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Geometry;
+using BH.oM.Base;
 using BH.oM.MEP.System.ConnectionProperties;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.MEP.System.ConnectionProperties
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IElementM, IFlow
+    [Description("A Cable Tray connection property to store information about its physical connectors.")]
+    public class ConnectionProperty : BHoMObject
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        [Description("A DimensionalFragment containing spatial properties of the element.")]
-        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
+        [Description("The point at which the Connector object begins.")]
+        public virtual Fitting StartFitting { get; set; }
 
-        [Description("The point at which the Wire object begins.")]
-        public virtual Node StartPoint { get; set; } = null;
+        [Description("The point at which the Connector bject ends.")]
+        public virtual Fitting EndFitting { get; set; }
 
-        [Description("The point at which the Wire object ends.")]
-        public virtual Node EndPoint { get; set; } = null;
+        [Description("Whether the start point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsStartConnected { get; set; }
 
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
-
-        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        public virtual List<FlowFragment> Flow { get; set; }
-
-        [Description("The element's connection properties, such as if it's connected and to what.")]
-        public virtual ConnectionProperty ConnectionProperty { get; set; } = null;
+        [Description("Whether the end point of the Cable Tray is connected to another segment or not.")]
+        public virtual bool IsEndConnected { get; set; }       
 
         /***************************************************/
     }

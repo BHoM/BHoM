@@ -20,37 +20,49 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
+using BH.oM.MEP.Fragments;
+using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Geometry;
+using System.Collections.Generic;
+using System.ComponentModel;
+using BH.oM.MEP.Enums;
+using BH.oM.MEP.System.ConnectionProperties;
 
 namespace BH.oM.MEP.System
 {
     [Description("A duct object is a passageway which conveys material (typically air)")]
-    public class Duct : BHoMObject, IFlow
+    public class Duct : BHoMObject, IElement1D, IElementM, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("A DimensionalFragment containing spatial properties of the element.")]
+        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
+
         [Description("The point at which the Duct object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        public virtual Node StartPoint { get; set; } = null;
 
         [Description("The point at which the Duct object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
-
-        [Description("The volume of fluid being conveyed by the Duct per second (m3/s).")]
-        public virtual double FlowRate { get; set; } = 0;
+        public virtual Node EndPoint { get; set; } = null;
 
         [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
-        public virtual DuctSectionProperty SectionProperty { get; set; } = null;
+        public virtual List<SectionProfile> SectionProfile { get; set; } = null;
 
         [Angle]
         [Description("This is the Duct's planometric orientation angle (the rotation around its central axis).")]
         public virtual double OrientationAngle { get; set; } = 0;
+
+        [Description("Coincident elements along the linear MEP element such as a VolumeDamper or Valve.")]
+        public virtual List<ICoincident> CoincidentElements { get; set; } = null;
+
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<FlowFragment> Flow { get; set; }
+
+        [Description("The element's connection properties, such as if it's connected and to what.")]
+        public virtual ConnectionProperty ConnectionProperty { get; set; } = null;
 
         /***************************************************/
     }

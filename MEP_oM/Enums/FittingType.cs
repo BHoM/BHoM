@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,36 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.MEP.System.SectionProperties;
-using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.MEP.Fragments;
-using BH.oM.MEP.System.ConnectionProperties;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.MEP.Enums
 {
-    [Description("Base interface for all flow-based objects. These objects are capable of containing a material or element that flows through the object.")]
-    public interface IFlow : IBHoMObject
+    /***************************************************/
+
+    [Description("The type of fitting connected to an element.")]
+    public enum FittingType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("The section property defines the shape and its associated properties.")]
-        List<SectionProfile> SectionProfile { get; set; }
-
-        [Description("A DimensionalFragment containing spatial properties of the element.")]
-        DimensionalFragment ElementSize { get; set; }
-
-        [Description("The connections properties, such as if it's connected and to what.")]
-        ConnectionProperty ConnectionProperty { get; set; }
-
-        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        List<FlowFragment> Flow { get; set; }
-
-        /***************************************************/
+        Undefined,
+        Adaptor,
+        Cap,
+        Coupling,
+        Cross,
+        Elbow,
+        Olet,
+        Plug,
+        Reducer,
+        Tee,
+        Union
     }
-}
 
+    /***************************************************/
+}

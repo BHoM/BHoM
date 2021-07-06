@@ -20,36 +20,28 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.MEP.System.SectionProperties;
-using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.MEP.Fragments;
-using BH.oM.MEP.System.ConnectionProperties;
+using BH.oM.Base;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.MEP.System.MaterialFragments
 {
-    [Description("Base interface for all flow-based objects. These objects are capable of containing a material or element that flows through the object.")]
-    public interface IFlow : IBHoMObject
+    public class SystemMaterialFragment : BHoMObject, IMEPMaterial
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("Element material.")]
+        public virtual Material ElementMaterial { get; set; }
 
-        [Description("The section property defines the shape and its associated properties.")]
-        List<SectionProfile> SectionProfile { get; set; }
+        [Description("Lining material.")]
+        public virtual Material LiningMaterial { get; set; }
 
-        [Description("A DimensionalFragment containing spatial properties of the element.")]
-        DimensionalFragment ElementSize { get; set; }
+        [Description("Lining material thickness.")]
+        public virtual double LiningThickness { get; set; }
 
-        [Description("The connections properties, such as if it's connected and to what.")]
-        ConnectionProperty ConnectionProperty { get; set; }
+        [Description("Insulation material.")]
+        public virtual Material InsulationMaterial { get; set; }
 
-        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
-        List<FlowFragment> Flow { get; set; }
-
-        /***************************************************/
+        [Description("Insulation material thickness.")]
+        public virtual double InsulationThickness { get; set; }
     }
 }
 

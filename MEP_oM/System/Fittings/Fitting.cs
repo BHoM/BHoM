@@ -20,43 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.MEP.Enums;
+using BH.oM.MEP.Fragments;
+using System.Collections.Generic;
 using System.ComponentModel;
 
-using BH.oM.Base;
-using BH.oM.MEP.System.MaterialFragments;
-using BH.oM.Physical.Materials;
-
-namespace BH.oM.MEP.System.SectionProperties
+namespace BH.oM.MEP.System.ConnectionProperties
 {
-    public class CableTraySectionProperty : BHoMObject, IImmutable
+    [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
+    public class Fitting : BHoMObject, IElement0D, ICoincident
     {
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The cable tray material is the primary material that the it is composed of.")]
-        public virtual Material Material { get; set; }     
+        [Description("The point at which the Fitting occurs.")]
+        public virtual Node Location { get; set; } = null;
 
-        [Description("The section profile of the object that will determine its use within a System.")]
-        public virtual SectionProfile SectionProfile { get; }
+        [Description("The type of fitting connected to an element..")]
+        public virtual FittingType Type { get; set; } = FittingType.Undefined;
 
-        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
-        public virtual double ElementSolidArea { get; }
+        [Description("A DimensionalFragment containing spatial properties of the element.")]
+        public virtual DimensionalFragment ElementSize { get; set; } = new DimensionalFragment();
 
-        [Description("The interior area within the element's shapeProfile. This corresponds to the actual open area less any material thickness.")]
-        public virtual double ElementVoidArea { get; }
-
-        /***************************************************/
-        /****                 Constructor               ****/
-        /***************************************************/
-        
-        public CableTraySectionProperty(Material material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
-        {
-            Material = material;
-            SectionProfile = sectionProfile;
-            ElementSolidArea = elementSolidArea;
-            ElementVoidArea = elementVoidArea;            
-        }
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }

@@ -21,17 +21,27 @@
  */
 
 using BH.oM.Base;
+using BH.oM.MEP.Enums;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.MEP.System.SectionProperties
+namespace BH.oM.MEP.Fragments
 {
-    public interface IFlowSectionProperty : IBHoMObject
+    public class FlowFragment : IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("The type of Consumption being utilised by the object.")]
+        public virtual FlowType Type { get; set; } = FlowType.Undefined;
 
+        [Description("The rate of which the material is flowing through the object.")]
+        public virtual double FlowRate { get; set; } = 0;
 
-        /***************************************************/
+        [Pressure]
+        [Description("The difference in total pressure between two points of a fluid carrying network.")]
+        public virtual double PressureDrop { get; set; } = 0;
+
+        [Description("Measures the loss to the change in velocity due to friction through MEP elements.")]
+        public virtual double LossCoefficient { get; set; } = 0;
     }
 }
+
 

@@ -22,27 +22,19 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Spatial.ShapeProfiles;
+using BH.oM.Physical.Constructions;
+using BH.oM.MEP.Enums;
+using System.Collections.Generic;
 
 namespace BH.oM.MEP.System.SectionProperties
 {
-    public class SectionProfile : BHoMObject, IBHoMObject, IImmutable
+    public class SectionProfile : BHoMObject, IBHoMObject
     {
-        [Description("ShapeProfile of the element itself. This is the base ShapeProfile that determines the overall shape of the IFlow object.")]
-        public virtual IProfile ElementProfile { get; }
+        [Description("The ShapeType of the object.")]
+        public virtual ProfileType Type { get; set; }
 
-        [Description("ShapeProfile of the element's interior lining.")]
-        public virtual IProfile LiningProfile { get; }
-
-        [Description("ShapeProfile of the element's exterior insulation.")]
-        public virtual IProfile InsulationProfile { get; }
-
-        public SectionProfile(IProfile elementProfile, IProfile liningProfile, IProfile insulationProfile)
-        {
-            ElementProfile = elementProfile;
-            LiningProfile = liningProfile;
-            InsulationProfile = insulationProfile;
-        }
+        [Description("The list of material layers comprising the element.")]
+        public virtual List<Layer> Layer { get; set; }
     }
 }
 

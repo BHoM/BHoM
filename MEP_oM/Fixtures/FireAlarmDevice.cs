@@ -23,8 +23,10 @@
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.MEP.Enums;
+using BH.oM.MEP.Fragments;
 using BH.oM.MEP.System;
 using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.MEP.Fixtures
@@ -45,6 +47,9 @@ namespace BH.oM.MEP.Fixtures
 
         [Description("A type which describes the fire alarm device more specifically whether it's a smoke detector, carbon monoxide detector or speaker strobe.")]
         public virtual FireAlarmDeviceType FireAlarmDeviceType { get; set; } = FireAlarmDeviceType.Undefined;
+
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }

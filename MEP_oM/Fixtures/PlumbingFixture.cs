@@ -26,6 +26,7 @@ using BH.oM.MEP.Enums;
 using BH.oM.MEP.Fragments;
 using BH.oM.MEP.System;
 using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.MEP.Fixtures
@@ -47,10 +48,13 @@ namespace BH.oM.MEP.Fixtures
         public virtual PlumbingFixtureType PlumbingFixtureType { get; set; } = PlumbingFixtureType.Undefined;
 
         [Description("Depiction of the plumbing flow associated with the plumbing fixture (cold water, hot water and drainage.)")]
-        public virtual PlumbingFlowFragment Flow { get; set; } = new PlumbingFlowFragment();
+        public virtual PlumbingFlowFragment FluidProperties { get; set; } = new PlumbingFlowFragment();
 
         [Description("Depiction of the plumbing loading/fixture units associated with the plumbing fixture (cold water, hot water and drainage.)")]
         public virtual PlumbingLoadingFixtureUnitFragment LoadingFixtureUnits { get; set; } = new PlumbingLoadingFixtureUnitFragment();
+
+        [Description("A data fragment that contains information regarding the consumption properties of the object.")]
+        public virtual List<FlowFragment> Flow { get; set; }
 
         /***************************************************/
     }
