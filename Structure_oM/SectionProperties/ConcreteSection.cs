@@ -29,6 +29,7 @@ using BH.oM.Structure.MaterialFragments;
 using BH.oM.Spatial.ShapeProfiles;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Structure.SectionProperties.Reinforcement;
 
 namespace BH.oM.Structure.SectionProperties
 {
@@ -42,12 +43,8 @@ namespace BH.oM.Structure.SectionProperties
         [Description("A unique Name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
-        [Description("List of Reinforcement of the concrete section.")]
-        public virtual List<Reinforcement.IBarReinforcement> Reinforcement { get; set; } = new List<Reinforcement.IBarReinforcement>();
-
-        [Length]
-        [Description("Minimum reinforcement cover of the section.")]
-        public virtual double MinimumCover { get; set; }
+        [Description("RebarIntent for the Bar containing a list of BarReinforcement.")]
+        public virtual BarRebarIntent  Reinforcement { get; set; }
 
         [Description("Concrete material used throughout the full section.")]
         public virtual IMaterialFragment Material { get; set; }
