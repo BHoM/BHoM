@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,27 +21,45 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Structure.MaterialFragments;
+using BH.oM.Spatial.Layouts;
 using BH.oM.Quantities.Attributes;
-using System.Collections.Generic;
 using System.ComponentModel;
-
 
 namespace BH.oM.Structure.SectionProperties.Reinforcement
 {
-    [Description("A collection of reinforcement for a Bar.")]
-    public class BarRebarIntent : BHoMObject, IRebarIntent
+    [Description("Defines the  reinforcement of a Panel in the longitudinal and transverse direction specified by the Basis of the ReinforcementRegion.")]
+    public class PanelReinforcement : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("Material of the reinforcement.")]
+        public virtual IMaterialFragment Material { get; set; }
 
-        [Description("A collection of IBarReinforcement objects.")]
-        public virtual List<IBarReinforcement> BarReinforcement { get; set; }
+        [Description("The region defining the area of the Panel to be reinforced.")]
+        public virtual ReinforcementRegion Region { get; set; }
 
-        [Length]
-        [Description("Minimum reinforcement cover of the section.")]
+        [Description("The diameter of the longitudinal reinforcement.")]
+        public virtual double LongitudinalDiameter { get; set; }
+
+        [Description("The spacing of longitudinal reinforcement.")]
+        public virtual double LongitudinalSpacing { get; set; }
+
+        [Description("The depth of longitudinal reinforcement measured from the centre of Panel. This will be negative for bottom reinforcement.")]
+        public virtual double LongitudinalDepth { get; set; }
+
+        [Description("The diameter of the transverse reinforcement.")]
+        public virtual double TransverseDiameter { get; set; }
+
+        [Description("The spacing of transverse reinforcement.")]
+        public virtual double TransverseSpacing { get; set; }
+
+        [Description("The depth of transverse reinforcement measured from the centre of Panel. This will be negative for bottom reinforcement.")]
+        public virtual double TransverseDepth { get; set; }
+
+        [Description("Minimum cover for the reinforcement defined in this PanelReinforcement.")]
         public virtual double MinimumCover { get; set; }
-
         /***************************************************/
     }
 }
