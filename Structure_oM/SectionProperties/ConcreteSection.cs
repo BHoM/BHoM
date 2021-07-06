@@ -44,7 +44,7 @@ namespace BH.oM.Structure.SectionProperties
         public override string Name { get; set; }
 
         [Description("RebarIntent for the Bar containing a list of BarReinforcement.")]
-        public virtual BarRebarIntent  RebarIntent { get; set; }
+        public virtual BarRebarIntent RebarIntent { get; set; }
 
         [Description("Concrete material used throughout the full section.")]
         public virtual IMaterialFragment Material { get; set; }
@@ -117,12 +117,12 @@ namespace BH.oM.Structure.SectionProperties
         public virtual double Wplz { get; }
 
         [Length]
-        [Description("Geometric centre of the section in the local Z direction" 
+        [Description("Geometric centre of the section in the local Z direction"
             + "\n Uncracked section disregarding the reinforcement.")]
         public virtual double CentreZ { get; }
 
         [Length]
-        [Description("Geometric centre of the section in the local Y direction" 
+        [Description("Geometric centre of the section in the local Y direction"
             + "\n Uncracked section disregarding the reinforcement.")]
         public virtual double CentreY { get; }
 
@@ -152,7 +152,7 @@ namespace BH.oM.Structure.SectionProperties
         public virtual double Asy { get; }
 
         [Length]
-        [Description("Shear Area in the local Z direction" 
+        [Description("Shear Area in the local Z direction"
             + "\n Uncracked section disregarding the reinforcement.")]
         public virtual double Asz { get; }
 
@@ -211,7 +211,7 @@ namespace BH.oM.Structure.SectionProperties
         }
 
         /***************************************************/
-       
+
     }
 }
 
