@@ -28,7 +28,8 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties.Reinforcement
 {
-    [Description("Defines the  reinforcement of a Panel in the longitudinal and transverse direction specified by the Basis of the ReinforcementRegion.")]
+    [Description("Defines the  reinforcement of a Panel in the longitudinal and transverse direction specified by the Basis of the ReinforcementRegion.\n" +
+        "If the diameter of the reinforcement is set to 0, it will be assumed that no reinforcement is present in this direction.")]
     public class PanelReinforcement : BHoMObject
     {
         /***************************************************/
@@ -40,24 +41,31 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         [Description("The region defining the area of the Panel to be reinforced.")]
         public virtual ReinforcementRegion Region { get; set; }
 
-        [Description("The diameter of the longitudinal reinforcement.")]
+        [Length]
+        [Description("The diameter of the reinforcement in the longitudinal direction, denoted by the local x direction of the ReinforcementRegion.")]
         public virtual double LongitudinalDiameter { get; set; }
 
-        [Description("The spacing of longitudinal reinforcement.")]
+        [Length]
+        [Description("The spacing of the reinforcement in the longitudinal direction, measured perpindicular to the local x direction of the ReinforcementRegion.")]
         public virtual double LongitudinalSpacing { get; set; }
 
-        [Description("The depth of longitudinal reinforcement measured from the centre of Panel. This will be negative for bottom reinforcement.")]
+        [Length]
+        [Description("The depth of longitudinal reinforcement measured from the centre of Panel along the normal. This will be negative for bottom reinforcement.")]
         public virtual double LongitudinalDepth { get; set; }
 
-        [Description("The diameter of the transverse reinforcement.")]
+        [Length]
+        [Description("The diameter of the reinforcement in the transverse direction, denoted by the local y direction of the ReinforcementRegion.")]
         public virtual double TransverseDiameter { get; set; }
 
-        [Description("The spacing of transverse reinforcement.")]
+        [Length]
+        [Description("The spacing of the reinforcement in the transverse direction, measured perpindicular to the local y direction of the ReinforcementRegion.")]
         public virtual double TransverseSpacing { get; set; }
 
-        [Description("The depth of transverse reinforcement measured from the centre of Panel. This will be negative for bottom reinforcement.")]
+        [Length]
+        [Description("The depth of transverse reinforcement measured from the centre of Panel along the normal. This will be negative for bottom reinforcement.")]
         public virtual double TransverseDepth { get; set; }
 
+        [Length]
         [Description("Minimum cover for the reinforcement defined in this PanelReinforcement.")]
         public virtual double MinimumCover { get; set; }
         /***************************************************/

@@ -31,10 +31,10 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
     public class ReinforcementRegion : BHoMObject, IRegion
     {
         [Description("Local x, y, and z axes of the region as a vector Basis. Defaults to world axes.")]
-        public virtual Basis Orientation { get; set; } = Basis.XY;
+        public virtual Basis Orientation { get; set; } = null;
 
         [Description("A 2D curve defining the external boundaries of the region to be reinforced.")]
-        public virtual ICurve Perimeter { get; set; } = new Polyline();
+        public virtual ICurve Perimeter { get; set; } = null;
     }
 
 }
