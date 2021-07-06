@@ -28,19 +28,15 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.SectionProperties.Reinforcement
 {
-    [Description("A collection of reinforcement for a Bar.")]
-    public class BarRebarIntent : BHoMObject, IRebarIntent
+    [Description("A collection of reinforcement for a Panel.")]
+    public class PanelRebarIntent : BHoMObject, IFragment, IRebarIntent
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of IBarReinforcement objects.")]
-        public virtual List<IBarReinforcement> BarReinforcement { get; set; }
-
-        [Length]
-        [Description("Minimum reinforcement cover of the section.")]
-        public virtual double MinimumCover { get; set; }
+        [Description("A collection of PanelReinforcement objects")]
+        public virtual List<PanelReinforcement> PanelReinforcement { get; set; }
 
         /***************************************************/
     }
