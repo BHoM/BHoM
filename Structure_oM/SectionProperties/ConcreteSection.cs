@@ -44,7 +44,7 @@ namespace BH.oM.Structure.SectionProperties
         public override string Name { get; set; }
 
         [Description("RebarIntent for the Bar containing a list of BarReinforcement.")]
-        public virtual BarRebarIntent  Reinforcement { get; set; }
+        public virtual BarRebarIntent  RebarIntent { get; set; }
 
         [Description("Concrete material used throughout the full section.")]
         public virtual IMaterialFragment Material { get; set; }
