@@ -42,7 +42,8 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         public virtual ReinforcementRegion Region { get; set; }
 
         [Length]
-        [Description("The diameter of the reinforcement in the longitudinal direction, denoted by the local x direction of the ReinforcementRegion.")]
+        [Description("The diameter of the reinforcement in the longitudinal direction, denoted by the local x direction of the ReinforcementRegion.\n" +
+            "If the diameter is set 0, it will be assumed that no reinforcement is present in the longitudinal direction.")]
         public virtual double LongitudinalDiameter { get; set; }
 
         [Length]
@@ -54,7 +55,8 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         public virtual double LongitudinalDepth { get; set; }
 
         [Length]
-        [Description("The diameter of the reinforcement in the transverse direction, denoted by the local y direction of the ReinforcementRegion.")]
+        [Description("The diameter of the reinforcement in the transverse direction, denoted by the local y direction of the ReinforcementRegion.\n" +
+            "If the diameter is set 0, it will be assumed that no reinforcement is present in the longitudinal direction.")]
         public virtual double TransverseDiameter { get; set; }
 
         [Length]
