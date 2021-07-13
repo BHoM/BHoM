@@ -1,13 +1,19 @@
 ﻿{
   "Namespace": {
     "ToNew": {
-	"BH.oM.Geometry.ShapeProfiles" : "BH.oM.Spatial.ShapeProfiles"
     },
     "ToOld": {
-	"BH.oM.Spatial.ShapeProfiles" : "BH.oM.Geometry.ShapeProfiles"
     }
   },
   "Type": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Method": {
     "ToNew": {
 
     },
@@ -22,5 +28,11 @@
     "ToOld": {
 
     }
+  },
+  "MessageForDeleted": {
+    "BH.oM.MEP.System.ConnectionProperties.CableTrayConnectionProperty": "This object has been removed as the updates to the CableTray object have made this unnecessary."
+  },
+  "MessageForNoUpgrade": {
+
   }
 }
