@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,30 +21,23 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Structure.MaterialFragments;
 using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
+
+namespace BH.oM.Structure.SurfaceProperties.Reinforcement
 {
-    [Description("Base interface for any reinforcement within a BarRebarIntent.")]
-    public interface IBarReinforcement : IBHoMObject
+    [Description("A collection of PanelReinforcement objects that represent the rebar intent. \n" +
+        "This is stored as layers of reinforcement amongst regions within the Panel.")]
+    public class PanelRebarIntent : BHoMObject, IFragment, IRebarIntent
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Length]
-        [Description("Diameter of a single rebar.")]
-        double Diameter { get; set; }
-
-        IMaterialFragment Material { get; set; }
-
-        [Description("Normalised length (0 means start, 1 means end) along the element where the rebars start.")]
-        double StartLocation { get; set; }
-
-        [Description("Normalised length (0 means start, 1 means end) along the element where the rebars ends.")]
-        double EndLocation { get; set; }
+        [Description("A collection of PanelReinforcement objects.")]
+        public virtual List<PanelReinforcement> PanelReinforcement { get; set; }
 
         /***************************************************/
     }

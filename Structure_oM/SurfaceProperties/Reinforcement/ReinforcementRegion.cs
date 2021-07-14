@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,33 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
-using BH.oM.Structure.MaterialFragments;
-using BH.oM.Quantities.Attributes;
+using BH.oM.Geometry;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
+namespace BH.oM.Structure.SurfaceProperties.Reinforcement
 {
-    [Description("Base interface for any reinforcement within a BarRebarIntent.")]
-    public interface IBarReinforcement : IBHoMObject
+    [Description("A region defining the area of a Panel to be reinforced. The region must exist within the ExternalEdges of the Panel.")]
+    public class ReinforcementRegion : BHoMObject, IRegion
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("Local x, y, and z axes of the region as a vector Basis. Defaults to world axes.")]
+        public virtual Basis Orientation { get; set; } = null;
 
-        [Length]
-        [Description("Diameter of a single rebar.")]
-        double Diameter { get; set; }
-
-        IMaterialFragment Material { get; set; }
-
-        [Description("Normalised length (0 means start, 1 means end) along the element where the rebars start.")]
-        double StartLocation { get; set; }
-
-        [Description("Normalised length (0 means start, 1 means end) along the element where the rebars ends.")]
-        double EndLocation { get; set; }
-
-        /***************************************************/
+        [Description("A 2D curve defining the external boundaries of the region to be reinforced. The curve must exist within the ExternalEdges of the Panel.")]
+        public virtual ICurve Perimeter { get; set; } = null;
     }
-}
 
+}
