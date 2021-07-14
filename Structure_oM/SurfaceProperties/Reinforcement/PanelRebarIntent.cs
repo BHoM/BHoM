@@ -21,15 +21,25 @@
  */
 
 using BH.oM.Base;
-
+using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
-{
-    [Description("Base interface for any rebar intent.")]
-    public interface IRebarIntent : IBHoMObject
-    {
 
+namespace BH.oM.Structure.SurfaceProperties.Reinforcement
+{
+    [Description("A collection of PanelReinforcement objects that represent the rebar intent. \n" +
+        "This is stored as layers of reinforcement amongst regions within the Panel.")]
+    public class PanelRebarIntent : BHoMObject, IFragment, IRebarIntent
+    {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("A collection of PanelReinforcement objects.")]
+        public virtual List<PanelReinforcement> PanelReinforcement { get; set; }
+
+        /***************************************************/
     }
 }
 

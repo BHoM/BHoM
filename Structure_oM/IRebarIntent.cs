@@ -20,21 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Elements;
 using BH.oM.Base;
-using BH.oM.Geometry;
+
 using System.ComponentModel;
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
+namespace BH.oM.Structure
 {
-    [Description("A region defining the area of a Panel to be reinforced.")]
-    public class ReinforcementRegion : BHoMObject, IRegion
+    [Description("Base interface for any rebar intent.")]
+    public interface IRebarIntent : IBHoMObject
     {
-        [Description("Local x, y, and z axes of the region as a vector Basis. Defaults to world axes.")]
-        public virtual Basis Orientation { get; set; } = null;
 
-        [Description("A 2D curve defining the external boundaries of the region to be reinforced.")]
-        public virtual ICurve Perimeter { get; set; } = null;
     }
-
 }
+

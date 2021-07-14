@@ -36,7 +36,7 @@ namespace BH.oM.Structure.SectionProperties.Reinforcement
         /***************************************************/
 
         [Description("A collection of IBarReinforcement objects.")]
-        public virtual List<IBarReinforcement> BarReinforcement { get; set; }
+        public virtual List<IBarReinforcement> BarReinforcement { get; set; } = new List<IBarReinforcement>();
 
         [Length]
         [Description("Minimum reinforcement cover of the section.")]

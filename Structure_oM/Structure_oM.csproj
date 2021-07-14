@@ -132,12 +132,12 @@
     <Compile Include="Constraints\Enums\DOFType.cs" />
     <Compile Include="SectionProperties\GenericSection.cs" />
     <Compile Include="SectionProperties\IGeometricalSection.cs" />
-    <Compile Include="SectionProperties\Reinforcement\PanelReinforcement.cs" />
-    <Compile Include="SectionProperties\Reinforcement\PanelRebarIntent.cs" />
+    <Compile Include="SurfaceProperties\Reinforcement\PanelReinforcement.cs" />
+    <Compile Include="SurfaceProperties\Reinforcement\PanelRebarIntent.cs" />
     <Compile Include="SectionProperties\Reinforcement\BarRebarIntent.cs" />
     <Compile Include="SectionProperties\Reinforcement\IBarReinforcement.cs" />
-    <Compile Include="SectionProperties\Reinforcement\IRebarIntent.cs" />
-    <Compile Include="SectionProperties\Reinforcement\ReinforcementRegion.cs" />
+    <Compile Include="IRebarIntent.cs" />
+    <Compile Include="SurfaceProperties\Reinforcement\ReinforcementRegion.cs" />
     <Compile Include="SectionProperties\Reinforcement\TransverseReinforcement.cs" />
     <Compile Include="SectionProperties\Reinforcement\LongitudinalReinforcement.cs" />
     <Compile Include="SectionProperties\TimberSection.cs" />
