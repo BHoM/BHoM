@@ -20,30 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-
 using BH.oM.Base;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.MEP.Enums;
 
-namespace BH.oM.MEP.System.ConnectionProperties
+namespace BH.oM.MEP.System.Fittings
 {
-    [Description("Base interface for MEP physical connection properties.")]
-    public interface IConnectionProperty : IBHoMObject
+    [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
+    public class Fitting : BHoMObject, IElement0D
     {
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The point at which the Connector object begins.")]
-        Point StartPoint { get; set; }
+        [Description("The point at which the Fitting occurs.")]
+        public virtual Point Location { get; set; } = null;
+        
+        [Description("The points at which the Fitting physically connects to other MEP segments.")]
+        public virtual List<Point> ConnectionsLocation { get; set; } = null;
 
-        [Description("The point at which the Connector bject ends.")]
-        Point EndPoint { get; set; }
+        [Description("The type of fitting connected to an element.")]
+        public virtual FittingType Type { get; set; } = FittingType.Undefined;
 
         /***************************************************/
     }
