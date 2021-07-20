@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Humans.ViewQuality
 {
@@ -32,20 +33,27 @@ namespace BH.oM.Humans.ViewQuality
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual double Occulsion { get; set; } = 0.0;
-
+        [Description("Percentage of the cone of vision occupied by the clipped activity area.")]
         public virtual double AValue { get; set; } = 0.0;
 
+        [Description("Percentage of the cone of vision occupied by heads occluding the activity area.")]
+        public virtual double Occulsion { get; set; } = 0.0;
+
+        [Description("Activity area projected to the spectator's viewing plane.")]
         public virtual Polyline FullActivityArea { get; set; } = new Polyline();
 
-        public virtual List<Polyline> ClippedActivityArea { get; set; } = new List<Polyline>();
+        [Description("Resulting Polyline after clipping the full activity area with the cone of vision.")]
+        public virtual Polyline ClippedActivityArea { get; set; } = new Polyline();
 
-        public virtual ViewCone ViewCone { get; set; } = new ViewCone();
+        [Description("Effective cone of vision orientated to the spectator.")]
+        public virtual Polyline ConeOfVision { get; set; } = new Polyline();
 
-        public List<Polyline> Heads = new List<Polyline>();
+        [Description("Point representing the spectator's singular eye reference.")]
+        public virtual Point ReferencePoint { get; set; } = new Point();
+
+        [Description("Polylines of the spectator heads occluding the view of the activity area.")]
+        public virtual List<Polyline> OccludingHeads { get; set; } = new List<Polyline>();
 
         /***************************************************/
     }
 }
-
-
