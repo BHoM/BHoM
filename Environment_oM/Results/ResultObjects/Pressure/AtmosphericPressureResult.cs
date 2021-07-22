@@ -35,7 +35,7 @@ namespace BH.oM.Environment.Results
 
         [Pressure]
         [Description("The value associated with the results object.")]
-        public virtual double Result { get; set; } = new double();
+        public virtual double Result { get; set; } = 0.0;
 
         /***************************************************/
     }
