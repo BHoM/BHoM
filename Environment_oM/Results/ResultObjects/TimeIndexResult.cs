@@ -31,6 +31,6 @@ namespace BH.oM.Environment.Results
     {
         public virtual List<IAnalysisResult> Results { get; set; } = new List<IAnalysisResult>();
 
-        public virtual int TimeIndex { get; set; } = new int();
+        public virtual int TimeIndex { get; set; } = 0;
     }
 }

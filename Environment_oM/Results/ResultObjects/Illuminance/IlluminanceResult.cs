@@ -34,7 +34,7 @@ namespace BH.oM.Environment.Results
 
         [Quantities.Attributes.Illuminance] // TODO - for some reason not including traceback to Quantities results in error here
         [Description("The value associated with the results object.")]
-        public virtual double Result { get; set; } = new double();
+        public virtual double Result { get; set; } = 0.0;
 
         /***************************************************/
     }
