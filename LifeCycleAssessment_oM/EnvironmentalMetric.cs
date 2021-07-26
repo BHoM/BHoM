@@ -44,6 +44,22 @@ namespace BH.oM.LifeCycleAssessment
         public virtual double Quantity { get; set; } = 0;
 
         /***************************************************/
+        /****               Constructor                 ****/
+        /***************************************************/
+
+        public EnvironmentalMetric(
+            EnvironmentalProductDeclarationField field,
+            List<LifeCycleAssessmentPhases> phases,
+            double quantity
+            )
+
+        {
+            Field = field;
+            Phases = phases;
+            Quantity = quantity;
+        }
+
+        /***************************************************/
     }
 }
 
