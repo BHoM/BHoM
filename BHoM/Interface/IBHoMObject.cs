@@ -36,8 +36,6 @@ namespace BH.oM.Base
         HashSet<string> Tags { get; set; }
 
         Dictionary<string, object> CustomData { get; set; }
-
-        IBHoMObject GetShallowClone(bool newGuid = false);
     }
 }
 
