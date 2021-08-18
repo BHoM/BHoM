@@ -26,7 +26,7 @@ using BH.oM.Spatial.Layouts;
 using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.SurfaceProperties.Reinforcement
+namespace BH.oM.Structure.Reinforcement
 {
     [Description("Defines the  reinforcement of a Panel in the longitudinal and transverse direction specified by the Basis of the ReinforcementRegion.\n" +
         "If the diameter of the reinforcement is set to 0, it will be assumed that no reinforcement is present in this direction.")]
