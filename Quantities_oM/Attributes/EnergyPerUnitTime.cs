@@ -20,14 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Humans.ViewQuality
+using System;
+
+namespace BH.oM.Quantities.Attributes
 {
-    public enum ViewConeEnum
+    [AttributeUsage(AttributeTargets.Property)]
+    public class EnergyPerUnitTime : QuantityAttribute
     {
-        StaticConeArea = 0,
-        DynamicConeArea=1,
-        ViewFrameArea=2,
-        Undefined=3,
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public override int M { get; } = 1;
+
+        public override int L { get; } = 2;
+
+        public override int T { get; } = -3;
+
+        public override string SIUnit { get; } = "W";
+
+        /***************************************************/
     }
 }
 

@@ -20,32 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BH.oM.Base;
 using System.ComponentModel;
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-
-namespace BH.oM.MEP.System.ConnectionProperties
+namespace BH.oM.Environment.Results
 {
-    [Description("Base interface for MEP physical connection properties.")]
-    public interface IConnectionProperty : IBHoMObject
+    [Description("A results object containing specific energy data.")]
+    public interface ISpecificEnergyResult : IBHoMObject, IAnalysisResult
     {
-        /***************************************************/
-        /****                 Properties                ****/
-        /***************************************************/
 
-        [Description("The point at which the Connector object begins.")]
-        Point StartPoint { get; set; }
-
-        [Description("The point at which the Connector bject ends.")]
-        Point EndPoint { get; set; }
-
-        /***************************************************/
     }
 }
-

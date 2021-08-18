@@ -21,23 +21,22 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using System.Collections.Generic;
+using BH.oM.Quantities.Attributes;
+using System.ComponentModel;
 
-namespace BH.oM.Humans.ViewQuality
+namespace BH.oM.Environment.Results
 {
-    public class ViewCone : BHoMObject
+    [Description("A results object containing relative humidity data.")]
+    public class RelativeHumidityResult : BHoMObject, IRatioResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Polyline> ConeBoundary { get; set; } = new List<Polyline>();
-
-        public virtual double ConeArea { get; set; } = 0.0;
+        [Ratio]
+        [Description("The value associated with the results object.")]
+        public virtual double Result { get; set; } = 0.0;
 
         /***************************************************/
     }
 }
-
-

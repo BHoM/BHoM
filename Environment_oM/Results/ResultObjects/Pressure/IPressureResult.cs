@@ -20,38 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.MEP.System.ConnectionProperties;
+using System.ComponentModel;
 
-namespace BH.oM.MEP.System.ConnectionProperties
+namespace BH.oM.Environment.Results
 {
-    [Description("A Cable Tray connection property to store information about its physical connectors.")]
-    public class CableTrayConnectionProperty : BHoMObject, IConnectionProperty
+    [Description("A results object containing pressure data.")]
+    public interface IPressureResult : IBHoMObject, IAnalysisResult
     {
-        /***************************************************/
-        /****                 Properties                ****/
-        /***************************************************/
 
-        [Description("The point at which the Connector object begins.")]
-        public virtual Point StartPoint { get; set; }
-
-        [Description("The point at which the Connector bject ends.")]
-        public virtual Point EndPoint { get; set; }
-
-        [Description("Whether the start point of the Cable Tray is connected to another segment or not.")]
-        public virtual bool IsStartConnected { get; set; }
-
-        [Description("Whether the end point of the Cable Tray is connected to another segment or not.")]
-        public virtual bool IsEndConnected { get; set; }       
-
-        /***************************************************/
     }
 }
-
