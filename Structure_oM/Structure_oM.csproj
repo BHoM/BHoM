@@ -134,12 +134,12 @@
     <Compile Include="SectionProperties\IGeometricalSection.cs" />
     <Compile Include="Reinforcement\PanelReinforcement.cs" />
     <Compile Include="Reinforcement\PanelRebarIntent.cs" />
-    <Compile Include="SectionProperties\Reinforcement\BarRebarIntent.cs" />
-    <Compile Include="SectionProperties\Reinforcement\IBarReinforcement.cs" />
+    <Compile Include="Reinforcement\BarRebarIntent.cs" />
+    <Compile Include="Reinforcement\IBarReinforcement.cs" />
     <Compile Include="IRebarIntent.cs" />
     <Compile Include="Reinforcement\ReinforcementRegion.cs" />
-    <Compile Include="SectionProperties\Reinforcement\TransverseReinforcement.cs" />
-    <Compile Include="SectionProperties\Reinforcement\LongitudinalReinforcement.cs" />
+    <Compile Include="Reinforcement\TransverseReinforcement.cs" />
+    <Compile Include="Reinforcement\LongitudinalReinforcement.cs" />
     <Compile Include="SectionProperties\TimberSection.cs" />
     <Compile Include="SurfaceProperties\Enums\LoadPanelSupportConditions.cs" />
     <Compile Include="SurfaceProperties\Enums\PanelDirection.cs" />

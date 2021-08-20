@@ -22,29 +22,34 @@
 
 using BH.oM.Base;
 using BH.oM.Structure.MaterialFragments;
+using BH.oM.Spatial.Layouts;
 using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
+namespace BH.oM.Structure.Reinforcement
 {
-    [Description("Base interface for any reinforcement within a BarRebarIntent.")]
-    public interface IBarReinforcement : IBHoMObject
+    [Description("Defines any longitudinal reinforcement along a Bar.")]
+    public class LongitudinalReinforcement : BHoMObject, IBarReinforcement
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Layout controlling the distribution of the rebars across the SectionProperty.")]
+        public virtual ILayout2D RebarLayout { get; set; }
+
         [Length]
         [Description("Diameter of a single rebar.")]
-        double Diameter { get; set; }
+        public virtual double Diameter { get; set; }
 
-        IMaterialFragment Material { get; set; }
+        public virtual IMaterialFragment Material { get; set; }
 
         [Description("Normalised length (0 means start, 1 means end) along the element where the rebars start.")]
-        double StartLocation { get; set; }
+        public virtual double StartLocation { get; set; } = 0;
 
         [Description("Normalised length (0 means start, 1 means end) along the element where the rebars ends.")]
-        double EndLocation { get; set; }
+        public virtual double EndLocation { get; set; } = 1;
+
 
         /***************************************************/
     }
