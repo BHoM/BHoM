@@ -136,7 +136,7 @@
     <Compile Include="Reinforcement\PanelRebarIntent.cs" />
     <Compile Include="Reinforcement\BarRebarIntent.cs" />
     <Compile Include="Reinforcement\IBarReinforcement.cs" />
-    <Compile Include="IRebarIntent.cs" />
+    <Compile Include="Reinforcement\IRebarIntent.cs" />
     <Compile Include="Reinforcement\ReinforcementRegion.cs" />
     <Compile Include="Reinforcement\TransverseReinforcement.cs" />
     <Compile Include="Reinforcement\LongitudinalReinforcement.cs" />
