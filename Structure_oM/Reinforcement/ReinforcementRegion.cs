@@ -30,10 +30,11 @@ namespace BH.oM.Structure.Reinforcement
     [Description("A region defining the area of a Panel to be reinforced. The curve must exist within the 2D region outlined by ExternalEdges of the Panel.")]
     public class ReinforcementRegion : BHoMObject, IRegion
     {
-        [Description("Local x, y, and z axes of the region as a vector Basis. Defaults to world axes.")]
+        [Description("Local x, y, and z axes of the region as a vector Basis. Defaults to OrientationAngle and Plane of Panel if null or empty.")]
         public virtual Basis Orientation { get; set; } = null;
 
-        [Description("A 2D curve defining the external boundaries of the region to be reinforced. The curve must exist within the ExternalEdges of the Panel.")]
+        [Description("A 2D curve defining the external boundaries of the region to be reinforced. The curve must exist within the ExternalEdges of the Panel. Defaults" +
+            "to the Panel perimeter if null or empty.")]
         public virtual ICurve Perimeter { get; set; } = null;
     }
 
