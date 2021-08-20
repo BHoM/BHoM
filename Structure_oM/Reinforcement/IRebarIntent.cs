@@ -24,7 +24,7 @@ using BH.oM.Base;
 
 using System.ComponentModel;
 
-namespace BH.oM.Structure
+namespace BH.oM.Structure.Reinforcement
 {
     [Description("Base interface for any rebar intent.")]
     public interface IRebarIntent : IBHoMObject
