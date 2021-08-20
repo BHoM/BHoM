@@ -29,7 +29,7 @@ using BH.oM.Structure.MaterialFragments;
 using BH.oM.Spatial.ShapeProfiles;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Structure.SectionProperties.Reinforcement;
+using BH.oM.Structure.Reinforcement;
 
 namespace BH.oM.Structure.SectionProperties
 {

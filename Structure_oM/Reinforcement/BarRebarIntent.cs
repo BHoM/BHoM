@@ -26,7 +26,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
+namespace BH.oM.Structure.Reinforcement
 {
     [Description("A collection of reinforcement for a Bar and minimum cover.")]
     public class BarRebarIntent : BHoMObject, IRebarIntent
