@@ -183,7 +183,8 @@ namespace BH.oM.Structure.SectionProperties
             double vy,
             double vpy,
             double asy,
-            double asz)
+            double asz,
+            BarRebarIntent rebarIntent)
 
         {
             SectionProfile = sectionProfile;
@@ -207,6 +208,7 @@ namespace BH.oM.Structure.SectionProperties
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
+            RebarIntent = rebarIntent;
 
         }
 
