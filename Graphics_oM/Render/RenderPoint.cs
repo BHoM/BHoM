@@ -21,31 +21,18 @@
  */
 
 using BH.oM.Dimensional;
-using System.ComponentModel;
+using BH.oM.Geometry;
+using System.Drawing;
 
-namespace BH.oM.Geometry
+namespace BH.oM.Graphics
 {
-    [Description("A triangular or quadrilateral shape forming the basis of a polygon Mesh. Defined by corner vertices referencing indices of a Point list. See BH.oM.Geometry.Mesh object for usage." +
-                 "\nA value of -1 for the fourth vertex D indicates the Face is triangular.")]
-    public class Face : IGeometry, IElement2D
+    public class RenderPoint : Geometry.Point, ISingleColourable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Index of first corner in Point list.")]
-        public virtual int A { get; set; } = 0;
-
-        [Description("Index of second corner in Point list.")]
-        public virtual int B { get; set; } = 0;
-
-        [Description("Index of third corner in Point list.")]
-        public virtual int C { get; set; } = 0;
-
-        [Description("Index of fourth corner in Point list. Set to -1 for three-sided Face.")]
-        public virtual int D { get; set; } = -1;
-        
-        /***************************************************/
+        public virtual Color Colour { get; set; } = Color.FromArgb(255, 250, 34, 74);
     }
 }
 

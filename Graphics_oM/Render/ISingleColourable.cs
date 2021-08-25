@@ -20,29 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BH.oM.Geometry;
 
 namespace BH.oM.Graphics
 {
-    [Description("Render geometry with a specific colour.")]
-    public class RenderGeometry : IRender
+    [Description("Indicates objects that own a colour property.")]
+    public interface ISingleColourable : IObject, IRenderable
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("A geometry (or many geometry objects collected into a single `CompositeGeometry` object).")]
-        public virtual IGeometry Geometry { get; set; }
-
-        [Description("Colour used to render the Geometry. Default is BHoM Coral with a subtle transparency (Color.FromArgb(80, 255, 41, 105)).")]
-        public virtual Color Colour { get; set; } = Color.FromArgb(80, 255, 41, 105);
-
-        /***************************************************/
-
+        Color Colour { get; set; }
     }
 }

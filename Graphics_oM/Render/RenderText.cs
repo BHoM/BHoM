@@ -34,7 +34,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Graphics
 {
     [Description("Render text at a location and orientation in space with specified height, font and colour.")]
-    public class RenderText : IRender
+    public class RenderText : ISingleColourable
     {
 
         /***************************************************/
@@ -45,11 +45,12 @@ namespace BH.oM.Graphics
         public virtual string Text { get; set; } = "";
 
         [Description("Cartesian to locate and orientate the text.")]
-
+        // If we use cartesian, we need to make sure we are not constraining too much.
+        // Casts from Point and Vertex must be present (only Point is for now)
         public virtual Cartesian Cartesian { get; set; } = new Cartesian();
 
         [Description("Height of the text. Default is 1. Units will be determined by the setting of the user interface that renders the text.")]
-
+        // The textual properties may be grouped in another object. There are many more.
         public virtual double Height { get; set; } = 1;
 
         [Description("Font used to render the text. Default is Arial.")]

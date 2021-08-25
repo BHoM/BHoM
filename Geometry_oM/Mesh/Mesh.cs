@@ -22,21 +22,22 @@
 
 using System.ComponentModel;
 using System.Collections.Generic;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Geometry
 {
     [Description("A polygon mesh, defined by a list of triangular or quadrilateral Faces and their Vertices.")]
-    public class Mesh : IGeometry
+    public class Mesh
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Defines the three-dimensional Mesh geometry as  X, Y, Z coordinates.")]
-        public virtual List<Point> Vertices { get; set; } = new List<Point>();
+        public virtual List<IElement0D> Vertices { get; set; } = new List<IElement0D>();
 
         [Description("The list of polygons, defined as corner Point indices referencing the list of Vertices.")]
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
+        public virtual List<IElement2D> Faces { get; set; } = new List<IElement2D>();
         
         /***************************************************/
     }

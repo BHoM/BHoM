@@ -39,6 +39,7 @@ namespace BH.oM.Reflection.Debugging
 
         public virtual List<Event> CurrentEvents { get; set; } = new List<Event>();
 
+        public virtual List<Event> CatchedEvents { get; set; } = new List<Event>();
 
         /***************************************************/
     }

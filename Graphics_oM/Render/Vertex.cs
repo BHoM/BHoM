@@ -20,12 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using System.Drawing;
 
 namespace BH.oM.Graphics
 {
-    public class Vertex : IGeometry
+    public class Vertex : IGeometry, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/

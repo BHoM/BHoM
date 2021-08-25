@@ -21,34 +21,35 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace BH.oM.Graphics
 {
-    public class RenderMesh : IGeometry, IFragment
+    public class RenderMesh : Mesh, IRenderable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        private List<RenderPoint> m_vertex = new List<RenderPoint>();
 
-        public virtual List<Face> Faces { get; set; } = new List<Face>();
-
-        /***************************************************/
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        public static explicit operator RenderMesh(Geometry.Mesh mesh)
+        public override List<IElement0D> Vertices
         {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
+            get { return m_vertex.OfType<IElement0D>().ToList(); }
+            set
+            {
+                m_vertex = value.OfType<RenderPoint>().ToList();
+                if (value.Count != m_vertex.Count)
+                    throw new ArgumentException($"Can only assign {nameof(RenderPoint)} to RenderMesh's {nameof(RenderMesh.Vertices)}.");
+            }
         }
 
         /***************************************************/
+
     }
 }
 

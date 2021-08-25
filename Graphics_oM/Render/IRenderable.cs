@@ -31,9 +31,8 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Graphics
 {
-    [Description("Base interface for rendered objects.")]
-    public interface IRender : IObject
+    [Description("Indicates objects that should be renderable on a medium.")]
+    public interface IRenderable : IFragment
     {
-        Color Colour { get; set; }
     }
 }
