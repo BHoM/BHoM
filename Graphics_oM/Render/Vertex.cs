@@ -25,7 +25,7 @@ using System.Drawing;
 
 namespace BH.oM.Graphics
 {
-    public class Vertex : IGeometry
+    public class Vertex : IGeometry, IColourable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -33,7 +33,7 @@ namespace BH.oM.Graphics
 
         public virtual Geometry.Point Point { get; set; } = new Geometry.Point();
 
-        public virtual Color Color { get; set; } = Color.FromArgb(255, 250, 34, 74);
+        public virtual Color Colour { get; set; } = Color.FromArgb(255, 250, 34, 74);
 
         /***************************************************/
         /**** Explicit Casting                          ****/
@@ -41,7 +41,7 @@ namespace BH.oM.Graphics
 
         public static explicit operator Vertex(Geometry.Point point)
         {
-            return new Vertex { Point = point};
+            return new Vertex { Point = point };
         }
 
         /***************************************************/

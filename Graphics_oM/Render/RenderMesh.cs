@@ -27,7 +27,7 @@ using System.Linq;
 
 namespace BH.oM.Graphics
 {
-    public class RenderMesh : IGeometry, IFragment
+    public class RenderMesh : IGeometry, IFragment, IRenderable
     {
         /***************************************************/
         /**** Properties                                ****/

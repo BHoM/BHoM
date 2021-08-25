@@ -30,7 +30,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Graphics
 {
     [Description("Render geometry with a specific colour.")]
-    public class RenderGeometry : IRender
+    public class RenderGeometry : IColourable, IFragment
     {
         /***************************************************/
         /**** Properties                                ****/

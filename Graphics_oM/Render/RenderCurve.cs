@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -20,46 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-
 using BH.oM.Base;
-using BH.oM.Geometry.CoordinateSystem;
-using System;
+using BH.oM.Geometry;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Graphics
 {
-    [Description("Render text at a location and orientation in space with specified height, font and colour.")]
-    public class RenderText : IColourable
+    public class RenderCurve : IGeometry, IFragment
     {
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The text to render.")]
-        public virtual string Text { get; set; } = "";
+        public virtual List<Vertex> Points { get; set; } = new List<Vertex>();
 
-        [Description("Cartesian to locate and orientate the text.")]
-
-        public virtual Cartesian Cartesian { get; set; } = new Cartesian();
-
-        [Description("Height of the text. Default is 1. Units will be determined by the setting of the user interface that renders the text.")]
-
-        public virtual double Height { get; set; } = 1;
-
-        [Description("Font used to render the text. Default is Arial.")]
-
-        public virtual string FontName { get; set; } = "Arial";
-
-        [Description("Colour used to render the text. Default is BHoM Coral with a subtle transparency (Color.FromArgb(80, 255, 41, 105)).")]
-
-        public virtual Color Colour { get; set; } = Color.FromArgb(80, 255, 41, 105);
 
         /***************************************************/
+
     }
 }
+
+
