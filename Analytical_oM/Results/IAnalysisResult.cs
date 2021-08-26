@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Results
 {
-    public interface IAnalysisResult : IObjectIdResult, IResultCase, ITimeStepResult
+    public interface IAnalysisResult : IObjectIdResult, ICasedResult, ITimeStepResult
     {
 
     }
