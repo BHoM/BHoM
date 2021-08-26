@@ -31,7 +31,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Test.Results
 {
-    public class InputOutputComparisonSummary : IResult, IImmutable
+    public class InputOutputComparisonSummary : IAnalysisResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

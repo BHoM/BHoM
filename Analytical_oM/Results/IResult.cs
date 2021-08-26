@@ -35,11 +35,6 @@ namespace BH.oM.Analytical.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        IComparable ObjectId { get; }
-
-        IComparable ResultCase { get; }
-
-        double TimeStep { get; }
 
         /***************************************************/
     }
