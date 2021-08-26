@@ -63,7 +63,7 @@
     <Compile Include="Render\RepresentationOptions.cs" />
     <Compile Include="Render\RenderMeshOptions.cs" />
     <Compile Include="Render\RenderMesh.cs" />
-    <Compile Include="Render\Vertex.cs" />
+    <Compile Include="Render\RenderPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scales\IScale.cs" />
     <Compile Include="Scales\ScaleLinear.cs" />
@@ -96,6 +96,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Versioning_43.json" />
     <None Include="Versioning_42.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
