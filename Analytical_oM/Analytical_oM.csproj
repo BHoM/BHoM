@@ -70,7 +70,7 @@
     <Compile Include="Results\IMeshResult.cs" />
     <Compile Include="Results\IAnalysisResult.cs" />
     <Compile Include="Results\ITimeStepResult.cs" />
-    <Compile Include="Results\IResultCase.cs" />
+    <Compile Include="Results\ICasedResult.cs" />
     <Compile Include="Results\IObjectIdResult.cs" />
     <Compile Include="Results\IResult.cs" />
     <Compile Include="Results\IResultCollection.cs" />

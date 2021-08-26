@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.Analytical.Results
 {
     [Description("Base interface for any Mesh result class which is a collection of discrete MeshElementResults.")]
-    public interface IMeshResult<T> : IResultCollection<T> where T : IMeshElementResult
+    public interface IMeshResult<T> : IAnalysisResult, IResultCollection<T> where T : IMeshElementResult
     {
 
     }
