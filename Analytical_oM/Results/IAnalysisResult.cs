@@ -20,51 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-
-using BH.oM.Geometry;
-using System.ComponentModel;
+using BH.oM.Base;
 using System;
-using BH.oM.Analytical.Results;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Humans.ViewQuality
+namespace BH.oM.Analytical.Results
 {
-    public abstract class ViewQualityResult : IAnalysisResult
+    public interface IAnalysisResult : IObjectIdResult, IResultCase, ITimeStepResult
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        public virtual IComparable ObjectId { get; set; } = "";
-
-        public virtual IComparable ResultCase { get; set; } = "";
-
-        public virtual double TimeStep { get; set; } = 0.0;
-
-        /***************************************************/
-        /**** IComparable Interface                     ****/
-        /***************************************************/
-
-        public int CompareTo(IResult other)
-        {
-            ViewQualityResult otherRes = other as ViewQualityResult;
-
-            if (otherRes == null)
-                return this.GetType().Name.CompareTo(other.GetType().Name);
-
-            int n = this.ObjectId.CompareTo(otherRes.ObjectId);
-            if (n == 0)
-            {
-                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
-                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
-            }
-            else
-            {
-                return n;
-            }
-
-        }
-
-        /***************************************************/
     }
 }
 
