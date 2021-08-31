@@ -7,7 +7,7 @@
     <ProjectGuid>{D92CAFAC-D419-42BA-A9DC-4B7DAD976A8F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BH.oM.Facade_oM</RootNamespace>
+    <RootNamespace>BH.oM.Facade</RootNamespace>
     <AssemblyName>Facade_oM</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
