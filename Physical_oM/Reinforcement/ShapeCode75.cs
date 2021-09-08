@@ -28,24 +28,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Materials;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [Description("A reinforcement bar with shape code 75 to BS 8666:2020.")]
-    public interface ShapeCode75 : IReinforcement, IBHoMObject
+    [NoAutoConstructor]
+    [Description("A reinforcement bar with shape code 75 to BS 8666:2020 in the XY Plane centred on the Origin.")]
+    public class ShapeCode75 : BHoMObject, IShapeCode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        double A { get; set; }
+        public virtual double A { get; set; }
 
         [Length]
-        double B { get; set; }
+        public virtual double B { get; set; }
 
         /***************************************************/
     }

@@ -28,30 +28,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Materials;
-using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [Description("Base interface for all physical reinforcement objects.")]
-    public interface IReinforcement : IBHoMObject
+    [Description("Base interface for all ShapeCode objects.")]
+    public interface IShapeCode : IBHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Length]
-        double Diameter { get; set; }
-
-        [Length]
-        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
-        double BendRadius { get; set; }
-
-        [Description("Local x, y, and z axes of the reinforcement as a vector Basis.")]
-        Basis Orientation { get; set; }
-
-        /***************************************************/
     }
 }
 
