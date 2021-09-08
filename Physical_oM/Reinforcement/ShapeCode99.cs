@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -35,7 +35,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Physical.Reinforcement
 {
     [Description("Base interface for all reinforcement bars.")]
-    public interface IReinforcingBar : IBHoMObject
+    public interface ShapeCode99 : IReinforcement, IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -44,18 +44,7 @@ namespace BH.oM.Physical.Reinforcement
         [Description("Centreline of the reinforcement bar in three-dimensional space. When the BendRadius is sufficient for any kinks in the rebar, this can be defined as a polyline, ommiting any arcs in corners.")]
         ICurve CentreCurve { get; set; }
 
-        [Length]
-        double Diameter { get; set; }
-
-        Material Material { get; set; }
-
-        [Length]
-        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
-        double BendRadius { get; set; }
-
         /***************************************************/
     }
 }
-
-
 
