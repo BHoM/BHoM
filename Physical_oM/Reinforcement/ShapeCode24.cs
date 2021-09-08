@@ -35,7 +35,7 @@ namespace BH.oM.Physical.Reinforcement
 {
     [NoAutoConstructor]
     [Description("A reinforcement bar with shape code 24 to BS 8666:2020 in the XY Plane with the free end of the A segment starting at the Origin aligned with the X axis " +
-        "and the C/D segment aligned with the Y axis.")]
+        "and the C segment aligned with the Y axis.")]
     public class ShapeCode24 : BHoMObject, IShapeCode
     {
         /***************************************************/
