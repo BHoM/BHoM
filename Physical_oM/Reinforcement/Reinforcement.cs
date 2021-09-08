@@ -28,34 +28,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [NoAutoConstructor]
-    [Description("A reinforcement bar with shape code 28 to BS 8666:2020 in the XY Plane with the free end of A segment starting at the Origin, the B/E segment aligned with the" +
-        "X axis and the C/D segment aligned with the Y axis.")]
-    public class ShapeCode28 : BHoMObject, IShapeCode
+    [Description("Base interface for all physical reinforcement objects.")]
+    public class Reinforcement : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        public virtual double A { get; set; }
+        public virtual double Diameter { get; set; }
 
         [Length]
-        public virtual double B { get; set; }
+        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
+        public virtual double BendRadius { get; set; }
 
-        [Length]
-        public virtual double C { get; set; }
+        [Description("Local x, y, and z axes of the reinforcement as a vector Basis.")]
+        public virtual Cartesian CoordinateSystem { get; set; }
 
-        [Length]
-        public virtual double D { get; set; }
-
-        [Length]
-        public virtual double E { get; set; }
+        [Description("The ShapeCode object containing the geometrical parameters of the reinforcement bar.")]
+        public virtual IShapeCode ShapeCode { get; set; }
 
         /***************************************************/
     }
