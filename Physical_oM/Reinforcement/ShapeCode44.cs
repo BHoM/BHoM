@@ -1,4 +1,4 @@
-﻿/*
+﻿/* 
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -28,33 +28,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Materials;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [Description("A reinforcement bar with shape code 44 to BS 8666:2020.")]
-    public interface ShapeCode44 : IReinforcement, IBHoMObject
+    [NoAutoConstructor]
+    [Description("A reinforcement bar with shape code 44 to BS 8666:2020 in the XY Plane with the free end of the A segment starting at the " +
+        "Origin aligned with the X axis and the B/D parameters aligned with the Y axis.")]
+    public class ShapeCode44 : BHoMObject, IShapeCode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        double A { get; set; }
+        public virtual double A { get; set; }
 
         [Length]
-        double B { get; set; }
+        public virtual double B { get; set; }
 
         [Length]
-        double C { get; set; }
+        public virtual double C { get; set; }
 
         [Length]
-        double D { get; set; }
+        public virtual double D { get; set; }
 
         [Length]
-        double E { get; set; }
+        public virtual double E { get; set; }
 
         /***************************************************/
     }

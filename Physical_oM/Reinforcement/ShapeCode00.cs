@@ -28,21 +28,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.Materials;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [Description("A reinforcement bar with shape code 00 to BS 8666:2020.")]
-    public interface ShapeCode00 : IReinforcement, IBHoMObject
+    [NoAutoConstructor]
+    [Description("A reinforcement bar with shape code 00 to BS 8666:2020 in the XY Plane centred on the Origin.")]
+    public class ShapeCode00 : BHoMObject, IShapeCode
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        double A { get; set; }
+        public virtual double A { get; set; }
 
         /***************************************************/
     }
