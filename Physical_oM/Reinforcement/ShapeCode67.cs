@@ -33,7 +33,6 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [NoAutoConstructor]
     [Description("A reinforcement bar with shape code 67 to BS 8666:2020 in the XY Plane starting at the Origin and C aligned with the positive Y axis.")]
     public class ShapeCode67 : BHoMObject, IShapeCode
     {
