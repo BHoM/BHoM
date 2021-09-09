@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\EquivalencyType.cs" />
     <Compile Include="Enums\EPDType.cs" />
     <Compile Include="EnvironmentalMetric.cs" />
     <Compile Include="BuildingBenchmarkingData.cs" />
