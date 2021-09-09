@@ -33,7 +33,6 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [NoAutoConstructor]
     [Description("A reinforcement bar with shape code 99 to BS 8666:2020.")]
     public class ShapeCode99 : BHoMObject, IShapeCode
     {
