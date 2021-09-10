@@ -6,7 +6,6 @@
     <FileVersion>4.3.0.0</FileVersion>
     <PackageProjectUrl>https://github.com/BHoM/BHoM_Engine</PackageProjectUrl>
     <Copyright>Copyright © https://github.com/BHoM</Copyright>
-    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
