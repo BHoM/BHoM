@@ -19,12 +19,9 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\BHoM\BHoM.csproj">
-      <Private>false</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj" />
+    <ProjectReference Include="..\BHoM\BHoM.csproj" />
+    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj" />
   </ItemGroup>
-
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
 <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
