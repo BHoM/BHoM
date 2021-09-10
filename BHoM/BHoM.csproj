@@ -1,13 +1,26 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-	<AssemblyVersion>4.0.0.0</AssemblyVersion>
-	<FileVersion>4.3.0.0</FileVersion>
-	<Version>4.3.0.0</Version>
-	<Copyright>Copyright © https://github.com/BHoM</Copyright>
-	<Description>Buildings and Habitats Object Model</Description>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <FileVersion>4.3.0.0</FileVersion>
+    <PackageProjectUrl>https://github.com/BHoM/BHoM_Engine</PackageProjectUrl>
+    <Copyright>Copyright © https://github.com/BHoM</Copyright>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\Build\</OutputPath>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Build\</OutputPath>
+  </PropertyGroup>
+
+
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+<Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+  </Target>
 
 </Project>

@@ -2,7 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <FileVersion>4.3.0.0</FileVersion>
+    <PackageProjectUrl>https://github.com/BHoM/BHoM_Engine</PackageProjectUrl>
+    <Copyright>Copyright © https://github.com/BHoM</Copyright>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\Build\</OutputPath>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Build\</OutputPath>
+  </PropertyGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj" />
@@ -12,5 +27,9 @@
     <ProjectReference Include="..\Physical_oM\Physical_oM.csproj" />
     <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+<Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+  </Target>
 
 </Project>
