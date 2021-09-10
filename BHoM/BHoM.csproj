@@ -20,7 +20,7 @@
 
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-<Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+<Exec Command="mkdir &quot;C:\ProgramData\BHoM\Assemblies&quot;&#xD;&#xA;mkdir &quot;C:\ProgramData\BHoM\Datasets&quot;&#xD;&#xA;mkdir &quot;C:\ProgramData\BHoM\Upgrades&quot;&#xD;&#xA;&#xD;&#xA;xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
   </Target>
 
 </Project>
