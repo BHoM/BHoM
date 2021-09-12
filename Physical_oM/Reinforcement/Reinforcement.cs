@@ -30,9 +30,11 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
+    [NoAutoConstructor]
     [Description("Base interface for all physical reinforcement objects.")]
     public class Reinforcement : BHoMObject
     {
