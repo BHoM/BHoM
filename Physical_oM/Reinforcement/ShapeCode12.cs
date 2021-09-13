@@ -33,8 +33,8 @@ using BH.oM.Reflection.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
-    [Description("A reinforcement bar with shape code 12 to BS 8666:2020 in the XY Plane with the free end of the A segment at the Origin aligned with the Y axis" +
-        "and the B segment aligned with the X axis.")]
+    [Description("A reinforcement bar with shape code 12 to BS 8666:2020 in the XY Plane with the free end of the B segment at the Origin aligned with the X axis" +
+        "and the A segment aligned with the Y axis.")]
     public class ShapeCode12 : BHoMObject, IShapeCode
     {
         /***************************************************/
