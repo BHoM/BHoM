@@ -24,14 +24,17 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("The Type of Environmental Product Declaration.")]
+    [Description("Options for resultant unit of EPA equivalency calculator. All units are per year.")]
     public enum EquivalencyType
     {
         // Units need to reflect BHoM standard metric
         Undefined,
-        GallonsOfGasoline,
         MilesDriven,
-        NumberOfTrees 
+        PassengerVehiclesDriven,
+        HomesEnergyUse,
+        GallonsOfGasoline,
+        PoundsOfCoal, 
+        AcresOfForest, 
     }
 }
 
