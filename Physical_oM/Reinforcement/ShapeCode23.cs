@@ -50,6 +50,9 @@ namespace BH.oM.Physical.Reinforcement
         [Length]
         public virtual double C { get; set; }
 
+        [Length]
+        public virtual bool ZBar { get; set; } = false;
+
         /***************************************************/
     }
 }
