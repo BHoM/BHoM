@@ -24,20 +24,20 @@ using System.ComponentModel;
 
 namespace BH.oM.Data.Library
 {
-    [Description("Confidence level of the serialised DataSet, outlining how well trustworthy the data in it is.")]
+    [Description("Level of confidence for the serialized DataSet, outlining both the reliability of the source and the fidelity of the dataset to that source.")]
     public enum Confidence 
     {
-        [Description("Default undefined value when the confidence level has not been properly set to the Dataset.")]
+        [Description("Default value - assume no fidelity and no source."]
         Undefined,
-        [Description("Data in the dataset does not come from a well defined source and has not been well tested.")]
+        [Description("The DataSet may not have a reliable source and/or fidelity to the source has not been tested")]
         VeryLow,
-        [Description("Data in the dataset does not come from a well defined source but has gone through some initial checks.")]
+        [Description("The DataSet comes from an unreliable source and matches the source based on initial checks.")]
         Low,
-        [Description("Data in the dataset comes from a reliable source and has been gone through some initial checks.")]
+        [Description("The DataSet comes from a reliable source and matches the source based on initial checks.")]
         Medium,
-        [Description("Data in the dataset comes from a reliable source and has been peer reviewed.")]
+        [Description("The DataSet comes from a reliable source and matches the source based on extensive review.")]
         High,
-        [Description("Data in the dataset comes from a reliable source, has been peer reviewed and has gone through significant unit testing.")]
+        [Description("The DataSet comes from a reliable source and matches the source based on extensive review and unit testing.")]
         VeryHigh
 
     }
