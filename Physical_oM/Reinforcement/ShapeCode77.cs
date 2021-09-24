@@ -28,11 +28,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Geometry;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Reflection.Attributes;
 
-namespace BH.oM.Physical.Reinforcement
+namespace BH.oM.Physical.Reinforcement.BS8666
 {
     [Description("A reinforcement bar with shape code 77 to BS 8666:2020 centred on the Origin and XY Plane, the turns are about the positive Z axis " +
         "and the A parameter aligned with the X axis.")]
