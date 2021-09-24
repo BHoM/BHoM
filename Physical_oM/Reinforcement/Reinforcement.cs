@@ -35,7 +35,8 @@ using BH.oM.Reflection.Attributes;
 namespace BH.oM.Physical.Reinforcement
 {
     [NoAutoConstructor]
-    [Description("Base interface for all physical reinforcement objects.")]
+    [Description("The physical reinforcement object containing the ShapeCode(and it's parameters), the diameter and coodinate system. This can be used with a number of Engine methods such" +
+        "as Centreline and Length.")]
     public class Reinforcement : BHoMObject
     {
         /***************************************************/

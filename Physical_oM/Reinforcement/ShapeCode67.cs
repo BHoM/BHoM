@@ -29,9 +29,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Reflection.Attributes;
 
-namespace BH.oM.Physical.Reinforcement
+namespace BH.oM.Physical.Reinforcement.BS8666
 {
     [Description("A reinforcement bar with shape code 67 to BS 8666:2020 in the XY Plane centred on the midpoint of B aliugned with the X axis and lowest point of C aligned with the Y axis.")]
     public class ShapeCode67 : BHoMObject, IShapeCode

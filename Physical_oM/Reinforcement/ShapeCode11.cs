@@ -29,9 +29,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Reflection.Attributes;
 
-namespace BH.oM.Physical.Reinforcement
+namespace BH.oM.Physical.Reinforcement.BS8666
 {
     [Description("A reinforcement bar with shape code 11 to BS 8666:2020 in the XY Plane with the free end of the B segment at the Origin aligned with the X axis" +
         "and the A segment aligned with the Y axis..")]
