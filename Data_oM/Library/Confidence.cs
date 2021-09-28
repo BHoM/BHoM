@@ -29,15 +29,15 @@ namespace BH.oM.Data.Library
     {
         [Description("Default value - assume no fidelity and no source."]
         Undefined,
-        [Description("The DataSet may not have a reliable source and/or fidelity to the source has not been tested")]
+        [Description("The Dataset may not have a reliable source and/or fidelity to the source has not been tested")]
         Lowest,
-        [Description("The DataSet comes from an unreliable source and matches the source based on initial checks.")]
+        [Description("The Dataset comes from an unreliable source and matches the source based on initial checks.")]
         Low,
-        [Description("The DataSet comes from a reliable source and matches the source based on initial checks.")]
+        [Description("The Dataset comes from a reliable source and matches the source based on initial checks.")]
         Medium,
-        [Description("The DataSet comes from a reliable source and matches the source based on extensive review.")]
+        [Description("The Dataset comes from a reliable source and matches the source based on extensive review.")]
         High,
-        [Description("The DataSet comes from a reliable source and matches the source based on extensive review and unit testing.")]
+        [Description("The Dataset comes from a reliable source and matches the source based on extensive review and unit testing.")]
         Highest
 
     }
