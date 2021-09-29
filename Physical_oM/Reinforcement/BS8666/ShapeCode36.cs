@@ -59,6 +59,20 @@ namespace BH.oM.Physical.Reinforcement.BS8666
         public virtual double F { get;  }
 
         /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ShapeCode36(double a, double b, double c, double d, double e, double f)
+        {
+            A = a;
+            B = b;
+            C = c;
+            D = d;
+            E = e;
+            F = f;
+        }
+
+        /***************************************************/
     }
 }
 
