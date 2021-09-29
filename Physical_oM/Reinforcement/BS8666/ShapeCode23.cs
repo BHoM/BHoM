@@ -53,6 +53,19 @@ namespace BH.oM.Physical.Reinforcement.BS8666
         public virtual bool ZBar { get;  } = false;
 
         /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ShapeCode23(double a, double b, double c, bool zBar)
+        {
+            A = a;
+            B = b;
+            C = c;
+            ZBar = zBar;
+        }
+
+        /***************************************************/
+
     }
 }
 

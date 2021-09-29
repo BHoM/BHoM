@@ -41,9 +41,19 @@ namespace BH.oM.Physical.Reinforcement.BS8666
         /***************************************************/
 
         [Description("Centreline of the reinforcement bar in three-dimensional space. When the BendRadius is sufficient for any kinks in the rebar, this can be defined as a polyline, ommiting any arcs in corners.")]
-        public virtual ICurve CentreCurve { get;  }
+        public virtual ICurve Curve { get;  }
 
         /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ShapeCode99(ICurve curve)
+        {
+            Curve = curve;
+        }
+
+        /***************************************************/
+
     }
 }
 
