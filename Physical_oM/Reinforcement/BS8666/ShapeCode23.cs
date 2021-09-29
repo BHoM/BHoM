@@ -32,8 +32,8 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Reinforcement.BS8666
 {
-    [Description("A reinforcement bar with shape code 23 to BS 8666:2020 with the free end of the A segment at the Origin aligned with the Y axis" +
-        "and the B segment aligned with the X axis..")]
+    [Description("A reinforcement bar with shape code 23 to BS 8666:2020 with the free end of the A segment at the Origin aligned with the Y axis," +
+        " the C parameter aligned with the Y axis and the B parameter aligned with the X axis.")]
     public class ShapeCode23 : BHoMObject, IShapeCode
     {
         /***************************************************/
@@ -49,7 +49,7 @@ namespace BH.oM.Physical.Reinforcement.BS8666
         [Length]
         public virtual double C { get; set; }
 
-        [Length]
+        [Description("When toggled true, the bar will be rotated 90 degrees to form a Z bar.")]
         public virtual bool ZBar { get; set; } = false;
 
         /***************************************************/

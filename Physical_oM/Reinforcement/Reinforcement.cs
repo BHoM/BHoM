@@ -50,7 +50,7 @@ namespace BH.oM.Physical.Reinforcement
         [Description("Bend radius used for any discontinuities in the CentreCurve.")]
         public virtual double BendRadius { get; set; }
 
-        [Description("Local x, y, and z axes of the reinforcement as a vector Basis.")]
+        [Description("Position and orientation of the Reinforcement in Space. Refer to the description of the shape codes for how they relate to the coordinate system.")]
         public virtual Cartesian CoordinateSystem { get; set; }
 
         [Description("The ShapeCode object containing the geometrical parameters of the reinforcement bar.")]
