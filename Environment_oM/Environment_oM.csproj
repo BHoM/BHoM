@@ -1,199 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{923A6B8B-4E31-40F3-9CBF-CEBB9A190143}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>_Properties</AppDesignerFolder>
-    <RootNamespace>BH.oM.Environment</RootNamespace>
-    <AssemblyName>Environment_oM</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>5.0.0</Version>
+    <Authors>BHoM</Authors>
+    <Copyright>Copyright © https://github.com/BHoM</Copyright>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+  </Target>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj" />
+    <ProjectReference Include="..\Architecture_oM\Architecture_oM.csproj" />
+    <ProjectReference Include="..\BHoM\BHoM.csproj" />
+    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj" />
+    <ProjectReference Include="..\Physical_oM\Physical_oM.csproj" />
+    <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj" />
+    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Analysis\AnalysisGrid.cs" />
-    <Compile Include="Climate\IClimateObject.cs" />
-    <Compile Include="Climate\Location.cs" />
-    <Compile Include="Climate\SpaceTime.cs" />
-    <Compile Include="Climate\Time.cs" />
-    <Compile Include="Climate\Sun.cs" />
-    <Compile Include="Climate\WeatherFile.cs" />
-    <Compile Include="Configuration\OpeningOption.cs" />
-    <Compile Include="Elements\Building.cs" />
-    <Compile Include="Elements\BoundaryZone.cs" />
-    <Compile Include="Elements\Dwelling.cs" />
-    <Compile Include="Elements\Mesh.cs" />
-    <Compile Include="Elements\Edge.cs" />
-    <Compile Include="Elements\Enums\BuildingType.cs" />
-    <Compile Include="Elements\Enums\OpeningType.cs" />
-    <Compile Include="Elements\Enums\PanelType.cs" />
-    <Compile Include="Elements\Enums\SpaceType.cs" />
-    <Compile Include="Analysis\Node.cs" />
-    <Compile Include="Elements\Opening.cs" />
-    <Compile Include="Elements\Panel.cs" />
-    <Compile Include="Elements\Space.cs" />
-    <Compile Include="Fragments\AnalyticalConstruction.cs" />
-    <Compile Include="Fragments\LightReflectanceFragment.cs" />
-    <Compile Include="Results\Enums\ResultType.cs" />
-    <Compile Include="Results\ResultObjects\IAnalysisResult.cs" />
-    <Compile Include="Results\ResultObjects\EnergyPerUnitArea\DiffuseHorizontalRadiationResult.cs" />
-    <Compile Include="Results\ResultObjects\EnergyPerUnitArea\DirectNormalRadiationResult.cs" />
-    <Compile Include="Results\ResultObjects\Ratio\HumidityRatioResult.cs" />
-    <Compile Include="Results\ResultObjects\EnergyPerUnitTime\PowerResult.cs" />
-    <Compile Include="Results\ResultObjects\EnergyPerUnitTime\IEnergyPerUnitTimeResult.cs" />
-    <Compile Include="Results\ResultObjects\Energy\IEnergyResult.cs" />
-    <Compile Include="Results\ResultObjects\EnergyPerUnitArea\InsolationResult.cs" />
-    <Compile Include="Results\ResultObjects\EnergyPerUnitArea\GlobalHorizontalRadiationResult.cs" />
-    <Compile Include="Results\ResultObjects\EnergyPerUnitArea\IEnergyPerUnitAreaResult.cs" />
-    <Compile Include="Results\ResultObjects\Temperature\DryBulbTemperatureResult.cs" />
-    <Compile Include="Results\ResultObjects\Illuminance\IlluminanceResult.cs" />
-    <Compile Include="Results\ResultObjects\Temperature\UniversalThermalClimateIndexResult.cs" />
-    <Compile Include="Results\ResultObjects\Ratio\IRatioResult.cs" />
-    <Compile Include="Results\ResultObjects\Temperature\SkyTemperatureResult.cs" />
-    <Compile Include="Results\ResultObjects\Angle\IAngleResult.cs" />
-    <Compile Include="Results\ResultObjects\Temperature\DewPointTemperatureResult.cs" />
-    <Compile Include="Results\ResultObjects\SpecificEnergy\ISpecificEnergyResult.cs" />
-    <Compile Include="Results\ResultObjects\SpecificEnergy\EnthalpyResult.cs" />
-    <Compile Include="Results\ResultObjects\Pressure\IPressureResult.cs" />
-    <Compile Include="Results\ResultObjects\Angle\WindDirectionResult.cs" />
-    <Compile Include="Results\ResultObjects\Pressure\AtmosphericPressureResult.cs" />
-    <Compile Include="Results\ResultObjects\DateTimeIndex.cs" />
-    <Compile Include="Results\ResultObjects\Velocity\WindSpeedResult.cs" />
-    <Compile Include="Results\ResultObjects\Temperature\SurfaceTemperatureResult.cs" />
-    <Compile Include="Results\ResultObjects\Velocity\IVelocityResult.cs" />
-    <Compile Include="Results\ResultObjects\Temperature\WetBulbTemperatureResult.cs" />
-    <Compile Include="Results\ResultObjects\Temperature\MeanRadiantTemperatureResult.cs" />
-    <Compile Include="Results\ResultObjects\Ratio\RelativeHumidityResult.cs" />
-    <Compile Include="Results\ResultObjects\Temperature\ITemperatureResult.cs" />
-    <Compile Include="Results\ResultObjects\TimeIndexResult.cs" />
-    <Compile Include="SpaceCriteria\Acoustics.cs" />
-    <Compile Include="SpaceCriteria\Enums\EmitterType.cs" />
-    <Compile Include="SpaceCriteria\Enums\ProfileDay.cs" />
-    <Compile Include="SpaceCriteria\Enums\ProfileCategory.cs" />
-    <Compile Include="SpaceCriteria\Enums\HazardType.cs" />
-    <Compile Include="SpaceCriteria\Enums\SprinklerSystemType.cs" />
-    <Compile Include="SpaceCriteria\Enums\ProfileType.cs" />
-    <Compile Include="SpaceCriteria\Enums\SimulationDayType.cs" />
-    <Compile Include="SpaceCriteria\Equipment.cs" />
-    <Compile Include="SpaceCriteria\Exhaust.cs" />
-    <Compile Include="SpaceCriteria\IGain.cs" />
-    <Compile Include="SpaceCriteria\Infiltration.cs" />
-    <Compile Include="SpaceCriteria\Lighting.cs" />
-    <Compile Include="SpaceCriteria\FireProtection.cs" />
-    <Compile Include="SpaceCriteria\Plumbing.cs" />
-    <Compile Include="SpaceCriteria\People.cs" />
-    <Compile Include="SpaceCriteria\Plug.cs" />
-    <Compile Include="SpaceCriteria\Pollutant.cs" />
-    <Compile Include="SpaceCriteria\Ventilation.cs" />
-    <Compile Include="MaterialFragments\Enums\Function.cs" />
-    <Compile Include="Fragments\BuildingAnalyticalFragment.cs" />
-    <Compile Include="Fragments\BuildingContextFragment.cs" />
-    <Compile Include="Fragments\BuildingResultFragment.cs" />
-    <Compile Include="Fragments\CoefficientFragment.cs" />
-    <Compile Include="Fragments\Enums\SizingMethod.cs" />
-    <Compile Include="Fragments\EnvironmentConstructionFragment.cs" />
-    <Compile Include="Fragments\LoadFragment.cs" />
-    <Compile Include="Fragments\OriginContextFragment.cs" />
-    <Compile Include="Fragments\PanelAnalyticalFragment.cs" />
-    <Compile Include="Fragments\PanelContextFragment.cs" />
-    <Compile Include="Fragments\RadiationFragment.cs" />
-    <Compile Include="Fragments\SpaceAnalyticalFragment.cs" />
-    <Compile Include="Fragments\SpaceContextFragment.cs" />
-    <Compile Include="SpaceCriteria\Profile.cs" />
-    <Compile Include="SpaceCriteria\Thermostat.cs" />
-    <Compile Include="IEnvironmentObject.cs" />
-    <Compile Include="MaterialFragments\Enums\Gas.cs" />
-    <Compile Include="MaterialFragments\Enums\Roughness.cs" />
-    <Compile Include="MaterialFragments\GasMaterial.cs" />
-    <Compile Include="MaterialFragments\IEnvironmentMaterial.cs" />
-    <Compile Include="Fragments\LightTransmittanceFragment.cs" />
-    <Compile Include="MaterialFragments\SolidMaterial.cs" />
-    <Compile Include="Results\Enums\ProfileResultType.cs" />
-    <Compile Include="Results\Enums\ProfileResultUnit.cs" />
-    <Compile Include="Results\Enums\SimulationResultType.cs" />
-    <Compile Include="Results\Illuminance\Lux.cs" />
-    <Compile Include="Results\Mesh\MeshElementResult.cs" />
-    <Compile Include="Results\Mesh\MeshResult.cs" />
-    <Compile Include="Results\ProfileResult.cs" />
-    <Compile Include="Results\SimulationResult.cs" />
-    <Compile Include="_Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
-      <Project>{c91f1981-1148-4a03-b67e-c0bb42d862f4}</Project>
-      <Name>Analytical_oM</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Architecture_oM\Architecture_oM.csproj">
-      <Project>{0297c5b2-5ebf-4539-9011-afde4366bfef}</Project>
-      <Name>Architecture_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BHoM\BHoM.csproj">
-      <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
-      <Name>BHoM</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
-      <Project>{17141a37-4853-4558-af36-134a580bf42b}</Project>
-      <Name>Dimensional_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
-      <Project>{5B09A2E5-CBF5-43E2-8D98-B5035391DB7B}</Project>
-      <Name>Geometry_oM</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
-      <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>
-      <Name>Physical_oM</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj">
-      <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
-      <Name>Quantities_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
-      <Project>{29e6dcd7-270a-45cc-ac0b-6c024287645e}</Project>
-      <Name>Reflection_oM</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Versioning_40.json" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /Y
-    </PostBuildEvent>
-  </PropertyGroup>
+
 </Project>

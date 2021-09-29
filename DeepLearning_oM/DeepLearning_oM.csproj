@@ -1,100 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{00D8E2D8-CFB0-422C-B380-81496F7B3CE5}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BH.oM.DeepLearning</RootNamespace>
-    <AssemblyName>DeepLearning_oM</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>5.0.0</Version>
+    <Authors>BHoM</Authors>
+    <Copyright>Copyright © https://github.com/BHoM</Copyright>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+  </Target>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\BHoM\BHoM.csproj" />
+    <ProjectReference Include="..\Data_oM\Data_oM.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Activations\LeakyReLU.cs" />
-    <Compile Include="Activations\LogSigmoid.cs" />
-    <Compile Include="Activations\LogSoftmax.cs" />
-    <Compile Include="Activations\ReLU.cs" />
-    <Compile Include="Activations\Sigmoid.cs" />
-    <Compile Include="Activations\Softmax.cs" />
-    <Compile Include="Activations\Tanh.cs" />
-    <Compile Include="Enums\ImageFormat.cs" />
-    <Compile Include="Enums\InterpolationMethod.cs" />
-    <Compile Include="IShape.cs" />
-    <Compile Include="Shape3d.cs" />
-    <Compile Include="Shape2d.cs" />
-    <Compile Include="Enums\Reduce.cs" />
-    <Compile Include="IModule.cs" />
-    <Compile Include="Layers\AvgPooling2d.cs" />
-    <Compile Include="Layers\Convolution2d.cs" />
-    <Compile Include="Layers\GRU.cs" />
-    <Compile Include="Layers\Linear.cs" />
-    <Compile Include="Layers\LSTM.cs" />
-    <Compile Include="Layers\MaxPooling2d.cs" />
-    <Compile Include="Layers\MaxUnPooling2d.cs" />
-    <Compile Include="Layers\TransposedConvolution2d.cs" />
-    <Compile Include="Losses\BCEWithSigmoid.cs" />
-    <Compile Include="Losses\BinaryCrossEntropy.cs" />
-    <Compile Include="Losses\CrossEntropy.cs" />
-    <Compile Include="Losses\L1.cs" />
-    <Compile Include="Losses\MeanSquareError.cs" />
-    <Compile Include="Losses\NegativeLogLikelihood.cs" />
-    <Compile Include="Models\Graph.cs" />
-    <Compile Include="Models\Sequential.cs" />
-    <Compile Include="Optimisers\Adam.cs" />
-    <Compile Include="Optimisers\IOptimiser.cs" />
-    <Compile Include="Optimisers\SGD.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BHoM\BHoM.csproj">
-      <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
-      <Name>BHoM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data_oM\Data_oM.csproj">
-      <Project>{239c5f01-f82e-4cce-8598-5134b7756247}</Project>
-      <Name>Data_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
-      <Project>{29E6DCD7-270A-45CC-AC0B-6C024287645E}</Project>
-      <Name>Reflection_oM</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /Y
-    </PostBuildEvent>
-  </PropertyGroup>
+
 </Project>

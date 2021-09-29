@@ -1,130 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{435C1343-1E64-495C-B999-49ABCB86C1B4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BH.oM.LifeCycleAssessment</RootNamespace>
-    <AssemblyName>LifeCycleAssessment_oM</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>5.0.0</Version>
+    <Authors>BHoM</Authors>
+    <Copyright>Copyright © https://github.com/BHoM</Copyright>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+  </Target>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj" />
+    <ProjectReference Include="..\BHoM\BHoM.csproj" />
+    <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj" />
+    <ProjectReference Include="..\Environment_oM\Environment_oM.csproj" />
+    <ProjectReference Include="..\Physical_oM\Physical_oM.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Enums\EPDType.cs" />
-    <Compile Include="EnvironmentalMetric.cs" />
-    <Compile Include="BuildingBenchmarkingData.cs" />
-    <Compile Include="Enums\WindSpeedCategory.cs" />
-    <Compile Include="Enums\SeismicDesignCategory.cs" />
-    <Compile Include="Enums\LateralStructuralMaterial.cs" />
-    <Compile Include="Enums\ObjectCategory.cs" />
-    <Compile Include="Enums\ObjectScope.cs" />
-    <Compile Include="Enums\LevelOfDevelopment.cs" />
-    <Compile Include="Enums\LifeCycleAssessmentPhases.cs" />
-    <Compile Include="Enums\GravityStructuralMaterial.cs" />
-    <Compile Include="Enums\QuantityType.cs" />
-    <Compile Include="Enums\ProjectType.cs" />
-    <Compile Include="Enums\EnvironmentalProductDeclarationField.cs" />
-    <Compile Include="Fragments\EPDDensity.cs" />
-    <Compile Include="Fragments\EPDDimension.cs" />
-    <Compile Include="Fragments\AdditionalEPDData.cs" />
-    <Compile Include="MaterialFragments\EnvironmentalProductDeclaration.cs" />
-    <Compile Include="Results\EnvironmentalMetricResult.cs" />
-    <Compile Include="ScopeObjects\IScope.cs" />
-    <Compile Include="Results\GlobalWarmingPotentialResult.cs" />
-    <Compile Include="Results\LifeCycleAssessmentElementResult.cs" />
-    <Compile Include="Results\LifeCycleAssessmentResult.cs" />
-    <Compile Include="Results\ProjectLifeCycleAssessmentResult.cs" />
-    <Compile Include="ScopeObjects\FireProtectionScope.cs" />
-    <Compile Include="ScopeObjects\EnclosuresScope.cs" />
-    <Compile Include="ScopeObjects\FoundationsScope.cs" />
-    <Compile Include="ScopeObjects\LifeCycleAssessmentScope.cs" />
-    <Compile Include="ScopeObjects\MechanicalScope.cs" />
-    <Compile Include="ScopeObjects\ElectricalScope.cs" />
-    <Compile Include="ScopeObjects\PlumbingScope.cs" />
-    <Compile Include="ScopeObjects\MEPScope.cs" />
-    <Compile Include="ScopeObjects\ProjectLifeCycleAssessment.cs" />
-    <Compile Include="ScopeObjects\StructuresScope.cs" />
-    <Compile Include="ScopeObjects\TenantImprovementScope.cs" />
-    <Compile Include="HealthProductDeclaration.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Analytical_oM\Analytical_oM.csproj">
-      <Project>{c91f1981-1148-4a03-b67e-c0bb42d862f4}</Project>
-      <Name>Analytical_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BHoM\BHoM.csproj">
-      <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
-      <Name>BHoM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
-      <Project>{17141a37-4853-4558-af36-134a580bf42b}</Project>
-      <Name>Dimensional_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Environment_oM\Environment_oM.csproj">
-      <Project>{923a6b8b-4e31-40f3-9cbf-cebb9a190143}</Project>
-      <Name>Environment_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
-      <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
-      <Name>Geometry_oM</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\MEP_oM\MEP_oM.csproj">
-      <Project>{088711c9-ac7e-409d-a1cd-a65fbabd88da}</Project>
-      <Name>MEP_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Physical_oM\Physical_oM.csproj">
-      <Project>{fb790ab1-5914-4797-886f-c4cb469ec168}</Project>
-      <Name>Physical_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj">
-      <Project>{2a5d5a00-d404-4f7e-b771-2fc837145361}</Project>
-      <Name>Quantities_oM</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj">
-      <Project>{29e6dcd7-270a-45cc-ac0b-6c024287645e}</Project>
-      <Name>Reflection_oM</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /Y
-    </PostBuildEvent>
-  </PropertyGroup>
+
 </Project>
