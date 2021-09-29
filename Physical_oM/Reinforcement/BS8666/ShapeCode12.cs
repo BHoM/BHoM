@@ -34,20 +34,20 @@ namespace BH.oM.Physical.Reinforcement.BS8666
 {
     [Description("A reinforcement bar with shape code 12 to BS 8666:2020 in the XY Plane with the free end of the B segment at the Origin aligned with the X axis" +
         "and the A segment aligned with the Y axis.")]
-    public class ShapeCode12 : BHoMObject, IShapeCode
+    public class ShapeCode12 : BHoMObject, IShapeCode, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        public virtual double A { get; set; }
+        public virtual double A { get;  }
 
         [Length]
-        public virtual double B { get; set; }
+        public virtual double B { get;  }
 
         [Length]
-        public virtual double R { get; set; }
+        public virtual double R { get;  }
 
         /***************************************************/
     }
