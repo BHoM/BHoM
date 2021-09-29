@@ -1,108 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{466884F8-6BC5-4977-9F7F-D5233C4B66FF}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BH.oM.Graphics</RootNamespace>
-    <AssemblyName>Graphics_oM</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>5.0.0</Version>
+    <Authors>BHoM</Authors>
+    <Copyright>Copyright © https://github.com/BHoM</Copyright>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+  </Target>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\BHoM\BHoM.csproj" />
+    <ProjectReference Include="..\Data_oM\Data_oM.csproj" />
+    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Colours\ColourFragment.cs" />
-    <Compile Include="Colours\Gradient.cs" />
-    <Compile Include="Colours\GradientOptions.cs" />
-    <Compile Include="Components\BasicArrowMarker.cs" />
-    <Compile Include="Components\IMarker.cs" />
-    <Compile Include="Components\Links.cs" />
-    <Compile Include="Components\Boxes.cs" />
-    <Compile Include="Components\IComponent.cs" />
-    <Compile Include="Enums\GradientCenteringOptions.cs" />
-    <Compile Include="Fragments\EntityRepresentation.cs" />
-    <Compile Include="Fragments\GraphRepresentation.cs" />
-    <Compile Include="Fragments\GroupRepresentation.cs" />
-    <Compile Include="Fragments\IRepresentationFragment.cs" />
-    <Compile Include="Fragments\RelationRepresentation.cs" />
-    <Compile Include="Misc\Padding.cs" />
-    <Compile Include="Render\IRender.cs" />
-    <Compile Include="Render\RenderGeometry.cs" />
-    <Compile Include="Render\RenderText.cs" />
-    <Compile Include="Render\RepresentationOptions.cs" />
-    <Compile Include="Render\RenderMeshOptions.cs" />
-    <Compile Include="Render\RenderMesh.cs" />
-    <Compile Include="Render\RenderPoint.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scales\IScale.cs" />
-    <Compile Include="Scales\ScaleLinear.cs" />
-    <Compile Include="Scales\ScaleOrdinal.cs" />
-    <Compile Include="SVG\SVGDocument.cs" />
-    <Compile Include="SVG\SVGObject.cs" />
-    <Compile Include="SVG\SVGStyle.cs" />
-    <Compile Include="Views\DependencyChart.cs" />
-    <Compile Include="Views\IView.cs" />
-    <Compile Include="Views\ViewConfig.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BHoM\BHoM.csproj">
-      <Project>{94d88927-62a2-48fc-8efe-d139b67a3373}</Project>
-      <Name>BHoM</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Data_oM\Data_oM.csproj">
-      <Project>{239C5F01-F82E-4CCE-8598-5134B7756247}</Project>
-      <Name>Data_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj">
-      <Project>{17141A37-4853-4558-AF36-134A580BF42B}</Project>
-      <Name>Dimensional_oM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj">
-      <Project>{5b09a2e5-cbf5-43e2-8d98-b5035391db7b}</Project>
-      <Name>Geometry_oM</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Versioning_43.json" />
-    <None Include="Versioning_42.json" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /Y
-    </PostBuildEvent>
-  </PropertyGroup>
+
 </Project>
