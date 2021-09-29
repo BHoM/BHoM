@@ -34,17 +34,17 @@ namespace BH.oM.Physical.Reinforcement.BS8666
 {
     [Description("A reinforcement bar with shape code 75 to BS 8666:2020 in the XY Plane centred on the Origin starting at the lowest point of the circle (in the Y diretion) after laps" +
         " have been accounted for.")]
-    public class ShapeCode75 : BHoMObject, IShapeCode
+    public class ShapeCode75 : BHoMObject, IShapeCode, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        public virtual double A { get; set; }
+        public virtual double A { get;  }
 
         [Length]
-        public virtual double B { get; set; }
+        public virtual double B { get;  }
 
         /***************************************************/
     }
