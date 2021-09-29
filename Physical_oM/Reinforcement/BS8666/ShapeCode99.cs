@@ -34,14 +34,14 @@ using BH.oM.Reflection.Attributes;
 namespace BH.oM.Physical.Reinforcement.BS8666
 {
     [Description("A reinforcement bar with shape code 99 to BS 8666:2020.")]
-    public class ShapeCode99 : BHoMObject, IShapeCode
+    public class ShapeCode99 : BHoMObject, IShapeCode, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Centreline of the reinforcement bar in three-dimensional space. When the BendRadius is sufficient for any kinks in the rebar, this can be defined as a polyline, ommiting any arcs in corners.")]
-        public virtual ICurve CentreCurve { get; set; }
+        public virtual ICurve CentreCurve { get;  }
 
         /***************************************************/
     }

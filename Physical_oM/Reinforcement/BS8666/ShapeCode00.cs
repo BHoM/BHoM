@@ -33,14 +33,14 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Physical.Reinforcement.BS8666
 {
     [Description("A reinforcement bar with shape code 00 to BS 8666:2020 in the XY Plane centred on the Origin adn the A parameter aligned with the X axis.")]
-    public class ShapeCode00 : BHoMObject, IShapeCode
+    public class ShapeCode00 : BHoMObject, IShapeCode, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        public virtual double A { get; set; }
+        public virtual double A { get;  }
 
         /***************************************************/
     }
