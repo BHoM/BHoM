@@ -55,17 +55,27 @@ namespace BH.oM.Physical.Reinforcement.BS8666
         [Length]
         public virtual double E { get;  }
 
+        [Length]
+        [Description("The diameter of the reinforcement bar.")]
+        public virtual double Diameter { get; }
+
+        [Length]
+        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
+        public virtual double BendRadius { get; }
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ShapeCode24(double a, double b, double c, double d, double e)
+        public ShapeCode24(double a, double b, double c, double d, double e, double diameter, double bendRadius)
         {
             A = a;
             B = b;
             C = c;
             D = d;
             E = e;
+            Diameter = diameter;
+            BendRadius = bendRadius;
         }
 
         /***************************************************/
