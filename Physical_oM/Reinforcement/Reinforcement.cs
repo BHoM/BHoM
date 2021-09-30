@@ -43,13 +43,6 @@ namespace BH.oM.Physical.Reinforcement
         /**** Properties                                ****/
         /***************************************************/
 
-        [Length]
-        public virtual double Diameter { get; set; }
-
-        [Length]
-        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
-        public virtual double BendRadius { get; set; }
-
         [Description("Position and orientation of the Reinforcement in Space. Refer to the description of the shape codes for how they relate to the coordinate system.")]
         public virtual Cartesian CoordinateSystem { get; set; }
 

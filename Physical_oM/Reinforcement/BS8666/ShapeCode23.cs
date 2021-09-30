@@ -52,16 +52,26 @@ namespace BH.oM.Physical.Reinforcement.BS8666
         [Description("When toggled true, the bar will be rotated 90 degrees to form a Z bar.")]
         public virtual bool ZBar { get;  } = false;
 
+        [Length]
+        [Description("The diameter of the reinforcement bar.")]
+        public virtual double Diameter { get; }
+
+        [Length]
+        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
+        public virtual double BendRadius { get; }
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ShapeCode23(double a, double b, double c, bool zBar)
+        public ShapeCode23(double a, double b, double c, bool zBar, double diameter, double bendRadius)
         {
             A = a;
             B = b;
             C = c;
             ZBar = zBar;
+            Diameter = diameter;
+            BendRadius = bendRadius;
         }
 
         /***************************************************/
