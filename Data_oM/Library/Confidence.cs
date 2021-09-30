@@ -27,18 +27,15 @@ namespace BH.oM.Data.Library
     [Description("Level of confidence for the serialized DataSet, outlining both the reliability of the source and the fidelity of the dataset to that source.")]
     public enum Confidence 
     {
-        [Description("Default value - assume no fidelity and no source."]
+        [Description("Default value - assume no fidelity and no source.")]
         Undefined,
         [Description("The Dataset may not have a reliable source and/or fidelity to the source has not been tested")]
-        Lowest,
+        None,
         [Description("The Dataset comes from an unreliable source and matches the source based on initial checks.")]
         Low,
         [Description("The Dataset comes from a reliable source and matches the source based on initial checks.")]
         Medium,
-        [Description("The Dataset comes from a reliable source and matches the source based on extensive review.")]
-        High,
-        [Description("The Dataset comes from a reliable source and matches the source based on extensive review and unit testing.")]
-        Highest
-
+        [Description("The Dataset comes from a reliable source and matches the source based on extensive review and testing.")]
+        High
     }
 }
