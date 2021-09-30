@@ -67,13 +67,15 @@ namespace BH.oM.Physical.Reinforcement.BS8666
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ShapeCode27(double a, double b, double c, double d, double e)
+        public ShapeCode27(double a, double b, double c, double d, double e, double diameter, double bendRadius)
         {
             A = a;
             B = b;
             C = c;
             D = d;
             E = e;
+            Diameter = diameter;
+            BendRadius = bendRadius;
         }
 
         /***************************************************/
