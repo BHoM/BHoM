@@ -28,12 +28,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Reinforcement
 {
     [Description("Base interface for all ShapeCode objects.")]
     public interface IShapeCode : IBHoMObject
     {
+        [Description("The diameter of the reinforcement bar.")]
+        double Diameter { get; }
+
+        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
+        double BendRadius { get; }
     }
 }
 

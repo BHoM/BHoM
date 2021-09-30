@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Reinforcement.BS8666
 {
@@ -43,13 +43,23 @@ namespace BH.oM.Physical.Reinforcement.BS8666
         [Description("Centreline of the reinforcement bar in three-dimensional space. When the BendRadius is sufficient for any kinks in the rebar, this can be defined as a polyline, ommiting any arcs in corners.")]
         public virtual ICurve Curve { get;  }
 
+        [Length]
+        [Description("The diameter of the reinforcement bar.")]
+        public virtual double Diameter { get; }
+
+        [Length]
+        [Description("Bend radius used for any discontinuities in the CentreCurve.")]
+        public virtual double BendRadius { get; }
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ShapeCode99(ICurve curve)
+        public ShapeCode99(ICurve curve, double diameter, double bendRadius)
         {
             Curve = curve;
+            Diameter = diameter;
+            BendRadius = bendRadius;
         }
 
         /***************************************************/
