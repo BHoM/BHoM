@@ -48,9 +48,9 @@ namespace BH.oM.Base
         [Description("Keys of the BHoMObjects' CustomData dictionary that should be ignored.\nBy default it includes `RenderMesh`.")]
         public virtual List<string> CustomdataKeysExceptions { get; set; } = new List<string>() { "RenderMesh" };
 
-        [Description("If any name is specified here, only properties corresponding to that name will be considered in the hash."
-            + "\nThis has higher priority than `PropertyExceptions`."
-            + "\nWorks only for top-level properties (not subclass properties).")]
+        [Description("If any name is specified here, only properties corresponding to that name will be considered in the hash." +
+           "\nE.g. For BH.oM.Structure.Elements.Bar, specifying `StartNode` will only check if that property is different." +
+           "\nYou can List specify sub-properties or partial paths, e.g. `StartNode.Name` or `*.Name`.")]
         public virtual List<string> PropertiesToConsider { get; set; } = new List<string>(); //e.g. `{ StartNode, EndNode }`
 
         [Description("If any property is nested into the object over that level, it is ignored. Defaults to 100.")]
