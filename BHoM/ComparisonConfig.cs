@@ -42,6 +42,9 @@ namespace BH.oM.Base
         [Description("Any corresponding type is ignored. E.g. `typeof(Guid)`.")]
         public virtual List<Type> TypeExceptions { get; set; } = new List<Type>(); //e.g. `typeof(Guid)`
 
+        [Description("Keys of the BHoMObjects' CustomData dictionary that should be exclusively included. Adding keys to this List will exclude any key that is not in this List. I.e. for every object, if it has CustomData keys present in this List, we then exclude any other CustomData key found in it.")]
+        public virtual List<string> CustomdataKeysToInclude { get; set; } = new List<string>() {  };
+
         [Description("Keys of the BHoMObjects' CustomData dictionary that should be ignored.\nBy default it includes `RenderMesh`.")]
         public virtual List<string> CustomdataKeysExceptions { get; set; } = new List<string>() { "RenderMesh" };
 
