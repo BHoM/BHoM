@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Base
 {
     [Description("Toolkit Settings that need to be saved permanently.")]
-    public interface ISettings
+    public interface ISettings : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
