@@ -34,14 +34,14 @@ namespace BH.oM.Base
         /***************************************************/
         [Description("This function is executed every time a 'property full name' is considered, and it modifies it." +
             "\nA `property full name` is the full property path, e.g. for a property named `Position`, the full name could be `BH.oM.Structure.Elements.Node.Position` or `BH.oM.Structure.Elements.Bar.StartNode.Position`, etc., depending on the object being considered." +
-            "\nFirst parameter (`string`): property full name. Second parameter (`object`): the property value. Return value (`string`): the modified property name." +
+            "\nFirst parameter (`string`): property full name. Second parameter (`object`): the object holding this property. Return value (`string`): the modified property name." +
             "\nExample of property path: if interested in the property `Position`, the property path can be specified as `BH.oM.Structure.Elements.Node.Position` or `BH.oM.Structure.Elements.Bar.StartNode.Position`, etc., depending on the object being considered, or simply as `Position` if any property named as such is to be matched.")]
         public virtual Func<string, object, string> PropertyFullNameModifier { get; set; } = null;
 
         [Description("A filter function on each 'property full name' being considered during comparison." +
             "\nA `property full name` is the full property path, e.g. for a property named `Position`, the full name could be `BH.oM.Structure.Elements.Node.Position` or `BH.oM.Structure.Elements.Bar.StartNode.Position`, etc., depending on the object being considered." + 
             "\nIf the Func returns true, the property is skipped (not considered when comparing or computing the Hash)." +
-            "\nFirst parameter (`string`): property full name. Second parameter (`object`): the property value. Return value (`bool`): true if the property is to be skipped, false otherwise.")]
+            "\nFirst parameter (`string`): property full name. Second parameter (`object`): the object holding this property. Return value (`bool`): true if the property is to be skipped, false otherwise.")]
         public virtual Func<string, object, bool> PropertyFullNameFilter { get; set; } = null;
 
         [Description("A filter function on CustomData keys. If the Func returns true, the key is skipped (not considered when comparing or computing the Hash)."+
@@ -51,7 +51,7 @@ namespace BH.oM.Base
 
         [Description("This function is executed before a 'property full name' is returned as a difference, and it modifies it." +
             "\nA `property full name` is the full property path, e.g. for a property named `Position`, the full name could be `BH.oM.Structure.Elements.Node.Position` or `BH.oM.Structure.Elements.Bar.StartNode.Position`, etc., depending on the object being considered." +
-            "\nFirst parameter (`string`): property full name. Second parameter (`object`): the property value. Return value (`string`): the modified property name." +
+            "\nFirst parameter (`string`): property full name. Second parameter (`object`): the object holding this property. Return value (`string`): the modified property name." +
             "\nExample of property path: if interested in the property `Position`, the property path can be specified as `BH.oM.Structure.Elements.Node.Position` or `BH.oM.Structure.Elements.Bar.StartNode.Position`, etc., depending on the object being considered, or simply as `Position` if any property named as such is to be matched.")]
         public virtual Func<string, object, string> PropertyDisplayNameModifier { get; set; } = null;
 
