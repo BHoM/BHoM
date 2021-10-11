@@ -5,6 +5,7 @@
     <Version>5.0.0</Version>
     <Authors>BHoM</Authors>
     <Copyright>Copyright © https://github.com/BHoM</Copyright>
+    <RootNamespace>BH.oM.Dimensional</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
