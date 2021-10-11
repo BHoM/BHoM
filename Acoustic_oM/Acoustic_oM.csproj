@@ -9,7 +9,6 @@
     <AssemblyVersion>5.0.0.0</AssemblyVersion>
     <FileVersion>5.0.0.0</FileVersion>
     <Version>5.0.0</Version>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RootNamespace>BH.oM.Acoustic</RootNamespace>
   </PropertyGroup>
 
