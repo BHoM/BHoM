@@ -64,7 +64,7 @@ namespace BH.oM.Base
         public virtual Dictionary<string, int> FractionalDigitsPerProperty { get; set; } = null; // e.g. { { StartNode.Point.X, 2 } } - can use * wildcard here.
 
         [Description("Additional functions that can be specified as delegates and that will be executed while comparing.")]
-        public virtual ComparisonFunctions ComparisonFunctions { get; set; } = null;
+        public virtual ComparisonFunctions ComparisonFunctions { get; set; } = new ComparisonFunctions();
 
         /***************************************************/
     }
