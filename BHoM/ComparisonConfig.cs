@@ -26,8 +26,21 @@ using System.ComponentModel;
 
 namespace BH.oM.Base
 {
-    [Description("Settings to determine the uniqueness of an Object, i.e. when comparing and when computing the object Hash.")]
-    public class ComparisonConfig : IObject
+    public interface IComparisonConfig : IObject
+    {
+        List<string> PropertyExceptions { get; set; }
+        List<string> NamespaceExceptions { get; set; }
+        List<Type> TypeExceptions { get; set; }
+        List<string> CustomdataKeysExceptions { get; set; }
+        List<string> PropertiesToConsider { get; set; }
+        int MaxNesting { get; set; }
+        double NumericTolerance { get; set; }
+        Dictionary<string, int> FractionalDigitsPerProperty { get; set; }
+    }
+    
+
+    [Description("Settings to determine the uniqueness of an Object.")]
+    public class ComparisonConfig : IComparisonConfig
     {
         /***************************************************/
         /**** Properties                                ****/
