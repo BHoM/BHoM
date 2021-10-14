@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -21,17 +21,13 @@
  */
 
 using BH.oM.Base;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Results
 {
-    public interface ITimeStepResult : ITimeResult
+    public interface ITimePeriodResult<T> : ITimePeriod, IResult, IImmutable where T : ITimeResult
     {
-        double TimeStep { get; }
+        List<T> Results { get; set; }
     }
 }
 

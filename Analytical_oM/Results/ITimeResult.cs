@@ -23,15 +23,16 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Results
 {
-    public interface ITimeStepResult : ITimeResult
+    [Description("Indicates any IResult that relates to Time.")]
+    public interface ITimeResult : IResult
     {
-        double TimeStep { get; }
     }
 }
 

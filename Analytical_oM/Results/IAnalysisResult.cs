@@ -31,7 +31,6 @@ namespace BH.oM.Analytical.Results
 {
     public interface IAnalysisResult : IObjectIdResult, ICasedResult, ITimeStepResult
     {
-
     }
 }
 

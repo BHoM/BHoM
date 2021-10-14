@@ -28,7 +28,7 @@ using System.ComponentModel;
 namespace BH.oM.Quantities.Attributes
 {
     [Description("Dimensional quantity as defined by the International System of Quantities")]
-    public abstract class QuantityAttribute : InputClassificationAttribute, IImmutable
+    public abstract class QuantityAttribute : InputClassificationAttribute, IImmutable, IQuantity
     {
         /***************************************************/
         /**** Properties                                ****/
