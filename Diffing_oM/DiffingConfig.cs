@@ -33,12 +33,12 @@ namespace BH.oM.Diffing
     [Description("General configurations for the Diffing process, including settings for the Hash computation.")]
     public class DiffingConfig : IObject
     {
-        /***************************************************/
+        /***************************************************/ 
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Settings to determine the uniqueness of an Object.")]
-        public virtual ComparisonConfig ComparisonConfig { get; set; } = new ComparisonConfig();
+        public virtual IComparisonConfig ComparisonConfig { get; set; } = new ComparisonConfig();
 
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary of the Diff object.")]
         public virtual bool EnablePropertyDiffing { get; set; } = true;
