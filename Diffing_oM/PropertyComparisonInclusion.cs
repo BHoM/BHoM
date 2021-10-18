@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    [Description("")]
+    [Description("Result returned by the extension method of the same name. The method is invoked when Hashing an object or computing the PropertyDifferences.")]
     public class PropertyComparisonInclusion : IObject
     {
         /***************************************************/

@@ -52,10 +52,10 @@ namespace BH.oM.Diffing
             "\nWhen dealing with very large sets, you can keep this on `false` to improve performance: the UnchangedObjects can be derived from the original set, minus the Deleted and Modified objects.")]
         public virtual bool IncludeUnchangedObjects { get; set; } = true;
 
-        [Description("Type of PersistentId that should be used to perform the Diffing.")]
+        [Description("Type of PersistentId that should be used to perform the Diffing, if any.")]
         public virtual Type PersistentIdType { get; set; }
 
-        [Description("Key of the CustomData dictionary where to look for an Id to use for the Diffing.")]
+        [Description("Key of the CustomData dictionary where to look for an Id to use for the Diffing, if any.")]
         public virtual string CustomDataKey { get; set; }
 
         /***************************************************/
