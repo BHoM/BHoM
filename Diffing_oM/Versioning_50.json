@@ -1,0 +1,7 @@
+﻿{
+    "MessageForDeleted": {
+        "BH.oM.Diffing.DiffingType": "The enum object DiffingType does not exists anymore, as its functionality was removed from the BH.Engine.Diffing.IDiffing method because that automation was deemed redundant and not reliable. To use specific Diffing methodologies, just call the specific Diffing method."
+    },
+    "MessageForNoUpgrade": {
+    }
+}
