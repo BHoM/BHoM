@@ -53,8 +53,13 @@ namespace BH.oM.Base
            "\nYou can List specify sub-properties or partial paths, e.g. `StartNode.Name` or `*.Name`.")]
         public virtual List<string> PropertiesToConsider { get; set; } = new List<string>(); //e.g. `{ StartNode, EndNode }`
 
-        [Description("If any property is nested into the object over that level, it is ignored. Defaults to 100.")]
-        public virtual int MaxNesting { get; set; } = 100;
+        [Description("If any property is nested into the object over that level, it is ignored. Useful to limit the runtime." +
+            "Defaults to unlimited.")]
+        public virtual int MaxNesting { get; set; } = int.MaxValue;
+
+        [Description("Sets the maximum number of property differences to be determined before stopping. Useful to limit the runtime." +
+            "Defaults to unlimited.")]
+        public virtual int MaxPropertyDifferences { get; set; } = int.MaxValue;
 
         [Description("Numeric tolerance for property values, applied to all numerical properties. Applies rounding for numbers smaller than this. Defaults to 1E-12.")]
         public virtual double NumericTolerance { get; set; } = 1E-12;

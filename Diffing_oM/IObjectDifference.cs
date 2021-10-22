@@ -31,40 +31,12 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    [Description("Represents the differences between two sets of objects.")]
-    public interface IObjectPropertyDiff<O, D> : IObject
+    [Description("Represents a difference between a Previous and Following version of a same object.")]
+    public interface IObjectDifference : IObject
     {
-        O Object1 { get; set; }
-        O Object2 { get; set; }
-        List<D> DifferentProperties { get; set; }
+        object PreviousValue { get; set; }
+        object FollowingValue { get; set; }
     }
-
-    public interface IPropertyDiff<O> : IObject
-    {
-        string Name { get; set; }
-        O OldValue { get; set; }
-        O NewValue { get; set; }
-    }
-
-    public class ObjectPropertyDiff : IObjectPropertyDiff<object, PropertyDifference>
-    {
-        public object Object1 { get; set; }
-        public object Object2 { get; set; }
-        public List<PropertyDifference> DifferentProperties { get; set; }
-    }
-
-    public class PropertyDifference : IPropertyDiff<object>
-    {
-        public string Name { get; set; }
-        public object OldValue { get; set; }
-        public object NewValue { get; set; }
-    }
-
-    public class RevitParameterDifference
-    {
-
-    }
-
 }
 
 

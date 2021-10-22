@@ -31,30 +31,11 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing
 {
-    [Description("Represents the differences between two sets of objects.")]
-    public interface IDiff : IObject, IImmutable
+    public class PropertyDifference : IObjectDifference
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Objects present in the second set that are not present in the first set.")]
-        IEnumerable<object> AddedObjects { get; }
-
-        [Description("Objects not present in the second set that were present in the first set.")]
-        IEnumerable<object> RemovedObjects { get; }
-
-        [Description("Objects that are recognised as present both in the first set and the second set, but that have some property that is different."
-            + "\nThe rules that were used to recognise modification are in the `DiffingConfig.ComparisonConfig`.")]
-        IEnumerable<object> ModifiedObjects { get; }
-
-        [Description("Objects that are recognised as the same in the first and second set.")]
-        IEnumerable<object> UnchangedObjects { get; }
-
-        IEnumerable<IObjectDifferences> AllObjectsDifferences { get; }
-
-        [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
-        DiffingConfig DiffingConfig { get; }
+        public string PropertyName { get; set; }
+        public object PreviousValue { get; set; }
+        public object FollowingValue { get; set; }
     }
 }
 
