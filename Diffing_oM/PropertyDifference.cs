@@ -33,9 +33,11 @@ namespace BH.oM.Diffing
 {
     public class PropertyDifference : IObjectDifference
     {
-        public string PropertyName { get; set; }
-        public object PreviousValue { get; set; }
-        public object FollowingValue { get; set; }
+        public virtual string DisplayName { get; set; }
+        public virtual object PastValue { get; set; }
+        public virtual object FollowingValue { get; set; }
+
+        public virtual string FullName { get; set; }
     }
 }
 

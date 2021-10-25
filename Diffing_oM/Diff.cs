@@ -51,7 +51,7 @@ namespace BH.oM.Diffing
         [Description("Objects that are recognised as the same in the first and second set.")]
         public virtual IEnumerable<object> UnchangedObjects { get; }
 
-        public virtual IEnumerable<IObjectDifferences> AllObjectsDifferences { get; }
+        public virtual IEnumerable<ObjectDifferences> ModifiedObjectsDifferences { get; }
 
         [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
         public virtual DiffingConfig DiffingConfig { get; }
@@ -65,13 +65,13 @@ namespace BH.oM.Diffing
         [Input("removedObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
         [Input("modifiedObjects", "Objects existing in both sets that have some differences in their properties.")]
         [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
-        public Diff(IEnumerable<object> addedObjects, IEnumerable<object> removedObjects, IEnumerable<object> modifiedObjects, DiffingConfig diffingConfig, IEnumerable<IObjectDifferences> allObjectsDifferences = null, IEnumerable<object> unchangedObjects = null)
+        public Diff(IEnumerable<object> addedObjects, IEnumerable<object> removedObjects, IEnumerable<object> modifiedObjects, DiffingConfig diffingConfig, IEnumerable<ObjectDifferences> modifiedObjectsDifferences = null, IEnumerable<object> unchangedObjects = null)
         {
             AddedObjects = addedObjects;
             RemovedObjects = removedObjects;
             ModifiedObjects = modifiedObjects;
             DiffingConfig = diffingConfig;
-            AllObjectsDifferences = allObjectsDifferences;
+            ModifiedObjectsDifferences = modifiedObjectsDifferences;
             UnchangedObjects = unchangedObjects;
         }
 

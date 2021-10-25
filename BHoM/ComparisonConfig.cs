@@ -27,11 +27,8 @@ using System.ComponentModel;
 namespace BH.oM.Base
 {
     [Description("Settings to determine the uniqueness of an Object, i.e. when comparing and when computing the object Hash.")]
-    public class ComparisonConfig : IComparisonConfig
+    public abstract class ComparisonConfig : IObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
         [Description("Names of properties you want to disregard in defining the uniqueness of an object. `BHoM_Guid` is always added by default. Supports * wildcard (see examples below)."
             + "\nExamples of valid values: `BHoM_Guid`, `StartNode`, `Bar.StartNode.Point.X`, `Bar.*.Point.Y`")]
         public virtual List<string> PropertyExceptions { get; set; } = new List<string>() { "BHoM_Guid" }; //e.g. `BHoM_Guid`
@@ -70,51 +67,6 @@ namespace BH.oM.Base
 
         [Description("Additional functions that can be specified as delegates and that will be executed while comparing.")]
         public virtual ComparisonFunctions ComparisonFunctions { get; set; } = new ComparisonFunctions();
-
-        /***************************************************/
-    }
-
-    [Description("Settings to determine the uniqueness of an Object, i.e. when comparing and when computing the object Hash.")]
-    public interface IComparisonConfig : IObject
-    {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        [Description("Names of properties you want to disregard in defining the uniqueness of an object. `BHoM_Guid` is always added by default. Supports * wildcard (see examples below)."
-            + "\nExamples of valid values: `BHoM_Guid`, `StartNode`, `Bar.StartNode.Point.X`, `Bar.*.Point.Y`")]
-        List<string> PropertyExceptions { get; set; }
-
-        [Description("Any corresponding namespace is ignored. E.g. `BH.oM.Structure`.")]
-        List<string> NamespaceExceptions { get; set; }
-
-        [Description("Any corresponding type is ignored. E.g. `typeof(Guid)`.")]
-        List<Type> TypeExceptions { get; set; }
-
-        [Description("Keys of the BHoMObjects' CustomData dictionary that should be exclusively included. Adding keys to this List will exclude any key that is not in this List. I.e. for every object, if it has CustomData keys present in this List, we then exclude any other CustomData key found in it.")]
-        List<string> CustomdataKeysToInclude { get; set; }
-
-        [Description("Keys of the BHoMObjects' CustomData dictionary that should be ignored.\nBy default it includes `RenderMesh`.")]
-        List<string> CustomdataKeysExceptions { get; set; }
-
-        [Description("If any name is specified here, only properties corresponding to that name will be considered in the hash." +
-           "\nE.g. For BH.oM.Structure.Elements.Bar, specifying `StartNode` will only check if that property is different." +
-           "\nYou can List specify sub-properties or partial paths, e.g. `StartNode.Name` or `*.Name`.")]
-        List<string> PropertiesToConsider { get; set; }
-
-        [Description("If any property is nested into the object over that level, it is ignored. Defaults to 100.")]
-        int MaxNesting { get; set; }
-
-        [Description("Numeric tolerance for property values, applied to all numerical properties. Applies rounding for numbers smaller than this. Defaults to 1E-12.")]
-        double NumericTolerance { get; set; }
-
-        [Description("Number of fractional digits retained for individual property. If a property name matches a key in the dictionary, applies a rounding to the corresponding number of digits."
-            + "\nSupports * wildcard in the property name matching. E.g. `{ { StartNode.Point.*, 2 } }`.")]
-        Dictionary<string, int> FractionalDigitsPerProperty { get; set; }
-
-        [Description("Additional functions that can be specified as delegates and that will be executed while comparing.")]
-        ComparisonFunctions ComparisonFunctions { get; set; }
-
-        /***************************************************/
     }
 }
 

@@ -51,7 +51,7 @@ namespace BH.oM.Diffing
         [Description("Objects that are recognised as the same in the first and second set.")]
         IEnumerable<object> UnchangedObjects { get; }
 
-        IEnumerable<IObjectDifferences> AllObjectsDifferences { get; }
+        IEnumerable<ObjectDifferences> ModifiedObjectsDifferences { get; }
 
         [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
         DiffingConfig DiffingConfig { get; }

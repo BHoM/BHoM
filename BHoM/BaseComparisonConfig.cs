@@ -20,25 +20,15 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using BH.oM.Reflection.Attributes;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Diffing
+namespace BH.oM.Base
 {
-    [Description("Represents a difference between a Previous and Following version of a same object.")]
-    public class ObjectDifferences : IObject
+    [Description("Settings to determine the uniqueness of an Object, i.e. when comparing and when computing the object Hash.")]
+    public class BaseComparisonConfig : ComparisonConfig
     {
-        public virtual object PastObject { get; set; }
-        public virtual object FollowingObject { get; set; }
-
-        [Description("Represents all of the property differences found on the object (under a given ComparisonConfig).")]
-        public virtual List<PropertyDifference> Differences { get; set; } = new List<PropertyDifference>();
     }
 }
 

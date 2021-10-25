@@ -34,7 +34,7 @@ namespace BH.oM.Diffing
     [Description("Represents a difference between a Previous and Following version of a same object.")]
     public interface IObjectDifference : IObject
     {
-        object PreviousValue { get; set; }
+        object PastValue { get; set; }
         object FollowingValue { get; set; }
     }
 }

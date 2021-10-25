@@ -48,7 +48,6 @@ namespace BH.oM.Base
             "\nFirst parameter (`string`): Custom Data key. Second parameter (`object`): the CustomData dictionary. Return value (`bool`): true if the key is to be skipped, false otherwise.")]
         public virtual Func<string, object, bool> CustomDataKeyFilter { get; set; } = null;
 
-
         [Description("This function is executed before a 'property full name' is returned as a difference, and it modifies it." +
             "\nA `property full name` is the full property path, e.g. for a property named `Position`, the full name could be `BH.oM.Structure.Elements.Node.Position` or `BH.oM.Structure.Elements.Bar.StartNode.Position`, etc., depending on the object being considered." +
             "\nFirst parameter (`string`): property full name. Second parameter (`object`): the object holding this property. Return value (`string`): the modified property name." +
