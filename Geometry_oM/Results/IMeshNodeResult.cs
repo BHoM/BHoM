@@ -20,24 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BH.oM.Analytical.Results;
+using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Base;
+using System;
 
-namespace BH.oM.Analytical.Results
+namespace BH.oM.Geometry.Results
 {
-    [Description("Base interface for mesh element results. This is the result for a single discrete node or face of the mesh the result aligns with.")]
-    public interface IMeshElementResult : IResult
+    [Description("Base interface for mesh node results. This is the result for a single discrete face of the mesh the result aligns with.")]
+    public interface IMeshNodeResult : IResult, ICasedResult // should Mesh*Result always have a resultcase?
     {
-        [Description("ID of the MeshFace that this result belongs to.")]
-        IComparable MeshFaceId { get; }
-
         [Description("ID of the Node in the mesh that this result belongs to.")]
-        IComparable NodeId { get; }
+        IAdapterId NodeId { get; }
     }
 }
-
