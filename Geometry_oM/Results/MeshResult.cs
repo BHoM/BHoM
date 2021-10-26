@@ -30,7 +30,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Geometry.Results
 {
-    public class MeshResult<T> : IMeshResult, ICasedResult where T: IMeshComponentResult 
+    public class MeshResult<T> : IMeshResult where T: IMeshComponentResult 
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,7 +41,8 @@ namespace BH.oM.Geometry.Results
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public virtual IComparable ResultCase { get; }
 
-        public virtual IEnumerable<T> MeshElementResults { get; }
+        [Description("All the results for the components of this Mesh (nodes or faces).")]
+        public virtual IEnumerable<T> ComponentsResults { get; }
 
         public int CompareTo(IResult other)
         {

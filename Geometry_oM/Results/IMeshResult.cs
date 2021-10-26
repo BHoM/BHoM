@@ -29,7 +29,7 @@ using System;
 namespace BH.oM.Geometry.Results
 {
     [Description("Base interface for mesh results.")]
-    public interface IMeshResult : IResult
+    public interface IMeshResult : IResult, ICasedResult
     {
     }
 }
