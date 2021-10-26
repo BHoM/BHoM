@@ -20,26 +20,38 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Analytical.Results
+namespace BH.oM.Geometry.Results
 {
-    // Should be deprecated in light of the new IAdapterId fragment mechanism.
-    public interface IObjectIdResult : IResult
+    /***************************************************/
+
+    [Description("Specifies which layer the results are extracted from or if it is a maxima/minima of the layers.")]
+    public enum MeshResultLayer
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("Lower surface/extreme fibre of the panel/mesh element.")]
+        Lower = -1,
 
-        IComparable ObjectId { get; }
+        [Description("Middle layer of the panel/mesh element.")]
+        Middle = 0,
 
-        /***************************************************/
+        [Description("Upper surface/extreme fibre of the panel/mesh element.")]
+        Upper = 1,
+
+        [Description("The minimum value of all layers in the panel/mesh element.")]
+        Minimum = 2,
+
+        [Description("The maximum value of all layers in the panel/mesh element.")]
+        Maximum = 3,
+
+        [Description("The absolute maximum value of all layers in the panel/mesh element.")]
+        AbsoluteMaximum = 4,
+
+        [Description("An arbitrary position within the thickness of the element.")]
+        Arbitrary = 5
     }
+
+    /***************************************************/
 }
 
 

@@ -22,4 +22,10 @@
     <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Analytical_oM">
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Analytical_oM.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
