@@ -29,7 +29,7 @@ using System;
 namespace BH.oM.Geometry.Results
 {
     [Description("Base interface for mesh node results. This is the result for a single discrete face of the mesh the result aligns with.")]
-    public interface IMeshNodeResult : IResult, ICasedResult // should Mesh*Result always have a resultcase?
+    public interface IMeshNodeResult : IMeshComponentResult
     {
         [Description("ID of the Node in the mesh that this result belongs to.")]
         IAdapterId NodeId { get; }

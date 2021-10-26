@@ -25,13 +25,30 @@ using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Base;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace BH.oM.Geometry.Results
 {
-    [Description("Base interface for mesh face results. This is the result for a single discrete node of the mesh the result aligns with.")]
-    public interface IMeshFaceResult : IMeshComponentResult
+    public class MeshResult<T> : IMeshResult, ICasedResult where T: IMeshComponentResult 
     {
-        [Description("ID of the MeshFace that this result belongs to.")]
-        IAdapterId MeshFaceId { get; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public virtual IAdapterId ObjectId { get; }
+
+        [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
+        public virtual IComparable ResultCase { get; }
+
+        public virtual IEnumerable<T> MeshElementResults { get; }
+
+        public int CompareTo(IResult other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
+
+
+

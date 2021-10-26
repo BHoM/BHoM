@@ -28,30 +28,24 @@ using System;
 
 namespace BH.oM.Geometry.Results
 {
-    public class MeshNodeResult : IMeshNodeResult, ICasedResult
+    public class MeshNodeResult : IMeshNodeResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        public virtual IAdapterId ObjectId { get; }
+
         [Description("Id of the Node in the mesh that this result belongs to. Will be empty for smoothing types not relating to Nodes. When extracted from an analysis package, the Node id will correspond to the node id in the software and match the format and value used in that particular package.")]
         public virtual IAdapterId NodeId { get; }
 
-        [Description("Id of the FEFace that this result belongs to. Will be empty for smoothing types not relating to Faces. When extracted from an analysis package, the face id will correspond to the face id in the software and match the format and value used in that particular package.")]
-        public virtual IComparable MeshFaceId { get; }
-
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public virtual IComparable ResultCase { get; }
-
-        [Description("Time step for time history results.")]
-        public virtual double TimeStep { get; }
 
         public virtual MeshResultLayer MeshResultLayer { get; }
 
         [Description("Position within the element thickness that result is extracted from, normalised to 1. I.e. 0 = lower surface, 0.5 = middle, 1 = top surface.")]
         public virtual double LayerPosition { get; }
-
-        public virtual MeshResultSmoothingType Smoothing { get; }
 
         [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials.")]
         public virtual Basis Orientation { get; } = Basis.XY;

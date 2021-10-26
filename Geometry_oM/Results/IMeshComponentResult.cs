@@ -28,10 +28,8 @@ using System;
 
 namespace BH.oM.Geometry.Results
 {
-    [Description("Base interface for mesh face results. This is the result for a single discrete node of the mesh the result aligns with.")]
-    public interface IMeshFaceResult : IMeshComponentResult
+    [Description("Base interface for results belonging to a component of a mesh (i.e. a Mesh Face or a Mesh Node).")]
+    public interface IMeshComponentResult : IResult
     {
-        [Description("ID of the MeshFace that this result belongs to.")]
-        IAdapterId MeshFaceId { get; }
     }
 }
