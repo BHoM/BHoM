@@ -25,24 +25,23 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using BH.oM.Reflection.Attributes;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Diffing
+namespace BH.oM.Base
 {
     [Description("Result returned by the extension method of the same name. The method is invoked when Hashing an object or computing the PropertyDifferences.")]
-    public class PropertyComparisonInclusion : IObject
+    public class ComparisonInclusion : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("")]
-        public string PropertyDisplayName { get; set; } = "";
+        [Description("Whether ")]
+        public bool Include { get; set; } = true;
 
-        [Description("")]
-        public bool IncludeProperty { get; set; } = true;
+        [Description("If")]
+        public string DisplayName { get; set; } = "";
     }
 }
 
