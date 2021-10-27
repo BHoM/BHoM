@@ -64,9 +64,6 @@ namespace BH.oM.Base
         [Description("Number of fractional digits retained for individual property. If a property name matches a key in the dictionary, applies a rounding to the corresponding number of digits."
             + "\nSupports * wildcard in the property name matching. E.g. `{ { StartNode.Point.*, 2 } }`.")]
         public virtual Dictionary<string, int> FractionalDigitsPerProperty { get; set; } = null; // e.g. { { StartNode.Point.X, 2 } } - can use * wildcard here.
-
-        [Description("Additional functions that can be specified as delegates and that will be executed while comparing.")]
-        public virtual ComparisonFunctions ComparisonFunctions { get; set; } = new ComparisonFunctions();
     }
 }
 
