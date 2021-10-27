@@ -31,7 +31,7 @@ using System.Collections.ObjectModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for a LifeCycleAssessment of a whole project. This is used to get the total quantity in terms of embodied carbon, acidification, etc. for a whole project.")]
-    public class LifeCycleAssessmentResult : IResult, IResultCollection<LifeCycleAssessmentElementResult>, IImmutable
+    public class LifeCycleAssessmentResult : IAnalysisResult, IResultCollection<LifeCycleAssessmentElementResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -52,22 +52,22 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("A collection of the per element LifeCycleAssessment results")]
         public virtual ReadOnlyCollection<LifeCycleAssessmentElementResult> Results { get; }
 
-        [Description("The total quantity of kgCO2e for all objects in the Project within the LCA Scope.")]
-        public virtual double TotalGlobalWarmingPotential { get; }
+        [Description("The total quantity of the specified EPD Field for all objects in the Project within the LCA Scope.")]
+        public virtual double TotalQuantity { get; }
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lifeCycleAssessmentScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double totalGlobalWarmingPotential)
+        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lifeCycleAssessmentScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double totalQuantity)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
             LifeCycleAssessmentScope = lifeCycleAssessmentScope;
             Results = results;
-            TotalGlobalWarmingPotential = totalGlobalWarmingPotential;
+            TotalQuantity = totalQuantity;
         }
 
         /***************************************************/

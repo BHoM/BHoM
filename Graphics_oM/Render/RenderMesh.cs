@@ -33,7 +33,7 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        public virtual List<RenderPoint> Vertices { get; set; } = new List<RenderPoint>();
 
         public virtual List<Face> Faces { get; set; } = new List<Face>();
 
@@ -45,7 +45,7 @@ namespace BH.oM.Graphics
 
         public static explicit operator RenderMesh(Geometry.Mesh mesh)
         {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
+            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (RenderPoint)p).ToList() };
         }
 
         /***************************************************/

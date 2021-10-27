@@ -31,7 +31,7 @@ using System;
 namespace BH.oM.Environment.Results.Mesh
 {
     [Description("Full collection of discrete results for an AnalysisGrid for a specific Analysis.")]
-    public class MeshResult : IResult, IResultCollection<MeshElementResult>, IImmutable
+    public class MeshResult : BH.oM.Analytical.Results.IAnalysisResult, IResultCollection<MeshElementResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

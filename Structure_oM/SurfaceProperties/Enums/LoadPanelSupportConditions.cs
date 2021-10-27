@@ -30,7 +30,8 @@ namespace BH.oM.Structure.SurfaceProperties
         TwoSides,
         TwoAdjacentSides,
         OneSide,
-        Cantilever
+        Cantilever,
+        Auto
     }
     /***************************************************/
 }

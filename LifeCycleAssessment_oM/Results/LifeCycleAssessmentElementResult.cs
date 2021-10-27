@@ -21,17 +21,16 @@
  */
 
 using BH.oM.Analytical.Results;
-using BH.oM.LifeCycleAssessment.MaterialFragments;
-using BH.oM.Geometry;
-using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.LifeCycleAssessment.MaterialFragments;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Base class for a LifeCycleAssessment of a single object. This contains the total quantity of global warming potential, acidification potential, etc. for a whole project.")]
-    public abstract class LifeCycleAssessmentElementResult : IResult, IImmutable
+    public abstract class LifeCycleAssessmentElementResult : IAnalysisResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -52,8 +51,11 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
         public virtual ObjectCategory Category { get; } = ObjectCategory.Undefined;
 
+        [Description("Phase of life abbreviation for the scope of the EPD. A single EnvironmentalMetric can contain either a single Phase or a list of Phases i.e. A1, A2, A3.")]
+        public virtual List<LifeCycleAssessmentPhases> Phases { get; } = new List<LifeCycleAssessmentPhases>();
+
         [Description("The EnvironmentalProductDeclaration used to generate this result.")]
-        public virtual List<IEnvironmentalProductDeclarationData> EnvironmentalProductDeclaration{ get; set;  }
+        public virtual List<EnvironmentalProductDeclaration> EnvironmentalProductDeclaration{ get; set; }
 
 
         /***************************************************/
@@ -65,13 +67,15 @@ namespace BH.oM.LifeCycleAssessment.Results
                                 double timeStep,
                                 ObjectScope scope,
                                 ObjectCategory category,
-                                List<IEnvironmentalProductDeclarationData> environmentalProductDeclaration)
+                                List<LifeCycleAssessmentPhases> phases,
+                                List<EnvironmentalProductDeclaration> environmentalProductDeclaration)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
             Scope = scope;
             Category = category;
+            Phases = phases;
             EnvironmentalProductDeclaration = environmentalProductDeclaration;
         }
 

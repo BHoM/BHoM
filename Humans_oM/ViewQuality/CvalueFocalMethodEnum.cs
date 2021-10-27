@@ -28,10 +28,11 @@ namespace BH.oM.Humans.ViewQuality
 {
     public enum CvalueFocalMethodEnum
     {
-        OffsetThroughCorners=0,
-        Closest =1,
-        Perpendicular=2,
-        Undefined =3,
+        OffsetThroughCorners = 0,
+        Closest = 1,
+        Perpendicular = 2,
+        SinglePoint = 3,
+        Undefined = 4,
     }
 }
 

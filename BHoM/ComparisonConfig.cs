@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Base
 {
-    [Description("Settings to determine the uniqueness of an Object.")]
+    [Description("Settings to determine the uniqueness of an Object, i.e. when comparing and when computing the object Hash.")]
     public class ComparisonConfig : IObject
     {
         /***************************************************/
@@ -42,12 +42,15 @@ namespace BH.oM.Base
         [Description("Any corresponding type is ignored. E.g. `typeof(Guid)`.")]
         public virtual List<Type> TypeExceptions { get; set; } = new List<Type>(); //e.g. `typeof(Guid)`
 
+        [Description("Keys of the BHoMObjects' CustomData dictionary that should be exclusively included. Adding keys to this List will exclude any key that is not in this List. I.e. for every object, if it has CustomData keys present in this List, we then exclude any other CustomData key found in it.")]
+        public virtual List<string> CustomdataKeysToInclude { get; set; } = new List<string>() {  };
+
         [Description("Keys of the BHoMObjects' CustomData dictionary that should be ignored.\nBy default it includes `RenderMesh`.")]
         public virtual List<string> CustomdataKeysExceptions { get; set; } = new List<string>() { "RenderMesh" };
 
-        [Description("If any name is specified here, only properties corresponding to that name will be considered in the hash."
-            + "\nThis has higher priority than `PropertyExceptions`."
-            + "\nWorks only for top-level properties (not subclass properties).")]
+        [Description("If any name is specified here, only properties corresponding to that name will be considered in the hash." +
+           "\nE.g. For BH.oM.Structure.Elements.Bar, specifying `StartNode` will only check if that property is different." +
+           "\nYou can List specify sub-properties or partial paths, e.g. `StartNode.Name` or `*.Name`.")]
         public virtual List<string> PropertiesToConsider { get; set; } = new List<string>(); //e.g. `{ StartNode, EndNode }`
 
         [Description("If any property is nested into the object over that level, it is ignored. Defaults to 100.")]
@@ -59,6 +62,9 @@ namespace BH.oM.Base
         [Description("Number of fractional digits retained for individual property. If a property name matches a key in the dictionary, applies a rounding to the corresponding number of digits."
             + "\nSupports * wildcard in the property name matching. E.g. `{ { StartNode.Point.*, 2 } }`.")]
         public virtual Dictionary<string, int> FractionalDigitsPerProperty { get; set; } = null; // e.g. { { StartNode.Point.X, 2 } } - can use * wildcard here.
+
+        [Description("Additional functions that can be specified as delegates and that will be executed while comparing.")]
+        public virtual ComparisonFunctions ComparisonFunctions { get; set; } = new ComparisonFunctions();
 
         /***************************************************/
     }

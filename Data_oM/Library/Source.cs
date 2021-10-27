@@ -36,38 +36,41 @@ namespace BH.oM.Data.Library
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Hyperlink or file path to where the source information used can be found")]
+        [Description("Hyperlink or file path to where the source information used can be found.")]
         public virtual string SourceLink { get; set; } = "";
 
         [Description("Title of the source. For example Book title, Paper title, Code title etc.")]
         public virtual string Title { get; set; } = "";
 
-        [Description("Author of the source of the source information")]
+        [Description("Author of the source.")]
         public virtual string Author { get; set; } = "";
 
         [Description("Table, figure or code reference etc.")]
         public virtual string ItemReference { get; set; } = "";
 
-        [Description("Version of the source used")]
+        [Description("Version or edition of the source.")]
         public virtual string Version { get; set; } = "";
 
-        [Description("Publisher of the source information")]
+        [Description("Publisher of the source.")]
         public virtual string Publisher { get; set; } = "";
 
-        [Description("Schema of the source information")]
+        [Description("Schema of the source.")]
         public virtual string Schema { get; set; } = "";
 
-        [Description("Language of the source information")]
+        [Description("Language of the source.")]
         public virtual string Language { get; set; } = "";
 
-        [Description("Country/Region of the source information")]
+        [Description("Country/Region of the source.")]
         public virtual string Location { get; set; } = "";
 
-        [Description("Any applicable copyright information assosiated with the source")]
+        [Description("Any applicable copyright information associated with the source.")]
         public virtual string Copyright { get; set; } = "";
 
-        [Description("Contributors of the source information")]
+        [Description("Contributors to the source.")]
         public virtual string Contributors { get; set; } = "";
+
+        [Description("Level of confidence of the data related to the source.")]
+        public virtual Confidence Confidence { get; set; } = Confidence.Undefined;
 
         /***************************************************/
     }

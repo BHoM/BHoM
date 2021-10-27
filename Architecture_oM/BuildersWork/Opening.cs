@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
 using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Spatial.ShapeProfiles;
@@ -29,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.Architecture.BuildersWork
 {
     [Description("Object representing a builders work opening as an entity independent of its host.")]
-    public class Opening : BHoMObject
+    public class Opening : BHoMObject, IElement0D
     {
         /***************************************************/
         /****                Properties                 ****/

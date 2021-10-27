@@ -29,6 +29,7 @@ using BH.oM.Structure.MaterialFragments;
 using BH.oM.Spatial.ShapeProfiles;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Structure.Reinforcement;
 
 namespace BH.oM.Structure.SectionProperties
 {
@@ -42,12 +43,8 @@ namespace BH.oM.Structure.SectionProperties
         [Description("A unique Name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
-        [Description("List of Reinforcement of the concrete section.")]
-        public virtual List<Reinforcement.IBarReinforcement> Reinforcement { get; set; } = new List<Reinforcement.IBarReinforcement>();
-
-        [Length]
-        [Description("Minimum reinforcement cover of the section.")]
-        public virtual double MinimumCover { get; set; }
+        [Description("RebarIntent for the Bar containing a list of BarReinforcement.")]
+        public virtual BarRebarIntent RebarIntent { get; set; }
 
         [Description("Concrete material used throughout the full section.")]
         public virtual IMaterialFragment Material { get; set; }
@@ -120,12 +117,12 @@ namespace BH.oM.Structure.SectionProperties
         public virtual double Wplz { get; }
 
         [Length]
-        [Description("Geometric centre of the section in the local Z direction" 
+        [Description("Geometric centre of the section in the local Z direction"
             + "\n Uncracked section disregarding the reinforcement.")]
         public virtual double CentreZ { get; }
 
         [Length]
-        [Description("Geometric centre of the section in the local Y direction" 
+        [Description("Geometric centre of the section in the local Y direction"
             + "\n Uncracked section disregarding the reinforcement.")]
         public virtual double CentreY { get; }
 
@@ -155,7 +152,7 @@ namespace BH.oM.Structure.SectionProperties
         public virtual double Asy { get; }
 
         [Length]
-        [Description("Shear Area in the local Z direction" 
+        [Description("Shear Area in the local Z direction"
             + "\n Uncracked section disregarding the reinforcement.")]
         public virtual double Asz { get; }
 
@@ -186,7 +183,8 @@ namespace BH.oM.Structure.SectionProperties
             double vy,
             double vpy,
             double asy,
-            double asz)
+            double asz,
+            BarRebarIntent rebarIntent)
 
         {
             SectionProfile = sectionProfile;
@@ -210,11 +208,12 @@ namespace BH.oM.Structure.SectionProperties
             Vpy = vpy;
             Asy = asy;
             Asz = asz;
+            RebarIntent = rebarIntent;
 
         }
 
         /***************************************************/
-       
+
     }
 }
 
