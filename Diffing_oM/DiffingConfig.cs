@@ -40,22 +40,22 @@ namespace BH.oM.Diffing
         [Description("Settings to determine the uniqueness of an Object.")]
         public virtual ComparisonConfig ComparisonConfig { get; set; } = new ComparisonConfig();
 
-        [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary.")]
-        public virtual bool EnablePropertyDiffing { get; set; } = false;
+        [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary of the Diff object." +
+            "\nWARNING: may be slow." +
+            "\nFor large object collections, if you are not interested in what properties changed, you can turn this to false to speed up.")]
+        public virtual bool EnablePropertyDiffing { get; set; } = true;
 
         [Description("If EnablePropertyDiffing is true, this sets the maximum number of differences to be determine before stopping." +
             "\nUseful to limit the run time." +
             "\nDefaults to 1000.")]
         public virtual int MaxPropertyDifferences { get; set; } = 1000;
 
-        [Description("If enabled, the Diff includes also the objects that did not change (`Unchanged`).")]
+        [Description("If enabled, the Diff includes also the objects that did not change (`Unchanged`)." +
+            "\nWhen dealing with very large sets, you can keep this on `false` to improve performance: the UnchangedObjects can be derived from the original set, minus the Deleted and Modified objects.")]
         public virtual bool IncludeUnchangedObjects { get; set; } = true;
 
-        [Description("Type of PersistentId that should be used to perform the Diffing.")]
-        public virtual Type PersistentIdType { get; set; }
-
-        [Description("Key of the CustomData dictionary where to look for an Id to use for the Diffing.")]
-        public virtual string CustomDataKey { get; set; }
+        [Description("By default, duplicate Ids are not allowed and Diffing will not consider them. If you want to be able to specify duplicate Ids, set this to true.")]
+        public virtual bool AllowDuplicateIds { get; set; } = false;
 
         /***************************************************/
     }
