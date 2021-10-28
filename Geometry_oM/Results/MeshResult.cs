@@ -30,21 +30,21 @@ using System.Collections.Generic;
 
 namespace BH.oM.Geometry.Results
 {
-    public class MeshResult<T, G> : IMeshResult, ICasedResult 
-        where T: IGenericResult<G> 
-        where G : IMeshComponentResult // the double generic allows to set a meaningful constraint: MeshResult can only have `ComponentResults` of type `IMeshComponentResult`.
+    public class MeshResult : IMeshResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual IAdapterId ObjectId { get; set; }
-
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
         public virtual IComparable ResultCase { get; set; }
 
-        [Description("All the results for the components of this Mesh (nodes or faces).")]
-        public virtual IEnumerable<T> ComponentsResults { get; set; }
+        [Description("All the results for the components of this Mesh Faces.")]
+        public virtual IEnumerable<IMeshFaceResult> MeshFacesResults { get; set; }
+
+        [Description("All the results for the components of this Mesh Nodes.")]
+        public virtual IEnumerable<IMeshNodeResult> MeshNodesResults { get; set; }
+
 
         public int CompareTo(IResult other)
         {

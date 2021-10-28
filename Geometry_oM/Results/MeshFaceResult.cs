@@ -37,7 +37,7 @@ namespace BH.oM.Geometry.Results
         public virtual IAdapterId ObjectId { get; set; }
 
         [Description("Id of the Node in the mesh that this result belongs to. Will be empty for smoothing types not relating to Nodes. When extracted from an analysis package, the Node id will correspond to the node id in the software and match the format and value used in that particular package.")]
-        public virtual IAdapterId MeshFaceId { get; set; }
+        public virtual IAdapterId FaceId { get; set; }
 
         [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials.")]
         public virtual Basis Orientation { get; set; } = Basis.XY;

@@ -20,18 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Results;
-using BH.oM.Geometry;
-using System.ComponentModel;
-using BH.oM.Base;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Analytical.Results;
+using BH.oM.Base;
+using BH.oM.Geometry.Results;
+using BH.oM.Quantities;
 
 namespace BH.oM.Geometry.Results
 {
-    [Description("Base interface for mesh face results. This is the result for a single discrete node of the mesh the result aligns with.")]
-    public interface IMeshFaceResult : IMeshComponentResult
+    public class SpatioPeriodicalMeshFaceResult : SpatioPeriodicalResult<IMeshFaceResult>, IMeshFaceResult
     {
-        [Description("ID of the MeshFace that this result belongs to.")]
-        IAdapterId FaceId { get; }
+        public IAdapterId FaceId { get; set; }
     }
 }
+
+
