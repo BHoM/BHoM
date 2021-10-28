@@ -30,19 +30,19 @@ using System.Collections.Generic;
 
 namespace BH.oM.Geometry.Results
 {
-    public class MeshResult<T> : IMeshResult where T: IMeshComponentResult 
+    public class MeshResult<T> : IMeshResult, ICasedResult where T: IMeshComponentResult 
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual IAdapterId ObjectId { get; }
+        public virtual IAdapterId ObjectId { get; set; }
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
-        public virtual IComparable ResultCase { get; }
+        public virtual IComparable ResultCase { get; set; }
 
         [Description("All the results for the components of this Mesh (nodes or faces).")]
-        public virtual IEnumerable<T> ComponentsResults { get; }
+        public virtual IEnumerable<T> ComponentsResults { get; set; }
 
         public int CompareTo(IResult other)
         {
