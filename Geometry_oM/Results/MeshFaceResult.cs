@@ -28,7 +28,7 @@ using System;
 
 namespace BH.oM.Geometry.Results
 {
-    public class MeshFaceResult : IMeshFaceResult
+    public class MeshFaceResult : IMeshFaceResult, ICasedResult
     {
         /***************************************************/
         /**** Properties                                ****/
