@@ -30,7 +30,9 @@ using System.Collections.Generic;
 
 namespace BH.oM.Geometry.Results
 {
-    public class MeshResult<T> : IMeshResult, ICasedResult where T: IMeshComponentResult 
+    public class MeshResult<T, G> : IMeshResult, ICasedResult 
+        where T: IGenericResult<G> 
+        where G : IMeshComponentResult // the double generic allows to set a meaningful constraint: MeshResult can only have `ComponentResults` of type `IMeshComponentResult`.
     {
         /***************************************************/
         /**** Properties                                ****/

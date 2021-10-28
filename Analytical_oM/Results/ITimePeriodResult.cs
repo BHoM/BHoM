@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Analytical.Results
 {
-    public interface ITimePeriodResult<T> : ITimePeriod, IResult, IImmutable where T : ITimeResult
+    public interface ITimePeriodResult<T> : IGenericResult<T>, ITimePeriod, IResult where T : ITimeResult
     {
         List<T> Results { get; set; }
     }

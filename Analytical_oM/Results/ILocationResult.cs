@@ -23,7 +23,7 @@
 
 namespace BH.oM.Analytical.Results
 {
-    public interface ILocationResult<T> : IResult
+    public interface ILocationResult : IResult
     {
         object Location { get; set; }
     }

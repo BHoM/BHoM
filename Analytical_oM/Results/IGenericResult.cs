@@ -20,34 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Results;
-using BH.oM.Geometry;
-using System.ComponentModel;
 using BH.oM.Base;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Geometry.Results
+namespace BH.oM.Analytical.Results
 {
-    public class MeshFaceResult : IMeshFaceResult
+    public interface IGenericResult<out T> : IResult
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual IAdapterId ObjectId { get; set; }
-
-        [Description("Id of the Node in the mesh that this result belongs to. Will be empty for smoothing types not relating to Nodes. When extracted from an analysis package, the Node id will correspond to the node id in the software and match the format and value used in that particular package.")]
-        public virtual IAdapterId MeshFaceId { get; set; }
-
-        [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials.")]
-        public virtual Basis Orientation { get; set; } = Basis.XY;
-
-        public int CompareTo(IResult other)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
-
 
 

@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Results
 {
-    // Should be deprecated in light of the new IAdapterId fragment mechanism.
+    // Should be deprecated in light of the new IAdapterIdResult (and/or the AdapterIdFragment mechanism).
     public interface IObjectIdResult : IResult
     {
         /***************************************************/

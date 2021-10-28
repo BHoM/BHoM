@@ -29,7 +29,7 @@ using BH.oM.Quantities;
 
 namespace BH.oM.Analytical.Results
 {
-    public class SpatioPeriodicalResult : ILocationTimePeriodCaseResult<IResult>
+    public class SpatioPeriodicalResult<T> : IGenericResult<T>, ILocationTimePeriodCaseResult<T> where T : IResult
     {
         public IComparable ResultCase { get; set; }
         public DateTime StartDate { get; set; }
@@ -37,9 +37,9 @@ namespace BH.oM.Analytical.Results
         public object Frequency { get; set; }
         public object Location { get; set; }
         public IQuantity Quantity { get; set; }
-        public List<IResult> Results { get; set; }
+        public List<T> Results { get; set; }
 
-        public int CompareTo(IResult other)
+        public int CompareTo(T other)
         {
             throw new NotImplementedException();
         }

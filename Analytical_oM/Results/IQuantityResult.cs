@@ -24,7 +24,7 @@ using BH.oM.Quantities;
 
 namespace BH.oM.Analytical.Results
 {
-    public interface IQuantityResult<T> : IResult
+    public interface IQuantityResult : IResult
     {
         IQuantity Quantity { get; set; }
     }

@@ -23,7 +23,7 @@
 
 namespace BH.oM.Analytical.Results
 {
-    public interface ILocationTimePeriodCaseResult<T> : ITimePeriodFrequencyResult<T>, ILocationResult<T>, IQuantityResult<T>, ICasedResult
+    public interface ILocationTimePeriodCaseResult<T> : ITimePeriodFrequencyResult<T>, ILocationResult, IQuantityResult, ICasedResult
     {
     }
 }
