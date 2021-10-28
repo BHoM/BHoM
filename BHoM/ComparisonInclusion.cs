@@ -30,18 +30,21 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base
 {
-    [Description("Result returned by the extension method of the same name. The method is invoked when Hashing an object or computing the PropertyDifferences.")]
+    [Description("Information about how an object's property should be included or not in a comparison (i.e. when computing an object's Hash or Diffing)." +
+        "A ComparisonInclusion object is returned by the extension method of the same name (which is invoked automatically when Hashing or Diffing)." +
+        "The ComparisonInclusion() method can be implemented in specific Toolkits/namespaces to customise the comparison (i.e. with Toolkit-specific information which would be otherwise unavailable to the base Hash/Diffing)." +
+        "See the wiki for examples of this.")]
     public class ComparisonInclusion : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Whether ")]
+        [Description("Whether the current property should be included or not in the comparison (i.e. Hash or Diffing).")]
         public bool Include { get; set; } = true;
 
-        [Description("If")]
-        public string DisplayName { get; set; } = "";
+        [Description("A custom DisplayName can be set so changes detected will be displayed with this name instead of the default Property Name.")]
+        public string DisplayName { get; set; }
     }
 }
 

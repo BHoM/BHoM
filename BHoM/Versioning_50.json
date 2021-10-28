@@ -1,0 +1,7 @@
+﻿{
+    "MessageForDeleted": {
+        "BH.oM.Base.ComparisonFunctions": "This object's functionality has been replaced by the ComparisonInclusion() extension method (to be implemented in specific Toolkits that need it; see e.g. Revit) and object."
+    },
+    "MessageForNoUpgrade": {
+    }
+}
