@@ -60,6 +60,21 @@ namespace BH.oM.Structure.MaterialFragments
         [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain.")]
         public virtual Vector ShearModulus { get; set; }
 
+        [Description("Bending Strength or F_b. Defined as the tension stress parallel to the grain at failure resulting from bending stresses")]
+        public virtual double BendingStrength { get; set; }
+
+        [Description("Tension Parallel Strength or F_t. Defined as the tension stress parallel to the grain at failure")]
+        public virtual double ParallelTensionStrength { get; set; }
+
+        [Description("Compression Parallel Strength or F_cll. Defined as the compression stress parallel to the grain at failure")]
+        public virtual double PerpendicularCompressionStrength { get; set; }
+
+        [Description("Compression Perpendicular Strength or F_cperp. Defined as the compression stress perpendicular to the grain at failure")]
+        public virtual double ParallelCompressionStrength { get; set; }
+
+        [Description("Shear Strength or F_v. Defined as the shear stress in the 1-3 or 1-2 plane, relevant to beam bending.")]
+        public virtual double ShearStrength { get; set; }
+
         /***************************************************/
 
     }
