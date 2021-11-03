@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj" />
-    <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj" />
     <ProjectReference Include="..\Graphics_oM\Graphics_oM.csproj" />
     <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj" />
   </ItemGroup>
