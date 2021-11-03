@@ -30,29 +30,28 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("I-shaped profile with tapered flanges.")]
-    public class TaperFlangeISectionProfile : BHoMObject, IProfile, IImmutable
+    [Description("C-shaped profile with tapered flanges of the same length and thickness.")]
+    public class TaperFlangeChannelProfile : BHoMObject, IProfile, IImmutable
     {
 
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public virtual ShapeType Shape { get; } = ShapeType.ISection;
+        public virtual ShapeType Shape { get; } = ShapeType.Channel;
 
         [Length]
         [Description("Full depth between the extreme fibres of the flanges.")]
         public virtual double Height { get; }
 
         [Length]
-        [Description("Full width of both flanges between the extreme fibres of the flanges.")]
-        public virtual double Width { get; }
+        [Description("Full width between the extreme fibres of the web to the toe of the flange.")]
+        public virtual double FlangeWidth { get; }
 
         [Length]
         public virtual double WebThickness { get; }
 
         [Length]
-        [Description("Mean thickness of the flange, taken at 1/4 of the flange width.")]
+        [Description("Mean thickness of the flange, taken at 1/2 the flange width")]
         public virtual double FlangeThickness { get; }
 
         [Angle]
@@ -60,31 +59,36 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual double FlangeSlope { get; }
 
         [Length]
-        [Description("Fillet radius between inner face of the flanges and faces of the web.")]
+        [Description("Fillet radius between inner face of the flanges and the inner face of web.")]
         public virtual double RootRadius { get; }
 
         [Length]
         [Description("Fillet radius at the end of the flanges. Value must be smaller or equal to the thickness of the flange at the tip.")]
         public virtual double ToeRadius { get; }
 
-        [Description("Edge curves that matches the dimensions in the global XY-plane.")]
+        [Description("If true, the section is mirrored about its local z-axis, resulting in a backwards facing C-shape.")]
+        public virtual bool MirrorAboutLocalZ { get; }
+
+        [Description("Edge curves that match the dimensions in the global XY-plane.")]
         public virtual ReadOnlyCollection<ICurve> Edges { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TaperFlangeISectionProfile(double height, double width, double webthickness, double flangeThickness, double flangeSlope, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
+        public TaperFlangeChannelProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double flangeSlope, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
         {
             Height = height;
-            Width = width;
+            FlangeWidth = flangeWidth;
             WebThickness = webthickness;
             FlangeThickness = flangeThickness;
             FlangeSlope = flangeSlope;
             RootRadius = rootRadius;
             ToeRadius = toeRadius;
+            MirrorAboutLocalZ = mirrorAboutLocalZ;
             Edges = new ReadOnlyCollection<ICurve>(edges.ToList());
         }
+
 
         /***************************************************/
     }
