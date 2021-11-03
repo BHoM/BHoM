@@ -28,7 +28,7 @@ using System;
 
 namespace BH.oM.Geometry.Results
 {
-    public class MeshFaceResult : IMeshFaceResult
+    public class MeshFaceResult<T> : IMeshFaceResult
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,6 +41,8 @@ namespace BH.oM.Geometry.Results
 
         [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials.")]
         public virtual Basis Orientation { get; set; } = Basis.XY;
+
+        public virtual T Value { get; set; }
 
         public int CompareTo(IResult other)
         {
