@@ -29,8 +29,14 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Analytical.Results
 {
-    public interface IResult : IObject
+    public interface IResult : IObject, IComparable<IResult>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+
+        /***************************************************/
     }
 }
 

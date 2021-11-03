@@ -39,7 +39,7 @@ namespace BH.oM.Analytical.Results
         public IQuantity Quantity { get; set; }
         public List<T> Results { get; set; }
 
-        public int CompareTo(T other)
+        public int CompareTo(IResult other)
         {
             throw new NotImplementedException();
         }
