@@ -56,7 +56,7 @@ namespace BH.oM.Spatial.ShapeProfiles
         public virtual double FlangeThickness { get; }
 
         [Angle]
-        [Description("slope of the flange inner faces, generally around 0.16 radians.")]
+        [Description("Slope of the flange inner faces, generally around 0.05 to 0.17 radians.")]
         public virtual double FlangeSlope { get; }
 
         [Length]
