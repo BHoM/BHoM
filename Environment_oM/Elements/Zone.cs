@@ -34,7 +34,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Environment.Elements
 {
     [Description("A self-contained unit of accommodation, that could contain smaller spaces")]
-    public class Dwelling : BHoMObject, IRegion
+    public class Zone : BHoMObject, IRegion
     {
         [Description("An ID string used for reference")]
         public virtual string Reference { get; set; } = "";
