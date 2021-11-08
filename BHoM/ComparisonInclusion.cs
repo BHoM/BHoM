@@ -41,10 +41,10 @@ namespace BH.oM.Base
         /***************************************************/
 
         [Description("Whether the current property should be included or not in the comparison (i.e. Hash or Diffing).")]
-        public bool Include { get; set; } = true;
+        public virtual bool Include { get; set; } = true;
 
         [Description("A custom DisplayName can be set so changes detected will be displayed with this name instead of the default Property Name.")]
-        public string DisplayName { get; set; }
+        public virtual string DisplayName { get; set; }
     }
 }
 
