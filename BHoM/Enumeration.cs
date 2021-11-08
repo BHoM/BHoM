@@ -91,7 +91,7 @@ namespace BH.oM.Base
 
         public int CompareTo(object other)
         {
-            return Value.CompareTo(((Enumeration)other).Value);
+            return Value.CompareTo(((Enumeration)other)?.Value);
         }
 
 
