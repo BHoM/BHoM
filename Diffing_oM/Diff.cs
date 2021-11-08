@@ -32,7 +32,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Diffing
 {
     [Description("Represents the differences between two sets of objects.")]
-    public class Diff : IDiff
+    public class Diff : IObject, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
