@@ -63,7 +63,7 @@ namespace BH.oM.Diffing
 
         public Delta(Guid streamId, Diff diff, Guid revision_from, Guid revision_to, long timestamp = default(long), string author = null, string comment = null)
         {
-            StreamId = streamId;
+            StreamId = streamId == default(Guid) ? Guid.NewGuid() : streamId;
 
             Diff = diff;
 
