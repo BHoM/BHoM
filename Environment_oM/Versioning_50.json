@@ -1,0 +1,10 @@
+﻿{
+    "Type": {
+        "ToNew": {
+          "BH.oM.Environment.Elements.Dwelling": "BH.oM.Environment.Elements.Zone",
+        },
+        "ToOld": {
+          "BH.oM.Environment.Elements.Zone": "BH.oM.Environment.Elements.Dwelling",
+        }
+    }
+}
