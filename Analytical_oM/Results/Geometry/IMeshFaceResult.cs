@@ -31,6 +31,6 @@ namespace BH.oM.Geometry.Results
     public interface IMeshFaceResult : IMeshComponentResult
     {
         [Description("ID of the MeshFace that this result belongs to.")]
-        IAdapterId FaceId { get; }
+        int FaceIndex { get; }
     }
 }

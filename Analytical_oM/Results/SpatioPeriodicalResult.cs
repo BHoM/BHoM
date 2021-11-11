@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BH.oM.Base;
 using BH.oM.Quantities;
 
 namespace BH.oM.Analytical.Results
@@ -34,9 +35,8 @@ namespace BH.oM.Analytical.Results
         public IComparable ResultCase { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public object Frequency { get; set; }
         public object Location { get; set; }
-        public IQuantity Quantity { get; set; }
+        public object Quantity { get; set; }
         public List<T> Results { get; set; }
 
         public int CompareTo(IResult other)

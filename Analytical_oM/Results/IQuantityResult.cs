@@ -26,7 +26,7 @@ namespace BH.oM.Analytical.Results
 {
     public interface IQuantityResult : IResult
     {
-        IQuantity Quantity { get; set; }
+        object Quantity { get; set; }
     }
 }
 

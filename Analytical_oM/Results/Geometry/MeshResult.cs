@@ -45,6 +45,7 @@ namespace BH.oM.Geometry.Results
         [Description("All the results for the components of this Mesh Nodes.")]
         public virtual IEnumerable<IMeshNodeResult> MeshNodesResults { get; set; }
 
+        public virtual object MeshId { get; set; }
 
         public int CompareTo(IResult other)
         {

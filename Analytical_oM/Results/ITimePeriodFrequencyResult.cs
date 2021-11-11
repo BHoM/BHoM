@@ -27,7 +27,6 @@ namespace BH.oM.Analytical.Results
 {
     public interface ITimePeriodFrequencyResult<T> : IGenericResult<T>, ITimePeriod
     {
-        object Frequency { get; set; }
         List<T> Results { get; set; }
     }
 }

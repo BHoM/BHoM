@@ -32,6 +32,6 @@ namespace BH.oM.Geometry.Results
     public interface IMeshNodeResult : IMeshComponentResult
     {
         [Description("ID of the Node in the mesh that this result belongs to.")]
-        IAdapterId NodeId { get; }
+        int NodeIndex { get; }
     }
 }

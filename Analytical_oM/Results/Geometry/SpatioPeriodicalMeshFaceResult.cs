@@ -34,7 +34,7 @@ namespace BH.oM.Geometry.Results
 {
     public class SpatioPeriodicalMeshFaceResult : SpatioPeriodicalResult<IMeshFaceResult>, IMeshFaceResult
     {
-        public IAdapterId FaceId { get; set; }
+        public int FaceIndex { get; set; }
 
         public int CompareTo(IResult other)
         {
