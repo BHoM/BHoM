@@ -25,7 +25,7 @@ using System.ComponentModel;
 namespace BH.oM.Base
 {
     [Description("Tolerance used for individual objects or properties. When computing Hash or the property Diffing, if the analysed object or property name is found in this collection, the corresponding tolerance is applied.")]
-    public class CustomTolerance : IObject
+    public class PropertyNumericTolerance : IObject
     {
         [Description("Tolerance used for individual objects or properties." +
             "\nWhen computing Hash or the property Diffing, if the analysed object name or property name is found in this collection, the corresponding tolerance is applied." +

@@ -31,13 +31,13 @@ namespace BH.oM.Base
     {
         [Description("Names of properties you want to disregard in defining the uniqueness of an object. `BHoM_Guid` is always added by default. Supports * wildcard (see examples below)."
             + "\nExamples of valid values: `BHoM_Guid`, `StartNode`, `Bar.StartNode.Point.X`, `Bar.*.Point.Y`")]
-        public virtual List<string> PropertyExceptions { get; set; } = new List<string>() { }; //e.g. `BHoM_Guid`
+        public virtual List<string> PropertyExceptions { get; set; } = new List<string>() { };
 
         [Description("Any corresponding namespace is ignored. E.g. `BH.oM.Structure`.")]
-        public virtual List<string> NamespaceExceptions { get; set; } = new List<string>(); //e.g. `BH.oM.Structure`
+        public virtual List<string> NamespaceExceptions { get; set; } = new List<string>();
 
         [Description("Any corresponding type is ignored. E.g. `typeof(Guid)`.")]
-        public virtual List<Type> TypeExceptions { get; set; } = new List<Type>(); //e.g. `typeof(Guid)`
+        public virtual List<Type> TypeExceptions { get; set; } = new List<Type>();
 
         [Description("Keys of the BHoMObjects' CustomData dictionary that should be exclusively included. Adding keys to this List will exclude any key that is not in this List. I.e. for every object, if it has CustomData keys present in this List, we then exclude any other CustomData key found in it.")]
         public virtual List<string> CustomdataKeysToInclude { get; set; } = new List<string>() { };
@@ -48,7 +48,7 @@ namespace BH.oM.Base
         [Description("If any name is specified here, only properties corresponding to that name will be considered in the hash." +
            "\nE.g. For BH.oM.Structure.Elements.Bar, specifying `StartNode` will only check if that property is different." +
            "\nYou can List specify sub-properties or partial paths, e.g. `StartNode.Name` or `*.Name`.")]
-        public virtual List<string> PropertiesToConsider { get; set; } = new List<string>(); //e.g. `{ StartNode, EndNode }`
+        public virtual List<string> PropertiesToConsider { get; set; } = new List<string>();
 
         [Description("If any property is nested into the object over that level, it is ignored. Useful to limit the runtime." +
             "Defaults to unlimited.")]
@@ -64,7 +64,7 @@ namespace BH.oM.Base
         [Description("Tolerance used for individual properties. When computing Hash or the property Diffing, if the analysed property name is found in this collection, the corresponding tolerance is applied."
             + "\nSupports * wildcard in the property name matching. E.g. `StartNode.Point.*, 2`."
             + "\nIf a match is found, this take precedence over the global NumericTolerance.")]
-        public virtual HashSet<CustomTolerance> CustomTolerances { get; set; } = null;
+        public virtual HashSet<PropertyNumericTolerance> PropertyNumericTolerances { get; set; } = new HashSet<PropertyNumericTolerance>();
     }
 }
 
