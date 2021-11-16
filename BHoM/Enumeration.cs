@@ -27,7 +27,7 @@ using System.Reflection;
 
 namespace BH.oM.Base
 {
-    public abstract class Enumeration : IObject, IComparable, IEnum // TODO: Fix serialisation so we can remove the inheritance from BHoMObject
+    public abstract class Enumeration : IObject, IEnum 
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -89,9 +89,9 @@ namespace BH.oM.Base
 
         /***************************************************/
 
-        public int CompareTo(object other)
+        public int CompareTo(IEnum other)
         {
-            return Value.CompareTo(((Enumeration)other)?.Value);
+            return Value.CompareTo(other?.Value);
         }
 
 
