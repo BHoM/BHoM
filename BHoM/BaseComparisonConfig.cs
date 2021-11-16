@@ -61,9 +61,10 @@ namespace BH.oM.Base
         [Description("Numeric tolerance for property values, applied to all numerical properties. Applies rounding for numbers smaller than this. Defaults to 1E-12.")]
         public virtual double NumericTolerance { get; set; } = 1E-12;
 
-        [Description("Number of fractional digits retained for individual property. If a property name matches a key in the dictionary, applies a rounding to the corresponding number of digits."
-            + "\nSupports * wildcard in the property name matching. E.g. `{ { StartNode.Point.*, 2 } }`.")]
-        public virtual Dictionary<string, int> FractionalDigitsPerProperty { get; set; } = null; // e.g. { { StartNode.Point.X, 2 } } - can use * wildcard here.
+        [Description("Tolerance used for individual properties. When computing Hash or the property Diffing, if the analysed property name is found in this collection, the corresponding tolerance is applied."
+            + "\nSupports * wildcard in the property name matching. E.g. `StartNode.Point.*, 2`."
+            + "\nIf a match is found, this take precedence over the global NumericTolerance.")]
+        public virtual HashSet<CustomTolerance> CustomTolerances { get; set; } = null;
     }
 }
 
