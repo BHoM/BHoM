@@ -31,7 +31,7 @@ namespace BH.oM.Base
     {
         [Description("Names of properties you want to disregard in defining the uniqueness of an object. `BHoM_Guid` is always added by default. Supports * wildcard (see examples below)."
             + "\nExamples of valid values: `BHoM_Guid`, `StartNode`, `Bar.StartNode.Point.X`, `Bar.*.Point.Y`")]
-        public virtual List<string> PropertyExceptions { get; set; } = new List<string>() { "BHoM_Guid" }; //e.g. `BHoM_Guid`
+        public virtual List<string> PropertyExceptions { get; set; } = new List<string>() { }; //e.g. `BHoM_Guid`
 
         [Description("Any corresponding namespace is ignored. E.g. `BH.oM.Structure`.")]
         public virtual List<string> NamespaceExceptions { get; set; } = new List<string>(); //e.g. `BH.oM.Structure`
