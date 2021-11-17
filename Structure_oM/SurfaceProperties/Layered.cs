@@ -28,20 +28,20 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
-    [Description("property for 2D analytical elements representing a series of layers, each with different thickness, material, and orientation.")]
+    [Description("Property for 2D analytical elements representing a series of layers, each with different thickness, material, and orientation.")]
     public class Layered : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A unique Name is required for some structural packages to create and identify the object.")]
+        [Description("A unique name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Description("The primary material of the Surface Property. This may represent an 'effective' material model accounting for the composite behavior of the layers, or could be a single material for filtering and take-off.")]
         public virtual IMaterialFragment Material { get; set; }
 
-        [Description("the material layers which compose the surface property listed from top surface to bottom.")]
+        [Description("The material layers which compose the surface property listed from top surface to bottom.")]
         public virtual List<Layer> Layers { get; set; } = new List<Layer>();
 
         [Description("Defines what type of element this property will be used. Used by some analysis packages.")]

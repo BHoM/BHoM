@@ -28,22 +28,22 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SurfaceProperties
 {    
-    [Description("A layer object with a given material, orientation, and thickness")]
+    [Description("A layer object with a given material, orientation, and thickness.")]
     public class Layer : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The material this layer is made up of")]
+        [Description("The material this layer is made of.")]
         public virtual IMaterialFragment Material { get; set; }
 
         [Angle]
-        [Description("The orientation of the material in this layer")]
+        [Description("The orientation of the material in this layer.")]
         public virtual Angle Orientation { get; set; } = null;
 
         [Length]
-        [Description("The thickness of this material layer")]
+        [Description("The thickness of this material layer.")]
         public virtual double Thickness { get; set; } = 0;
 
         /***************************************************/
