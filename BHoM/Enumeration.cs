@@ -33,9 +33,9 @@ namespace BH.oM.Base
         /**** Properties                                ****/
         /***************************************************/
 
-        public string Value { get; private set; }
+        public virtual string Value { get; private set; }
 
-        public string Description
+        public virtual string Description
         {
             get
             {
