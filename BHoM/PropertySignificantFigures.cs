@@ -24,8 +24,8 @@ using System.ComponentModel;
 
 namespace BH.oM.Base
 {
-    [Description("Tolerance used for specific numerical objects or properties. When computing Hash or the property Diffing, if the analysed object or property name is found in this collection, the corresponding tolerance is applied.")]
-    public class PropertyNumericTolerance : IObject
+    [Description("Significant digits used for specific numerical objects or properties. When computing Hash or the property Diffing, if the analysed object or property name is found in this collection, the corresponding tolerance is applied.")]
+    public class PropertySignificantFigure : IObject
     {
         [Description("Tolerance used for individual objects or properties." +
             "\nWhen computing Hash or the property Diffing, if the analysed object name or property name is found in this collection, the corresponding tolerance is applied." +
@@ -35,7 +35,7 @@ namespace BH.oM.Base
             "\n\t    e.g. Bar.Position.X, Bar.Position.Y, Bar.Position.Z. and at the same time also Node.Position.X, Node.Position.Y, Node.Position.Z.")]
         public virtual string Name { get; set; }
 
-        [Description("Numeric tolerance. Applies rounding for numbers smaller than this. Defaults to 1E-12.")]
-        public virtual double Tolerance { get; set; } = 1e-12;
+        [Description("Significant figures to be taken for this property.")]
+        public virtual int SignificantFigures { get; set; } = int.MaxValue;
     }
 }

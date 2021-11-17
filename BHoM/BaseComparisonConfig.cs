@@ -58,13 +58,30 @@ namespace BH.oM.Base
             "Defaults to unlimited.")]
         public virtual int MaxPropertyDifferences { get; set; } = int.MaxValue;
 
-        [Description("Numeric tolerance for property values, applied to all numerical properties. Applies rounding for numbers smaller than this. Defaults to 1E-12.")]
-        public virtual double NumericTolerance { get; set; } = 1E-12;
+        [Description("Numeric tolerance for property values, applied to all numerical properties." +
+            "\nApplies rounding for numbers smaller than this. Defaults to double.MinValue: no rounding applied." +
+            "\nYou can override on a per-property basis by using `PropertyNumericTolerances`." +
+            "\nIf conflicting values/multiple matches are found among the Configurations on numerical precision, the largest approximation among all (least precise number) is registered.")]
+        public virtual double NumericTolerance { get; set; } = double.MinValue;
 
-        [Description("Tolerance used for individual properties. When computing Hash or the property Diffing, if the analysed property name is found in this collection, the corresponding tolerance is applied."
-            + "\nSupports * wildcard in the property name matching. E.g. `StartNode.Point.*, 2`."
-            + "\nIf a match is found, this take precedence over the global NumericTolerance.")]
+        [Description("Number of significant figures allowed for numerical data." +
+            "\nDefaults to `int.MaxValue`: no approximation applied." +
+            "\nYou can override on a per-property basis by using `PropertySignificantDigits`." +
+            "\nIf conflicting values/multiple matches are found among the Configurations on numerical precision, the largest approximation among all (least precise number) is registered.")]
+        public virtual int SignificantFigures { get; set; } = int.MaxValue;
+
+        [Description("Tolerance used for individual properties. When computing Hash or the property Diffing, if the analysed property name is found in this collection, the corresponding tolerance is applied." +
+            "\nSupports * wildcard in the property name matching. E.g. `StartNode.Point.*, 2`." +
+            "\nIf a match is found, this take precedence over the global `NumericTolerance`." +
+            "\nIf conflicting values/multiple matches are found among the Configurations on numerical precision, the largest approximation among all (least precise number) is registered.")]
         public virtual HashSet<PropertyNumericTolerance> PropertyNumericTolerances { get; set; } = new HashSet<PropertyNumericTolerance>();
+
+        [Description("Number of significant figures allowed for numerical data on a per-property base. " +
+             "\nSupports * wildcard in the property name matching. E.g. `StartNode.Point.*, 2`." +
+             "\nIf a match is found, this take precedence over the global `SignificantFigures`." +
+             "\nIf conflicting values/multiple matches are found among the Configurations on numerical precision, the largest approximation among all (least precise number) is registered.")]
+        public virtual HashSet<PropertySignificantFigure> PropertySignificantFigures { get; set; } = new HashSet<PropertySignificantFigure>();
+
     }
 }
 
