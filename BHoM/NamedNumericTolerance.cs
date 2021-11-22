@@ -24,18 +24,18 @@ using System.ComponentModel;
 
 namespace BH.oM.Base
 {
-    [Description("Significant digits used for specific numerical objects or properties. When computing Hash or the property Diffing, if the analysed object or property name is found in this collection, the corresponding tolerance is applied.")]
-    public class PropertySignificantFigure : IObject
+    [Description("Tolerance used for specific numerical objects or properties with a specific name." +
+        "When computing Hash or the property Diffing, if the analysed object or property name is found in this collection, the corresponding tolerance is considered.")]
+    public class NamedNumericTolerance : IObject
     {
-        [Description("Tolerance used for individual objects or properties." +
-            "\nWhen computing Hash or the property Diffing, if the analysed object name or property name is found in this collection, the corresponding tolerance is applied." +
+        [Description("When computing Hash or the property Diffing, if the analysed object name or property name is found in this collection, the corresponding tolerance is applied." +
             "\nSupports * wildcard in the property name matching. Examples: " +
             "\n\t - `BH.oM.Geometry.Vector`: applies the corresponding tolerance to all numerical properties of Vectors, i.e. X, Y, Z;" +
             "\n\t - `BH.oM.Structure.Elements.*.Position`: applies the corresponding tolerance to all numerical properties of properties named `Position` under any Structural Element," +
             "\n\t    e.g. Bar.Position.X, Bar.Position.Y, Bar.Position.Z. and at the same time also Node.Position.X, Node.Position.Y, Node.Position.Z.")]
         public virtual string Name { get; set; }
 
-        [Description("Significant figures to be taken for this property.")]
-        public virtual int SignificantFigures { get; set; } = int.MaxValue;
+        [Description("Numeric tolerance. Applies rounding for numbers smaller than this. Defaults to 1E-12.")]
+        public virtual double Tolerance { get; set; } = 1e-12;
     }
 }

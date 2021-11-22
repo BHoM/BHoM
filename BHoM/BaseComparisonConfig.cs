@@ -58,8 +58,8 @@ namespace BH.oM.Base
             "Defaults to unlimited.")]
         public virtual int MaxPropertyDifferences { get; set; } = int.MaxValue;
 
-        [Description("Numeric tolerance for property values, applied to all numerical properties." +
-            "\nApplies rounding for numbers smaller than this. Defaults to double.MinValue: no rounding applied." +
+        [Description("Numeric tolerance for property values, applied to all numerical properties. Defaults to double.MinValue: no rounding applied." +
+            "\nApplies rounding for numbers smaller than this." +
             "\nYou can override on a per-property basis by using `PropertyNumericTolerances`." +
             "\nIf conflicting values/multiple matches are found among the Configurations on numerical precision, the largest approximation among all (least precise number) is registered.")]
         public virtual double NumericTolerance { get; set; } = double.MinValue;
@@ -74,13 +74,13 @@ namespace BH.oM.Base
             "\nSupports * wildcard in the property name matching. E.g. `StartNode.Point.*, 2`." +
             "\nIf a match is found, this take precedence over the global `NumericTolerance`." +
             "\nIf conflicting values/multiple matches are found among the Configurations on numerical precision, the largest approximation among all (least precise number) is registered.")]
-        public virtual HashSet<PropertyNumericTolerance> PropertyNumericTolerances { get; set; } = new HashSet<PropertyNumericTolerance>();
+        public virtual HashSet<NamedNumericTolerance> PropertyNumericTolerances { get; set; } = new HashSet<NamedNumericTolerance>();
 
         [Description("Number of significant figures allowed for numerical data on a per-property base. " +
              "\nSupports * wildcard in the property name matching. E.g. `StartNode.Point.*, 2`." +
              "\nIf a match is found, this take precedence over the global `SignificantFigures`." +
              "\nIf conflicting values/multiple matches are found among the Configurations on numerical precision, the largest approximation among all (least precise number) is registered.")]
-        public virtual HashSet<PropertySignificantFigure> PropertySignificantFigures { get; set; } = new HashSet<PropertySignificantFigure>();
+        public virtual HashSet<NamedSignificantFigures> PropertySignificantFigures { get; set; } = new HashSet<NamedSignificantFigures>();
 
     }
 }
