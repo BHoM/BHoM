@@ -76,7 +76,6 @@ namespace BH.oM.Spatial.ShapeProfiles
 
         public TaperFlangeISectionProfile(double height, double width, double webthickness, double flangeThickness, double flangeSlope, double rootRadius, double toeRadius, IEnumerable<ICurve> edges)
         {
-            Shape = ShapeType.ISection;
             Height = height;
             Width = width;
             WebThickness = webthickness;

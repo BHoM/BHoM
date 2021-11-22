@@ -78,7 +78,6 @@ namespace BH.oM.Spatial.ShapeProfiles
 
         public TaperFlangeChannelProfile(double height, double flangeWidth, double webthickness, double flangeThickness, double flangeSlope, double rootRadius, double toeRadius, bool mirrorAboutLocalZ, IEnumerable<ICurve> edges)
         {
-            Shape = ShapeType.Channel;
             Height = height;
             FlangeWidth = flangeWidth;
             WebThickness = webthickness;
