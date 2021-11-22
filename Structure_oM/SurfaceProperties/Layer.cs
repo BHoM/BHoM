@@ -39,8 +39,8 @@ namespace BH.oM.Structure.SurfaceProperties
         public virtual IMaterialFragment Material { get; set; }
 
         [Angle]
-        [Description("The orientation of the material in this layer.")]
-        public virtual Angle Orientation { get; set; } = null;
+        [Description("The orientation of the material in this layer. Orthotropic materials will be oriented with Z parallel to the panel normal direction, and X rotated counterclockwise about the panel normal by this angle from the panel X axis. Not relevant for isotropic materials.")]
+        public virtual double Orientation { get; set; } = 0;
 
         [Length]
         [Description("The thickness of this material layer.")]
