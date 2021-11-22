@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -22,25 +22,33 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 
-using BH.oM.Base;
-using BH.oM.Analytical.Elements;
-using BH.oM.Geometry;
-
-namespace BH.oM.Environment.Elements
+namespace BH.oM.Base
 {
-    [Description("A self-contained unit of accommodation, that could contain smaller spaces")]
-    public class Dwelling : BHoMObject, IRegion
+    public interface IEnum : IComparable<IEnum>
     {
-        [Description("An ID string used for reference")]
-        public virtual string Reference { get; set; } = "";
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        [Description("A 2D curve defining the external boundaries of the floor of the region.")]
-        public virtual ICurve Perimeter { get; set; } = new Polyline();
+        string Value { get; }
+
+        string Description { get; }
+
+
+        /***************************************************/
+        /**** Public Methods                            ****/
+        /***************************************************/
+
+        string ToString();
+
+        bool Equals(object obj);
+
+        int GetHashCode();
+
+        /***************************************************/
     }
-
 }
+
+
