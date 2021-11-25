@@ -32,7 +32,7 @@ using System.Linq;
 namespace BH.oM.Structure.Results
 {
     [Description("Full collection of discrete results for a Panel/FEMesh for a specific Loadcase or LoadCombination.")]
-    public class MeshResult : IAnalysisResult, IMeshResult<MeshElementResult>, IStructuralResult, IImmutable
+    public class MeshResult : IMeshResult<MeshElementResult>, IStructuralResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
