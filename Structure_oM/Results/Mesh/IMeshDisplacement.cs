@@ -29,7 +29,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Structure.Results
 {
     [Description("Base interface for mesh displacements")]
-    public interface IMeshDisplacement : IAnalysisResult, IImmutable
+    public interface IMeshDisplacement : IStructuralResult, IImmutable
     {
         double UXX { get; }
 
