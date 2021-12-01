@@ -24,6 +24,7 @@ using BH.oM.LifeCycleAssessment.MaterialFragments;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
@@ -40,6 +41,9 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("The EPD Field selected for evaluation.")]
         public virtual EnvironmentalProductDeclarationField Metric { get; set; }
 
+        [Description("The list of elements being assessed.")]
+        public virtual List<IElementM> Elements { get; set; }
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
@@ -52,10 +56,12 @@ namespace BH.oM.LifeCycleAssessment.Results
                                 List<LifeCycleAssessmentPhases> phases,
                                 List<EnvironmentalProductDeclaration> environmentalProductDeclaration,
                                 double quantity,
-                                EnvironmentalProductDeclarationField metric): base(objectId, resultCase, timeStep, scope, category, phases, environmentalProductDeclaration)
+                                EnvironmentalProductDeclarationField metric,
+                                List<IElementM> elements): base(objectId, resultCase, timeStep, scope, category, phases, environmentalProductDeclaration)
         {
             Quantity = quantity;
             Metric = metric;
+            Elements = elements;
         }
 
         /***************************************************/

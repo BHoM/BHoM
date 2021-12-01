@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("A collection of simplified project results commonly used for database collection.")]
-    public partial class ProjectLifeCycleAssessmentResult : IAnalysisResult, IImmutable
+    public partial class ProjectLifeCycleAssessmentResult : IImmutable //IAnalysisResult removed
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -49,7 +49,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual string ContactName { get; } = "";
 
         [Description("Time that the result was generated.")]
-        public virtual System.DateTime DateTime { get; } = System.DateTime.Now;
+        public virtual DateTime DateTime { get; } = DateTime.Now;
 
         [Description("Discipline scopes included in the LCA.")]
         public virtual string ElementScope { get; } = "";
@@ -82,7 +82,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results (This is unlikely for LCA).")]
-        public virtual double TimeStep { get; } = 0.0;
+        public virtual DateTime TimeStep { get; } = DateTime.Now;
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -103,7 +103,7 @@ namespace BH.oM.LifeCycleAssessment.Results
                                 string phases,
                                 string projectID,                      
                                 IComparable resultCase,
-                                double timeStep)
+                                DateTime timeStep)
         {
             Area = area;
             BuildingLifespan = buildingLifespan;

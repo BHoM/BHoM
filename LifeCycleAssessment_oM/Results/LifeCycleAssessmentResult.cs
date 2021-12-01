@@ -31,7 +31,7 @@ using System.Collections.ObjectModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for a LifeCycleAssessment of a whole project. This is used to get the total quantity in terms of embodied carbon, acidification, etc. for a whole project.")]
-    public class LifeCycleAssessmentResult : IAnalysisResult, IResultCollection<LifeCycleAssessmentElementResult>, IImmutable
+    public class LifeCycleAssessmentResult : IResultCollection<LifeCycleAssessmentElementResult>, IImmutable //IAnalysisResult removed
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -44,7 +44,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual IComparable ResultCase { get; } = "";
 
         [Description("Time step for time history results (This is unlikely for LCA).")]
-        public virtual double TimeStep { get; } = 0.0;
+        public virtual DateTime TimeStep { get; } = System.DateTime.Now;
 
         [Description("A LifeCycleAssessmentScope object containing project information for the LifeCycleAssessment")]
         public virtual LifeCycleAssessmentScope LifeCycleAssessmentScope { get; }
@@ -60,7 +60,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lifeCycleAssessmentScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double totalQuantity)
+        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, DateTime timeStep, LifeCycleAssessmentScope lifeCycleAssessmentScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double totalQuantity)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
