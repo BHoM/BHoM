@@ -51,9 +51,7 @@ namespace BH.oM.Diffing
         [Description("Objects that are recognised as the same in the first and second set.")]
         public virtual IEnumerable<object> UnchangedObjects { get; }
 
-        [Description("The Key is the modified object hash. The Value is another Dictionary, whose Key is the name of the modified property, while Value.Item1 is the property value in setA, Value.Item2 in setB." +
-            "\nThis dictionary may be exploded by using BH.Engine.Diffing.Query.ListModifiedProperties().")]
-        public virtual Dictionary<string, Dictionary<string, Tuple<object, object>>> ModifiedPropsPerObject { get; }
+        public virtual IEnumerable<ObjectDifferences> ModifiedObjectsDifferences { get; }
 
         [Description("Default diffing settings for this Stream. Hashes of objects contained in this stream will be computed based on these configs.")]
         public virtual DiffingConfig DiffingConfig { get; }
@@ -67,13 +65,13 @@ namespace BH.oM.Diffing
         [Input("removedObjects", "Objects existing exclusively in the 'secondary' set, i.e. the 'old' objects.")]
         [Input("modifiedObjects", "Objects existing in both sets that have some differences in their properties.")]
         [Input("modifiedPropsPerObject", "Dictionary holding the differences in properties of the 'modified' objects. See the corresponding property description for more info.")]
-        public Diff(IEnumerable<object> addedObjects, IEnumerable<object> removedObjects, IEnumerable<object> modifiedObjects, DiffingConfig diffingConfig, Dictionary<string, Dictionary<string, Tuple<object, object>>> modifiedPropsPerObject = null, IEnumerable<object> unchangedObjects = null)
+        public Diff(IEnumerable<object> addedObjects, IEnumerable<object> removedObjects, IEnumerable<object> modifiedObjects, DiffingConfig diffingConfig, IEnumerable<ObjectDifferences> modifiedObjectsDifferences = null, IEnumerable<object> unchangedObjects = null)
         {
             AddedObjects = addedObjects;
             RemovedObjects = removedObjects;
             ModifiedObjects = modifiedObjects;
             DiffingConfig = diffingConfig;
-            ModifiedPropsPerObject = modifiedPropsPerObject;
+            ModifiedObjectsDifferences = modifiedObjectsDifferences;
             UnchangedObjects = unchangedObjects;
         }
 
