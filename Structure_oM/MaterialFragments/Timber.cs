@@ -38,6 +38,11 @@ namespace BH.oM.Structure.MaterialFragments
         public override string Name { get; set; }
 
         [Density]
+        [Description("Density used to calculate other mechanical properties, not for calculating mass.")]
+        public virtual double DensityDesign { get; set; }
+
+        [Density]
+        [Description("Density used to calculate mass.")]
         public virtual double Density { get; set; }
 
         [Ratio]
@@ -59,6 +64,30 @@ namespace BH.oM.Structure.MaterialFragments
         [ShearModulus]
         [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain.")]
         public virtual Vector ShearModulus { get; set; }
+
+        [Stress]
+        [Description("Bending Strength. Defined as the tension stress parallel to the grain at failure in bending as calculated from beam equations. Called F_b in American codes, f_mk in Eurocode.")]
+        public virtual double BendingStrength { get; set; }
+
+        [Stress]
+        [Description("Tension Parallel Strength. Defined as the tension stress parallel to the grain at failure in net tension. Called F_t\u2225 in American codes, f_t0k in Eurocode.")]
+        public virtual double TensionParallelStrength { get; set; }
+
+        [Stress]
+        [Description("Tension Perpendicular Strength. Defined as the tension stress perpendicular to the grain at failure in net tension. Called F_t\u27c2 in American codes, f_t90k in Eurocode.")]
+        public virtual double TensionPerpendicularStrength { get; set; }
+
+        [Stress]
+        [Description("Compression Parallel Strength. Defined as the compression stress parallel to the grain at failure in net compression. Called F_c\u2225 in American codes, f_c0k in Eurocode.")]
+        public virtual double CompressionParallelStrength { get; set; }
+
+        [Stress]
+        [Description("Compression Perpendicular Strength. Defined as the compression stress perpendicular to the grain at failure in net compression. Called F_c\u27c2 in American codes, f_c90k in Eurocode.")]
+        public virtual double CompressionPerpendicularStrength { get; set; }
+
+        [Stress]
+        [Description("Shear Strength or F_v. Defined as the shear stress parallel to the grain at failure in net shear, i.e. shear relevant to beam bending. Called F_v in American codes, f_vk in Eurocode.")]
+        public virtual double ShearStrength { get; set; }
 
         /***************************************************/
 
