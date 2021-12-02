@@ -34,10 +34,10 @@ namespace BH.oM.Data.Collections
         /***************************************************/
 
         [Description("The lowest bound of the domain.")]
-        public virtual double Min { get; }
+        public double Min { get; }
 
         [Description("The highest bound of the domain.")]
-        public virtual double Max { get; }
+        public double Max { get; }
 
         /***************************************************/
 
