@@ -33,22 +33,17 @@ namespace BH.oM.Diffing
     [Description("General configurations for the Diffing process, including settings for the Hash computation.")]
     public class DiffingConfig : IObject
     {
-        /***************************************************/
+        /***************************************************/ 
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Settings to determine the uniqueness of an Object.")]
-        public virtual ComparisonConfig ComparisonConfig { get; set; } = new ComparisonConfig();
+        public virtual BaseComparisonConfig ComparisonConfig { get; set; } = new ComparisonConfig();
 
         [Description("Enables the property-level diffing: differences in object properties are stored in the `ModifiedPropsPerObject` dictionary of the Diff object." +
             "\nWARNING: may be slow." +
             "\nFor large object collections, if you are not interested in what properties changed, you can turn this to false to speed up.")]
         public virtual bool EnablePropertyDiffing { get; set; } = true;
-
-        [Description("If EnablePropertyDiffing is true, this sets the maximum number of differences to be determine before stopping." +
-            "\nUseful to limit the run time." +
-            "\nDefaults to 1000.")]
-        public virtual int MaxPropertyDifferences { get; set; } = 1000;
 
         [Description("If enabled, the Diff includes also the objects that did not change (`Unchanged`)." +
             "\nWhen dealing with very large sets, you can keep this on `false` to improve performance: the UnchangedObjects can be derived from the original set, minus the Deleted and Modified objects.")]

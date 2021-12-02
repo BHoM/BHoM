@@ -38,24 +38,24 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
         [Description("The Id of the owning Stream. It must be the same for both the Revision that this Delta targets and the Revision that it will produce.")]
-        public Guid StreamId { get; }
+        public virtual Guid StreamId { get; }
 
         [Description("Represent the differences between two sets of objects.")]
-        public Diff Diff { get; }
+        public virtual Diff Diff { get; }
 
         [Description("Revision Id that this Delta targets.")]
-        public Guid Revision_from { get; }
+        public virtual Guid Revision_from { get; }
 
         [Description("Revision Id that this Delta produces.")]
-        public Guid Revision_to { get; }
+        public virtual Guid Revision_to { get; }
 
         [Description("In UTC ticks.")]
-        public long Timestamp { get; }
+        public virtual long Timestamp { get; }
 
         [Description("Any descriptive string identifying either the Author and/or the software used.")]
-        public string Author { get; }
+        public virtual string Author { get; }
 
-        public string Comment { get; }
+        public virtual string Comment { get; }
 
         /***************************************************/
         /**** Constructor                               ****/
@@ -63,7 +63,7 @@ namespace BH.oM.Diffing
 
         public Delta(Guid streamId, Diff diff, Guid revision_from, Guid revision_to, long timestamp = default(long), string author = null, string comment = null)
         {
-            StreamId = streamId;
+            StreamId = streamId == default(Guid) ? Guid.NewGuid() : streamId;
 
             Diff = diff;
 
