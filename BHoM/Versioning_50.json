@@ -1,5 +1,11 @@
 ﻿{
     "Property": {
+        "ToNew": {
+            "BH.oM.Base.BaseComparisonConfig.CustomdataKeysToInclude": "BH.oM.Base.BaseComparisonConfig.CustomdataKeysToConsider"
+        },
+        "ToOld": {
+            "BH.oM.Base.BaseComparisonConfig.CustomdataKeysToConsider": "BH.oM.Base.BaseComparisonConfig.CustomdataKeysToInclude"
+        }
     },
     "MessageForDeleted": {
         "BH.oM.Base.ComparisonFunctions": "This object's functionality has been replaced by the ComparisonInclusion() extension method (to be implemented in specific Toolkits that need it; see e.g. Revit) and object."
