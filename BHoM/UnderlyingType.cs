@@ -20,38 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum)]
-    public class ToBeRemovedAttribute : Attribute, IImmutable
+    public class UnderlyingType : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Description { get; private set; } = "";
+        public virtual Type Type { get; set; } = null;
 
-        public virtual string FromVersion { get; private set; } = "1.0.0.0";
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public ToBeRemovedAttribute(string fromVersion, string description = "")
-        {
-            Description = description;
-            FromVersion = fromVersion;
-        }
-
+        public virtual int Depth { get; set; } = 0;
 
 
         /***************************************************/

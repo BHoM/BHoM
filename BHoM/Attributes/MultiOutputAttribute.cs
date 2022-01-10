@@ -25,14 +25,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
-    public class InputAttribute : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+    public class MultiOutputAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
+        public virtual int Index { get; private set; } = 0;
 
         public virtual string Name { get; private set; } = "";
 
@@ -44,8 +46,9 @@ namespace BH.oM.Reflection.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public InputAttribute(string name, string description, Type classification = null)
+        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
         {
+            Index = index;
             Name = name;
             Description = description;
             if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
@@ -56,19 +59,12 @@ namespace BH.oM.Reflection.Attributes
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId)
+        public MultiOutputAttribute(int index, string name, string description, InputClassificationAttribute classification, Type typeId)
         {
+            Index = index;
             Name = name;
             Description = description;
             Classification = classification;
-        }
-
-        /***************************************************/
-
-        public InputAttribute(string name, string description)
-        {
-            Name = name;
-            Description = description;
         }
 
         /***************************************************/

@@ -27,7 +27,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
     public class NotImplementedAttribute : Attribute, IImmutable

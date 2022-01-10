@@ -23,35 +23,28 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Property)]
-    public class AbbreviationAttribute : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Interface | AttributeTargets.Class)]
+    [Description("Means that there can only be one instance of that type in a collection. This is currently used specifically for the case of fragments.")]
+    public class UniqueAttribute : Attribute
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public virtual string Name { get; private set; } = "";
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public AbbreviationAttribute(string name)
-        {
-            Name = name;
-        }
-
 
         /***************************************************/
     }
 }
-
-
 

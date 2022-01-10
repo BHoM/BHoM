@@ -20,46 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ComponentModel;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Debugging
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    [Description("Provides the names that were previously used for a given input. If multiple names, use a ',' to separate them.")]
-    public class PreviousInputNamesAttribute : Attribute, IImmutable
+    public enum EventType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual string Name { get; private set; } = "";
-
-        public virtual List<string> PreviousNames { get; private set; } = new List<string>();
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public PreviousInputNamesAttribute(string name, List<string> previousNames)
-        {
-            Name = name;
-            PreviousNames = previousNames.ToList();
-        }
-
-        /***************************************************/
-
-        public PreviousInputNamesAttribute(string name, string previousNames)
-        {
-            Name = name;
-            PreviousNames = previousNames.Split(new char[] { ',' }).Select(x => x.Trim()).ToList();
-        }
-
-        /***************************************************/
+        Unknown,
+        Error,
+        Warning,
+        Note
     }
 }
 

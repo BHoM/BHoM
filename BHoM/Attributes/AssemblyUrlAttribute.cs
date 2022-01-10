@@ -24,59 +24,30 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
-    public class OutputAttribute : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Assembly)]
+    public class AssemblyUrlAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Name { get; private set; } = "";
+        public virtual string Url { get; private set; } = "";
 
-        public virtual string Description { get; private set; } = "";
-
-        public virtual InputClassificationAttribute Classification { get; } = null;
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public OutputAttribute(string description)
+        public AssemblyUrlAttribute(string url)
         {
-            Description = description;
+            Url = url;
         }
 
-        /***************************************************/
-
-        public OutputAttribute(string name, string description, Type classification = null)
-        {
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-        }
-
-        /***************************************************/
-
-        public OutputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId)
-        {
-            Name = name;
-            Description = description;
-            Classification = classification;
-        }
-
-        /***************************************************/
-
-        public OutputAttribute(string name, string description)
-        {
-            Name = name;
-            Description = description;
-        }
 
         /***************************************************/
     }

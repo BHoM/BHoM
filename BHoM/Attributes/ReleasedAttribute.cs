@@ -23,42 +23,38 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Defines the list of types that are a valid target for this.")]
-    public class TargetsAttribute : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+    public class ReleasedAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+        public virtual string Description { get; private set; } = "";
+
+        public virtual string FromVersion { get; private set; } = "1.0.0.0";
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TargetsAttribute(List<Type> validTypes)
+        public ReleasedAttribute(string fromVersion, string description = "")
         {
-            ValidTypes = validTypes.ToList();
+            Description = description;
+            FromVersion = fromVersion;
         }
 
-        /***************************************************/
-
-        public TargetsAttribute(params Type[] validTypes)
-        {
-            ValidTypes = validTypes.ToList();
-        }
 
         /***************************************************/
     }
 }
+
 
 

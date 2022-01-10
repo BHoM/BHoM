@@ -23,30 +23,34 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Assembly)]
-    public class AssemblyUrlAttribute : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Property)]
+    [Description("Warning to be generated when an instance of the containing class is generated with this property set to its default value.")]
+    public class DefaultValueWarningAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Url { get; private set; } = "";
+        public virtual string Warning { get; private set; } = "";
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public AssemblyUrlAttribute(string url)
+        public DefaultValueWarningAttribute(string warning)
         {
-            Url = url;
+            Warning = warning;
         }
+
 
 
         /***************************************************/

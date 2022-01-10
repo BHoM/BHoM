@@ -5,57 +5,55 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHoM", "BHoM\BHoM.csproj", "{510F5D88-1DD2-4D2F-BB2D-F1371A916C52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acoustic_oM", "Acoustic_oM\Acoustic_oM.csproj", "{AD47E516-A2B3-47B5-90AB-AA7879B0A2F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acoustic_oM", "Acoustic_oM\Acoustic_oM.csproj", "{AD47E516-A2B3-47B5-90AB-AA7879B0A2F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analytical_oM", "Analytical_oM\Analytical_oM.csproj", "{7630DB07-201E-4B90-B2A0-2181E3414C35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Analytical_oM", "Analytical_oM\Analytical_oM.csproj", "{7630DB07-201E-4B90-B2A0-2181E3414C35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Architecture_oM", "Architecture_oM\Architecture_oM.csproj", "{DAC03ACD-7DD4-4284-86FD-2FB286CF87B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Architecture_oM", "Architecture_oM\Architecture_oM.csproj", "{DAC03ACD-7DD4-4284-86FD-2FB286CF87B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_oM", "Data_oM\Data_oM.csproj", "{19EF700F-114B-4787-9599-8567F7646764}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data_oM", "Data_oM\Data_oM.csproj", "{19EF700F-114B-4787-9599-8567F7646764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepLearning_oM", "DeepLearning_oM\DeepLearning_oM.csproj", "{FEEE6807-36AB-491C-AE89-907030F0C0F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeepLearning_oM", "DeepLearning_oM\DeepLearning_oM.csproj", "{FEEE6807-36AB-491C-AE89-907030F0C0F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diffing_oM", "Diffing_oM\Diffing_oM.csproj", "{74C9EA57-536C-4C4C-A060-8979176895B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diffing_oM", "Diffing_oM\Diffing_oM.csproj", "{74C9EA57-536C-4C4C-A060-8979176895B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dimensional_oM", "Dimensional_oM\Dimensional_oM.csproj", "{4CE80539-FC90-4AA8-9F93-E64B5D8187B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dimensional_oM", "Dimensional_oM\Dimensional_oM.csproj", "{4CE80539-FC90-4AA8-9F93-E64B5D8187B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Environment_oM", "Environment_oM\Environment_oM.csproj", "{F196B8BC-6C83-4D0F-B0B9-20B613CA086F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Environment_oM", "Environment_oM\Environment_oM.csproj", "{F196B8BC-6C83-4D0F-B0B9-20B613CA086F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade_oM", "Facade_oM\Facade_oM.csproj", "{4A20440A-B2F4-4A25-AEC7-BF08DE95E700}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade_oM", "Facade_oM\Facade_oM.csproj", "{4A20440A-B2F4-4A25-AEC7-BF08DE95E700}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geometry_oM", "Geometry_oM\Geometry_oM.csproj", "{3C231F52-6EE3-47A1-961D-366A5711AE2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geometry_oM", "Geometry_oM\Geometry_oM.csproj", "{3C231F52-6EE3-47A1-961D-366A5711AE2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics_oM", "Graphics_oM\Graphics_oM.csproj", "{76C17BD9-3282-4E30-BC70-F6A7F2B0EACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics_oM", "Graphics_oM\Graphics_oM.csproj", "{76C17BD9-3282-4E30-BC70-F6A7F2B0EACE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Humans_oM", "Humans_oM\Humans_oM.csproj", "{E3E7CF09-9CA6-4067-9A45-1E982A4241A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Humans_oM", "Humans_oM\Humans_oM.csproj", "{E3E7CF09-9CA6-4067-9A45-1E982A4241A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inspection_oM", "Inspection_oM\Inspection_oM.csproj", "{7566F0F3-1F74-4F2C-AE88-3DD2A92D5D7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inspection_oM", "Inspection_oM\Inspection_oM.csproj", "{7566F0F3-1F74-4F2C-AE88-3DD2A92D5D7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeCycleAssessment_oM", "LifeCycleAssessment_oM\LifeCycleAssessment_oM.csproj", "{6487A1E7-063F-4286-9F43-01EEBB0A7ABC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeCycleAssessment_oM", "LifeCycleAssessment_oM\LifeCycleAssessment_oM.csproj", "{6487A1E7-063F-4286-9F43-01EEBB0A7ABC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lighting_oM", "Lighting_oM\Lighting_oM.csproj", "{626D345E-2FF4-4EA0-93C8-70B4F94E4309}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lighting_oM", "Lighting_oM\Lighting_oM.csproj", "{626D345E-2FF4-4EA0-93C8-70B4F94E4309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEP_oM", "MEP_oM\MEP_oM.csproj", "{06CC378A-E62C-4560-9FD4-0632E83D4AFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MEP_oM", "MEP_oM\MEP_oM.csproj", "{06CC378A-E62C-4560-9FD4-0632E83D4AFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physical_oM", "Physical_oM\Physical_oM.csproj", "{0113760C-D62B-48F5-9F8A-F5AB1560B165}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Physical_oM", "Physical_oM\Physical_oM.csproj", "{0113760C-D62B-48F5-9F8A-F5AB1560B165}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planning_oM", "Planning_oM\Planning_oM.csproj", "{1AE3424D-925A-4C32-A5B8-46F7DAB86AE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planning_oM", "Planning_oM\Planning_oM.csproj", "{1AE3424D-925A-4C32-A5B8-46F7DAB86AE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programming_oM", "Programming_oM\Programming_oM.csproj", "{5273BF44-910A-4610-94F0-1343F3B780CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Programming_oM", "Programming_oM\Programming_oM.csproj", "{5273BF44-910A-4610-94F0-1343F3B780CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantities_oM", "Quantities_oM\Quantities_oM.csproj", "{D407D992-12D6-4F40-ABCB-D4453302D3D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantities_oM", "Quantities_oM\Quantities_oM.csproj", "{D407D992-12D6-4F40-ABCB-D4453302D3D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflection_oM", "Reflection_oM\Reflection_oM.csproj", "{7684ECCF-7F7E-4EE7-89D3-A7219A09275D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Security_oM", "Security_oM\Security_oM.csproj", "{D97EA8C5-72CA-4E0E-AE43-8D8D918C33B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security_oM", "Security_oM\Security_oM.csproj", "{D97EA8C5-72CA-4E0E-AE43-8D8D918C33B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spatial_oM", "Spatial_oM\Spatial_oM.csproj", "{D7CF9B8A-2BE2-4EB9-A8AF-723C005FA6A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spatial_oM", "Spatial_oM\Spatial_oM.csproj", "{D7CF9B8A-2BE2-4EB9-A8AF-723C005FA6A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Structure_oM", "Structure_oM\Structure_oM.csproj", "{E73F2BCE-268D-474E-A4E7-6D44613AF483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Structure_oM", "Structure_oM\Structure_oM.csproj", "{E73F2BCE-268D-474E-A4E7-6D44613AF483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_oM", "Test_oM\Test_oM.csproj", "{0B6E66FA-AFD5-4200-B330-F2D56CB1549D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_oM", "Test_oM\Test_oM.csproj", "{0B6E66FA-AFD5-4200-B330-F2D56CB1549D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Versioning_oM", "Versioning_oM\Versioning_oM.csproj", "{D710A004-7AC9-41B8-8492-D9AC5CF07D8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Versioning_oM", "Versioning_oM\Versioning_oM.csproj", "{D710A004-7AC9-41B8-8492-D9AC5CF07D8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,10 +145,6 @@ Global
 		{D407D992-12D6-4F40-ABCB-D4453302D3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D407D992-12D6-4F40-ABCB-D4453302D3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D407D992-12D6-4F40-ABCB-D4453302D3D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7684ECCF-7F7E-4EE7-89D3-A7219A09275D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7684ECCF-7F7E-4EE7-89D3-A7219A09275D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7684ECCF-7F7E-4EE7-89D3-A7219A09275D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7684ECCF-7F7E-4EE7-89D3-A7219A09275D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D97EA8C5-72CA-4E0E-AE43-8D8D918C33B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D97EA8C5-72CA-4E0E-AE43-8D8D918C33B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D97EA8C5-72CA-4E0E-AE43-8D8D918C33B7}.Release|Any CPU.ActiveCfg = Release|Any CPU

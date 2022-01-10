@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.Text;
 using BH.oM.Base;
 using System.ComponentModel;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Data.Library
 {

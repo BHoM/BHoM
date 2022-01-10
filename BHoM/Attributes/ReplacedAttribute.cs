@@ -24,20 +24,40 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection
+namespace BH.oM.Base.Attributes
 {
-    public class UnderlyingType : BHoMObject
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum)]
+    public class ReplacedAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual Type Type { get; set; } = null;
+        public virtual string Description { get; private set; } = "";
 
-        public virtual int Depth { get; set; } = 0;
+        public virtual string FromVersion { get; private set; } = "1.0.0.0";
+
+        public virtual Type ReplacingType { get; private set; } = null;
+
+        public virtual string ReplacingMethod { get; private set; } = "";
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ReplacedAttribute(string fromVersion, string description = "", Type replacingType = null, string replacingMethod = "")
+        {
+            Description = description;
+            FromVersion = fromVersion;
+            ReplacingType = replacingType;
+            ReplacingMethod = replacingMethod;
+        }
+
 
 
         /***************************************************/

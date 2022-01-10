@@ -24,33 +24,59 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
-    public class ReleasedAttribute : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
+    public class OutputAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        public virtual string Name { get; private set; } = "";
+
         public virtual string Description { get; private set; } = "";
 
-        public virtual string FromVersion { get; private set; } = "1.0.0.0";
-
+        public virtual InputClassificationAttribute Classification { get; } = null;
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ReleasedAttribute(string fromVersion, string description = "")
+        public OutputAttribute(string description)
         {
             Description = description;
-            FromVersion = fromVersion;
         }
 
+        /***************************************************/
+
+        public OutputAttribute(string name, string description, Type classification = null)
+        {
+            Name = name;
+            Description = description;
+            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+            {
+                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
+            }
+        }
+
+        /***************************************************/
+
+        public OutputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId)
+        {
+            Name = name;
+            Description = description;
+            Classification = classification;
+        }
+
+        /***************************************************/
+
+        public OutputAttribute(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
 
         /***************************************************/
     }

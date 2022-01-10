@@ -23,48 +23,29 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class MultiOutputAttribute : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Class)]
+    [Description("Prevents an auto-constructor component to be available in the UI for the targeted class. This means that `Engine.Create` methods will be the only option to generate instances of that class in the UI.")]
+    public class NoAutoConstructorAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual int Index { get; private set; } = 0;
-
-        public virtual string Name { get; private set; } = "";
-
-        public virtual string Description { get; private set; } = "";
-
-        public virtual InputClassificationAttribute Classification { get; } = null;
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
+        public NoAutoConstructorAttribute()
         {
-            Index = index;
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-        }
-
-        /***************************************************/
-
-        public MultiOutputAttribute(int index, string name, string description, InputClassificationAttribute classification, Type typeId)
-        {
-            Index = index;
-            Name = name;
-            Description = description;
-            Classification = classification;
         }
 
         /***************************************************/

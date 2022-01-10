@@ -22,43 +22,33 @@
 
 using BH.oM.Base;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
-    public class InputFromProperty : Attribute, IImmutable
+    [AttributeUsage(AttributeTargets.Property)]
+    [Description("Marks a property as mandatory input when creating an instance of its containing class.")]
+    public class RequiredAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public virtual string InputName { get; private set; } = "";
-
-        public virtual string PropertyName { get; private set; } = "";
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public InputFromProperty(string inputName, string propertyName = null)
+        public RequiredAttribute()
         {
-            if (propertyName == null && inputName != null)
-            {
-                if (inputName.Length == 0)
-                    propertyName = inputName;
-                if (inputName.Length == 1)
-                    propertyName = char.ToUpper(inputName[0]).ToString();
-                else
-                    propertyName = char.ToUpper(inputName[0]) + inputName.Substring(1);
-            }
-
-            InputName = inputName;
-            PropertyName = propertyName;
         }
 
         /***************************************************/
-
     }
 }
 

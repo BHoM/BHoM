@@ -21,15 +21,43 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [Description("Path to a folder in the client's file system.")]
-    public class FilePathAttribute : InputClassificationAttribute
+    [AttributeUsage(AttributeTargets.Class)]
+    [Description("Defines the list of types that are a valid target for this.")]
+    public class TargetsAttribute : Attribute, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public virtual List<Type> ValidTypes { get; private set; } = new List<Type>();
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public TargetsAttribute(List<Type> validTypes)
+        {
+            ValidTypes = validTypes.ToList();
+        }
+
+        /***************************************************/
+
+        public TargetsAttribute(params Type[] validTypes)
+        {
+            ValidTypes = validTypes.ToList();
+        }
+
+        /***************************************************/
     }
 }
 

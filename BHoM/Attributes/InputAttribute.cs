@@ -24,21 +24,52 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Debugging
+namespace BH.oM.Base.Attributes
 {
-    public class Log : BHoMObject
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
+    public class InputAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Event> AllEvents { get; set; } = new List<Event>();
+        public virtual string Name { get; private set; } = "";
 
-        public virtual List<Event> CurrentEvents { get; set; } = new List<Event>();
+        public virtual string Description { get; private set; } = "";
 
+        public virtual InputClassificationAttribute Classification { get; } = null;
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public InputAttribute(string name, string description, Type classification = null)
+        {
+            Name = name;
+            Description = description;
+            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+            {
+                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
+            }
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId)
+        {
+            Name = name;
+            Description = description;
+            Classification = classification;
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
 
         /***************************************************/
     }
