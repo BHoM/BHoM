@@ -24,12 +24,39 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    public abstract class InputClassificationAttribute : Attribute
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
+    public class PreviousVersionAttribute : Attribute, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public virtual string PreviousVersionAsText { get; private set; } = "";
+
+        public virtual string FromVersion { get; private set; } = "1.0.0.0";
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public PreviousVersionAttribute(string fromVersion, string previousVersionAsText = "")
+        {
+            FromVersion = fromVersion;
+            PreviousVersionAsText = previousVersionAsText;
+        }
+
+
+
+        /***************************************************/
     }
 }
+
+
 

@@ -24,27 +24,40 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Reflection.Debugging
+namespace BH.oM.Base.Attributes
 {
-    public class Event : BHoMObject
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+    [Description("Provides the names that were previously used for a given input. If multiple names, use a ',' to separate them.")]
+    public class PreviousInputNamesAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual DateTime Time { get; set; } = DateTime.Now;
+        public virtual string Name { get; private set; } = "";
 
-        public virtual DateTime UtcTime { get; set; } = DateTime.UtcNow;
+        public virtual List<string> PreviousNames { get; private set; } = new List<string>();
 
-        public virtual string StackTrace { get; set; } = "";
 
-        public virtual string Message { get; set; } = "";
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        public virtual EventType Type { get; set; } = EventType.Unknown;
+        public PreviousInputNamesAttribute(string name, List<string> previousNames)
+        {
+            Name = name;
+            PreviousNames = previousNames.ToList();
+        }
 
+        /***************************************************/
+
+        public PreviousInputNamesAttribute(string name, string previousNames)
+        {
+            Name = name;
+            PreviousNames = previousNames.Split(new char[] { ',' }).Select(x => x.Trim()).ToList();
+        }
 
         /***************************************************/
     }

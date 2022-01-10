@@ -20,20 +20,45 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Debugging
+namespace BH.oM.Base.Attributes
 {
-    public enum EventType
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
+    public class InputFromProperty : Attribute, IImmutable
     {
-        Unknown,
-        Error,
-        Warning,
-        Note
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public virtual string InputName { get; private set; } = "";
+
+        public virtual string PropertyName { get; private set; } = "";
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public InputFromProperty(string inputName, string propertyName = null)
+        {
+            if (propertyName == null && inputName != null)
+            {
+                if (inputName.Length == 0)
+                    propertyName = inputName;
+                if (inputName.Length == 1)
+                    propertyName = char.ToUpper(inputName[0]).ToString();
+                else
+                    propertyName = char.ToUpper(inputName[0]) + inputName.Substring(1);
+            }
+
+            InputName = inputName;
+            PropertyName = propertyName;
+        }
+
+        /***************************************************/
+
     }
 }
 

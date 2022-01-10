@@ -22,7 +22,7 @@
 
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Structure.Design
 {

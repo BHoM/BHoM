@@ -20,35 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base
 {
-    [AttributeUsage(AttributeTargets.Property)]
-    [Description("Marks a property as mandatory input when creating an instance of its containing class.")]
-    public class RequiredAttribute : Attribute, IImmutable
+    public interface IOutput
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public RequiredAttribute()
-        {
-        }
-
-        /***************************************************/
     }
 }
 

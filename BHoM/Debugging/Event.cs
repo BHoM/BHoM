@@ -24,41 +24,26 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Debugging
 {
-    [ToBeRemoved("3.2", "Use ReplacedAttribute or ToBeDeletedAttribute instead")]
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum)]
-    public class DeprecatedAttribute : Attribute, IImmutable
+    public class Event : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Description { get; private set; } = "";
+        public virtual DateTime Time { get; set; } = DateTime.Now;
 
-        public virtual string FromVersion { get; private set; } = "1.0.0.0";
+        public virtual DateTime UtcTime { get; set; } = DateTime.UtcNow;
 
-        public virtual Type ReplacingType { get; private set; } = null;
+        public virtual string StackTrace { get; set; } = "";
 
-        public virtual string ReplacingMethod { get; private set; } = "";
+        public virtual string Message { get; set; } = "";
 
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public DeprecatedAttribute(string fromVersion, string description = "", Type replacingType = null, string replacingMethod = "")
-        {
-            Description = description;
-            FromVersion = fromVersion;
-            ReplacingType = replacingType;
-            ReplacingMethod = replacingMethod;
-        }
-
+        public virtual EventType Type { get; set; } = EventType.Unknown;
 
 
         /***************************************************/

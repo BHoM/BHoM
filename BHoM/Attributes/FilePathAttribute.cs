@@ -21,36 +21,16 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Base.Attributes;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    [Description("Prevents an auto-constructor component to be available in the UI for the targeted class. This means that `Engine.Create` methods will be the only option to generate instances of that class in the UI.")]
-    public class NoAutoConstructorAttribute : Attribute, IImmutable
+    [Description("Path to a folder in the client's file system.")]
+    public class FilePathAttribute : InputClassificationAttribute
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public NoAutoConstructorAttribute()
-        {
-        }
-
-        /***************************************************/
     }
 }
-
 
 

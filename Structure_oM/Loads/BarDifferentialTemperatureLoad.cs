@@ -24,7 +24,7 @@ using BH.oM.Structure.Elements;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using BH.oM.Geometry;

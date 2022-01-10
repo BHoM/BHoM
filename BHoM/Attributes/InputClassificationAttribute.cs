@@ -21,16 +21,15 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
 using System;
-using System.ComponentModel;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [Description("Path to a folder in the client's file system.")]
-    public class FolderPathAttribute : InputClassificationAttribute
+    public abstract class InputClassificationAttribute : Attribute
     {
     }
 }
-
 

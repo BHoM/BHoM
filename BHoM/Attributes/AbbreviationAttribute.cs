@@ -23,34 +23,30 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    [Description("Warning to be generated when an instance of the containing class is generated with this property set to its default value.")]
-    public class DefaultValueWarningAttribute : Attribute, IImmutable
+    public class AbbreviationAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Warning { get; private set; } = "";
+        public virtual string Name { get; private set; } = "";
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public DefaultValueWarningAttribute(string warning)
+        public AbbreviationAttribute(string name)
         {
-            Warning = warning;
+            Name = name;
         }
-
 
 
         /***************************************************/

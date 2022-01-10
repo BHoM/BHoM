@@ -21,48 +21,16 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Base.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BH.oM.Reflection.Attributes
+namespace BH.oM.Base.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Enum)]
-    public class ReplacedAttribute : Attribute, IImmutable
+    [Description("Path to a folder in the client's file system.")]
+    public class FolderPathAttribute : InputClassificationAttribute
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual string Description { get; private set; } = "";
-
-        public virtual string FromVersion { get; private set; } = "1.0.0.0";
-
-        public virtual Type ReplacingType { get; private set; } = null;
-
-        public virtual string ReplacingMethod { get; private set; } = "";
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public ReplacedAttribute(string fromVersion, string description = "", Type replacingType = null, string replacingMethod = "")
-        {
-            Description = description;
-            FromVersion = fromVersion;
-            ReplacingType = replacingType;
-            ReplacingMethod = replacingMethod;
-        }
-
-
-
-        /***************************************************/
     }
 }
-
 
 
