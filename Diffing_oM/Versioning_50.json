@@ -1,8 +1,0 @@
-﻿{
-    "MessageForDeleted": {
-        "BH.oM.Diffing.DiffingType": "The enum object DiffingType does not exists anymore, as its functionality was removed from the BH.Engine.Diffing.IDiffing method because that automation was deemed redundant and not reliable. To use specific Diffing methodologies, just call the specific Diffing method."
-    },
-    "MessageForNoUpgrade": {
-        "BH.oM.Diffing.Diff": "The Diff object has been redefined in such a way that automatic versioning is not possible. The change happened on the `ModifiedPropertiesPerObject` property that is now renamed to `ModifiedObjectsDifferences`. That used to be a Dictionary<string, Dictionary<string, Tuple<object,object>>, where: the outer Dictionary key was the modified object hash, whilst the value was a Dictionary of the modified properties; and the inner Dictionary key was the modified property name, whilst the value was a Tuple with the following value and the old value. This has completely been reworked with structured classes. Please re-compute the Diff using one of the available diffing methods."
-    }
-}
