@@ -56,23 +56,8 @@ namespace BH.oM.Physical.Materials
         [Description("The base constructor for MaterialComposition, assigns the properties to the read-only lists.")]
         public MaterialComposition(IEnumerable<Material> materials, IEnumerable<double> ratios)
         {
-            if (materials == null || ratios == null)
-            {
-                throw new ArgumentNullException();
-            }
-            else if (materials.Count() != ratios.Count())
-            {
-                throw new Exception("MaterialComposition requires equal length list input");
-            }
-            else if (Math.Abs(1 - ratios.Sum()) > Tolerance.Distance)
-            {
-                throw new Exception("MaterialComposition requires its ratios sum to equal 1");
-            }
-            else
-            {
-                Materials = materials.ToList();
-                Ratios = ratios.ToList();
-            }
+            Materials = materials?.ToList();
+            Ratios = ratios?.ToList();
         }
 
         /***************************************************/
