@@ -27,7 +27,7 @@ using BH.oM.Base.Attributes;
 
 namespace BH.oM.Architecture.Elements
 {
-    [Deprecated("2.4", "Superseded by BH.oM.Geometry.SettingOut.Grid")]
+    [ToBeRemoved("2.4", "Superseded by BH.oM.Geometry.SettingOut.Grid")]
     public class Grid : BHoMObject, IElement1D
     {
         /***************************************************/

@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Data.Collections
 {
-    [Deprecated("3.3", "Graph representations should use BH.oM.Analytical.Elements.Graph")]
+    [ToBeRemoved("3.3", "Graph representations should use BH.oM.Analytical.Elements.Graph")]
     public class Graph<T> : IDataStructure
     {
         /***************************************************/

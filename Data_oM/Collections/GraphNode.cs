@@ -25,7 +25,7 @@ using System.Collections.Generic;
 
 namespace BH.oM.Data.Collections
 {
-    [Deprecated("3.3", "Graph representations should use node classes that implement BH.oM.Analytical.Elements.INode")]
+    [ToBeRemoved("3.3", "Graph representations should use node classes that implement BH.oM.Analytical.Elements.INode")]
     public class GraphNode<T> : IDataStructure
     {
         /***************************************************/

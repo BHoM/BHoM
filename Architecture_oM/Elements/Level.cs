@@ -25,7 +25,7 @@ using BH.oM.Base.Attributes;
 
 namespace BH.oM.Architecture.Elements
 {
-    [Deprecated("2.4", "Superseded by BH.oM.Geometry.SettingOut.Level")]
+    [ToBeRemoved("2.4", "Superseded by BH.oM.Geometry.SettingOut.Level")]
     public class Level : BHoMObject
     {
         /***************************************************/
