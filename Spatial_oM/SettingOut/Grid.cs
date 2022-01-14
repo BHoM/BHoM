@@ -20,19 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Base.Attributes;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
 
-namespace BH.oM.Architecture.Elements
+namespace BH.oM.Spatial.SettingOut
 {
-    [ToBeRemoved("2.4", "Superseded by BH.oM.Geometry.SettingOut.Level")]
-    public class Level : BHoMObject
+    [Description("An individual Grid 'line' - can be curved or free-form as well as simple linear line segments. " +
+                 "\nUseful for coordination and setting out of spatial objects for transdisciplinary workflows.")]
+    public class Grid : BHoMObject, IElement1D
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual double Elevation { get; set; } = 0.0;
+        [Description("The Grid Reference, ID or text based identifier.")]
+        public override string Name { get; set; } = "";
+
+        [Description("The centreline defining the Grid's path. Can be curved or linear.")]
+        public virtual ICurve Curve { get; set; } = null;
 
 
         /***************************************************/

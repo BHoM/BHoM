@@ -1,0 +1,30 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+      "BH.oM.Geometry.SettingOut.Grid": "BH.oM.Spatial.SettingOut.Grid",
+      "BH.oM.Geometry.SettingOut.Level": "BH.oM.Spatial.SettingOut.Level",
+      "BH.oM.Architecture.Elements.Grid": "BH.oM.Spatial.SettingOut.Grid",
+      "BH.oM.Architecture.Elements.Level": "BH.oM.Spatial.SettingOut.Level"
+    },
+    "ToOld": {
+      "BH.oM.Spatial.SettingOut.Grid": "BH.oM.Geometry.SettingOut.Grid",
+      "BH.oM.Spatial.SettingOut.Level": "BH.oM.Geometry.SettingOut.Level"
+    }
+  },
+  "Property": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "MessageForDeleted": {
+  },
+  "MessageForNoUpgrade": {
+  }
+}
