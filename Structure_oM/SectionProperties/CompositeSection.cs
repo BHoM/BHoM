@@ -23,7 +23,7 @@
 using System.Linq;
 using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using System.Collections.ObjectModel;
 using BH.oM.Structure.MaterialFragments;
 using System.ComponentModel;

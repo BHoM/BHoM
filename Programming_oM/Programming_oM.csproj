@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj" />
-    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj" />
   </ItemGroup>
 
 </Project>

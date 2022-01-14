@@ -21,7 +21,6 @@
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj" />
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj" />
-    <ProjectReference Include="..\Reflection_oM\Reflection_oM.csproj" />
   </ItemGroup>
 
 </Project>

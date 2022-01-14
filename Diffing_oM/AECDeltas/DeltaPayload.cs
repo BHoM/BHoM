@@ -25,7 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Diffing;

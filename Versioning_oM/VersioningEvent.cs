@@ -21,7 +21,7 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Reflection.Debugging;
+using BH.oM.Base.Debugging;
 using System;
 using System.Collections.Generic;
 using System.Linq;

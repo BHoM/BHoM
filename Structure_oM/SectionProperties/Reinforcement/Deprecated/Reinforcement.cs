@@ -22,7 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Physical.Materials;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Structure.SectionProperties.Reinforcement
 {
