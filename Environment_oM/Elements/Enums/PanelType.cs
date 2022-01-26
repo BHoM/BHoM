@@ -40,6 +40,7 @@ namespace BH.oM.Environment.Elements
         Shade,
         SlabOnGrade,
         SolarPanel,
+        TranslucentShade,
         UndergroundCeiling,
         UndergroundSlab,
         UndergroundWall,
