@@ -30,7 +30,7 @@ namespace BH.oM.Analytical.Results
 
     /***************************************************/
 
-    [Description("Non-generic base interface for result collections. Main intention for simpler filtering in Engine. Classes are generally recommended to implement the IResultCollection<T> interface.")]
+    [Description("Non-generic base interface for result collections. The IResultCollection facilitates simpler filtering in the Engine. Classes are generally recommended to implement the IResultCollection<T> interface.")]
     public interface IResultCollection : IObject, IImmutable, IResult
     {
 
