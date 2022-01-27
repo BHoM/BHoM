@@ -28,7 +28,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Results
 {
     [Description("Base class for all structural results affecting the entire structure.")]
-    public abstract class StructuralGlobalResult : IStructuralResult, IImmutable
+    public abstract class StructuralGlobalResult : IStructuralResult, IImmutable, IResultItem
     {
         /***************************************************/
         /**** Properties                                ****/
