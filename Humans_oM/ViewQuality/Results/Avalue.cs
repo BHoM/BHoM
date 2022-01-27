@@ -35,7 +35,7 @@ namespace BH.oM.Humans.ViewQuality
         /***************************************************/
 
         [Description("Percentage of the cone of vision occupied by the clipped activity area.")]
-        public virtual double AValue { get; set; }
+        public virtual double AValue { get; }
 
         [Description("Percentage of the cone of vision occupied by heads occluding the activity area.")]
         public virtual double Occulsion { get; }
