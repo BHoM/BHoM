@@ -31,7 +31,7 @@ using System.ComponentModel;
 namespace BH.oM.Analytical.Results
 {
     [Description("Base interface for all analytical results.\n" + 
-                 "For expanded functionality, a result class should generally either implement the IResultItem or IResultCollection interface, or one of their sub interfaces, rather than this interface directly.")]
+                 "For expanded functionality, a result class should generally either implement the IResultItem or IResultCollection interface, or one of their sub-interfaces, rather than this interface directly.")]
     public interface IResult : IObject, IComparable<IResult>, IImmutable
     {
         /***************************************************/

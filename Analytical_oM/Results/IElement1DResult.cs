@@ -30,7 +30,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
-    [Description("Base interface for results corresponding to a discrete result at a particular position along a one dimensional element.")]
+    [Description("Base interface for results, corresponding to a discrete result at a particular position along a one-dimensional element.")]
     public interface IElement1DResult : IResult, IObjectIdResult, IResultItem
     {
         /***************************************************/

@@ -30,7 +30,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
-    [Description("Interface for Results corresponding to a particular object that is to be identified and correlated to the object by its id.")]
+    [Description("Interface for Results belonging to a particular object. The owning object is identified and correlated to the Results by its id.")]
     public interface IObjectIdResult : IResult
     {
         /***************************************************/
