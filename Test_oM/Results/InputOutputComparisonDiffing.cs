@@ -31,7 +31,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Test.Results
 {
-    public class InputOutputComparisonDiffing : IAnalysisResult, IImmutable
+    public class InputOutputComparisonDiffing : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
 
         /***************************************************/

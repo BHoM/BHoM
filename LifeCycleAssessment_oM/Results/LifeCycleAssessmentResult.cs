@@ -31,7 +31,7 @@ using System.Collections.ObjectModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for a LifeCycleAssessment of a whole project. This is used to get the total quantity in terms of embodied carbon, acidification, etc. for a whole project.")]
-    public class LifeCycleAssessmentResult : IAnalysisResult, IResultCollection<LifeCycleAssessmentElementResult>, IImmutable
+    public class LifeCycleAssessmentResult : IObjectIdResult, ICasedResult, ITimeStepResult, IResultCollection<LifeCycleAssessmentElementResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Base class for a LifeCycleAssessment of a single object. This contains the total quantity of global warming potential, acidification potential, etc. for a whole project.")]
-    public abstract class LifeCycleAssessmentElementResult : IAnalysisResult, IImmutable
+    public abstract class LifeCycleAssessmentElementResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

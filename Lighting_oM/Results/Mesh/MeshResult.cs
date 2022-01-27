@@ -31,7 +31,7 @@ using System;
 namespace BH.oM.Lighting.Results.Mesh
 {
     [Description("Full collection of discrete results for an AnalysisGrid for a specific Analysis.")]
-    public class MeshResult : IAnalysisResult, IResultCollection<MeshElementResult>, IImmutable
+    public class MeshResult : IObjectIdResult, ICasedResult, ITimeStepResult, IResultCollection<MeshElementResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
