@@ -64,16 +64,17 @@ namespace BH.oM.Test.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public InputOutputComparisonDiffing(IComparable objectId, IComparable resultCase, string propertyId, Type objectType, InputOutputComparisonDiffingType type, object inputValue, object newValue, object referenceValue)
+        public InputOutputComparisonDiffing(IComparable objectId, IComparable resultCase, string propertyId, Type objectType, InputOutputComparisonDiffingType type, object inputValue, object newValue, object referenceValue, double timeStep = 0)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             PropertyId = propertyId;
-            ObjectId = objectId;
+            ObjectType = objectType;
             Type = type;
             InputValue = inputValue;
             NewValue = newValue;
             ReferenceValue = referenceValue;
+            TimeStep = timeStep;
         }
 
         /***************************************************/
