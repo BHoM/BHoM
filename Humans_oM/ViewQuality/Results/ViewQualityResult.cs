@@ -28,7 +28,7 @@ using BH.oM.Analytical.Results;
 
 namespace BH.oM.Humans.ViewQuality
 {
-    public abstract class ViewQualityResult : IAnalysisResult
+    public abstract class ViewQualityResult : IObjectIdResult, ICasedResult, ITimeStepResult
     {
         /***************************************************/
         /**** Properties                                ****/

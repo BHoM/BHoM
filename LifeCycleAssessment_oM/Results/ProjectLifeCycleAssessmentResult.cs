@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("A collection of simplified project results commonly used for database collection.")]
-    public partial class ProjectLifeCycleAssessmentResult : IAnalysisResult, IImmutable
+    public partial class ProjectLifeCycleAssessmentResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

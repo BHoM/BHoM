@@ -33,7 +33,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Analytical.Elements
 {
     [Description("Results associated with the computation of shortest paths.")]
-    public class ShortestPathResult : IAnalysisResult, IImmutable
+    public class ShortestPathResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
         [Description("ID of the object that this result belongs to.")]
         public virtual IComparable ObjectId { get; }

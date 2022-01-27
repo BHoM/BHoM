@@ -29,7 +29,7 @@ using System;
 namespace BH.oM.Lighting.Results.Mesh
 {
     [Description("Base class for all discrete mesh element results, that is a result for an individual node. Stores all identifier information and how to sort the results in a collection")]
-    public abstract class MeshElementResult : IAnalysisResult, IImmutable
+    public abstract class MeshElementResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
