@@ -26,15 +26,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
+    [Description("Interface for results that correspond to a particular time step, for example a discrete result from a time history anlysis.")]
     public interface ITimeStepResult : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The time step indentifier for the result.")]
         double TimeStep { get; }
 
         /***************************************************/

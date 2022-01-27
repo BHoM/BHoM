@@ -26,15 +26,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
+    [Description("Interface for Results corresponding to a particular object that is to be identified and correlated to the object by its id.")]
     public interface IObjectIdResult : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The id of the object to which the result belongs. The id could be for example the AdapterId, Name or BHoM_Guid of the object.")]
         IComparable ObjectId { get; }
 
         /***************************************************/

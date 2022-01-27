@@ -26,15 +26,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
+    [Description("Interface for results that correspond to a particular case.")]
     public interface ICasedResult : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The identifier for the case analysed that generated the result.")]
         IComparable ResultCase { get; }
 
         /***************************************************/
