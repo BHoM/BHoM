@@ -29,7 +29,7 @@ using System;
 namespace BH.oM.Structure.Results
 {
     [Description("Base class for all Node result classes. Stores all identifier information and how to sort the results in a collection.")]
-    public abstract class NodeResult : IStructuralResult, IImmutable
+    public abstract class NodeResult : IStructuralResult, IImmutable, IFullElementResult
     {
         /***************************************************/
         /**** Properties                                ****/
