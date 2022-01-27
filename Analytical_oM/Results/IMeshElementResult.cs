@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.Analytical.Results
 {
     [Description("Base interface for mesh element results. This is the result for a single discrete node or face of the mesh the result aligns with.")]
-    public interface IMeshElementResult : IResult
+    public interface IMeshElementResult : IResult, IResultItem
     {
         [Description("ID of the Node in the mesh that this result belongs to.")]
         IComparable NodeId { get; }
