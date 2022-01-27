@@ -25,20 +25,32 @@ using BH.oM.Geometry;
 using System.ComponentModel;
 using System;
 using BH.oM.Analytical.Results;
+using BH.oM.Base;
 
 namespace BH.oM.Humans.ViewQuality
 {
-    public abstract class ViewQualityResult : IObjectIdResult, ICasedResult, ITimeStepResult
+    public abstract class ViewQualityResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual IComparable ObjectId { get; set; } = "";
+        public virtual IComparable ObjectId { get; }
 
-        public virtual IComparable ResultCase { get; set; } = "";
+        public virtual IComparable ResultCase { get; }
 
-        public virtual double TimeStep { get; set; } = 0.0;
+        public virtual double TimeStep { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ViewQualityResult(IComparable objectId, IComparable resultCase, double timeStep)
+        {
+            ObjectId = objectId;
+            ResultCase = resultCase;
+            TimeStep = timeStep;
+        }
 
         /***************************************************/
         /**** IComparable Interface                     ****/
