@@ -20,27 +20,42 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
 namespace BH.oM.Humans.ViewQuality
 {
-    public class Cvalue : ViewQualityResult
+    public class Cvalue : ViewQualityResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual double CValue { get; set; } = 0.0;
+        public virtual double CValue { get; }
 
-        public virtual double HorizDist { get; set; } = 0.0;
+        public virtual double HorizDist { get; }
 
-        public virtual double HeightAbovePitch { get; set; } = 0.0;
+        public virtual double HeightAbovePitch { get; }
 
-        public virtual double AbsoluteDist { get; set; } = 0.0;
+        public virtual double AbsoluteDist { get; }
 
-        public virtual Point Focalpoint { get; set; } = new Point();
+        public virtual Point Focalpoint { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Cvalue(IComparable objectId, IComparable resultCase, double timeStep, double cValue, double horizDist, double heightAbovePitch, double absoluteDist, Point focalpoint) :
+            base(objectId, resultCase, timeStep)
+        {
+            CValue = cValue;
+            HorizDist = horizDist;
+            HeightAbovePitch = heightAbovePitch;
+            AbsoluteDist = absoluteDist;
+            Focalpoint = focalpoint;
+        }
 
         /***************************************************/
     }

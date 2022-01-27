@@ -20,27 +20,42 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
 
 namespace BH.oM.Humans.ViewQuality
 {
-    public class Evalue : ViewQualityResult
+    public class Evalue : ViewQualityResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual double Torsion { get; set; } = 0.0;
+        public virtual double Torsion { get; }
 
-        public virtual double HorizViewAng { get; set; } = 0.0;
+        public virtual double HorizViewAng { get; }
 
-        public virtual Vector[] HorizViewVectors { get; set; } = new Vector[2];
+        public virtual Vector[] HorizViewVectors { get; }
 
-        public virtual Vector[] VertViewVectors { get; set; } = new Vector[2];
+        public virtual Vector[] VertViewVectors { get; }
 
-        public virtual double VertViewAng { get; set; }
+        public virtual double VertViewAng { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Evalue(IComparable objectId, IComparable resultCase, double timeStep, double torsion, double horizViewAng, Vector[] horizViewVectors, Vector[] vertViewVectors, double vertViewAng) :
+            base(objectId, resultCase, timeStep)
+        {
+            Torsion = torsion;
+            HorizViewAng = horizViewAng;
+            HorizViewVectors = horizViewVectors;
+            VertViewVectors = vertViewVectors;
+            VertViewAng = vertViewAng;
+        }
 
         /***************************************************/
     }
