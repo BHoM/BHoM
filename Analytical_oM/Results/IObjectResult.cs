@@ -30,8 +30,8 @@ using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
-    [Description("Base interface for results corresponding to the complete result for a full element.")]
-    public interface IFullElementResult : IResult, IObjectIdResult, IResultItem
+    [Description("Base interface for result classes where the values apply to the entire object referenced to with the ObjectID.")]
+    public interface IObjectResult : IResult, IObjectIdResult, IResultItem
     {
         /***************************************************/
         /**** Properties                                ****/
