@@ -30,14 +30,14 @@ using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
-    [Description("Interface for Results belonging to a particular object. The owning object is identified and correlated to the Results by its id.")]
+    [Description("Interface for Results belonging to a particular object. The owning object is identified and correlated to the Results by its ID.")]
     public interface IObjectIdResult : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The id of the object to which the result belongs. The id could be for example the AdapterId, Name or BHoM_Guid of the object.")]
+        [Description("The ID of the object to which the result belongs. The ID could be for example the AdapterID, Name or BHoM_Guid of the object.")]
         IComparable ObjectId { get; }
 
         /***************************************************/

@@ -31,8 +31,8 @@ using System.ComponentModel;
 namespace BH.oM.Analytical.Results
 {
     [Description("Base interface to flag that the result is a simple result line.\n" +
-                 "A class implementing the IResultItem interface should generally only contain basic properties such as doubles, ints, strings, DateTime and similar.\n" + 
-                 "A general rule of thumb is that a class implementing this interface should be able to be represented and readable as a single row in Excel or a SQL database.")]
+                 "A class implementing the IResultItem interface should only contain basic properties such as doubles, ints, strings, DateTime and similar.\n" +
+                 "For instance, a class implementing this interface could be represented as a single row in a table (e.g. Excel or a SQL database) with its properties explicitly readable.")]
     public interface IResultItem : IResult
     {
         /***************************************************/
