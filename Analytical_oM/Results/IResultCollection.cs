@@ -22,7 +22,7 @@
 
 using BH.oM.Base;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
@@ -39,17 +39,14 @@ namespace BH.oM.Analytical.Results
     /***************************************************/
 
     [Description("Base interface for results classes that are a collection of individual results, for example IMeshResults.")]
-    public interface IResultCollection<T> : IResultCollection where T : IResult
+    public interface IResultCollection<out T> : IResult, IImmutable where T : IResult
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        ReadOnlyCollection<T> Results { get; }
-
-        /***************************************************/
+        IReadOnlyList<T> Results { get; }
     }
 }
-
 
 
