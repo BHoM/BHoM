@@ -27,17 +27,6 @@ using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
-
-    /***************************************************/
-
-    [Description("Non-generic base interface for result collections. The IResultCollection facilitates simpler filtering in the Engine. Classes are generally recommended to implement the IResultCollection<T> interface.")]
-    public interface IResultCollection : IObject, IImmutable, IResult
-    {
-
-    }
-
-    /***************************************************/
-
     [Description("Base interface for results classes that are a collection of individual results, for example IMeshResults.")]
     public interface IResultCollection<out T> : IResult, IImmutable where T : IResult
     {
@@ -46,6 +35,8 @@ namespace BH.oM.Analytical.Results
         /***************************************************/
 
         IReadOnlyList<T> Results { get; }
+
+        /***************************************************/
     }
 }
 
