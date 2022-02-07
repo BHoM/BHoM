@@ -58,7 +58,7 @@ namespace BH.oM.Structure.Results
         public virtual MeshResultSmoothingType Smoothing { get; }
 
         [Description("A collection of the discrete mesh element results per node and/or face.")]
-        public virtual ReadOnlyCollection<MeshElementResult> Results { get; }
+        public virtual IReadOnlyList<MeshElementResult> Results { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

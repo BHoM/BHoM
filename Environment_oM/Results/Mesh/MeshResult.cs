@@ -47,7 +47,7 @@ namespace BH.oM.Environment.Results.Mesh
         public virtual double TimeStep { get; } = 0.0;
 
         [Description("A collection of the discrete mesh element results per node")]
-        public virtual ReadOnlyCollection<MeshElementResult> Results { get; }
+        public virtual IReadOnlyList<MeshElementResult> Results { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

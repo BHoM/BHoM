@@ -50,7 +50,7 @@ namespace BH.oM.Test.Results
         public virtual InputOutputComparisonType ResultType { get; }
 
         [Description("Any differences between the input object and the returned object.")]
-        public virtual ReadOnlyCollection<InputOutputDifference> Results { get; }
+        public virtual IReadOnlyList<InputOutputDifference> Results { get; }
 
         [Description("Time of the results creation as OADate")]
         public virtual double TimeStep { get; }

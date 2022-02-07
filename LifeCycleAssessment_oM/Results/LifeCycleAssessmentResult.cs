@@ -26,6 +26,7 @@ using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Base;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
@@ -50,7 +51,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual LifeCycleAssessmentScope LifeCycleAssessmentScope { get; }
 
         [Description("A collection of the per element LifeCycleAssessment results")]
-        public virtual ReadOnlyCollection<LifeCycleAssessmentElementResult> Results { get; }
+        public virtual IReadOnlyList<LifeCycleAssessmentElementResult> Results { get; }
 
         [Description("The total quantity of the specified EPD Field for all objects in the Project within the LCA Scope.")]
         public virtual double TotalQuantity { get; }
