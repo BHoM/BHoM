@@ -32,7 +32,8 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Reinforcement.BS8666
 {
-    [Description("A reinforcement bar with shape code 67 to BS 8666:2020 in the XY Plane centred on the midpoint of B aligned with the X axis and lowest point of C aligned with the Y axis.")]
+    [Description("A reinforcement bar with shape code 67 to BS 8666:2020 in the XY Plane centred on the midpoint of B and lowest point of C. " +
+        "The parameter B is aligned with the X axis and the parameter C aligned with the Y axis.")]
     public class ShapeCode67 : BHoMObject, IShapeCode, IImmutable
     {
         /***************************************************/
