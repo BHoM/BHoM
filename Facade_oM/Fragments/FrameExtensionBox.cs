@@ -32,9 +32,9 @@ using BH.oM.Geometry;
 namespace BH.oM.Facade.Fragments
 {
     [Description("Fragment containing a curve enclosing the portion of a mullion cross section that will be extruded by Facade_Engine method that changes mullion profile depth.")]
-    public class BoundingBox : IFragment
+    public class FrameExtensionBox : IFragment
     {
         [Description("ICurve representing the mullion bounding box.")]
-        public virtual ICurve BoundingBoxCurve { get; set; } = null; //Should this be ICurve or IProfile? Mullion cross section is IProfile
+        public virtual ICurve BoundingBoxCurve { get; set; } = null;
 }
 }
