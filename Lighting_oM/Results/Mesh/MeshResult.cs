@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using BH.oM.Base;
 using System.Collections.ObjectModel;
 using System;
+using System.Linq;
 
 namespace BH.oM.Lighting.Results.Mesh
 {
@@ -53,12 +54,12 @@ namespace BH.oM.Lighting.Results.Mesh
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, ReadOnlyCollection<MeshElementResult> results)
+        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, IEnumerable<MeshElementResult> results)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
-            Results = results;
+            Results = results == null ? null : new ReadOnlyCollection<MeshElementResult>(results.ToList());
         }
 
         /***************************************************/
