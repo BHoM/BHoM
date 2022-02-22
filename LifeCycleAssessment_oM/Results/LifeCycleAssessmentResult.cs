@@ -28,6 +28,7 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
@@ -61,13 +62,13 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lifeCycleAssessmentScope, ReadOnlyCollection<LifeCycleAssessmentElementResult> results, double totalQuantity)
+        public LifeCycleAssessmentResult(IComparable objectId, IComparable resultCase, double timeStep, LifeCycleAssessmentScope lifeCycleAssessmentScope, IEnumerable<LifeCycleAssessmentElementResult> results, double totalQuantity)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
             LifeCycleAssessmentScope = lifeCycleAssessmentScope;
-            Results = results;
+            Results = results == null ? null : new ReadOnlyCollection<LifeCycleAssessmentElementResult>(results.ToList());
             TotalQuantity = totalQuantity;
         }
 
