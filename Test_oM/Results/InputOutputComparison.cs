@@ -32,7 +32,7 @@ using System.Collections.ObjectModel;
 
 namespace BH.oM.Test.Results
 {
-    public class InputOutputComparison : IResultCollection<InputOutputDifference>
+    public class InputOutputComparison : IResultCollection<InputOutputDifference>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
