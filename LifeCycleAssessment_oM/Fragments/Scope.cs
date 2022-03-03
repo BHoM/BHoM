@@ -20,20 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using System.ComponentModel;
+
 namespace BH.oM.LifeCycleAssessment
 {
-    public enum ObjectScope
+    [Description("An optional scope tag for any object or collection of objects being evaluated using the Evaluate EPD compute method within the LifeCycleAssessment_Toolkit.")]
+    public class Scope : IFragment
     {
-        Undefined,
-        Enclosure,
-        Electrical,
-        FireProtection,
-        Foundation,
-        Mechanical,
-        Plumbing,
-        Structure,
-        TenantImprovement
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("ScopeType used to describe the objects being evaluated.")]
+        public virtual ScopeType ScopeType { get; set; } = ScopeType.Undefined;
+
+        /***************************************************/
     }
 }
-
-

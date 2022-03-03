@@ -47,7 +47,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public EnvironmentalMetricResult(IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
-                                ObjectScope scope,
+                                ScopeType scope,
                                 ObjectCategory category,
                                 List<LifeCycleAssessmentPhases> phases,
                                 List<EnvironmentalProductDeclaration> environmentalProductDeclaration,

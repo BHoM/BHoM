@@ -21,28 +21,21 @@
  */
 
 using System.ComponentModel;
-using BH.oM.Base;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("The MEP Scope object provides a template for expected objects to be assessed within this Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment")]
-    public class MEPScope : BHoMObject, IScope
+    [Description("The scope of the collection of object you would like to evaluate.")]
+    public enum ScopeType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        [Description("Mechanical Scope provides a template for expected objects to be assessed within the MEPScope")]
-        public virtual MechanicalScope MechanicalScope { get; set; } = new MechanicalScope();
-
-        [Description("Electrical Scope provides a template for expected objects to be assessed within the MEPScope")]
-        public virtual ElectricalScope ElectricalScope { get; set; } = new ElectricalScope();
-
-        [Description("Plumbing Scope provides a template for expected objects to be assessed within the MEPScope")]
-        public virtual PlumbingScope PlumbingScope { get; set; } = new PlumbingScope();
-
-        [Description("Fire Protection Scope provides a template for expected objects to be assessed within the MEPScope")]
-        public virtual FireProtectionScope FireProtectionScope { get; set; } = new FireProtectionScope();
-        /***************************************************/
+        Undefined,
+        Electrical, 
+        Enclosure, 
+        FireProtection,
+        Mechanical,
+        Plumbing,
+        Structure,
+        TenantImprovement
     }
 }
+
 
