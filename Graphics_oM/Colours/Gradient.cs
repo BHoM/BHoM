@@ -28,7 +28,7 @@ using System.Drawing;
 
 namespace BH.oM.Graphics
 {
-    public class Gradient : BHoMObject
+    public class Gradient : BHoMObject, IGradient
     {
         /***************************************************/
         /****            Public Properties              ****/

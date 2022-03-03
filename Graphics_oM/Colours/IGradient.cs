@@ -21,33 +21,26 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Graphics.Enums;
+using BH.oM.Geometry;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 
-namespace BH.oM.Graphics.Colours
+namespace BH.oM.Graphics
 {
-    [Description("Defines options for range and centering for a Gradient.")]
-    public class GradientOptions : IObject
+    public interface IGradient : IBHoMObject
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("The Gradient to colour by.")]
-        public virtual IGradient Gradient { get; set; } = null;
-
-        [Description("The lower bound of the Gradient. Leave empty to allow other methods to set automatically.")]
-        public virtual double LowerBound { get; set; } = double.NaN;
-
-        [Description("The upper bound of the Gradient. Leave empty to allow other methods to set automatically.")]
-        public virtual double UpperBound { get; set; } = double.NaN;
-
-        [Description("A GradientCenteringOptions enum to set centering options. Defaults to no centering.")]
-        public virtual GradientCenteringOptions GradientCenteringOptions { get; set; } = GradientCenteringOptions.None;
+        [Description("A SortedDictionary of 'Color's using a 'decimal' between 0 and 1 as Key. Used to get a 'Color' from a value between 0 and 1")]
+        SortedDictionary<decimal, Color> Markers { get; set; }
 
         /***************************************************/
 
     }
 }
+
 
 
