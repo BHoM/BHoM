@@ -27,7 +27,7 @@ using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("Project LCA can be used to collect all objects used in an evaluation along with the project's specific metatdata for tracking within a database.")]
+    [Description("Project LCA can be used to collect all objects used in an evaluation along with the project's specific metatdata for tracking within a user-specified database.")]
     public class ProjectLifeCycleAssessment : BHoMObject
     {
         /***************************************************/
