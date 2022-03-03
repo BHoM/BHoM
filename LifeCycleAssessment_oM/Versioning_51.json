@@ -1,0 +1,37 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+      "BH.oM.LifeCycleAssessment.Fragments.LifeCycleAssessmentScope": "BH.oM.LifeCycleAssessment.ScopeObjects.LifeCycleAssessmentScope"
+    },
+    "ToOld": {
+      "BH.oM.LifeCycleAssessment.ScopeObjects.LifeCycleAssessmentScope": "BH.oM.LifeCycleAssessment.Fragments.LifeCycleAssessmentScope"
+    }
+  },
+  "Property": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "MessageForDeleted": {
+    "BH.oM.LifeCycleAssessment.ScopeObjects.ElectricalScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.EnclosureScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.FireProtectionScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.FoundationScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.IScope": "This interface has been removed.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.MechanicalScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.MEPScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.PlumbingScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.ProjectLifeCycleAssessmentScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.StructuresScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ScopeObjects.TenantImprovementScope": "This object has been replaced with a Scope fragment."
+  },
+  "MessageForNoUpgrade": {
+  }
+}

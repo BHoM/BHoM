@@ -46,7 +46,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual double TimeStep { get; } = 0.0;
 
         [Description("Scope the object this result was generated from belongs to, e.g. Foundation or Facade")]
-        public virtual ObjectScope Scope { get; } = ObjectScope.Undefined;
+        public virtual ScopeType Scope { get; } = ScopeType.Undefined;
 
         [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
         public virtual ObjectCategory Category { get; } = ObjectCategory.Undefined;
@@ -65,7 +65,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         protected LifeCycleAssessmentElementResult(   IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
-                                ObjectScope scope,
+                                ScopeType scope,
                                 ObjectCategory category,
                                 List<LifeCycleAssessmentPhases> phases,
                                 List<EnvironmentalProductDeclaration> environmentalProductDeclaration)
