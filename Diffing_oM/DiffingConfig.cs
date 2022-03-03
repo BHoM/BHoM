@@ -53,11 +53,11 @@ namespace BH.oM.Diffing
         public virtual bool AllowDuplicateIds { get; set; } = false;
 
         [Description("List of Delegate functions that can be assigned to customise the ObjectDifferences computation of the Diffing." +
-            "The method delegate must have three inputs: the past_object, the following_object, and a BaseComparisonConfig; it must return an ObjectDifferences object." +
+            "The method delegate must have three inputs: the past_object, the following_object, and a BaseComparisonConfig; it must return a List<PropertyDifference>." +
             "The Differences found in the ObjectDifferences object will be added to any other difference found between the two objects." +
             "For this reason, make sure that you also set relevant PropertyExceptions in your ComparisonConfig to avoid finding duplicate Differences." +
             "See RevitDiffing for an example usage.")]
-        public List<Func<object, object, BaseComparisonConfig, ObjectDifferences>> CustomObjectDifferencesComparers { get; set; } = new List<Func<object, object, BaseComparisonConfig, ObjectDifferences>>();
+        public List<Func<object, object, BaseComparisonConfig, List<PropertyDifference>>> CustomObjectDifferencesComparers { get; set; } = new List<Func<object, object, BaseComparisonConfig, List<PropertyDifference>>>();
 
         /***************************************************/
     }
