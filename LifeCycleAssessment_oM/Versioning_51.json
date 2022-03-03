@@ -30,7 +30,9 @@
     "BH.oM.LifeCycleAssessment.ScopeObjects.PlumbingScope": "This object has been replaced with a Scope fragment.",
     "BH.oM.LifeCycleAssessment.ScopeObjects.ProjectLifeCycleAssessmentScope": "This object has been replaced with a Scope fragment.",
     "BH.oM.LifeCycleAssessment.ScopeObjects.StructuresScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.TenantImprovementScope": "This object has been replaced with a Scope fragment."
+    "BH.oM.LifeCycleAssessment.ScopeObjects.TenantImprovementScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.Results.LifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA.",
+    "BH.oM.LifeCycleAssessment.Results.ProjectLifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA."
   },
   "MessageForNoUpgrade": {
   }
