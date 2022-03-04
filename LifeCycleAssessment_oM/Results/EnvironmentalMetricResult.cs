@@ -24,11 +24,12 @@ using BH.oM.LifeCycleAssessment.MaterialFragments;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Base;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Gives the total quantity of the specified Environmental Product Declaration Field of an object based on its EnvironmentalProductDeclaration.")]
-    public class EnvironmentalMetricResult : LifeCycleAssessmentElementResult
+    public class EnvironmentalMetricResult : LifeCycleAssessmentElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
