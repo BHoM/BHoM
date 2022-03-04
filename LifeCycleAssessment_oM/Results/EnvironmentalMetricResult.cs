@@ -39,7 +39,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual double Quantity { get; set; }
 
         [Description("The EPD Field selected for evaluation.")]
-        public virtual EnvironmentalProductDeclarationField Metric { get; set; }
+        public virtual EnvironmentalProductDeclarationField Metric { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
