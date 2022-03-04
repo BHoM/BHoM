@@ -28,13 +28,14 @@ using System.Drawing;
 
 namespace BH.oM.Graphics
 {
+    [Description("Gradient for extracting colours in specific range bands, this is, a single colour for a specific range.")]
     public class SteppedGradient : BHoMObject, IGradient
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("A SortedDictionary of 'Color's using a 'decimal' between 0 and 1 as Key. Decimal of marker indicates the lower limit for the range of that colour. ")]
+        [Description("A SortedDictionary of 'Color's using a 'decimal' between 0 and 1 as Key. Decimal of marker indicates the lower limit for the range of that colour.")]
         public virtual SortedDictionary<decimal, Color> Markers { get; set; } = new SortedDictionary<decimal, Color>();
 
         /***************************************************/
