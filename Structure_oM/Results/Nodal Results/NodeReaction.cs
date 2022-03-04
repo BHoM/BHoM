@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting reaction forces and moments for a Node.")]
-    public class NodeReaction : NodeResult
+    public class NodeReaction : NodeResult, IReaction
     {
         /***************************************************/
         /**** Properties                                ****/
