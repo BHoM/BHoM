@@ -27,7 +27,7 @@ using System;
 namespace BH.oM.Structure.Results
 {
     [Description("Total global reactions for a given Loadcase or LoadCombination.")]
-    public class GlobalReactions : StructuralGlobalResult
+    public class GlobalReactions : StructuralGlobalResult, IReaction
     {
         /***************************************************/
         /**** Properties                                ****/
