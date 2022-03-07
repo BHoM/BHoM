@@ -57,7 +57,7 @@ namespace BH.oM.Diffing
             "The Differences found in the ObjectDifferences object will be added to any other difference found between the two objects." +
             "For this reason, make sure that you also set relevant PropertyExceptions in your ComparisonConfig to avoid finding duplicate Differences." +
             "See RevitDiffing for an example usage.")]
-        public List<Func<object, object, BaseComparisonConfig, List<PropertyDifference>>> CustomObjectDifferencesComparers { get; set; } = new List<Func<object, object, BaseComparisonConfig, List<PropertyDifference>>>();
+        public virtual List<Func<object, object, BaseComparisonConfig, List<IPropertyDifference>>> CustomObjectDifferencesComparers { get; set; } = new List<Func<object, object, BaseComparisonConfig, List<IPropertyDifference>>>();
 
         /***************************************************/
     }
