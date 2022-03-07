@@ -35,7 +35,7 @@ namespace BH.oM.Diffing
     public class PropertyDifference : IPropertyDifference
     {
         [Description("The human-friendly name associated with this property difference. This may differ from the actual property name: see `FullName`.")]
-        public virtual string DisplayName { get; set; }
+        public virtual string Name { get; set; }
 
         [Description("A human-friendly description associated with this property difference.")]
         public virtual string Description { get; set; }

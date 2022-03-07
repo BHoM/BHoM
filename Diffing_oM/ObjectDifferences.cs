@@ -40,7 +40,7 @@ namespace BH.oM.Diffing
         [Description("Newer version of the object (created or modified after `PastObject`).")]
         public virtual object FollowingObject { get; set; }
 
-        [Description("Represents all of the property differences found between the `past` and `following` versions of the object (under a given ComparisonConfig).")]
+        [Description("List of all the differences found between the `past` and `following` versions of the object (under a given ComparisonConfig).")]
         public virtual List<IPropertyDifference> Differences { get; set; } = new List<IPropertyDifference>();
     }
 }
