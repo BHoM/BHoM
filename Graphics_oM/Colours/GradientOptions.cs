@@ -27,11 +27,14 @@ using System.ComponentModel;
 namespace BH.oM.Graphics.Colours
 {
     [Description("Defines options for range and centering for a Gradient.")]
-    public class GradientOptions : IObject
+    public class GradientOptions : BHoMObject
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
+
+        [Description("Name of the GradientOption. Will be displayed for Gradient legends.")]
+        public override string Name { get; set; } = "";
 
         [Description("The Gradient to colour by.")]
         public virtual IGradient Gradient { get; set; } = null;
