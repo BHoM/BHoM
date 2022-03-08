@@ -7,10 +7,10 @@
   },
   "Type": {
     "ToNew": {
-      "BH.oM.LifeCycleAssessment.Fragments.LifeCycleAssessmentScope": "BH.oM.LifeCycleAssessment.ScopeObjects.LifeCycleAssessmentScope"
+      "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope": "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope"
     },
     "ToOld": {
-      "BH.oM.LifeCycleAssessment.ScopeObjects.LifeCycleAssessmentScope": "BH.oM.LifeCycleAssessment.Fragments.LifeCycleAssessmentScope"
+      "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope": "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope"
     }
   },
   "Property": {
@@ -31,7 +31,7 @@
     "BH.oM.LifeCycleAssessment.ProjectLifeCycleAssessmentScope": "This object has been replaced with a Scope fragment.",
     "BH.oM.LifeCycleAssessment.StructuresScope": "This object has been replaced with a Scope fragment.",
     "BH.oM.LifeCycleAssessment.TenantImprovementScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.LifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA.",
+    "BH.oM.LifeCycleAssessment.Results.LifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA.",
     "BH.oM.LifeCycleAssessment.ProjectLifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA."
   },
   "MessageForNoUpgrade": {
