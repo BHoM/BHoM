@@ -20,19 +20,19 @@
     }
   },
   "MessageForDeleted": {
-    "BH.oM.LifeCycleAssessment.ScopeObjects.ElectricalScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.EnclosureScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.FireProtectionScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.FoundationScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.IScope": "This interface has been removed.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.MechanicalScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.MEPScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.PlumbingScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.ProjectLifeCycleAssessmentScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.StructuresScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.ScopeObjects.TenantImprovementScope": "This object has been replaced with a Scope fragment.",
-    "BH.oM.LifeCycleAssessment.Results.LifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA.",
-    "BH.oM.LifeCycleAssessment.Results.ProjectLifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA."
+    "BH.oM.LifeCycleAssessment.ElectricalScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.EnclosureScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.FireProtectionScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.FoundationScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.IScope": "This interface has been removed.",
+    "BH.oM.LifeCycleAssessment.MechanicalScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.MEPScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.PlumbingScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ProjectLifeCycleAssessmentScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.StructuresScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.TenantImprovementScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.LifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA.",
+    "BH.oM.LifeCycleAssessment.ProjectLifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA."
   },
   "MessageForNoUpgrade": {
   }
