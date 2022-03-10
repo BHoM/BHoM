@@ -57,6 +57,8 @@ namespace BH.oM.Analytical.Results
         [Description("Casting method to allow for simpler usage with the common case of filtering by a singe ResultCase.")]
         public static explicit operator ResultFilter(string resultFilter)
         {
+            if (string.IsNullOrEmpty(resultFilter))
+                return null;
             return new ResultFilter { ResultCaseFilters = new HashSet<IComparable> { resultFilter } };
         }
 
