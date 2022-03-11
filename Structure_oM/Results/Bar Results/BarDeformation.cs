@@ -23,11 +23,12 @@
 using System;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting local deformation of the Bar in local coordinates. This is disregarding rigid body motion and/or rotation of the Bar.")]
-    public class BarDeformation : BarResult, IDisplacement
+    public class BarDeformation : BarResult, IDisplacement, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
