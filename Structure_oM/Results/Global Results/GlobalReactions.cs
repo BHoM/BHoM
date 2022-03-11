@@ -22,12 +22,13 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
 using System;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Total global reactions for a given Loadcase or LoadCombination.")]
-    public class GlobalReactions : StructuralGlobalResult, IReaction
+    public class GlobalReactions : StructuralGlobalResult, IReaction, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -22,13 +22,14 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
 using System;
 using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting reaction forces and moments for a Node.")]
-    public class NodeReaction : NodeResult, IReaction
+    public class NodeReaction : NodeResult, IReaction, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
