@@ -27,20 +27,8 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Results
 {
     [Description("Base interface for bar displacements")]
-    public interface IBarDisplacement : IStructuralResult, IImmutable
+    public interface IBarDisplacement : IStructuralResult, IDisplacement, IImmutable
     {
-        double UX { get; }
-
-        double UY { get; }
-
-        double UZ { get; }
-
-        double RX { get; }
-
-        double RY { get; }
-
-        double RZ { get; }
-
         double Position { get; }
     }
 }

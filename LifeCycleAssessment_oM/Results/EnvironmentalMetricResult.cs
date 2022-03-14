@@ -24,11 +24,13 @@ using BH.oM.LifeCycleAssessment.MaterialFragments;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Gives the total quantity of the specified Environmental Product Declaration Field of an object based on its EnvironmentalProductDeclaration.")]
-    public class EnvironmentalMetricResult : LifeCycleAssessmentElementResult
+    public class EnvironmentalMetricResult : LifeCycleAssessmentElementResult, IImmutable, IObjectResult
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -38,7 +40,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual double Quantity { get; set; }
 
         [Description("The EPD Field selected for evaluation.")]
-        public virtual EnvironmentalProductDeclarationField Metric { get; set; }
+        public virtual EnvironmentalProductDeclarationField Metric { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -47,7 +49,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public EnvironmentalMetricResult(IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
-                                ObjectScope scope,
+                                ScopeType scope,
                                 ObjectCategory category,
                                 List<LifeCycleAssessmentPhases> phases,
                                 List<EnvironmentalProductDeclaration> environmentalProductDeclaration,

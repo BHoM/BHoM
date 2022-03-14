@@ -20,37 +20,28 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Geometry;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.Dimensional;
+using System.Drawing;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Graphics
 {
-    [Description("The Enclosures Scope object provides a template for expected objects commonly assessed within Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment.")]
-    public class EnclosuresScope : BHoMObject, IScope
+    [Description("Gradient for extracting colours in specific range bands, this is, a single colour for a specific range.")]
+    public class SteppedGradient : BHoMObject, IGradient
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("Enclosure walls are inclusive of the opaque exterior wall assemblies of a building")]
-        public virtual List<IElementM> Walls { get; set; } = new List<IElementM>();
-        
-        [Description("Enclosure curtain walls are large sheets of transparent glazing on the building exterior")]
-        public virtual List<IElementM> CurtainWalls { get; set; } = new List<IElementM>();
-        
-        [Description("Enclosure windows are are openings in the building exterior, which consist of framing and glazing")]
-        public virtual List<IElementM> Windows { get; set; } = new List<IElementM>();
-        
-        [Description("Enclosure doors are are openings in the building exterior, which consist of framing and panels")]
-        public virtual List<IElementM> Doors { get; set; } = new List<IElementM>();
-
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
+        [Description("A SortedDictionary of 'Color's using a 'decimal' between 0 and 1 as Key. Decimal of marker indicates the lower limit for the range of that colour.")]
+        public virtual SortedDictionary<decimal, Color> Markers { get; set; } = new SortedDictionary<decimal, Color>();
 
         /***************************************************/
+
     }
 }
+
 
 

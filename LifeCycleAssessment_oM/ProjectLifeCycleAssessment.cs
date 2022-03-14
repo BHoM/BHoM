@@ -21,35 +21,24 @@
  */
 
 using System.Collections.Generic;
-using System.ComponentModel;
 using BH.oM.Base;
+using System.ComponentModel;
 using BH.oM.Dimensional;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    [Description("The Structures Scope object provides a template for expected objects commonly assessed within Life Cycle Assessments. Please provide as many objects with their corresponding Environmental Product Declaration data for the most accurate Life Cycle Assessment.")]
-    public class StructuresScope : BHoMObject, IScope
+    [Description("Project LCA can be used to collect all objects used in an evaluation along with the project's specific metatdata for tracking within a user-specified database.")]
+    public class ProjectLifeCycleAssessment : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Structural slabs are inclusive of the above-grade structural floors in a building")]
-        public virtual List<IElementM> Slabs { get; set; } = new List<IElementM>();
 
-        [Description("Structural core walls are inclusive of the above-grade, structural-grade walls surrounding the core (elevators, building services)")]
-        public virtual List<IElementM> CoreWalls { get; set; } = new List<IElementM>();
+        [Description("LCA Scope metadata designed to help differentiate between project specifications.")]
+        public virtual LifeCycleAssessmentScope LCAScope { get; set; } = new LifeCycleAssessmentScope();
 
-        [Description("Structural beams are typically horizontal elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<IElementM> Beams { get; set; } = new List<IElementM>();
-
-        [Description("Structural columns are typically vertical elements that carry the load of floors, roofs, and ceilings")]
-        public virtual List<IElementM> Columns { get; set; } = new List<IElementM>();
-
-        [Description("Structural bracing are typically diagonal members that provide lateral support between structural bays")]
-        public virtual List<IElementM> Bracing { get; set; } = new List<IElementM>();
-
-        [Description("List of additional user objects that either do not fit within the established categories, or are not explicitly modelled")]
-        public virtual List<IElementM> AdditionalObjects { get; set; } = new List<IElementM>();
+        [Description("A collection of elements you wish to include in the project LCA.")]
+        public virtual List<IElementM> Elements { get; set; } = null;
 
         /***************************************************/
     }

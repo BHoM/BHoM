@@ -20,47 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.LifeCycleAssessment.MaterialFragments;
-using BH.oM.Quantities.Attributes;
-using System;
+using BH.oM.Base;
+using BH.oM.Geometry;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 
-namespace BH.oM.LifeCycleAssessment.Results
+namespace BH.oM.Graphics
 {
-    [Description("Gives the total GlobalWarmingPotential of an object based on its EnvironmentalProductDeclaration.")]
-    public class GlobalWarmingPotentialResult : LifeCycleAssessmentElementResult
+    public interface IGradient : IBHoMObject
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****            Public Properties              ****/
         /***************************************************/
 
-        [Mass]
-        [Description("The total embodied carbon of the object in kgCO2e.")]
-        public virtual double GlobalWarmingPotential { get; set; }
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public GlobalWarmingPotentialResult(IComparable objectId,
-                                IComparable resultCase,
-                                double timeStep,
-                                ObjectScope scope,
-                                ObjectCategory category,
-                                List<LifeCycleAssessmentPhases> phases,
-                                List<EnvironmentalProductDeclaration> environmentalProductDeclaration,
-                                double globalWarmingPotential): base(objectId, resultCase, timeStep, scope, category, phases, environmentalProductDeclaration)
-        {
-            GlobalWarmingPotential = globalWarmingPotential;
-        }
+        [Description("A SortedDictionary of 'Color's using a 'decimal' between 0 and 1 as Key. Used to get a 'Color' from a value between 0 and 1")]
+        SortedDictionary<decimal, Color> Markers { get; set; }
 
         /***************************************************/
 
     }
 }
-
 
 
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -20,17 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
+using System.Text;
 using BH.oM.Base;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Structure.Results
 {
-    public interface IScope : IBHoMObject
+    public interface IDisplacement : IStructuralResult, IImmutable
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        double UX { get; }
 
-        /***************************************************/
+        double UY { get; }
+
+        double UZ { get; }
+
+        double RX { get; }
+
+        double RY { get; }
+
+        double RZ { get; }
     }
 }
-

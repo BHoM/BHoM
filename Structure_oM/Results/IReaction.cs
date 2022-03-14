@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -20,37 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
+using System.Text;
 using BH.oM.Base;
-using BH.oM.Graphics.Enums;
-using System.ComponentModel;
 
-namespace BH.oM.Graphics.Colours
+namespace BH.oM.Structure.Results
 {
-    [Description("Defines options for range and centering for a Gradient.")]
-    public class GradientOptions : BHoMObject
+    public interface IReaction : IStructuralResult, IImmutable
     {
-        /***************************************************/
-        /****            Public Properties              ****/
-        /***************************************************/
+        double FX { get; }
 
-        [Description("Name of the GradientOption. Will be displayed for Gradient legends.")]
-        public override string Name { get; set; } = "";
+        double FY { get; }
 
-        [Description("The Gradient to colour by.")]
-        public virtual IGradient Gradient { get; set; } = null;
+        double FZ { get; }
 
-        [Description("The lower bound of the Gradient. Leave empty to allow other methods to set automatically.")]
-        public virtual double LowerBound { get; set; } = double.NaN;
+        double MX { get; }
 
-        [Description("The upper bound of the Gradient. Leave empty to allow other methods to set automatically.")]
-        public virtual double UpperBound { get; set; } = double.NaN;
+        double MY { get; }
 
-        [Description("A GradientCenteringOptions enum to set centering options. Defaults to no centering.")]
-        public virtual GradientCenteringOptions GradientCenteringOptions { get; set; } = GradientCenteringOptions.None;
-
-        /***************************************************/
-
+        double MZ { get; }
     }
 }
-
-
