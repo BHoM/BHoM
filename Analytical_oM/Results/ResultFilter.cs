@@ -36,16 +36,16 @@ namespace BH.oM.Analytical.Results
         /***************************************************/
 
         [Description("If ResultCaseFilters contains items, only results of type ICasedResult will be returned that has a ResultCase matching any items in the ResultCaseFilters.")]
-        public virtual HashSet<IComparable> ResultCaseFilters { get; set; } = new HashSet<IComparable>();
+        public virtual HashSet<string> ResultCaseFilters { get; set; } = new HashSet<string>();
 
         [Description("If ObjectIDFilters contains items, only results of type IObjectIdResult will be returned that has a ObjectId matching any items in the ObjectIDFilters.")]
-        public virtual HashSet<IComparable> ObjectIDFilters { get; set; } = new HashSet<IComparable>();
+        public virtual HashSet<string> ObjectIDFilters { get; set; } = new HashSet<string>();
 
         [Description("If NodeIDFilters contains items, only results of type IMeshElementResult will be returned that has a NodeId matching any items in the NodeIDFilters.")]
-        public virtual HashSet<IComparable> NodeIDFilters { get; set; } = new HashSet<IComparable>();
+        public virtual HashSet<string> NodeIDFilters { get; set; } = new HashSet<string>();
 
         [Description("If MeshFaceIDFilters contains items, only results of type IMeshElementResult will be returned that has a MeshFaceId matching any items in the MeshFaceIDFilters.")]
-        public virtual HashSet<IComparable> MeshFaceIDFilters { get; set; } = new HashSet<IComparable>();
+        public virtual HashSet<string> MeshFaceIDFilters { get; set; } = new HashSet<string>();
 
         [Description("If TimeStepFilters contains items, only results of type ITimeStepResult will be returned that has a TimeStep matching any items in the TimeStepFilters.")]
         public virtual HashSet<double> TimeStepFilters { get; set; } = new HashSet<double>();
@@ -59,7 +59,7 @@ namespace BH.oM.Analytical.Results
         {
             if (string.IsNullOrEmpty(resultFilter))
                 return null;
-            return new ResultFilter { ResultCaseFilters = new HashSet<IComparable> { resultFilter } };
+            return new ResultFilter { ResultCaseFilters = new HashSet<string> { resultFilter } };
         }
 
         /***************************************************/
@@ -67,7 +67,7 @@ namespace BH.oM.Analytical.Results
         [Description("Casting method to allow for simpler usage with the common case of filtering by a singe ResultCase.")]
         public static explicit operator ResultFilter(int resultFilter)
         {
-            return new ResultFilter { ResultCaseFilters = new HashSet<IComparable> { resultFilter } };
+            return new ResultFilter { ResultCaseFilters = new HashSet<string> { resultFilter.ToString() } };
         }
 
         /***************************************************/
