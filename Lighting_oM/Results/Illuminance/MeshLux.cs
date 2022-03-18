@@ -20,40 +20,40 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
-using BH.oM.Lighting.Results.Mesh;
-
 using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.Geometry;
+using System;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.Lighting.Results.Illuminance
+namespace BH.oM.Lighting.Results
 {
-    [Description("Lux contains results for Lux analysis. Inherits from MeshElementResult which provides properties related to which node this Lux is recorded for")]
-    public class Lux : MeshElementResult, IImmutable
+    [Description("Contains results for Lux analysis on an element of a mesh.")]
+    public class MeshLux : MeshElementResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [BH.oM.Quantities.Attributes.Illuminance]
-        [Description("The amount of lux recorded for the given analysis node")]
-        public virtual double LuxLevel { get; } = -1;
+        [LuminousIntensity]
+        [Description("Lux value in lumens.")]
+        public virtual double Lux { get; }
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Lux(IComparable objectId, IComparable nodeId, IComparable resultCase, double timeStep, double luxLevel) : base(objectId, nodeId, resultCase, timeStep)
+        public MeshLux(IComparable objectId,
+                            IComparable nodeId,
+                            IComparable resultCase,
+                            double timeStep,
+                            double lux) : base(objectId, nodeId, resultCase, timeStep)
         {
-            LuxLevel = luxLevel;
+            Lux = lux;
         }
 
         /***************************************************/
-
     }
 }
 

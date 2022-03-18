@@ -26,7 +26,7 @@ using System.ComponentModel;
 using BH.oM.Base;
 using System;
 
-namespace BH.oM.Lighting.Results.Mesh
+namespace BH.oM.Lighting.Results
 {
     [Description("Base class for all discrete mesh element results, that is a result for an individual node. Stores all identifier information and how to sort the results in a collection")]
     public abstract class MeshElementResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
@@ -43,6 +43,8 @@ namespace BH.oM.Lighting.Results.Mesh
 
         [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
         public virtual IComparable ResultCase { get; } = "";
+
+        public virtual MeshResultSmoothingType Smoothing { get; }
 
         [Description("Time step for time history results. Typically this will be hour intervals for most analysis")]
         public virtual double TimeStep { get; } = 0.0;

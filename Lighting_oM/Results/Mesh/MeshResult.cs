@@ -29,7 +29,7 @@ using System.Collections.ObjectModel;
 using System;
 using System.Linq;
 
-namespace BH.oM.Lighting.Results.Mesh
+namespace BH.oM.Lighting.Results
 {
     [Description("Full collection of discrete results for an AnalysisGrid for a specific Analysis.")]
     public class MeshResult : IObjectIdResult, ICasedResult, ITimeStepResult, IResultCollection<MeshElementResult>, IImmutable
@@ -47,6 +47,8 @@ namespace BH.oM.Lighting.Results.Mesh
         [Description("Time step for time history results. Typically this will be hour intervals for most Environment Analysis")]
         public virtual double TimeStep { get; } = 0.0;
 
+        public virtual MeshResultSmoothingType Smoothing { get; }
+
         [Description("A collection of the discrete mesh element results per node")]
         public virtual IReadOnlyList<MeshElementResult> Results { get; }
 
@@ -54,11 +56,12 @@ namespace BH.oM.Lighting.Results.Mesh
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, IEnumerable<MeshElementResult> results)
+        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, MeshResultSmoothingType smoothing, IEnumerable<MeshElementResult> results)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
+            Smoothing = smoothing;
             Results = results == null ? null : new ReadOnlyCollection<MeshElementResult>(results.ToList());
         }
 
