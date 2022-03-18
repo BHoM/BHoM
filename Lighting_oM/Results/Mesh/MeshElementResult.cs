@@ -29,20 +29,23 @@ using System;
 namespace BH.oM.Lighting.Results
 {
     [Description("Base class for all discrete mesh element results, that is a result for an individual node. Stores all identifier information and how to sort the results in a collection")]
-    public abstract class MeshElementResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
+    public abstract class MeshElementResult : IMeshElementResult, IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("ID of the AnalysisGrid that this result belongs to")]
-        public virtual IComparable ObjectId { get; } = "";
+        public virtual IComparable ObjectId { get; }
 
-        [Description("ID of the Node in the Analysis Grid that this result belongs to")]
-        public virtual IComparable NodeID { get; } = "";
+        [Description("Id of the Node in the mesh that this result belongs to. Will be empty for smoothing types not relating to Nodes. When extracted from an analysis package, the Node id will correspond to the node id in the software and match the format and value used in that particular package.")]
+        public virtual IComparable NodeId { get; }
 
-        [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
-        public virtual IComparable ResultCase { get; } = "";
+        [Description("Id of the FEFace that this result belongs to. Will be empty for smoothing types not relating to Faces. When extracted from an analysis package, the face id will correspond to the face id in the software and match the format and value used in that particular package.")]
+        public virtual IComparable MeshFaceId { get; }
+
+        [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
+        public virtual IComparable ResultCase { get; }
 
         public virtual MeshResultSmoothingType Smoothing { get; }
 
@@ -59,7 +62,7 @@ namespace BH.oM.Lighting.Results
                                 double timeStep)
         {
             ObjectId = objectId;
-            NodeID = nodeId;
+            NodeId = nodeId;
             ResultCase = resultCase;
             TimeStep = timeStep;
         }
@@ -82,7 +85,7 @@ namespace BH.oM.Lighting.Results
                 int analysisCase = this.ResultCase.CompareTo(otherRes.ResultCase);
                 if (analysisCase == 0)
                 {
-                    int nodeId = this.NodeID.CompareTo(otherRes.NodeID);
+                    int nodeId = this.NodeId.CompareTo(otherRes.NodeId);
                         return nodeId == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : nodeId;
                 }
                 else

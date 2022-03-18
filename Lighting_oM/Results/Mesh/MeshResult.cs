@@ -31,25 +31,25 @@ using System.Linq;
 
 namespace BH.oM.Lighting.Results
 {
-    [Description("Full collection of discrete results for an AnalysisGrid for a specific Analysis.")]
-    public class MeshResult : IObjectIdResult, ICasedResult, ITimeStepResult, IResultCollection<MeshElementResult>, IImmutable
+    [Description("Full collection of discrete results for a Panel/FEMesh for a specific Loadcase or LoadCombination.")]
+    public class MeshResult : IMeshResult<MeshElementResult>, IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("ID of the AnalysisGrid that this result collection belongs to")]
-        public virtual IComparable ObjectId { get; } = "";
+        [Description("Id of the mesh that this result collection belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
+        public virtual IComparable ObjectId { get; }
 
-        [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
-        public virtual IComparable ResultCase { get; } = "";
+        [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
+        public virtual IComparable ResultCase { get; }
 
-        [Description("Time step for time history results. Typically this will be hour intervals for most Environment Analysis")]
-        public virtual double TimeStep { get; } = 0.0;
+        [Description("Time step for time history results.")]
+        public virtual double TimeStep { get; }
 
         public virtual MeshResultSmoothingType Smoothing { get; }
 
-        [Description("A collection of the discrete mesh element results per node")]
+        [Description("A collection of the discrete mesh element results per node and/or face.")]
         public virtual IReadOnlyList<MeshElementResult> Results { get; }
 
         /***************************************************/
@@ -62,7 +62,7 @@ namespace BH.oM.Lighting.Results
             ResultCase = resultCase;
             TimeStep = timeStep;
             Smoothing = smoothing;
-            Results = results == null ? null : new ReadOnlyCollection<MeshElementResult>(results.ToList());
+            Results = new ReadOnlyCollection<MeshElementResult>(results.ToList());
         }
 
         /***************************************************/
