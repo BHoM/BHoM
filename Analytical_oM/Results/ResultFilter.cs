@@ -50,6 +50,9 @@ namespace BH.oM.Analytical.Results
         [Description("If TimeStepFilters contains items, only results of type ITimeStepResult will be returned that has a TimeStep matching any items in the TimeStepFilters.")]
         public virtual HashSet<double> TimeStepFilters { get; set; } = new HashSet<double>();
 
+        [Description("Index to be used for results of type IResultSeries.")]
+        public virtual int ResultSeriesIndex { get; set; } = 0;
+
         /***************************************************/
         /**** Explicit Casting                          ****/
         /***************************************************/
