@@ -31,7 +31,7 @@ using System.ComponentModel;
 namespace BH.oM.Analytical.Results
 {
     [Description("Base interface for result classes where the values apply to the entire object referenced to with the ObjectID.")]
-    public interface IObjectResult : IResult, IObjectIdResult, IResultItem
+    public interface IObjectResult : IResult, IObjectIdResult
     {
         /***************************************************/
         /**** Properties                                ****/
