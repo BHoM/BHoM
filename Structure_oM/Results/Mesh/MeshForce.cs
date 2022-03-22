@@ -25,11 +25,12 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using System;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Gives a full set of shell and membrane forces at a discrete location in the Panel/FEMesh.")]
-    public class MeshForce : MeshElementResult, IImmutable
+    public class MeshForce : MeshElementResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

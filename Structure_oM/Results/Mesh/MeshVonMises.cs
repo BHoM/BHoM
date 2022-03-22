@@ -25,11 +25,12 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
     [Description("von Mises stress, force and moment at a discrete location in the Panel/FEMesh.")]
-    public class MeshVonMises: MeshElementResult, IImmutable
+    public class MeshVonMises: MeshElementResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

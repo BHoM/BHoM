@@ -23,11 +23,12 @@
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using System;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting axial strain along the bar in local coordinates.")]
-    public class BarStrain : BarResult
+    public class BarStrain : BarResult, IResultItem
     {
         /***************************************************/
         /**** Properties                                ****/

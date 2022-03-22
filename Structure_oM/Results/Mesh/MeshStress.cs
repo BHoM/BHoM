@@ -25,11 +25,12 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Shell and membrane stresses at a discrete location in the Panel/FEMesh.")]
-    public class MeshStress: MeshElementResult, IImmutable
+    public class MeshStress: MeshElementResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -24,13 +24,13 @@ using System;
 using System.ComponentModel;
 using BH.oM.Geometry;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Structure.MaterialFragments;
+using BH.oM.Analytical.Results;
 using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Minimum required area of reinforcement for an AreaElement.")]
-    public class MeshRequiredArea : MeshElementResult, IImmutable
+    public class MeshRequiredArea : MeshElementResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
