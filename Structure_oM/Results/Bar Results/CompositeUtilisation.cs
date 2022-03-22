@@ -22,11 +22,12 @@
 
 using System;
 using BH.oM.Base.Attributes;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
     [NotImplemented]
-    public class CompositeUtilisation : BarResult
+    public class CompositeUtilisation : BarResult, IResultItem
     {
         public virtual string MinorEffectiveLength { get; }
 

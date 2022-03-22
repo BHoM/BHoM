@@ -22,11 +22,12 @@
 
 using System;
 using BH.oM.Base.Attributes;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
     [NotImplemented]
-    public class SteelUtilisation : BarResult
+    public class SteelUtilisation : BarResult, IResultItem
     {
 
         public virtual string MajorEffectiveLength { get; }

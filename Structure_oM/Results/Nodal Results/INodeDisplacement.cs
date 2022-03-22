@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Results
 {
     [Description("Base interface for node displacements")]
-    public interface INodeDisplacement: IDisplacement, IImmutable
+    public interface INodeDisplacement: IDisplacement, IImmutable, IResultItem
     {
 
     }

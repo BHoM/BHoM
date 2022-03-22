@@ -24,10 +24,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BH.oM.Base;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
-    public interface IReaction : IStructuralResult, IImmutable
+    public interface IReaction : IStructuralResult, IResultItem, IImmutable
     {
         double FX { get; }
 

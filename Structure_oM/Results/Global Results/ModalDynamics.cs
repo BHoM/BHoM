@@ -23,11 +23,13 @@
 using System.ComponentModel;
 using System;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical.Results;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("General modal dynamics result of the structure.")]
-    public class ModalDynamics : StructuralGlobalResult
+    public class ModalDynamics : StructuralGlobalResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

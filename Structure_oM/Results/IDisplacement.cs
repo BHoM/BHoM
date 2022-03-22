@@ -24,10 +24,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BH.oM.Base;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
-    public interface IDisplacement : IStructuralResult, IImmutable
+    public interface IDisplacement : IStructuralResult, IResultItem, IImmutable
     {
         double UX { get; }
 

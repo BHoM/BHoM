@@ -23,14 +23,13 @@
 using System;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Structure;
-using BH.oM.Structure.MaterialFragments;
+using BH.oM.Analytical.Results;
 using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Minimum required area of reinforcement for a Bar.")]
-    public class BarRequiredArea : BarResult, IImmutable
+    public class BarRequiredArea : BarResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

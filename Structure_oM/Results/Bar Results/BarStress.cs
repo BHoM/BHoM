@@ -23,11 +23,12 @@
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using System;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting stresses in local coordinates along the bar.")]
-    public class BarStress : BarResult
+    public class BarStress : BarResult, IResultItem
     {
         /***************************************************/
         /**** Properties                                ****/
