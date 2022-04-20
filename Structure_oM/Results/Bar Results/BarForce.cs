@@ -24,11 +24,12 @@ using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using System;
 using BH.oM.Analytical.Results;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting section forces in local coordinates along the bar.")]
-    public class BarForce : BarResult, IResultItem
+    public class BarForce : BarResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

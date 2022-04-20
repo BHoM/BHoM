@@ -23,11 +23,12 @@
 using System;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting total displacements in global coordinates along the bar.")]
-    public class BarDisplacement : BarResult, IBarDisplacement
+    public class BarDisplacement : BarResult, IBarDisplacement, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

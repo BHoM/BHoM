@@ -25,11 +25,12 @@ using BH.oM.Quantities.Attributes;
 using System;
 using BH.oM.Geometry;
 using BH.oM.Analytical.Results;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting velocity and angular velocity for a Node.")]
-    public class NodeVelocity : NodeResult, IResultItem
+    public class NodeVelocity : NodeResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
