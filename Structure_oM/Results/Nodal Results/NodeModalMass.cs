@@ -25,11 +25,12 @@ using System;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
 using BH.oM.Analytical.Results;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Modal mass for a Node.")]
-    public class NodeModalMass : NodeResult, IResultItem
+    public class NodeModalMass : NodeResult, IResultItem, IImmutable
     {
 
         /***************************************************/

@@ -24,11 +24,12 @@ using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using System;
 using BH.oM.Geometry;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Node mode shape in global coordinates, normalised to 1.")]
-    public class NodeModeShape : NodeResult, INodeDisplacement
+    public class NodeModeShape : NodeResult, INodeDisplacement, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

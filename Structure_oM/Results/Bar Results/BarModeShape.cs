@@ -23,11 +23,12 @@
 using System;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Bar mode shape in global coordinates, normalised to 1.")]
-    public class BarModeShape : BarResult, IBarDisplacement
+    public class BarModeShape : BarResult, IBarDisplacement, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

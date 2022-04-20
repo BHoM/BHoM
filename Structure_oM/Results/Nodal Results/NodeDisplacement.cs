@@ -24,11 +24,12 @@ using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using System;
 using BH.oM.Geometry;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting displacements and rotations for a Node.")]
-    public class NodeDisplacement : NodeResult, INodeDisplacement
+    public class NodeDisplacement : NodeResult, INodeDisplacement, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
