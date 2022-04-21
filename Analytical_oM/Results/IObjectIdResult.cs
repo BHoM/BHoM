@@ -37,6 +37,7 @@ namespace BH.oM.Analytical.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [ObjectIdentifier]
         [Description("The ID of the object to which the result belongs. The ID could be for example the AdapterID, Name or BHoM_Guid of the object.")]
         IComparable ObjectId { get; }
 
