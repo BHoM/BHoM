@@ -37,6 +37,7 @@ namespace BH.oM.Analytical.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [ObjectIdentifier]
         [Description("Position on the element as normalised length, i.e. 0 for start, 1 for end and 0.5 for middle.")]
         double Position { get; }
 

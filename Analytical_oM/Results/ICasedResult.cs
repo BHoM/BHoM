@@ -37,6 +37,7 @@ namespace BH.oM.Analytical.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [ScenarioIdentifier]
         [Description("The identifier for the case analysed that generated the result.")]
         IComparable ResultCase { get; }
 

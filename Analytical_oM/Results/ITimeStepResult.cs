@@ -37,6 +37,7 @@ namespace BH.oM.Analytical.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [ScenarioIdentifier]
         [Description("The time step indentifier for the result.")]
         double TimeStep { get; }
 
