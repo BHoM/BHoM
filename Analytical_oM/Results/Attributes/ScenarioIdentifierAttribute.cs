@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
-    [Description("Attribute to be assigned to properties used to identify which scenario that generated the result.")]
+    [Description("Attribute to be assigned to properties of `IResult`-implementing classes. Tagged properties define the scenario in which the result was generated.")]
     [AttributeUsage(AttributeTargets.Property, AllowMultiple =false, Inherited =true)]
     public class ScenarioIdentifierAttribute : IdentifierAttribute
     {

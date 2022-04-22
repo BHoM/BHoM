@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
-    [Description("Attribute to be assigned to properties used to identify which object or a subpart of the object the result is targeting.")]
+    [Description("Attribute to be assigned to properties of `IResult`-implementing classes. Tagged properties must contain the Identifier of the object (or of a subpart of the object) which the result is targeting.")]
     [AttributeUsage(AttributeTargets.Property, AllowMultiple =false, Inherited =true)]
     public class ObjectIdentifierAttribute : IdentifierAttribute
     {
