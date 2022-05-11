@@ -60,7 +60,7 @@ namespace BH.oM.Structure.SurfaceProperties
 
         [Length]
         [Description("Centre-centre distance between the ribs. Measured perpendicular to the rib direction." +
-            " If this length is greater to the sum of BottomWidth and TopWidth, the deck is trapezoidal." +
+            " If this length is greater than the sum of BottomWidth and TopWidth, the deck is trapezoidal." +
             " If lesser, the deck has a dovetail shape.")]
         public virtual double DeckSpacing { get; set; }
 
@@ -73,7 +73,7 @@ namespace BH.oM.Structure.SurfaceProperties
         public virtual double DeckTopWidth { get; set; }
 
         [Length]
-        [Description("Thickness of the decking stock.")]
+        [Description("Thickness of the decking stock. This is generally very small compared to the total thickness of the slab")]
         public virtual double DeckThickness { get; set; }
 
         [Description("The ratio between the actual volume of deck material in a given panel and the value calculated as DeckThickness * area of the panel.")]
