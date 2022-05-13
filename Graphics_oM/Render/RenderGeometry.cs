@@ -42,8 +42,8 @@ namespace BH.oM.Graphics
         [Description("Colour used to render the edges of the Geometry. If texture is not set, this colour will also be used to render any meshes and surfaces of the Geometry. Default is BHoM Coral with a subtle transparency (Color.FromArgb(80, 255, 41, 105)).")]
         public virtual Color Colour { get; set; } = Color.FromArgb(80, 255, 41, 105);
 
-        [Description("Texture to be used for mesh and surface geometry. If null, the colour will be used for mesh and surface rendering instead.")]
-        public virtual Texture Texture { get; set; } = null;
+        [Description("Optional texture or colour to be used for mesh and surface geometry. If null, the colour will be used for mesh and surface rendering instead.")]
+        public virtual Texture SurfaceColour { get; set; } = null;
 
         [Description("The thickness of the curve. Should be a value greater or equal to 1.")]
         public virtual int EdgeThickness { get; set; } = 1;

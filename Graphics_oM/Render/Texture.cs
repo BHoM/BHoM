@@ -40,17 +40,17 @@ namespace BH.oM.Graphics
         [Description("Name of the Texture")]
         public override string Name { get; set; } = "";
 
-        [Description("Diffuse color is the most instinctive meaning of the color of an object. It is that essential color that the object reveals under pure white light. It is perceived as the color of the object itself rather than a reflection of the light. Alpha channel is generally ignored. Default is BHoM Coral (Color.FromArgb(255, 255, 41, 105)).")]
+        [Description("The governing colour of the texture. The colour under direct illumination in white light. Alpha channel is generally ignored. Default is BHoM Coral (Color.FromArgb(255, 255, 41, 105)).")]
         public virtual Color Diffuse { get; set; } = Color.FromArgb(255, 255, 41, 105);
 
-        [Description("This is the self-illumination color an object has. Alpha channel is generally ignored. Default is a darker BHoM Coral (Color.FromArgb(255, 77, 12, 32))")]
-        public virtual Color Emission { get; set; } = Color.FromArgb(255, 77, 12, 32);
-
-        [Description("Ambient color is the color of an object where it is in shadow. This color is what the object reflects when illuminated by ambient light rather than direct light. Alpha channel is generally ignored. Default is Gray.")]
+        [Description("The colour under ambient lighting conditions. Alpha channel is generally ignored. Default is Gray.")]
         public virtual Color Ambient { get; set; } = Color.Gray;
 
-        [Description("Specular color is the color of the light of a specular reflection (specular reflection is the type of reflection that is characteristic of light reflected from a shiny surface). Alpha channel is generally ignored. Default is White.")]
+        [Description("Controls shine and highlights. Alpha channel is generally ignored. Default is White.")]
         public virtual Color Specular { get; set; } = Color.White;
+
+        [Description("Self-illumination colour. Alpha channel is generally ignored. Default is a darker BHoM Coral (Color.FromArgb(255, 77, 12, 32))")]
+        public virtual Color Emission { get; set; } = Color.FromArgb(255, 77, 12, 32);
 
         [Description("Level of transparency of the material. Should be a value between 0 and 1, where 0.0 is opaque and 1.0 is transparent. Defaults to fully opaque.")]
         public virtual double Transparency { get; set; } = 0.0;
