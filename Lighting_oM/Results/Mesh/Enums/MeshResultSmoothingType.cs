@@ -20,40 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BH.oM.Base;
-using BH.oM.Lighting.Results.Mesh;
-
 using System.ComponentModel;
 
-namespace BH.oM.Lighting.Results.Illuminance
+namespace BH.oM.Lighting.Results
 {
-    [Description("Lux contains results for Lux analysis. Inherits from MeshElementResult which provides properties related to which node this Lux is recorded for")]
-    public class Lux : BH.oM.Lighting.Results.Mesh.MeshElementResult, IImmutable
+    /***************************************************/
+
+    [Description("Defines the smoothing used for the Meshresults, i.e. if and how any result averaging should be done per nodes/face.")]
+    public enum MeshResultSmoothingType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [BH.oM.Quantities.Attributes.Illuminance]
-        [Description("The amount of lux recorded for the given analysis node")]
-        public virtual double LuxLevel { get; } = -1;
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public Lux(IComparable objectId, IComparable nodeId, IComparable meshFaceId, IComparable resultCase, double luxLevel, MeshResultSmoothingType smoothing) : base(objectId, nodeId, meshFaceId, resultCase, smoothing)
-        {
-            LuxLevel = luxLevel;
-        }
-
-        /***************************************************/
-
+        None = 0,
+        ByPanel = 1,
+        BySelection = 2,
+        Global = 3,
+        ByFiniteElementCentres = 4
     }
+
+    /***************************************************/
 }
+
+
 
