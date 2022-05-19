@@ -24,11 +24,12 @@ using BH.oM.Base;
 using BH.oM.Base.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Geometry
 {
     [Description("A surface defined by boundary edge curves lying in a common plane. Planarity toleraces default to the BH.oM.Geometry.Tolerace.Distance.")]
-    public class PlanarSurface : ISurface , IImmutable
+    public class PlanarSurface : ISurface , IImmutable, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
