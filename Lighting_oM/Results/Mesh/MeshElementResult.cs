@@ -29,7 +29,7 @@ using System;
 namespace BH.oM.Lighting.Results.Mesh
 {
     [Description("Base class for all discrete mesh element results, that is a result for an individual node. Stores all identifier information and how to sort the results in a collection")]
-    public abstract class MeshElementResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
+    public abstract class MeshElementResult : IMeshElementResult, IObjectIdResult, ICasedResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -39,13 +39,15 @@ namespace BH.oM.Lighting.Results.Mesh
         public virtual IComparable ObjectId { get; } = "";
 
         [Description("ID of the Node in the Analysis Grid that this result belongs to")]
-        public virtual IComparable NodeID { get; } = "";
+        public virtual IComparable NodeId { get; } = "";
+
+        [Description("Id of the FEFace that this result belongs to. Will be empty for smoothing types not relating to Faces. When extracted from an analysis package, the face id will correspond to the face id in the software and match the format and value used in that particular package.")]
+        public virtual IComparable MeshFaceId { get; }
 
         [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
         public virtual IComparable ResultCase { get; } = "";
 
-        [Description("Time step for time history results. Typically this will be hour intervals for most analysis")]
-        public virtual double TimeStep { get; } = 0.0;
+        public virtual MeshResultSmoothingType Smoothing { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -53,13 +55,15 @@ namespace BH.oM.Lighting.Results.Mesh
 
         protected MeshElementResult(IComparable objectId,
                                 IComparable nodeId,
+                                IComparable meshFaceId,
                                 IComparable resultCase,
-                                double timeStep)
+                                MeshResultSmoothingType smoothing)
         {
             ObjectId = objectId;
-            NodeID = nodeId;
+            NodeId = nodeId;
+            MeshFaceId = meshFaceId;
             ResultCase = resultCase;
-            TimeStep = timeStep;
+            Smoothing = smoothing;
         }
 
         /***************************************************/
@@ -78,13 +82,7 @@ namespace BH.oM.Lighting.Results.Mesh
             if (objectId == 0)
             {
                 int analysisCase = this.ResultCase.CompareTo(otherRes.ResultCase);
-                if (analysisCase == 0)
-                {
-                    int nodeId = this.NodeID.CompareTo(otherRes.NodeID);
-                        return nodeId == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : nodeId;
-                }
-                else
-                    return analysisCase;
+                return analysisCase;
             }
             else
                 return objectId;
