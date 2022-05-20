@@ -44,9 +44,6 @@ namespace BH.oM.Lighting.Results.Mesh
         [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
         public virtual IComparable ResultCase { get; } = "";
 
-        [Description("Time step for time history results. Typically this will be hour intervals for most Environment Analysis")]
-        public virtual double TimeStep { get; } = 0.0;
-
         public virtual MeshResultSmoothingType Smoothing { get; }
 
         [Description("A collection of the discrete mesh element results per node")]
@@ -76,15 +73,7 @@ namespace BH.oM.Lighting.Results.Mesh
                 return this.GetType().Name.CompareTo(other.GetType().Name);
 
             int n = this.ObjectId.CompareTo(otherRes.ObjectId);
-            if (n == 0)
-            {
-                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
-                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
-            }
-            else
-            {
-                return n;
-            }
+            return n;
         }
 
         /***************************************************/
