@@ -26,7 +26,7 @@ using System.Collections.Generic;
 namespace BH.oM.Geometry
 {
     [Description("A composite curve constructed by combining a collection of curves of any type. Whole PolyCurve integrity, continuity and closure is not guaranteed at creation. Discontinuous and/or multi-region definitions are possible, although not recommended as may cause unexpected results in method operating on PolyCurves.")]
-    public class PolyCurve : ICurve
+    public class PolyCurve : ICurve, IPolyCurve
     {
         /***************************************************/
         /**** Properties                                ****/

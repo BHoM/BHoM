@@ -27,14 +27,14 @@ using System;
 
 namespace BH.oM.Geometry
 {
-    [Description("A curve consisting of a continuous chain of straight line segments. The Polyline is considered closed if the first and last ControlPoints are coincident")]
-    public class Polyline : ICurve
+    [Description("A curve consisting of a continuous chain of straight line segments. The Polyline is considered closed if the first and last ControlPoints are coincident.")]
+    public class Polyline : ICurve, IPolyline
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("An ordered set of three-dimensional points defining the curve shape")]
+        [Description("An ordered set of three-dimensional points defining the curve shape.")]
         public virtual List<Point> ControlPoints { get; set; } = new List<Point>();
 
 
