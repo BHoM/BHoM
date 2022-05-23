@@ -28,7 +28,7 @@ namespace BH.oM.Geometry
 {
     [Description("A plane curve. A standard ellipse defining a curve of constant combined distance around two foci." +
                  "\nThe larger of the two radii defines the major axis of the Ellipse, and the line along which the two foci lie.")]
-    public class Ellipse : ICurve
+    public class Ellipse : ICurve, IBoundary
     {
         /***************************************************/
         /**** Properties                                ****/

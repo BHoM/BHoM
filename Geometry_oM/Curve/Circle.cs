@@ -26,7 +26,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Geometry
 {
     [Description("A plane curve. Standard circle defining a curve of constant distance from a point, its Centre.")]
-    public class Circle : ICurve
+    public class Circle : ICurve, IBoundary
     {
         /***************************************************/
         /**** Properties                                ****/
