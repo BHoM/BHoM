@@ -29,7 +29,7 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Dimensional;
 
-namespace BH.oM.Geometry.Curve
+namespace BH.oM.Geometry
 {
     [Description("Closed, planar, non-self intersecting curve built up of multiple curve segments.")]
     public class BoundaryCurve : ICurve, IPolyCurve, IBoundary, IImmutable
