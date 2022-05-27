@@ -48,7 +48,7 @@ namespace BH.oM.Lighting.Results.Illuminance
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Lux(IComparable objectId, IComparable nodeId, IComparable meshFaceId, IComparable resultCase, List<double> luxLevel, MeshResultSmoothingType smoothing) : base(objectId, nodeId, meshFaceId, resultCase, smoothing)
+        public Lux(IComparable objectId, IComparable nodeId, IComparable meshFaceId, IComparable resultCase, List<double> luxLevel) : base(objectId, nodeId, meshFaceId, resultCase)
         {
             LuxLevel = luxLevel;
         }

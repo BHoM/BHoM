@@ -47,8 +47,6 @@ namespace BH.oM.Lighting.Results.Mesh
         [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
         public virtual IComparable ResultCase { get; } = "";
 
-        public virtual MeshResultSmoothingType Smoothing { get; }
-
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
@@ -56,14 +54,12 @@ namespace BH.oM.Lighting.Results.Mesh
         protected MeshElementResult(IComparable objectId,
                                 IComparable nodeId,
                                 IComparable meshFaceId,
-                                IComparable resultCase,
-                                MeshResultSmoothingType smoothing)
+                                IComparable resultCase)
         {
             ObjectId = objectId;
             NodeId = nodeId;
             MeshFaceId = meshFaceId;
             ResultCase = resultCase;
-            Smoothing = smoothing;
         }
 
         /***************************************************/
@@ -81,11 +77,25 @@ namespace BH.oM.Lighting.Results.Mesh
             int objectId = this.ObjectId.CompareTo(otherRes.ObjectId);
             if (objectId == 0)
             {
-                int analysisCase = this.ResultCase.CompareTo(otherRes.ResultCase);
-                return analysisCase;
+                int loadcase = this.ResultCase.CompareTo(otherRes.ResultCase);
+                if (loadcase == 0)
+                {
+                    int meshFaceId = this.MeshFaceId.CompareTo(otherRes.MeshFaceId);
+                    if (meshFaceId == 0)
+                    {
+                        return this.NodeId.CompareTo(otherRes.NodeId);
+                    }
+                    else { return meshFaceId; }
+                }
+                else
+                {
+                    return loadcase;
+                }
             }
             else
+            {
                 return objectId;
+            }
         }
 
         /***************************************************/
