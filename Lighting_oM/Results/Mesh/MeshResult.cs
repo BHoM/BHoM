@@ -44,8 +44,6 @@ namespace BH.oM.Lighting.Results.Mesh
         [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
         public virtual IComparable ResultCase { get; } = "";
 
-        public virtual MeshResultSmoothingType Smoothing { get; }
-
         [Description("A collection of the discrete mesh element results per node")]
         public virtual IReadOnlyList<MeshElementResult> Results { get; }
 
@@ -53,12 +51,11 @@ namespace BH.oM.Lighting.Results.Mesh
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshResult(IComparable objectId, IComparable resultCase, IEnumerable<MeshElementResult> results, MeshResultSmoothingType smoothing)
+        public MeshResult(IComparable objectId, IComparable resultCase, IEnumerable<MeshElementResult> results)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             Results = results == null ? null : new ReadOnlyCollection<MeshElementResult>(results.ToList());
-            Smoothing = smoothing;
         }
 
         /***************************************************/
@@ -72,8 +69,16 @@ namespace BH.oM.Lighting.Results.Mesh
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
 
+
             int n = this.ObjectId.CompareTo(otherRes.ObjectId);
-            return n;
+            if (n == 0)
+            {
+                return this.ResultCase.CompareTo(otherRes.ResultCase);
+            }
+            else
+            {
+                return n;
+            }
         }
 
         /***************************************************/
