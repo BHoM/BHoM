@@ -38,10 +38,10 @@ namespace BH.oM.Lighting.Results.Mesh
         [Description("ID of the AnalysisGrid that this result belongs to")]
         public virtual IComparable ObjectId { get; } = "";
 
-        [Description("ID of the Node in the Analysis Grid that this result belongs to")]
-        public virtual IComparable NodeId { get; } = "";
+        [Description("Id of the Node in the mesh that this result belongs to. Will be empty for face-based results. When extracted from an analysis package, the Node id will correspond to the node id in the software and match the format and value used in that particular package.")]
+        public virtual IComparable NodeId { get; }
 
-        [Description("Id of the FEFace that this result belongs to. Will be empty for smoothing types not relating to Faces. When extracted from an analysis package, the face id will correspond to the face id in the software and match the format and value used in that particular package.")]
+        [Description("Id of the FEFace that this result belongs to. Will be empty for node-based results. When extracted from an analysis package, the face id will correspond to the face id in the software and match the format and value used in that particular package.")]
         public virtual IComparable MeshFaceId { get; }
 
         [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
