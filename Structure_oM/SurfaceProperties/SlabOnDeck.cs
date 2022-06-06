@@ -46,7 +46,7 @@ namespace BH.oM.Structure.SurfaceProperties
 
         [Length]
         [Description("The thickness of slab above the top flute of the deck ribs.")]
-        public virtual double Thickness { get; set; }
+        public virtual double SlabThickness { get; set; }
 
         [Description("Specifies if the ribs are running in local x or y direction.")]
         public virtual PanelDirection Direction { get; set; } = PanelDirection.X;

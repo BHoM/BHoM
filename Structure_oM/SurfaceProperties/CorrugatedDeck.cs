@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.SurfaceProperties
 {
-    [Description("Property for 2D analytical elements representing a slab on a corrugated deck. Generally used to represent concrete on metal deck.")]
+    [Description("Property for 2D analytical elements representing a corrugated deck. Generally used to represent concrete on metal deck.")]
     public class CorrugatedDeck : BHoMObject, ISurfaceProperty
     {
         /***************************************************/
