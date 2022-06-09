@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -39,8 +39,8 @@ namespace BH.oM.Structure.Elements
         [Description("Position of the node in global Cartesian 3D space.")]
         public virtual Point Position { get; set; } = null;
 
-        [Description("Local x, y, and z axes of the node as a vector Basis. Defaults to world axes.")]
-        public virtual Basis Orientation { get; set; } = Basis.XY;
+        [Description("Local x, y, and z axes of the node as a vector Basis. Defaults to null which is interpretated to defaults when pushed to software and world axes in BHoM.")]
+        public virtual Basis Orientation { get; set; } = null;
 
         [Description("Defines the Support property of the Node. If not set, the Node will be assumed to be free to translate and rotate.")]
         public virtual Constraint6DOF Support { get; set; } = null;
@@ -68,5 +68,6 @@ namespace BH.oM.Structure.Elements
     }
 }
     
+
 
 

@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -36,6 +36,7 @@ namespace BH.oM.Environment.Elements
         Baggage,
         BankVault,
         Barber,
+        Bathroom,
         Bedroom,
         Casino,
         Classroom,
@@ -98,6 +99,7 @@ namespace BH.oM.Environment.Elements
         SportsArena,
         Stage,
         Stairs,
+        Storage,
         TelephoneCloset,
         TicketCounter,
         Warehouse,
@@ -106,5 +108,6 @@ namespace BH.oM.Environment.Elements
         Unconditioned,
     }
 }
+
 
 

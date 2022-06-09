@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -26,23 +26,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BH.oM.Analytical.Results
 {
-    public interface IResult : IObject, IComparable<IResult>
+    [Description("Base interface for all analytical results.\n" + 
+                 "For expanded functionality, a result class should generally either implement the IResultItem or IResultCollection interface, or one of their sub-interfaces, rather than this interface directly.")]
+    public interface IResult : IObject, IComparable<IResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        IComparable ObjectId { get; }
-
-        IComparable ResultCase { get; }
-
-        double TimeStep { get; }
 
         /***************************************************/
     }
 }
+
 
 

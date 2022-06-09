@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -32,7 +32,7 @@ using System.Collections.ObjectModel;
 
 namespace BH.oM.Test.Results
 {
-    public class InputOutputComparison : IResultCollection<InputOutputDifference>
+    public class InputOutputComparison : IResultCollection<InputOutputDifference>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -50,7 +50,7 @@ namespace BH.oM.Test.Results
         public virtual InputOutputComparisonType ResultType { get; }
 
         [Description("Any differences between the input object and the returned object.")]
-        public virtual ReadOnlyCollection<InputOutputDifference> Results { get; }
+        public virtual IReadOnlyList<InputOutputDifference> Results { get; }
 
         [Description("Time of the results creation as OADate")]
         public virtual double TimeStep { get; }
@@ -103,4 +103,5 @@ namespace BH.oM.Test.Results
         /***************************************************/
     }
 }
+
 

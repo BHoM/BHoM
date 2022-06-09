@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -24,7 +24,6 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
-using BH.oM.MEP.System.ConnectionProperties;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
 
@@ -46,9 +45,6 @@ namespace BH.oM.MEP.System
         [Description("The Cable Tray section property defines the shape (rectangular) and its associated properties (height, width, material, thickness/gauge).")]
         public virtual CableTraySectionProperty SectionProperty { get; set; } = null;
 
-        [Description("The Cable Tray connections properties, such as if it's connected and to what.")]
-        public virtual CableTrayConnectionProperty ConnectionProperty { get; set; } = null;
-
         [Angle]
         [Description("This is the Cable Tray's planometric orientation angle (the rotation around its central axis).")]
         public virtual double OrientationAngle { get; set; } = 0;
@@ -56,4 +52,5 @@ namespace BH.oM.MEP.System
         /***************************************************/
     }
 }
+
 

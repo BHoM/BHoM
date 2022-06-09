@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -23,11 +23,13 @@
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using System;
+using BH.oM.Analytical.Results;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting stresses in local coordinates along the bar.")]
-    public class BarStress : BarResult
+    public class BarStress : BarResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -99,4 +101,5 @@ namespace BH.oM.Structure.Results
         /***************************************************/
     }
 }
+
 

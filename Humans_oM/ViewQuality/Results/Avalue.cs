@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,32 +20,57 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
 using BH.oM.Geometry;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Humans.ViewQuality
 {
-    public class Avalue : ViewQualityResult
+    public class Avalue : ViewQualityResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual double Occulsion { get; set; } = 0.0;
+        [Description("Percentage of the cone of vision occupied by the clipped activity area.")]
+        public virtual double AValue { get; }
 
-        public virtual double AValue { get; set; } = 0.0;
+        [Description("Percentage of the cone of vision occupied by heads occluding the activity area.")]
+        public virtual double Occulsion { get; }
 
-        public virtual Polyline FullActivityArea { get; set; } = new Polyline();
+        [Description("Activity area projected to the spectator's viewing plane.")]
+        public virtual Polyline FullActivityArea { get; }
 
-        public virtual List<Polyline> ClippedActivityArea { get; set; } = new List<Polyline>();
+        [Description("Resulting Polyline after clipping the full activity area with the cone of vision.")]
+        public virtual Polyline ClippedActivityArea { get; }
 
-        public virtual ViewCone ViewCone { get; set; } = new ViewCone();
+        [Description("Effective cone of vision orientated to the spectator.")]
+        public virtual Polyline ConeOfVision { get; }
 
-        public List<Polyline> Heads = new List<Polyline>();
+        [Description("Point representing the spectator's singular eye reference.")]
+        public virtual Point ReferencePoint { get; }
+
+        [Description("Polylines of the spectator heads occluding the view of the activity area.")]
+        public virtual List<Polyline> OccludingHeads { get; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public Avalue(IComparable objectId, IComparable resultCase, double timeStep, double aValue, double occulsion, Polyline fullActivityArea, Polyline clippedActivityArea, Polyline coneOfVision, Point referencePoint, List<Polyline> occludingHeads) :
+            base(objectId, resultCase, timeStep)
+        {
+            AValue = aValue;
+            Occulsion = occulsion;
+            FullActivityArea = fullActivityArea;
+            ClippedActivityArea = clippedActivityArea;
+            ConeOfVision = coneOfVision;
+            ReferencePoint = referencePoint;
+            OccludingHeads = occludingHeads;
+        }
 
         /***************************************************/
     }
 }
-
-

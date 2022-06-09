@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,14 +21,15 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Geometry
 {
     [Description("A surface defined by boundary edge curves lying in a common plane. Planarity toleraces default to the BH.oM.Geometry.Tolerace.Distance.")]
-    public class PlanarSurface : ISurface , IImmutable
+    public class PlanarSurface : ISurface , IImmutable, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -49,5 +50,6 @@ namespace BH.oM.Geometry
         }
     }
 }
+
 
 

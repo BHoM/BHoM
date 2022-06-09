@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -32,7 +32,7 @@ using System.Linq;
 namespace BH.oM.Structure.Results
 {
     [Description("Full collection of discrete results for a Panel/FEMesh for a specific Loadcase or LoadCombination.")]
-    public class MeshResult : IResult, IMeshResult<MeshElementResult>, IStructuralResult, IImmutable
+    public class MeshResult : IMeshResult<MeshElementResult>, IStructuralResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -58,7 +58,7 @@ namespace BH.oM.Structure.Results
         public virtual MeshResultSmoothingType Smoothing { get; }
 
         [Description("A collection of the discrete mesh element results per node and/or face.")]
-        public virtual ReadOnlyCollection<MeshElementResult> Results { get; }
+        public virtual IReadOnlyList<MeshElementResult> Results { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -103,5 +103,6 @@ namespace BH.oM.Structure.Results
 
     }
 }
+
 
 

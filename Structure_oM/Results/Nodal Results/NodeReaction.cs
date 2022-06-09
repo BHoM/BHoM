@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -22,13 +22,14 @@
 
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
 using System;
 using BH.oM.Geometry;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting reaction forces and moments for a Node.")]
-    public class NodeReaction : NodeResult
+    public class NodeReaction : NodeResult, IReaction, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -76,5 +77,6 @@ namespace BH.oM.Structure.Results
         /***************************************************/
     }
 }
+
 
 

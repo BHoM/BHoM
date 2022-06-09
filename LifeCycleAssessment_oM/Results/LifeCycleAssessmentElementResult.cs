@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,16 +21,16 @@
  */
 
 using BH.oM.Analytical.Results;
-using BH.oM.LifeCycleAssessment.MaterialFragments;
-using BH.oM.Geometry;
-using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.LifeCycleAssessment.MaterialFragments;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Base class for a LifeCycleAssessment of a single object. This contains the total quantity of global warming potential, acidification potential, etc. for a whole project.")]
-    public abstract class LifeCycleAssessmentElementResult : IResult, IImmutable
+    public abstract class LifeCycleAssessmentElementResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -46,13 +46,16 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual double TimeStep { get; } = 0.0;
 
         [Description("Scope the object this result was generated from belongs to, e.g. Foundation or Facade")]
-        public virtual ObjectScope Scope { get; } = ObjectScope.Undefined;
+        public virtual ScopeType Scope { get; } = ScopeType.Undefined;
 
         [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
         public virtual ObjectCategory Category { get; } = ObjectCategory.Undefined;
 
+        [Description("Phase of life abbreviation for the scope of the EPD. A single EnvironmentalMetric can contain either a single Phase or a list of Phases i.e. A1, A2, A3.")]
+        public virtual List<LifeCycleAssessmentPhases> Phases { get; } = new List<LifeCycleAssessmentPhases>();
+
         [Description("The EnvironmentalProductDeclaration used to generate this result.")]
-        public virtual IEnvironmentalProductDeclarationData EnvironmentalProductDeclaration{ get; }
+        public virtual List<EnvironmentalProductDeclaration> EnvironmentalProductDeclaration{ get; set; }
 
 
         /***************************************************/
@@ -62,15 +65,17 @@ namespace BH.oM.LifeCycleAssessment.Results
         protected LifeCycleAssessmentElementResult(   IComparable objectId,
                                 IComparable resultCase,
                                 double timeStep,
-                                ObjectScope scope,
+                                ScopeType scope,
                                 ObjectCategory category,
-                                IEnvironmentalProductDeclarationData environmentalProductDeclaration)
+                                List<LifeCycleAssessmentPhases> phases,
+                                List<EnvironmentalProductDeclaration> environmentalProductDeclaration)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
             Scope = scope;
             Category = category;
+            Phases = phases;
             EnvironmentalProductDeclaration = environmentalProductDeclaration;
         }
 
@@ -108,6 +113,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /***************************************************/
     }
 }
+
 
 
 

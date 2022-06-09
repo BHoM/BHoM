@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -22,13 +22,15 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Physical.Materials;
 
 namespace BH.oM.MEP.System.MaterialFragments
 {
-    public class DuctMaterial : BHoMObject, IMEPMaterial
+    public class DuctMaterial : BHoMObject, IMEPMaterial, IMaterialProperties
     {
         [Description("Roughness is a measure of the irregularities on the surface of a duct.")]
         public virtual double Roughness { get; set; } = 0;
     }
 }
+
 

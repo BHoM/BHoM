@@ -1,0 +1,40 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+      "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope": "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope"
+    },
+    "ToOld": {
+      "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope": "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope"
+    }
+  },
+  "Property": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "MessageForDeleted": {
+    "BH.oM.LifeCycleAssessment.ElectricalScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.EnclosuresScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.FireProtectionScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.FoundationsScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.IScope": "This interface has been removed.",
+    "BH.oM.LifeCycleAssessment.MechanicalScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.MEPScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.PlumbingScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.ProjectLifeCycleAssessmentScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.StructuresScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.TenantImprovementScope": "This object has been replaced with a Scope fragment.",
+    "BH.oM.LifeCycleAssessment.Results.LifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA.",
+    "BH.oM.LifeCycleAssessment.Results.ProjectLifeCycleAssessmentResult": "This object has been removed. Please use EvaluateEnvironmentalProductDeclaration for any LCA.",
+    "BH.oM.LifeCycleAssessment.Results.GlobalWarmingPotentialResult": "This result class has been removed. Please use the EvaluateEnvironmentalProductDeclaration method to return a standard results class."
+  },
+  "MessageForNoUpgrade": {
+  }
+}

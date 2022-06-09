@@ -1,0 +1,17 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+      "BH.oM.Reflection": "BH.oM.Base",
+      "BH.oM.Reflection.Attributes": "BH.oM.Base.Attributes",
+      "BH.oM.Reflection.Debugging": "BH.oM.Base.Debugging",
+      "BH.oM.Reflection.Interface": "BH.oM.Base"
+    },
+    "ToOld": {
+      "BH.oM.Base.Attributes": "BH.oM.Reflection.Attributes",
+      "BH.oM.Base.Debugging": "BH.oM.Reflection.Debugging"
+    }
+  },
+  "MessageForDeleted": {
+    "BH.oM.Base.Attributes.DeprecatedAttribute": "DeprecatedAttribute was discontinued in 3.2. Use ReplacedAttribute or ToBeDeletedAttribute or PreviousVersionAttribute instead"
+  }
+}

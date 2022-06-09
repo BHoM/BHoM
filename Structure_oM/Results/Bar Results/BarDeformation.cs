@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -23,11 +23,12 @@
 using System;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting local deformation of the Bar in local coordinates. This is disregarding rigid body motion and/or rotation of the Bar.")]
-    public class BarDeformation : BarResult
+    public class BarDeformation : BarResult, IDisplacement, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -75,5 +76,6 @@ namespace BH.oM.Structure.Results
         /***************************************************/
     }
 }
+
 
 

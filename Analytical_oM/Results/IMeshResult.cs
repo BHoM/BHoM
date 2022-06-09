@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -30,9 +30,10 @@ using System.ComponentModel;
 namespace BH.oM.Analytical.Results
 {
     [Description("Base interface for any Mesh result class which is a collection of discrete MeshElementResults.")]
-    public interface IMeshResult<T> : IResultCollection<T> where T : IMeshElementResult
+    public interface IMeshResult<out T> : IObjectIdResult, IResultCollection<T> where T : IMeshElementResult
     {
 
     }
 }
+
 

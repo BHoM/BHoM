@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -53,11 +53,14 @@ namespace BH.oM.Structure.Results
         [Description("Time step for time history results.")]
         public virtual double TimeStep { get; }
 
+        [ObjectIdentifier]
         public virtual MeshResultLayer MeshResultLayer { get; }
 
+        [ObjectIdentifier]
         [Description("Position within the element thickness that result is extracted from, normalised to 1. I.e. 0 = lower surface, 0.5 = middle, 1 = top surface.")]
         public virtual double LayerPosition { get; }
 
+        [ObjectIdentifier]
         public virtual MeshResultSmoothingType Smoothing { get; }
 
         [Description("Vector basis required in order to report results in a particular direction, for example, for anisotropic materials.")]
@@ -139,6 +142,7 @@ namespace BH.oM.Structure.Results
         /***************************************************/
     }
 }
+
 
 
 

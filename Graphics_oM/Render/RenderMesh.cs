@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -33,7 +33,7 @@ namespace BH.oM.Graphics
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual List<Vertex> Vertices { get; set; } = new List<Vertex>();
+        public virtual List<RenderPoint> Vertices { get; set; } = new List<RenderPoint>();
 
         public virtual List<Face> Faces { get; set; } = new List<Face>();
 
@@ -45,11 +45,12 @@ namespace BH.oM.Graphics
 
         public static explicit operator RenderMesh(Geometry.Mesh mesh)
         {
-            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (Vertex)p).ToList() };
+            return new RenderMesh() { Faces = mesh.Faces, Vertices = mesh.Vertices.Select(p => (RenderPoint)p).ToList() };
         }
 
         /***************************************************/
     }
 }
+
 
 

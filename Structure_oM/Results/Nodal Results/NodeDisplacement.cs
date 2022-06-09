@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -24,11 +24,12 @@ using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using System;
 using BH.oM.Geometry;
+using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting displacements and rotations for a Node.")]
-    public class NodeDisplacement : NodeResult, INodeDisplacement
+    public class NodeDisplacement : NodeResult, INodeDisplacement, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -76,5 +77,6 @@ namespace BH.oM.Structure.Results
         /***************************************************/
     }
 }
+
 
 

@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -33,7 +33,7 @@ using BH.oM.Facade.SectionProperties;
 namespace BH.oM.Facade.Elements
 {
     [Description("A frame edge (eg mullion, window jamb, curtain wall sill, etc)")]
-    public class FrameEdge : BHoMObject, IEdge
+    public class FrameEdge : BHoMObject, IEdge, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -48,5 +48,6 @@ namespace BH.oM.Facade.Elements
         /***************************************************/
     }
 }
+
 
 

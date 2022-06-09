@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -25,11 +25,12 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Structure.Results
 {
     [Description("Shell and membrane stresses at a discrete location in the Panel/FEMesh.")]
-    public class MeshStress: MeshElementResult, IImmutable
+    public class MeshStress: MeshElementResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -103,5 +104,6 @@ namespace BH.oM.Structure.Results
         /***************************************************/
     }
 }
+
 
 

@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -40,34 +40,8 @@ namespace BH.oM.Base
         public virtual HashSet<string> Tags { get; set; } = new HashSet<string>();
 
         public virtual Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
-
-
-        /***************************************************/
-        /**** Public Local Methods                      ****/
-        /***************************************************/
-
-        public IBHoMObject GetShallowClone(bool newGuid = false)
-        {
-            BHoMObject obj = (BHoMObject)this.MemberwiseClone();
-
-            if (CustomData != null)
-                obj.CustomData = new Dictionary<string, object>(CustomData);
-            else
-                obj.CustomData = new Dictionary<string, object>();
-
-            if (Tags != null)
-                obj.Tags = new HashSet<string>(Tags);
-            else
-                obj.Tags = new HashSet<string>();
-
-            if (newGuid)
-                obj.BHoM_Guid = Guid.NewGuid();
-
-            return obj;
-        }
-
-        /***************************************************/
     }
 }
+
 
 

@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -27,10 +27,12 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Results
 {
     [Description("Base interface for all structural results. Adds ModeNumber as a property in addition to the one from the base IResult")]
-    public interface IStructuralResult : IResult, IImmutable
+    public interface IStructuralResult : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
+        [ScenarioIdentifier]
         [Description("Positive index, starting at one. Only set for cases with modal outputs such as dynamic cases.")]
         int ModeNumber { get; }
     }
 }
+
 

@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -23,7 +23,7 @@
 using System.Linq;
 using BH.oM.Geometry;
 using BH.oM.Base;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using System.Collections.ObjectModel;
 using BH.oM.Structure.MaterialFragments;
 using System.ComponentModel;
@@ -208,6 +208,7 @@ namespace BH.oM.Structure.SectionProperties
         /***************************************************/
     }
 }
+
 
 
 

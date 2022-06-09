@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -27,11 +27,12 @@ using System.Collections.Generic;
 using BH.oM.Base;
 using System.Collections.ObjectModel;
 using System;
+using System.Linq;
 
 namespace BH.oM.Environment.Results.Mesh
 {
     [Description("Full collection of discrete results for an AnalysisGrid for a specific Analysis.")]
-    public class MeshResult : IResult, IResultCollection<MeshElementResult>, IImmutable
+    public class MeshResult : IObjectIdResult, ICasedResult, ITimeStepResult, IResultCollection<MeshElementResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -47,18 +48,18 @@ namespace BH.oM.Environment.Results.Mesh
         public virtual double TimeStep { get; } = 0.0;
 
         [Description("A collection of the discrete mesh element results per node")]
-        public virtual ReadOnlyCollection<MeshElementResult> Results { get; }
+        public virtual IReadOnlyList<MeshElementResult> Results { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, ReadOnlyCollection<MeshElementResult> results)
+        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, IEnumerable<MeshElementResult> results)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             TimeStep = timeStep;
-            Results = results;
+            Results = results == null ? null : new ReadOnlyCollection<MeshElementResult>(results.ToList());
         }
 
         /***************************************************/
@@ -88,5 +89,6 @@ namespace BH.oM.Environment.Results.Mesh
 
     }
 }
+
 
 

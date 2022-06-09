@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
 using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Spatial.ShapeProfiles;
@@ -29,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.Architecture.BuildersWork
 {
     [Description("Object representing a builders work opening as an entity independent of its host.")]
-    public class Opening : BHoMObject
+    public class Opening : BHoMObject, IElement0D
     {
         /***************************************************/
         /****                Properties                 ****/
@@ -48,5 +49,6 @@ namespace BH.oM.Architecture.BuildersWork
         /***************************************************/
     }
 }
+
 
 

@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -31,7 +31,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Test.Results
 {
-    public class InputOutputComparisonDiffing : IResult, IImmutable
+    public class InputOutputComparisonDiffing : IObjectIdResult, ICasedResult, ITimeStepResult, IImmutable
     {
 
         /***************************************************/
@@ -64,16 +64,17 @@ namespace BH.oM.Test.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public InputOutputComparisonDiffing(IComparable objectId, IComparable resultCase, string propertyId, Type objectType, InputOutputComparisonDiffingType type, object inputValue, object newValue, object referenceValue)
+        public InputOutputComparisonDiffing(IComparable objectId, IComparable resultCase, string propertyId, Type objectType, InputOutputComparisonDiffingType type, object inputValue, object newValue, object referenceValue, double timeStep = 0)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             PropertyId = propertyId;
-            ObjectId = objectId;
+            ObjectType = objectType;
             Type = type;
             InputValue = inputValue;
             NewValue = newValue;
             ReferenceValue = referenceValue;
+            TimeStep = timeStep;
         }
 
         /***************************************************/
@@ -118,4 +119,5 @@ namespace BH.oM.Test.Results
         /***************************************************/
     }
 }
+
 
