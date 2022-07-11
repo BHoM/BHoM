@@ -20,33 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.MEP.Enums;
 
-namespace BH.oM.MEP.System.Fittings
+namespace BH.oM.MEP.Enums
 {
-    [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
-    public class Fitting : BHoMObject, IElement0D
+    /***************************************************/
+
+    [Description("")]
+    public enum FlowDirection
     {
-        /***************************************************/
-        /****                 Properties                ****/
-        /***************************************************/
-
-        [Description("The point at which the Fitting occurs.")]
-        public virtual Point Location { get; set; } = null;
-        
-        [Description("The points at which the Fitting physically connects to other MEP segments.")]
-        public virtual List<Connector> Connections { get; set; } = null;
-
-        [Description("The type of fitting connected to an element.")]
-        public virtual FittingType Type { get; set; } = FittingType.Undefined;
-
-        /***************************************************/
+        Bidirectional,
+        In,
+        Out
     }
+
+    /***************************************************/
 }
 
 

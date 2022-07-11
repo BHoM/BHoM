@@ -20,32 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.MEP.Enums;
+using BH.oM.MEP.System.MaterialFragments;
+using BH.oM.Physical.Materials;
 
-namespace BH.oM.MEP.System.Fittings
+namespace BH.oM.MEP.System.SectionProperties
 {
-    [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
-    public class Fitting : BHoMObject, IElement0D
+    public class ConnectorSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
     {
-        /***************************************************/
-        /****                 Properties                ****/
-        /***************************************************/
-
-        [Description("The point at which the Fitting occurs.")]
-        public virtual Point Location { get; set; } = null;
         
-        [Description("The points at which the Fitting physically connects to other MEP segments.")]
-        public virtual List<Connector> Connections { get; set; } = null;
+        [Description("The section profile of the object that will determine its use within a System.")]
+        public virtual SectionProfile SectionProfile { get; }
 
-        [Description("The type of fitting connected to an element.")]
-        public virtual FittingType Type { get; set; } = FittingType.Undefined;
-
-        /***************************************************/
+        //Constructor
+        public ConnectorSectionProperty(SectionProfile sectionProfile)
+        {
+            SectionProfile = sectionProfile;
+        }
     }
 }
 

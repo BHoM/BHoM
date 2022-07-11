@@ -26,24 +26,41 @@ using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.MEP.Enums;
+using BH.oM.MEP.System.SectionProperties;
 
 namespace BH.oM.MEP.System.Fittings
 {
-    [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
-    public class Fitting : BHoMObject, IElement0D
+    [Description("A connector object describes an MEP element's connectors from Revit.")]
+    public class Connector : BHoMObject, IElement0D
     {
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The point at which the Fitting occurs.")]
+        [Description("The location of the connector")]
         public virtual Point Location { get; set; } = null;
-        
-        [Description("The points at which the Fitting physically connects to other MEP segments.")]
-        public virtual List<Connector> Connections { get; set; } = null;
 
-        [Description("The type of fitting connected to an element.")]
-        public virtual FittingType Type { get; set; } = FittingType.Undefined;
+        [Description("The flow rate")]
+        public virtual double FlowRate { get; set; }
+
+        public virtual FlowDirection FlowDirection { get; set; }
+
+        public virtual double Height { get; set; }
+
+        public virtual double Width { get; set; }
+
+        public virtual double Diameter { get; set; }
+
+        public virtual double Angle { get; set; }
+
+        public virtual bool IsConnected { get; set; }
+
+        public virtual string MEPSystemId { get; set; }
+
+
+
+
+        //public virtual ConnectorSectionProperty SectionProperty { get; set; } = null;
 
         /***************************************************/
     }
