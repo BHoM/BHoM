@@ -38,19 +38,23 @@ namespace BH.oM.Structure.MaterialFragments
         public override string Name { get; set; }
 
         [Density]
-        [Description("Density used to calculate other mechanical properties, not for calculating mass.")]
+        [Description("Characteristic Density used to calculate other mechanical properties, not for calculating mass. Called p_k in eurocode")]
         public virtual double DensityDesign { get; set; }
 
         [Density]
-        [Description("Density used to calculate mass.")]
+        [Description("Average Density used to calculate mass. Called p_mean in Eurocode")]
         public virtual double Density { get; set; }
 
         [Ratio]
         [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%).")]
         public virtual double DampingRatio { get; set; }
-
+        
         [YoungsModulus]
-        [Description("Modulus of elasticity of the material. Ratio between axial stress and axial strain.")]
+        [Description("Characteristic Modulus of elasticity of the material. Ratio between axial stress and axial strain. Called E_05 in Eurocode.")]
+        public virtual Vector YoungsModulus { get; set; }
+        
+        [YoungsModulus]
+        [Description("Average Modulus of elasticity of the material. Ratio between axial stress and axial strain. Called E_mean in Eurocode.")]
         public virtual Vector YoungsModulus { get; set; }
 
         [Ratio]
@@ -62,7 +66,19 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual Vector ThermalExpansionCoeff { get; set; }
 
         [ShearModulus]
-        [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain.")]
+        [Description("The characteristic shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain. Called G_05 in Eurocode.")]
+        public virtual Vector ShearModulus { get; set; }
+        
+        [ShearModulus]
+        [Description("The average shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain. Called G_mean in Eurocode.")]
+        public virtual Vector ShearModulus { get; set; }
+        
+        [ShearModulus]
+        [Description("The characteristic rolling shear modulus. Defined as the ratio between rolling shear stress and rolling shear strain. Called G_r05 in Eurocode.e")]
+        public virtual Vector ShearModulus { get; set; }
+        
+        [ShearModulus]
+        [Description("The average rolling shear modulus. Defined as the ratio between rolling shear stress and rolling shear strain. Called G_rmean in Eurocode.")]
         public virtual Vector ShearModulus { get; set; }
 
         [Stress]
@@ -90,7 +106,7 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double ShearStrength { get; set; }
         
         [Stress]
-        [Description("Rolling Shear Strength or F_v_r. Defined as the shear stress perpendicular to the grain at failure in net shear. Also called f_vk in Eurocode.")]
+        [Description("Rolling Shear Strength or F_r. Defined as the shear stress perpendicular to the grain at failure in net shear. Called F_rk in Eurocode.")]
         public virtual double ShearStrength { get; set; }
 
         /***************************************************/
