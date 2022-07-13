@@ -88,6 +88,10 @@ namespace BH.oM.Structure.MaterialFragments
         [Stress]
         [Description("Shear Strength or F_v. Defined as the shear stress parallel to the grain at failure in net shear, i.e. shear relevant to beam bending. Called F_v in American codes, f_vk in Eurocode.")]
         public virtual double ShearStrength { get; set; }
+        
+        [Stress]
+        [Description("Rolling Shear Strength or F_v_r. Defined as the shear stress perpendicular to the grain at failure in net shear. Also called f_vk in Eurocode.")]
+        public virtual double ShearStrength { get; set; }
 
         /***************************************************/
 
