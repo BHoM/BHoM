@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -19,36 +19,18 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using BH.oM.Base;
 using System.ComponentModel;
 
 namespace BH.oM.Environment.SpaceCriteria
-
-{ 
-    [Description("Ventilation defines the amount of outside air that should be introduced to a space, which is typically based on the number of occupants breathing the air and the area of the space.")]
-    public class Ventilation : BHoMObject
+{
+    public class AirChangeRateInfo:BHoMObject
     {
-        [Description("Outdoor air ventilation per occupancy and per square footage")]
-        public virtual PeopleAreaVent PeopleAreaVent  { get; set; }
-
-        [Description("")]
-        public virtual AirChangeRateInfo AirChangeRateInfo { get; set; }
-
-        [Description("LEED supplemental ventilation addition to Breathing Zone Outdoor Airflow")]
-        public virtual SupplementalVentilation SupplementalVentilation { get; set; }
-
-        [Description("A measure of the effectiveness of supply air distribution to the breathing zone.")]
-        public virtual AirEffectiveness AirEffectiveness { get; set; }
-
-
+        public virtual double Rate { get; set; }
     }
 }
-
-
