@@ -40,7 +40,7 @@ namespace BH.oM.MEP.System.Fittings
         public virtual Point Location { get; set; } = null;
         
         [Description("The points at which the Fitting physically connects to other MEP segments.")]
-        public virtual List<Connector> Connections { get; set; } = null;
+        public virtual List<Connector> Connectors { get; set; } = null;
 
         [Description("The type of fitting connected to an element.")]
         public virtual FittingType Type { get; set; } = FittingType.Undefined;
