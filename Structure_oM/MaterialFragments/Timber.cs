@@ -38,7 +38,7 @@ namespace BH.oM.Structure.MaterialFragments
         public override string Name { get; set; }
 
         [Density]
-        [Description("Characteristic Density used to calculate other mechanical properties, not for calculating mass. Called p_k in eurocode")]
+        [Description("Characteristic density used to calculate other mechanical properties, not for calculating mass. Called G (specific gravity) in American codes, called p_k in Eurocode")]
         public virtual double DensityDesign { get; set; }
 
         [Density]
