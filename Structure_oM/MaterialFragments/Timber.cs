@@ -42,7 +42,7 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double DensityDesign { get; set; }
 
         [Density]
-        [Description("Average Density used to calculate mass. Called p_mean in Eurocode")]
+        [Description("Average density used to calculate mass. Called p_mean in Eurocode")]
         public virtual double Density { get; set; }
 
         [Ratio]
@@ -106,8 +106,8 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double ShearStrength { get; set; }
         
         [Stress]
-        [Description("Rolling Shear Strength or F_r. Defined as the shear stress perpendicular to the grain at failure in net shear. Called F_rk in Eurocode.")]
-        public virtual double ShearStrength { get; set; }
+        [Description("Shear Rolling Strength or F_r. Defined as the shear stress perpendicular to the grain at failure in net shear. Called F_s in American codes, called F_rk in Eurocode.")]
+        public virtual double ShearRollingStrength { get; set; }
 
         /***************************************************/
 
