@@ -36,7 +36,7 @@ namespace BH.oM.Environment.SpaceCriteria
     public class Ventilation : BHoMObject
     {
         [Description("Outdoor air ventilation per occupancy and per square footage")]
-        public virtual PeopleAreaVent PeopleAreaVent  { get; set; }
+        public virtual PeopleAreaVentilation PeopleAreaVent  { get; set; }
 
         [Description("")]
         public virtual AirChangeRateInfo AirChangeRateInfo { get; set; }
