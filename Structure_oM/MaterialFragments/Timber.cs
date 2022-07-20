@@ -34,66 +34,66 @@ namespace BH.oM.Structure.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A unique name is required for some structural packages to create and identify the object.")]
+        [Description("Name. A unique name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Density]
-        [Description("Characteristic density used to calculate other mechanical properties, not for calculating mass. Called G (specific gravity) in American codes, called p_k in Eurocode")]
+        [Description("Characteristic Density. Used to calculate other mechanical properties, not for calculating mass. Called G (specific gravity) in American codes, p_k in Eurocode")]
         public virtual double DensityCharacteristic { get; set; }
 
         [Density]
-        [Description("Mean density used to calculate mass. Called p_mean in Eurocode")]
+        [Description("Mean Density. Used to calculate mass. Called p_mean in Eurocode")]
         public virtual double DensityMean { get; set; }
 
         [Ratio]
-        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%).")]
+        [Description("Dynamic Damping Ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%).")]
         public virtual double DampingRatio { get; set; }
         
         [YoungsModulus]
-        [Description("Modulus of elasticity of the material. Ratio between stress and strain in all directions. Constructed for FEA purposes from charactersitic values.")]
+        [Description("Modulus Of Elasticity of the material. Ratio between stress and strain in all directions. Constructed for FEA purposes from parallel and perpendicular characteristic values.")]
         public virtual Vector YoungsModulus { get; set; }
         
         [YoungsModulus]
-        [Description("Mean modulus of elasticity of the material parallel to grain. Ratio between stress and strain. Called E_0,mean in Eurocode.")]
+        [Description("Mean Modulus Of Elasticity of the material parallel to grain. Ratio between stress and strain. Called E_0,mean in Eurocode.")]
         public virtual double YoungsModulusMeanParallel { get; set; }
         
         [YoungsModulus]
-        [Description("Mean modulus of elasticity of the material perpendicular to grain. Ratio between stress and strain. Called E_90,mean in Eurocode.")]
+        [Description("Mean Modulus Of Elasticity of the material perpendicular to grain. Ratio between stress and strain. Called E_90,mean in Eurocode.")]
         public virtual double YoungsModulusMeanPerpendicular { get; set; }
         
         [YoungsModulus]
-        [Description("Characteristic modulus of elasticity of the material parallel to grain. Ratio between stress and strain. Called E_0,k in Eurocode.")]
+        [Description("Characteristic Modulus Of Elasticity of the material parallel to grain. Ratio between stress and strain. Called E_0,k in Eurocode.")]
         public virtual double YoungsModulusCharacteristicParallel { get; set; }        
         [YoungsModulus]
-        [Description("Characteristic modulus of elasticity of the material perpendicular to grain. Ratio between stress and strain. Called E_90,k in Eurocode.")]
+        [Description("Characteristic Modulus Of Elasticity of the material perpendicular to grain. Ratio between stress and strain. Called E_90,k in Eurocode.")]
         public virtual double YoungsModulusCharacteristicPerpendicular { get; set; }
 
         [Ratio]
-        [Description("Ratio between axial and transverse strain.")]
+        [Description("Poisson's Ratio. Ratio between axial and transverse strain. Typically take as 0.4, though value varies depending on timber species.")]
         public virtual Vector PoissonsRatio { get; set; }
 
         [ThermalExpansionCoefficient]
-        [Description("The strain induced in the material per unit change of temperature.")]
+        [Description("Thermal Expansion Coefficeint. The strain induced in the material per unit change of temperature. Typically take as 5x10^-6, though value varies depending on timber species.")]
         public virtual Vector ThermalExpansionCoeff { get; set; }
 
         [ShearModulus]
-        [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain. Constructed for FEA purposes from characteristic values.")]
+        [Description("Shear Modulus or Modulus of Rigidity. Defined as the ratio between shear stress and shear strain. Constructed for FEA purposes from parallel and perpendicular characteristic values.")]
         public virtual Vector ShearModulus { get; set; }
         
         [ShearModulus]
-        [Description("The characteristic shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain parallel to the grain. Called G_k in Eurocode.")]
+        [Description("Characteristic Shear Modulus or Modulus Of Rigidity. Defined as the ratio between shear stress and shear strain parallel to the grain. Called G_k in Eurocode.")]
         public virtual double ParallelShearModulusCharacteristic { get; set; }
         
         [ShearModulus]
-        [Description("The mean shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain parallel to the grain. Called G_mean in Eurocode.")]
+        [Description("Mean Shear Modulus or Modulus Of Rigidity. Defined as the ratio between shear stress and shear strain parallel to the grain. Called G_mean in Eurocode.")]
         public virtual double ParallelShearModulusMean { get; set; }        
         
         [ShearModulus]
-        [Description("The characteristic rolling shear modulus. Defined as the ratio between shear stress and shear strain perpendicular to the grain. Called G_r,05 in Eurocode.e")]
+        [Description("Characteristic Rolling Shear Modulus. Defined as the ratio between shear stress and shear strain perpendicular to the grain. Called G_r,05 in Eurocode.e")]
         public virtual double RollingShearModulusCharacteristic { get; set; }
         
         [ShearModulus]
-        [Description("The mean rolling shear modulus. Defined as the ratio between rolling shear stress and rolling shear strain perpendicular to the grain. Called G_r,mean in Eurocode.")]
+        [Description("Mean Rolling Shear Modulus. Defined as the ratio between rolling shear stress and rolling shear strain perpendicular to the grain. Called G_r,mean in Eurocode.")]
         public virtual double RollingShearModulusMean { get; set; }
 
         [Stress]
@@ -121,7 +121,7 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double ShearStrength { get; set; }
         
         [Stress]
-        [Description("Rolling shear strength or F_r. Defined as the shear stress perpendicular to the grain at failure in net shear. Called F_s in American codes, called F_rk in Eurocode.")]
+        [Description("Rolling Shear Strength or F_r. Defined as the shear stress perpendicular to the grain at failure in net shear. Called F_s in American codes, F_rk in Eurocode.")]
         public virtual double RollingShearStrength { get; set; }
 
         /***************************************************/
