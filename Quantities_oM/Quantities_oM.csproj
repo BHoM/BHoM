@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyVersion>5.0.0.0</AssemblyVersion>
-    <Description>https://github.com/BHoM/BHoM</Description>
+    <AssemblyVersion>6.0.0.0</AssemblyVersion>
+        <Description>https://github.com/BHoM/BHoM</Description>
     <Version>5.0.0</Version>
     <Authors>BHoM</Authors>
     <Copyright>Copyright © https://github.com/BHoM</Copyright>
     <RootNamespace>BH.oM.Quantities</RootNamespace>
-    <FileVersion>5.3.0.0</FileVersion>
+    <FileVersion>6.0.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
