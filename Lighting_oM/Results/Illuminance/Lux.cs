@@ -27,13 +27,14 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Lighting.Results.Mesh;
+using BH.oM.Analytical.Results;
 
 using System.ComponentModel;
 
 namespace BH.oM.Lighting.Results.Illuminance
 {
     [Description("Lux contains results for Lux analysis. Inherits from MeshElementResult which provides properties related to which node this Lux is recorded for")]
-    public class Lux : MeshElementResult, IImmutable
+    public class Lux : BH.oM.Lighting.Results.Mesh.MeshElementResult, IResultSeries, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,13 +42,13 @@ namespace BH.oM.Lighting.Results.Illuminance
 
         [BH.oM.Quantities.Attributes.Illuminance]
         [Description("The amount of lux recorded for the given analysis node")]
-        public virtual double LuxLevel { get; } = -1;
+        public virtual IReadOnlyList<double> LuxLevel { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public Lux(IComparable objectId, IComparable nodeId, IComparable resultCase, double timeStep, double luxLevel) : base(objectId, nodeId, resultCase, timeStep)
+        public Lux(IComparable objectId, IComparable nodeId, IComparable meshFaceId, IComparable resultCase, List<double> luxLevel) : base(objectId, nodeId, meshFaceId, resultCase)
         {
             LuxLevel = luxLevel;
         }

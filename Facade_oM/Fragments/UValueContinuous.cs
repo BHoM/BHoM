@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -19,3 +19,21 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BH.oM.Base;
+using System.ComponentModel;
+
+namespace BH.oM.Facade.Fragments
+{
+    [Description("A U-Value representing the effective U-Value of continuous insulation and/or layers (not affected by thermal bridging due to frame u-value).")]
+    public class UValueContinuous : IFragment
+    {
+        [Description("The U-Value of the continuous layers.")]
+        public virtual double UValue { get; set; } = double.NaN;
+    }
+}

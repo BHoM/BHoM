@@ -32,7 +32,7 @@ using System.Linq;
 namespace BH.oM.Lighting.Results.Mesh
 {
     [Description("Full collection of discrete results for an AnalysisGrid for a specific Analysis.")]
-    public class MeshResult : IObjectIdResult, ICasedResult, ITimeStepResult, IResultCollection<MeshElementResult>, IImmutable
+    public class MeshResult : IMeshResult<MeshElementResult>, IObjectIdResult, ICasedResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -44,9 +44,6 @@ namespace BH.oM.Lighting.Results.Mesh
         [Description("Identifier for the Analysis Case that the result belongs to. Is generally name or number of the analysis")]
         public virtual IComparable ResultCase { get; } = "";
 
-        [Description("Time step for time history results. Typically this will be hour intervals for most Environment Analysis")]
-        public virtual double TimeStep { get; } = 0.0;
-
         [Description("A collection of the discrete mesh element results per node")]
         public virtual IReadOnlyList<MeshElementResult> Results { get; }
 
@@ -54,11 +51,10 @@ namespace BH.oM.Lighting.Results.Mesh
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MeshResult(IComparable objectId, IComparable resultCase, double timeStep, IEnumerable<MeshElementResult> results)
+        public MeshResult(IComparable objectId, IComparable resultCase, IEnumerable<MeshElementResult> results)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
-            TimeStep = timeStep;
             Results = results == null ? null : new ReadOnlyCollection<MeshElementResult>(results.ToList());
         }
 
@@ -73,11 +69,11 @@ namespace BH.oM.Lighting.Results.Mesh
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
 
+
             int n = this.ObjectId.CompareTo(otherRes.ObjectId);
             if (n == 0)
             {
-                int l = this.ResultCase.CompareTo(otherRes.ResultCase);
-                return l == 0 ? this.TimeStep.CompareTo(otherRes.TimeStep) : l;
+                return this.ResultCase.CompareTo(otherRes.ResultCase);
             }
             else
             {
