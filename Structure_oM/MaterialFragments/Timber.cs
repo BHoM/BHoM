@@ -38,11 +38,11 @@ namespace BH.oM.Structure.MaterialFragments
         public override string Name { get; set; }
 
         [Density]
-        [Description("Characteristic Density. Used to calculate other mechanical properties (not mass). Called G (specific gravity) in American codes, p_k in Eurocode")]
+        [Description("Characteristic Density. Used to calculate other mechanical properties (not mass). Called G (specific gravity) in American codes, p_k in Eurocode.")]
         public virtual double DensityCharacteristic { get; set; }
 
         [Density]
-        [Description("Mean Density. Used to calculate mass. Called p_mean in Eurocode")]
+        [Description("Mean Density. Used to calculate mass. Called p_mean in Eurocode.")]
         public virtual double Density { get; set; }
 
         [Ratio]
@@ -50,7 +50,7 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double DampingRatio { get; set; }
         
         [YoungsModulus]
-        [Description("Characteristic Modulus Of Elasticity of the material. Ratio between stress and strain in all directions. Vector componets made up of: X - Parallel, E_0,k in Eurocode; Y - Perpendicular, E_90,k in Eurocode; Z - Perpendicular, E_90,k in Eurocode.")]
+        [Description("Characteristic Modulus Of Elasticity of the material. Ratio between stress and strain in all directions. Vector components made up of: X - Parallel, E_0,k in Eurocode; Y - Perpendicular, E_90,k in Eurocode; Z - Perpendicular, E_90,k in Eurocode.")]
         public virtual Vector YoungsModulus { get; set; }
 
         [YoungsModulus]
