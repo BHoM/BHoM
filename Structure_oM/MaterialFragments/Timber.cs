@@ -34,60 +34,72 @@ namespace BH.oM.Structure.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A unique Name is required for some structural packages to create and identify the object.")]
+        [Description("Name. A unique name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Density]
-        [Description("Density used to calculate other mechanical properties, not for calculating mass.")]
-        public virtual double DensityDesign { get; set; }
+        [Description("Characteristic Density. Used to calculate other mechanical properties (not mass). Called G (specific gravity) in American codes, p_k in Eurocode.")]
+        public virtual double DensityCharacteristic { get; set; }
 
         [Density]
-        [Description("Density used to calculate mass.")]
+        [Description("Mean Density. Used to calculate mass. Called p_mean in Eurocode.")]
         public virtual double Density { get; set; }
 
         [Ratio]
-        [Description("Dynamic damping ratio, expressed as a ratio between actual damping and critical damping. For structures, typically taken as 0.02 (i.e. 2%).")]
+        [Description("Dynamic Damping Ratio. Ratio between actual damping and critical damping.")]
         public virtual double DampingRatio { get; set; }
-
+        
         [YoungsModulus]
-        [Description("Modulus of elasticity of the material. Ratio between axial stress and axial strain.")]
+        [Description("Characteristic Modulus Of Elasticity of the material. Ratio between stress and strain in all directions. Vector components made up of: X - Parallel, E_0,k in Eurocode; Y - Perpendicular, E_90,k in Eurocode; Z - Perpendicular, E_90,k in Eurocode.")]
         public virtual Vector YoungsModulus { get; set; }
 
+        [YoungsModulus]
+        [Description("Mean Modulus Of Elasticity of the material. Ratio between stress and strain in all directions. Vector components made up of: X - Parallel, E_0,mean in Eurocode; Y - Perpendicular, E_90,mean in Eurocode; Z - Perpendicular, E_90,mean in Eurocode.")]
+        public virtual Vector YoungsModulusMean { get; set; }
+
         [Ratio]
-        [Description("Ratio between axial and transverse strain.")]
+        [Description("Poisson's Ratio. Ratio between axial and transverse strain. Typically take as 0.4 in all directions, though value varies depending on timber species. Vector components made up of: X - Parallel; Y - Perpendicular; Z - Perpendicular.")]
         public virtual Vector PoissonsRatio { get; set; }
 
         [ThermalExpansionCoefficient]
-        [Description("The strain induced in the material per unit change of temperature.")]
+        [Description("Thermal Expansion Coefficeint. Strain induced in the material per unit change of temperature. Typically take as 5x10^-6 in all directions, though value varies depending on timber species. Vector components made up of: X - Parallel; Y - Perpendicular; Z - Perpendicular.")]
         public virtual Vector ThermalExpansionCoeff { get; set; }
 
         [ShearModulus]
-        [Description("The shear modulus or modulus of rigidity. Defined as the ratio between shear stress and shear strain.")]
+        [Description("Characterstic Shear Modulus or Modulus of Rigidity. Ratio between shear stress and shear strain. Vector components made up of: X - Parallel, G_k in Eurocode; Y - Parallel, G_k in Eurocode; Z - Perpendicular, G_r,05 in Eurocode.")]
         public virtual Vector ShearModulus { get; set; }
 
+        [ShearModulus]
+        [Description("Mean Shear Modulus or Modulus of Rigidity. Ratio between shear stress and shear strain. Vector components made up of: X - Parallel, G_mean in Eurocode; Y - Parallel, G_mean in Eurocode; Z - Perpendicular, G_r,mean in Eurocode.")]
+        public virtual Vector ShearModulusMean { get; set; }
+
         [Stress]
-        [Description("Bending Strength. Defined as the tension stress parallel to the grain at failure in bending as calculated from beam equations. Called F_b in American codes, f_mk in Eurocode.")]
+        [Description("Bending Strength. Tension stress parallel to the grain at failure in bending as calculated from beam equations. Called F_b in American codes, f_mk in Eurocode.")]
         public virtual double BendingStrength { get; set; }
 
         [Stress]
-        [Description("Tension Parallel Strength. Defined as the tension stress parallel to the grain at failure in net tension. Called F_t\u2225 in American codes, f_t0k in Eurocode.")]
+        [Description("Tension Parallel Strength. Tension stress parallel to the grain at failure in net tension. Called F_t\u2225 in American codes, f_t0k in Eurocode.")]
         public virtual double TensionParallelStrength { get; set; }
 
         [Stress]
-        [Description("Tension Perpendicular Strength. Defined as the tension stress perpendicular to the grain at failure in net tension. Called F_t\u27c2 in American codes, f_t90k in Eurocode.")]
+        [Description("Tension Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called F_t\u27c2 in American codes, f_t90k in Eurocode.")]
         public virtual double TensionPerpendicularStrength { get; set; }
 
         [Stress]
-        [Description("Compression Parallel Strength. Defined as the compression stress parallel to the grain at failure in net compression. Called F_c\u2225 in American codes, f_c0k in Eurocode.")]
+        [Description("Compression Parallel Strength. Compression stress parallel to the grain at failure in net compression. Called F_c\u2225 in American codes, f_c0k in Eurocode.")]
         public virtual double CompressionParallelStrength { get; set; }
 
         [Stress]
-        [Description("Compression Perpendicular Strength. Defined as the compression stress perpendicular to the grain at failure in net compression. Called F_c\u27c2 in American codes, f_c90k in Eurocode.")]
+        [Description("Compression Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called F_c\u27c2 in American codes, f_c90k in Eurocode.")]
         public virtual double CompressionPerpendicularStrength { get; set; }
 
         [Stress]
-        [Description("Shear Strength or F_v. Defined as the shear stress parallel to the grain at failure in net shear, i.e. shear relevant to beam bending. Called F_v in American codes, f_vk in Eurocode.")]
+        [Description("Shear Strength. Shear stress parallel to the grain at failure in net shear, i.e. shear relevant to beam bending. Called F_v in American codes, f_vk in Eurocode.")]
         public virtual double ShearStrength { get; set; }
+        
+        [Stress]
+        [Description("Rolling Shear Strength. Shear stress perpendicular to the grain at failure in net shear. Called F_s in American codes, F_rk in Eurocode.")]
+        public virtual double RollingShearStrength { get; set; }
 
         /***************************************************/
 

@@ -4,10 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company />
     <Authors>BHoM</Authors>
-        <Description>https://github.com/BHoM/BHoM</Description>
+            <Description>https://github.com/BHoM/BHoM</Description>
     <Copyright>Copyright © https://github.com/BHoM</Copyright>
-    <AssemblyVersion>5.0.0.0</AssemblyVersion>
-    <FileVersion>5.3.0.0</FileVersion>
+    <AssemblyVersion>6.0.0.0</AssemblyVersion>
+    <FileVersion>6.0.0.0</FileVersion>
     <Version>5.0.0</Version>
     <RootNamespace>BH.oM.Acoustic</RootNamespace>
   </PropertyGroup>

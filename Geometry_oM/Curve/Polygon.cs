@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -20,75 +20,52 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Geometry
 {
-    [Description("A composite curve constructed by combining a collection of curves of any type. Whole PolyCurve integrity, continuity and closure is not guaranteed at creation. Discontinuous and/or multi-region definitions are possible, although not recommended as may cause unexpected results in method operating on PolyCurves.")]
-    public class PolyCurve : ICurve, IPolyCurve
+    [Description("Simple Polygon. Closed, planar and non-self intersecting. Can be irregular, convex and/or concave.")]
+    public class Polygon : IPolyline, ICurve, IBoundary, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of curves, of any or mixed type, which together define the composite shape.")]
-        public virtual List<ICurve> Curves { get; set; } = new List<ICurve>();
+        [Description("An ordered set of three-dimensional points defining the curve shape.\n" + 
+                     "The list should not contain any duplicate points - the first point in the list will be treated as both the start and end point.")]
+        public virtual IReadOnlyList<Point> Vertices { get; }
 
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Constructors                              ****/
         /***************************************************/
 
-        public static explicit operator PolyCurve(Arc curve)
+        public Polygon(IEnumerable<Point> vertices)
         {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
+            Vertices = new ReadOnlyCollection<Point>(vertices == null ? new List<Point>() : vertices.ToList());
+        }
+
+        /***************************************************/
+        /**** Implicit Casting                          ****/
+        /***************************************************/
+
+        [Description("Enables implicit casting of a Polygon to a Polyline. This ensures that a Polygon can be passed freely to a method expecting a Polyline.")]
+        public static implicit operator Polyline(Polygon polygon)
+        {
+            Polyline pLine = new Polyline { ControlPoints = polygon.Vertices.ToList() };
+            pLine.ControlPoints.Add(pLine.ControlPoints[0]);    //Closed polylines have dupliace start/end point. First Vertice inserted in the list.
+            return pLine;
         }
 
         /***************************************************/
 
-        public static explicit operator PolyCurve(Circle curve)
-        {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
-        }
-
-        /***************************************************/
-
-        public static explicit operator PolyCurve(Ellipse curve)
-        {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
-        }
-
-        /***************************************************/
-
-        public static explicit operator PolyCurve(Line curve)
-        {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
-        }
-
-        /***************************************************/
-
-        public static explicit operator PolyCurve(NurbsCurve curve)
-        {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
-        }
-
-        /***************************************************/
-
-        public static explicit operator PolyCurve(Polyline curve)
-        {
-            PolyCurve result = new PolyCurve();
-
-            for (int i = 0; i < curve.ControlPoints.Count - 1; i++)
-            {
-                result.Curves.Add(new Line() { Start = curve.ControlPoints[i], End = curve.ControlPoints[i + 1] });
-            }
-
-            return result;
-        }
-
-        /***************************************************/
     }
-}   
-
+}
 
 

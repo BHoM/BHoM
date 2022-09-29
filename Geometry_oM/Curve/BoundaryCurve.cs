@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -20,75 +20,48 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using BH.oM.Dimensional;
 
 namespace BH.oM.Geometry
 {
-    [Description("A composite curve constructed by combining a collection of curves of any type. Whole PolyCurve integrity, continuity and closure is not guaranteed at creation. Discontinuous and/or multi-region definitions are possible, although not recommended as may cause unexpected results in method operating on PolyCurves.")]
-    public class PolyCurve : ICurve, IPolyCurve
+    [Description("Closed, planar, non-self intersecting curve built up of multiple curve segments.")]
+    public class BoundaryCurve : ICurve, IPolyCurve, IBoundary, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A collection of curves, of any or mixed type, which together define the composite shape.")]
-        public virtual List<ICurve> Curves { get; set; } = new List<ICurve>();
+        [Description("A collection of curves, of any or mixed type, which together define a closed, planar, non-self intersection boundary loop.")]
+        public virtual IReadOnlyList<ICurve> Curves { get; }
 
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Constructors                              ****/
         /***************************************************/
 
-        public static explicit operator PolyCurve(Arc curve)
+        public BoundaryCurve(IEnumerable<ICurve> curves)
         {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
+            Curves = new ReadOnlyCollection<ICurve>(curves == null ? new List<ICurve>() : curves.ToList());
         }
 
         /***************************************************/
-
-        public static explicit operator PolyCurve(Circle curve)
-        {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
-        }
-
+        /**** Implicit Casting                          ****/
         /***************************************************/
 
-        public static explicit operator PolyCurve(Ellipse curve)
+        [Description("Enables implicit casting of a BoundaryCurve to a PolyCurve. This ensures that a BoundaryCurve can be passed freely to a method expecting a PolyCurve.")]
+        public static implicit operator PolyCurve(BoundaryCurve boundary)
         {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
-        }
-
-        /***************************************************/
-
-        public static explicit operator PolyCurve(Line curve)
-        {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
-        }
-
-        /***************************************************/
-
-        public static explicit operator PolyCurve(NurbsCurve curve)
-        {
-            return new PolyCurve() { Curves = new List<ICurve>() { curve } };
-        }
-
-        /***************************************************/
-
-        public static explicit operator PolyCurve(Polyline curve)
-        {
-            PolyCurve result = new PolyCurve();
-
-            for (int i = 0; i < curve.ControlPoints.Count - 1; i++)
-            {
-                result.Curves.Add(new Line() { Start = curve.ControlPoints[i], End = curve.ControlPoints[i + 1] });
-            }
-
-            return result;
+            return new PolyCurve { Curves = boundary.Curves.ToList() };
         }
 
         /***************************************************/
     }
-}   
-
+}
 
 
