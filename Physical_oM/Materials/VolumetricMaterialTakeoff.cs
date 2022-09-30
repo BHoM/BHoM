@@ -29,9 +29,9 @@ using System.Linq;
 
 namespace BH.oM.Physical.Materials
 {
-    [Description("Defines the make up of an object through a list of Materials and their corresponding volumes." +
-                 "\nThere must be the same number of items in both lists, assigning a single Volume for each Material.")]
-    public class MaterialTakeoff : BHoMObject, IPhysical, IImmutable
+    [Description("Defines the make up of an object through a list of Materials and their corresponding volumes.\n" +
+                 "There must be the same number of items in both lists, assigning a single Volume for each Material.")]
+    public class VolumetricMaterialTakeoff : BHoMObject, IPhysical, IImmutable, IFragment
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -50,7 +50,7 @@ namespace BH.oM.Physical.Materials
         /***************************************************/
 
         [Description("The base constructor for MaterialComposition, assigns the properties to the read-only lists.")]
-        public MaterialTakeoff(IEnumerable<Material> materials, IEnumerable<double> volumes)
+        public VolumetricMaterialTakeoff(IEnumerable<Material> materials, IEnumerable<double> volumes)
         {
             Materials = materials?.ToList();
             Volumes = volumes?.ToList();
