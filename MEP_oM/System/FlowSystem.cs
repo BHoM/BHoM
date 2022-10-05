@@ -25,11 +25,12 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.MEP.Elements;
+using BH.oM.MEP.Enums;
 
 namespace BH.oM.MEP.System
 {
     [Description("A collection of IFlow Objects to be utilised throughout a defined system.")]
-    public class FlowSystem : BHoMObject, IElement1D, IElementM
+    public class FlowSystem : BHoMObject, IElement1D, IElementM, IFlowSystem
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -37,9 +38,10 @@ namespace BH.oM.MEP.System
 
         [Description("A collection of FlowObjects to compile within a specified systemType.")]
         public virtual List<IFlow> FlowObjects { get; set; } = new List<IFlow>();
+        public FluidType FluidType { get ; set; }
+        public FlowType FlowType { get; set; }
+        public double FluidTemperature { get; set; }
 
-        [Description("A specific system type to be applied to the flow objects. The system type describes the material conveyed by the system (supply air, cold water), therefore determining the behaviours of the system")]
-        public virtual IFlowSystem SystemType { get; set; } = null;
         /***************************************************/
     }
 }

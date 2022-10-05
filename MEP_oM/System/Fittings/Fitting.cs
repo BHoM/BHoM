@@ -32,7 +32,7 @@ using BH.oM.MEP.Enums;
 namespace BH.oM.MEP.System.Fittings
 {
     [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
-    public class Fitting : BHoMObject, IElement0D, INode, IFlowConnector
+    public class Fitting : BHoMObject, IElement0D, INode, IFlow
     {
         /***************************************************/
         /****                 Properties                ****/
