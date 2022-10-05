@@ -26,14 +26,14 @@ namespace BH.oM.MEP.Enums
 {
     /***************************************************/
 
-    [Description("A discipline of the MEP element.")]
-    public enum Discipline
+    [Description("An element type of the MEP object.")]
+    public enum ElementType
     {
         Undefined,
+        CableTrays,
+        Conduits,
         Ducts,
         Pipes,
-        CableTrays,
-        Conduits
     }
 
     /***************************************************/
