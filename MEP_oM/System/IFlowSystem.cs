@@ -20,39 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Analytical.Elements;
 using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.MEP.Enums;
 
 namespace BH.oM.MEP.System
 {
-    [Description("0D finite element for structural analysis. Node class contains positional information as well as orientation and support.")]
-    public class Node : BHoMObject, IElement0D, INode
+    [Description("An MEP system to determine flow types.")]
+    public interface IFlowSystem : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        FluidType FluidType { get; set; }
+        
+        FlowType FlowType { get; set; }
 
-        [Description("Position of the node in global Cartesian 3D space.")]
-        public virtual Point Position { get; set; } = null;
 
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-        [Description("Converts a Point to a Node, setting the position to the provided point. All other properties are set to default values.")]
-        public static explicit operator Node(Point point)
-        {
-            return new Node { Position = point };
-        }
 
         /***************************************************/
     }
 }
-    
-
 
 

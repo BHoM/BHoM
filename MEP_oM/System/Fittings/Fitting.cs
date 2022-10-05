@@ -22,28 +22,31 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.MEP.Elements;
 using BH.oM.MEP.Enums;
 
 namespace BH.oM.MEP.System.Fittings
 {
     [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
-    public class Fitting : BHoMObject, IElement0D
+    public class Fitting : BHoMObject, IElement0D, INode, IFlowConnector
     {
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
 
         [Description("The point at which the Fitting occurs.")]
-        public virtual Point Location { get; set; } = null;
-        
+        public Point Position { get; set; } = null;
+
         [Description("The points at which the Fitting physically connects to other MEP segments.")]
-        public virtual List<Point> ConnectionsLocation { get; set; } = null;
+        public virtual List<FlowNode> Connectors { get; set; } = null;
 
         [Description("The type of fitting connected to an element.")]
         public virtual FittingType Type { get; set; } = FittingType.Undefined;
+
 
         /***************************************************/
     }

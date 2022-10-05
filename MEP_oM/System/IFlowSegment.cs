@@ -21,17 +21,25 @@
  */
 
 using System.ComponentModel;
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
 
-namespace BH.oM.MEP.System
-{
-    [Description("An MEP system to determine flow types.")]
-    public interface ISystemType : IBHoMObject
+namespace BH.oM.MEP.Elements
+{ 
+    [Description("Base interface for all flow-based objects. These objects are capable of containing a material or element that flows through the object.")]
+    public interface IFlowSegment : IBHoMObject, IElement1D, IElementM, ILink<FlowNode>, IFlow
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
+        
+        [Description("The point at which the Flow Object begins.")]
+        FlowNode StartPoint { get; set; }
+        
+        [Description("The point at which the Flow Object ends.")]
+        FlowNode EndPoint { get; set; }
 
         /***************************************************/
     }

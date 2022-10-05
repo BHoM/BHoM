@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.MEP.Elements;
 
 namespace BH.oM.MEP.System
 {
@@ -38,7 +39,7 @@ namespace BH.oM.MEP.System
         public virtual List<IFlow> FlowObjects { get; set; } = new List<IFlow>();
 
         [Description("A specific system type to be applied to the flow objects. The system type describes the material conveyed by the system (supply air, cold water), therefore determining the behaviours of the system")]
-        public virtual ISystemType SystemType { get; set; } = null;
+        public virtual IFlowSystem SystemType { get; set; } = null;
         /***************************************************/
     }
 }
