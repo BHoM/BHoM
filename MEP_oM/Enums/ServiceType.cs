@@ -27,7 +27,7 @@ namespace BH.oM.MEP.Enums
     /***************************************************/
 
     [Description("A service type of the MEP object.")]
-    public enum MEPServiceType
+    public enum ServiceType
     {
         Undefined,
         CableTrays,
