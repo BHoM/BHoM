@@ -26,14 +26,14 @@ namespace BH.oM.MEP.Enums
 {
     /***************************************************/
 
-    [Description("A service type of the MEP object.")]
-    public enum ServiceType
+    [Description("A service classification of the MEP object.")]
+    public enum ServiceClassification
     {
         Undefined,
         CableTrays,
         Conduits,
-        Ducts,
-        Pipes,
+        Ductwork,
+        Piping,
     }
 
     /***************************************************/
