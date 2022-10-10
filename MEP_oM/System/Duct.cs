@@ -26,6 +26,7 @@ using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
+using BH.oM.MEP.Elements;
 
 namespace BH.oM.MEP.System
 {
