@@ -30,7 +30,7 @@ using BH.oM.MEP.Enums;
 namespace BH.oM.MEP.System.Fittings
 {
     [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
-    public class Fitting : BHoMObject, IElement0D
+    public class Fitting : BHoMObject, IElement0D, IFlowConnector
     {
         /***************************************************/
         /****                 Properties                ****/
@@ -40,7 +40,7 @@ namespace BH.oM.MEP.System.Fittings
         public virtual Point Location { get; set; } = null;
         
         [Description("The points at which the Fitting physically connects to other MEP segments.")]
-        public virtual List<Point> ConnectionsLocation { get; set; } = null;
+        public virtual List<FlowNode> Connections { get; set; } = null;
 
         [Description("The type of fitting connected to an element.")]
         public virtual FittingType Type { get; set; } = FittingType.Undefined;

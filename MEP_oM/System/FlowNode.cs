@@ -25,11 +25,13 @@ using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Analytical.Elements;
 using System.ComponentModel;
+using BH.oM.Spatial.ShapeProfiles;
+using BH.oM.MEP.Enums;
 
 namespace BH.oM.MEP.System
 {
-    [Description("0D finite element for structural analysis. Node class contains positional information as well as orientation and support.")]
-    public class Node : BHoMObject, IElement0D, INode
+    [Description("0D finite element for MEP analysis. Node class contains positional information as well as orientation and support.")]
+    public class FlowNode : BHoMObject, IElement0D, INode, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -37,16 +39,30 @@ namespace BH.oM.MEP.System
 
         [Description("Position of the node in global Cartesian 3D space.")]
         public virtual Point Position { get; set; } = null;
+        
+        [Description("Local x, y, and z axes of the node as a vector Basis. Defaults to null which is interpreted to defaults when pushed to software and world axes in BHoM.")]
+        public virtual Basis Orientation { get; set; } = null;
 
+        public virtual double FlowRate { get; set; } = 0;
+
+        public virtual FlowDirection FlowDirection { get; set; } = FlowDirection.Undefined;
+
+        public virtual IProfile Profile { get; set; } = null;
 
         /***************************************************/
         /**** Explicit Casting                          ****/
         /***************************************************/
 
         [Description("Converts a Point to a Node, setting the position to the provided point. All other properties are set to default values.")]
-        public static explicit operator Node(Point point)
+        public static explicit operator FlowNode(Point point)
         {
-            return new Node { Position = point };
+            return new FlowNode { Position = point };
+        }
+
+        [Description("Converts a Cartesian Coordinate system to a Node, setting the position to the origin of the CS and the orientation aligned with the axes of the CS.")]
+        public static explicit operator FlowNode(Geometry.CoordinateSystem.Cartesian coordinateSystem)
+        {
+            return new FlowNode { Position = coordinateSystem.Origin, Orientation = (Basis)coordinateSystem };
         }
 
         /***************************************************/

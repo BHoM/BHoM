@@ -29,17 +29,17 @@ using BH.oM.Geometry;
 namespace BH.oM.MEP.System
 {
     [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IFlow
+    public class Pipe : BHoMObject, IFlowSegment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("The point at which the Pipe object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        public virtual FlowNode StartPoint { get; set; } = null;
 
         [Description("The point at which the Pipe object ends.")]
-        public virtual Point EndPoint { get; set; } = null;
+        public virtual FlowNode EndPoint { get; set; } = null;
 
         [Description("The volume of fluid being conveyed by the pipe per second (m3/s).")]
         public virtual double FlowRate { get; set; } = 0;

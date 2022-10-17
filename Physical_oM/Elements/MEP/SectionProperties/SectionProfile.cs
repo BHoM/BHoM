@@ -22,34 +22,27 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
-using BH.oM.Dimensional;
-using BH.oM.Quantities.Attributes;
-using BH.oM.Geometry;
+using BH.oM.Spatial.ShapeProfiles;
 
-namespace BH.oM.MEP.System
+namespace BH.oM.Physical.ConduitProperties
 {
-    [Description("A duct object is a passageway which conveys material (typically air)")]
-    public class Duct : BHoMObject, IFlowSegment
+    public class SectionProfile : BHoMObject, IBHoMObject, IImmutable
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("ShapeProfile of the element itself. This is the base ShapeProfile that determines the overall shape of the IFlow object.")]
+        public virtual IProfile ElementProfile { get; }
 
-        [Description("The point at which the Duct object begins.")]
-        public virtual FlowNode StartPoint { get; set; } = null;
+        [Description("ShapeProfile of the element's interior lining.")]
+        public virtual IProfile LiningProfile { get; }
 
-        [Description("The point at which the Duct object ends.")]
-        public virtual FlowNode EndPoint { get; set; } = null;
+        [Description("ShapeProfile of the element's exterior insulation.")]
+        public virtual IProfile InsulationProfile { get; }
 
-        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
-        public virtual DuctSectionProperty SectionProperty { get; set; } = null;
-
-        [Angle]
-        [Description("This is the Duct's planometric orientation angle (the rotation around its central axis).")]
-        public virtual double OrientationAngle { get; set; } = 0;
-
-        /***************************************************/
+        public SectionProfile(IProfile elementProfile, IProfile liningProfile, IProfile insulationProfile)
+        {
+            ElementProfile = elementProfile;
+            LiningProfile = liningProfile;
+            InsulationProfile = insulationProfile;
+        }
     }
 }
 

@@ -30,17 +30,17 @@ using BH.oM.Geometry;
 namespace BH.oM.MEP.System
 {
     [Description("A Cable Tray object is a passageway which conveys material (typically cables)")]
-    public class CableTray : BHoMObject, IElement1D, IElementM, IFlow
+    public class CableTray : BHoMObject, IElement1D, IElementM, IFlowSegment
     {
         /***************************************************/
         /****                 Properties                ****/
         /***************************************************/
 
         [Description("The point at which the Cable Tray object begins.")]
-        public virtual Point StartPoint { get; set; } = null;
+        public virtual FlowNode StartPoint { get; set; } = null;
 
         [Description("The point at which the Cable Tray object ends.")]
-        public virtual Point EndPoint { get; set; } = null;       
+        public virtual FlowNode EndPoint { get; set; } = null;       
 
         [Description("The Cable Tray section property defines the shape (rectangular) and its associated properties (height, width, material, thickness/gauge).")]
         public virtual CableTraySectionProperty SectionProperty { get; set; } = null;

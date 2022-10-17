@@ -22,32 +22,23 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
-using BH.oM.Quantities.Attributes;
 using BH.oM.Geometry;
 
 namespace BH.oM.MEP.System
-{
-    [Description("A duct object is a passageway which conveys material (typically air)")]
-    public class Duct : BHoMObject, IFlowSegment
+{ 
+    [Description("Base interface for all flow-based objects. These objects are capable of containing a material or element that flows through the object.")]
+    public interface IFlowSegment : IBHoMObject, IElement1D, IElementM, IElementF
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Duct object begins.")]
-        public virtual FlowNode StartPoint { get; set; } = null;
+        [Description("The point at which the Flow Object begins.")]
+        FlowNode StartPoint { get; set; }
 
-        [Description("The point at which the Duct object ends.")]
-        public virtual FlowNode EndPoint { get; set; } = null;
-
-        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
-        public virtual DuctSectionProperty SectionProperty { get; set; } = null;
-
-        [Angle]
-        [Description("This is the Duct's planometric orientation angle (the rotation around its central axis).")]
-        public virtual double OrientationAngle { get; set; } = 0;
+        [Description("The point at which the Flow Object ends.")]
+        FlowNode EndPoint { get; set; }
 
         /***************************************************/
     }

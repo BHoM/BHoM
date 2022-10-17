@@ -21,33 +21,42 @@
  */
 
 using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.MEP.System.SectionProperties;
-using BH.oM.Dimensional;
-using BH.oM.Quantities.Attributes;
-using BH.oM.Geometry;
 
-namespace BH.oM.MEP.System
+using BH.oM.Base;
+using BH.oM.MEP.System.MaterialFragments;
+using BH.oM.Physical.Materials;
+
+namespace BH.oM.Physical.ConduitProperties
 {
-    [Description("A duct object is a passageway which conveys material (typically air)")]
-    public class Duct : BHoMObject, IFlowSegment
+    public class CableTraySectionProperty : BHoMObject, IImmutable
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The point at which the Duct object begins.")]
-        public virtual FlowNode StartPoint { get; set; } = null;
+        [Description("The cable tray material is the primary material that the it is composed of.")]
+        public virtual Material Material { get; set; }     
 
-        [Description("The point at which the Duct object ends.")]
-        public virtual FlowNode EndPoint { get; set; } = null;
+        [Description("The section profile of the object that will determine its use within a System.")]
+        public virtual SectionProfile SectionProfile { get; }
 
-        [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
-        public virtual DuctSectionProperty SectionProperty { get; set; } = null;
+        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
+        public virtual double ElementSolidArea { get; }
 
-        [Angle]
-        [Description("This is the Duct's planometric orientation angle (the rotation around its central axis).")]
-        public virtual double OrientationAngle { get; set; } = 0;
+        [Description("The interior area within the element's shapeProfile. This corresponds to the actual open area less any material thickness.")]
+        public virtual double ElementVoidArea { get; }
+
+        /***************************************************/
+        /****                 Constructor               ****/
+        /***************************************************/
+        
+        public CableTraySectionProperty(Material material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
+        {
+            Material = material;
+            SectionProfile = sectionProfile;
+            ElementSolidArea = elementSolidArea;
+            ElementVoidArea = elementVoidArea;            
+        }
 
         /***************************************************/
     }
