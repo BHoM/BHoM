@@ -31,7 +31,7 @@ using BH.oM.Physical.ConduitProperties;
 namespace BH.oM.Physical.Elements
 {
     [Description("A duct object is a passageway which conveys material (typically air)")]
-    public class Duct : BHoMObject, IConduitElement
+    public class Duct : BHoMObject, IConduitSegment
     {
 
         /***************************************************/

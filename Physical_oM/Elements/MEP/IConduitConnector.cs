@@ -33,13 +33,14 @@ using BH.oM.Physical.ConduitProperties;
 
 namespace BH.oM.Physical.Elements
 {
-    public interface IConduitElement : IBHoMObject, IPhysical, IElement1D, IElementM
+    public interface IConduitConnector : IBHoMObject, IPhysical, IElement0D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        ICurve Location { get; set; }
+        
+        Point Location { get; set; }
+        List<Point> Connections { get; set; }
         IConduitElementProperty Property { get; set; }
 
         /***************************************************/

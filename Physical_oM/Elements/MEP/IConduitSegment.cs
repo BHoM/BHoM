@@ -20,37 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using BH.oM.Base;
-using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.Dimensional;
 using BH.oM.Physical.ConduitProperties;
-using BH.oM.Physical.Elements;
 
 namespace BH.oM.Physical.Elements
 {
-    [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IConduitSegment
+    public interface IConduitSegment : IBHoMObject, IPhysical, IElement1D, IElementM
     {
-        /***************************************************/
-        /**** Physical Only Properties                   ****/
-        /***************************************************/
-
-        public virtual ICurve Location { get; set; } = new Polyline();
-        public virtual IConduitElementProperty Property { get; set; } = null;
-
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
-        public virtual double FlowRate { get; set; } = 0;
-
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
+        ICurve Location { get; set; }
+        IConduitElementProperty Property { get; set; }
 
         /***************************************************/
     }
 }
+
 
 

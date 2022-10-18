@@ -30,7 +30,7 @@ using BH.oM.Physical.Elements;
 namespace BH.oM.Physical.Elements
 {
     [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IConduitElement
+    public class Pipe : BHoMObject, IConduitSegment
     {
         /***************************************************/
         /**** Physical Only Properties                   ****/
