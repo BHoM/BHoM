@@ -20,29 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
-using BH.oM.Quantities.Attributes;
-using System.ComponentModel;
+using BH.oM.Geometry;
+using BH.oM.Physical.ConduitProperties;
+using BH.oM.Physical.Elements;
 
-namespace BH.oM.MEP.System.Dampers
+namespace BH.oM.Physical.Elements
 {
-    [Description("A type of damper used to control the flow of air in a mechanical system.")]
-    public class VolumeDamper : BHoMObject, IElement0D
+    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
+    public class Pipe : BHoMObject, IConduitElement
     {
+        /***************************************************/
+        /**** Physical Only Properties                   ****/
+        /***************************************************/
+
+        public virtual ICurve Location { get; set; } = new Polyline();
+        public virtual IConduitElementProperty Property { get; set; } = null;
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("The volume of fluid being conveyed by the pipe per second (m3/s).")]
+        public virtual double FlowRate { get; set; } = 0;
 
-        [Description("The point in space for the location of the object.")]
-        public virtual Node Location { get; set; } = new Node();
-
-        [Angle]
-        [Description("Controls the local plan orientation of the object.")]
-        public virtual double OrientationAngle { get; set; } = 0;
-
-        [Description("The difference in total pressure between two points of a fluid carrying network.")]
-        public virtual double PressureDrop { get; set; } = 0;
+        [Description("The pipe section property defines the shape and its associated properties (radius, material, thickness).")]
+        public virtual PipeSectionProperty SectionProperty { get; set; } = null;
 
         /***************************************************/
     }

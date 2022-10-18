@@ -28,7 +28,7 @@ using BH.oM.Geometry;
 
 namespace BH.oM.MEP.System
 { 
-    [Description("Base interface for connectors flow-based objects.")]
+    [Description("Base interface for connectors of flow-based objects.")]
     public interface IFlowConnector : IBHoMObject, IElement0D, IElementM, IElementF
     {
         /***************************************************/

@@ -22,21 +22,25 @@
 
 using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.Geometry;
 using BH.oM.MEP.Enums;
 using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.MEP.System.Dampers
 {
     [Description("A device used to control the flow within a duct system (fire smoke damper, volume damper, etc.)")]
-    public class Damper : BHoMObject, IElement0D
+    public class Damper : BHoMObject, IElement0D, IFlowConnector
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("The point at which the Fitting occurs.")]
+        public virtual Point Location { get; set; } = null;
 
-        [Description("The point in space for the location of the object.")]
-        public virtual Node Location { get; set; } = new Node();
+        [Description("The points at which the Fitting physically connects to other MEP segments.")]
+        public virtual List<FlowNode> Connections { get; set; } = null;
 
         [Angle]
         [Description("Controls the local plan orientation of the object.")]
@@ -45,9 +49,8 @@ namespace BH.oM.MEP.System.Dampers
         [Description("A type which describes the damper more specifically whether it's a fire smoke damper, volume damper or balancing damper.")]
         public virtual DamperType DamperType { get; set; } = DamperType.Undefined;
 
-        [Pressure]
-        [Description("The difference in total pressure between two points of a fluid carrying network.")]
-        public virtual double PressureDrop { get; set; } = 0;
+        [Description("The geometry and size dependent local loss coefficient for fittings.")]
+        public virtual double CFactor { get; set; } = 0;
 
         /***************************************************/
     }

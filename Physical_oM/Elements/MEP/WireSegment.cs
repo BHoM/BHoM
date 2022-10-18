@@ -20,40 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
-using BH.oM.MEP.Enums;
-using BH.oM.Quantities.Attributes;
-using System.Collections.Generic;
-using System.ComponentModel;
+using BH.oM.Physical.ConduitProperties;
+using BH.oM.Physical.Elements;
 
-namespace BH.oM.MEP.System.Dampers
+namespace BH.oM.Physical.Elements
 {
-    [Description("A device used to control the flow within a piping system (ball valve, check valve, etc.)")]
-    public class Valve : BHoMObject, IElement0D, IFlowConnector
+    [Description("An object containing a collection of Wires to work within an MEP systems.")]
+    public class WireSegment : BHoMObject, IConduitElement
     {
+        /***************************************************/
+        /**** Physical Only Properties                   ****/
+        /***************************************************/
+
+        public virtual ICurve Location { get; set; } = new Polyline();
+        public virtual IConduitElementProperty Property { get; set; } = null;
+
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("The point at which the Fitting occurs.")]
-        public virtual Point Location { get; set; } = null;
 
-        [Description("The points at which the Fitting physically connects to other MEP segments.")]
-        public virtual List<FlowNode> Connections { get; set; } = null;
+        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
+        public virtual double FlowRate { get; set; } = 0;
 
-        [Angle]
-        [Description("Controls the local plan orientation of the object.")]
-        public virtual double OrientationAngle { get; set; } = 0;
-
-        [Description("A type which describes the valve, more specifically whether it's a check valve, gate valve, etc.")]
-        public virtual ValveType ValveType { get; set; } = ValveType.Undefined;
-
-
-        [Description("The geometry and size dependent loss coefficient for valves and fittings ")]
-        public virtual double KFactor { get; set; } = 0;
+        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
+        public virtual WireSectionProperty SectionProperty { get; set; } = null;
 
         /***************************************************/
     }
 }
+
 

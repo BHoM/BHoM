@@ -26,6 +26,7 @@ using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.MEP.Enums;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.MEP.System.Fittings
 {
@@ -45,6 +46,12 @@ namespace BH.oM.MEP.System.Fittings
         [Description("The type of fitting connected to an element.")]
         public virtual FittingType Type { get; set; } = FittingType.Undefined;
 
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        public virtual double OrientationAngle { get; set; } = 0;
+        
+        [Description("The geometry and size dependent local loss coefficient for fittings.")]
+        public virtual double CFactor { get; set; } = 0;
         /***************************************************/
     }
 }
