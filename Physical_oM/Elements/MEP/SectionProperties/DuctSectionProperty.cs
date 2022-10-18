@@ -22,7 +22,6 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.System.MaterialFragments;
 using BH.oM.Physical.Materials;
 
 namespace BH.oM.Physical.ConduitProperties

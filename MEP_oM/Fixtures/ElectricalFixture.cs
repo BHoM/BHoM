@@ -22,6 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.Geometry;
 using BH.oM.MEP.Enums;
 using BH.oM.MEP.System;
 using BH.oM.Quantities.Attributes;
@@ -37,7 +38,7 @@ namespace BH.oM.MEP.Fixtures
         /***************************************************/
 
         [Description("The point in space for the location of the object.")]
-        public virtual Node Location { get; set; } = new Node();
+        public virtual Point Location { get; set; } = new Point();
 
         [Angle]
         [Description("Controls the local plan orientation of the object.")]
