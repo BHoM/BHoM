@@ -25,6 +25,7 @@ using BH.oM.Base;
 using BH.oM.MEP.System.SectionProperties;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.MEP.System
 {
@@ -41,12 +42,12 @@ namespace BH.oM.MEP.System
         [Description("The point at which the Wire object ends.")]
         public virtual FlowNode EndPoint { get; set; } = null;
 
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
-        public virtual double FlowRate { get; set; } = 0;
-
         [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
         public virtual WireSectionProperty SectionProperty { get; set; } = null;
 
+        [Angle]
+        [Description("This is the wire's planometric orientation angle (the rotation around its central axis).")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
         /***************************************************/
     }

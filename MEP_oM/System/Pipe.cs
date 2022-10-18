@@ -42,9 +42,6 @@ namespace BH.oM.MEP.System
         [Description("The point at which the Pipe object ends.")]
         public virtual FlowNode EndPoint { get; set; } = null;
 
-        [Description("The volume of fluid being conveyed by the pipe per second (m3/s).")]
-        public virtual double FlowRate { get; set; } = 0;
-
         [Description("The pipe section property defines the shape and its associated properties (radius, material, thickness).")]
         public virtual PipeSectionProperty SectionProperty { get; set; } = null;
 

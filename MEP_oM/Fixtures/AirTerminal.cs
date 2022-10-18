@@ -49,10 +49,6 @@ namespace BH.oM.MEP.Fixtures
         [Description("Controls the local plan orientation of the object.")]
         public virtual double OrientationAngle { get; set; } = 0;
 
-        [VolumetricFlowRate]
-        [Description("The volume of air being conveyed by the Duct per second (m3/s).")]
-        public virtual double FlowRate { get; set; } = 0;
-
         [Pressure]
         [Description("The difference in total pressure between two points of a system measured in Pascals.")]
         public virtual double PressureDrop { get; set; } = 0;

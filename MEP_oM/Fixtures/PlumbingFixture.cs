@@ -22,6 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Dimensional;
+using BH.oM.Geometry;
 using BH.oM.MEP.Enums;
 using BH.oM.MEP.Fragments;
 using BH.oM.MEP.System;
@@ -31,14 +32,17 @@ using System.ComponentModel;
 namespace BH.oM.MEP.Fixtures
 {
     [Description("A device used to convey public health (plumbing) fluids (water, waste.)")]
-    public class PlumbingFixture : BHoMObject, IElement0D
+    public class PlumbingFixture : BHoMObject, IElement0D, IFlowTermination
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("The point in space for the location of the object.")]
-        public virtual Node Location { get; set; } = new Node();
 
+        [Description("The point in space for the location of the object.")]
+        public virtual Point Location { get; set; } = null;
+
+        [Description("The point at which the fixtures physically connects to other MEP segments.")]
+        public virtual FlowNode Connection { get; set; } = null;
         [Angle]
         [Description("Controls the local plan orientation of the object.")]
         public virtual double OrientationAngle { get; set; } = 0;
