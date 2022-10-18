@@ -26,6 +26,7 @@ using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Physical.ConduitProperties;
 using BH.oM.Physical.Elements;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Elements
 {
@@ -48,6 +49,10 @@ namespace BH.oM.Physical.Elements
 
         [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
         public virtual WireSectionProperty SectionProperty { get; set; } = null;
+
+        [Angle]
+        [Description("This is the wire's planometric orientation angle (the rotation around its central axis).")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
         /***************************************************/
     }

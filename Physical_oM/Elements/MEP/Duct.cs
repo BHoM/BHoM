@@ -52,6 +52,10 @@ namespace BH.oM.Physical.Elements
         [Description("The Duct section property defines the shape (round, rectangular, ovular) and its associated properties (height, width, radius, material, thickness/gauge).")]
         public virtual DuctSectionProperty SectionProperty { get; set; } = null;
 
+        [Angle]
+        [Description("This is the Duct's planometric orientation angle (the rotation around its central axis).")]
+        public virtual double OrientationAngle { get; set; } = 0;
+
         /***************************************************/
     }
 }
