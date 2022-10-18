@@ -25,9 +25,4 @@
     <ProjectReference Include="..\Spatial_oM\Spatial_oM.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Elements\Architecture\" />
-    <Folder Include="Elements\Structures\" />
-  </ItemGroup>
-
 </Project>
