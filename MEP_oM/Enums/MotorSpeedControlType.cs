@@ -21,37 +21,19 @@
  */
 
 using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.MEP.Enums;
 
-namespace BH.oM.MEP.Equipment.Parts
+namespace BH.oM.MEP.Enums
 {
-    [Description("Fans are devices that create a current of air (used for ventilation and cooling) by rotating blades")]
-    public class Fan : BHoMObject, IPart, IFan
+    /***************************************************/
+
+    [Description("")]
+    public enum MotorSpeedControlType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Flow Rate denotes the amount of air that is drawn across the fan, measured in m3/s")]
-        public virtual double FlowRate { get; set; } = 0.0;
-        
-        [Description("External static pressure denotes the resistance within the system that the fan has to overcome from filters, grilles, coils, etc")]
-        public virtual double ExternalStaticPressure { get; set; } = 0.0;
-        
-        [Description("Speed denotes the rotational speed of the fan blades")]
-        public virtual double Speed { get; set; } = 0.0;
-
-        public virtual Motor Motor { get; set; } = new Motor();
-        
-        public virtual double BrakeHorsePower { get; set; } = 0.0;
-        
-        [Description("Efficiency denotes the ratio between the power transferred to airflow produced by the fan and the power used by the fan")]
-        public virtual double Efficiency { get; set; } = 0.0;
-
-        /***************************************************/
+        Undefined,
+        None,
+        VariableFrequencyDrive
     }
+
+    /***************************************************/
 }
-
-
 

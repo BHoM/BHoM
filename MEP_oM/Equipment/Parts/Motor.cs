@@ -26,28 +26,23 @@ using BH.oM.MEP.Enums;
 
 namespace BH.oM.MEP.Equipment.Parts
 {
-    [Description("Fans are devices that create a current of air (used for ventilation and cooling) by rotating blades")]
-    public class Fan : BHoMObject, IPart, IFan
+    [Description("")]
+    public class Motor : BHoMObject, IPart, IMotor, IElectrical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        [Description("Flow Rate denotes the amount of air that is drawn across the fan, measured in m3/s")]
-        public virtual double FlowRate { get; set; } = 0.0;
-        
-        [Description("External static pressure denotes the resistance within the system that the fan has to overcome from filters, grilles, coils, etc")]
-        public virtual double ExternalStaticPressure { get; set; } = 0.0;
-        
-        [Description("Speed denotes the rotational speed of the fan blades")]
         public virtual double Speed { get; set; } = 0.0;
-
-        public virtual Motor Motor { get; set; } = new Motor();
-        
+        public virtual MotorDriveType DriveType { get; set; } = MotorDriveType.Undefined;  
         public virtual double BrakeHorsePower { get; set; } = 0.0;
-        
-        [Description("Efficiency denotes the ratio between the power transferred to airflow produced by the fan and the power used by the fan")]
         public virtual double Efficiency { get; set; } = 0.0;
+        public virtual double Size { get; set; } = 0.0;
+        public virtual double Phase { get; set; } = 0.0;
+        public virtual double Voltage { get; set; } = 0.0;
+        public virtual double Frequency { get; set; } = 0.0;
+        public virtual double FullLoadAmps { get; set; } = 0.0;
+        public virtual double MaximumOverCurrentProtection { get; set; } = 0.0;
+        public virtual MotorSpeedControlType SpeedControl { get; set; } = MotorSpeedControlType.Undefined;
 
         /***************************************************/
     }
