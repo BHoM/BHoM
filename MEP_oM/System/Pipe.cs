@@ -44,7 +44,7 @@ namespace BH.oM.MEP.System
 
         [Description("The pipe section property defines the shape and its associated properties (radius, material, thickness).")]
         public virtual PipeSectionProperty SectionProperty { get; set; } = null;
-
+        
         [Angle]
         [Description("This is the pipe's planometric orientation angle (the rotation around its central axis).")]
         public virtual double OrientationAngle { get; set; } = 0;

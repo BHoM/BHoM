@@ -26,7 +26,7 @@ using BH.oM.Base;
 namespace BH.oM.MEP.Equipment.Parts
 {
     [Description("Filters are devices that remove solid particles from a system")]
-    public class Filter : BHoMObject, IPart, IFilter
+    public class Filter : BHoMObject, IPart
     {
         /***************************************************/
         /****               Properties                  ****/

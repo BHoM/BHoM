@@ -24,6 +24,7 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.MEP.System.SectionProperties;
 
 namespace BH.oM.MEP.System
 { 

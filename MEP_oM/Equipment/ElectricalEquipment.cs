@@ -53,6 +53,7 @@ namespace BH.oM.MEP.Equipment
 
         [Description("The power of the electrical equipment described in kilowatts.")]
         public virtual double Power { get; set; } = 0;
+        public List<FlowNode> Connections { get; set; }
 
         /***************************************************/
     }

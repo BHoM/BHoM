@@ -27,7 +27,7 @@ using BH.oM.MEP.Enums;
 namespace BH.oM.MEP.Equipment.Parts
 {
     [Description("Fans are devices that create a current of air (used for ventilation and cooling) by rotating blades")]
-    public class Fan : BHoMObject, IPart, IFan
+    public class Fan : BHoMObject, IPart
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -23,7 +23,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Geometry;
 using BH.oM.MEP.Equipment.Parts;
+using BH.oM.MEP.System;
 
 namespace BH.oM.MEP.Equipment
 {
@@ -33,6 +35,8 @@ namespace BH.oM.MEP.Equipment
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        public Point Location { get; set; }
+        public List<FlowNode> Connections { get; set; }
 
         [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();

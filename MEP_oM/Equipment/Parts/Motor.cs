@@ -27,7 +27,7 @@ using BH.oM.MEP.Enums;
 namespace BH.oM.MEP.Equipment.Parts
 {
     [Description("")]
-    public class Motor : BHoMObject, IPart, IMotor, IElectrical
+    public class Motor : BHoMObject, IPart, IElectrical
     {
         /***************************************************/
         /**** Properties                                ****/

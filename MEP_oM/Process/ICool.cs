@@ -25,7 +25,7 @@ using BH.oM.Base;
 
 namespace BH.oM.MEP.Process
 {
-    public interface ICoolProcess : IBHoMObject
+    public interface ICoolingProcess : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
