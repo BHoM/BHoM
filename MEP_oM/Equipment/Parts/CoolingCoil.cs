@@ -27,7 +27,7 @@ using BH.oM.MEP.Process;
 namespace BH.oM.MEP.Equipment.Parts
 {
     [Description("Cooling coils allow fluids (air) to lower their temperature as they pass through the coil")]
-    public class CoolingCoil : BHoMObject, ICool, IHeatExchanger, IFlowImpediment, IFlowEquipment
+    public class CoolingCoil : BHoMObject, ICoolProcess, IHeatExchanger, IFlowImpediment
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -44,10 +44,11 @@ namespace BH.oM.MEP.Equipment.Parts
 
         [Description("Pressure Drop indicates the amount of resistance created by the coil which creates a loss in pressure of the fluid (air)")]
         public virtual double PressureDrop { get; set; } = 0.0;
-        public virtual IStatePoint EnteringProcessFluidState { get; set; }
-        public virtual IStatePoint LeavingProcessFluidState { get; set; }
-        public virtual IStatePoint EnteringFluidState { get; set; }
-        public virtual IStatePoint LeavingFluidState { get; set; } 
+        public PartsFlowNode EnteringProcessFluid { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
+        public PartsFlowNode LeavingProcessFluid { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
+        public PartsFlowNode EnteringFluid { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
+        public PartsFlowNode LeavingFluid { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
+
 
         /***************************************************/
     }

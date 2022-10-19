@@ -21,21 +21,19 @@
  */
 
 using System.ComponentModel;
-using BH.oM.Base;
 
-namespace BH.oM.MEP.Process
+namespace BH.oM.MEP.Enums
 {
-    public interface IHeatProcess : IBHoMObject
+    /***************************************************/
+
+    [Description("")]
+    public enum MotorDriveType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        [Description("Sensible capacity indicates the ability for the heating coil to change the temperature of the fluid (air).")]
-        double SensibleCapacity { get; set; }
-
-        /***************************************************/
+        Undefined,
+        Belt,
+        Direct
     }
+
+    /***************************************************/
 }
-
-
 

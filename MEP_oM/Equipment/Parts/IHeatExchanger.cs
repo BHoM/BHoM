@@ -31,10 +31,10 @@ namespace BH.oM.MEP.Equipment.Parts
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        IStatePoint EnteringProcessFluidState { get; set; }
-        IStatePoint LeavingProcessFluidState { get; set; }
-        IStatePoint EnteringFluidState { get; set; }
-        IStatePoint LeavingFluidState { get; set; }
+        PartsFlowNode EnteringProcessFluid { get; set; }
+        PartsFlowNode LeavingProcessFluid { get; set; }
+        PartsFlowNode EnteringFluid { get; set; }
+        PartsFlowNode LeavingFluid { get; set; }
 
         /***************************************************/
     }

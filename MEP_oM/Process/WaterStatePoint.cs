@@ -31,6 +31,11 @@ namespace BH.oM.MEP.Process
         /**** Properties                                ****/
         /***************************************************/
 
+        //water state point
+        public virtual double Temperature { get; set; } = 0.0;
+        public virtual double Pressure { get; set; } = 0.0;
+        public virtual double Density { get; set; } = 0.0;
+
         /***************************************************/
     }
 }

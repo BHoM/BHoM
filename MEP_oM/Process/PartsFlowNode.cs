@@ -20,32 +20,29 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.Process;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
+using BH.oM.Analytical.Elements;
+using System.ComponentModel;
+using BH.oM.Spatial.ShapeProfiles;
+using BH.oM.MEP.Enums;
 
-namespace BH.oM.MEP.Equipment.Parts
+namespace BH.oM.MEP.Process
 {
-    [Description("Heating coils allow fluids (air) to raise their temperature as they pass through the coil")]
-    public class HeatingCoil : BHoMObject, IHeatExchanger, IFlowImpediment, IHeatProcess
+    public class PartsFlowNode : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Sensible capacity indicates the ability for the heating coil to change the temperature of the fluid (air).")]
-        public virtual double SensibleCapacity { get; set; } = 0.0;
-        
-        [Description("Pressure Drop indicates the amount of resistance created by the coil which creates a loss in pressure of the fluid (air)")]
-        public virtual double PressureDrop { get; set; } = 0.0;
-        
-        public PartsFlowNode EnteringProcessFluid { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
-        public PartsFlowNode LeavingProcessFluid { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
-        public PartsFlowNode EnteringFluid { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
-        public PartsFlowNode LeavingFluid { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
 
+        public virtual IStatePoint StatePoint { get; set; }
+        public virtual double FlowRate { get; set; } = 0;
+        public virtual FlowDirection FlowDirection { get; set; } = FlowDirection.Undefined;
         /***************************************************/
     }
 }
+    
 
 
 
