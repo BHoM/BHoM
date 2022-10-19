@@ -39,7 +39,7 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
 
         public virtual ICurve Location { get; set; } = new Polyline();
-        public virtual IConduitElementProperty Property { get; set; } = null;
+        public virtual IConduitElementProperty Property { get; set; }
 
       
         /***************************************************/

@@ -32,7 +32,7 @@ using System.ComponentModel;
 
 namespace BH.oM.MEP.Equipment
 {
-    public class ElectricalEquipment : BHoMObject, IEquipment, IElement0D
+    public class ElectricalEquipment : BHoMObject, IFlowEquipment, IElement0D
     {
         /***************************************************/
         /**** Properties                                ****/

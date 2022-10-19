@@ -28,7 +28,7 @@ using BH.oM.MEP.Equipment.Parts;
 namespace BH.oM.MEP.Equipment
 {
     [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IEquipment
+    public class FanCoilUnit : BHoMObject, IFlowEquipment
     {
         /***************************************************/
         /**** Properties                                ****/

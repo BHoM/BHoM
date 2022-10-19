@@ -20,17 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.MEP.Process
 {
-    public interface IEquipment : IBHoMObject
+    public interface IStatePoint : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-
 
         /***************************************************/
     }

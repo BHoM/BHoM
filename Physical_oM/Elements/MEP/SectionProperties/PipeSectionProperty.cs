@@ -26,7 +26,7 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public class PipeSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
+    public class PipeSectionProperty : BHoMObject, IConduitElementProperty, IImmutable
     {
         [Description("The pipe material is the primary material that the pipe is composed of (copper, black steel, PEX)")]
         public virtual Material PipeMaterial { get; set; }

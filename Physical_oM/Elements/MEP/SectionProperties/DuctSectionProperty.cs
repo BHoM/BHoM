@@ -26,7 +26,7 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public class DuctSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
+    public class DuctSectionProperty : BHoMObject, IConduitElementProperty, IImmutable
     {
         [Description("The duct material is the primary material that the duct is composed of (galvanized sheet metal, aluminium)")]
         public virtual Material DuctMaterial { get; set; }

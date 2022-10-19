@@ -26,20 +26,26 @@ using BH.oM.Base;
 namespace BH.oM.MEP.Equipment.Parts
 {
     [Description("Heating coils allow fluids (air) to raise their temperature as they pass through the coil")]
-    public class HeatingCoil : BHoMObject, IPart
+    public class HeatingCoil : BHoMObject, ICoil, IAir, IWater, IHeat
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         [Description("Sensible capacity indicates the ability for the heating coil to change the temperature of the fluid (air).")]
         public virtual double SensibleCapacity { get; set; } = 0.0;
-        
-        [Description("Entering Dry Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius")]
-        public virtual double EnteringDryBulbAirTemperature { get; set; } = 0.0;
-        
-        [Description("Leaving Dry Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius")]
-        public virtual double LeavingDryBulbAirTemperature { get; set; } = 0.0;
-        
+
+        [Description("Entering Dry Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius, without taking humidity into consideration")]
+        public virtual double EnteringDryBulbAirTemperature { get; set; }
+
+        [Description("Entering Wet Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius, while taking humidity into consideration")]
+        public virtual double EnteringWetBulbAirTemperature { get; set; }
+
+        [Description("Leaving Dry Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius, without taking humidity into consideration")]
+        public virtual double LeavingDryBulbAirTemperature { get; set; }
+
+        [Description("Leaving Wet Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius, while taking humidity into consideration")]
+        public virtual double LeavingWetBulbAirTemperature { get; set; }
+
         [Description("Entering Water Temperature indicates the heat intensity of the water entering the system in degrees Celsius")]
         public virtual double EnteringWaterTemperature { get; set; } = 0.0;
         

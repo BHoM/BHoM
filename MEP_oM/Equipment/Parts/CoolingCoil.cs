@@ -22,11 +22,12 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.MEP.Process;
 
 namespace BH.oM.MEP.Equipment.Parts
 {
     [Description("Cooling coils allow fluids (air) to lower their temperature as they pass through the coil")]
-    public class CoolingCoil : BHoMObject, IPart
+    public class CoolingCoil : BHoMObject, ICool, IHeatExchanger, IFlowImpediment, IFlowEquipment
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -37,30 +38,16 @@ namespace BH.oM.MEP.Equipment.Parts
         
         [Description("Sensible capacity indicates the ability for the cooling coil to change the temperature (rather than the phase) of the fluid (air).")]
         public virtual double SensibleCapacity { get; set; } = 0.0;
-        
-        [Description("Entering Dry Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius, without taking humidity into consideration")]
-        public virtual double EnteringDryBulbAirTemperature { get; set; } = 0.0;
-        
-        [Description("Entering Wet Bulb Air Temperature indicates the heat intensity of the air entering the system in degrees Celsius, while taking humidity into consideration")]
-        public virtual double EnteringWetBulbAirTemperature { get; set; } = 0.0;
-        
-        [Description("Leaving Dry Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius, without taking humidity into consideration")]
-        public virtual double LeavingDryBulbAirTemperature { get; set; } = 0.0;
-        
-        [Description("Leaving Wet Bulb Air Temperature indicates the heat intensity of the air leaving the system in degrees Celsius, while taking humidity into consideration")]
-        public virtual double LeavingWetBulbAirTemperature { get; set; } = 0.0;
-        
-        [Description("Entering Water Temperature indicates the heat intensity of the water entering the system in degrees Celsius")]
-        public virtual double EnteringWaterTemperature { get; set; } = 0.0;
-        
-        [Description("Leaving Water Temperature indicates the heat intensity of the water leaving the system in degrees Celsius")]
-        public virtual double LeavingWaterTemperature { get; set; } = 0.0;
-        
+
+        [Description("Latent capacity indicates the ability for the cooling coil to change the phase of the fluid (air).")]
+        public virtual double LatentCapacity { get; set; } = 0.0;
+
         [Description("Pressure Drop indicates the amount of resistance created by the coil which creates a loss in pressure of the fluid (air)")]
         public virtual double PressureDrop { get; set; } = 0.0;
-        
-        [Description("Number of Rows indicates the number of rows of coils that the fluid (air) passes through")]
-        public virtual int NumberOfRows { get; set; } = 0;
+        public virtual IStatePoint EnteringProcessFluidState { get; set; }
+        public virtual IStatePoint LeavingProcessFluidState { get; set; }
+        public virtual IStatePoint EnteringFluidState { get; set; }
+        public virtual IStatePoint LeavingFluidState { get; set; } 
 
         /***************************************************/
     }

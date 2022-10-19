@@ -27,7 +27,7 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public class CableTraySectionProperty : BHoMObject, IImmutable
+    public class CableTraySectionProperty : BHoMObject, IConduitElementProperty, IImmutable
     {
         /***************************************************/
         /****                 Properties                ****/

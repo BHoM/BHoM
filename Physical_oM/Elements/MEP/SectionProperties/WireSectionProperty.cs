@@ -26,7 +26,7 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public class WireSectionProperty : BHoMObject, IFlowSectionProperty, IImmutable
+    public class WireSectionProperty : BHoMObject, IConduitElementProperty, IImmutable
     {
         [Description("The wire material is the primary material that the wire is composed of (copper, aluminium).")]
         public virtual Material ConductiveMaterial { get; set; }

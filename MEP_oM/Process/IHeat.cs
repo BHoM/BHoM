@@ -20,19 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.Physical.ConduitProperties
+namespace BH.oM.MEP.Process
 {
-    public interface IFlowSectionProperty : IBHoMObject
+    public interface IHeat : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
+        [Description("Sensible capacity indicates the ability for the heating coil to change the temperature of the fluid (air).")]
+        double SensibleCapacity { get; set; }
 
         /***************************************************/
     }
 }
+
 
 

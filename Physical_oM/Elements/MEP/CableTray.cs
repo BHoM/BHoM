@@ -20,35 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.MEP.Equipment.Parts;
+using BH.oM.Dimensional;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Geometry;
+using BH.oM.Physical.ConduitProperties;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.Physical.Elements
 {
-    [Description("Air Handling Units are devices which house fans, filter, coils, and energy wheels which produce heated and cooled fresh/partially recirculated air to a building")]
-    public class AirHandlingUnit : BHoMObject, IFlowEquipment
+    [Description("A Cable Tray object is a passageway which conveys material (typically cables)")]
+    public class CableTray : BHoMObject, IConduitSegment
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /**** Physical Only Properties                   ****/
         /***************************************************/
 
-        [Description("Type denotes the kind of Air Handling Unit (eg heat and ventilation, energy recovery)")]
-        public virtual string Type { get; set; } = "";
+        public virtual ICurve Location { get; set; } = new Polyline();
+        public virtual IConduitElementProperty Property { get; set; } = null;
         
-        [Description("Total Airflow accounts for the maximum amount of supply/outside air that the Air Handling Unit will be passing. This value is measured in m3/s (e.g. 2.35 m3/s (5000 CFM) of Outside Air)")]
-        public virtual double TotalAirFlow { get; set; } = 0.0;
 
-        [Description("Air velocity across coil denotes the maximum velocity of the air that should be passed along the Air Handling Unit's coil. This value is measured in m/s (maximum values around 2.5 m/s (500 ft/min) are considered best practice)")]
-        public virtual double AirVelocityAcrossCoil { get; set; } = 0.0;
+        /***************************************************/
+        /****                 Properties                ****/
+        /***************************************************/
 
-        [Description("A collection of the parts (Air Handling Unit, Fans, Coils, Energy Wheel, Filters, Electrical Connectors) that make up the Air Handling Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        [Description("The Cable Tray section property defines the shape (rectangular) and its associated properties (height, width, material, thickness/gauge).")]
+        public virtual CableTraySectionProperty SectionProperty { get; set; } = null;
+
+        [Angle]
+        [Description("This is the Cable Tray's planometric orientation angle (the rotation around its central axis).")]
+        public virtual double OrientationAngle { get; set; } = 0;
 
         /***************************************************/
     }
 }
-
 
 
