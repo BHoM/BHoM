@@ -20,31 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.MEP.Equipment.Parts;
-using BH.oM.MEP.System;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.Physical.Elements
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IFlowEquipment
+    [Description("A device used to regulate the volume of air to or from an air handling unit, variable air volume device or similar, to or from the occupied space. These devices may be ducted or connect directly to a plenum, in which case no duct connection will be present.")]
+    public class AirTerminal : BHoMObject, IElement0D, IConduitTermination
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public Point Location { get; set; }
-        public List<FlowNode> Connections { get; set; }
 
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
-        public double OrientationAngle { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
+        [Description("The point in space for the location of the object.")]
+        public virtual Point Location { get; set; } = null;
+
+        [Description("The point at which the air terminal physically connects to other MEP segments.")]
+        public virtual Connector Connection { get; set; } = null;
 
         /***************************************************/
     }
 }
-
 
 

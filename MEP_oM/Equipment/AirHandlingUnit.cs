@@ -41,6 +41,7 @@ namespace BH.oM.MEP.Equipment
         
         [Description("A collection of the parts (Air Handling Unit, Fans, Coils, Energy Wheel, Filters, Electrical Connectors) that make up the Air Handling Unit")]
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
+        public double OrientationAngle { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
 
         /***************************************************/
     }

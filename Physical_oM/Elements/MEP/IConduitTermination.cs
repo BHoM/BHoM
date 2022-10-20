@@ -20,27 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.MEP.Equipment.Parts;
-using BH.oM.MEP.System;
+using BH.oM.Dimensional;
+using BH.oM.Physical.ConduitProperties;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.Physical.Elements
 {
-    [Description("Fan Coil Units are devices that use a coil and a fan to heat or cool a space")]
-    public class FanCoilUnit : BHoMObject, IFlowEquipment
+    public interface IConduitTermination : IBHoMObject, IPhysical, IElement0D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public Point Location { get; set; }
-        public List<FlowNode> Connections { get; set; }
-
-        [Description("A collection of the parts (Fan, Coil, Electrical Connector) that make up the Fan Coil Unit")]
-        public virtual List<IPart> Parts { get; set; } = new List<IPart>();
-        public double OrientationAngle { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
+        
+        Point Location { get; set; }
+        Connector Connection { get; set; }
 
         /***************************************************/
     }
