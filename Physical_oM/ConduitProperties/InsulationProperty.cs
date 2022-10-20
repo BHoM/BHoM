@@ -28,7 +28,7 @@ using BH.oM.Spatial.ShapeProfiles;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public class Lining : BHoMObject, IConduitElementProperty
+    public class InsulationProperty : BHoMObject, IConduitElementProperty
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -39,13 +39,14 @@ namespace BH.oM.Physical.ConduitProperties
         public virtual double VoidArea { get; set; }
 
         /***************************************************/
-        public Lining(IProfile profile, Material material, double solidArea, double voidArea)
+
+/*        public Insulation(IProfile profile, Material material, double solidArea, double voidArea)
         {
             Profile = profile;
             Material = material;
             SolidArea = solidArea;
             VoidArea = voidArea;
-        }
+        }*/
     }
 }
 

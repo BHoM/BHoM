@@ -33,7 +33,7 @@ namespace BH.oM.Physical.ConduitProperties
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        Insulation Insulation { get; set; }
+        InsulationProperty Insulation { get; set; }
     }
 }
 

@@ -33,15 +33,15 @@ using System.ComponentModel;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public class ConstantConduitProperty : BHoMObject, IConduitElementProperty
+    public class ConstantConduitSegementProperty : BHoMObject, IConduitElementProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         public virtual IProfile Profile { get; set; }
-        public virtual double ElementSolidArea { get; set; }
-        public virtual double ElementVoidArea { get; set; }
+        public virtual double SolidArea { get; set; }
+        public virtual double VoidArea { get; set; }
 
         public virtual Material Material { get; set; }
 
@@ -53,7 +53,7 @@ namespace BH.oM.Physical.ConduitProperties
 
         /***************************************************/
 
-        public ConstantConduitProperty(IProfile profile, double elementSolidArea, double elementVoidArea, Material material, double flowRate, double orientationAngle)
+/*        public ConstantConduitProperty(IProfile profile, double elementSolidArea, double elementVoidArea, Material material, double flowRate, double orientationAngle)
         {
             Profile = profile;
             ElementSolidArea = elementSolidArea;
@@ -61,7 +61,7 @@ namespace BH.oM.Physical.ConduitProperties
             Material = material;
             FlowRate = flowRate;
             OrientationAngle = orientationAngle;
-        }
+        }*/
     }
 }
 

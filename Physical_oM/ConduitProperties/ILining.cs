@@ -33,7 +33,7 @@ namespace BH.oM.Physical.ConduitProperties
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        Lining Lining { get; set; }
+        LiningProperty Lining { get; set; }
     }
 }
 

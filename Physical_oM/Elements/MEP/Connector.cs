@@ -37,10 +37,10 @@ namespace BH.oM.Physical.Elements
         /****                 Properties                ****/
         /***************************************************/
 
-        [Description("The point at which the Fitting occurs.")]
+        [Description("The point at which the connector occurs.")]
         public virtual Point Location { get; set; } = null;
         
-        public virtual ConstantConduitProperty Property { get; set; }
+        public virtual ConstantConduitConnectorProperty Property { get; set; }
 
         /***************************************************/
     }

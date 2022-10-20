@@ -37,7 +37,7 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
 
         public virtual ICurve Location { get; set; } = new Polyline();
-        public virtual ConstantConduitProperty Property { get; set; } = null;
+        public virtual ConstantConduitSegementProperty Property { get; set; } = null;
         
     }
 }

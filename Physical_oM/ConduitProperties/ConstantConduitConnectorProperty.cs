@@ -20,35 +20,48 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Physical.Enums;
-using BH.oM.Quantities.Attributes;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Base;
+using BH.oM.Spatial.ShapeProfiles;
+using BH.oM.Physical.Materials;
 using System.ComponentModel;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Physical.ConduitProperties
 {
-    [Description("A device used to control the flow within a duct system (fire smoke damper, volume damper, etc.)")]
-    public class Damper : BHoMObject, IElement0D, IConduitConnector
+    public class ConstantConduitConnectorProperty : BHoMObject, IConduitElementProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("The point at which the Fitting occurs.")]
-        public virtual Point Location { get; set; } = null;
 
-        [Description("The points at which the Fitting physically connects to other MEP segments.")]
-        public virtual List<Connector> Connections { get; set; } = null;
+        public virtual IProfile Profile { get; set; }
+        public virtual double SolidArea { get; set; }
+        public virtual double VoidArea { get; set; }
 
-        [Description("A type which describes the damper more specifically whether it's a fire smoke damper, volume damper or balancing damper.")]
-        public virtual DamperType Type { get; set; } = DamperType.Undefined;
+        public virtual Material Material { get; set; }
 
-        [Description("The geometry and size dependent local loss coefficient for fittings.")]
-        public virtual double CFactor { get; set; } = 0;
+        public virtual double OrientationAngle { get; set; }
+        
+
 
         /***************************************************/
+
+/*        public ConstantConduitProperty(IProfile profile, double elementSolidArea, double elementVoidArea, Material material, double flowRate, double orientationAngle)
+        {
+            Profile = profile;
+            ElementSolidArea = elementSolidArea;
+            ElementVoidArea = elementVoidArea;
+            Material = material;
+            FlowRate = flowRate;
+            OrientationAngle = orientationAngle;
+        }*/
     }
 }
+
+
 

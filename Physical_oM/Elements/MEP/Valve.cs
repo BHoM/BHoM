@@ -44,7 +44,7 @@ namespace BH.oM.Physical.Elements
 
 
         [Description("A type which describes the valve, more specifically whether it's a check valve, gate valve, etc.")]
-        public virtual ValveType ValveType { get; set; } = ValveType.Undefined;
+        public virtual ValveType Type { get; set; } = ValveType.Undefined;
 
 
         [Description("The geometry and size dependent loss coefficient for valves and fittings ")]
