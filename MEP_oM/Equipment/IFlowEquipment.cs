@@ -27,6 +27,7 @@ using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.MEP.Equipment.Parts;
 using BH.oM.MEP.System;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.MEP.Equipment
 {
@@ -43,6 +44,10 @@ namespace BH.oM.MEP.Equipment
         List<FlowNode> Connections { get; set; }
 
         List<IPart> Parts { get; set; }
+
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        double OrientationAngle { get; set; }
 
         /***************************************************/
     }

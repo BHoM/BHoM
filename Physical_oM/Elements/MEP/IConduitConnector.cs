@@ -41,7 +41,7 @@ namespace BH.oM.Physical.Elements
         
         Point Location { get; set; }
         List<Point> Connections { get; set; }
-        IConduitElementProperty Property { get; set; }
+        ConstantConduitProperty Property { get; set; }
 
         /***************************************************/
     }

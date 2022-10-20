@@ -20,45 +20,50 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Spatial.ShapeProfiles;
 using BH.oM.Physical.Materials;
+using System.ComponentModel;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public class CableTraySectionProperty : BHoMObject, IConduitElementProperty, IImmutable
+    public class ConstantConduitProperty : BHoMObject, IConduitElementProperty
     {
         /***************************************************/
-        /****                 Properties                ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The cable tray material is the primary material that the it is composed of.")]
-        public virtual Material Material { get; set; }     
+        public virtual IProfile Profile { get; set; }
+        public virtual double ElementSolidArea { get; set; }
+        public virtual double ElementVoidArea { get; set; }
 
-        [Description("The section profile of the object that will determine its use within a System.")]
-        public virtual SectionProfile SectionProfile { get; }
+        public virtual Material Material { get; set; }
 
-        [Description("This area takes the element's thickness into account to determine the actual area of the 'solid' portion of the ShapeProfile.")]
-        public virtual double ElementSolidArea { get; }
+        public virtual double FlowRate { get; set; }
 
-        [Description("The interior area within the element's shapeProfile. This corresponds to the actual open area less any material thickness.")]
-        public virtual double ElementVoidArea { get; }
-
-        /***************************************************/
-        /****                 Constructor               ****/
-        /***************************************************/
+        public virtual double OrientationAngle { get; set; }
         
-        public CableTraySectionProperty(Material material,SectionProfile sectionProfile, double elementSolidArea, double elementVoidArea)
-        {
-            Material = material;
-            SectionProfile = sectionProfile;
-            ElementSolidArea = elementSolidArea;
-            ElementVoidArea = elementVoidArea;            
-        }
+
 
         /***************************************************/
+
+        public ConstantConduitProperty(IProfile profile, double elementSolidArea, double elementVoidArea, Material material, double flowRate, double orientationAngle)
+        {
+            Profile = profile;
+            ElementSolidArea = elementSolidArea;
+            ElementVoidArea = ElementVoidArea;
+            Material = material;
+            FlowRate = flowRate;
+            OrientationAngle = orientationAngle;
+        }
     }
 }
+
 
 

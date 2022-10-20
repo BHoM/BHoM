@@ -22,28 +22,21 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Spatial.ShapeProfiles;
 using BH.oM.Physical.Materials;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public class ConstantConduitProperty : BHoMObject, IConduitElementProperty
+    public interface IConduitElementProperty : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        public virtual IProfile Profile { get; set; }
-
-        public virtual Material Material { get; set; }
-
-        public virtual double OrientationAngle { get; set; }
-
 
         /***************************************************/
     }

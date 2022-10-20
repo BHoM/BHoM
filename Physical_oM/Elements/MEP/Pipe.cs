@@ -25,7 +25,6 @@ using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Physical.ConduitProperties;
-using BH.oM.Physical.Elements;
 using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Elements
@@ -38,20 +37,11 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
 
         public virtual ICurve Location { get; set; } = new Polyline();
-        public virtual IConduitElementProperty Property { get; set; } = null;
+        public virtual ConstantConduitProperty Property { get; set; }
 
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-        [Description("The volume of fluid being conveyed by the pipe per second (m3/s).")]
-        public virtual double FlowRate { get; set; } = 0;
+        public virtual Insulation Insulation { get; set; } = null;
 
-        [Description("The pipe section property defines the shape and its associated properties (radius, material, thickness).")]
-        public virtual PipeSectionProperty SectionProperty { get; set; } = null;
-
-        [Angle]
-        [Description("This is the pipe's planometric orientation angle (the rotation around its central axis).")]
-        public virtual double OrientationAngle { get; set; } = 0;
+        public virtual Lining Lining { get; set; } = null;
 
         /***************************************************/
     }

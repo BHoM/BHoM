@@ -25,7 +25,6 @@ using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Physical.ConduitProperties;
-using BH.oM.Physical.Elements;
 using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Elements
@@ -38,22 +37,11 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
 
         public virtual ICurve Location { get; set; } = new Polyline();
-        public virtual IConduitElementProperty Property { get; set; } = null;
+        public virtual ConstantConduitProperty Property { get; set; } = null;
 
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("The amount of current being carried by the wire, the ampacity of the wire.")]
-        public virtual double FlowRate { get; set; } = 0;
-
-        [Description("Section property of the Wire, containing all material as well as profile geometry and dimensions, where applicable.")]
-        public virtual WireSectionProperty SectionProperty { get; set; } = null;
-
-        [Angle]
-        [Description("This is the wire's planometric orientation angle (the rotation around its central axis).")]
-        public virtual double OrientationAngle { get; set; } = 0;
-
+        public virtual Insulation Insulation { get; set; } = null;
+        public virtual Lining Lining { get; set; } = null;
+        
         /***************************************************/
     }
 }

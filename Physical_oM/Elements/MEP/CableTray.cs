@@ -37,21 +37,8 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
 
         public virtual ICurve Location { get; set; } = new Polyline();
-        public virtual IConduitElementProperty Property { get; set; } = null;
+        public virtual ConstantConduitProperty Property { get; set; } = null;
         
-
-        /***************************************************/
-        /****                 Properties                ****/
-        /***************************************************/
-
-        [Description("The Cable Tray section property defines the shape (rectangular) and its associated properties (height, width, material, thickness/gauge).")]
-        public virtual CableTraySectionProperty SectionProperty { get; set; } = null;
-
-        [Angle]
-        [Description("This is the Cable Tray's planometric orientation angle (the rotation around its central axis).")]
-        public virtual double OrientationAngle { get; set; } = 0;
-
-        /***************************************************/
     }
 }
 

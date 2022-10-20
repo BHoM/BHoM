@@ -22,26 +22,29 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Physical.ConduitProperties;
+using BH.oM.Physical.Materials;
 using BH.oM.Spatial.ShapeProfiles;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public class SectionProfile : BHoMObject, IBHoMObject, IImmutable
+    public class Lining : BHoMObject, IConduitElementProperty
     {
-        [Description("ShapeProfile of the element itself. This is the base ShapeProfile that determines the overall shape of the IFlow object.")]
-        public virtual IProfile ElementProfile { get; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        public virtual IProfile Profile { get; set; }
+        public virtual Material Material { get; set; }
+        public virtual double SolidArea { get; set; }
+        public virtual double VoidArea { get; set; }
 
-        [Description("ShapeProfile of the element's interior lining.")]
-        public virtual IProfile LiningProfile { get; }
-
-        [Description("ShapeProfile of the element's exterior insulation.")]
-        public virtual IProfile InsulationProfile { get; }
-
-        public SectionProfile(IProfile elementProfile, IProfile liningProfile, IProfile insulationProfile)
+        /***************************************************/
+        public Lining(IProfile profile, Material material, double solidArea, double voidArea)
         {
-            ElementProfile = elementProfile;
-            LiningProfile = liningProfile;
-            InsulationProfile = insulationProfile;
+            Profile = profile;
+            Material = material;
+            SolidArea = solidArea;
+            VoidArea = voidArea;
         }
     }
 }

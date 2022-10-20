@@ -40,7 +40,7 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
 
         ICurve Location { get; set; }
-        IConduitElementProperty Property { get; set; }
+        ConstantConduitProperty Property { get; set; }
 
         /***************************************************/
     }

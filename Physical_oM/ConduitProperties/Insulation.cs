@@ -20,27 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Physical.ConduitProperties;
+using BH.oM.Physical.Materials;
+using BH.oM.Spatial.ShapeProfiles;
 
 namespace BH.oM.Physical.ConduitProperties
 {
-    public interface IConduitElementProperty : IBHoMObject
+    public class Insulation : BHoMObject, IConduitElementProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-
+        public virtual IProfile Profile { get; set; }
+        public virtual Material Material { get; set; }
+        public virtual double SolidArea { get; set; }
+        public virtual double VoidArea { get; set; }
 
         /***************************************************/
+
+        public Insulation(IProfile profile, Material material, double solidArea, double voidArea)
+        {
+            Profile = profile;
+            Material = material;
+            SolidArea = solidArea;
+            VoidArea = voidArea;
+        }
     }
 }
-
 
 

@@ -25,6 +25,7 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.MEP.System
 { 
@@ -40,6 +41,10 @@ namespace BH.oM.MEP.System
 
         [Description("The points at which the Fitting physically connects to other MEP segments.")]
         List<FlowNode> Connections { get; set; }
+
+        [Angle]
+        [Description("Controls the local plan orientation of the object.")]
+        double OrientationAngle { get; set; }
 
         /***************************************************/
     }
