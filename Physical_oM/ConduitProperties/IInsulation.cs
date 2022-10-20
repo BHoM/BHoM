@@ -22,28 +22,18 @@
 
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
 using BH.oM.Physical.ConduitProperties;
-using BH.oM.Quantities.Attributes;
+using BH.oM.Physical.Materials;
+using BH.oM.Spatial.ShapeProfiles;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.Physical.ConduitProperties
 {
-    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IConduitSegment, IInsulation, ILining
+    public interface IInsulation : IBHoMObject, IConduitElementProperty
     {
         /***************************************************/
-        /**** Physical Only Properties                   ****/
+        /**** Properties                                ****/
         /***************************************************/
-
-        public virtual ICurve Location { get; set; } = new Polyline();
-        public virtual ConstantConduitProperty Property { get; set; }
-
-        public virtual Insulation Insulation { get; set; } = null;
-
-        public virtual Lining Lining { get; set; } = null;
-
-        /***************************************************/
+        Insulation Insulation { get; set; }
     }
 }
 

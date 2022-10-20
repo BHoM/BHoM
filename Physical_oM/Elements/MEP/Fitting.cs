@@ -20,29 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Physical.ConduitProperties;
+using BH.oM.Physical.Enums;
 using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Elements
 {
-    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IConduitSegment, IInsulation, ILining
+    [Description("A fitting object used to describe interfaces between or along linear MEP elements.")]
+    public class Fitting : BHoMObject, IElement0D, IConduitConnector
     {
         /***************************************************/
-        /**** Physical Only Properties                   ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        public virtual ICurve Location { get; set; } = new Polyline();
-        public virtual ConstantConduitProperty Property { get; set; }
+        [Description("The point at which the Fitting occurs.")]
+        public virtual Point Location { get; set; } = null;
+        
+        [Description("The points at which the Fitting physically connects to other MEP segments.")]
+        public virtual List<Connector> Connections { get; set; } = null;
 
-        public virtual Insulation Insulation { get; set; } = null;
+        [Description("The type of fitting connected to an element.")]
+        public virtual FittingType Type { get; set; } = FittingType.Undefined;
 
-        public virtual Lining Lining { get; set; } = null;
-
+        public virtual double CFactor { get; set; } = 0;
         /***************************************************/
     }
 }

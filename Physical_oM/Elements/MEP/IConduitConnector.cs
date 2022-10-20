@@ -40,8 +40,7 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
         
         Point Location { get; set; }
-        List<Point> Connections { get; set; }
-        ConstantConduitProperty Property { get; set; }
+        List<Connector> Connections { get; set; }
 
         /***************************************************/
     }

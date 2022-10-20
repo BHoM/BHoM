@@ -20,31 +20,37 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
-using BH.oM.Physical.ConduitProperties;
+using BH.oM.Physical.Enums;
 using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BH.oM.Physical.Elements
 {
-    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IConduitSegment, IInsulation, ILining
+    [Description("A device used to control the flow within a piping system (ball valve, check valve, etc.)")]
+    public class Valve : BHoMObject, IElement0D, IConduitConnector
     {
         /***************************************************/
-        /**** Physical Only Properties                   ****/
+        /**** Properties                                ****/
         /***************************************************/
+        [Description("The point at which the Fitting occurs.")]
+        public virtual Point Location { get; set; } = null;
 
-        public virtual ICurve Location { get; set; } = new Polyline();
-        public virtual ConstantConduitProperty Property { get; set; }
+        [Description("The points at which the Fitting physically connects to other MEP segments.")]
+        public virtual List<Connector> Connections { get; set; } = null;
 
-        public virtual Insulation Insulation { get; set; } = null;
 
-        public virtual Lining Lining { get; set; } = null;
+        [Description("A type which describes the valve, more specifically whether it's a check valve, gate valve, etc.")]
+        public virtual ValveType ValveType { get; set; } = ValveType.Undefined;
+
+
+        [Description("The geometry and size dependent loss coefficient for valves and fittings ")]
+        public virtual double KFactor { get; set; } = 0;
 
         /***************************************************/
     }
 }
-
 

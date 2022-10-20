@@ -30,7 +30,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Physical.Elements
 {
     [Description("An object containing a collection of Wires to work within an MEP systems.")]
-    public class WireSegment : BHoMObject, IConduitSegment
+    public class WireSegment : BHoMObject, IConduitSegment, IInsulation, ILining
     {
         /***************************************************/
         /**** Physical Only Properties                   ****/

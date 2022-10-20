@@ -57,7 +57,7 @@ namespace BH.oM.Physical.ConduitProperties
         {
             Profile = profile;
             ElementSolidArea = elementSolidArea;
-            ElementVoidArea = ElementVoidArea;
+            ElementVoidArea = elementVoidArea;
             Material = material;
             FlowRate = flowRate;
             OrientationAngle = orientationAngle;

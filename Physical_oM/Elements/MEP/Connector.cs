@@ -20,28 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Physical.ConduitProperties;
+using BH.oM.Physical.Enums;
 using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Elements
 {
-    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class Pipe : BHoMObject, IConduitSegment, IInsulation, ILining
+    public class Connector : BHoMObject, IElement0D
     {
         /***************************************************/
-        /**** Physical Only Properties                   ****/
+        /****                 Properties                ****/
         /***************************************************/
 
-        public virtual ICurve Location { get; set; } = new Polyline();
+        [Description("The point at which the Fitting occurs.")]
+        public virtual Point Location { get; set; } = null;
+        
         public virtual ConstantConduitProperty Property { get; set; }
-
-        public virtual Insulation Insulation { get; set; } = null;
-
-        public virtual Lining Lining { get; set; } = null;
 
         /***************************************************/
     }
