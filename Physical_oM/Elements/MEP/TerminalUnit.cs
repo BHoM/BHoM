@@ -31,7 +31,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Physical.Elements
 {
     [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
-    public class FanCoilUnit : BHoMObject, IEquipment, ICompositeEquipment
+    public class TerminalUnit : BHoMObject, IEquipment, ICompositeEquipment
     {
         /***************************************************/
         /**** Physical Only Properties                   ****/
