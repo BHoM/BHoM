@@ -20,36 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Physical.Enums;
-using BH.oM.Quantities.Attributes;
-using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.MEP.Process;
 
-namespace BH.oM.Physical.Elements
+namespace BH.oM.MEP.Equipment.Parts
 {
-    [Description("A device used to regulate the volume of air to or from an air handling unit, variable air volume device or similar, to or from the occupied space. These devices may be ducted or connect directly to a plenum, in which case no duct connection will be present.")]
-    public class AirTerminal : BHoMObject, IElement0D, IConduitTermination
+    [Description("Cooling coils allow fluids (air) to lower their temperature as they pass through the coil")]
+    public class CoolingCoil : BHoMObject, ICoolingProcess, IHeatExchanger, IFlowImpediment
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point in space for the location of the object.")]
-        public virtual Point Location { get; set; } = null;
-
-        [Description("The point at which the air terminal physically connects to other MEP segments.")]
-        public virtual Connector Connection { get; set; } = null;
+        [Description("Total capacity indicates the combined sensible and latent capacity of the cooling coil")]
+        public virtual double TotalCapacity { get; set; } = 0.0;
         
-        [Description("The point at which the air terminal physically connects to other MEP segments.")]
-        public virtual Connector Discharge { get; set; } = null;
+        [Description("Sensible capacity indicates the ability for the cooling coil to change the temperature (rather than the phase) of the fluid (air).")]
+        public virtual double SensibleCapacity { get; set; } = 0.0;
 
-        public virtual AirTerminalType Type { get; set; } = AirTerminalType.Undefined;
+        [Description("Latent capacity indicates the ability for the cooling coil to change the phase of the fluid (air).")]
+        public virtual double LatentCapacity { get; set; } = 0.0;
+
+        [Description("Pressure Drop indicates the amount of resistance created by the coil which creates a loss in pressure of the fluid (air)")]
+        public virtual double PressureDrop { get; set; } = 0.0;
+        public PartsFlowNode EnteringProcessFluid { get; set; }
+        public PartsFlowNode LeavingProcessFluid { get; set; }
+        public PartsFlowNode EnteringFluid { get; set; }
+        public PartsFlowNode LeavingFluid { get; set; }
+
 
         /***************************************************/
     }
 }
+
 
 

@@ -41,6 +41,8 @@ namespace BH.oM.Physical.Elements
         
         Point Location { get; set; }
         Connector Connection { get; set; }
+        
+        Connector Discharge { get; set; }
 
         /***************************************************/
     }

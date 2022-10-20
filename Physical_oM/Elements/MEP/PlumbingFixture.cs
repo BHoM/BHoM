@@ -31,7 +31,7 @@ using System.ComponentModel;
 namespace BH.oM.Physical.Elements
 {
     [Description("A device used to regulate the volume of air to or from an air handling unit, variable air volume device or similar, to or from the occupied space. These devices may be ducted or connect directly to a plenum, in which case no duct connection will be present.")]
-    public class AirTerminal : BHoMObject, IElement0D, IConduitTermination
+    public class PlumbingFixture : BHoMObject, IElement0D, IConduitTermination
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -42,11 +42,11 @@ namespace BH.oM.Physical.Elements
 
         [Description("The point at which the air terminal physically connects to other MEP segments.")]
         public virtual Connector Connection { get; set; } = null;
-        
+
         [Description("The point at which the air terminal physically connects to other MEP segments.")]
         public virtual Connector Discharge { get; set; } = null;
 
-        public virtual AirTerminalType Type { get; set; } = AirTerminalType.Undefined;
+        public virtual PlumbingFixtureType Type { get; set; } = PlumbingFixtureType.Undefined;
 
         /***************************************************/
     }

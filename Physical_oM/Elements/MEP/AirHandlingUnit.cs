@@ -23,29 +23,28 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
-using BH.oM.MEP.Equipment.Parts;
-using BH.oM.MEP.System;
+using BH.oM.Physical.ConduitProperties;
+using BH.oM.Quantities.Attributes;
 
-namespace BH.oM.MEP.Equipment
+namespace BH.oM.Physical.Elements
 {
-    [Description("Air Handling Units are devices which house fans, filter, coils, and energy wheels which produce heated and cooled fresh/partially recirculated air to a building")]
-    public class AirHandlingUnit : BHoMObject, IFlowEquipment
+    [Description("A pipe object is a passageway which conveys material (water, waste, glycol)")]
+    public class AirHandlingUnit : BHoMObject, IEquipment, ICompositeEquipment
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /**** Physical Only Properties                   ****/
         /***************************************************/
 
-        public virtual Point Location { get; set ; }
-        public virtual List<FlowNode> Connections { get; set; }
-        
-        [Description("A collection of the parts (Air Handling Unit, Fans, Coils, Energy Wheel, Filters, Electrical Connectors) that make up the Air Handling Unit")]
+        //public virtual IdentifyingData IdentifyingData { get; set; }
+        public virtual Point Location { get; set; }
+        public virtual List<Connector> Connections { get; set; }
+
         public virtual List<IPart> Parts { get; set; } = new List<IPart>();
-        public double OrientationAngle { get => throw new global::System.NotImplementedException(); set => throw new global::System.NotImplementedException(); }
 
         /***************************************************/
     }
 }
-
 
 
