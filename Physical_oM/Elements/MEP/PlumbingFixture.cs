@@ -43,9 +43,6 @@ namespace BH.oM.Physical.Elements
         [Description("The point at which the air terminal physically connects to other MEP segments.")]
         public virtual Connector Connection { get; set; } = null;
 
-        [Description("The point at which the air terminal physically connects to other MEP segments.")]
-        public virtual Connector Discharge { get; set; } = null;
-
         public virtual PlumbingFixtureType Type { get; set; } = PlumbingFixtureType.Undefined;
 
         /***************************************************/
