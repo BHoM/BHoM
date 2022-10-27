@@ -38,6 +38,9 @@ namespace BH.oM.Physical.Materials.Options
         [Description("A specific type of IDensityProvider to limit the search to. If null all IDensityProviders on the material are considered.")]
         public virtual Type Type { get; set; } = null;
 
+        [Description("If true, and material does not contain a IDensityProvider of the specified type, DensityExtraction falls back to look for other densities. If false and material does not contain the type DensityExtraction exits.")]
+        public virtual bool AllowFallbackIfNoType { get; set; } = false;
+
         public virtual DensityExtractionType ExtractionType { get; set; } = DensityExtractionType.AllMatching;
 
         [Ratio]
