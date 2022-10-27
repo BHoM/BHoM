@@ -46,6 +46,9 @@ namespace BH.oM.Physical.Materials.Options
 
         [Description("Ignores densities of 0 if true when computing average or checking for equality.")]
         public virtual bool IgnoreZeroValues { get; set; } = true;
+
+        [Description("Threshold for density values to be seen as 0.")]
+        public virtual double ZeroTolerance { get; set; } = 1e-6;
         /***************************************************/
 
     }
