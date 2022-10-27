@@ -25,28 +25,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using BH.oM.Base;
-using BH.oM.Physical.Materials;
-
 using System.ComponentModel;
 
-namespace BH.oM.Environment.MaterialFragments
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+
+namespace BH.oM.Physical.Materials
 {
-    public interface IEnvironmentMaterial : IBHoMObject, IMaterialProperties, IFragment, IDensityProvider
+    [Description("Interface to be added to IMaterialProperties the specifies the density of the Material the proeprty is attached to.")]
+    public interface IDensityProvider : IMaterialProperties
     {
-        double Conductivity { get; set; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        double SpecificHeat { get; set; }
+        [Density]
+        double Density { get; set; }
 
-        double VapourResistivity { get; set; }
-
-        string Description { get; set; }
-
-        [Description("Required for some calculations, such as determining the convective heat transfer coefficient. Use Roughness enum")]
-        Roughness Roughness { get; set; }
-
-        double Refraction { get; set; }
+        /***************************************************/
     }
 }
 
