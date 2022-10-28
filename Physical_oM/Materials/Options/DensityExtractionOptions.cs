@@ -52,6 +52,25 @@ namespace BH.oM.Physical.Materials.Options
 
         [Description("Threshold for density values to be seen as 0.")]
         public virtual double ZeroTolerance { get; set; } = 1e-6;
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        [Description("Returns a DensityExtractionOptions class with provided Type set set and all other values as defaults.")]
+        public static explicit operator DensityExtractionOptions(Type type)
+        {
+            return new DensityExtractionOptions { Type = type };
+        }
+
+        /***************************************************/
+
+        [Description("Returns a DensityExtractionOptions class with provided ExtractionType set and all other values as defaults.")]
+        public static explicit operator DensityExtractionOptions(DensityExtractionType extractionType)
+        {
+            return new DensityExtractionOptions { ExtractionType = extractionType };
+        }
+
         /***************************************************/
 
     }
