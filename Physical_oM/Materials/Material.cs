@@ -25,18 +25,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 using BH.oM.Base;
-using BH.oM.Geometry;
+
 
 namespace BH.oM.Physical.Materials
 {
+    [Description("Phsical material to be used for Takeoffs and asigned to Phsycial elements. Material is capable of storing discipline specific data in Properties.")]
     public class Material : BHoMObject, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Density]
+        [Description("Density to be used for takeoffs and methods relying on takeoff information. Can differ from densities assigned on discipline specific IMaterialProeprties.")]
+        public virtual double Density { get; set; }
+
+        [Description("Discipline data related to the material.")]
         public virtual List<IMaterialProperties> Properties { get; set; } = new List<IMaterialProperties>();
 
         /***************************************************/
