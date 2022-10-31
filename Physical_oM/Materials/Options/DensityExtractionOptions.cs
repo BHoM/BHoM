@@ -35,7 +35,8 @@ namespace BH.oM.Physical.Materials.Options
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A specific type of IDensityProvider to limit the search to. If null all IDensityProviders on the material are considered.")]
+        [Description("A specific type of IDensityProvider to limit the search to. If null all IDensityProviders on the material are considered.\n" +
+                     "Errors will be raised if the type provided is not a IDensityProvider type.")]
         public virtual Type Type { get; set; } = null;
 
         [Description("If true, and material does not contain a IDensityProvider of the specified type, DensityExtraction falls back to look for other densities. If false and material does not contain the type DensityExtraction exits.")]
@@ -44,7 +45,7 @@ namespace BH.oM.Physical.Materials.Options
         public virtual DensityExtractionType ExtractionType { get; set; } = DensityExtractionType.AllMatching;
 
         [Ratio]
-        [Description("The ratio tolerance for considering the value of the densities as equal. Comparison is made by comparing the differance between min and max over their mean.")]
+        [Description("The ratio tolerance for considering the value of the densities as equal. Density values are deemed equal if (max - min / mean) is smaller than this value, where mean = (max + min)/2, i.e. a tolerance of 0.01 means an allowable difference of 1% normalised to the mean value of found densities.")]
         public virtual double EqualTolerance { get; set; } = 0.001;
 
         [Description("Ignores densities of 0 if true when computing average or checking for equality.")]
