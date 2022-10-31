@@ -28,13 +28,13 @@ using BH.oM.Base.Attributes;
 
 namespace BH.oM.Physical.Materials
 {
-    [Description("Specifies how the density should be extracted from a physical Material with multiple IMaterialProperties of type IDensityProvider attached to it.")]
+    [Description("Specifies how the density should be extracted from a list of IDensityProvider.")]
     public enum DensityExtractionType
     {
         [DisplayText("All matching.")]
         [Description("Require all densities across all IDensityProviders extracted to be equal within tolerance. If within tolerance, the average is computed.")]
         AllMatching,
-        [Description("Compute and return the average value of all Densities found, independent of difference between them.")]
+        [Description("Compute and return the average value of all densities found, independent of difference between them.")]
         Average,
         [Description("Return the maximum value of all densities found.")]
         Maximum,

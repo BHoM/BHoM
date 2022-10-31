@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Physical.Materials.Options
 {
-    [Description("Settings for extraction of Density from a Physical Material.")]
+    [Description("Settings for extraction of Density from a List of IDensityProviders.")]
     public class DensityExtractionOptions : IObject
     {
         /***************************************************/
