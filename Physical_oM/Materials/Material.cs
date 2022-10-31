@@ -33,7 +33,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Physical.Materials
 {
-    [Description("Phsical material to be used for Takeoffs and asigned to Phsycial elements. Material is capable of storing discipline specific data in Properties.")]
+    [Description("Physical material to be used for Takeoffs and asigned to Physical elements. Material is capable of storing discipline specific data in Properties.")]
     public class Material : BHoMObject, IPhysical
     {
         /***************************************************/
