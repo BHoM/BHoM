@@ -42,7 +42,7 @@ namespace BH.oM.Physical.Materials
 
         [Density]
         [Description("The density to be used for material takeoffs. Can differ from discipline specific densities assigned on Properties as required for analysis.")]
-        public virtual double Density { get; set; }
+        public virtual double Density { get; set; } = double.NaN;
 
         [Description("Discipline data related to the material.")]
         public virtual List<IMaterialProperties> Properties { get; set; } = new List<IMaterialProperties>();
