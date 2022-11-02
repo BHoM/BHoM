@@ -55,6 +55,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_oM", "Test_oM\Test_oM.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Versioning_oM", "Versioning_oM\Versioning_oM.csproj", "{D710A004-7AC9-41B8-8492-D9AC5CF07D8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matter_oM", "Matter_oM\Matter_oM.csproj", "{EBBC9DCA-4D37-4EF4-B22A-029EE9463CD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,10 @@ Global
 		{D710A004-7AC9-41B8-8492-D9AC5CF07D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D710A004-7AC9-41B8-8492-D9AC5CF07D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D710A004-7AC9-41B8-8492-D9AC5CF07D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBBC9DCA-4D37-4EF4-B22A-029EE9463CD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBBC9DCA-4D37-4EF4-B22A-029EE9463CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBBC9DCA-4D37-4EF4-B22A-029EE9463CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBBC9DCA-4D37-4EF4-B22A-029EE9463CD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

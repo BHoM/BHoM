@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj" />
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj" />
+    <ProjectReference Include="..\Matter_oM\Matter_oM.csproj" />
     <ProjectReference Include="..\Spatial_oM\Spatial_oM.csproj" />
   </ItemGroup>
 
