@@ -26,7 +26,7 @@ using System.Text;
 using System.ComponentModel;
 using BH.oM.Base.Attributes;
 
-namespace BH.oM.Matter
+namespace BH.oM.Matter.Options
 {
     [Description("Specifies how the density should be extracted from a list of IDensityProvider.")]
     public enum DensityExtractionType
