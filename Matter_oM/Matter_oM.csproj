@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<AssemblyVersion>6.0.0.0</AssemblyVersion>
+		<Description>https://github.com/BHoM/BHoM</Description>
+		<Version>5.0.0</Version>
+		<Authors>BHoM</Authors>
+		<Copyright>Copyright © https://github.com/BHoM</Copyright>
+		<RootNamespace>BH.oM.Matter</RootNamespace>
+		<FileVersion>6.0.0.0</FileVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+		<OutputPath>..\Build\</OutputPath>
+	</PropertyGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+	</Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BHoM\BHoM.csproj" />
+    <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj" />
+  </ItemGroup>
+
+</Project>
