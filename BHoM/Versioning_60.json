@@ -1,0 +1,10 @@
+﻿{
+  "Type": {
+    "ToNew": {
+      "BH.oM.Base.UnderlyingType" : "BH.oM.Base.Reflection.UnderlyingType"
+    },
+    "ToOld": {
+      "BH.oM.Base.Reflection.UnderlyingType" : "BH.oM.Base.UnderlyingType"
+    }
+  }
+}
