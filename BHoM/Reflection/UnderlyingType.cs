@@ -26,7 +26,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Base.RTeflection
+namespace BH.oM.Base.Reflection
 {
     public class UnderlyingType : BHoMObject
     {
