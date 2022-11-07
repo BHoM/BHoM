@@ -26,7 +26,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Base
+namespace BH.oM.Base.System
 {
     public class UnderlyingType : BHoMObject
     {
