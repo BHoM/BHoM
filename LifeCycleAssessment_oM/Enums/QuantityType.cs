@@ -27,6 +27,7 @@ namespace BH.oM.LifeCycleAssessment
         Undefined,
         Ampere,
         Area,
+        Energy,
         Item,
         Length,
         Mass,
