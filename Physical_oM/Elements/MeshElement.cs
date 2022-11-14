@@ -29,7 +29,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Physical.Elements
 {
-    [Description("Element defined by a geometrical mesh defining the 3-dimensional geometry of the element.\n" +
+    [Description("Object representing a physical element, defined by a geometrical mesh that represents that element in 3-dimensional space.\n" +
                  "Can commonly store properties and parameters in fragments corresponding to the software from which the element was extracted.")]
     public class MeshElement : BHoMObject
     {
