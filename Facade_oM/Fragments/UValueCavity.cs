@@ -30,10 +30,10 @@ using System.ComponentModel;
 
 namespace BH.oM.Facade.Fragments
 {
-	[Description("A U-Value representing the effective U-Value of cavity insulation. This does not include derating effects from any frame u-values but should be derated for any thermal bridges not modeled.")]
-	public class UValueCavity : IFragment
+    [Description("A U-Value representing the effective U-Value of cavity insulation. This does not include derating effects from any frame u-values but should be derated for any thermal bridges not modeled.")]
+    public class UValueCavity : IFragment
     {
-		[Description("The U-Value of the cavity insulation.")]
-		public virtual double UValue { get; set; } = double.NaN;
-	}
+        [Description("The U-Value of the cavity insulation.")]
+        public virtual double UValue { get; set; } = double.NaN;
+    }
 }
