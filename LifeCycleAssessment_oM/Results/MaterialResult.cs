@@ -7,26 +7,26 @@ using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Result for a material/epd evaluated..")]
+    [Description("Life Cycle Assessment result for a Material/Environmental Product Declaration evaluated.")]
     public class MaterialResult : IResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Name fo the physical material evaluated.")]
+        [Description("Name of the physical material evaluated.")]
         public virtual string MaterialName { get; }
 
-        [Description("Name fo the EPD material evaluated.")]
+        [Description("Name of the Environmental Product Declaration evaluated.")]
         public virtual string EPDName { get; }
 
         [Description("The total quantity of the specified Field within the object.")]
         public virtual double Quantity { get; }
 
-        [Description("Phase of life abbreviation for the scope of the EPD. A single EnvironmentalMetric can contain either a single Phase or a list of Phases i.e. A1, A2, A3.")]
+        [Description("Phase of life abbreviation for the scope of the Environmental Product Declaration. A single EnvironmentalMetric can contain either a single Phase or a list of Phases i.e. A1, A2, A3.")]
         public virtual IReadOnlyList<LifeCycleAssessmentPhases> Phases { get; }
 
-        [Description("The EPD Field selected for evaluation.")]
+        [Description("The Environmental Product Declaration Field selected for evaluation.")]
         public virtual EnvironmentalProductDeclarationField Metric { get; }
 
         /***************************************************/

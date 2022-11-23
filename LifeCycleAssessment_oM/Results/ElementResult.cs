@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Result for a single element from an LCA assesment. Contains total value as well as breakdown per material/EPD evaluated.")]
+    [Description("Result for a single element from a Life Cycle Assessment. Contains total value as well as breakdown per Material/Environmental Product Declaration evaluated.")]
     public class ElementResult : IResult, IObjectResult, IResultItem, IImmutable
     {
         /***************************************************/
@@ -23,7 +23,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
         public virtual ObjectCategory Category { get; } = ObjectCategory.Undefined;
 
-        [Description("Phase of life abbreviation for the scope of the EPD. A single EnvironmentalMetric can contain either a single Phase or a list of Phases i.e. A1, A2, A3.")]
+        [Description("Phase of life abbreviation for the scope of the Environmental Product Declaration. A single EnvironmentalMetric can contain either a single Phase or a list of Phases i.e. A1, A2, A3.")]
         public virtual IReadOnlyList<LifeCycleAssessmentPhases> Phases { get; } = new List<LifeCycleAssessmentPhases>();
 
         [Description("The total quantity of the specified Field within the object.")]
