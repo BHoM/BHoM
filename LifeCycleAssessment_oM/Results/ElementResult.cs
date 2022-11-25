@@ -29,7 +29,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("The total quantity of the specified Field within the object.")]
         public virtual double Quantity { get; set; }
 
-        [Description("The EPD Field selected for evaluation.")]
+        [Description("The Environmental Product Declaration Field selected for evaluation.")]
         public virtual EnvironmentalProductDeclarationField Metric { get; }
 
         [Description("Result breakdown per material type.")]

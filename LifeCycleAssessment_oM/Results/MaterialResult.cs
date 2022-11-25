@@ -18,7 +18,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual string MaterialName { get; }
 
         [Description("Name of the Environmental Product Declaration evaluated.")]
-        public virtual string EPDName { get; }
+        public virtual string EnvironmentalProductDeclarationName { get; }
 
         [Description("The total quantity of the specified Field within the object.")]
         public virtual double Quantity { get; }
@@ -33,10 +33,10 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MaterialResult(string materialName, string epdName, IReadOnlyList<LifeCycleAssessmentPhases> phases, double quantity, EnvironmentalProductDeclarationField metric)
+        public MaterialResult(string materialName, string environmentalProductDeclarationName, IReadOnlyList<LifeCycleAssessmentPhases> phases, double quantity, EnvironmentalProductDeclarationField metric)
         {
             MaterialName = materialName;
-            EPDName = epdName;
+            EnvironmentalProductDeclarationName = environmentalProductDeclarationName;
             Phases = phases;
             Quantity = quantity;
             Metric = metric;
