@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyVersion>6.0.0.0</AssemblyVersion>
@@ -9,14 +8,11 @@
     <RootNamespace>BH.oM.Base</RootNamespace>
     <FileVersion>6.1.0.0</FileVersion>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
     <OutputPath>..\Build\</OutputPath>
   </PropertyGroup>
-
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="mkdir &quot;C:\ProgramData\BHoM\Assemblies&quot;&#xD;&#xA;mkdir &quot;C:\ProgramData\BHoM\Datasets&quot;&#xD;&#xA;mkdir &quot;C:\ProgramData\BHoM\Upgrades&quot;&#xD;&#xA;&#xD;&#xA;xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
   </Target>
-
 </Project>
