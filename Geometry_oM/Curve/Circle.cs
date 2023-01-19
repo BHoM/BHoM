@@ -72,16 +72,11 @@ namespace BH.oM.Geometry
             if (System.Math.Abs(curve.Radius1 - curve.Radius2) > Tolerance.Distance)
                 return null;
 
-            Vector x = curve.Axis1;
-            Vector y = curve.Axis2;
-
-            Vector normal = new Vector { X = x.Y * y.Z - x.Z * y.Y, Y = x.Z * y.X - x.X * y.Z, Z = x.X * y.Y - x.Y * y.X };
-
             return new Circle()
             {
-                Centre = curve.Centre,
+                Centre = curve.CoordinateSystem.Origin,
                 Radius = curve.Radius1,
-                Normal = normal,
+                Normal = curve.CoordinateSystem.Z,
             };
         }
 
