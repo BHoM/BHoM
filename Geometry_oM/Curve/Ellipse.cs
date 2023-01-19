@@ -23,6 +23,7 @@
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using System;
+using BH.oM.Geometry.CoordinateSystem;
 
 namespace BH.oM.Geometry
 {
@@ -34,21 +35,16 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Origin point defining location of the Ellipse in three-dimensional space.")]
-        public virtual Point Centre { get; set; } = new Point();
-
-        [Description("Together with Axis2 defines orientation in three-dimensional space. Direction only, and not magnitude, matters.")]
-        public virtual Vector Axis1 { get; set; } = new Vector { X = 1.0, Y = 0.0, Z = 0.0 };
-
-        [Description("Together with Axis1 defines orientation in three-dimensional space. Direction only, and not magnitude, matters.")]
-        public virtual Vector Axis2 { get; set; } = new Vector { X = 0.0, Y = 1.0, Z = 0.0 };
+        [Description("Defines Arc centre equal to Origin of the CoordinateSystem, as well as the orientation of the Arc in three-dimensional space, equal to local xy-Plane of the CoordinateSystem.\n" +
+                     "Local x-axis of the CoordinateSystem is aligned with Radius 1 and local y aligned with Radius2.")]
+        public virtual Cartesian CoordinateSystem { get; set; } = new CoordinateSystem.Cartesian();
 
         [Length]
-        [Description("Distance from the Centre to a point on the Ellipse along Axis1.")]
+        [Description("Distance from the Centre to a point on the Ellipse along local x-axis of the CoordinateSystem.")]
         public virtual double Radius1 { get; set; } = 0;
 
         [Length]
-        [Description("Distance from the Centre to a point on the Ellipse along Axis2.")]
+        [Description("Distance from the Centre to a point on the Ellipse along local y-axis of the CoordinateSystem.")]
         public virtual double Radius2 { get; set; } = 0;
 
         /***************************************************/
@@ -82,9 +78,7 @@ namespace BH.oM.Geometry
 
             return new Ellipse()
             {
-                Centre = circle.Centre,
-                Axis1 = x,
-                Axis2 = y,
+                CoordinateSystem = new Cartesian(circle.Centre, x, y, z),
                 Radius1 = circle.Radius,
                 Radius2 = circle.Radius,
             };
