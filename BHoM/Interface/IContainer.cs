@@ -28,10 +28,7 @@ namespace BH.oM.Base
 {
     [Description("Identifies Container objects that can contain other interrelated objects in multiple properties. " +
         "The container can be unpacked to get all of its objects as a flat list.")]
-    public interface IContainer : IFragment
+    public interface IContainer : IObject
     {
     }
 }
-
-
-
