@@ -117,7 +117,7 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double BendingStrengthFlat { get; set; }
 
         [Stress]
-        [Description("Tension Parallel Strength. Tension stress parallel to the grain at failure in net tension. Called ƒt,0,k in Eurocode.")]
+        [Description("Tension Parallel Strength. Tension stress parallel to the grain at failure in net tension. Called ft,0,k in Eurocode.")]
         public virtual double TensionParallelStrength { get; set; }
 
         [Stress]
