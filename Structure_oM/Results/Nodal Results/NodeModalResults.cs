@@ -32,7 +32,7 @@ namespace BH.oM.Structure.Results.Nodal_Results
         [Description("Rotational component about the Z-axis of the mode shape in global coordinates.")]
         public virtual double RZ { get; }
 
-        [Mass]  //Mass*ratio
+        [Mass]
         [Description("Nodal modal mass in the X-direction as defined by orientation basis. Proportial amount of the total modal mass that acts in the X-direction at the specific Node.")]
         public virtual double NodalMassX { get; }
 
@@ -63,7 +63,19 @@ namespace BH.oM.Structure.Results.Nodal_Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public NodeModeShape(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, Basis orientation, double ux, double uy, double uz, double rx, double ry, double rz) :
+        public NodeModalResults(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, Basis orientation, 
+                            double ux, 
+                            double uy, 
+                            double uz, 
+                            double rx, 
+                            double ry, 
+                            double rz, 
+                            double nodalMassX,
+                            double nodalMassY,
+                            double nodalMassZ,
+                            double nodalRotationalMassX,
+                            double nodalRotationalMassY,
+                            double nodalRotationalMassZ) :
             base(objectId, resultCase, modeNumber, timeStep, orientation)
         {
             UX = ux;
@@ -72,6 +84,12 @@ namespace BH.oM.Structure.Results.Nodal_Results
             RX = rx;
             RY = ry;
             RZ = rz;
+            NodalMassX = nodalMassX;
+            NodalMassY = nodalMassY;
+            NodalMassZ = nodalMassZ;
+            NodalRotationalMassX = nodalRotationalMassX;
+            NodalRotationalMassY = nodalRotationalMassY;
+            NodalRotationalMassZ = nodalRotationalMassZ;
         }
 
         /***************************************************/
