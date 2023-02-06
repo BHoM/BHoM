@@ -29,8 +29,8 @@ namespace BH.oM.Base.Attributes.Enums
     public enum DocumentationType
     {
         Undefined,
-        APILink,
+        API,
+        Documentation,
         SampleScript,
-        WikiLink,
     }
 }
