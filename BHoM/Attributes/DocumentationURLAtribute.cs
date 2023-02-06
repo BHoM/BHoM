@@ -30,7 +30,7 @@ using BH.oM.Base.Attributes.Enums;
 namespace BH.oM.Base.Attributes
 {
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
-    public class DocumentationURLAtribute : Attribute, IImmutable
+    public class DocumentationURLAttribute : Attribute, IImmutable
     {
         public virtual string DocumentationURL { get; private set; } = "";
         public virtual DocumentationType Type { get; private set; } = DocumentationType.Undefined;
@@ -40,7 +40,7 @@ namespace BH.oM.Base.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public DocumentationURLAtribute(string documentationURL, DocumentationType type, string description = "")
+        public DocumentationURLAttribute(string documentationURL, DocumentationType type, string description = "")
         {
             DocumentationURL = documentationURL;
             Type = type;
