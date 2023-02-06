@@ -30,12 +30,15 @@ using BH.oM.Structure.Constraints;
 using BH.oM.Structure.Offsets;
 using BH.oM.Analytical.Elements;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Base.Attributes;
+using BH.oM.Base.Attributes.Enums;
 
 namespace BH.oM.Structure.Elements
 {
 
     [Description("1D finite element for structural analysis. Linear 2-noded element defined by a start and end node." +
                  "For structural conventions and orientation of the bar please see https://github.com/BHoM/documentation/wiki/BHoM-Structural-Conventions.")]
+    [DocumentationURL("https://bhom.xyz/documentation/Conventions/BHoM-Structural-Conventions/", DocumentationType.WikiLink)]
     public class Bar : BHoMObject, IElement1D, IElementM, ILink<Node>
     {
         /***************************************************/
