@@ -42,7 +42,7 @@ namespace BH.oM.Environment.Elements
         public virtual Mesh3D Mesh3D { get; set; } = null;
         
         [Description("Defines the partition of the meshes external faces.")]
-        public virtual List<BoundaryZone> BounderyZones { get; set; } = new List<BoundaryZone>();
+        public virtual List<BoundaryZone> BoundaryZones { get; set; } = new List<BoundaryZone>();
 
         /***************************************************/
     }
