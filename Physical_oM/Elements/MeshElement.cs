@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
 using BH.oM.Quantities.Attributes;
 using System;
@@ -31,7 +32,7 @@ namespace BH.oM.Physical.Elements
 {
     [Description("Object representing a physical element, defined by a geometrical mesh that represents that element in 3-dimensional space.\n" +
                  "Can commonly store properties and parameters in fragments corresponding to the software from which the element was extracted.")]
-    public class MeshElement : BHoMObject
+    public class MeshElement : BHoMObject, IElement, IPhysical
     {
         /***************************************************/
         /**** Properties                                ****/
