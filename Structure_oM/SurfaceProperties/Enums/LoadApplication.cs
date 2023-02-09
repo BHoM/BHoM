@@ -23,7 +23,7 @@
 namespace BH.oM.Structure.SurfaceProperties
 {
     /***************************************************/
-    public enum LoadPanelSupportConditions
+    public enum LoadApplication
     {
         AllSides,
         ThreeSides,

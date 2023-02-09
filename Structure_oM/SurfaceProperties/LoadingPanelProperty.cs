@@ -37,7 +37,7 @@ namespace BH.oM.Structure.SurfaceProperties
         public override string Name { get; set; }
 
         [Description("Load application enum defining to which edges the load should be distributed.")]
-        public virtual LoadPanelSupportConditions LoadApplication { get; set; } = LoadPanelSupportConditions.AllSides;
+        public virtual LoadApplication LoadApplication { get; set; } = LoadApplication.AllSides;
 
         [Description("Used to define the direction of the load for when LoadApplication is not AllSides.")]
         public virtual int ReferenceEdge { get; set; } = 1;
