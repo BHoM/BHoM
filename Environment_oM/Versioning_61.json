@@ -22,10 +22,10 @@
   },
   "Property": {
     "ToNew": {
-
+      "BH.oM.Environment.Elements.Mesh.BounderyZones": "BoundaryZones"
     },
     "ToOld": {
-
+      "BH.oM.Environment.Elements.Mesh.BoundaryZones": "BounderyZones"
     }
   },
   "MessageForDeleted": {
