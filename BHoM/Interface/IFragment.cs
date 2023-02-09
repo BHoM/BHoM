@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Base
 {
+    [Description("Describes objects that can exist independently or can be attached to other BHoM objects as part of their `FragmentSet` property.")]
     public interface IFragment : IObject
     {
 
