@@ -26,7 +26,7 @@ using System.ComponentModel;
 namespace BH.oM.Dimensional
 {
     [Description("Enables geometrical operations to be performed on a Solid based spatial element, whilst preserving all other object properties as unchanged.")]
-    internal class IElement3D
+    public interface IElement3D : IElement
     {
     }
 }
