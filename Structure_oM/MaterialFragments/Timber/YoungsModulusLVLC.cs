@@ -20,7 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-
+using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,17 +28,30 @@ using System.Text;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Base interface for all Timber Materials.")]
-    public interface ITimber : IOrthotropic
+    public class YoungsModulusLVLC : IYoungsModulusTimber
     {
+        [YoungsModulus]
+        [Description("Mean modulus of elasticity parallel to grain, E0,mean in Eurocode. Value same for Em,0,edge,mean, Et,0,mean, Em,0,flat,mean, and Ec,0,mean.")]
+        public virtual double ParallelMean { get; set; }
 
-    }
+        [YoungsModulus]
+        [Description("Characteristic modulus of elasticity parallel to grain, E0,k in Eurocode. Value same for Em,0,edge,k, Et,0,k, Em,0,flat,k, and Ec,0,k.")]
+        public virtual double ParallelCharacteristic { get; set; }
 
-    [Description("Base interface for all Timber Materials.")]
-    public interface ITimber<out TYoungsModulus, out TShearModulus, out TStrength> : ITimber where TYoungsModulus : IYoungsModulusTimber where TShearModulus : IShearModulusTimber where TStrength : IStrengthTimber
-    {
-        TYoungsModulus YoungsModulusProperties { get; }
-        TShearModulus ShearModulusProperties { get; }
-        TStrength Strength { get; }
+        [YoungsModulus]
+        [Description("Edgewise mean modulus of elasticity perpendicular to grain, Ec,90,edge,mean in Eurocode. Value same for Et,90,edge,mean.")]
+        public virtual double PerpendicularEdgeMean { get; set; }
+
+        [YoungsModulus]
+        [Description("Edgewise characteristic modulus of elasticity perpendicular to grain, Ec,90,edge,k in Eurocode. Value same for Et,90,edge,k.")]
+        public virtual double PerpendicularEdgeCharacteristic { get; set; }
+
+        [YoungsModulus]
+        [Description("Flatwise mean modulus of elasticity perpendicular to grain, Em,90,flat,mean in Eurocode.")]
+        public virtual double PerpendicularFlatMean { get; set; }
+
+        [YoungsModulus]
+        [Description("Flatwise characteristic modulus of elasticity perpendicular to grain, Em,90,flat,k in Eurocode.")]
+        public virtual double PerpendicularFlatCharacteristic { get; set; }
     }
 }
