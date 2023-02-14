@@ -21,6 +21,7 @@
  */
 
 
+using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,14 +32,8 @@ namespace BH.oM.Structure.MaterialFragments
     [Description("Base interface for all Timber Materials.")]
     public interface ITimber : IOrthotropic
     {
-
-    }
-
-    [Description("Base interface for all Timber Materials.")]
-    public interface ITimber<out TYoungsModulus, out TShearModulus, out TStrength> : ITimber where TYoungsModulus : IYoungsModulusTimber where TShearModulus : IShearModulusTimber where TStrength : IStrengthTimber
-    {
-        TYoungsModulus YoungsModulusProperties { get; }
-        TShearModulus ShearModulusProperties { get; }
-        TStrength Strength { get; }
+        [Density]
+        [Description("Characteristic Density. Used to calculate other mechanical properties (not mass). Called ρk in Eurocode.")]
+        double DensityCharacteristic { get; set; }
     }
 }
