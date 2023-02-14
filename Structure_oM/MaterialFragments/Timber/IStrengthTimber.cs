@@ -20,25 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Text;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Base interface for all Timber Materials.")]
-    public interface ITimber : IOrthotropic
+    public interface IStrengthTimber
     {
 
-    }
-
-    [Description("Base interface for all Timber Materials.")]
-    public interface ITimber<out TYoungsModulus, out TShearModulus, out TStrength> : ITimber where TYoungsModulus : IYoungsModulusTimber where TShearModulus : IShearModulusTimber where TStrength : IStrengthTimber
-    {
-        TYoungsModulus YoungsModulusProperties { get; }
-        TShearModulus ShearModulusProperties { get; }
-        TStrength Strength { get; }
     }
 }
