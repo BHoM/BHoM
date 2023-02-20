@@ -158,35 +158,42 @@ namespace BH.oM.Structure.MaterialFragments
 
         [Stress]
         [Description("Edgewise bending Strength, parallel to the grain. Called fm,0,edge,k in Eurocode.")]
-        public virtual double BendingStrengthEdge { get; set; }
+        public virtual double BendingStrengthEdgeParallel { get; set; }
 
         [Stress]
         [Description("Flatwise, bending Strength, parallel to the grain. Called fm,0,flat,k in Eurocode.")]
-        public virtual double BendingStrengthFlat { get; set; }
+        public virtual double BendingStrengthFlatParallel { get; set; }
 
         [Stress]
-        [Description("Tension Parallel Strength. Tension stress parallel to the grain at failure in net tension. Called ft,0,k in Eurocode.")]
-        public virtual double TensionParallelStrength { get; set; }
+        [Description("Flatwise, bending Strength, perpendicular to the grain. Called fm,90,flat,k in Eurocode.")]
+        public virtual double BendingStrengthFlatPerpendicular { get; set; }
+
+        [Description("Size effect parameter for strength.")]
+        public virtual double SizeEffectParameter { get; set; }
 
         [Stress]
-        [Description("Edgewise tension Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,edge,k in Eurocode.")]
-        public virtual double TensionPerpendicularStrengthEdge { get; set; }
+        [Description("Tensile Parallel Strength. Tension stress parallel to the grain at failure in net tension. Called ft,0,k in Eurocode.")]
+        public virtual double TensileStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Compression Parallel Strength for service class 1. Compression stress parallel to the grain at failure in net compression. Called fc,0,k in Eurocode.")]
-        public virtual double CompressionParallelStrengthSC1 { get; set; }
+        [Description("Edgewise tensile Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,edge,k in Eurocode.")]
+        public virtual double TensileStrengthEdgePerpendicular { get; set; }
 
         [Stress]
-        [Description("Compression Parallel Strength for service class 2. Value may also be applied in Service Class 1 as a conservative value. Compression stress parallel to the grain at failure in net compression. Called fc,0,k in Eurocode.")]
-        public virtual double CompressionParallelStrengthSC2 { get; set; }
+        [Description("Flatwise tensile Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,flat,k in Eurocode.")]
+        public virtual double TensileStrengthFlatPerpendicular { get; set; }
 
         [Stress]
-        [Description("Edgewise compression Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,edge,k in Eurocode.")]
-        public virtual double CompressionPerpendicularStrengthEdge { get; set; }
+        [Description("Compressive Parallel Strength for service class 1. Compression stress parallel to the grain at failure in net compression. Called fc,0,k in Eurocode.")]
+        public virtual double CompressiveStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Flatwise compression Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called ƒc,90,flat,k in Eurocode.")]
-        public virtual double CompressionPerpendicularStrengthFlat { get; set; }
+        [Description("Edgewise compressive Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,edge,k in Eurocode.")]
+        public virtual double CompressiveStrengthEdgePerpendicular { get; set; }
+
+        [Stress]
+        [Description("Flatwise compressive Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,flat,k in Eurocode.")]
+        public virtual double CompressiveStrengthFlatPerpendicular { get; set; }
 
         [Stress]
         [Description("Edgewise Shear Strength parallel. Shear stress parallel to the grain at failure in net shear for edgewise shearing. Called fv,0,edge,k in Eurocode.")]
@@ -194,7 +201,11 @@ namespace BH.oM.Structure.MaterialFragments
 
         [Stress]
         [Description("Flatwise Shear Strength parallel. Shear stress parallel to the grain at failure in net shear for flatwise shearing. Called fv,0,flat,k in Eurocode.")]
-        public virtual double ShearStrengthFlat { get; set; }
+        public virtual double ShearStrengthFlatParallel { get; set; }
+
+        [Stress]
+        [Description("Flatwise Shear Strength parallel. Shear stress parallel to the grain at failure in net shear for flatwise shearing. Called fv,0,flat,k in Eurocode.")]
+        public virtual double ShearStrengthFlatPerpendicular { get; set; }
 
         /***************************************************/
     }
