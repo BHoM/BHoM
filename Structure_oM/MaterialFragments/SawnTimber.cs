@@ -110,24 +110,24 @@ namespace BH.oM.Structure.MaterialFragments
         /***************************************************/
 
         [Stress]
-        [Description("Bending Strength. Tension stress parallel to the grain at failure in bending as calculated from beam equations. Called f_mk in Eurocode.")]
+        [Description("Bending Strength. Normal stress parallel to the grain at failure in bending as calculated from beam equations. Called f_mk in Eurocode.")]
         public virtual double BendingStrength { get; set; }
 
         [Stress]
-        [Description("Tension Parallel Strength. Tension stress parallel to the grain at failure in net tension. Called  f_t0k in Eurocode.")]
-        public virtual double TensionParallelStrength { get; set; }
+        [Description("Tensile Parallel Strength. Tensile stress parallel to the grain at failure in net tension. Called  f_t0k in Eurocode.")]
+        public virtual double TensileStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Tension Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called f_t90k in Eurocode.")]
-        public virtual double TensionPerpendicularStrength { get; set; }
+        [Description("Tensile Perpendicular Strength. Tensile stress perpendicular to the grain at failure in net tension. Called f_t90k in Eurocode.")]
+        public virtual double TensileStrengthPerpendicular { get; set; }
 
         [Stress]
-        [Description("Compression Parallel Strength. Compression stress parallel to the grain at failure in net compression. Called f_c0k in Eurocode.")]
-        public virtual double CompressionParallelStrength { get; set; }
+        [Description("Compressive Parallel Strength. Compressive stress parallel to the grain at failure in net compression. Called f_c0k in Eurocode.")]
+        public virtual double CompressiveStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Compression Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called f_c90k in Eurocode.")]
-        public virtual double CompressionPerpendicularStrength { get; set; }
+        [Description("Compressive Perpendicular Strength. Compressive stress perpendicular to the grain at failure in net compression. Called f_c90k in Eurocode.")]
+        public virtual double CompressiveStrengthPerpendicular { get; set; }
 
         [Stress]
         [Description("Shear Strength. Shear stress parallel to the grain at failure in net shear, i.e. shear relevant to beam bending. Called f_vk in Eurocode.")]
