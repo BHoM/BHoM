@@ -44,16 +44,13 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         public virtual double Width { get; }
 
         [Length]
-        [Description("Width of the top peice of the hexagon.")]
-        public virtual double TopWidth { get; }
+        [Description("Length of the intermidiate web post as well as top of the opening.")]
+        public virtual double WidthWebPost { get; }
 
         [Length]
         [Description("Height of any spacer plate between the two profile sides.")]
         public virtual double SpacerHeight { get; }
 
-        [Length]
-        [Description("Length of the intermidiate web post.")]
-        public virtual double WidthWebPost { get; }
 
         [Length]
         [Description("Length of the end web post.")]
@@ -67,11 +64,10 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         /**** Constructors                              ****/
         /***************************************************/
 
-        public HexagonalOpening(double height, double width, double topWidth, double spacerHeight, double widthWebPost, double lengthEndPost, double spacing)
+        public HexagonalOpening(double height, double width, double spacerHeight, double widthWebPost, double lengthEndPost, double spacing)
         { 
             Height = height;
             Width = width;
-            TopWidth = topWidth;
             SpacerHeight = spacerHeight;
             WidthWebPost = widthWebPost;
             LengthEndPost = lengthEndPost;
