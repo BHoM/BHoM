@@ -63,7 +63,7 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         /**** Constructors                              ****/
         /***************************************************/
 
-        public SinusoidalOpening(double height, double sinusoidalLength, double topWidth, double spacerHeight, double widthWebPost, double lengthEndPost, double spacing)
+        public SinusoidalOpening(double height, double sinusoidalLength, double spacerHeight, double widthWebPost, double lengthEndPost, double spacing)
         { 
             Height = height;
             SinusoidalLength = sinusoidalLength;
