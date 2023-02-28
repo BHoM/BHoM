@@ -36,8 +36,12 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Length]
-        [Description("Distance along the Bar between the StartNode and the load position.")]
+        [Description("Distance along the Bar between the StartNode and the load position." +
+            "If `DistanceIsParametric` is true, this is a number between 0 and 1 defining the parametric distance along the Bar.")]
         public virtual double DistanceFromA { get; set; } = 0;
+
+        [Description("Whether the DistanceFromA is to be intended as absolute or parametric. Defaults to false.")]
+        public virtual bool DistanceIsParametric { get; set; } = false;
 
         [Force]
         [Description("Magnitude and direction of the Force. The load requires the Force and/or the Moment Vector to be non-zero to have any effect.")]
