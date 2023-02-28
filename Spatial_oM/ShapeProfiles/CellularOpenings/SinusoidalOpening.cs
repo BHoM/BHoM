@@ -52,10 +52,6 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         public virtual double WidthWebPost { get; }
 
         [Length]
-        [Description("Length of the end web post.")]
-        public virtual double LengthEndPost { get; }
-
-        [Length]
         [Description("Centre distance between openings.")]
         public virtual double Spacing { get; }
 
@@ -63,13 +59,12 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         /**** Constructors                              ****/
         /***************************************************/
 
-        public SinusoidalOpening(double height, double sinusoidalLength, double spacerHeight, double widthWebPost, double lengthEndPost, double spacing)
+        public SinusoidalOpening(double height, double sinusoidalLength, double spacerHeight, double widthWebPost, double spacing)
         { 
             Height = height;
             SinusoidalLength = sinusoidalLength;
             SpacerHeight = spacerHeight;
             WidthWebPost = widthWebPost;
-            LengthEndPost = lengthEndPost;
             Spacing = spacing;
         }
 

@@ -51,11 +51,6 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         [Description("Height of any spacer plate between the two profile sides.")]
         public virtual double SpacerHeight { get; }
 
-
-        [Length]
-        [Description("Length of the end web post.")]
-        public virtual double LengthEndPost { get; }
-
         [Length]
         [Description("Centre distance between openings.")]
         public virtual double Spacing { get; }
@@ -64,13 +59,12 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         /**** Constructors                              ****/
         /***************************************************/
 
-        public HexagonalOpening(double height, double width, double spacerHeight, double widthWebPost, double lengthEndPost, double spacing)
+        public HexagonalOpening(double height, double width, double spacerHeight, double widthWebPost, double spacing)
         { 
             Height = height;
             Width = width;
             SpacerHeight = spacerHeight;
             WidthWebPost = widthWebPost;
-            LengthEndPost = lengthEndPost;
             Spacing = spacing;
         }
 
