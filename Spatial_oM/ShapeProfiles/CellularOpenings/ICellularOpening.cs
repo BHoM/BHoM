@@ -36,10 +36,6 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         double WidthWebPost { get; }
 
         [Length]
-        [Description("Length of the end web post.")]
-        double LengthEndPost { get; }
-
-        [Length]
         [Description("Centre distance between openings.")]
         double Spacing { get; }
 
