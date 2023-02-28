@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,17 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using System.ComponentModel;
 
-namespace BH.oM.Base
+namespace BH.oM.Dimensional
 {
-    [Description("Describes objects that can exist independently or can be attached to other BHoM objects as part of their `FragmentSet` property.")]
-    public interface IFragment : IObject
+    [Description("Enables geometrical operations to be performed on a Solid based spatial element, whilst preserving all other object properties as unchanged.")]
+    public interface IElement3D : IElement
     {
-
     }
 }
-
-
-
-
