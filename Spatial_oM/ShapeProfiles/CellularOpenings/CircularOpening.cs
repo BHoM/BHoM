@@ -40,10 +40,6 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         public virtual double Diameter { get; }
 
         [Length]
-        [Description("Height of any spacer plate between the two profile sides.")]
-        public virtual double SpacerHeight { get; }
-
-        [Length]
         [Description("Length of the intermidiate web post.")]
         public virtual double WidthWebPost { get; }
 
@@ -55,10 +51,9 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         /**** Constructors                              ****/
         /***************************************************/
 
-        public CircularOpening(double diameter, double spacerHeight, double widthWebPost, double spacing)
+        public CircularOpening(double diameter, double widthWebPost, double spacing)
         {
             Diameter = diameter;
-            SpacerHeight = spacerHeight;
             WidthWebPost = widthWebPost;
             Spacing = spacing;
         }

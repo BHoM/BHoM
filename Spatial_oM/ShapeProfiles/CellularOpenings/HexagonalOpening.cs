@@ -36,7 +36,8 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         /***************************************************/
 
         [Length]
-        [Description("Total height of the opening.")]
+        [Description("Height of the hexagonal part of the opening, equal to the height of the cut being made in the section being castelated.\n" +
+                     "For case of non-zero SpacerHeight, the total height of the opening will be Height+SpacerHeight.")]
         public virtual double Height { get; }
 
         [Length]
@@ -48,7 +49,7 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         public virtual double WidthWebPost { get; }
 
         [Length]
-        [Description("Height of any spacer plate between the two profile sides.")]
+        [Description("Height of any spacer plate between the two profile sides. Turns the opening octogonal for a non-zero value.")]
         public virtual double SpacerHeight { get; }
 
         [Length]
