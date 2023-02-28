@@ -184,7 +184,7 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double TensileStrengthFlatPerpendicular { get; set; }
 
         [Stress]
-        [Description("Compressive Parallel Strength for service class 1. Compression stress parallel to the grain at failure in net compression. Called fc,0,k in Eurocode.")]
+        [Description("Compressive Parallel Strength. Compression stress parallel to the grain at failure in net compression. Called fc,0,k in Eurocode.")]
         public virtual double CompressiveStrengthParallel { get; set; }
 
         [Stress]
