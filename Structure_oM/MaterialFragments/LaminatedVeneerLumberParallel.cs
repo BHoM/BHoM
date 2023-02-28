@@ -30,7 +30,8 @@ using System.ComponentModel;
 namespace BH.oM.Structure.MaterialFragments
 {
 
-    [Description("Structural timber material of type Laminated Veneer Lumber without crossband veneers. To be used on structural elements and properties, or as a fragment of the physical material.")]
+    [Description("Structural timber material of type Laminated Veneer Lumber without crossband veneers. To be used on structural elements and properties, or as a fragment of the physical material.\n" +
+                 "Generally only applicable for use in beam elements.")]
     public class LaminatedVeneerLumberParallel : BHoMObject, ITimber
     {
         /***************************************************/
