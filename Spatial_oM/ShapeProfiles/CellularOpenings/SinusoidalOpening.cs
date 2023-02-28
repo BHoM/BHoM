@@ -44,10 +44,6 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         public virtual double SinusoidalLength { get; }
 
         [Length]
-        [Description("Height of any spacer plate between the two profile sides.")]
-        public virtual double SpacerHeight { get; }
-
-        [Length]
         [Description("Length of the intermidiate web post.")]
         public virtual double WidthWebPost { get; }
 
@@ -59,11 +55,10 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         /**** Constructors                              ****/
         /***************************************************/
 
-        public SinusoidalOpening(double height, double sinusoidalLength, double spacerHeight, double widthWebPost, double spacing)
+        public SinusoidalOpening(double height, double sinusoidalLength, double widthWebPost, double spacing)
         { 
             Height = height;
             SinusoidalLength = sinusoidalLength;
-            SpacerHeight = spacerHeight;
             WidthWebPost = widthWebPost;
             Spacing = spacing;
         }

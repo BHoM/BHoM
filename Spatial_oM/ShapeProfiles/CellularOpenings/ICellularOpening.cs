@@ -39,8 +39,5 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         [Description("Centre distance between openings.")]
         double Spacing { get; }
 
-        [Length]
-        [Description("Height of any spacer plate between the two profile sides.")]
-        double SpacerHeight { get; }
     }
 }
