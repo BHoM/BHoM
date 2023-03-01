@@ -27,7 +27,7 @@ using System.Text;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Enum for controling if analysis parameters of the Timber material should be assigned based on values for beinding or axial stiffness values.\n"+
+    [Description("Enum for controlling if analysis parameters of the Timber material should be assigned based on values for beinding or axial stiffness values.\n" +
                  "Only relevant for some engineered timber products.")]
     public enum TimberAnalysisDominantLoadCondition
     {

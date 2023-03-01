@@ -27,7 +27,7 @@ using System.Text;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Enum for controling if analysis parameters of the Timber material should be assigned based on edgewise or flatwise parameters. Only applicable for some engineers TImber products, such as LVL.")]
+    [Description("Enum for controlling if analysis parameters of the Timber material should be assigned based on edgewise or flatwise parameters. Only applicable for some engineered timber products, such as LVL.")]
     public enum TimberAnalysisOrientation
     {
         [Description("Default value. For some timber types with no distinction between edgewise and flatwise behaviour this can be used.")]
