@@ -32,7 +32,7 @@ using System.Collections.ObjectModel;
 namespace BH.oM.Structure.SectionProperties
 {
     [Description("Steel section to be used on Bars. Defined by a section profile.")]
-    public class CellularSection : BHoMObject, IGeometricalSection, IImmutable
+    public class CellularSection : BHoMObject, ISteelSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
