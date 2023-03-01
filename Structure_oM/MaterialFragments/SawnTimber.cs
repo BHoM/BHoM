@@ -65,7 +65,7 @@ namespace BH.oM.Structure.MaterialFragments
                      "Values can be automatically populated based on material parameters by calling the SetAnalysisParameters method.\n" +
                      "Vector components defined as:\n" +
                      "X - Shear Modulus in the local xy-plane (Gxy).\n" +
-                     "Y - Shear Modulus in the local yz-plane (Gyz).\n" +
+                     "Y - Shear Modulus in the local yz-plane (Gyz), generally referred to as rolling shear.\n" +
                      "Z - Shear Modulus in the local zx-plane (Gyz).")]
         public virtual Vector ShearModulus { get; set; }
 
@@ -110,27 +110,27 @@ namespace BH.oM.Structure.MaterialFragments
         /***************************************************/
 
         [Stress]
-        [Description("Bending Strength. Normal stress parallel to the grain at failure in bending as calculated from beam equations. Called f_mk in Eurocode.")]
+        [Description("Characteristic Bending Strength. Normal stress parallel to the grain at failure in bending as calculated from beam equations. Called f_mk in Eurocode.")]
         public virtual double BendingStrength { get; set; }
 
         [Stress]
-        [Description("Tensile Parallel Strength. Tensile stress parallel to the grain at failure in net tension. Called  f_t0k in Eurocode.")]
+        [Description("Characteristic Tensile Parallel Strength. Tensile stress parallel to the grain at failure in net tension. Called  f_t0k in Eurocode.")]
         public virtual double TensileStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Tensile Perpendicular Strength. Tensile stress perpendicular to the grain at failure in net tension. Called f_t90k in Eurocode.")]
+        [Description("Characteristic Tensile Perpendicular Strength. Tensile stress perpendicular to the grain at failure in net tension. Called f_t90k in Eurocode.")]
         public virtual double TensileStrengthPerpendicular { get; set; }
 
         [Stress]
-        [Description("Compressive Parallel Strength. Compressive stress parallel to the grain at failure in net compression. Called f_c0k in Eurocode.")]
+        [Description("Characteristic Compressive Parallel Strength. Compressive stress parallel to the grain at failure in net compression. Called f_c0k in Eurocode.")]
         public virtual double CompressiveStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Compressive Perpendicular Strength. Compressive stress perpendicular to the grain at failure in net compression. Called f_c90k in Eurocode.")]
+        [Description("Characteristic Compressive Perpendicular Strength. Compressive stress perpendicular to the grain at failure in net compression. Called f_c90k in Eurocode.")]
         public virtual double CompressiveStrengthPerpendicular { get; set; }
 
         [Stress]
-        [Description("Shear Strength. Shear stress parallel to the grain at failure in net shear, i.e. shear relevant to beam bending. Called f_vk in Eurocode.")]
+        [Description("Characteristic Shear Strength. Shear stress parallel to the grain at failure in net shear, i.e. shear relevant to beam bending. Called f_vk in Eurocode.")]
         public virtual double ShearStrength { get; set; }
 
         /***************************************************/

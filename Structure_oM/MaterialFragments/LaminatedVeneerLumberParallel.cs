@@ -31,7 +31,8 @@ namespace BH.oM.Structure.MaterialFragments
 {
 
     [Description("Structural timber material of type Laminated Veneer Lumber without crossband veneers. To be used on structural elements and properties, or as a fragment of the physical material.\n" +
-                 "Generally only applicable for use in beam elements.")]
+                 "Generally only applicable for use in beam elements.\n" +
+                 "Note: Properties for LVL are not part of a harmonised standard and therefore vary between manufacturers and products.")]
     public class LaminatedVeneerLumberParallel : BHoMObject, ITimber
     {
         /***************************************************/
@@ -42,11 +43,11 @@ namespace BH.oM.Structure.MaterialFragments
         public override string Name { get; set; }
 
         [Density]
-        [Description("Mean Density. Used to calculate mass. Called ρmean in Eurocode.")]
+        [Description("Mean Density. Used to calculate mass. Called ρmean in most manufacturer documentation.")]
         public virtual double Density { get; set; }
 
         [Density]
-        [Description("Characteristic Density. Used to calculate other mechanical properties (not mass). Called ρk in Eurocode.")]
+        [Description("Characteristic Density. Used to calculate other mechanical properties (not mass). Called ρk in most manufacturer documentation.")]
         public virtual double DensityCharacteristic { get; set; }
 
         [Ratio]
@@ -58,8 +59,8 @@ namespace BH.oM.Structure.MaterialFragments
                      "Values can be automatically populated based on material parameters by calling the SetAnalysisParameters method.\n" +
                      "Vector defines stiffnesses as follows:\n" +
                      "X - Stiffness along the local x-axis of the element. For most cases this will be the Parallel stiffness.\n" +
-                     "Y - Stiffness along the local y-axis of the element. For most cases this will be the perpendicular stiffness - flat or edgewise depending material usage and orientation.\n" +
-                     "Z - Stiffness along the local z-axis of the element. For most cases this will be the perpendicular stiffness - flat or edgewise depending material usage and orientation.")]
+                     "Y - Stiffness along the local y-axis of the element. For most cases this will be the perpendicular stiffness - flat or edgewise depending material usage and orientation. For most beam/slab element cases this this will be the horizontal Perpendicular stiffness.\n" +
+                     "Z - Stiffness along the local z-axis of the element. For most cases this will be the perpendicular stiffness - flat or edgewise depending material usage and orientation. For most beam/slab element cases this this will be the vertical Perpendicular stiffness.")]
         public virtual Vector YoungsModulus { get; set; }
 
         [ShearModulus]
@@ -93,51 +94,51 @@ namespace BH.oM.Structure.MaterialFragments
         /***************************************************/
 
         [YoungsModulus]
-        [Description("Characteristic modulus of elasticity parallel to grain, E0,k in Eurocode. Value same for Em,0,edge,k, Em,0,flat,k, Et,0,k, and Ec,0,k.")]
+        [Description("Characteristic modulus of elasticity parallel to grain, E0,k in most manufacturer documentation. Value same for Em,0,edge,k, Em,0,flat,k, Et,0,k, and Ec,0,k.")]
         public virtual double E_0_k { get; set; }
 
         [YoungsModulus]
-        [Description("Characteristic modulus of elasticity for flatwise compression and tension perpendicular to the grain, Ec,90,flat,k and Et,90,flat,k in Eurocode.")]
+        [Description("Characteristic modulus of elasticity for flatwise compression and tension perpendicular to the grain, Ec,90,flat,k and Et,90,flat,k in most manufacturer documentation.")]
         public virtual double E_90_Flat_k { get; set; }
 
         [YoungsModulus]
-        [Description("Characteristic modulus of elasticity for edgewise axialforce perpendicular to the grain, Ec,90,edge,k and Et,90,edge,k in Eurocode.")]
+        [Description("Characteristic modulus of elasticity for edgewise axialforce perpendicular to the grain, Ec,90,edge,k and Et,90,edge,k in most manufacturer documentation.")]
         public virtual double E_90_Edge_k { get; set; }
 
         [YoungsModulus]
-        [Description("Mean modulus of elasticity parallel to grain, E0,mean in Eurocode. Value same for Em,0,edge,mean, Em,0,flat,mean, Et,0,mean, and Ec,0,mean.")]
+        [Description("Mean modulus of elasticity parallel to grain, E0,mean in most manufacturer documentation. Value same for Em,0,edge,mean, Em,0,flat,mean, Et,0,mean, and Ec,0,mean.")]
         public virtual double E_0_Mean { get; set; }
 
         [YoungsModulus]
-        [Description("Mean modulus of elasticity for flatwise compression and tension perpendicular to the grain, Ec,90,flat,mean and Et,90,flat,mean in Eurocode.")]
+        [Description("Mean modulus of elasticity for flatwise compression and tension perpendicular to the grain, Ec,90,flat,mean and Et,90,flat,mean in most manufacturer documentation.")]
         public virtual double E_90_Flat_Mean { get; set; }
 
         [YoungsModulus]
-        [Description("Mean modulus of elasticity for edgewise axialforce perpendicular to the grain, Ec,90,edge,mean and Et,90,edge,mean in Eurocode.")]
+        [Description("Mean modulus of elasticity for edgewise axialforce perpendicular to the grain, Ec,90,edge,mean and Et,90,edge,mean in most manufacturer documentation.")]
         public virtual double E_90_Edge_Mean { get; set; }
 
         [ShearModulus]
-        [Description("Characteristic shear modulus for edgewise shear parallel to the grain, G0,edge,k in Eurocode.")]
+        [Description("Characteristic shear modulus for edgewise shear parallel to the grain, G0,edge,k in most manufacturer documentation.")]
         public virtual double G_0_Edge_k { get; set; }
 
         [ShearModulus]
-        [Description("Characteristic shear modulus for flatwise shear parallel to the grain, G0,flat,k in Eurocode.")]
+        [Description("Characteristic shear modulus for flatwise shear parallel to the grain, G0,flat,k in most manufacturer documentation.")]
         public virtual double G_0_Flat_k { get; set; }
 
         [ShearModulus]
-        [Description("Characteristic shear modulus for flatwise shear perpendicular to the grain, G90,flat,k in Eurocode.")]
+        [Description("Characteristic shear modulus for flatwise shear perpendicular to the grain, G90,flat,k in most manufacturer documentation.")]
         public virtual double G_90_Flat_k { get; set; }
 
         [ShearModulus]
-        [Description("Mean shear modulus for edgewise shear parallel to the grain, G0,edge,mean in Eurocode.")]
+        [Description("Mean shear modulus for edgewise shear parallel to the grain, G0,edge,mean in most manufacturer documentation.")]
         public virtual double G_0_Edge_Mean { get; set; }
 
         [ShearModulus]
-        [Description("Mean shear modulus for flatwise shear parallel to the grain, G0,flat,mean in Eurocode.")]
+        [Description("Mean shear modulus for flatwise shear parallel to the grain, G0,flat,mean in most manufacturer documentation.")]
         public virtual double G_0_Flat_Mean { get; set; }
 
         [ShearModulus]
-        [Description("Mean shear modulus for flatwise shear perpendicular to the grain, G90,flat,mean in Eurocode.")]
+        [Description("Mean shear modulus for flatwise shear perpendicular to the grain, G90,flat,mean in most manufacturer documentation.")]
         public virtual double G_90_Flat_Mean { get; set; }
 
 
@@ -146,54 +147,54 @@ namespace BH.oM.Structure.MaterialFragments
         /***************************************************/
 
         [Stress]
-        [Description("Edgewise bending Strength, parallel to the grain. Called fm,0,edge,k in Eurocode.")]
+        [Description("Characteristic Edgewise bending Strength, parallel to the grain. Called fm,0,edge,k in most manufacturer documentation.")]
         public virtual double BendingStrengthEdgeParallel { get; set; }
 
         [Stress]
-        [Description("Flatwise, bending Strength, parallel to the grain. Called fm,0,flat,k in Eurocode.")]
+        [Description("Characteristic Flatwise, bending Strength, parallel to the grain. Called fm,0,flat,k in most manufacturer documentation.")]
         public virtual double BendingStrengthFlatParallel { get; set; }
 
         [Stress]
-        [Description("Flatwise, bending Strength, perpendicular to the grain. Called fm,90,flat,k in Eurocode.")]
+        [Description("Characteristic Flatwise, bending Strength, perpendicular to the grain. Called fm,90,flat,k in most manufacturer documentation.")]
         public virtual double BendingStrengthFlatPerpendicular { get; set; }
 
         [Description("Size effect parameter for strength.")]
         public virtual double SizeEffectParameter { get; set; }
 
         [Stress]
-        [Description("Tensile Parallel Strength. Tension stress parallel to the grain at failure in net tension. Called ft,0,k in Eurocode.")]
+        [Description("Characteristic Tensile Parallel Strength. Tension stress parallel to the grain at failure in net tension. Called ft,0,k in most manufacturer documentation.")]
         public virtual double TensileStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Edgewise tensile Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,edge,k in Eurocode.")]
+        [Description("Characteristic Edgewise tensile Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,edge,k in most manufacturer documentation.")]
         public virtual double TensileStrengthEdgePerpendicular { get; set; }
 
         [Stress]
-        [Description("Flatwise tensile Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,flat,k in Eurocode.")]
+        [Description("Characteristic Flatwise tensile Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,flat,k in most manufacturer documentation.")]
         public virtual double TensileStrengthFlatPerpendicular { get; set; }
 
         [Stress]
-        [Description("Compressive Parallel Strength for service class 1. Compression stress parallel to the grain at failure in net compression. Called fc,0,k in Eurocode.")]
+        [Description("Characteristic Compressive Parallel Strength. Compression stress parallel to the grain at failure in net compression. Called fc,0,k in most manufacturer documentation.")]
         public virtual double CompressiveStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Edgewise compressive Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,edge,k in Eurocode.")]
+        [Description("Characteristic Edgewise compressive Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,edge,k in most manufacturer documentation.")]
         public virtual double CompressiveStrengthEdgePerpendicular { get; set; }
 
         [Stress]
-        [Description("Flatwise compressive Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,flat,k in Eurocode.")]
+        [Description("Characteristic Flatwise compressive Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,flat,k in most manufacturer documentation.")]
         public virtual double CompressiveStrengthFlatPerpendicular { get; set; }
 
         [Stress]
-        [Description("Edgewise Shear Strength parallel. Shear stress parallel to the grain at failure in net shear for edgewise shearing. Called fv,0,edge,k in Eurocode.")]
+        [Description("Characteristic Edgewise Shear Strength parallel. Shear stress parallel to the grain at failure in net shear for edgewise shearing. Called fv,0,edge,k in most manufacturer documentation.")]
         public virtual double ShearStrengthEdge { get; set; }
 
         [Stress]
-        [Description("Flatwise Shear Strength parallel. Shear stress parallel to the grain at failure in net shear for flatwise shearing. Called fv,0,flat,k in Eurocode.")]
+        [Description("Flatwise Shear Strength parallel. Shear stress parallel to the grain at failure in net shear for flatwise shearing. Called fv,0,flat,k in most manufacturer documentation.")]
         public virtual double ShearStrengthFlatParallel { get; set; }
 
         [Stress]
-        [Description("Flatwise Shear Strength parallel. Shear stress parallel to the grain at failure in net shear for flatwise shearing. Called fv,0,flat,k in Eurocode.")]
+        [Description("Characteristic Flatwise Shear Strength parallel. Shear stress parallel to the grain at failure in net shear for flatwise shearing. Called fv,0,flat,k in most manufacturer documentation.")]
         public virtual double ShearStrengthFlatPerpendicular { get; set; }
 
         /***************************************************/
