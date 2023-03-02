@@ -66,7 +66,7 @@ namespace BH.oM.Structure.MaterialFragments
                      "Vector components defined as:\n" +
                      "X - Shear Modulus in the local xy-plane (Gxy).\n" +
                      "Y - Shear Modulus in the local yz-plane (Gyz), generally referred to as rolling shear.\n" +
-                     "Z - Shear Modulus in the local zx-plane (Gyz).")]
+                     "Z - Shear Modulus in the local zx-plane (Gzx).")]
         public virtual Vector ShearModulus { get; set; }
 
         [Ratio]

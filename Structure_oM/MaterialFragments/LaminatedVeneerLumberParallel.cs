@@ -67,9 +67,9 @@ namespace BH.oM.Structure.MaterialFragments
         [Description("Shear Modulus or Modulus of Rigidity of the material to be used for Analysis. Ratio between shear stress and shear strain.\n" +
                              "Values can be automatically populated based on material parameters by calling the SetAnalysisParameters method.\n" +
                              "Vector components defined as:\n" +
-                             "X - Shear Modulus in the local xy-plane (Gxy). For most cases this will Parallel shear modulus (G_0) - flat or edgewise depending material usage and orientation.\n" +
-                             "Y - Shear Modulus in the local yz-plane (Gyz). For most cases this will be the Rolling Shear modulus (Gr_k or Gr_Mean)\n" +
-                             "Z - Shear Modulus in the local zx-plane (Gyz). For most cases this will be the Shear modulus (G_k or G_Mean)")]
+                             "X - Shear Modulus in the local xy-plane (Gxy). For most cases this will Parallel shear modulus (G_0) - For flatwise use this will be G_0_Edge, for Edgewise use this will be G_0_Flat.\n" +
+                             "Y - Shear Modulus in the local yz-plane (Gyz). For most cases this will be the Perpendicular shear modulus - For both flatwise and edgewise G_90_flat.\n" +
+                             "Z - Shear Modulus in the local zx-plane (Gzx). For most cases this will Parallel shear modulus (G_0) - For flatwise use this will be G_0_Flat, for Edgewise use this will be G_0_Edge.")]
         public virtual Vector ShearModulus { get; set; }
 
         [Ratio]
