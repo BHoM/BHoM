@@ -27,13 +27,13 @@ using System.Text;
 
 namespace BH.oM.Structure.MaterialFragments
 {
-    [Description("Enum for controlling if analysis parameters of the Timber material should be assigned based on values for beinding or axial stiffness values.\n" +
+    [Description("Enum for controlling if analysis parameters of the Timber material should be assigned based on values for bending or axial stiffness.\n" +
                  "Only relevant for some engineered timber products.")]
     public enum TimberAnalysisDominantLoadCondition
     {
-        [Description("The element with the Timber material will be have loads resulting in bending stresses as the predominant load condition.")]
+        [Description("The element with the Timber material will have loads resulting in bending stresses as the predominant load condition.")]
         Bending,
-        [Description("The element with the Timber material will be have loads resulting in axial stresses as the predominant load condition.")]
+        [Description("The element with the Timber material will have loads resulting in axial stresses as the predominant load condition.")]
         Axial
     }
 }
