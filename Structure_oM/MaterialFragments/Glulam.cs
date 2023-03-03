@@ -56,9 +56,9 @@ namespace BH.oM.Structure.MaterialFragments
         [Description("Modulus Of Elasticity of the material to be used for Analysis. Ratio between stress and strain in all directions.\n" +
                      "Values can be automatically populated based on material parameters by calling the SetAnalysisParameters method.\n" +
                      "Vector defines stiffnesses as follows:\n" +
-                     "X - Stiffness along the local x-axis of the element (Ex). For most cases this will be the Parallel stiffness.\n" +
-                     "Y - Stiffness along the local y-axis of the element (Ey). For most cases this will be the perpendicular stiffness.\n" +
-                     "Z - Stiffness along the local z-axis of the element (Ez). For most cases this will be the perpendicular stiffness.")]
+                     "X - Stiffness along the local x-axis of the element (Ex). For most cases this will be the Parallel stiffness (E_0).\n" +
+                     "Y - Stiffness along the local y-axis of the element (Ey). For most cases this will be the perpendicular stiffness (E_90).\n" +
+                     "Z - Stiffness along the local z-axis of the element (Ez). For most cases this will be the perpendicular stiffness (E_90).")]
         public virtual Vector YoungsModulus { get; set; }
 
         [ShearModulus]
