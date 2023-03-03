@@ -91,19 +91,19 @@ namespace BH.oM.Structure.MaterialFragments
         /***************************************************/
 
         [YoungsModulus]
-        [Description("Mean modulus of elasticity parallel bending, E0,g,mean in Eurocode.")]
+        [Description("Mean modulus of elasticity parallel bending, E0,mean in Eurocode.")]
         public virtual double E_0_Mean { get; set; }
 
         [YoungsModulus]
-        [Description("5 percentile modulus of elasticity parallel bending, E0,g,05 in Eurocode.")]
+        [Description("5 percentile modulus of elasticity parallel bending, E0,05 in Eurocode.")]
         public virtual double E_0_k { get; set; }
 
         [YoungsModulus]
-        [Description("Mean modulus of elasticity perpendicular, E90,g,mean in Eurocode.")]
+        [Description("Mean modulus of elasticity perpendicular, E90,mean in Eurocode.")]
         public virtual double E_90_Mean { get; set; }
 
         [YoungsModulus]
-        [Description("Mean modulus of elasticity perpendicular, E90,g,05 in Eurocode.")]
+        [Description("Mean modulus of elasticity perpendicular, E90,05 in Eurocode.")]
         public virtual double E_90_k { get; set; }
 
         [ShearModulus]
@@ -115,11 +115,11 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double G_k { get; set; }
 
         [ShearModulus]
-        [Description("Mean shear modulus parallel to the grain, Gr,g,mean in Eurocode.")]
+        [Description("Mean shear modulus parallel to the grain, Gr,mean in Eurocode.")]
         public virtual double Gr_Mean { get; set; }
 
         [ShearModulus]
-        [Description("Characteristic shear modulus parallel to the grain, Gr,g,05 in Eurocode.")]
+        [Description("Characteristic shear modulus parallel to the grain, Gr,05 in Eurocode.")]
         public virtual double Gr_k { get; set; }
 
         /***************************************************/
@@ -127,31 +127,31 @@ namespace BH.oM.Structure.MaterialFragments
         /***************************************************/
 
         [Stress]
-        [Description("Characteristic Bending Strength. Normal stress parallel to the grain at failure in bending as calculated from beam equations. Called fm,g,k in Eurocode.")]
+        [Description("Characteristic Bending Strength. Normal stress parallel to the grain at failure in bending as calculated from beam equations. Called fm,k in Eurocode.")]
         public virtual double BendingStrength { get; set; }
 
         [Stress]
-        [Description("TCharacteristic ensile Parallel Strength. Tensile stress parallel to the grain at failure in net tension. Called ft,0,g,k in Eurocode.")]
+        [Description("TCharacteristic ensile Parallel Strength. Tensile stress parallel to the grain at failure in net tension. Called ft,0,k in Eurocode.")]
         public virtual double TensileStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Characteristic Tensile Perpendicular Strength. Tensile stress perpendicular to the grain at failure in net tension. Called ft,90,g,k in Eurocode.")]
+        [Description("Characteristic Tensile Perpendicular Strength. Tensile stress perpendicular to the grain at failure in net tension. Called ft,90,k in Eurocode.")]
         public virtual double TensileStrengthPerpendicular { get; set; }
 
         [Stress]
-        [Description("Characteristic Compressive Parallel Strength. Compressive stress parallel to the grain at failure in net compression. Called fc,0,g,k in Eurocode.")]
+        [Description("Characteristic Compressive Parallel Strength. Compressive stress parallel to the grain at failure in net compression. Called fc,0,k in Eurocode.")]
         public virtual double CompressiveStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Characteristic Compressive Perpendicular Strength. Compressive stress perpendicular to the grain at failure in net compression. Called fc,90,g,k in Eurocode.")]
+        [Description("Characteristic Compressive Perpendicular Strength. Compressive stress perpendicular to the grain at failure in net compression. Called fc,90,k in Eurocode.")]
         public virtual double CompressiveStrengthPerpendicular { get; set; }
 
         [Stress]
-        [Description("Characteristic Shear Strength. Shear stress parallel to the grain at failure in net shear, i.e. shear relevant to beam bending. Called fv,g,k in Eurocode.")]
+        [Description("Characteristic Shear Strength. Shear stress parallel to the grain at failure in net shear, i.e. shear relevant to beam bending. Called fv,k in Eurocode.")]
         public virtual double ShearStrength { get; set; }
 
         [Stress]
-        [Description("Characteristic Rolling Shear Strength. Shear stress perpendicular to the grain at failure in net shear. Called fr,g,k in Eurocode.")]
+        [Description("Characteristic Rolling Shear Strength. Shear stress perpendicular to the grain at failure in net shear. Called fr,k in Eurocode.")]
         public virtual double RollingShearStrength { get; set; }
 
         /***************************************************/
