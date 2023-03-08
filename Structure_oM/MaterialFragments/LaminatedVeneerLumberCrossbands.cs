@@ -57,7 +57,7 @@ namespace BH.oM.Structure.MaterialFragments
         [Description("Modulus Of Elasticity of the material to be used for Analysis. Ratio between stress and strain in all directions.\n" +
                      "Values can be automatically populated based on material parameters by calling the SetAnalysisParameters method.\n" +
                      "Vector defines stiffnesses as follows:\n" +
-                     "X - Stiffness along the local x-axis of the element. For most cases this will be the Parallel stiffness (E_0).\n" +
+                     "X - Stiffness along the local x-axis of the element. For most cases this will be the parallel stiffness (E_0).\n" +
                      "Y - Stiffness along the local y-axis of the element. For most cases this will be parallel to the transverse grain direction (E_90_edge) for Flatwise and perpendicular to the glue-planes (E_90_flat) for Edgewise. For most beam/slab element cases this this will be the horizontal perpendicular stiffness.\n" +
                      "Z - Stiffness along the local z-axis of the element. For most cases this will be perpendicular to the glue-planes (E_90_flat) for Flatwise and parallel to the transverse grain direction (E_90_edge) for Edgewise. For most beam/slab element cases this this will be the vertical perpendicular stiffness.")]
         public virtual Vector YoungsModulus { get; set; }
@@ -66,9 +66,9 @@ namespace BH.oM.Structure.MaterialFragments
         [Description("Shear Modulus or Modulus of Rigidity of the material to be used for Analysis. Ratio between shear stress and shear strain.\n" +
                              "Values can be automatically populated based on material parameters by calling the SetAnalysisParameters method.\n" +
                              "Vector components defined as:\n" +
-                             "X - Shear Modulus in the local xy-plane (Gxy). For most cases this will Parallel shear modulus (G_0) - For flatwise use this will be G_0_Edge, for Edgewise use this will be G_0_Flat.\n" +
-                             "Y - Shear Modulus in the local yz-plane (Gyz). For most cases this will be the Perpendicular shear modulus - For both flatwise and edgewise G_90_flat.\n" +
-                             "Z - Shear Modulus in the local zx-plane (Gzx). For most cases this will Parallel shear modulus (G_0) - For flatwise use this will be G_0_Flat, for Edgewise use this will be G_0_Edge.")]
+                             "X - Shear Modulus in the local xy-plane (Gxy). For most cases this will parallel shear modulus (G_0) - For flatwise use this will be G_0_Edge, for Edgewise use this will be G_0_Flat.\n" +
+                             "Y - Shear Modulus in the local yz-plane (Gyz). For most cases this will be the perpendicular shear modulus - For both flatwise and edgewise G_90_flat.\n" +
+                             "Z - Shear Modulus in the local zx-plane (Gzx). For most cases this will parallel shear modulus (G_0) - For flatwise use this will be G_0_Flat, for Edgewise use this will be G_0_Edge.")]
         public virtual Vector ShearModulus { get; set; }
 
         [Ratio]
@@ -173,27 +173,27 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double SizeEffectParameter { get; set; }
 
         [Stress]
-        [Description("Characteristic Tensile Parallel Strength. Tension stress parallel to the grain at failure in net tension. Called ft,0,k in most manufacturer documentation.")]
+        [Description("Characteristic Tensile parallel Strength. Tension stress parallel to the grain at failure in net tension. Called ft,0,k in most manufacturer documentation.")]
         public virtual double TensileStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Characteristic Edgewise tensile Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,edge,k in most manufacturer documentation.")]
+        [Description("Characteristic Edgewise tensile perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,edge,k in most manufacturer documentation.")]
         public virtual double TensileStrengthEdgePerpendicular { get; set; }
 
         [Stress]
-        [Description("Characteristic Flatwise tensile Perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,flat,k in most manufacturer documentation.")]
+        [Description("Characteristic Flatwise tensile perpendicular Strength. Tension stress perpendicular to the grain at failure in net tension. Called ft,90,flat,k in most manufacturer documentation.")]
         public virtual double TensileStrengthFlatPerpendicular { get; set; }
 
         [Stress]
-        [Description("Characteristic Compressive Parallel Strength. Compression stress parallel to the grain at failure in net compression. Called fc,0,k in most manufacturer documentation.")]
+        [Description("Characteristic Compressive parallel Strength. Compression stress parallel to the grain at failure in net compression. Called fc,0,k in most manufacturer documentation.")]
         public virtual double CompressiveStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Characteristic Edgewise compressive Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,edge,k in most manufacturer documentation.")]
+        [Description("Characteristic Edgewise compressive perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,edge,k in most manufacturer documentation.")]
         public virtual double CompressiveStrengthEdgePerpendicular { get; set; }
 
         [Stress]
-        [Description("Characteristic Flatwise compressive Perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,flat,k in most manufacturer documentation.")]
+        [Description("Characteristic Flatwise compressive perpendicular Strength. Compression stress perpendicular to the grain at failure in net compression. Called fc,90,flat,k in most manufacturer documentation.")]
         public virtual double CompressiveStrengthFlatPerpendicular { get; set; }
 
         [Stress]

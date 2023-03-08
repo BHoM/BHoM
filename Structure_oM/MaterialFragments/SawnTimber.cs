@@ -55,7 +55,7 @@ namespace BH.oM.Structure.MaterialFragments
         [Description("Modulus Of Elasticity of the material to be used for Analysis. Ratio between stress and strain in all directions.\n" +
                      "Values can be automatically populated based on material parameters by calling the SetAnalysisParameters method.\n" +
                      "Vector defines stiffnesses as follows:\n" +
-                     "X - Stiffness along the local x-axis of the element (Ex). For most cases this will be the Parallel stiffness.\n" +
+                     "X - Stiffness along the local x-axis of the element (Ex). For most cases this will be the parallel stiffness.\n" +
                      "Y - Stiffness along the local y-axis of the element (Ey). For most cases this will be the perpendicular stiffness.\n" +
                      "Z - Stiffness along the local z-axis of the element (Ez). For most cases this will be the perpendicular stiffness.")]
         public virtual Vector YoungsModulus { get; set; }
@@ -114,19 +114,19 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double BendingStrength { get; set; }
 
         [Stress]
-        [Description("Characteristic Tensile Parallel Strength. Tensile stress parallel to the grain at failure in net tension. Called  f_t0k in Eurocode.")]
+        [Description("Characteristic Tensile parallel Strength. Tensile stress parallel to the grain at failure in net tension. Called  f_t0k in Eurocode.")]
         public virtual double TensileStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Characteristic Tensile Perpendicular Strength. Tensile stress perpendicular to the grain at failure in net tension. Called f_t90k in Eurocode.")]
+        [Description("Characteristic Tensile perpendicular Strength. Tensile stress perpendicular to the grain at failure in net tension. Called f_t90k in Eurocode.")]
         public virtual double TensileStrengthPerpendicular { get; set; }
 
         [Stress]
-        [Description("Characteristic Compressive Parallel Strength. Compressive stress parallel to the grain at failure in net compression. Called f_c0k in Eurocode.")]
+        [Description("Characteristic Compressive parallel Strength. Compressive stress parallel to the grain at failure in net compression. Called f_c0k in Eurocode.")]
         public virtual double CompressiveStrengthParallel { get; set; }
 
         [Stress]
-        [Description("Characteristic Compressive Perpendicular Strength. Compressive stress perpendicular to the grain at failure in net compression. Called f_c90k in Eurocode.")]
+        [Description("Characteristic Compressive perpendicular Strength. Compressive stress perpendicular to the grain at failure in net compression. Called f_c90k in Eurocode.")]
         public virtual double CompressiveStrengthPerpendicular { get; set; }
 
         [Stress]
