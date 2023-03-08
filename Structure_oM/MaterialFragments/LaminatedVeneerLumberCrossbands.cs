@@ -80,7 +80,7 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual Vector PoissonsRatio { get; set; }
 
         [ThermalExpansionCoefficient]
-        [Description("Thermal Expansion Coefficeint. Strain induced in the material per unit change of temperature. Typically take as 5x10^-6 in all directions, though value varies depending on timber species.\n" +
+        [Description("Thermal Expansion Coefficeint. Strain induced in the material per unit change of temperature. Typically taken as 5x10^-6 in all directions, though value varies depending on timber species and grain orientation.\n" +
                      "Vector defines stiffnesses as follows:\n" +
                      "X - Thermal expansion along the local x-axis of the element (αx).\n" +
                      "Y - Thermal expansion along the local y-axis of the element (αy).\n" +
