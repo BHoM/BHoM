@@ -38,7 +38,7 @@ namespace BH.oM.Structure.MaterialFragments
         /**** Properties - General and analysis         ****/
         /***************************************************/
 
-        [Description("Name. A unique name is required for some structural packages to create and identify the object.")]
+        [Description("A unique name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Density]
@@ -58,8 +58,8 @@ namespace BH.oM.Structure.MaterialFragments
                      "Values can be automatically populated based on material parameters by calling the SetAnalysisParameters method.\n" +
                      "Vector defines stiffnesses as follows:\n" +
                      "X - Stiffness along the local x-axis of the element. For most cases this will be the Parallel stiffness (E_0).\n" +
-                     "Y - Stiffness along the local y-axis of the element. For most cases this will be parallel to the transverse grain direction (E_90_edge) for Flatwise and perpendicular to the glue-planes (E_90_flat) for Egewise. For most beam/slab element cases this this will be the horizontal Perpendicular stiffness.\n" +
-                     "Z - Stiffness along the local z-axis of the element. For most cases this will be perpendicular to the glue-planes (E_90_flat) for Flatwise and parallel to the transverse grain direction (E_90_edge) for Egewise. For most beam/slab element cases this this will be the vertical Perpendicular stiffness.")]
+                     "Y - Stiffness along the local y-axis of the element. For most cases this will be parallel to the transverse grain direction (E_90_edge) for Flatwise and perpendicular to the glue-planes (E_90_flat) for Edgewise. For most beam/slab element cases this this will be the horizontal perpendicular stiffness.\n" +
+                     "Z - Stiffness along the local z-axis of the element. For most cases this will be perpendicular to the glue-planes (E_90_flat) for Flatwise and parallel to the transverse grain direction (E_90_edge) for Edgewise. For most beam/slab element cases this this will be the vertical perpendicular stiffness.")]
         public virtual Vector YoungsModulus { get; set; }
 
         [ShearModulus]
@@ -162,11 +162,11 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double BendingStrengthEdgeParallel { get; set; }
 
         [Stress]
-        [Description("Characteristic Flatwise, bending Strength, parallel to the grain. Called fm,0,flat,k in most manufacturer documentation.")]
+        [Description("Characteristic Flatwise Bending Strength parallel to the grain. Called fm,0,flat,k in most manufacturer documentation.")]
         public virtual double BendingStrengthFlatParallel { get; set; }
 
         [Stress]
-        [Description("Characteristic Flatwise, bending Strength, perpendicular to the grain. Called fm,90,flat,k in most manufacturer documentation.")]
+        [Description("Characteristic Flatwise Bending Strength perpendicular to the grain. Called fm,90,flat,k in most manufacturer documentation.")]
         public virtual double BendingStrengthFlatPerpendicular { get; set; }
 
         [Description("Size effect parameter for strength.")]

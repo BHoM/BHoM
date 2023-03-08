@@ -28,7 +28,7 @@ using System.Text;
 namespace BH.oM.Structure.MaterialFragments
 {
     [Description("Enum for controling if analysis parameters of the Timber material should be assigned based on Characteristic or Mean stiffness parameters.\n" +
-                 "Refer to design codes and guidance literature to determine when each set of properties is applicable")]
+                 "Refer to design codes and guidance literature to determine when each set of properties is applicable.")]
     public enum TimberAnalysisStiffness
     {
         Characteristic,
