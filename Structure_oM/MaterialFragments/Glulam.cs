@@ -131,7 +131,7 @@ namespace BH.oM.Structure.MaterialFragments
         public virtual double BendingStrength { get; set; }
 
         [Stress]
-        [Description("TCharacteristic ensile Parallel Strength. Tensile stress parallel to the grain at failure in net tension. Called ft,0,k in Eurocode.")]
+        [Description("Characteristic Tensile Parallel Strength. Tensile stress parallel to the grain at failure in net tension. Called ft,0,k in Eurocode.")]
         public virtual double TensileStrengthParallel { get; set; }
 
         [Stress]
