@@ -71,47 +71,47 @@ namespace BH.oM.Structure.SectionProperties
         /***************************************************/
 
         [Area]
-        [Description("Area of the cross section though the section with the largest opening.")]
+        [Description("Area of the cross section through the section with the largest opening.")]
         public virtual double Area { get; }
 
         [Length]
-        [Description("Radius of Gyration about the local Y-Axis though the section with the largest opening..")]
+        [Description("Radius of Gyration about the local Y-Axis as the arithmetic mean between the solid and open parts of the section.")]
         public virtual double Rgy { get; }
 
         [Length]
-        [Description("Radius of Gyration about the local Z-Axis though the section with the largest opening..")]
+        [Description("Radius of Gyration about the local Z-Axis through the section with the largest opening.")]
         public virtual double Rgz { get; }
 
         [TorsionConstant]
-        [Description("Torsion Constant though the section with the largest opening..")]
+        [Description("Torsion Constant through the section with the largest opening.")]
         public virtual double J { get; }
 
         [SecondMomentOfArea]
-        [Description("Moment of Inertia about the local Y-Axis though the section with the largest opening..")]
+        [Description("Moment of Inertia about the local Y-Axis as the arithmetic mean between the solid and open parts of the section.")]
         public virtual double Iy { get; }
 
         [SecondMomentOfArea]
-        [Description("Moment of Inertia about the local Z-Axis though the section with the largest opening..")]
+        [Description("Moment of Inertia about the local Z-Axis through the section with the largest opening.")]
         public virtual double Iz { get; }
 
         [WarpingConstant]
-        [Description("Warping Constant though the section with the largest opening..")]
+        [Description("Warping Constant through the section with the largest opening.")]
         public virtual double Iw { get; }
 
         [SectionModulus]
-        [Description("Elastic Modulus of the section about the local Y-Axis though the section with the largest opening..")]
+        [Description("Elastic Modulus of the section about the local Y-Axis through the section with the largest opening.")]
         public virtual double Wely { get; }
 
         [SectionModulus]
-        [Description("Elastic Modulus of the section about the local Z-Axis though the section with the largest opening..")]
+        [Description("Elastic Modulus of the section about the local Z-Axis through the section with the largest opening.")]
         public virtual double Welz { get; }
 
         [SectionModulus]
-        [Description("Plastic Modulus of the section about the local Y-Axis though the section with the largest opening..")]
+        [Description("Plastic Modulus of the section about the local Y-Axis through the section with the largest opening.")]
         public virtual double Wply { get; }
 
         [SectionModulus]
-        [Description("Plastic Modulus of the section about the local Z-Axis though the section with the largest opening..")]
+        [Description("Plastic Modulus of the section about the local Z-Axis through the section with the largest opening.")]
         public virtual double Wplz { get; }
 
         [Length]
@@ -139,11 +139,11 @@ namespace BH.oM.Structure.SectionProperties
         public virtual double Vpy { get; }
 
         [Area]
-        [Description("Shear Area in the local Y direction though the section with the largest opening..")]
+        [Description("Shear Area in the local Y direction through the section with the largest opening. Only acounts for contributions from the flanges.")]
         public virtual double Asy { get; }
 
         [Area]
-        [Description("Shear Area in the local Z direction though the section with the largest opening..")]
+        [Description("Shear Area in the local Z direction through the section with the largest opening. Only acounts for contributions from the uncut parts of the web.")]
         public virtual double Asz { get; }
 
         /***************************************************/
