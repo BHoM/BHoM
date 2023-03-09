@@ -31,9 +31,11 @@ namespace BH.oM.Structure.MaterialFragments
                  "Only relevant for some engineered timber products.")]
     public enum TimberAnalysisDominantLoadCondition
     {
+        [Description("Default value. For some timber types where the stiffness values are independant on load condition this can be used..")]
+        Undefined,
+        [Description("The element with the Timber material will have loads resulting in axial stresses as the predominant load condition.")]
+        Axial,
         [Description("The element with the Timber material will have loads resulting in bending stresses as the predominant load condition.")]
         Bending,
-        [Description("The element with the Timber material will have loads resulting in axial stresses as the predominant load condition.")]
-        Axial
     }
 }
