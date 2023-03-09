@@ -33,27 +33,27 @@ namespace BH.oM.Structure.Results.Nodal_Results
         public virtual double RZ { get; }
 
         [Mass]
-        [Description("Nodal modal mass in the X-direction as defined by orientation basis. Proportial amount of the total modal mass that acts in the X-direction at the specific Node.")]
+        [Description("Nodal modal mass in the X-direction as defined by orientation basis. Proportional amount of the total modal mass that acts in the X-direction at the specific Node.")]
         public virtual double NodalMassX { get; }
 
         [Mass]
-        [Description("Nodal modal mass in the Y-direction as defined by orientation basis. Proportial amount of the total modal mass that acts in the Y-direction at the specific Node.")]
+        [Description("Nodal modal mass in the Y-direction as defined by orientation basis. Proportional amount of the total modal mass that acts in the Y-direction at the specific Node.")]
         public virtual double NodalMassY { get; }
 
         [Mass]
-        [Description("Nodal modal mass in the Z-direction as defined by orientation basis. Proportial amount of the total modal mass that acts in the Z-direction at the specific Node.")]
+        [Description("Nodal modal mass in the Z-direction as defined by orientation basis. Proportional amount of the total modal mass that acts in the Z-direction at the specific Node.")]
         public virtual double NodalMassZ { get; }
 
         [Mass]
-        [Description("Nodal modal mass in the X-direction as defined by orientation basis. Proportial amount of the total modal mass that acts around the X-axis at the specific Node.")]
+        [Description("Nodal modal mass in the X-direction as defined by orientation basis. Proportional amount of the total modal mass that acts around the X-axis at the specific Node.")]
         public virtual double NodalRotationalMassX { get; }
 
         [Mass]
-        [Description("Nodal modal mass in the Y-direction as defined by orientation basis. Proportial amount of the total modal mass that acts around the X-axis at the specific Node.")]
+        [Description("Nodal modal mass in the Y-direction as defined by orientation basis. Proportional amount of the total modal mass that acts around the X-axis at the specific Node.")]
         public virtual double NodalRotationalMassY { get; }
 
         [Mass]
-        [Description("Nodal modal mass in the Z-direction as defined by orientation basis. Proportial amount of the total modal mass that acts around the X-axis at the specific Node.")]
+        [Description("Nodal modal mass in the Z-direction as defined by orientation basis. Proportional amount of the total modal mass that acts around the X-axis at the specific Node.")]
         public virtual double NodalRotationalMassZ { get; }
 
         [Description("States if the result has been normalised based on the Eigenvector or on the Mass.")]
