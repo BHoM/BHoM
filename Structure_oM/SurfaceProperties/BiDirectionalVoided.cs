@@ -42,14 +42,14 @@ namespace BH.oM.Structure.SurfaceProperties
         public virtual double TopThickness { get; set; }
 
         [Length]
-        [Description("The thickness of the slab sitting beneth the ribs.")]
+        [Description("The thickness of the slab sitting beneath the ribs.")]
         public virtual double BottomThickness { get; set; }
 
         [Description("Homogenous structural material throughout the full thickness of the element.")]
         public virtual IMaterialFragment Material { get; set; }
 
         [Length]
-        [Description("Total depth measured from the bottom of the ribs to the top of the slab.")]
+        [Description("Total depth measured from the bottom of the lower slab to the top of the upper slab")]
         public virtual double TotalDepth { get; set; }
 
         [Length]
