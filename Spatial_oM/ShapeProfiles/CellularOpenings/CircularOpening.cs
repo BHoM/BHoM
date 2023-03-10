@@ -36,15 +36,15 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         /***************************************************/
 
         [Length]
-        [Description("Total diameter of the opening.")]
+        [Description("Diameter of the opening.")]
         public virtual double Diameter { get; }
 
         [Length]
-        [Description("Length of the intermidiate web post.")]
+        [Description("Length of the intermediate web post.")]
         public virtual double WidthWebPost { get; }
 
         [Length]
-        [Description("Centre distance between openings.")]
+        [Description("Centre to centre distance between openings.")]
         public virtual double Spacing { get; }
 
         /***************************************************/
