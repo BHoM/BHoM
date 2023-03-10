@@ -32,7 +32,7 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
     public interface ICellularOpening : IBHoMObject
     {
         [Length]
-        [Description("Length of the intermidiate web post.")]
+        [Description("Clear distance between openings.")]
         double WidthWebPost { get; }
 
         [Length]

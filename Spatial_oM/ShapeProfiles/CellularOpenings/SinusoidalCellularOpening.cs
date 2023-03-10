@@ -29,42 +29,36 @@ using System.Text;
 
 namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
 {
-    public class HexagonalOpening : BHoMObject, ICellularOpening, IImmutable
+    public class SinusoidalCellularOpening : BHoMObject, ICellularOpening, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        [Description("Height of the hexagonal opening, equal to the height of the cut being made in the section being castellated.\n" +
-                     "For case of non-zero SpacerHeight, the total height of the opening will be Height+SpacerHeight.")]
+        [Description("Total height of the opening.")]
         public virtual double Height { get; }
 
         [Length]
-        [Description("Total width of the opening.")]
-        public virtual double Width { get; }
+        [Description("Total width of the sinusoidal part of the opening.")]
+        public virtual double SinusoidalLength { get; }
 
         [Length]
-        [Description("Length of the intermidiate web post as well as top of the opening.")]
+        [Description("Clear distance between openings.")]
         public virtual double WidthWebPost { get; }
 
         [Length]
-        [Description("Height of any spacer plate between the two profile sides. Results in an octagonal opening for a non-zero value.")]
-        public virtual double SpacerHeight { get; }
-
-        [Length]
-        [Description("Centre-centre distance between openings.")]
+        [Description("Centre to centre distance between openings.")]
         public virtual double Spacing { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public HexagonalOpening(double height, double width, double spacerHeight, double widthWebPost, double spacing)
+        public SinusoidalCellularOpening(double height, double sinusoidalLength, double widthWebPost, double spacing)
         { 
             Height = height;
-            Width = width;
-            SpacerHeight = spacerHeight;
+            SinusoidalLength = sinusoidalLength;
             WidthWebPost = widthWebPost;
             Spacing = spacing;
         }
