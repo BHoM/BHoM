@@ -36,7 +36,7 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         double WidthWebPost { get; }
 
         [Length]
-        [Description("Centre distance between openings.")]
+        [Description("Centre to centre distance between openings.")]
         double Spacing { get; }
 
     }

@@ -31,14 +31,14 @@ using System.Collections.ObjectModel;
 
 namespace BH.oM.Structure.SectionProperties
 {
-    [Description("Steel section to be used on Bars. Defined by a section profile.")]
+    [Description("Steel section to be used on Bars. Defined by a SectionProfile.")]
     public class CellularSection : BHoMObject, ISteelSection, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("A unique Name is required for some structural packages to create and identify the object.")]
+        [Description("A unique name is required for some structural packages to create and identify the object.")]
         public override string Name { get; set; }
 
         [Description("The fabrication method used for the section.")]
@@ -75,11 +75,11 @@ namespace BH.oM.Structure.SectionProperties
         public virtual double Area { get; }
 
         [Length]
-        [Description("Radius of Gyration about the local Y-Axis as the arithmetic mean between the solid and open parts of the section.")]
+        [Description("Radius of gyration about the local Y-Axis as the arithmetic mean between the solid and open parts of the section.")]
         public virtual double Rgy { get; }
 
         [Length]
-        [Description("Radius of Gyration about the local Z-Axis through the section with the largest opening.")]
+        [Description("Radius of gyration about the local Z-Axis through the section with the largest opening.")]
         public virtual double Rgz { get; }
 
         [TorsionConstant]

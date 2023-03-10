@@ -30,7 +30,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Spatial.ShapeProfiles
 {
-    [Description("I-shaped profile with parallel flanges with equal thickness, with a opaning/void through the web.")]
+    [Description("I-shaped profile with parallel flanges with equal thickness, with an opening in the web.")]
     public class VoidedISectionProfile : BHoMObject, IProfile, IImmutable
     {
 
