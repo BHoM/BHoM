@@ -40,7 +40,11 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         public virtual double Height { get; }
 
         [Length]
-        [Description("Total width of the sinusoidal part of the opening.")]
+        [Description("Total width of the opening.")]
+        public virtual double Width { get; }
+
+        [Length]
+        [Description("Width of the sinusoidal part of the opening.")]
         public virtual double SinusoidalLength { get; }
 
         [Length]
@@ -55,7 +59,7 @@ namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
         /**** Constructors                              ****/
         /***************************************************/
 
-        public SinusoidalCellularOpening(double height, double sinusoidalLength, double widthWebPost, double spacing)
+        public SinusoidalCellularOpening(double height, double width, double sinusoidalLength, double widthWebPost, double spacing)
         { 
             Height = height;
             SinusoidalLength = sinusoidalLength;
