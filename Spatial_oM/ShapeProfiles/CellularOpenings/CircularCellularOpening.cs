@@ -29,36 +29,31 @@ using System.Text;
 
 namespace BH.oM.Spatial.ShapeProfiles.CellularOpenings
 {
-    public class SinusoidalOpening : BHoMObject, ICellularOpening, IImmutable
+    public class CircularCellularOpening : BHoMObject, ICellularOpening, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Length]
-        [Description("Total height of the opening.")]
-        public virtual double Height { get; }
+        [Description("Diameter of the opening.")]
+        public virtual double Diameter { get; }
 
         [Length]
-        [Description("Total width of the sinusoidal part of the opening.")]
-        public virtual double SinusoidalLength { get; }
-
-        [Length]
-        [Description("Length of the intermidiate web post.")]
+        [Description("Clear distance between openings.")]
         public virtual double WidthWebPost { get; }
 
         [Length]
-        [Description("Centre distance between openings.")]
+        [Description("Centre to centre distance between openings.")]
         public virtual double Spacing { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public SinusoidalOpening(double height, double sinusoidalLength, double widthWebPost, double spacing)
-        { 
-            Height = height;
-            SinusoidalLength = sinusoidalLength;
+        public CircularCellularOpening(double diameter, double widthWebPost, double spacing)
+        {
+            Diameter = diameter;
             WidthWebPost = widthWebPost;
             Spacing = spacing;
         }
