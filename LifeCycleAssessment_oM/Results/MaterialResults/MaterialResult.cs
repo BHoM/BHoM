@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Analytical.Results;
+using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,7 @@ using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    public abstract class MaterialResult2 : ILifeCycleAssesmentResult
+    public abstract class MaterialResult2 : ILifeCycleAssesmentResult, IImmutable
     {
         /***************************************************/
         /**** Properties - Identifiers                  ****/
