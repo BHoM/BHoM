@@ -22,15 +22,13 @@
   },
   "Property": {
     "ToNew": {
-      "BH.oM.Environment.Elements.Mesh.BounderyZones": "BoundaryZones"
+      "BH.oM.Environment.Elements.Mesh.BounderyZones": "BH.oM.Environment.Elements.Mesh.BoundaryZones"
     },
     "ToOld": {
-      "BH.oM.Environment.Elements.Mesh.BoundaryZones": "BounderyZones"
+      "BH.oM.Environment.Elements.Mesh.BoundaryZones": "BH.oM.Environment.Elements.Mesh.BounderyZones"
     }
   },
   "MessageForDeleted": {
-    "BH.Engine.MachineLearning.Query.ToolkitName()" : "The MachineLearning_Toolkit has been removed from installers and is not currently deployed. If you would like to experiment with the latest MachineLearning_Toolkit capabilities, please compile the toolkit from source. Please reach out to a member of the development team if you would like MachineLearning_Toolkit to be redeployed.",
-    "BH.Engine.MachineLearning.Compute.InstallPythonEnv_ML(System.Boolean)" : "The MachineLearning_Toolkit has been removed from installers and is not currently deployed. If you would like to experiment with the latest MachineLearning_Toolkit capabilities, please compile the toolkit from source. Please reach out to a member of the development team if you would like MachineLearning_Toolkit to be redeployed.",
     },
   "MessageForNoUpgrade": {
 
