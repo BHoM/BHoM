@@ -1,7 +1,7 @@
 # Contributing to the BHoM
 
 Great to see you here! :smile: There are a number of ways to contribute and get involved in the Buildings and Habitats object Model (the BHoM). Please do take a read and reach out if curious to join in with our collective experiment. [hello@bhom.xyz](mailto:hello@bhom.xyz)  
-Check out our [wiki](https://github.com/BHoM/documentation/wiki) too for more info about the BHoM and how it works.
+Check out our [wiki](https://bhom.xyz/documentation/) too for more info about the BHoM and how it works.
 
 Do also take a look at our [code of conduct](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT.md) (_we also have one for [bots too](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT_FOR_BOTS.md) if that is you?_ :+1: :robot:)
 
@@ -10,11 +10,11 @@ Do also take a look at our [code of conduct](https://github.com/BHoM/BHoM/blob/m
 
 - Submit an issue
 
-  Found a bug? :bug: Have an idea for a feature? :brain: Why not [submit an issue](https://github.com/BHoM/documentation/wiki/Submitting-an-Issue)?
+  Found a bug? :bug: Have an idea for a feature? :brain: Why not [submit an issue](https://bhom.xyz/documentation/Contributing/Submitting-an-Issue/)?
 
 - Contribute code
 
-  Want to hack? :computer: Know how to fix an open issue? Branch :palm_tree: or Fork :fork_and_knife: away and feel free to raise a Pull Request to start a conversation. [See resolving an issue](https://github.com/BHoM/documentation/wiki/Resolving-an-Issue)!
+  Want to hack? :computer: Know how to fix an open issue? Branch :palm_tree: or Fork :fork_and_knife: away and feel free to raise a Pull Request to start a conversation. [See resolving an issue](https://bhom.xyz/documentation/Contributing/Resolving-an-Issue/)!
 
 
 
@@ -23,17 +23,17 @@ Do also take a look at our [code of conduct](https://github.com/BHoM/BHoM/blob/m
 - Just get involved in the community 
 
   Even if you do not have code to contribute you can still get involved. Join the discussion on existing issues and pull requests, or open a new question issue to ask about any aspect of the BHoM code or toolkits.  
-  Also do feel free to ask questions or join the conversation on [BHoM Slack](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) :mega:
+  Also do feel free to ask questions or join the conversation on [BHoM discussions](https://github.com/orgs/BHoM/discussions) :mega:
 
 - Contribute documentation
 
-  Know some details that are not documented? Think that the documentation that is there is lacking detail? Got an example or tutorial you would like to share? :mortar_board: Feel free to [submit a documentation issue](https://github.com/BHoM/documentation/wiki/Submitting-an-Issue) and submit pull requests related to documentation too. If you've published some samples or tutorials somewhere else online, let us know! 
+  Know some details that are not documented? Think that the documentation that is there is lacking detail? Got an example or tutorial you would like to share? :mortar_board: [See editing the documentation]https://bhom.xyz/documentation/Contributing/Editing-the-documentation/) and submit pull requests related to documentation too. If you've published some samples or tutorials somewhere else online, let us know! 
 
 
 - Suggest a new Toolkit
 
   Use an application that does not already have a BHoM Adapter? 
-  Reach out on [https://bhom.slack.com/](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg) and let us and others know what you'd like to see. :raising_hand:
+  Reach out on [https://github.com/orgs/BHoM/discussions](https://github.com/orgs/BHoM/discussions/categories/ideas) and let us and others know what you'd like to see. :raising_hand:
 
 - Building a new BHoM Toolkit yourself?
 
@@ -52,7 +52,7 @@ We will be excited to hear from you!
 ## Contact us
 
 - Email: [hello@bhom.xyz](mailto:hello@bhom.xyz)
-- Slack: [https://bhom.slack.com/](https://join.slack.com/t/bhom/shared_invite/enQtNTE3NTM0NTkxMDc0LWYyZDMwZTA4MDg1ZDk2NmE3OGZlNzNhNzk2M2M2OTI0NmE2MGJkOTdjNTI3MGNiZTBmYTFiOGU5ZjZjZGIxMzg)  
+- Discussion Page: [https://github.com/orgs/BHoM/discussions](https://github.com/orgs/BHoM/discussions)  
 
 ## Further links
 
