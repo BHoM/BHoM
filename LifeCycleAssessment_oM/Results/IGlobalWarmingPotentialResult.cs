@@ -5,10 +5,9 @@ using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("base itnerface for all Global Warming Potential results.")]
-    public interface IGlobalWarmingPotentialResult : ILifeCycleAssesmentResult
+    [Description("Base interface for all Global Warming Potential results.")]
+    public interface IGlobalWarmingPotentialResult : ILifeCycleAssesmentResult, IGlobalWarmingPotentialPhaseData
     {
-        [Description("")]      
-        double BiogenicCarbon { get; }
+
     }
 }
