@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Global warming potential (GWP) for a particular product or material. FOrms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
-    public class GlobalWarmingPotentialMetrics : BHoMObject, IEnvironmentalMetric, IImmutable
+    public class GlobalWarmingPotentialMetrics : BHoMObject, IEnvironmentalMetric, IGlobalWarmingPotentialPhaseData, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
