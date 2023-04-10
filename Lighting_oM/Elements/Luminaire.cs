@@ -45,7 +45,7 @@ namespace BH.oM.Lighting.Elements
         public virtual string Type { get; set; } = "";
 
         [Description("The direction that the Luminaire is oriented towards.")]
-        public virtual Vector Direction { get; set; } = new Vector();
+        public virtual Basis Orientation { get; set; } = new Basis(Vector.XAxis, Vector.YAxis, Vector.ZAxis);
 
         [Description("The Luminaire Type applied to the Luminaire.")]
         public virtual LuminaireType LuminaireType { get; set; } = new LuminaireType();
