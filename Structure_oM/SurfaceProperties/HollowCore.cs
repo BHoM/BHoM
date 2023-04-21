@@ -50,6 +50,9 @@ namespace BH.oM.Structure.SurfaceProperties
         [Description("Openings of the hollow core.")]
         public virtual IHollowCoreOpeningProfiles Openings { get; set; }
 
+        [Description("Specifies if the hollow cores are running in local x or y direction.")]
+        public virtual PanelDirection Direction { get; set; } = PanelDirection.X;
+
         /***************************************************/
     }
 }
