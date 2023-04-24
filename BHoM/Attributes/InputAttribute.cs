@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Base.Attributes.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,11 +41,13 @@ namespace BH.oM.Base.Attributes
 
         public virtual InputClassificationAttribute Classification { get; } = null;
 
+        public virtual UIExposure Exposure { get; private set; } = UIExposure.Display; //Default to allow all input attributes to be exposed by default
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public InputAttribute(string name, string description, Type classification = null)
+        public InputAttribute(string name, string description, Type classification = null, UIExposure exposure = UIExposure.Display)
         {
             Name = name;
             Description = description;
@@ -52,15 +55,17 @@ namespace BH.oM.Base.Attributes
             {
                 Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
             }
+            Exposure = exposure;
         }
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId)
+        public InputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId, UIExposure exposure)
         {
             Name = name;
             Description = description;
             Classification = classification;
+            Exposure = exposure;
         }
 
         /***************************************************/
@@ -72,6 +77,13 @@ namespace BH.oM.Base.Attributes
         }
 
         /***************************************************/
+
+        public InputAttribute(string name, string description, UIExposure exposure)
+        {
+            Name = name;
+            Description = description;
+            Exposure = exposure;
+        }
     }
 }
 
