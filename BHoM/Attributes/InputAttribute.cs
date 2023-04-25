@@ -89,6 +89,16 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
+        public InputAttribute(string name, string description, InputClassificationAttribute classification, UIExposure exposure)
+        {
+            Name = name;
+            Description = description;
+            Classification = classification;
+            Exposure = exposure;
+        }
+
+        /***************************************************/
+
         public InputAttribute(string name, string description, Type classification = null, params object[] classificationProperties)
         {
             Name = name;
