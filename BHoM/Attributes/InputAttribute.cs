@@ -47,29 +47,6 @@ namespace BH.oM.Base.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public InputAttribute(string name, string description, Type classification = null, UIExposure exposure = UIExposure.Display)
-        {
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-            Exposure = exposure;
-        }
-
-        /***************************************************/
-
-        public InputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId, UIExposure exposure)
-        {
-            Name = name;
-            Description = description;
-            Classification = classification;
-            Exposure = exposure;
-        }
-
-        /***************************************************/
-
         public InputAttribute(string name, string description)
         {
             Name = name;
@@ -82,6 +59,56 @@ namespace BH.oM.Base.Attributes
         {
             Name = name;
             Description = description;
+            Exposure = exposure;
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description, UIExposure exposure = UIExposure.Display, Type classification = null)
+        {
+            Name = name;
+            Description = description;
+            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+            {
+                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
+            }
+            Exposure = exposure;
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description, Type classification = null)
+        {
+            Name = name;
+            Description = description;
+            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+            {
+                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
+            }
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description, Type classification = null, params object[] classificationProperties)
+        {
+            Name = name;
+            Description = description;
+            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+            {
+                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification, classificationProperties);
+            }
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description, UIExposure exposure = UIExposure.Display, Type classification = null, params object[] classificationProperties)
+        {
+            Name = name;
+            Description = description;
+            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+            {
+                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification, classificationProperties);
+            }
             Exposure = exposure;
         }
     }
