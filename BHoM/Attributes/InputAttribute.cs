@@ -89,7 +89,6 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        [PreviousVersion("6.2", "BH.oM.Base.Attributes.InputAttribute(System.String, System.String, BH.oM.Base.Attributes.InputClassiciationAttribute, System.Type)")]
         public InputAttribute(string name, string description, InputClassificationAttribute classification, UIExposure exposure)
         {
             Name = name;
@@ -120,6 +119,16 @@ namespace BH.oM.Base.Attributes
             {
                 Classification = (InputClassificationAttribute)Activator.CreateInstance(classification, classificationProperties);
             }
+            Exposure = exposure;
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId, UIExposure exposure, params object[] classificationProperties)
+        {
+            Name = name;
+            Description = description;
+            Classification = classification;
             Exposure = exposure;
         }
     }
