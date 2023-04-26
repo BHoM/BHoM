@@ -64,7 +64,7 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, UIExposure exposure = UIExposure.Display, Type classification = null)
+        public InputAttribute(string name, string description, UIExposure exposure, Type classification)
         {
             Name = name;
             Description = description;
@@ -77,7 +77,7 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, Type classification = null)
+        public InputAttribute(string name, string description, Type classification)
         {
             Name = name;
             Description = description;
