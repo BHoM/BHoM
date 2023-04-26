@@ -30,7 +30,6 @@ namespace BH.oM.Base.Attributes.Enums
     [Description("Setting to determine whether an element using this enum should be displayed on a User Interface (UI).")]
     public enum UIExposure
     {
-        Undefined,
         [Description("The associated element will be displayed on any UI exposing BHoM components.")]
         Display,
         [Description("The associated element will NOT be displayed on any UI. The element will be accessible via code only.")]
