@@ -55,36 +55,43 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, UIExposure exposure)
+        public InputAttribute(string name, string description, Type classification) : this(name, description)
         {
-            Name = name;
-            Description = description;
+            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+            {
+                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
+            }
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description, Type classification, params object[] classificationProperties) : this(name, description)
+        {
+            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+            {
+                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification, classificationProperties);
+            }
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description, UIExposure exposure) : this (name, description)
+        {
             Exposure = exposure;
         }
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, UIExposure exposure, Type classification)
+        public InputAttribute(string name, string description, UIExposure exposure, Type classification) : this (name, description, classification)
         {
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
             Exposure = exposure;
         }
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, Type classification)
+        public InputAttribute(string name, string description, UIExposure exposure, Type classification, params object[] classificationProperties) : this(name, description, classification, classificationProperties)
         {
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
+            Exposure = exposure;
         }
 
         /***************************************************/
@@ -96,6 +103,8 @@ namespace BH.oM.Base.Attributes
             Classification = classification;
             Exposure = exposure;
         }
+
+        /***************************************************/
     }
 }
 
