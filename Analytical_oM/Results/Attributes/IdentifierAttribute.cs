@@ -24,12 +24,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+using BH.oM.Base;
 
 namespace BH.oM.Analytical.Results
 {
     [Description("Base attribute for identifier attributes for properties of results.")]
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
-    public abstract class IdentifierAttribute : Attribute
+    public abstract class IdentifierAttribute : Attribute, IObject
     {
     }
 }
