@@ -28,7 +28,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Base
 {
-    public interface IOutput
+    public interface IOutput : IObject
     {
     }
 }

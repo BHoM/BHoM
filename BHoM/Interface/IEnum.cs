@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Base
 {
-    public interface IEnum : IComparable<IEnum>
+    public interface IEnum : IComparable<IEnum>, IObject
     {
         /***************************************************/
         /**** Properties                                ****/
