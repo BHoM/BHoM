@@ -28,7 +28,7 @@ using System.Runtime.InteropServices;
 
 namespace BH.oM.Base.Attributes
 {
-    public abstract class InputClassificationAttribute : Attribute
+    public abstract class InputClassificationAttribute : Attribute, IObject
     {
     }
 }
