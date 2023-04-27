@@ -32,7 +32,7 @@ namespace BH.oM.Base.Attributes
 {
     [AttributeUsage(AttributeTargets.Interface | AttributeTargets.Class)]
     [Description("Means that there can only be one instance of that type in a collection. This is currently used specifically for the case of fragments.")]
-    public class UniqueAttribute : Attribute
+    public class UniqueAttribute : Attribute, IObject
     {
         /***************************************************/
         /**** Properties                                ****/
