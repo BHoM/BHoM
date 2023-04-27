@@ -28,7 +28,7 @@ using System.ComponentModel;
 namespace BH.oM.Base.Attributes
 {
     [Description("Path to a folder in the client's file system.")]
-    public class FilePathAttribute : InputClassificationAttribute
+    public class FilePathAttribute : InputClassificationAttribute, IObject
     {
     }
 }
