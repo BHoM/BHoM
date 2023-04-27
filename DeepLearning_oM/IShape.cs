@@ -20,13 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+
 namespace BH.oM.DeepLearning
 {
-    public interface IShape
+    public interface IShape : IObject
     {
     }
 }
-
-
-
-
