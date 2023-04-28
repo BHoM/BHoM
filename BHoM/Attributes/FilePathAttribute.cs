@@ -44,6 +44,13 @@ namespace BH.oM.Base.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
+        public FilePathAttribute()
+        {
+
+        }
+
+        /***************************************************/
+
         public FilePathAttribute(string name, params string[] fileExtensions)
         {
             Name = name;
@@ -55,13 +62,6 @@ namespace BH.oM.Base.Attributes
         public FilePathAttribute(params string[] fileExtensions)
         {
             FileExtensions = fileExtensions;
-        }
-
-        /***************************************************/
-
-        public FilePathAttribute()
-        {
-
         }
 
         /***************************************************/
