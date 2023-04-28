@@ -28,8 +28,39 @@ using System.Runtime.InteropServices;
 
 namespace BH.oM.Base.Attributes
 {
-    public abstract class InputClassificationAttribute : Attribute, IObject
+    public abstract class InputClassificationAttribute : Attribute, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public virtual string Name { get; } = "";
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public InputClassificationAttribute()
+        {
+
+        }
+
+        /***************************************************/
+
+        public InputClassificationAttribute(string name)
+        {
+            Name = name;
+        }
+
+        /***************************************************/
+
+        public InputClassificationAttribute(int index) : this(index.ToString())
+        {
+
+        }
+
+        /***************************************************/
     }
 }
 
