@@ -35,13 +35,13 @@ namespace BH.oM.Base.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Name { get; private set; } = "";
+        public virtual string Name { get; } = "";
 
-        public virtual string Description { get; private set; } = "";
+        public virtual string Description { get; } = "";
 
-        public virtual InputClassificationAttribute Classification { get; } = null;
+        public virtual QuantityAttribute Quantity { get; } = null;
 
-        public virtual UIExposure Exposure { get; private set; } = UIExposure.Display; //Default to allow all input attributes to be exposed by default
+        public virtual UIExposure Exposure { get; } = UIExposure.Display; //Default to allow all input attributes to be exposed by default
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -55,47 +55,39 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, UIExposure exposure)
+        public InputAttribute(string name, string description, UIExposure exposure) : this(name, description)
         {
-            Name = name;
-            Description = description;
             Exposure = exposure;
         }
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, UIExposure exposure = UIExposure.Display, Type classification = null)
+        public InputAttribute(string name, string description, Type quantity) : this(name, description)
         {
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+            if (quantity != null && typeof(QuantityAttribute).IsAssignableFrom(quantity) && !quantity.IsAbstract)
             {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-            Exposure = exposure;
-        }
-
-        /***************************************************/
-
-        public InputAttribute(string name, string description, Type classification = null)
-        {
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
+                Quantity = (QuantityAttribute)Activator.CreateInstance(quantity);
             }
         }
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, InputClassificationAttribute classification, UIExposure exposure)
+        public InputAttribute(string name, string description, Type quantity, UIExposure exposure) : this(name, description, quantity)
+        {
+            Exposure = exposure;
+        }
+
+        /***************************************************/
+
+        public InputAttribute(string name, string description, QuantityAttribute quantity, UIExposure exposure)
         {
             Name = name;
             Description = description;
-            Classification = classification;
+            Quantity = quantity;
             Exposure = exposure;
         }
+
+        /***************************************************/
     }
 }
 

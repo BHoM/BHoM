@@ -27,9 +27,44 @@ using System.ComponentModel;
 
 namespace BH.oM.Base.Attributes
 {
-    [Description("Path to a folder in the client's file system.")]
-    public class FilePathAttribute : InputClassificationAttribute, IObject
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Property, AllowMultiple = true)]
+    [Description("Path to a file in the client's file system.")]
+    public class FilePathAttribute : InputClassificationAttribute, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public virtual string Name { get; } = "";
+
+        public virtual string[] FileExtensions { get; } = new string[] { };
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public FilePathAttribute(string name, params string[] fileExtensions)
+        {
+            Name = name;
+            FileExtensions = fileExtensions;
+        }
+
+        /***************************************************/
+
+        public FilePathAttribute(params string[] fileExtensions)
+        {
+            FileExtensions = fileExtensions;
+        }
+
+        /***************************************************/
+
+        public FilePathAttribute()
+        {
+
+        }
+
+        /***************************************************/
     }
 }
 
