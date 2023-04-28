@@ -45,6 +45,13 @@ namespace BH.oM.Base.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
+        public OutputAttribute(string description)
+        {
+            Description = description;
+        }
+
+        /***************************************************/
+
         public OutputAttribute(string name, string description)
         {
             Name = name;
