@@ -35,8 +35,6 @@ namespace BH.oM.Base.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Name { get; } = "";
-
         public virtual string[] FileExtensions { get; } = new string[] { };
 
 
@@ -51,9 +49,15 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        public FilePathAttribute(string name, params string[] fileExtensions)
+        public FilePathAttribute(string name, params string[] fileExtensions) : base(name)
         {
-            Name = name;
+            FileExtensions = fileExtensions;
+        }
+
+        /***************************************************/
+
+        public FilePathAttribute(int index, params string[] fileExtensions) : base(index)
+        {
             FileExtensions = fileExtensions;
         }
 

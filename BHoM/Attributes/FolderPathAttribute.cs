@@ -31,13 +31,6 @@ namespace BH.oM.Base.Attributes
     public class FolderPathAttribute : InputClassificationAttribute, IObject
     {
         /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual string Name { get; } = "";
-
-
-        /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
@@ -48,9 +41,16 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        public FolderPathAttribute(string name)
+        public FolderPathAttribute(string name) : base(name)
         {
-            Name = name;
+
+        }
+
+        /***************************************************/
+
+        public FolderPathAttribute(int index) : base(index)
+        {
+
         }
 
         /***************************************************/
