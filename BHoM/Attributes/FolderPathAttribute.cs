@@ -30,6 +30,30 @@ namespace BH.oM.Base.Attributes
     [Description("Path to a folder in the client's file system.")]
     public class FolderPathAttribute : InputClassificationAttribute, IObject
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        public virtual string Name { get; } = "";
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public FolderPathAttribute()
+        {
+
+        }
+
+        /***************************************************/
+
+        public FolderPathAttribute(string name)
+        {
+            Name = name;
+        }
+
+        /***************************************************/
     }
 }
 
