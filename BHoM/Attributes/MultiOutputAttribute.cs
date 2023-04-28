@@ -40,31 +40,38 @@ namespace BH.oM.Base.Attributes
 
         public virtual string Description { get; private set; } = "";
 
-        public virtual InputClassificationAttribute Classification { get; } = null;
+        public virtual QuantityAttribute Quantity { get; } = null;
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
+        public MultiOutputAttribute(int index, string name, string description)
         {
             Index = index;
             Name = name;
             Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+        }
+
+        /***************************************************/
+
+        public MultiOutputAttribute(int index, string name, string description, Type quantity) : this (index, name, description)
+        {
+            if (quantity != null && typeof(QuantityAttribute).IsAssignableFrom(quantity) && !quantity.IsAbstract)
             {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
+                Quantity = (QuantityAttribute)Activator.CreateInstance(quantity);
             }
         }
 
         /***************************************************/
 
-        public MultiOutputAttribute(int index, string name, string description, InputClassificationAttribute classification, Type typeId)
+        public MultiOutputAttribute(int index, string name, string description, QuantityAttribute quantity, Type typeId)
         {
             Index = index;
             Name = name;
             Description = description;
-            Classification = classification;
+            Quantity = quantity;
         }
 
         /***************************************************/
