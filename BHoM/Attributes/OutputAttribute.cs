@@ -34,48 +34,38 @@ namespace BH.oM.Base.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Name { get; private set; } = "";
+        public virtual string Name { get; } = "";
 
-        public virtual string Description { get; private set; } = "";
+        public virtual string Description { get; } = "";
 
-        public virtual InputClassificationAttribute Classification { get; } = null;
+        public virtual QuantityAttribute Quantity { get; } = null;
+
 
         /***************************************************/
         /**** Constructors                              ****/
-        /***************************************************/
-
-        public OutputAttribute(string description)
-        {
-            Description = description;
-        }
-
-        /***************************************************/
-
-        public OutputAttribute(string name, string description, Type classification = null)
-        {
-            Name = name;
-            Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
-            {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
-            }
-        }
-
-        /***************************************************/
-
-        public OutputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId)
-        {
-            Name = name;
-            Description = description;
-            Classification = classification;
-        }
-
         /***************************************************/
 
         public OutputAttribute(string name, string description)
         {
             Name = name;
             Description = description;
+        }
+
+        /***************************************************/
+
+        public OutputAttribute(string name, string description, Type quantity) : this(name, description)
+        {
+            if (quantity != null && typeof(QuantityAttribute).IsAssignableFrom(quantity) && !quantity.IsAbstract)
+            {
+                Quantity = (QuantityAttribute)Activator.CreateInstance(quantity);
+            }
+        }
+
+        /***************************************************/
+
+        public OutputAttribute(string name, string description, QuantityAttribute quantity) : this(name, description)
+        {
+            Quantity = quantity;
         }
 
         /***************************************************/
