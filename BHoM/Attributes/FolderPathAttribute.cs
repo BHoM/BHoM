@@ -27,8 +27,9 @@ using System.ComponentModel;
 
 namespace BH.oM.Base.Attributes
 {
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Property, AllowMultiple = true)]
     [Description("Path to a folder in the client's file system.")]
-    public class FolderPathAttribute : InputClassificationAttribute, IObject
+    public class FolderPathAttribute : InputClassificationAttribute, IImmutable
     {
         /***************************************************/
         /**** Constructors                              ****/
