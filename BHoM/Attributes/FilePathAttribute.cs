@@ -29,7 +29,7 @@ namespace BH.oM.Base.Attributes
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Property, AllowMultiple = true)]
     [Description("Path to a file in the client's file system.")]
-    public class FilePathAttribute : InputClassificationAttribute, IImmutable
+    public class FilePathAttribute : ClassificationAttribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

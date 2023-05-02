@@ -28,7 +28,7 @@ using System.Runtime.InteropServices;
 
 namespace BH.oM.Base.Attributes
 {
-    public abstract class InputClassificationAttribute : Attribute, IImmutable
+    public abstract class ClassificationAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,21 +41,21 @@ namespace BH.oM.Base.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public InputClassificationAttribute()
+        public ClassificationAttribute()
         {
 
         }
 
         /***************************************************/
 
-        public InputClassificationAttribute(string name)
+        public ClassificationAttribute(string name)
         {
             Name = name;
         }
 
         /***************************************************/
 
-        public InputClassificationAttribute(int index) : this(index.ToString())
+        public ClassificationAttribute(int index) : this(index.ToString())
         {
 
         }
