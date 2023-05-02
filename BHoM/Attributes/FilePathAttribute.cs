@@ -42,30 +42,26 @@ namespace BH.oM.Base.Attributes
         /**** Constructors                              ****/
         /***************************************************/
 
-        public FilePathAttribute()
+        public FilePathAttribute(string[] fileExtensions = null)
         {
-
+            if (fileExtensions != null)
+                FileExtensions = fileExtensions;
         }
 
         /***************************************************/
 
-        public FilePathAttribute(string name, params string[] fileExtensions) : base(name)
+        public FilePathAttribute(string name, string[] fileExtensions = null) : base(name)
         {
-            FileExtensions = fileExtensions;
+            if (fileExtensions != null)
+                FileExtensions = fileExtensions;
         }
 
         /***************************************************/
 
-        public FilePathAttribute(int index, params string[] fileExtensions) : base(index)
+        public FilePathAttribute(int index, string[] fileExtensions = null) : base(index)
         {
-            FileExtensions = fileExtensions;
-        }
-
-        /***************************************************/
-
-        public FilePathAttribute(params string[] fileExtensions)
-        {
-            FileExtensions = fileExtensions;
+            if (fileExtensions != null)
+                FileExtensions = fileExtensions;
         }
 
         /***************************************************/
