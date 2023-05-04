@@ -27,7 +27,7 @@ using System.Reflection;
 
 namespace BH.oM.Base
 {
-    public abstract class Enumeration : IObject, IEnum 
+    public abstract class Enumeration : IObject, IEnum, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
