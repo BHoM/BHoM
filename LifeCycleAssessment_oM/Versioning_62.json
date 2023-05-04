@@ -1,0 +1,30 @@
+{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Property": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "MessageForDeleted": {
+    "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.CustomData": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed.",
+    "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.BHoM_Guid": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed.",
+    "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.Name": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed.",
+    "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.Fragments": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed.",
+    "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.Tags": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed."
+
+  },
+  "MessageForNoUpgrade": {
+  }
+}
