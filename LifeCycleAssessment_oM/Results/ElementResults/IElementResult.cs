@@ -30,7 +30,7 @@ namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Base interface for Life Cycle Assessment results for a particular element..")]
     public interface IElementResult<out T> : IObjectResult, IResultItem, ILifeCycleAssesmentResult
-        where T : MaterialResult2
+        where T : MaterialResult
     {
         [Description("Scope the object this result was generated from belongs to, e.g. Foundation or Facade")]
         ScopeType Scope { get; }

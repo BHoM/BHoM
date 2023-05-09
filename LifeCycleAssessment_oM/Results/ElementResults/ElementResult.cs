@@ -30,7 +30,7 @@ using System.Text;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     public abstract class ElementResult<T> : IElementResult<T>, IImmutable
-        where T : MaterialResult2
+        where T : MaterialResult
     {
         /***************************************************/
         /**** Properties - Identifiers                  ****/
@@ -128,7 +128,7 @@ namespace BH.oM.LifeCycleAssessment.Results
 
         public int CompareTo(IResult other)
         {
-            ElementResult otherRes = other as ElementResult;
+            ElementResult<T> otherRes = other as ElementResult<T>;
 
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);

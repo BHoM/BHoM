@@ -29,7 +29,7 @@ using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    public abstract class MaterialResult2 : ILifeCycleAssesmentResult, IImmutable
+    public abstract class MaterialResult : ILifeCycleAssesmentResult, IImmutable
     {
         /***************************************************/
         /**** Properties - Identifiers                  ****/
@@ -103,7 +103,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MaterialResult2(string materialName, string environmentalProductDeclarationName)
+        public MaterialResult(string materialName, string environmentalProductDeclarationName)
         {
             MaterialName = materialName;
             EnvironmentalProductDeclarationName = environmentalProductDeclarationName;
