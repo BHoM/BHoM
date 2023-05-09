@@ -29,7 +29,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Acidification potential for a particular Material and EPD.")]
-    public class AcidificationPotentialMaterialResult : MaterialResult2
+    public class AcidificationPotentialMaterialResult : MaterialResult
     {
         /***************************************************/
         /**** Properties                                ****/

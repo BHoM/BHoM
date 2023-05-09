@@ -29,7 +29,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Global Warming potential for a particular Material and EPD.")]
-    public class GlobalWarmingPotentialMaterialResult : MaterialResult2, IGlobalWarmingPotentialResult
+    public class GlobalWarmingPotentialMaterialResult : MaterialResult, IGlobalWarmingPotentialResult
     {
         /***************************************************/
         /**** Properties                                ****/
