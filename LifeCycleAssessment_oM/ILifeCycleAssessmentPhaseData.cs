@@ -70,7 +70,7 @@ namespace BH.oM.LifeCycleAssessment
         [Description("Data relating to the operational water use during the usage stage.")]
         double B7 { get; }
 
-        [Description("Data relating to the deconstruction and/or demolishion during the end of life stage.")]
+        [Description("Data relating to the deconstruction and/or demolition during the end of life stage.")]
         double C1 { get; }
 
         [Description("Data relating to the transport during the end of life stage.")]
