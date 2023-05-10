@@ -88,7 +88,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual double B7 { get; }
 
         [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the deconstruction and/or demolishion during the end of life stage.")]
+        [Description("Acidification potential due to the deconstruction and/or demolition during the end of life stage.")]
         public virtual double C1 { get; }
 
         [AcidificationPotentialPerQuantity]

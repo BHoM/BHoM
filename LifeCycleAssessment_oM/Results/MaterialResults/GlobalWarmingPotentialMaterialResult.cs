@@ -88,7 +88,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public override double B7 { get; }
 
         [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential due to the deconstruction and/or demolishion during the end of life stage.")]
+        [Description("Resulting Global Warming Potential due to the deconstruction and/or demolition during the end of life stage.")]
         public override double C1 { get; }
 
         [GlobalWarmingPotential]

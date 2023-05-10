@@ -84,7 +84,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Resulting values due to the operational water use during the usage stage.")]
         public abstract double B7 { get; }
 
-        [Description("Resulting values due to the deconstruction and/or demolishion during the end of life stage.")]
+        [Description("Resulting values due to the deconstruction and/or demolition during the end of life stage.")]
         public abstract double C1 { get; }
 
         [Description("Resulting values due to the transport during the end of life stage.")]

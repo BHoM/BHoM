@@ -88,7 +88,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual double B7 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the deconstruction and/or demolishion during the end of life stage.")]
+        [Description("Global warming potential due to the deconstruction and/or demolition during the end of life stage.")]
         public virtual double C1 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
