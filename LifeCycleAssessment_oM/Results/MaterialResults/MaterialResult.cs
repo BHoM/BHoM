@@ -41,6 +41,9 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Name of the Environmental Product Declaration evaluated.")]
         public virtual string EnvironmentalProductDeclarationName { get; }
 
+        [Description("Enum indicating the metric type the object relates to.")]
+        public abstract EnvironmentalMetrics MetricType { get; }
+
         /***************************************************/
         /**** Properties - Result properties            ****/
         /***************************************************/
