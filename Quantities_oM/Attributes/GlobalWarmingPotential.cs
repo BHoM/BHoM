@@ -10,6 +10,6 @@ namespace BH.oM.Quantities.Attributes
     {
         public override int M { get; } = 1;
 
-        public override string SIUnit { get; } = "kg CO2eq";
+        public override string SIUnit { get; } = "kg CO2 eq";
     }
 }
