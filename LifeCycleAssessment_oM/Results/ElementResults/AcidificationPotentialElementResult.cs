@@ -35,6 +35,9 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Enum indicating the metric type the object relates to.")]
+        public override EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.AcidificationPotential;
+
         [AcidificationPotential]
         [Description("Resulting Acidification Potential due to the Raw materials in the product stage.")]
         public override double A1 { get; protected set; }
