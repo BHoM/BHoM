@@ -45,6 +45,9 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
         public virtual ObjectCategory Category { get; }
 
+        [Description("Enum indicating the metric type the object relates to.")]
+        public abstract EnvironmentalMetrics MetricType { get; }
+
         /***************************************************/
         /**** Properties - Material Breakdown           ****/
         /***************************************************/
