@@ -35,6 +35,9 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Enum indicating the metric type the object relates to.")]
+        public virtual EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.GlobalWarmingPotential;
+
         [GlobalWarmingPotentialPerQuantity]
         [Description("Global warming potential due to the Raw materials in the product stage.")]
         public virtual double A1 { get; }
