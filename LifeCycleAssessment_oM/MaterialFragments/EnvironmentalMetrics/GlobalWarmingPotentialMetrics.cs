@@ -111,7 +111,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual double D { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("")]
+        [Description("Amount of carbon stored (sequestered) in biological materials.")]
         public virtual double BiogenicCarbon { get; }
 
         /***************************************************/
