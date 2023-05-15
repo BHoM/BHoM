@@ -8,7 +8,7 @@ namespace BH.oM.LifeCycleAssessment
     [Description("base itnerface for all Global Warming Potential results.")]
     public interface IGlobalWarmingPotentialPhaseData : ILifeCycleAssessmentPhaseData
     {
-        [Description("")]      
+        [Description("Amount of carbon stored (sequestered) in biological materials.")]      
         double BiogenicCarbon { get; }
     }
 }
