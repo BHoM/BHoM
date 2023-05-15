@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Result class for resulting Global Warming potential for a particular Element.")]
+    [Description("Result class for resulting Acidification Potential for a particular Element.")]
     public class AcidificationPotentialElementResult : ElementResult<AcidificationPotentialMaterialResult>
     {
         /***************************************************/
@@ -38,76 +38,76 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Enum indicating the metric type the object relates to.")]
         public override EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.AcidificationPotential;
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the Raw materials in the product stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the Transport in the product stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Transport module in the Product stage.")]
         public override double A2 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the Manufacturing in the product stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Manufacturing module in the Product stage.")]
         public override double A3 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the full product stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the full product stage.")]
         public override double A1toA3 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the transport during the assembly stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Transport module in the Construction Process stage.")]
         public override double A4 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the final assembly during the assembly stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Construction Installation Process module in the Construction Process stage.")]
         public override double A5 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the general use during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Use module in the Use stage.")]
         public override double B1 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the maintance during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Maintenance module in the Use stage.")]
         public override double B2 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the repair during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Repair module in the Use stage.")]
         public override double B3 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the replacement during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Replacement module in the Use stage.")]
         public override double B4 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the refurbishment during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Refurbishment module in the Use stage.")]
         public override double B5 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the operational energy use during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Operational Energy Use module in the Use stage.")]
         public override double B6 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the operational water use during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Operational Water Use module in the Use stage.")]
         public override double B7 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the deconstruction and/or demolition during the end of life stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the De-construction Demolition module in the End of Life stage.")]
         public override double C1 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the transport during the end of life stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Transport module in the End of Life stage.")]
         public override double C2 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the waste processing during the end of life stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Waste Processing module in the End of Life stage.")]
         public override double C3 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the disposal during the end of life stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to the Disposal module in the End of Life stage.")]
         public override double C4 { get; }
 
-        [AcidificationPotential]
-        [Description("Resulting Acidification Potential due to the stage beyond the system boundary.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Resulting Acidification Potential relating to benefits and loads beyond the system boundary.")]
         public override double D { get; }
 
 
