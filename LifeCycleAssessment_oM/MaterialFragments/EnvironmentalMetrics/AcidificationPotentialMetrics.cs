@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Acidification potential (AP) for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    [Description("Acidification Potential (AP) for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
     public class AcidificationPotentialMetrics : BHoMObject, IEnvironmentalMetric, IImmutable
     {
         /***************************************************/
@@ -38,76 +38,76 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Enum indicating the metric type the object relates to.")]
         public virtual EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.AcidificationPotential;
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the Raw materials in the product stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Raw Material Supply module in the Product stage.")]
         public virtual double A1 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the Transport in the product stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Transport module in the Product stage.")]
         public virtual double A2 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the Manufacturing in the product stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Manufacturing module in the Product stage.")]
         public virtual double A3 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the full product stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the full product stage.")]
         public virtual double A1toA3 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the transport during the assembly stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Transport module in the Construction Process stage.")]
         public virtual double A4 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the final assembly during the assembly stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Construction Installation Process module in the Construction Process stage.")]
         public virtual double A5 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the general use during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Use module in the Use stage.")]
         public virtual double B1 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the maintance during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Maintenance module in the Use stage.")]
         public virtual double B2 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the repair during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Repair module in the Use stage.")]
         public virtual double B3 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the replacement during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Replacement module in the Use stage.")]
         public virtual double B4 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the refurbishment during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Refurbishment module in the Use stage.")]
         public virtual double B5 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the operational energy use during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Operational Energy Use module in the Use stage.")]
         public virtual double B6 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the operational water use during the usage stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Operational Water Use module in the Use stage.")]
         public virtual double B7 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the deconstruction and/or demolition during the end of life stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the De-construction Demolition module in the End of Life stage.")]
         public virtual double C1 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the transport during the end of life stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Transport module in the End of Life stage.")]
         public virtual double C2 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the waste processing during the end of life stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Waste Processing module in the End of Life stage.")]
         public virtual double C3 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the disposal during the end of life stage.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to the Disposal module in the End of Life stage.")]
         public virtual double C4 { get; }
 
-        [AcidificationPotentialPerQuantity]
-        [Description("Acidification potential due to the stage beyond the system boundary.")]
+        [GlobalWarmingPotentialPerQuantity]
+        [Description("Acidification Potential relating to benefits and loads beyond the system boundary.")]
         public virtual double D { get; }
 
         /***************************************************/

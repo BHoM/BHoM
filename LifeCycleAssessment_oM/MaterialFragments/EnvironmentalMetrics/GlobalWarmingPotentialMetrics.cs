@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Global warming potential (GWP) for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    [Description("Global Warming Potential (GWP) for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
     public class GlobalWarmingPotentialMetrics : BHoMObject, IEnvironmentalMetric, IGlobalWarmingPotentialPhaseData, IImmutable
     {
         /***************************************************/
@@ -39,75 +39,75 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.GlobalWarmingPotential;
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the Raw materials in the product stage.")]
+        [Description("Global Warming Potential relating to the Raw Material Supply module in the Product stage.")]
         public virtual double A1 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the Transport in the product stage.")]
+        [Description("Global Warming Potential relating to the Transport module in the Product stage.")]
         public virtual double A2 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the Manufacturing in the product stage.")]
+        [Description("Global Warming Potential relating to the Manufacturing module in the Product stage.")]
         public virtual double A3 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the full product stage.")]
+        [Description("Global Warming Potential relating to the full product stage.")]
         public virtual double A1toA3 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the transport during the assembly stage.")]
+        [Description("Global Warming Potential relating to the Transport module in the Construction Process stage.")]
         public virtual double A4 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the final assembly during the assembly stage.")]
+        [Description("Global Warming Potential relating to the Construction Installation Process module in the Construction Process stage.")]
         public virtual double A5 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the general use during the usage stage.")]
+        [Description("Global Warming Potential relating to the Use module in the Use stage.")]
         public virtual double B1 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the maintance during the usage stage.")]
+        [Description("Global Warming Potential relating to the Maintenance module in the Use stage.")]
         public virtual double B2 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the repair during the usage stage.")]
+        [Description("Global Warming Potential relating to the Repair module in the Use stage.")]
         public virtual double B3 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the replacement during the usage stage.")]
+        [Description("Global Warming Potential relating to the Replacement module in the Use stage.")]
         public virtual double B4 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the refurbishment during the usage stage.")]
+        [Description("Global Warming Potential relating to the Refurbishment module in the Use stage.")]
         public virtual double B5 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the operational energy use during the usage stage.")]
+        [Description("Global Warming Potential relating to the Operational Energy Use module in the Use stage.")]
         public virtual double B6 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the operational water use during the usage stage.")]
+        [Description("Global Warming Potential relating to the Operational Water Use module in the Use stage.")]
         public virtual double B7 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the deconstruction and/or demolition during the end of life stage.")]
+        [Description("Global Warming Potential relating to the De-construction Demolition module in the End of Life stage.")]
         public virtual double C1 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the transport during the end of life stage.")]
+        [Description("Global Warming Potential relating to the Transport module in the End of Life stage.")]
         public virtual double C2 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the waste processing during the end of life stage.")]
+        [Description("Global Warming Potential relating to the Waste Processing module in the End of Life stage.")]
         public virtual double C3 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the disposal during the end of life stage.")]
+        [Description("Global Warming Potential relating to the Disposal module in the End of Life stage.")]
         public virtual double C4 { get; }
 
         [GlobalWarmingPotentialPerQuantity]
-        [Description("Global warming potential due to the stage beyond the system boundary.")]
+        [Description("Global Warming Potential relating to benefits and loads beyond the system boundary.")]
         public virtual double D { get; }
 
         [GlobalWarmingPotentialPerQuantity]
