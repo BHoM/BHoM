@@ -34,58 +34,56 @@ namespace BH.oM.LifeCycleAssessment
         [Description("Enum indicating the metric type the object relates to.")]
         EnvironmentalMetrics MetricType { get; }
 
-        [Description("Data relating to the Raw materials in the product stage.")]
+        [Description("Data relating to the Raw Material Supply module in the Product stage.")]
         double A1 { get; }
 
-        [Description("Data relating to the Transport in the product stage.")]
+        [Description("Data relating to the Transport module in the Product stage.")]
         double A2 { get; }
 
-        [Description("Data relating to the Manufacturing in the product stage.")]
+        [Description("Data relating to the Manufacturing module in the Product stage.")]
         double A3 { get; }
 
-        [Description("Data relating to the full product stage.")]
-        double A1toA3 { get; }
-
-        [Description("Data relating to the transport during the assembly stage.")]
+        [Description("Data relating to the Transport module in the Construction Process stage.")]
         double A4 { get; }
 
-        [Description("Data relating to the final assembly during the assembly stage.")]
+        [Description("Data relating to the Construction Installation Process module in the Construction Process stage.")]
         double A5 { get; }
 
-        [Description("Data relating to the general use during the usage stage.")]
+        [Description("Data relating to the Use module in the Use stage.")]
         double B1 { get; }
 
-        [Description("Data relating to the maintance during the usage stage.")]
+        [Description("Data relating to the Maintenance module in the Use stage.")]
         double B2 { get; }
 
-        [Description("Data relating to the repair during the usage stage.")]
+        [Description("Data relating to the Repair module in the Use stage.")]
         double B3 { get; }
 
-        [Description("Data relating to the replacement during the usage stage.")]
+        [Description("Data relating to the Replacement module in the Use stage.")]
         double B4 { get; }
 
-        [Description("Data relating to the refurbishment during the usage stage.")]
+        [Description("Data relating to the Refurbishment module in the Use stage.")]
         double B5 { get; }
 
-        [Description("Data relating to the operational energy use during the usage stage.")]
+        [Description("Data relating to the Operational Energy Use module in the Use stage.")]
         double B6 { get; }
 
-        [Description("Data relating to the operational water use during the usage stage.")]
+        [Description("Data relating to the Operational Water Use module in the Use stage.")]
         double B7 { get; }
 
-        [Description("Data relating to the deconstruction and/or demolition during the end of life stage.")]
+        [Description("Data relating to the De-construction Demolition module in the End of Life stage.")]
         double C1 { get; }
 
-        [Description("Data relating to the transport during the end of life stage.")]
+        [Description("Data relating to the Transport module in the End of Life stage.")]
         double C2 { get; }
 
-        [Description("Data relating to the waste processing during the end of life stage.")]
+        [Description("Data relating to the Waste Processing module in the End of Life stage.")]
         double C3 { get; }
 
-        [Description("Data relating to the disposal during the end of life stage.")]
+        [Description("Data relating to the Disposal module in the End of Life stage.")]
         double C4 { get; }
 
-        [Description("Data relating to the stage beyond the system boundary.")]
+        [Description("Data relating to benefits and loads beyond the system boundary.")]
         double D { get; }
+
     }
 }

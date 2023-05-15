@@ -59,59 +59,61 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Properties - Result properties            ****/
         /***************************************************/
 
-        [Description("Resulting values due to the Raw materials in the product stage.")]
+        [Description("Resulting data relating to the Raw Material Supply module in the Product stage.")]
         public abstract double A1 { get; }
 
-        [Description("Resulting values due to the Transport in the product stage.")]
+        [Description("Resulting data relating to the Transport module in the Product stage.")]
         public abstract double A2 { get; }
 
-        [Description("Resulting values due to the Manufacturing in the product stage.")]
+        [Description("Resulting data relating to the Manufacturing module in the Product stage.")]
         public abstract double A3 { get; }
 
-        [Description("Resulting values due to the full product stage.")]
+        [Description("Resulting data relating to the full product stage.")]
         public abstract double A1toA3 { get; }
 
-        [Description("Resulting values due to the transport during the assembly stage.")]
+        [Description("Resulting data relating to the Transport module in the Construction Process stage.")]
         public abstract double A4 { get; }
 
-        [Description("Resulting values due to the final assembly during the assembly stage.")]
+        [Description("Resulting data relating to the Construction Installation Process module in the Construction Process stage.")]
         public abstract double A5 { get; }
 
-        [Description("Resulting values due to the general use during the usage stage.")]
+        [Description("Resulting data relating to the Use module in the Use stage.")]
         public abstract double B1 { get; }
 
-        [Description("Resulting values due to the maintance during the usage stage.")]
+        [Description("Resulting data relating to the Maintenance module in the Use stage.")]
         public abstract double B2 { get; }
 
-        [Description("Resulting values due to the repair during the usage stage.")]
+        [Description("Resulting data relating to the Repair module in the Use stage.")]
         public abstract double B3 { get; }
 
-        [Description("Resulting values due to the replacement during the usage stage.")]
+        [Description("Resulting data relating to the Replacement module in the Use stage.")]
         public abstract double B4 { get; }
 
-        [Description("Resulting values due to the refurbishment during the usage stage.")]
+        [Description("Resulting data relating to the Refurbishment module in the Use stage.")]
         public abstract double B5 { get; }
 
-        [Description("Resulting values due to the operational energy use during the usage stage.")]
+        [Description("Resulting data relating to the Operational Energy Use module in the Use stage.")]
         public abstract double B6 { get; }
 
-        [Description("Resulting values due to the operational water use during the usage stage.")]
+        [Description("Resulting data relating to the Operational Water Use module in the Use stage.")]
         public abstract double B7 { get; }
 
-        [Description("Resulting values due to the deconstruction and/or demolition during the end of life stage.")]
+        [Description("Resulting data relating to the De-construction Demolition module in the End of Life stage.")]
         public abstract double C1 { get; }
 
-        [Description("Resulting values due to the transport during the end of life stage.")]
+        [Description("Resulting data relating to the Transport module in the End of Life stage.")]
         public abstract double C2 { get; }
 
-        [Description("Resulting values due to the waste processing during the end of life stage.")]
+        [Description("Resulting data relating to the Waste Processing module in the End of Life stage.")]
         public abstract double C3 { get; }
 
-        [Description("Resulting values due to the disposal during the end of life stage.")]
+        [Description("Resulting data relating to the Disposal module in the End of Life stage.")]
         public abstract double C4 { get; }
 
-        [Description("Resulting values due to the stage beyond the system boundary.")]
+        [Description("Resulting data relating to benefits and loads beyond the system boundary.")]
         public abstract double D { get; }
+
+
 
         /***************************************************/
         /**** Constructors                              ****/
