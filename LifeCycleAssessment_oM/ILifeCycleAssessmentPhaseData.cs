@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,6 +43,9 @@ namespace BH.oM.LifeCycleAssessment
 
         [Description("Data relating to the Manufacturing module in the Product stage.")]
         double A3 { get; }
+
+        [Description("Data relating to the full Product stage.")]
+        double A1toA3 { get; }
 
         [Description("Data relating to the Transport module in the Construction Process stage.")]
         double A4 { get; }
