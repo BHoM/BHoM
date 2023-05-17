@@ -36,7 +36,7 @@ namespace BH.oM.LifeCycleAssessment
         ExportedElectricalEnergy,
         ExportedThermalEnergy,
         FreshWater,
-        GlobalWarmingPotential,
+        ClimateChange,
         HazardousWasteDisposed,
         MaterialForEnergyRecovery,
         NonHazardousWasteDisposed,
