@@ -28,101 +28,97 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Result class for resulting Global Warming potential for a particular Element.")]
-    public class GlobalWarmingPotentialElementResult : ElementResult<GlobalWarmingPotentialMaterialResult>, IGlobalWarmingPotentialResult
+    [Description("Result class for resulting Climate Change for a particular Element.")]
+    public class ClimateChangeElementResult : ElementResult<ClimateChangeMaterialResult>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Enum indicating the metric type the object relates to.")]
-        public override EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.GlobalWarmingPotential;
+        public override EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.ClimateChange;
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Raw Material Supply module in the Product stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Transport module in the Product stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Transport module in the Product stage.")]
         public override double A2 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Manufacturing module in the Product stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Manufacturing module in the Product stage.")]
         public override double A3 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the full product stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the full product stage.")]
         public override double A1toA3 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Transport module in the Construction Process stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Transport module in the Construction Process stage.")]
         public override double A4 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Construction Installation Process module in the Construction Process stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Construction Installation Process module in the Construction Process stage.")]
         public override double A5 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Use module in the Use stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Use module in the Use stage.")]
         public override double B1 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Maintenance module in the Use stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Maintenance module in the Use stage.")]
         public override double B2 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Repair module in the Use stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Repair module in the Use stage.")]
         public override double B3 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Replacement module in the Use stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Replacement module in the Use stage.")]
         public override double B4 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Refurbishment module in the Use stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Refurbishment module in the Use stage.")]
         public override double B5 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Operational Energy Use module in the Use stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Operational Energy Use module in the Use stage.")]
         public override double B6 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Operational Water Use module in the Use stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Operational Water Use module in the Use stage.")]
         public override double B7 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the De-construction Demolition module in the End of Life stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the De-construction Demolition module in the End of Life stage.")]
         public override double C1 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Transport module in the End of Life stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Transport module in the End of Life stage.")]
         public override double C2 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Waste Processing module in the End of Life stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Waste Processing module in the End of Life stage.")]
         public override double C3 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to the Disposal module in the End of Life stage.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the Disposal module in the End of Life stage.")]
         public override double C4 { get; }
 
-        [GlobalWarmingPotential]
-        [Description("Resulting Global Warming Potential relating to benefits and loads beyond the system boundary.")]
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to benefits and loads beyond the system boundary.")]
         public override double D { get; }
-
-        [GlobalWarmingPotential]
-        [Description("Amount of carbon stored (sequestered) in biological materials in the element.")]
-        public virtual double BiogenicCarbon { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public GlobalWarmingPotentialElementResult(
+        public ClimateChangeElementResult(
             IComparable objectId, 
             ScopeType scope, 
             ObjectCategory category, 
-            IReadOnlyList<GlobalWarmingPotentialMaterialResult> materialResults,
+            IReadOnlyList<ClimateChangeMaterialResult> materialResults,
 
             double a1,
             double a2,
@@ -141,8 +137,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             double c2,
             double c3,
             double c4,
-            double d,
-            double biogenicCarbon
+            double d
             ) : base(objectId, scope, category, materialResults)
         {
             A1 = a1;
@@ -163,7 +158,6 @@ namespace BH.oM.LifeCycleAssessment.Results
             C3 = c3;
             C4 = c4;
             D = d;
-            BiogenicCarbon = biogenicCarbon;
         }
 
         /***************************************************/
