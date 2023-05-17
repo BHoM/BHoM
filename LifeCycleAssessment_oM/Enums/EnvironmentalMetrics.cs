@@ -32,6 +32,6 @@ namespace BH.oM.LifeCycleAssessment
     {
         Undefined,
         AcidificationPotential,
-        GlobalWarmingPotential
+        ClimateChange
     }
 }
