@@ -117,6 +117,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
                         double c1toc4,
                         double d)
         {
+            MetricType = metricType;
             A1 = a1;
             A2 = a2;
             A3 = a3;
