@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -28,101 +28,101 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Climate Change (or Global warming Potential) for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
-    public class ClimateChangeMetrics : BHoMObject, IEnvironmentalMetric, IImmutable
+    [Description("Climate change - biogenic for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    public class ClimateChangeBiogenicMetric : BHoMObject, IEnvironmentalMetric, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Enum indicating the metric type the object relates to.")]
-        public virtual EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.ClimateChange;
+        public virtual EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.ClimateChangeBiogenic;
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Raw Material Supply module in the Product stage.")]
+        [Description("Climate change - biogenic relating to the Raw Material Supply module in the Product stage.")]
         public virtual double A1 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Transport module in the Product stage.")]
+        [Description("Climate change - biogenic relating to the Transport module in the Product stage.")]
         public virtual double A2 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Manufacturing module in the Product stage.")]
+        [Description("Climate change - biogenic relating to the Manufacturing module in the Product stage.")]
         public virtual double A3 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the full product stage.")]
+        [Description("Climate change - biogenic relating to the full Product stage.")]
         public virtual double A1toA3 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Transport module in the Construction Process stage.")]
+        [Description("Climate change - biogenic relating to the Transport module in the Construction Process stage.")]
         public virtual double A4 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Construction Installation Process module in the Construction Process stage.")]
+        [Description("Climate change - biogenic relating to the Construction Installation Process module in the Construction Process stage.")]
         public virtual double A5 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Use module in the Use stage.")]
+        [Description("Climate change - biogenic relating to the Use module in the Use stage.")]
         public virtual double B1 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Maintenance module in the Use stage.")]
+        [Description("Climate change - biogenic relating to the Maintenance module in the Use stage.")]
         public virtual double B2 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Repair module in the Use stage.")]
+        [Description("Climate change - biogenic relating to the Repair module in the Use stage.")]
         public virtual double B3 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Replacement module in the Use stage.")]
+        [Description("Climate change - biogenic relating to the Replacement module in the Use stage.")]
         public virtual double B4 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Refurbishment module in the Use stage.")]
+        [Description("Climate change - biogenic relating to the Refurbishment module in the Use stage.")]
         public virtual double B5 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Operational Energy Use module in the Use stage.")]
+        [Description("Climate change - biogenic relating to the Operational Energy Use module in the Use stage.")]
         public virtual double B6 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Operational Water Use module in the Use stage.")]
+        [Description("Climate change - biogenic relating to the Operational Water Use module in the Use stage.")]
         public virtual double B7 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change  relating to the full Use Stage.")]
+        [Description("Climate change - biogenic relating to the full Use Stage.")]
         public virtual double B1toB7 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the De-construction Demolition module in the End of Life stage.")]
+        [Description("Climate change - biogenic relating to the De-construction Demolition module in the End of Life stage.")]
         public virtual double C1 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Transport module in the End of Life stage.")]
+        [Description("Climate change - biogenic relating to the Transport module in the End of Life stage.")]
         public virtual double C2 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Waste Processing module in the End of Life stage.")]
+        [Description("Climate change - biogenic relating to the Waste Processing module in the End of Life stage.")]
         public virtual double C3 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the Disposal module in the End of Life stage.")]
+        [Description("Climate change - biogenic relating to the Disposal module in the End of Life stage.")]
         public virtual double C4 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to the full End of Life stage.")]
+        [Description("Climate change - biogenic relating to the full End of Life stage.")]
         public virtual double C1toC4 { get; }
 
         [ClimateChangePerQuantity]
-        [Description("Climate Change relating to benefits and loads beyond the system boundary.")]
+        [Description("Climate change - biogenic relating to benefits and loads beyond the system boundary.")]
         public virtual double D { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ClimateChangeMetrics(
+        public ClimateChangeBiogenicMetric(
             double a1,
             double a2,
             double a3,
@@ -136,13 +136,15 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
             double b5,
             double b6,
             double b7,
+            double b1tob7,
             double c1,
             double c2,
             double c3,
             double c4,
+            double c1toc4,
             double d
             )
-        { 
+        {
             A1 = a1;
             A2 = a2;
             A3 = a3;
@@ -156,10 +158,12 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
             B5 = b5;
             B6 = b6;
             B7 = b7;
+            B1toB7 = b1tob7;
             C1 = c1;
             C2 = c2;
             C3 = c3;
             C4 = c4;
+            C1toC4 = c1toc4;
             D = d;
         }
 
@@ -167,5 +171,3 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
 
     }
 }
-
-
