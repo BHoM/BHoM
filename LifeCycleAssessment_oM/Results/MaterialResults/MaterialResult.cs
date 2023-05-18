@@ -42,7 +42,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual string EnvironmentalProductDeclarationName { get; }
 
         [Description("Enum indicating the metric type the object relates to.")]
-        public abstract EnvironmentalMetrics MetricType { get; }
+        public virtual EnvironmentalMetrics MetricType { get; }
 
         /***************************************************/
         /**** Properties - Result properties            ****/
@@ -106,16 +106,17 @@ namespace BH.oM.LifeCycleAssessment.Results
         public abstract double C1toC4 { get; }
 
         [Description("Resulting data relating to benefits and loads beyond the system boundary.")]
-        public abstract double D { get; }
+        public abstract double D { get; protected set; }
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MaterialResult(string materialName, string environmentalProductDeclarationName)
+        public MaterialResult(string materialName, string environmentalProductDeclarationName, EnvironmentalMetrics metricType)
         {
             MaterialName = materialName;
             EnvironmentalProductDeclarationName = environmentalProductDeclarationName;
+            MetricType = metricType;
         }
 
         /***************************************************/
