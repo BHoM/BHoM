@@ -6,7 +6,7 @@ using System.Text;
 namespace BH.oM.Quantities.Attributes
 {
     [Description("Quantity type for Eutrophication Potential Aquatic FreshWater.")]
-    public class EutrophicationAquaticFreshWater : QuantityAttribute
+    public class EutrophicationAquaticFreshwater : QuantityAttribute
     {
         public override int M { get; } = 1;
 
