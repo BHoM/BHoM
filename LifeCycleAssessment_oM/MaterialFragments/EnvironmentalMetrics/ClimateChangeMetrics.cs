@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Climate Change (GWP) for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    [Description("Climate Change (or Global warming Potential) for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
     public class ClimateChangeMetrics : BHoMObject, IEnvironmentalMetric, IImmutable
     {
         /***************************************************/
@@ -91,6 +91,10 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual double B7 { get; }
 
         [ClimateChangePerQuantity]
+        [Description("Climate Change  relating to the full Use Stage.")]
+        public virtual double B1toB7 { get; }
+
+        [ClimateChangePerQuantity]
         [Description("Climate Change relating to the De-construction Demolition module in the End of Life stage.")]
         public virtual double C1 { get; }
 
@@ -105,6 +109,10 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [ClimateChangePerQuantity]
         [Description("Climate Change relating to the Disposal module in the End of Life stage.")]
         public virtual double C4 { get; }
+
+        [ClimateChangePerQuantity]
+        [Description("Climate Change relating to the full End of Life stage.")]
+        public virtual double C1toC4 { get; }
 
         [ClimateChangePerQuantity]
         [Description("Climate Change relating to benefits and loads beyond the system boundary.")]
