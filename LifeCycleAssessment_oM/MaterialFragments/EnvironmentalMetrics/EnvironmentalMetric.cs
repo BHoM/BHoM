@@ -26,7 +26,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Base interface for all envirnmental metrics.")]
-    public abstract class EnvironmentalMetric : BHoMObject, ILifeCycleAssessmentPhaseData
+    public abstract class EnvironmentalMetric : BHoMObject, ILifeCycleAssessmentPhaseData, IImmutable
     {
         [Description("Enum indicating the metric type the object relates to.")]
         public virtual EnvironmentalMetrics MetricType { get; protected set; }
