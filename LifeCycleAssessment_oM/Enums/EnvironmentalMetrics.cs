@@ -31,7 +31,19 @@ namespace BH.oM.LifeCycleAssessment
     public enum EnvironmentalMetrics
     {
         Undefined,
-        AcidificationPotential,
-        ClimateChange
+        AbioticDepletionFossilResources,
+        AbioticDepletionMineralsAndMetals,
+        Acidification,
+        ClimateChangeBiogenic,
+        ClimateChangeFossil,
+        ClimateChangeLULUC,
+        ClimateChangeTotal,
+        EutrophicationAquaticFreshwater,
+        EutrophicationAquaticMarine,
+        EutrophicationTerrestrial,
+        EutrophicationVersion1,
+        OzoneDepletion,
+        PhotochemicalOzoneCreation,
+        WaterUse
     }
 }
