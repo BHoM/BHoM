@@ -36,6 +36,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [Acidification]
         [Description("Resulting Acidification relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; protected set; }
 
