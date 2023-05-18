@@ -91,6 +91,10 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual double B7 { get; }
 
         [AcidificationPotentialPerQuantity]
+        [Description("Acidification Potential relating to the full Use stage.")]
+        public virtual double B1toB7 { get; }
+
+        [AcidificationPotentialPerQuantity]
         [Description("Acidification Potential relating to the De-construction Demolition module in the End of Life stage.")]
         public virtual double C1 { get; }
 
@@ -105,6 +109,10 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [AcidificationPotentialPerQuantity]
         [Description("Acidification Potential relating to the Disposal module in the End of Life stage.")]
         public virtual double C4 { get; }
+
+        [AcidificationPotentialPerQuantity]
+        [Description("Acidification Potential relating to the full End of Life stage.")]
+        public virtual double C1toC4 { get; }
 
         [AcidificationPotentialPerQuantity]
         [Description("Acidification Potential relating to benefits and loads beyond the system boundary.")]

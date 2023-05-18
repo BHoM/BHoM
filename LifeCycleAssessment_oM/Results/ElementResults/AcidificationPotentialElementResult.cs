@@ -91,6 +91,10 @@ namespace BH.oM.LifeCycleAssessment.Results
         public override double B7 { get; }
 
         [AcidificationPotential]
+        [Description("Resulting Acidification Potential relating to the full Use stage.")]
+        public override double B1toB7 { get; }
+
+        [AcidificationPotential]
         [Description("Resulting Acidification Potential relating to the De-construction Demolition module in the End of Life stage.")]
         public override double C1 { get; }
 
@@ -105,6 +109,10 @@ namespace BH.oM.LifeCycleAssessment.Results
         [AcidificationPotential]
         [Description("Resulting Acidification Potential relating to the Disposal module in the End of Life stage.")]
         public override double C4 { get; }
+
+        [AcidificationPotential]
+        [Description("Acidification Potential relating to the full End of Life stage.")]
+        public override double C1toC4 { get; }
 
         [AcidificationPotential]
         [Description("Resulting Acidification Potential relating to benefits and loads beyond the system boundary.")]
