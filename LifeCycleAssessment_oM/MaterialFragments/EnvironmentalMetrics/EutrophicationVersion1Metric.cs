@@ -33,6 +33,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
+        [EutrophicationVersion1PerQuantity]
         [Description("Eutrophication (EN 15804+A1) relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; protected set; }
 

@@ -33,6 +33,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [EutrophicationVersion1]
         [Description("Resulting Eutrophication (EN 15804+A1) relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; protected set; }
 

@@ -36,6 +36,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [ClimateChange]
         [Description("Resulting Climate change - LULUC relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; protected set; }
 
