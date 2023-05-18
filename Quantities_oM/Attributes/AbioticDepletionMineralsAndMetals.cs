@@ -6,7 +6,7 @@ using System.Text;
 namespace BH.oM.Quantities.Attributes
 {
     [Description("Quantity type for Abiotic depletion potential (ADP) for minerals and metals (non-fossil resources).")]
-    public class AbioticDepletionPotentialNonFossil : QuantityAttribute
+    public class AbioticDepletionMineralsAndMetals : QuantityAttribute
     {
         public override int M { get; } = 1;
 

@@ -6,7 +6,7 @@ using System.Text;
 namespace BH.oM.Quantities.Attributes
 {
     [Description("Quantity type for Ozone Depletion Potential per quantity.")]
-    public class OzoneDepletionPotentialPerQuantity : QuantityAttribute
+    public class OzoneDepletionPerQuantity : QuantityAttribute
     {
         public override int M { get; } = 1;
 
