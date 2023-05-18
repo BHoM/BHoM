@@ -29,94 +29,94 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Eutrophication - aquatic marine for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
-    public class EutrophicationAquaticMarineMetric: BHoMObject, IEnvironmentalMetric, IImmutable
+    public class EutrophicationAquaticMarineMetric : BHoMObject, IEnvironmentalMetric, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-[Description("Enum indicating the metric type the object relates to.")]
-public virtual EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.EutrophicationAquaticMarine;
+        [Description("Enum indicating the metric type the object relates to.")]
+        public virtual EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.EutrophicationAquaticMarine;
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Raw Material Supply module in the Product stage.")]
-public virtual double A1 { get; }
+        public virtual double A1 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Transport module in the Product stage.")]
-public virtual double A2 { get; }
+        public virtual double A2 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Manufacturing module in the Product stage.")]
-public virtual double A3 { get; }
+        public virtual double A3 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the full Product stage.")]
-public virtual double A1toA3 { get; }
+        public virtual double A1toA3 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Transport module in the Construction Process stage.")]
-public virtual double A4 { get; }
+        public virtual double A4 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Construction Installation Process module in the Construction Process stage.")]
-public virtual double A5 { get; }
+        public virtual double A5 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Use module in the Use stage.")]
-public virtual double B1 { get; }
+        public virtual double B1 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Maintenance module in the Use stage.")]
-public virtual double B2 { get; }
+        public virtual double B2 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Repair module in the Use stage.")]
-public virtual double B3 { get; }
+        public virtual double B3 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Replacement module in the Use stage.")]
-public virtual double B4 { get; }
+        public virtual double B4 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Refurbishment module in the Use stage.")]
-public virtual double B5 { get; }
+        public virtual double B5 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Operational Energy Use module in the Use stage.")]
-public virtual double B6 { get; }
+        public virtual double B6 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Operational Water Use module in the Use stage.")]
-public virtual double B7 { get; }
+        public virtual double B7 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the full Use Stage.")]
-public virtual double B1toB7 { get; }
+        public virtual double B1toB7 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the De-construction Demolition module in the End of Life stage.")]
-public virtual double C1 { get; }
+        public virtual double C1 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Transport module in the End of Life stage.")]
-public virtual double C2 { get; }
+        public virtual double C2 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Waste Processing module in the End of Life stage.")]
-public virtual double C3 { get; }
+        public virtual double C3 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the Disposal module in the End of Life stage.")]
-public virtual double C4 { get; }
+        public virtual double C4 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to the full End of Life stage.")]
-public virtual double C1toC4 { get; }
+        public virtual double C1toC4 { get; }
 
-[EutrophicationAquaticMarinePerQuantity]
+        [EutrophicationAquaticMarinePerQuantity]
         [Description("Eutrophication - aquatic marine relating to benefits and loads beyond the system boundary.")]
-public virtual double D { get; }
+        public virtual double D { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -144,7 +144,7 @@ public virtual double D { get; }
             double c1toc4,
             double d
             )
-        { 
+        {
             A1 = a1;
             A2 = a2;
             A3 = a3;
