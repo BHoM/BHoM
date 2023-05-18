@@ -74,6 +74,9 @@ namespace BH.oM.LifeCycleAssessment
         [Description("Data relating to the Operational Water Use module in the Use stage.")]
         double B7 { get; }
 
+        [Description("Data relating to the full Use Stage.")]
+        double B1toB7 { get; }
+
         [Description("Data relating to the De-construction Demolition module in the End of Life stage.")]
         double C1 { get; }
 
@@ -85,6 +88,9 @@ namespace BH.oM.LifeCycleAssessment
 
         [Description("Data relating to the Disposal module in the End of Life stage.")]
         double C4 { get; }
+
+        [Description("Data relating to the full End of Life stage.")]
+        double C1toC4 { get; }
 
         [Description("Data relating to benefits and loads beyond the system boundary.")]
         double D { get; }

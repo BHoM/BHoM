@@ -28,7 +28,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Result class for resulting Climate Change for a particular Material and EPD.")]
+    [Description("Result class for resulting Climate Change (or Global warming Potential) for a particular Material and EPD.")]
     public class ClimateChangeMaterialResult : MaterialResult
     {
         /***************************************************/
@@ -91,6 +91,10 @@ namespace BH.oM.LifeCycleAssessment.Results
         public override double B7 { get; }
 
         [ClimateChange]
+        [Description("Resulting Climate Change relating to the full Use Stage.")]
+        public override double B1toB7 { get; }
+
+        [ClimateChange]
         [Description("Resulting Climate Change relating to the De-construction Demolition module in the End of Life stage.")]
         public override double C1 { get; }
 
@@ -105,6 +109,10 @@ namespace BH.oM.LifeCycleAssessment.Results
         [ClimateChange]
         [Description("Resulting Climate Change relating to the Disposal module in the End of Life stage.")]
         public override double C4 { get; }
+
+        [ClimateChange]
+        [Description("Resulting Climate Change relating to the full End of Life stage.")]
+        public override double C1toC4 { get; }
 
         [ClimateChange]
         [Description("Resulting Climate Change relating to benefits and loads beyond the system boundary.")]
