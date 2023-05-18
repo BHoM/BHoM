@@ -22,101 +22,95 @@
 
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Eutrophication - aquatic freshwater for a particular Material and EPD.")]
-    public class EutrophicationAquaticFreshwaterMaterialResult : MaterialResult
+    public class EutrophicationAquaticFreshwaterMaterialResult : MaterialResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Enum indicating the metric type the object relates to.")]
-        public override EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.EutrophicationAquaticFreshwater;
-
-        [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Raw Material Supply module in the Product stage.")]
-        public override double A1 { get; }
+        public override double A1 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Transport module in the Product stage.")]
-        public override double A2 { get; }
+        public override double A2 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Manufacturing module in the Product stage.")]
-        public override double A3 { get; }
+        public override double A3 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the full Product stage.")]
-        public override double A1toA3 { get; }
+        public override double A1toA3 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Transport module in the Construction Process stage.")]
-        public override double A4 { get; }
+        public override double A4 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Construction Installation Process module in the Construction Process stage.")]
-        public override double A5 { get; }
+        public override double A5 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Use module in the Use stage.")]
-        public override double B1 { get; }
+        public override double B1 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Maintenance module in the Use stage.")]
-        public override double B2 { get; }
+        public override double B2 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Repair module in the Use stage.")]
-        public override double B3 { get; }
+        public override double B3 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Replacement module in the Use stage.")]
-        public override double B4 { get; }
+        public override double B4 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Refurbishment module in the Use stage.")]
-        public override double B5 { get; }
+        public override double B5 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Operational Energy Use module in the Use stage.")]
-        public override double B6 { get; }
+        public override double B6 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Operational Water Use module in the Use stage.")]
-        public override double B7 { get; }
+        public override double B7 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the full Use Stage.")]
-        public override double B1toB7 { get; }
+        public override double B1toB7 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the De-construction Demolition module in the End of Life stage.")]
-        public override double C1 { get; }
+        public override double C1 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Transport module in the End of Life stage.")]
-        public override double C2 { get; }
+        public override double C2 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Waste Processing module in the End of Life stage.")]
-        public override double C3 { get; }
+        public override double C3 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Disposal module in the End of Life stage.")]
-        public override double C4 { get; }
+        public override double C4 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the full End of Life stage.")]
-        public override double C1toC4 { get; }
+        public override double C1toC4 { get; protected set; }
 
         [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to benefits and loads beyond the system boundary.")]
-        public override double D { get; }
+        public override double D { get; protected set; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -146,28 +140,8 @@ namespace BH.oM.LifeCycleAssessment.Results
             double c4,
             double c1toc4,
             double d
-            ) : base(materialName, environmentalProductDeclarationName)
+            ) : base(materialName, environmentalProductDeclarationName, EnvironmentalMetrics.EutrophicationAquaticFreshwater, a1, a2, a3, a1toa3, a4, a5, b1, b2, b3, b4, b5, b6, b7, b1tob7, c1, c2, c3, c4, c1toc4, d)
         {
-            A1 = a1;
-            A2 = a2;
-            A3 = a3;
-            A1toA3 = a1toa3;
-            A4 = a4;
-            A5 = a5;
-            B1 = b1;
-            B2 = b2;
-            B3 = b3;
-            B4 = b4;
-            B5 = b5;
-            B6 = b6;
-            B7 = b7;
-            B1toB7 = b1tob7;
-            C1 = c1;
-            C2 = c2;
-            C3 = c3;
-            C4 = c4;
-            C1toC4 = c1toc4;
-            D = d;
         }
 
         /***************************************************/

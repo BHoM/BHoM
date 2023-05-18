@@ -22,16 +22,13 @@
 
 
 using BH.oM.Analytical.Results;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Base interface for all Life Cycle Assessment results.")]
     public interface ILifeCycleAssesmentResult : IResultItem, ILifeCycleAssessmentPhaseData
     {
-        
+
     }
 }

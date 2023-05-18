@@ -21,10 +21,8 @@
  */
 
 using BH.oM.Analytical.Results;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
