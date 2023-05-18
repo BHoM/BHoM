@@ -33,6 +33,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Properties                                ****/
         /***************************************************/
 
+        [EutrophicationAquaticFreshwater]
         [Description("Resulting Eutrophication - aquatic freshwater relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; protected set; }
 

@@ -33,6 +33,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
+        [PhotochemicalOzoneCreationPerQuantity]
         [Description("Photochemical ozone formation relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; protected set; }
 
