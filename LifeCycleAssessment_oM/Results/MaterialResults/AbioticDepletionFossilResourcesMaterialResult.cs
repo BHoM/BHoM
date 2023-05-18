@@ -35,9 +35,6 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Enum indicating the metric type the object relates to.")]
-        public override EnvironmentalMetrics MetricType { get; } = EnvironmentalMetrics.AbioticDepletionFossilResources;
-
         [Energy]
         [Description("Resulting Abiotic depletion of fossil resources relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; }
@@ -116,7 +113,7 @@ namespace BH.oM.LifeCycleAssessment.Results
 
         [Energy]
         [Description("Resulting Abiotic depletion of fossil resources relating to benefits and loads beyond the system boundary.")]
-        public override double D { get; }
+        public override double D { get; protected set; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -146,7 +143,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             double c4,
             double c1toc4,
             double d
-            ) : base(materialName, environmentalProductDeclarationName)
+            ) : base(materialName, environmentalProductDeclarationName, EnvironmentalMetrics.AbioticDepletionFossilResources)
         {
             A1 = a1;
             A2 = a2;
