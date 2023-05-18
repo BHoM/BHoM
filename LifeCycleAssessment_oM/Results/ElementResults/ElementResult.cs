@@ -25,7 +25,6 @@ using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
@@ -37,99 +36,140 @@ namespace BH.oM.LifeCycleAssessment.Results
         /***************************************************/
 
         [Description("Id of the BHoMObject that this result belongs to.")]
-        public virtual IComparable ObjectId { get; } = "";
+        public virtual IComparable ObjectId { get; protected set; } = "";
 
         [Description("Scope the object this result was generated from belongs to, e.g. Foundation or Facade")]
-        public virtual ScopeType Scope { get; }
+        public virtual ScopeType Scope { get; protected set; }
 
         [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
-        public virtual ObjectCategory Category { get; }
+        public virtual ObjectCategory Category { get; protected set; }
 
         [Description("Enum indicating the metric type the object relates to.")]
-        public abstract EnvironmentalMetrics MetricType { get; }
+        public virtual EnvironmentalMetrics MetricType { get; protected set; }
 
         /***************************************************/
         /**** Properties - Material Breakdown           ****/
         /***************************************************/
 
         [Description("Result breakdown per material type.")]
-        public virtual IReadOnlyList<T> MaterialResults { get; }
+        public virtual IReadOnlyList<T> MaterialResults { get; protected set; }
 
         /***************************************************/
         /**** Properties - Result properties            ****/
         /***************************************************/
 
         [Description("Resulting data relating to the Raw Material Supply module in the Product stage.")]
-        public abstract double A1 { get; }
+        public abstract double A1 { get; protected set; }
 
         [Description("Resulting data relating to the Transport module in the Product stage.")]
-        public abstract double A2 { get; }
+        public abstract double A2 { get; protected set; }
 
         [Description("Resulting data relating to the Manufacturing module in the Product stage.")]
-        public abstract double A3 { get; }
+        public abstract double A3 { get; protected set; }
 
         [Description("Resulting data relating to the full product stage.")]
-        public abstract double A1toA3 { get; }
+        public abstract double A1toA3 { get; protected set; }
 
         [Description("Resulting data relating to the Transport module in the Construction Process stage.")]
-        public abstract double A4 { get; }
+        public abstract double A4 { get; protected set; }
 
         [Description("Resulting data relating to the Construction Installation Process module in the Construction Process stage.")]
-        public abstract double A5 { get; }
+        public abstract double A5 { get; protected set; }
 
         [Description("Resulting data relating to the Use module in the Use stage.")]
-        public abstract double B1 { get; }
+        public abstract double B1 { get; protected set; }
 
         [Description("Resulting data relating to the Maintenance module in the Use stage.")]
-        public abstract double B2 { get; }
+        public abstract double B2 { get; protected set; }
 
         [Description("Resulting data relating to the Repair module in the Use stage.")]
-        public abstract double B3 { get; }
+        public abstract double B3 { get; protected set; }
 
         [Description("Resulting data relating to the Replacement module in the Use stage.")]
-        public abstract double B4 { get; }
+        public abstract double B4 { get; protected set; }
 
         [Description("Resulting data relating to the Refurbishment module in the Use stage.")]
-        public abstract double B5 { get; }
+        public abstract double B5 { get; protected set; }
 
         [Description("Resulting data relating to the Operational Energy Use module in the Use stage.")]
-        public abstract double B6 { get; }
+        public abstract double B6 { get; protected set; }
 
         [Description("Resulting data relating to the Operational Water Use module in the Use stage.")]
-        public abstract double B7 { get; }
+        public abstract double B7 { get; protected set; }
 
         [Description("Resulting data relating to the full Use Stage.")]
-        public abstract double B1toB7 { get; }
+        public abstract double B1toB7 { get; protected set; }
 
         [Description("Resulting data relating to the De-construction Demolition module in the End of Life stage.")]
-        public abstract double C1 { get; }
+        public abstract double C1 { get; protected set; }
 
         [Description("Resulting data relating to the Transport module in the End of Life stage.")]
-        public abstract double C2 { get; }
+        public abstract double C2 { get; protected set; }
 
         [Description("Resulting data relating to the Waste Processing module in the End of Life stage.")]
-        public abstract double C3 { get; }
+        public abstract double C3 { get; protected set; }
 
         [Description("Resulting data relating to the Disposal module in the End of Life stage.")]
-        public abstract double C4 { get; }
+        public abstract double C4 { get; protected set; }
 
         [Description("Resulting data relating to the full End of Life stage.")]
-        public abstract double C1toC4 { get; }
+        public abstract double C1toC4 { get; protected set; }
 
         [Description("Resulting data relating to benefits and loads beyond the system boundary.")]
-        public abstract double D { get; }
+        public abstract double D { get; protected set; }
 
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category, IReadOnlyList<T> materialResults)
+        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category, EnvironmentalMetrics metricType, IReadOnlyList<T> materialResults,
+                        double a1,
+                        double a2,
+                        double a3,
+                        double a1toa3,
+                        double a4,
+                        double a5,
+                        double b1,
+                        double b2,
+                        double b3,
+                        double b4,
+                        double b5,
+                        double b6,
+                        double b7,
+                        double b1tob7,
+                        double c1,
+                        double c2,
+                        double c3,
+                        double c4,
+                        double c1toc4,
+                        double d)
         {
             ObjectId = objectId;
             Scope = scope;
             Category = category;
             MaterialResults = materialResults;
+            MetricType = metricType;
+            A1 = a1;
+            A2 = a2;
+            A3 = a3;
+            A1toA3 = a1toa3;
+            A4 = a4;
+            A5 = a5;
+            B1 = b1;
+            B2 = b2;
+            B3 = b3;
+            B4 = b4;
+            B5 = b5;
+            B6 = b6;
+            B7 = b7;
+            B1toB7 = b1tob7;
+            C1 = c1;
+            C2 = c2;
+            C3 = c3;
+            C4 = c4;
+            C1toC4 = c1toc4;
+            D = d;
         }
 
         /***************************************************/
