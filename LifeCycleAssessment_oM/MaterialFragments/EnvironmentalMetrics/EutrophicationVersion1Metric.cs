@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Eutrophication (EN 15804+A1) for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    [Description("Eutrophication (refers to EN 15804+A1), measured in kg [PO₄]³⁻ eq, and refers to the natural process that results from accumulation of nutrients. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
     public class EutrophicationVersion1Metric : EnvironmentalMetric, IImmutable
     {
         /***************************************************/
