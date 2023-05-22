@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Ozone depletion for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    [Description("Ozone Depletion, measured in kg CFC-11 eq, refers to the substances that destroy ozone molecules. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
     public class OzoneDepletionMetric : EnvironmentalMetric, IImmutable
     {
         /***************************************************/

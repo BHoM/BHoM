@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Eutrophication - aquatic marine for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    [Description("Eutrophication - Aquatic Marine, measured in kg N eq, refers to the natural process that results from accumulation of nutrients in bodies of marine water. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
     public class EutrophicationAquaticMarineMetric : EnvironmentalMetric, IImmutable
     {
         /***************************************************/

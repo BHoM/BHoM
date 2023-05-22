@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Eutrophication - terrestrial for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    [Description("Eutrophication - Terrestrial, measured in mol N eq, refers to the enrichment of ecosystem (such as grasslands) with limiting nutrients. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.\r\n\r\n")]
     public class EutrophicationTerrestrialMetric : EnvironmentalMetric, IImmutable
     {
         /***************************************************/

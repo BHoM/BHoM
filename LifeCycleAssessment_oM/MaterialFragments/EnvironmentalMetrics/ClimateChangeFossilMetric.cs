@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Climate change - fossil for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    [Description("Climate Change - Fossil, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to fossil fuel based compounds (formed from the decomposition of carbon based organisms) that contribute to global warming. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.\r\n\r\n")]
     public class ClimateChangeFossilMetric : EnvironmentalMetric, IImmutable
     {
         /***************************************************/
