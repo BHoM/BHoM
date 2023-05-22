@@ -44,6 +44,6 @@ namespace BH.oM.LifeCycleAssessment
         EutrophicationVersion1,
         OzoneDepletion,
         PhotochemicalOzoneCreation,
-        WaterUse
+        WaterDeprivation
     }
 }
