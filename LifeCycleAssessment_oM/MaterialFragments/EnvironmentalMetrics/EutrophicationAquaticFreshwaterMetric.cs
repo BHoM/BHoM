@@ -26,7 +26,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Eutrophication - aquatic freshwater for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
+    [Description("Eutrophication - Aquatic Freshwater, measured in kg P eq, refers to the natural process that results from accumulation of nutrients in fresh bodies of water. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.\r\n\r\n")]
     public class EutrophicationAquaticFreshwaterMetric : EnvironmentalMetric, IImmutable
     {
         /***************************************************/
