@@ -36,7 +36,7 @@ namespace BH.oM.LifeCycleAssessment
         Acidification,
         ClimateChangeBiogenic,
         ClimateChangeFossil,
-        ClimateChangeLULUC,
+        ClimateChangeLandUse,
         ClimateChangeTotal,
         EutrophicationAquaticFreshwater,
         EutrophicationAquaticMarine,
