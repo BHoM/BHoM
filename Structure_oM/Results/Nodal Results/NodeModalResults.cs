@@ -75,7 +75,8 @@ namespace BH.oM.Structure.Results.Nodal_Results
                             double nodalMassZ,
                             double nodalRotationalMassX,
                             double nodalRotationalMassY,
-                            double nodalRotationalMassZ) :
+                            double nodalRotationalMassZ,
+                            ModalResultNormalisation normalisationProcedure) :
             base(objectId, resultCase, modeNumber, timeStep, orientation)
         {
             UX = ux;
@@ -90,6 +91,7 @@ namespace BH.oM.Structure.Results.Nodal_Results
             NodalRotationalMassX = nodalRotationalMassX;
             NodalRotationalMassY = nodalRotationalMassY;
             NodalRotationalMassZ = nodalRotationalMassZ;
+            NormalisationProcedure = normalisationProcedure;
         }
 
         /***************************************************/
