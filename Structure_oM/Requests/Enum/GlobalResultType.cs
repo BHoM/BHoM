@@ -25,7 +25,8 @@ namespace BH.oM.Structure.Requests
     public enum GlobalResultType
     {
         Reactions,
-        ModalDynamics
+        ModalDynamics,
+        ModalMassAndFrequency,
     }
 }
 
