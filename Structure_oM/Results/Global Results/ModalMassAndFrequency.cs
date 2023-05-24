@@ -29,7 +29,7 @@ using BH.oM.Base;
 namespace BH.oM.Structure.Results
 {
     [Description("General modal dynamics result of the structure.")]
-    public class ModalDynamics2 : StructuralGlobalResult, IResultItem, IImmutable
+    public class ModalMassAndFrequency : StructuralGlobalResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -66,7 +66,7 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ModalDynamics2(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep,
+        public ModalMassAndFrequency(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep,
                                 double frequency,
                                 double massX,
                                 double massY,
