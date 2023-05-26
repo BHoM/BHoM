@@ -40,7 +40,7 @@ namespace BH.oM.Base.Attributes
 
         public virtual string Description { get; private set; } = "";
 
-        public virtual QuantityAttribute Quantity { get; } = null;
+        public virtual ClassificationAttribute Classification { get; } = null;
 
 
         /***************************************************/
@@ -56,22 +56,22 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        public MultiOutputAttribute(int index, string name, string description, Type quantity) : this (index, name, description)
+        public MultiOutputAttribute(int index, string name, string description, Type classification) : this (index, name, description)
         {
-            if (quantity != null && typeof(QuantityAttribute).IsAssignableFrom(quantity) && !quantity.IsAbstract)
+            if (classification != null && typeof(ClassificationAttribute).IsAssignableFrom(classification) && !classification.IsAbstract)
             {
-                Quantity = (QuantityAttribute)Activator.CreateInstance(quantity);
+                Classification = (ClassificationAttribute)Activator.CreateInstance(classification);
             }
         }
 
         /***************************************************/
 
-        public MultiOutputAttribute(int index, string name, string description, QuantityAttribute quantity, Type typeId)
+        public MultiOutputAttribute(int index, string name, string description, ClassificationAttribute classification, Type typeId)
         {
             Index = index;
             Name = name;
             Description = description;
-            Quantity = quantity;
+            Classification = classification;
         }
 
         /***************************************************/

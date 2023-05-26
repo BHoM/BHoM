@@ -39,7 +39,7 @@ namespace BH.oM.Base.Attributes
 
         public virtual string Description { get; } = "";
 
-        public virtual QuantityAttribute Quantity { get; } = null;
+        public virtual ClassificationAttribute Classification { get; } = null;
 
         public virtual UIExposure Exposure { get; } = UIExposure.Display; //Default to allow all input attributes to be exposed by default
 
@@ -62,28 +62,28 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, Type quantity) : this(name, description)
+        public InputAttribute(string name, string description, Type classification) : this(name, description)
         {
-            if (quantity != null && typeof(QuantityAttribute).IsAssignableFrom(quantity) && !quantity.IsAbstract)
+            if (classification != null && typeof(ClassificationAttribute).IsAssignableFrom(classification) && !classification.IsAbstract)
             {
-                Quantity = (QuantityAttribute)Activator.CreateInstance(quantity);
+                Classification = (ClassificationAttribute)Activator.CreateInstance(classification);
             }
         }
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, Type quantity, UIExposure exposure) : this(name, description, quantity)
+        public InputAttribute(string name, string description, Type classification, UIExposure exposure) : this(name, description, classification)
         {
             Exposure = exposure;
         }
 
         /***************************************************/
 
-        public InputAttribute(string name, string description, QuantityAttribute quantity, UIExposure exposure)
+        public InputAttribute(string name, string description, ClassificationAttribute classification, UIExposure exposure)
         {
             Name = name;
             Description = description;
-            Quantity = quantity;
+            Classification = classification;
             Exposure = exposure;
         }
 

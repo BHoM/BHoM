@@ -25,7 +25,7 @@ using BH.oM.Base.Attributes;
 using System;
 using System.ComponentModel;
 
-namespace BH.oM.Base.Attributes
+namespace BH.oM.Quantities.Attributes
 {
     [Description("Dimensional quantity as defined by the International System of Quantities")]
     public abstract class QuantityAttribute : ClassificationAttribute, IImmutable
