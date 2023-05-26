@@ -54,13 +54,6 @@ namespace BH.oM.Base.Attributes
         }
 
         /***************************************************/
-
-        public ClassificationAttribute(int index) : this(index.ToString())
-        {
-
-        }
-
-        /***************************************************/
     }
 }
 

@@ -57,14 +57,6 @@ namespace BH.oM.Base.Attributes
         }
 
         /***************************************************/
-
-        public FilePathAttribute(int index, string[] fileExtensions = null) : base(index)
-        {
-            if (fileExtensions != null)
-                FileExtensions = fileExtensions;
-        }
-
-        /***************************************************/
     }
 }
 
