@@ -48,13 +48,6 @@ namespace BH.oM.Base.Attributes
         }
 
         /***************************************************/
-
-        public FolderPathAttribute(int index) : base(index)
-        {
-
-        }
-
-        /***************************************************/
     }
 }
 
