@@ -40,26 +40,33 @@ namespace BH.oM.Base.Attributes
 
         public virtual string Description { get; private set; } = "";
 
-        public virtual InputClassificationAttribute Classification { get; } = null;
+        public virtual ClassificationAttribute Classification { get; } = null;
+
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MultiOutputAttribute(int index, string name, string description, Type classification = null)
+        public MultiOutputAttribute(int index, string name, string description)
         {
             Index = index;
             Name = name;
             Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+        }
+
+        /***************************************************/
+
+        public MultiOutputAttribute(int index, string name, string description, Type classification) : this (index, name, description)
+        {
+            if (classification != null && typeof(ClassificationAttribute).IsAssignableFrom(classification) && !classification.IsAbstract)
             {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
+                Classification = (ClassificationAttribute)Activator.CreateInstance(classification);
             }
         }
 
         /***************************************************/
 
-        public MultiOutputAttribute(int index, string name, string description, InputClassificationAttribute classification, Type typeId)
+        public MultiOutputAttribute(int index, string name, string description, ClassificationAttribute classification, Type typeId)
         {
             Index = index;
             Name = name;
