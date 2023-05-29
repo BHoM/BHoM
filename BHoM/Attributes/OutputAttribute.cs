@@ -34,11 +34,12 @@ namespace BH.oM.Base.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual string Name { get; private set; } = "";
+        public virtual string Name { get; } = "";
 
-        public virtual string Description { get; private set; } = "";
+        public virtual string Description { get; } = "";
 
-        public virtual InputClassificationAttribute Classification { get; } = null;
+        public virtual ClassificationAttribute Classification { get; } = null;
+
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -51,31 +52,27 @@ namespace BH.oM.Base.Attributes
 
         /***************************************************/
 
-        public OutputAttribute(string name, string description, Type classification = null)
+        public OutputAttribute(string name, string description)
         {
             Name = name;
             Description = description;
-            if (classification != null && typeof(InputClassificationAttribute).IsAssignableFrom(classification) && classification != typeof(InputClassificationAttribute))
+        }
+
+        /***************************************************/
+
+        public OutputAttribute(string name, string description, Type classification) : this(name, description)
+        {
+            if (classification != null && typeof(ClassificationAttribute).IsAssignableFrom(classification) && !classification.IsAbstract)
             {
-                Classification = (InputClassificationAttribute)Activator.CreateInstance(classification);
+                Classification = (ClassificationAttribute)Activator.CreateInstance(classification);
             }
         }
 
         /***************************************************/
 
-        public OutputAttribute(string name, string description, InputClassificationAttribute classification, Type typeId)
+        public OutputAttribute(string name, string description, ClassificationAttribute classification) : this(name, description)
         {
-            Name = name;
-            Description = description;
             Classification = classification;
-        }
-
-        /***************************************************/
-
-        public OutputAttribute(string name, string description)
-        {
-            Name = name;
-            Description = description;
         }
 
         /***************************************************/
