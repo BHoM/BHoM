@@ -25,27 +25,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Quantities.Attributes
 {
-    [Description("Enum of all available environmental indicators. Used for filtering metrics and results.")]
-    public enum EnvironmentalMetrics
+    [Description("Quantity type for Eutrophication Potential for version 1 of list of indicators as defined in EN 15804+A1.")]
+    public class EutrophicationVer1Europe : QuantityAttribute
     {
-        Undefined,
-        AbioticDepletionFossilResources,
-        AbioticDepletionMineralsAndMetals,
-        Acidification,
-        ClimateChangeBiogenic,
-        ClimateChangeFossil,
-        ClimateChangeLandUse,
-        ClimateChangeTotal,
-        ClimateChangeTotalNoBiogenic,
-        EutrophicationAquaticFreshwater,
-        EutrophicationAquaticMarine,
-        EutrophicationTerrestrial,
-        EutrophicationVer1Europe,
-        EutrophicationVer1NA,
-        OzoneDepletion,
-        PhotochemicalOzoneCreation,
-        WaterDeprivation
+        public override int M { get; } = 1;
+
+        public override string SIUnit { get; } = "kg [PO₄]³⁻ eq";
     }
 }
