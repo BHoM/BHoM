@@ -38,6 +38,7 @@ namespace BH.oM.LifeCycleAssessment
         ClimateChangeFossil,
         ClimateChangeLandUse,
         ClimateChangeTotal,
+        ClimateChangeTotalNoBiogenic,
         EutrophicationAquaticFreshwater,
         EutrophicationAquaticMarine,
         EutrophicationTerrestrial,
