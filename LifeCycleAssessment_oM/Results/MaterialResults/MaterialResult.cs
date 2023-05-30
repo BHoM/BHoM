@@ -162,6 +162,9 @@ namespace BH.oM.LifeCycleAssessment.Results
 
         public int CompareTo(IResult other)
         {
+            if (other == null)
+                return -1;
+
             MaterialResult otherRes = other as MaterialResult;
 
             if (otherRes == null)
