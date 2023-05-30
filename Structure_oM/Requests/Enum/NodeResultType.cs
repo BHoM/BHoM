@@ -24,13 +24,13 @@ namespace BH.oM.Structure.Requests
 {
     public enum NodeResultType
     {
-        NodeAcceleration,
-        NodeDisplacement,
-        NodeModalMass,
-        NodeModalResult,
-        NodeModeShape,
         NodeReaction,
+        NodeDisplacement,
         NodeVelocity,
+        NodeAcceleration,
+        NodeModalMass,
+        NodeModeShape,
+        NodeModalResult,
     }
 }
 
