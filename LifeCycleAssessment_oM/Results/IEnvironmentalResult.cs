@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Base interface for all Life Cycle Assessment results.")]
-    public interface ILifeCycleAssesmentResult : IResultItem, ILifeCycleAssessmentPhaseData
+    public interface IEnvironmentalResult : IResultItem, ILifeCycleAssessmentPhaseData
     {
 
     }
