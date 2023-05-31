@@ -39,11 +39,11 @@ namespace BH.oM.LifeCycleAssessment
         ClimateChangeLandUse,
         ClimateChangeTotal,
         ClimateChangeTotalNoBiogenic,
+        EutrophicationCML,
         EutrophicationAquaticFreshwater,
         EutrophicationAquaticMarine,
         EutrophicationTerrestrial,
-        EutrophicationVer1Europe,
-        EutrophicationVer1NA,
+        EutrophicationTRACI,
         OzoneDepletion,
         PhotochemicalOzoneCreation,
         WaterDeprivation
