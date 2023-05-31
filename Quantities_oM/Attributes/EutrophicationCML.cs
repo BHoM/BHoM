@@ -28,10 +28,10 @@ using System.Text;
 namespace BH.oM.Quantities.Attributes
 {
     [Description("Quantity type for Eutrophication Potential for version 1 of list of indicators as defined in EN 15804+A1.")]
-    public class EutrophicationVer1EuropePerQuantity : QuantityAttribute
+    public class EutrophicationCML : QuantityAttribute
     {
         public override int M { get; } = 1;
 
-        public override string SIUnit { get; } = "kg [PO₄]³⁻ eq per unit";
+        public override string SIUnit { get; } = "kg [PO₄]³⁻ eq";
     }
 }
