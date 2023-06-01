@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace BH.oM.Structure.Results.Nodal_Results
+namespace BH.oM.Structure.Results
 {
     public enum ModalResultNormalisation
     {
