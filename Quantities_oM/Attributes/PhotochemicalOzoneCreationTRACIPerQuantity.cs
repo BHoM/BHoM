@@ -25,29 +25,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.Quantities.Attributes
 {
-    [Description("Enum of all available environmental indicators. Used for filtering metrics and results.")]
-    public enum EnvironmentalMetrics
+    [Description("Quantity type for Photochemical Ozone Creation Potential per quantity accordign to the TRACI standard.")]
+    public class PhotochemicalOzoneCreationTRACIPerQuantity : QuantityAttribute
     {
-        Undefined,
-        AbioticDepletionFossilResources,
-        AbioticDepletionMineralsAndMetals,
-        Acidification,
-        ClimateChangeBiogenic,
-        ClimateChangeFossil,
-        ClimateChangeLandUse,
-        ClimateChangeTotal,
-        ClimateChangeTotalNoBiogenic,
-        EutrophicationCML,
-        EutrophicationAquaticFreshwater,
-        EutrophicationAquaticMarine,
-        EutrophicationTerrestrial,
-        EutrophicationTRACI,
-        OzoneDepletion,
-        PhotochemicalOzoneCreation,
-        PhotochemicalOzoneCreationCML,
-        PhotochemicalOzoneCreationTRACI,
-        WaterDeprivation
+        public override int M { get; } = 1;
+
+        public override string SIUnit { get; } = "kg O₃ eq per unit";
     }
 }
