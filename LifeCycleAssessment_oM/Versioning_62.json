@@ -22,9 +22,17 @@
     "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.BHoM_Guid": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed.",
     "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.Name": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed.",
     "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.Fragments": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed.",
-    "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.Tags": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed."
+    "BH.oM.LifeCycleAssessment.LifeCycleAssessmentScope.Tags": "Object no longer inheriting from BHoMObject, which means all base properties from the BHoMObject no longer exist and is seen as removed.",
     "BH.oM.LifeCycleAssessment.Fragments.EPDDimension": "Class has been deleted during a full refactoring of the EnvironmentalProductDeclaration class structure, rendering this fragment no longer usefull and hence deleted. Please raise an issue on https://github.com/BHoM/BHoM if you have any concerns with this deletion.",
+    "BH.oM.LifeCycleAssessment.Fragments.EnvironmentalProductDeclarationField": "Enum has been deleted during a full refactoring of the EnvironmentalProductDeclaration class structure, rendering this enum no longer usefull and hence deleted. Please raise an issue on https://github.com/BHoM/BHoM if you have any concerns with this deletion.",
+    "BH.oM.LifeCycleAssessment.Results.MaterialResult": "LifeCycleAssessment_oM and Toolkit has been fully refactored and restructured with a full new suite of result classes. The old classes do not fully map 1 to 1 with the new results, meaning no automatic upgrade is possible. Please raise an issue on https://github.com/BHoM/BHoM if you have any issues retreiving previously calculated result data.",
+    "BH.oM.LifeCycleAssessment.Results.EnvironmentalMetricResult": "LifeCycleAssessment_oM and Toolkit has been fully refactored and restructured with a full new suite of result classes. The old classes do not fully map 1 to 1 with the new results, meaning no automatic upgrade is possible. Please raise an issue on https://github.com/BHoM/BHoM if you have any issues retreiving previously calculated result data.",
+    "BH.oM.LifeCycleAssessment.Results.ElementResult": "LifeCycleAssessment_oM and Toolkit has been fully refactored and restructured with a full new suite of result classes. The old classes do not fully map 1 to 1 with the new results, meaning no automatic upgrade is possible. Please raise an issue on https://github.com/BHoM/BHoM if you have any issues retreiving previously calculated result data."
+
+
   },
   "MessageForNoUpgrade": {
+    "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalProductDeclaration": "Class has been restructured in a way that mean safe automatic upgrade is impossible. Please raise an issue on https://github.com/BHoM/BHoM if you have any issues and need assistance with upgrading an EPD to the new format",
+    "BH.oM.LifeCycleAssessment.EnvironmentalMetric": "Class has been restructured in a way that mean safe automatic upgrade is impossible. Please raise an issue on https://github.com/BHoM/BHoM if you have any issues and need assistance with upgrading an EPD to the new format"
   }
 }
