@@ -46,7 +46,7 @@ namespace BH.oM.LifeCycleAssessment.Fragments
         public virtual string Jurisdiction { get; set; } = "";
 
         [Description("The period of useful life of the product measured in years.")]
-        public virtual int LifeSpan { get; set; } = 20;
+        public virtual int LifeSpan { get; set; } = -1;
 
         [Description("Manufacturer name responsible for the product being documented.")]
         public virtual string Manufacturer { get; set; } = "";
