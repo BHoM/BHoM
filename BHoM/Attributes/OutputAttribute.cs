@@ -23,21 +23,27 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace BH.oM.Base.Attributes
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
+    [Description("Attribute providing information about an output parameter of a method." +
+                 "\nTo be applied to all methods that do not return void nor BH.oM.Base.Output types.")]
     public class OutputAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the correspondent output parameter (to be used in the UI).")]
         public virtual string Name { get; } = "";
 
+        [Description("Description of the correspondent output parameter.")]
         public virtual string Description { get; } = "";
 
+        [Description("Classification of the correspondent output parameter, e.g. folder path, quantity etc.")]
         public virtual ClassificationAttribute Classification { get; } = null;
 
 

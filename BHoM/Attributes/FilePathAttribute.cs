@@ -35,6 +35,7 @@ namespace BH.oM.Base.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Collection of file extensions allowed for a member this attribute corresponds to. Any extension is allowed if null.")]
         public virtual string[] FileExtensions { get; } = new string[] { };
 
 
