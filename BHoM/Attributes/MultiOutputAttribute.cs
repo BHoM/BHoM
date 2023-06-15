@@ -37,7 +37,7 @@ namespace BH.oM.Base.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Index of the output parameter this attribute corresponds to.")]
+        [Description("Zero-based index of the output parameter this attribute corresponds to.")]
         public virtual int Index { get; private set; } = 0;
 
         [Description("Name of the correspondent output parameter (to be used in the UI).")]
