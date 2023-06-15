@@ -23,17 +23,20 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace BH.oM.Base.Attributes
 {
+    [Description("Attribute representing classification of method parameters and object properties, i.e. it tells that a given member is a folder path, quantity etc.")]
     public abstract class ClassificationAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the method parameter this attribute corresponds to (not relevant in case of object properties).")]
         public virtual string Name { get; } = "";
 
 

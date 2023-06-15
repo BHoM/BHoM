@@ -24,23 +24,29 @@ using BH.oM.Base;
 using BH.oM.Base.Attributes.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace BH.oM.Base.Attributes
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
+    [Description("Attribute providing information about an input parameter of a method.")]
     public class InputAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name of the method parameter this attribute corresponds to.")]
         public virtual string Name { get; } = "";
 
+        [Description("Description of the correspondent input parameter.")]
         public virtual string Description { get; } = "";
 
+        [Description("Classification of the correspondent input parameter, e.g. folder path, quantity etc.")]
         public virtual ClassificationAttribute Classification { get; } = null;
 
+        [Description("Information whether the correspondent input parameter is meant to be shown in the UI or not.")]
         public virtual UIExposure Exposure { get; } = UIExposure.Display; //Default to allow all input attributes to be exposed by default
 
         /***************************************************/
