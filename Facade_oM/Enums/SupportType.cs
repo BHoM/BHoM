@@ -6,7 +6,9 @@ namespace BH.oM.Facade.Enums
 {
     public enum SupportType
     {
+        Undefined,
         FixFix,
+        FixPin,
         PinPin
     }
 }
