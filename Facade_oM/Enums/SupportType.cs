@@ -8,7 +8,7 @@ namespace BH.oM.Facade.Enums
     {
         Undefined,
         FixFix,
-        FixPin,
+        PinSlide,
         PinPin
     }
 }
