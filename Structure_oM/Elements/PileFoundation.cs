@@ -15,7 +15,7 @@ using BH.oM.Spatial.Layouts;
 namespace BH.oM.Structure.Elements
 {
     [Description("PileFoundation is a composite object consisting of a pile cap and a group of piles.")]
-    public class PileFoundation : BHoMObject, IFoundation
+    public class PileFoundation : BHoMObject, IFoundation, IElementM
     {
         [Description("The pile cap defined as a PadFoundation.")]
         public virtual PadFoundation PileCap { get; set; }
