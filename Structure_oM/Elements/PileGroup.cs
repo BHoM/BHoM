@@ -21,10 +21,10 @@ namespace BH.oM.Structure.Elements
         public virtual double PileLength { get; set; }
 
         [Description("Section property of the PileGroup, containing all sectional constants and material as well as profile geometry and dimensions, where applicable.")]
-        public virtual ISectionProperty PileSection { get; set; } = null;
+        public virtual ISectionProperty PileSection { get; set; }
 
         [Description("Pile Layout defining the position of the piles about the World Origin.")]
-        public virtual ExplicitLayout PileLayout { get; set; } = null;
+        public virtual ExplicitLayout PileLayout { get; set; }
 
     }
 }

@@ -21,6 +21,6 @@ namespace BH.oM.Structure.Elements
         public virtual PadFoundation PileCap { get; set; }
 
         [Description("Pile Layout")]
-        public virtual List<PileGroup> PileGroups { get; set; } = null;
+        public virtual List<PileGroup> PileGroups { get; set; }
     }
 }
