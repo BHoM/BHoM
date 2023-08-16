@@ -71,8 +71,8 @@ namespace BH.oM.Diffing
             RemovedObjects = removedObjects;
             ModifiedObjects = modifiedObjects;
             DiffingConfig = diffingConfig;
-            ModifiedObjectsDifferences = modifiedObjectsDifferences;
-            UnchangedObjects = unchangedObjects;
+            ModifiedObjectsDifferences = modifiedObjectsDifferences ?? new List<ObjectDifferences>();
+            UnchangedObjects = unchangedObjects ?? new List<object>();
         }
 
         /***************************************************/
