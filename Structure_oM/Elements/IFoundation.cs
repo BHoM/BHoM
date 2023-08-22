@@ -8,6 +8,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structure.Elements
 {
+    [Description("Base interface for foundation objects.")]
     public interface IFoundation : IBHoMObject
     {
     }
