@@ -27,7 +27,7 @@ namespace BH.oM.Structure.Elements
 
         [Description("Pile Layout defining the position of the piles about the World Origin. when used with the PileFoundation object, the piles will be located to the centre " +
             "of the pile using the Basis provided by the PileCap.")]
-        public virtual ExplicitLayout PileLayout { get; set; }
+        public virtual ILayout2D PileLayout { get; set; }
 
     }
 }
