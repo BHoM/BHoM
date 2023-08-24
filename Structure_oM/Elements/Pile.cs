@@ -8,6 +8,7 @@ using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Base.Attributes;
 using BH.oM.Base.Attributes.Enums;
+using BH.oM.Dimensional;
 using BH.oM.Geometry;
 
 using BH.oM.Structure.SectionProperties;
@@ -15,13 +16,13 @@ using BH.oM.Structure.SectionProperties;
 namespace BH.oM.Structure.Elements
 {
     [Description("A pile object defined by it's geometry and section.")]
-    public class Pile : BHoMObject, IFoundation
+    public class Pile : BHoMObject, IFoundation, IElement1D
     {
-        [Description("Defines the start position of the Pile. Note that Nodes can contain Supports.")]
-        public virtual Node StartNode { get; set; }
+        [Description("Defines the top Node. Note that Nodes can contain Supports.")]
+        public virtual Node TopNode { get; set; }
 
         [Description("Defines the end position of the Pile. Note that Nodes can contain Supports.")]
-        public virtual Node EndNode { get; set; }
+        public virtual Node BottomNode { get; set; }
 
 
         [Description("Section property of the Pile, containing all sectional constants and material as well as profile geometry and dimensions, where applicable.")]
