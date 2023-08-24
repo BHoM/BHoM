@@ -14,13 +14,13 @@ using BH.oM.Spatial.Layouts;
 
 namespace BH.oM.Structure.Elements
 {
-    [Description("A composite object representing a pile foundation. This object contains a pile cap and a pile group which can be used for structural analysis.")]
+    [Description("A composite object representing a pile foundation. This object contains a pile cap and list of piles which can be used for structural analysis.")]
     public class PileFoundation : BHoMObject, IFoundation, IElement2D, IElementM
     {
-        [Description("The pile cap defined as a PadFoundation.")]
+        [Description("The pile cap with an outline containing all of the Piles.")]
         public virtual PadFoundation PileCap { get; set; }
 
-        [Description("One or more PileGroup objects used to define sets of piles (grouped by matching lengths and section.")]
-        public virtual List<PileGroup> PileGroups { get; set; }
+        [Description("A list of Piles contained within the extends of the PileCap.")]
+        public virtual List<Pile> Piles { get; set; }
     }
 }
