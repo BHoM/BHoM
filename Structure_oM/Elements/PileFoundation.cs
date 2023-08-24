@@ -20,7 +20,7 @@ namespace BH.oM.Structure.Elements
         [Description("The pile cap with an outline containing all of the Piles.")]
         public virtual PadFoundation PileCap { get; set; }
 
-        [Description("A list of Piles contained within the extends of the PileCap.")]
+        [Description("A list of Piles contained within the extents of the PileCap.")]
         public virtual List<Pile> Piles { get; set; }
     }
 }
