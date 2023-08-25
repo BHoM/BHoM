@@ -16,7 +16,7 @@ using BH.oM.Structure.SectionProperties;
 namespace BH.oM.Structure.Elements
 {
     [Description("A pile object defined by it's geometry and section.")]
-    public class Pile : BHoMObject, IFoundation, IElement1D
+    public class Pile : BHoMObject, IFoundation, IElement1D, IElementM
     {
         [Description("Defines the top Node. Note that Nodes can contain Supports.")]
         public virtual Node TopNode { get; set; }

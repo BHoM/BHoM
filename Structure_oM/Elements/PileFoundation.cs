@@ -15,7 +15,7 @@ using BH.oM.Spatial.Layouts;
 namespace BH.oM.Structure.Elements
 {
     [Description("A composite object representing a pile foundation. This object contains a pile cap and list of piles which can be used for structural analysis.")]
-    public class PileFoundation : BHoMObject, IFoundation, IElement2D, IElementM
+    public class PileFoundation : BHoMObject, IFoundation, IElementM
     {
         [Description("The pile cap with an outline containing all of the Piles.")]
         public virtual PadFoundation PileCap { get; set; }
