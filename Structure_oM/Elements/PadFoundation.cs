@@ -14,7 +14,7 @@ using BH.oM.Spatial.ShapeProfiles;
 namespace BH.oM.Structure.Elements
 {
     [Description("2D element representing a pad foundation for structural analysis. The PadFoundation is a planar surface object defined by edges and an ISurfaceProperty.")]
-    public class PadFoundation : BHoMObject, IFoundation, IAreaElement, IElement2D
+    public class PadFoundation : BHoMObject, IFoundation, IAreaElement, IElement2D, IElementM
     {
         [Description("The edges used to define the outline of the pad at the top of the foundation.")]
         public virtual List<Edge> TopOutline { get; set; }
