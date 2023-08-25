@@ -26,7 +26,7 @@ namespace BH.oM.Structure.Elements
 
 
         [Description("Section property of the Pile, containing all sectional constants and material as well as profile geometry and dimensions, where applicable.")]
-        public virtual ISectionProperty PileSection { get; set; }
+        public virtual ISectionProperty Section { get; set; }
 
         [Angle]
         [Description("Controls the local axis orientation of the Pile \n" +
