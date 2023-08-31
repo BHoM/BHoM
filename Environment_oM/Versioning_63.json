@@ -1,0 +1,42 @@
+﻿{
+  "Dataset": {
+    "ToNew": {
+    },
+    "ToOld": {
+    },
+    "MessageForDeleted": {
+        "TestSets\\Environment\\Full model - non-complex roof" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Bars\\01 - Straight planar bars" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Bars\\02 - Straight Vertical bars" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Bars\\03 - Straight rotating planar bars" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Bars\\04 - Straight rotating vertical bars" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Bars\\05 - Random Orientated bars" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Bars\\06 - Random Orientated rotating bars" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Bars\\07 - Small Frame" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Bars\\08 - FreeForm Frame" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\01 - Property Test - Concrete - Slabs" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\02 - Property Test - Concrete - Walls" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\03 - Property Test - Steel - Slabs" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\04 - Property Test - Steel - Walls" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\05 - Property Test - LoadingPanel - Slabs" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\06 - Property Test -  LoadingPanel  - Walls" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\07 - Outline Tests - Slabs" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\08 - Outline Tests - Walls" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\09 - Outline Tests - Freeform" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\10 - Opening Tests - Slabs" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\11 - Opening Tests - Walls" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\Panels\\12 - Opening Tests - FreeForm" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\SectionProperties\\01 - Steel Library Sections" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\SectionProperties\\02 - Steel Fabricated Sections" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\SectionProperties\\03 - Steel Freeform Sections" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\SectionProperties\\04 - Concrete Parametric Sections" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "TestSets\\Structure\\SectionProperties\\05 - Concrete Freeform Sections" : "Dataset was moved to Test_Toolkit. Please build from Test_Toolkit to obtain dataset.",
+        "BuildingEnvironments\\Gains\\Equipment\\CIBSEGuideA2019SensibleHeatEquipment" : "Dataset has been deleted and cannot be found.",
+        "BuildingEnvironments\\Gains\\Lighting\\CIBSEGuideA2019SensibleHeatLighting": "Dataset has been deleted and cannot be found.",
+        "BuildingEnvironments\\Gains\\People\\CIBSEGuideA2019LatentHeatPeople" : "Dataset has been deleted and cannot be found.",
+        "BuildingEnvironments\\Gains\\People\\CIBSEGuideA2019Occupancy" : "Dataset has been deleted and cannot be found.",
+        "BuildingEnvironments\\Gains\\People\\CIBSEGuideA2019SensibleHeatPeople": "Dataset has been deleted and cannot be found.",
+        "BuildingEnvironments\\Gains\\People\\IBC2015Occupancy" : "Dataset has been deleted and cannot be found.",
+    }
+  }
+}
