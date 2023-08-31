@@ -17,7 +17,7 @@ namespace BH.oM.Structure.Elements
     public class PadFoundation : BHoMObject, IFoundation, IAreaElement, IElement2D, IElementM
     {
         [Description("The edges used to define the outline of the pad at the top of the foundation.")]
-        public virtual List<Edge> TopOutline { get; set; }
+        public virtual PolyCurve TopOutline { get; set; }
 
         [Description("Defines the thickness property and material of the PadFoundation.")]
         public virtual ISurfaceProperty Property { get; set; } = null;
