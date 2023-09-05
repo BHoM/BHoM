@@ -6,7 +6,7 @@
     <Version>5.0.0</Version>
     <Authors>BHoM</Authors>
     <Copyright>Copyright © https://github.com/BHoM</Copyright>
-    <RootNamespace>BH.oM.Structure</RootNamespace>
+    <RootNamespace>BH.oM.Ground</RootNamespace>
     <FileVersion>6.3.0.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
