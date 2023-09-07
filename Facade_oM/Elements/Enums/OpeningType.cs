@@ -28,16 +28,12 @@ namespace BH.oM.Facade.Elements
     public enum OpeningType
     {
         Undefined,
-        CurtainWall,
+        CurtainWallVision,
+        CurtainWallSpandrel,
         Door,
-        Frame,
-        Glazing,
         Hole,
-        Rooflight,
-        RooflightWithFrame,
+        Skylight,
         Window,
-        WindowWithFrame,
-        VehicleDoor,
     }
 }
 
