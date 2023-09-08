@@ -1,0 +1,63 @@
+/*
+ * This file is part of the Buildings and Habitats object Model (BHoM)
+ * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ *
+ * Each contributor holds copyright over their respective contributions.
+ * The project versioning (Git) records all such contribution source information.
+ *                                           
+ *                                                                              
+ * The BHoM is free software: you can redistribute it and/or modify         
+ * it under the terms of the GNU Lesser General Public License as published by  
+ * the Free Software Foundation, either version 3.0 of the License, or          
+ * (at your option) any later version.                                          
+ *                                                                              
+ * The BHoM is distributed in the hope that it will be useful,              
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of               
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
+ * GNU Lesser General Public License for more details.                          
+ *                                                                            
+ * You should have received a copy of the GNU Lesser General Public License     
+ * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
+ */
+
+
+using System.ComponentModel;
+using System.Collections.Generic;
+using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.Geometry;
+using BH.oM.Geometry.CoordinateSystem;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Base.Attributes;
+using BH.oM.Base.Attributes.Enums;
+
+namespace BH.oM.Ground
+{
+
+    [Description("A representation of a borehole defined by a coordinate system, start point and end point based on the AGS schema.")]
+    public class GeologyUnit : BHoMObject
+    {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        [Description("Location identifier for the borehole unique to the project (LOCA_ID).")]
+        public virtual string id { get; set; }
+
+        [Description("The top of the borehole within the coordinate system provided (LOCA_NATE, LOCA_NATEN, LOCA_GL).")]
+        public virtual Point Top { get; set; }
+
+        [Description("The bottom of the borehole within the coordinate system provided (LOCA_ETRV, LOCA_NTRV, LOCA_FDEP).")]
+        public virtual Point Bottom { get; set; }
+
+        [Description("The coordinate system referenced by the top and bottom point. (LOCA_GREF, LOCA_NATD).")]
+        public virtual Cartesian CoordinateSystem { get; set; }
+
+        [Description("An object containing the strata, geology units and descriptions of the ground.")]
+        public virtual Geology Geology { get; set; }
+
+        [Description("A list of properties related to the borehole.")]
+        public virtual List<IGeologicalProperties> BoreholeProperties { get; set; }
+
+        /***************************************************/
+    }
+}
