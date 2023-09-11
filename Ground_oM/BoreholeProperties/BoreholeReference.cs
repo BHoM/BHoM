@@ -20,22 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-
 using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 using BH.oM.Base;
 
 namespace BH.oM.Ground
 {
 
     [Description("References to associated files, storage links or previous boreholes.")]
-    public class Reference : BHoMObject
+    public class GeologyReference : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
-        public virtual string File { get; set; }
+        public virtual List<string> File { get; set; }
 
         [Description("Link to storage of borehole data.")]
         public virtual  string URL { get; set; }
