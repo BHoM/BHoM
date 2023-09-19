@@ -35,13 +35,13 @@ namespace BH.oM.Ground
 {
 
     [Description("A representation of a borehole defined by a coordinate system, start point and end point based on the AGS schema.")]
-    public class GeologyUnit : BHoMObject
+    public class Borehole : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         [Description("Location identifier for the borehole unique to the project (LOCA_ID).")]
-        public virtual string id { get; set; }
+        public virtual string Id { get; set; }
 
         [Description("The top of the borehole within the coordinate system provided (LOCA_NATE, LOCA_NATEN, LOCA_GL).")]
         public virtual Point Top { get; set; }
@@ -56,7 +56,7 @@ namespace BH.oM.Ground
         public virtual Geology Geology { get; set; }
 
         [Description("A list of properties related to the borehole.")]
-        public virtual List<IGeologicalProperties> BoreholeProperties { get; set; }
+        public virtual List<IBoreholeProperties> BoreholeProperties { get; set; }
 
         /***************************************************/
     }

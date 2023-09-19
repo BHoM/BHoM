@@ -46,19 +46,19 @@ namespace BH.oM.Ground
         public virtual List<double> StrataBottom { get; set; }
 
         [Description("General description of the strata (GEOL_DESC).")]
-        public virtual GeologyUnit LogDescription { get; set; }
+        public virtual List<string> LogDescription { get; set; }
 
         [Description("The legend code summarising the LogDescription (GEOL_LEG).")]
-        public virtual int Legend { get; set; }
+        public virtual List<int> Legend { get; set; }
 
         [Description("The observed geology expressed as a GeologicalUnit (GEOL_GEOL).")]
-        public virtual GeologyUnit ObservedGeology { get; set; }
+        public virtual List<string> ObservedGeology { get; set; }
 
         [Description("The interpreted geology expressed as an EngineeringMaterial (GEOL_GEO2).")]
-        public virtual GeologyUnit InterpretedGeology { get; set; }
+        public virtual List<string> InterpretedGeology { get; set; }
 
         [Description("The optional interpreted geology expressed as an EngineeringMaterial (GEOL_GEO3).")]
-        public virtual GeologyUnit OptionalInterpretedGeology { get; set; }
+        public virtual List<string> OptionalInterpretedGeology { get; set; }
 
         /***************************************************/
     }

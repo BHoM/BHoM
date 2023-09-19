@@ -29,7 +29,7 @@ namespace BH.oM.Ground
 {
 
     [Description("References to associated files, storage links or previous boreholes.")]
-    public class GeologyReference : BHoMObject
+    public class BoreholeReference : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
