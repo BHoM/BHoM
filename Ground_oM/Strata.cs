@@ -32,33 +32,33 @@ using BH.oM.Base.Attributes.Enums;
 namespace BH.oM.Ground
 {
 
-    [Description("Geological units used to represented the strata across different depths based on the AGS schema.")]
-    public class Geology : BHoMObject
+    [Description("A strata containing the geological information based on the AGS schema.")]
+    public class Strata : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("Depth to the top of the strata based on the datum provided on the Borehole (GEOL_TOP).")]
-        public virtual List<double> StrataTop { get; set; }
+        public virtual double Top { get; set; }
 
         [Description("Depth to the bottom of the strata based on the datum provided on the Borehole (GEOL_BOT).")]
-        public virtual List<double> StrataBottom { get; set; }
+        public virtual double Bottom { get; set; }
 
         [Description("General description of the strata (GEOL_DESC).")]
-        public virtual List<string> LogDescription { get; set; }
+        public virtual string LogDescription { get; set; }
 
         [Description("The legend code summarising the LogDescription (GEOL_LEG).")]
-        public virtual List<int> Legend { get; set; }
+        public virtual int Legend { get; set; }
 
         [Description("The observed geology expressed as a GeologicalUnit (GEOL_GEOL).")]
-        public virtual List<string> ObservedGeology { get; set; }
+        public virtual string ObservedGeology { get; set; }
 
         [Description("The interpreted geology expressed as an EngineeringMaterial (GEOL_GEO2).")]
-        public virtual List<string> InterpretedGeology { get; set; }
+        public virtual string InterpretedGeology { get; set; }
 
         [Description("The optional interpreted geology expressed as an EngineeringMaterial (GEOL_GEO3).")]
-        public virtual List<string> OptionalInterpretedGeology { get; set; }
+        public virtual string OptionalInterpretedGeology { get; set; }
 
         [Description("The optional geological properties.")]
         public virtual List<IGeologicalProperties> Properties { get; set; }
