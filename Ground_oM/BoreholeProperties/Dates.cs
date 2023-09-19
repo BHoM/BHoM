@@ -35,10 +35,10 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
         [Description("Start date of the activity (LOCA_STAR).")]
-        public virtual  DateTime startDate { get; set; }
+        public virtual  DateTime StartDate { get; set; }
 
         [Description("End date of the activity (LOCA_ENDD).")]
-        public virtual DateTime endDate { get; set; }
+        public virtual DateTime EndDate { get; set; }
 
         /***************************************************/
     }

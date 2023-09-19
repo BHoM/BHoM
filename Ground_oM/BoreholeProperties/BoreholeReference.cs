@@ -38,7 +38,7 @@ namespace BH.oM.Ground
         public virtual List<string> File { get; set; }
 
         [Description("Link to storage of borehole data.")]
-        public virtual  string URL { get; set; }
+        public virtual string URL { get; set; }
 
         [Description("Original hole id (LOCA_ORID).")]
         public virtual string OriginalId { get; set; }

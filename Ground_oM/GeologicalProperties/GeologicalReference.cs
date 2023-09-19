@@ -37,16 +37,16 @@ namespace BH.oM.Ground
         /***************************************************/
 
         [Description("General remarks for the investigation (GEOL_REF).")]
-        public virtual  string Remarks { get; set; }
+        public virtual List<string> Remarks { get; set; }
 
         [Description("BGS Lexicon code for the strata (GEOL_BGS).")]
-        public virtual string LexiconCode { get; set; }
+        public virtual List<string> LexiconCodes { get; set; }
 
         [Description("Geological formation or stratum name.")]
-        public virtual string StratumName { get; set; }
+        public virtual List<string> StratumNames { get; set; }
 
         [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
-        public virtual List<string> File { get; set; }
+        public virtual List<string> Files { get; set; }
 
         /***************************************************/
     }

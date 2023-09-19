@@ -60,6 +60,9 @@ namespace BH.oM.Ground
         [Description("The optional interpreted geology expressed as an EngineeringMaterial (GEOL_GEO3).")]
         public virtual List<string> OptionalInterpretedGeology { get; set; }
 
+        [Description("The optional geological properties.")]
+        public virtual List<IGeologicalProperties> Properties { get; set; }
+
         /***************************************************/
     }
 }
