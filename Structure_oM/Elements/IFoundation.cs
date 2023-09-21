@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,23 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
- using System.ComponentModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Base;
 
-namespace BH.oM.Facade.Elements
+namespace BH.oM.Structure.Elements
 {
-    [Description("The type of cutout or hole in a building surface/panel (e.g. Window, Door, Rooflight)")]
-    public enum OpeningType
+    [Description("Base interface for foundation objects.")]
+    public interface IFoundation : IBHoMObject
     {
-        Undefined,
-        CurtainWallVision,
-        CurtainWallSpandrel,
-        Door,
-        Hole,
-        Skylight,
-        Window,
     }
 }
-
-
-
-

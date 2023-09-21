@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,23 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
- using System.ComponentModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.Dimensional;
 
-namespace BH.oM.Facade.Elements
+namespace BH.oM.Structure.Elements
 {
-    [Description("The type of cutout or hole in a building surface/panel (e.g. Window, Door, Rooflight)")]
-    public enum OpeningType
+    [Description("A composite object representing a pile foundation. This object contains a pile cap and list of piles which can be used for structural analysis.")]
+    public class PileFoundation : BHoMObject, IFoundation, IElementM
     {
-        Undefined,
-        CurtainWallVision,
-        CurtainWallSpandrel,
-        Door,
-        Hole,
-        Skylight,
-        Window,
+        [Description("The pile cap with an outline containing all of the Piles.")]
+        public virtual PadFoundation PileCap { get; set; }
+
+        [Description("A list of Piles contained within the extents of the PileCap.")]
+        public virtual List<Pile> Piles { get; set; }
     }
 }
-
-
-
-

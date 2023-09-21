@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyVersion>6.0.0.0</AssemblyVersion>
@@ -8,22 +7,18 @@
     <Authors>BHoM</Authors>
     <Copyright>Copyright © https://github.com/BHoM</Copyright>
     <RootNamespace>BH.oM.Graphics</RootNamespace>
-    <FileVersion>6.2.0.0</FileVersion>
+    <FileVersion>6.3.0.0</FileVersion>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <OutputPath>..\Build\</OutputPath>
   </PropertyGroup>
-
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
   </Target>
-
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj" />
     <ProjectReference Include="..\Data_oM\Data_oM.csproj" />
     <ProjectReference Include="..\Geometry_oM\Geometry_oM.csproj" />
   </ItemGroup>
-
 </Project>
