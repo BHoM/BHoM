@@ -38,6 +38,8 @@ namespace BH.oM.Ground
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("Location identifier for the strata (LOCA_ID).")]
+        public virtual string Id { get; set; }
 
         [Description("Depth to the top of the strata based on the datum provided on the Borehole (GEOL_TOP).")]
         public virtual double Top { get; set; }
@@ -49,7 +51,7 @@ namespace BH.oM.Ground
         public virtual string LogDescription { get; set; }
 
         [Description("The legend code summarising the LogDescription (GEOL_LEG).")]
-        public virtual int Legend { get; set; }
+        public virtual string Legend { get; set; }
 
         [Description("The observed geology expressed as a GeologicalUnit (GEOL_GEOL).")]
         public virtual string ObservedGeology { get; set; }
