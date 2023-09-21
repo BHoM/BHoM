@@ -35,7 +35,7 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
         [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
-        public virtual List<string> File { get; set; }
+        public virtual string File { get; set; }
 
         [Description("Link to storage of borehole data.")]
         public virtual string URL { get; set; }

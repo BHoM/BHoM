@@ -43,7 +43,7 @@ namespace BH.oM.Ground
         public virtual string LexiconCode { get; set; }
 
         [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
-        public virtual List<string> Files { get; set; }
+        public virtual string Files { get; set; }
 
         /***************************************************/
     }
