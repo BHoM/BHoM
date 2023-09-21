@@ -29,7 +29,7 @@ namespace BH.oM.Ground
 {
 
     [Description("Dates for the start and end of the borehole activity.")]
-    public class Dates : BHoMObject
+    public class Dates : BHoMObject, IBoreholeProperty
     {
         /***************************************************/
         /**** Properties                                ****/

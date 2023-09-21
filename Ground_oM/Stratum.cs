@@ -21,30 +21,52 @@
  */
 
 
-using System;
-using System.ComponentModel;
 using System.Collections.Generic;
+using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Dimensional;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Base.Attributes;
+using BH.oM.Base.Attributes.Enums;
 
 namespace BH.oM.Ground
 {
 
-    [Description("References to associated files, storage links or previous boreholes.")]
-    public class GeologicalReference : BHoMObject
+    [Description("A stratum containing the geological information based on the AGS schema.")]
+    public class Stratum : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("General remarks for the investigation (GEOL_REF).")]
-        public virtual string Remarks { get; set; }
+        [Description("Depth to the top of the strata based on the datum provided on the Borehole (GEOL_TOP).")]
+        public virtual double Top { get; set; }
 
-        [Description("BGS Lexicon code for the strata (GEOL_BGS).")]
-        public virtual string LexiconCode { get; set; }
+        [Description("Depth to the bottom of the strata based on the datum provided on the Borehole (GEOL_BOT).")]
+        public virtual double Bottom { get; set; }
 
-        [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
-        public virtual List<string> Files { get; set; }
+        [Description("General description of the strata (GEOL_DESC).")]
+        public virtual string LogDescription { get; set; }
+
+        [Description("The legend code summarising the LogDescription (GEOL_LEG).")]
+        public virtual int Legend { get; set; }
+
+        [Description("The observed geology expressed as a GeologicalUnit (GEOL_GEOL).")]
+        public virtual string ObservedGeology { get; set; }
+
+        [Description("The interpreted geology expressed as an EngineeringMaterial (GEOL_GEO2).")]
+        public virtual string InterpretedGeology { get; set; }
+
+        [Description("The optional interpreted geology expressed as an EngineeringMaterial (GEOL_GEO3).")]
+        public virtual string OptionalInterpretedGeology { get; set; }
+
+        [Description("The optional stratum properties.")]
+        public virtual List<IStratumProperty> Properties { get; set; }
 
         /***************************************************/
     }
 }
+
+
+
+

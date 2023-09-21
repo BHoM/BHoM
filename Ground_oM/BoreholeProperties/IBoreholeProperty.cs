@@ -26,8 +26,8 @@ using BH.oM.Base;
 
 namespace BH.oM.Ground
 {
-    [Description("Base interface for geological properties.")]
-    public interface IGeologicalProperties : IBHoMObject
+    [Description("Base interface for borehole properties.")]
+    public interface IBoreholeProperty : IBHoMObject
     {
     }
 }

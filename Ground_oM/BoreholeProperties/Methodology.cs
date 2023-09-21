@@ -29,7 +29,7 @@ namespace BH.oM.Ground
 {
 
     [Description("Methodology for the borehole, remarks and comments (e.g. for termination).")]
-    public class Methodology : BHoMObject
+    public class Methodology : BHoMObject, IBoreholeProperty
     {
         /***************************************************/
         /**** Properties                                ****/

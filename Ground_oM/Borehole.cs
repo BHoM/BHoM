@@ -53,10 +53,10 @@ namespace BH.oM.Ground
         public virtual Cartesian CoordinateSystem { get; set; }
 
         [Description("A list of objects containing the strata found within the borehole.")]
-        public virtual List<Strata> Strata { get; set; }
+        public virtual List<Stratum> Strata { get; set; }
 
         [Description("A list of properties related to the borehole.")]
-        public virtual List<IBoreholeProperties> BoreholeProperties { get; set; }
+        public virtual List<IBoreholeProperty> BoreholeProperties { get; set; }
 
         /***************************************************/
     }

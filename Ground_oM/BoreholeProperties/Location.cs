@@ -29,7 +29,7 @@ namespace BH.oM.Ground
 {
 
     [Description("Details for the location of the borehole including project references, phasing and location algorithms.")]
-    public class Location : BHoMObject
+    public class Location : BHoMObject, IBoreholeProperty
     {
         /***************************************************/
         /**** Properties                                ****/
