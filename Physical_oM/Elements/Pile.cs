@@ -20,25 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Physical.FramingProperties;
+using System.ComponentModel;
 
 namespace BH.oM.Physical.Elements
 {
+    [Description("Physical representation of a foundation pile.")]
     public class Pile : BHoMObject, IFramingElement
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Location curve of the pile.")]
         public virtual ICurve Location { get; set; } = null;
+
+        [Description("Property of the pile defining its profile and material.")]
         public virtual IFramingElementProperty Property { get; set; } = null;
 
         /***************************************************/

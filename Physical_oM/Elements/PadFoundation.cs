@@ -23,16 +23,21 @@
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Physical.Constructions;
+using System.ComponentModel;
 
 namespace BH.oM.Physical.Elements
 {
+    [Description("Physical representation of a flat pad foundation (parallel top and bottom faces).")]
     public class PadFoundation : BHoMObject, IBHoMObject, IPhysical, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Planar surface defining the top face of a pad foundation.")]
         public virtual BH.oM.Geometry.PlanarSurface Location { get; set; } = null;
+
+        [Description("Construction of the pad foundation defining its thickness and material.")]
         public virtual IConstruction Construction { get; set; } = new Construction();
 
         /***************************************************/
