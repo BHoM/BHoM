@@ -34,10 +34,10 @@ namespace BH.oM.Physical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Planar surface defining the top face of a pad foundation.")]
+        [Description("PlanarSurface defining the top face of a pad foundation.")]
         public virtual BH.oM.Geometry.PlanarSurface Location { get; set; } = null;
 
-        [Description("Construction of the pad foundation defining its thickness and material.")]
+        [Description("Construction of the pad foundation defining its thickness and Material.")]
         public virtual IConstruction Construction { get; set; } = new Construction();
 
         /***************************************************/

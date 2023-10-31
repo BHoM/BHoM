@@ -27,17 +27,17 @@ using System.ComponentModel;
 
 namespace BH.oM.Physical.Elements
 {
-    [Description("Physical representation of a foundation pile.")]
+    [Description("Physical representation of a pile.")]
     public class Pile : BHoMObject, IFramingElement
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Location curve of the pile.")]
+        [Description("Location curve of the Pile.")]
         public virtual ICurve Location { get; set; } = null;
 
-        [Description("Property of the pile defining its profile and material.")]
+        [Description("Property of the Pile defining its profile and material.")]
         public virtual IFramingElementProperty Property { get; set; } = null;
 
         /***************************************************/
