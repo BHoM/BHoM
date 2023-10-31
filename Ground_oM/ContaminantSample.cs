@@ -34,32 +34,27 @@ using BH.oM.Base.Attributes.Enums;
 namespace BH.oM.Ground
 {
 
-    [Description("A representation of a borehole defined by a coordinate system, start point and end point based on the AGS schema.")]
-    public class Borehole : BHoMObject
+    [Description("A representation of a contaminant sample defined the depth of the sample, the chemical code and name based on the AGS schema.")]
+    public class ContaminantSample : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Location identifier for the borehole unique to the project (LOCA_ID).")]
+        [Description("x.")]
         public virtual string Id { get; set; }
 
-        [Description("The top of the borehole within the coordinate system provided (LOCA_NATE, LOCA_NATEN, LOCA_GL).")]
-        public virtual Point Top { get; set; }
+        [Description("x.")]
+        public virtual double Top { get; set; }
 
-        [Description("The bottom of the borehole within the coordinate system provided (LOCA_ETRV, LOCA_NTRV, LOCA_FDEP).")]
-        public virtual Point Bottom { get; set; }
+        [Description("x.")]
+        public virtual string Chemical { get; set; }
 
-        [Description("The coordinate system referenced by the top and bottom point. (LOCA_GREF, LOCA_NATD).")]
-        public virtual Cartesian CoordinateSystem { get; set; }
+        [Description("x.")]
+        public virtual double Result { get; set; }
 
-        [Description("A list of objects containing the strata found within the borehole.")]
-        public virtual List<Stratum> Strata { get; set; }
+        [Description("x.")]
+        public virtual List<IContaminantProperty> ContaminantProperties { get; set; }
 
-        [Description("A list of objects containing the contaminant samples found within the borehole.")]
-        public virtual List<ContaminantSample> ContaminantSamples { get; set; }
-
-        [Description("A list of properties related to the borehole.")]
-        public virtual List<IBoreholeProperty> BoreholeProperties { get; set; }
 
         /***************************************************/
     }
