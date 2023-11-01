@@ -21,45 +21,35 @@
  */
 
 
+using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Geometry.CoordinateSystem;
-using BH.oM.Quantities.Attributes;
-using BH.oM.Base.Attributes;
-using BH.oM.Base.Attributes.Enums;
 
 namespace BH.oM.Ground
 {
 
-    [Description("A representation of a contaminant sample defined by the depth of the sample, the chemical code and name based on the AGS schema.")]
-    public class ContaminantSample : BHoMObject
+    [Description("References to associated files, remarks and batchcodes.")]
+    public class ContaminantReference : BHoMObject, IContaminantProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
+
+        [Description("Reference for the contaminant sample (SAMP_REF).")]
+        public virtual string Reference { get; set; }
+
+        [Description("Unique identifier for the contaminant sample (SAMP_ID).")]
         public virtual string Id { get; set; }
 
-        [Length]
-        [Description("Depth to the top of the sample, measured from the top of the borehole (SAMP_TOP).")]
-        public virtual double Top { get; set; }
+        [Description("Receipt date at the labratory for the contaminant sample (ERES_RDAT).")]
+        public virtual DateTime ReceiptDate { get; set; }
 
-        [Description("Chemical code for the contaminant (ERES_CODE).")]
-        public virtual string Chemical { get; set; }
+        [Description("Batch code for the contaminant sample (ERES_SGRP).")]
+        public virtual string BatchCode { get; set; }
 
-        [MassFraction]
-        [Description("The amount of the chemical present.")]
-        public virtual double Result { get; set; }
-
-        [Description("The type of sample (SAMP_TYPE).")]
-        public virtual SampleType Type { get; set; }
-
-        [Description("A list of different properties including references, tests, analysis, results and detection.")]
-        public virtual List<IContaminantProperty> ContaminantProperties { get; set; }
-
+        [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
+        public virtual string Files { get; set; }
 
         /***************************************************/
     }
