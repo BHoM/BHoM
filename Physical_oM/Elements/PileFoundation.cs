@@ -23,12 +23,13 @@
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace BH.oM.Physical.Elements
 {
     [Description("A composite object representing a pile foundation. This object contains physical representations of a pile cap and collection of piles.")]
-    public class PileFoundation : BHoMObject, IElementM
+    public class PileFoundation : BHoMObject, IElementM, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -38,7 +39,18 @@ namespace BH.oM.Physical.Elements
         public virtual PadFoundation PileCap { get; set; }
 
         [Description("A list of Piles contained within the extents of the PileCap.")]
-        public virtual List<Pile> Piles { get; set; }
+        public virtual ReadOnlyCollection<Pile> Piles { get; set; }
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public PileFoundation(PadFoundation pileCap, ReadOnlyCollection<Pile> piles)
+        {
+            PileCap = pileCap;
+            Piles = piles;
+        }
 
         /***************************************************/
     }
