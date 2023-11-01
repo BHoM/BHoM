@@ -38,12 +38,14 @@ namespace BH.oM.Ground
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Location identifier for the strata (LOCA_ID).")]
+        [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
         public virtual string Id { get; set; }
 
+        [Length]
         [Description("Depth to the top of the strata based on the datum provided on the Borehole (GEOL_TOP).")]
         public virtual double Top { get; set; }
 
+        [Length]
         [Description("Depth to the bottom of the strata based on the datum provided on the Borehole (GEOL_BOT).")]
         public virtual double Bottom { get; set; }
 
