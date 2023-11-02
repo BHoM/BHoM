@@ -28,7 +28,7 @@ Do take a look at our specific wiki pages here: [Getting Started for Developers]
 
 ## Want to Contribute? ##
 
-BHoM is an open-source project and would be nothing without its community. Take a look at our contributing guidelines and tips [here](https://github.com/BHoM/BHoM/blob/master/CONTRIBUTING.md).
+BHoM is an open-source project and would be nothing without its community. Take a look at our contributing guidelines and tips [here](https://github.com/BHoM/BHoM/blob/main/CONTRIBUTING.md).
 
 
 ## Licence ##
