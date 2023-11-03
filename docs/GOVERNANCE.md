@@ -7,7 +7,7 @@ Contributions are very welcome and warmly encouraged either from outside of the 
 The current core maintainers are listed below, however we are actively interested in other members joining to expand and support further at every level. If interested please get in touch. You can do this through contacting individual maintainers or emailing hello@bhom.xyz or simply raising issues or submitting code. 
 
 
-If you should have any queries around best practices in contributing or commenting on code, issues, PRs etc. please see our [Code of Conduct document here](https://github.com/BHoM/BHoM/blob/master/docs/CODE_OF_CONDUCT.md).
+If you should have any queries around best practices in contributing or commenting on code, issues, PRs etc. please see our [Code of Conduct document here](https://github.com/BHoM/BHoM/blob/main/docs/CODE_OF_CONDUCT.md).
 
 ## Organisation Maintainers 
 
@@ -33,21 +33,21 @@ Typical activities of a Repository Maintainer include:
 
 
 A number of the key repositories and/or individual namespaces are summarised below. However for more detail on individual responsibilities for code within the core oM and Engine repositories please refer to the local CODEOWNERS documents.
-In particular, for granular breakdown for the Core Repositories see direct links [BHoM Repository Code Owners](https://github.com/BHoM/BHoM/blob/master/docs/CODEOWNERS) and [BHoM_Engine Repository Code Owners](https://github.com/BHoM/BHoM_Engine/blob/master/docs/CODEOWNERS).
+In particular, for granular breakdown for the Core Repositories see direct links [BHoM Repository Code Owners](https://github.com/BHoM/BHoM/blob/main/docs/CODEOWNERS) and [BHoM_Engine Repository Code Owners](https://github.com/BHoM/BHoM_Engine/blob/main/docs/CODEOWNERS).
 
 
 
 
 #### Domain/Discipline Namespaces 
 
-* Core & Framework  &nbsp;  @adecler
+* Core & Framework  &nbsp;  @adecler & @FraserGreenroyd
 * Structure oM/Engine  &nbsp;  @IsakNaslundBh  
-* Environment oM/Engine  &nbsp;  @FraserGreenroyd
+* Environment oM/Engine  &nbsp;  @FraserGreenroyd & @JamesRamsden-BH
 * Geometery & BIM &nbsp;  @pawelbaran 
-* Data oM & Machine Learning &nbsp;  @epignatelli  
+* Data oM & Machine Learning &nbsp;  @alelom  
 * BHoM_Adapter & Interoperability  &nbsp;  @alelom
 * Structural_Adapters  &nbsp;  @IsakNaslundBh  
-* Environmental_Adapters  &nbsp;  @FraserGreenroyd   
+* Environmental_Adapters  &nbsp;  @FraserGreenroyd & @JamesRamsden-BH  
 * Continuous Integration & Test_Toolkit  &nbsp;  @FraserGreenroyd 
 
 
