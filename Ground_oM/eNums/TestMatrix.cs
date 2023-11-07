@@ -27,15 +27,13 @@ namespace BH.oM.Ground
 {
     /***************************************************/
 
-    [Description("Sample type description based on the AGS schema v4.1.")]
-    public enum SampleType
+    [Description("Test matrix description based on the AGS schema v4.1.")]
+    public enum TestMatrix
     {
-        [Description("EnvironmentalSolid (ES).")]
-        EnvironmentalSolid = 0,
-        [Description("EnvironmentalWater (EW).")]
-        EnvironmentalWater = 1,
-        [Description("Leachate (L).")]
-        Leachate = 2,
+        [Description("Solid.")]
+        Solid = 0,
+        [Description("Liquid.")]
+        Liquid = 1,
     }
 
     /***************************************************/
