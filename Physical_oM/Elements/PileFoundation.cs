@@ -36,10 +36,10 @@ namespace BH.oM.Physical.Elements
         /***************************************************/
 
         [Description("The pile cap with an outline containing all of the Piles.")]
-        public virtual PadFoundation PileCap { get; set; }
+        public virtual PadFoundation PileCap { get; }
 
         [Description("A list of Piles contained within the extents of the PileCap.")]
-        public virtual ReadOnlyCollection<Pile> Piles { get; set; }
+        public virtual ReadOnlyCollection<Pile> Piles { get; }
 
 
         /***************************************************/
