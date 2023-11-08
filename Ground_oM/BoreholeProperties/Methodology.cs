@@ -46,7 +46,7 @@ namespace BH.oM.Ground
         [Description("Purpose of the activity (LOCA_PURP).")]
         public virtual string Purpose { get; set; }
 
-        [Description("Reason for activity termination.")]
+        [Description("Reason for activity termination (LOCA_TERM).")]
         public virtual string Termination { get; set; }
 
         /***************************************************/

@@ -52,7 +52,7 @@ namespace BH.oM.Ground
         [Description("Chainage relating to the project (LOCA_CNGE).")]
         public virtual string Chainage { get; set; }
 
-        [Description("Reference to details of algorithm used to calculate local grid reference, local ground levels or chainage (LOCA_TRAN.")]
+        [Description("Reference to details of algorithm used to calculate local grid reference, local ground levels or chainage (LOCA_TRAN).")]
         public virtual string Algorithm { get; set; }
 
         /***************************************************/

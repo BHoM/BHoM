@@ -55,7 +55,7 @@ namespace BH.oM.Ground
         public virtual double Result { get; set; }
 
         [Description("The type of sample (SAMP_TYPE).")]
-        public virtual SampleType Type { get; set; }
+        public virtual string Type { get; set; }
 
         [Description("A list of different properties including references, tests, analysis, results and detection.")]
         public virtual List<IContaminantProperty> ContaminantProperties { get; set; }

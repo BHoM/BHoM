@@ -43,10 +43,10 @@ namespace BH.oM.Ground
         public virtual string Reference { get; set; }
 
         [Description("Run type description, i.e. initial or reanalysis (ERES_RTYP).")]
-        public virtual RunType RunType { get; set; }
+        public virtual string RunType { get; set; }
 
         [Description("Labratory test matrix (ERES_MATX).")]
-        public virtual TestMatrix TestMatrix { get; set; }
+        public virtual string TestMatrix { get; set; }
 
         [Description("Test method (ERES_METH).")]
         public virtual string Method { get; set; }
