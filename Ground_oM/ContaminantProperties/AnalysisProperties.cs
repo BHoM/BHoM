@@ -30,7 +30,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Ground
 {
 
-    [Description("Properties related to the tests undertaken on the contaminant.")]
+    [Description("Properties related to the analysis undertaken on the contaminant.")]
     public class AnalysisProperties : BHoMObject, IContaminantProperty
     {
         /***************************************************/

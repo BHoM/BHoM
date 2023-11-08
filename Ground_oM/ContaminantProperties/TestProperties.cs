@@ -36,9 +36,6 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Test name as defined in LBST_TEST during electrical scheduling (ERES_TEST).")]
-        public virtual string TestName { get; set; }
-
         [Description("Labratory test name for the contaminant sample (ERES_TNAM).")]
         public virtual string LabTestName { get; set; }
 
@@ -48,7 +45,7 @@ namespace BH.oM.Ground
         [Description("Run type description, i.e. initial or reanalysis (ERES_RTYP).")]
         public virtual RunType RunType { get; set; }
 
-        [Description("Unique identifier for the contaminant sample (SAMP_ID).")]
+        [Description("Labratory test matrix (ERES_MATX).")]
         public virtual TestMatrix TestMatrix { get; set; }
 
         [Description("Test method (ERES_METH).")]

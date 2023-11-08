@@ -51,7 +51,7 @@ namespace BH.oM.Ground
         public virtual string Chemical { get; set; }
 
         [MassFraction]
-        [Description("The amount of the chemical present.")]
+        [Description("The amount of the chemical present (ERES_RVAL).")]
         public virtual double Result { get; set; }
 
         [Description("The type of sample (SAMP_TYPE).")]
