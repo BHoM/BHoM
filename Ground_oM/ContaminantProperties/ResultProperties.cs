@@ -43,7 +43,7 @@ namespace BH.oM.Ground
         public virtual bool Reportable { get; set; }
 
         [Description("Detect flag (ERES_DETF).")]
-        public virtual string DetectFlag { get; set; }
+        public virtual bool DetectFlag { get; set; }
 
         [Description("Is the contaminant sample organic (ERES_ORG).")]
         public virtual bool Organic { get; set; }
