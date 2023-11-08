@@ -34,6 +34,12 @@ namespace BH.oM.Ground
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("Start date of the activity (LOCA_STAR).")]
+        public virtual DateTime StartDate { get; set; }
+
+        [Description("End date of the activity (LOCA_ENDD).")]
+        public virtual DateTime EndDate { get; set; }
+
         [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
         public virtual string File { get; set; }
 
