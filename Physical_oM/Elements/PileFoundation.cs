@@ -21,29 +21,37 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.FramingProperties;
+using BH.oM.Dimensional;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace BH.oM.Physical.Elements
 {
-    [Description("Physical representation of a pile.")]
-    public class Pile : BHoMObject, IFramingElement
+    [Description("A composite object representing a pile foundation. This object contains physical representations of a pile cap and collection of piles.")]
+    public class PileFoundation : BHoMObject, IElementM, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Location curve of the Pile.")]
-        public virtual ICurve Location { get; set; } = null;
+        [Description("The pile cap with an outline containing all of the Piles.")]
+        public virtual PadFoundation PileCap { get; }
 
-        [Description("Property of the Pile defining its profile and material.")]
-        public virtual IFramingElementProperty Property { get; set; } = null;
+        [Description("A list of Piles contained within the extents of the PileCap.")]
+        public virtual ReadOnlyCollection<Pile> Piles { get; }
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public PileFoundation(PadFoundation pileCap, ReadOnlyCollection<Pile> piles)
+        {
+            PileCap = pileCap;
+            Piles = piles;
+        }
 
         /***************************************************/
     }
 }
-
-
-
-

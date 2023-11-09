@@ -21,24 +21,24 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.FramingProperties;
+using BH.oM.Dimensional;
+using BH.oM.Physical.Constructions;
 using System.ComponentModel;
 
 namespace BH.oM.Physical.Elements
 {
-    [Description("Physical representation of a pile.")]
-    public class Pile : BHoMObject, IFramingElement
+    [Description("Physical representation of a flat pad foundation (parallel top and bottom faces).")]
+    public class PadFoundation : BHoMObject, IBHoMObject, IPhysical, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Location curve of the Pile.")]
-        public virtual ICurve Location { get; set; } = null;
+        [Description("PlanarSurface defining the top face of a pad foundation.")]
+        public virtual BH.oM.Geometry.PlanarSurface Location { get; set; } = null;
 
-        [Description("Property of the Pile defining its profile and material.")]
-        public virtual IFramingElementProperty Property { get; set; } = null;
+        [Description("Construction of the pad foundation defining its thickness and Material.")]
+        public virtual IConstruction Construction { get; set; } = new Construction();
 
         /***************************************************/
     }
