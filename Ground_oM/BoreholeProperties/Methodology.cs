@@ -35,19 +35,19 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
         [Description("Type of activity (LOCA_TYPE).")]
-        public virtual string Type { get; set; }
+        public virtual string Type { get; set; } = "";
 
         [Description("Status of information relating to this positio (LOCA_STAT).")]
-        public virtual  string Status { get; set; }
+        public virtual string Status { get; set; } = "";
 
         [Description("General remarks for the investigation (LOCA_REM).")]
-        public virtual string Remarks { get; set; }
+        public virtual string Remarks { get; set; } = "";
 
         [Description("Purpose of the activity (LOCA_PURP).")]
-        public virtual string Purpose { get; set; }
+        public virtual string Purpose { get; set; } = "";
 
         [Description("Reason for activity termination (LOCA_TERM).")]
-        public virtual string Termination { get; set; }
+        public virtual string Termination { get; set; } = "";
 
         /***************************************************/
     }

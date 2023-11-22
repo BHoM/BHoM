@@ -37,16 +37,16 @@ namespace BH.oM.Ground
         /***************************************************/
 
         [Description("The result type for the contaminant sample (ERES_RTCD).")]
-        public virtual string Type { get; set; }
+        public virtual string Type { get; set; } = "";
 
         [Description("Is the result reportable (ERES_RRES).")]
-        public virtual bool Reportable { get; set; }
+        public virtual bool Reportable { get; set; } = false;
 
         [Description("Detect flag (ERES_DETF).")]
-        public virtual bool DetectFlag { get; set; }
+        public virtual bool DetectFlag { get; set; } = false;
 
         [Description("Is the contaminant sample organic (ERES_ORG).")]
-        public virtual bool Organic { get; set; }
+        public virtual bool Organic { get; set; } = false;
 
 
         /***************************************************/

@@ -35,25 +35,25 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
         [Description("Method of location (LOCA_LOCM).")]
-        public virtual string Method { get; set; }
+        public virtual string Method { get; set; } = "";
 
         [Description("Site location sub division (within project) code or description (LOCA_LOCA).")]
-        public virtual  string SubDivision { get; set; }
+        public virtual string SubDivision { get; set; } = "";
 
         [Description("Investigation phase grouping code or description (LOCA_CLST).")]
-        public virtual string Phase { get; set; }
+        public virtual string Phase { get; set; } = "";
 
         [Description("Alignment identifier (LOCA_ALID).")]
-        public virtual string Alignment { get; set; }
+        public virtual string Alignment { get; set; } = "";
 
         [Description("Offset from the alignment (LOCA_OFFS).")]
-        public virtual double Offset { get; set; }
+        public virtual double Offset { get; set; } = double.NaN;
 
         [Description("Chainage relating to the project (LOCA_CNGE).")]
-        public virtual string Chainage { get; set; }
+        public virtual string Chainage { get; set; } = "";
 
         [Description("Reference to details of algorithm used to calculate local grid reference, local ground levels or chainage (LOCA_TRAN).")]
-        public virtual string Algorithm { get; set; }
+        public virtual string Algorithm { get; set; } = "";
 
         /***************************************************/
     }

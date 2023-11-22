@@ -35,25 +35,25 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
         [Description("Start date of the activity (LOCA_STAR).")]
-        public virtual DateTime StartDate { get; set; }
+        public virtual DateTime StartDate { get; set; } = default(DateTime);
 
         [Description("End date of the activity (LOCA_ENDD).")]
-        public virtual DateTime EndDate { get; set; }
+        public virtual DateTime EndDate { get; set; } = default(DateTime);
 
         [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
-        public virtual string File { get; set; }
+        public virtual string File { get; set; } = "";
 
         [Description("Link to storage of borehole data.")]
-        public virtual string URL { get; set; }
+        public virtual string URL { get; set; } = "";
 
         [Description("Original hole id (LOCA_ORID).")]
-        public virtual string OriginalId { get; set; }
+        public virtual string OriginalId { get; set; } = "";
 
         [Description("Original job reference (LOCA_ORJO).")]
-        public virtual string OriginalReference { get; set; }
+        public virtual string OriginalReference { get; set; } = "";
 
         [Description("Originating company (LOCA_ORCO).")]
-        public virtual string OriginalCompany { get; set; }
+        public virtual string OriginalCompany { get; set; } = "";
 
         /***************************************************/
     }

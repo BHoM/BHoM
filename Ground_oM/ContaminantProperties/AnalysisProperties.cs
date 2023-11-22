@@ -38,38 +38,38 @@ namespace BH.oM.Ground
         /***************************************************/
 
         [Description("Whether the specimen is total or dissolved (ERES_TORD).")]
-        public virtual string TotalOrDissolved { get; set; }
+        public virtual string TotalOrDissolved { get; set; } = "";
 
         [Description("Accrediting body and reference number (when appropriate) (ERES_CRED).")]
-        public virtual string AccreditingBody { get; set; }
+        public virtual string AccreditingBody { get; set; } = "";
 
         [Description("Name of testing labratory or organisation (ERES_LAB).")]
-        public virtual string LabName { get; set; }
+        public virtual string LabName { get; set; } = "";
 
         [Description("Percentage of material removed (ERES_PERP).")]
-        public virtual double PercentageRemoved { get; set; }
+        public virtual double PercentageRemoved { get; set; } = double.NaN;
 
         [Length]
         [Description("Size of material removed prior to test. Value represents lowest sized material removed (ERES_SIZE).")]
-        public virtual double SizeRemoved { get; set; }
+        public virtual double SizeRemoved { get; set; } = double.NaN;
 
         [Description("Instrument reference number or identifier (ERES_IREF).")]
-        public virtual string InstrumentReference { get; set; }
+        public virtual string InstrumentReference { get; set; } = "";
 
         [Description("Leachate preperation date and time (ERES_LDTM).")]
-        public virtual DateTime LeachateDate { get; set; }
+        public virtual DateTime LeachateDate { get; set; } = default(DateTime);
 
         [Description("Leachate preperation method (ERES_LMTH).")]
-        public virtual string LeachateMethod { get; set; }
+        public virtual string LeachateMethod { get; set; } = "";
 
         [Description("Dilution factor (ERES_DIL).")]
-        public virtual int DilutionFactor { get; set; }
+        public virtual int DilutionFactor { get; set; } = 0;
 
         [Description("Basis (ERES_BAS).")]
-        public virtual string Basis { get; set; }
+        public virtual string Basis { get; set; } = "";
 
         [Description("Analysis location (ERES_LOCN).")]
-        public virtual string Location { get; set; }
+        public virtual string Location { get; set; } = "";
 
         /***************************************************/
     }

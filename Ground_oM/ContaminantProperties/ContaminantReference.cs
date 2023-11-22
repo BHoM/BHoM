@@ -37,19 +37,19 @@ namespace BH.oM.Ground
         /***************************************************/
 
         [Description("Reference for the contaminant sample (SAMP_REF).")]
-        public virtual string Reference { get; set; }
+        public virtual string Reference { get; set; } = "";
 
         [Description("Unique identifier for the contaminant sample (SAMP_ID).")]
-        public virtual string Id { get; set; }
+        public virtual string Id { get; set; } = "";
 
         [Description("Receipt date at the labratory for the contaminant sample (ERES_RDAT).")]
-        public virtual DateTime ReceiptDate { get; set; }
+        public virtual DateTime ReceiptDate { get; set; } = default(DateTime);
 
         [Description("Batch code for the contaminant sample (ERES_SGRP).")]
-        public virtual string BatchCode { get; set; }
+        public virtual string BatchCode { get; set; } = "";
 
         [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
-        public virtual string Files { get; set; }
+        public virtual string Files { get; set; } = "";
 
         /***************************************************/
     }

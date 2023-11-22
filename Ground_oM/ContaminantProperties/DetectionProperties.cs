@@ -37,19 +37,19 @@ namespace BH.oM.Ground
         /***************************************************/
 
         [Description("Reporting detection limit (ERES_RDLM).")]
-        public virtual double DetectionLimit { get; set; }
+        public virtual double DetectionLimit { get; set; } = double.NaN;
 
         [Description("Method detection limit (ERES_MDLM).")]
-        public virtual double MethodDetectionLimit { get; set; }
+        public virtual double MethodDetectionLimit { get; set; } = double.NaN;
 
         [Description("Quanification limit (ERES_QLM).")]
-        public virtual double QuantificationLimit { get; set; }
+        public virtual double QuantificationLimit { get; set; } = double.NaN;
 
         [Description("Tentatively Identified Compound (TIC) probability (ERES_TICP).")]
-        public virtual double TICProbability { get; set; }
+        public virtual double TICProbability { get; set; } = double.NaN;
 
         [Description("Tentatively Identified Compound (ERES_TICT) retention time.")]
-        public virtual double TICRetention { get; set; }
+        public virtual double TICRetention { get; set; } = double.NaN;
 
 
         /***************************************************/
