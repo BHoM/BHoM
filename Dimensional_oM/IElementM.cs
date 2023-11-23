@@ -30,7 +30,7 @@ namespace BH.oM.Dimensional
     [Description("Enables Mass based operations to be performed on elements with materiality\n" +
                  "Ensures the material composition of a physical object is represented, defined as proportions of discrete types of material forming the object's total solid volume.\n" +
                  "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n")]
-    [DocumentationURL("https://bhom.xyz/documentation/Contributing/Development%20FAQ/IElement-required-extension-methods/", DocumentationType.Documentation)]
+    [DocumentationURL("https://bhom.xyz/documentation/BHoM_oM/Dimensional_oM/IElement-required-extension-methods/", DocumentationType.Documentation)]
     public interface IElementM : IObject
     {
     }
