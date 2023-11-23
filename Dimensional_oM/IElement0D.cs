@@ -29,7 +29,7 @@ namespace BH.oM.Dimensional
 {
     [Description("Enables geometrical operations to be performed on a Point based spatial element, whilst preserving all other object properties as unchanged. /n" +
                  "Objects implementing this interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.")]
-    [DocumentationURL("https://bhom.xyz/documentation/Contributing/Development%20FAQ/IElement-required-extension-methods/", DocumentationType.Documentation)]
+    [DocumentationURL("https://bhom.xyz/documentation/BHoM_oM/Dimensional_oM/IElement-required-extension-methods/", DocumentationType.Documentation)]
     public interface IElement0D : IElement
     {
     }
