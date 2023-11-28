@@ -64,7 +64,7 @@ namespace BH.oM.Structure.Loads
         public virtual Line Location { get; set; } = null;
 
         [Description("A collection of IAreaElements (e.g. Panels) to apply the line load to. These are not required for all adapters.")]
-        public virtual BHoMGroup<IAreaElement> Objects { get; set; } = null;
+        public virtual BHoMGroup<IAreaElement> Objects { get; set; } = new BHoMGroup<IAreaElement>();
 
         /***************************************************/
     }
