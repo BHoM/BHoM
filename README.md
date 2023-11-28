@@ -23,7 +23,7 @@ Grab the [latest installer](https://bhom.xyz/) and a selection of [sample script
 ## Getting Started for Developers 🤖 
 
 If you want to build the BHoM and the Toolkits from source, it's hopefully easy! 😄 
-Do take a look at our specific wiki pages here: [Getting Started for Developers](https://bhom.xyz/documentation/Guides-and-Tutorials/Coding-with-BHoM/)
+Do take a look at our specific wiki pages here: [Getting Started for Developers](https://bhom.xyz/documentation/Guides-and-Tutorials/Coding-with-BHoM/).
 
 
 ## Want to Contribute? ##
