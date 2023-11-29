@@ -24,11 +24,12 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Structure.Elements;
 
 namespace BH.oM.Structure.Loads
 {
     [Description("Distributed load to be applied over a line.")]
-    public class GeometricalLineLoad : BHoMObject, ILoad
+    public class GeometricalLineLoad : BHoMObject, IElementLoad<IAreaElement> 
     {
         /***************************************************/
         /****            Public Properties              ****/
@@ -61,6 +62,9 @@ namespace BH.oM.Structure.Loads
 
         [Description("Line defining the location of the load.")]
         public virtual Line Location { get; set; } = null;
+
+        [Description("A collection of IAreaElements (e.g. Panels) to apply the line load to. These are not required for all adapters.")]
+        public virtual BHoMGroup<IAreaElement> Objects { get; set; } = new BHoMGroup<IAreaElement>();
 
         /***************************************************/
     }
