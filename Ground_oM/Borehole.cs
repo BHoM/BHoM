@@ -52,10 +52,10 @@ namespace BH.oM.Ground
         [Description("The coordinate system referenced by the top and bottom point. (LOCA_GREF, LOCA_NATD).")]
         public virtual Cartesian CoordinateSystem { get; set; }
 
-        [Description("A list of objects containing the strata found within the borehole.")]
+        [Description("A list of objects containing the strata found within the borehole, based on the GEOL table.")]
         public virtual List<Stratum> Strata { get; set; }
 
-        [Description("A list of objects containing the contaminant samples found within the borehole.")]
+        [Description("A list of objects containing the contaminant samples found within the borehole, based on the ERES table.")]
         public virtual List<ContaminantSample> ContaminantSamples { get; set; }
 
         [Description("A list of properties related to the borehole.")]

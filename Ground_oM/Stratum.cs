@@ -58,10 +58,10 @@ namespace BH.oM.Ground
         [Description("The observed geology expressed as a GeologicalUnit (GEOL_GEOL).")]
         public virtual string ObservedGeology { get; set; }
 
-        [Description("The interpreted geology expressed as an EngineeringMaterial (GEOL_GEO2).")]
+        [Description("The interpreted geology expressed as an engineering material (GEOL_GEO2).")]
         public virtual string InterpretedGeology { get; set; }
 
-        [Description("The optional interpreted geology expressed as an EngineeringMaterial (GEOL_GEO3).")]
+        [Description("The optional interpreted geology expressed as an engineering material (GEOL_GEO3).")]
         public virtual string OptionalInterpretedGeology { get; set; }
 
         [Description("The optional stratum properties.")]
