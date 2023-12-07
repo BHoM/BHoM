@@ -30,11 +30,11 @@ namespace BH.oM.Ground
     [Description("Sample type description based on the AGS schema v4.1.")]
     public enum SampleType
     {
-        [Description("EnvironmentalSolid (ES).")]
+        [DisplayText("EnvironmentalSolid (ES).")]
         EnvironmentalSolid = 0,
-        [Description("EnvironmentalWater (EW).")]
+        [DisplayText("EnvironmentalWater (EW).")]
         EnvironmentalWater = 1,
-        [Description("Leachate (L).")]
+        [DisplayText("Leachate (L).")]
         Leachate = 2,
     }
 

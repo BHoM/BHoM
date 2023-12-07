@@ -30,9 +30,9 @@ namespace BH.oM.Ground
     [Description("Run type description based on the AGS schema v4.1.")]
     public enum RunType
     {
-        [Description("Initial.")]
+        [DisplayText("Initial.")]
         Initial = 0,
-        [Description("Reanalysis.")]
+        [DisplayText("Reanalysis.")]
         Reanalysis = 1,
     }
 

@@ -30,9 +30,9 @@ namespace BH.oM.Ground
     [Description("Test matrix description based on the AGS schema v4.1.")]
     public enum TestMatrix
     {
-        [Description("Solid.")]
+        [DisplayText("Solid.")]
         Solid = 0,
-        [Description("Liquid.")]
+        [DisplayText("Liquid.")]
         Liquid = 1,
     }
 
