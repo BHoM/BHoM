@@ -20,21 +20,41 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Base.Attributes.Enums;
-using BH.oM.Base.Attributes;
+using System;
 using System.ComponentModel;
+using System.Collections.Generic;
+using BH.oM.Base;
 
-namespace BH.oM.Dimensional
+namespace BH.oM.Ground
 {
-    [Description("Enables Mass based operations to be performed on elements with materiality\n" +
-                 "Ensures the material composition of a physical object is represented, defined as proportions of discrete types of material forming the object's total solid volume.\n" +
-                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n")]
-    [DocumentationURL("https://bhom.xyz/documentation/BHoM_oM/Dimensional_oM/IElement-required-extension-methods/", DocumentationType.Documentation)]
-    public interface IElementM : IObject
+
+    [Description("References to associated files, storage links or previous boreholes.")]
+    public class BoreholeReference : BHoMObject, IBoreholeProperty
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+        [Description("Start date of the activity (LOCA_STAR).")]
+        public virtual DateTime StartDate { get; set; } = default(DateTime);
+
+        [Description("End date of the activity (LOCA_ENDD).")]
+        public virtual DateTime EndDate { get; set; } = default(DateTime);
+
+        [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
+        public virtual string File { get; set; } = "";
+
+        [Description("Link to storage of borehole data.")]
+        public virtual string URL { get; set; } = "";
+
+        [Description("Original hole id (LOCA_ORID).")]
+        public virtual string OriginalId { get; set; } = "";
+
+        [Description("Original job reference (LOCA_ORJO).")]
+        public virtual string OriginalReference { get; set; } = "";
+
+        [Description("Originating company (LOCA_ORCO).")]
+        public virtual string OriginalCompany { get; set; } = "";
+
+        /***************************************************/
     }
 }
-
-
-

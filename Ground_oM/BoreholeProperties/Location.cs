@@ -20,30 +20,41 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.FramingProperties;
-using System.ComponentModel;
 
-namespace BH.oM.Physical.Elements
+using System;
+using System.ComponentModel;
+using BH.oM.Base;
+
+namespace BH.oM.Ground
 {
-    [Description("Physical representation of a pile.")]
-    public class Pile : BHoMObject, IFramingElement
+
+    [Description("Details for the location of the borehole including project references, phasing and location algorithms.")]
+    public class Location : BHoMObject, IBoreholeProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+        [Description("Method of location (LOCA_LOCM).")]
+        public virtual string Method { get; set; } = "";
 
-        [Description("Location curve of the Pile.")]
-        public virtual ICurve Location { get; set; } = null;
+        [Description("Site location sub division (within project) code or description (LOCA_LOCA).")]
+        public virtual string SubDivision { get; set; } = "";
 
-        [Description("Property of the Pile defining its profile and material.")]
-        public virtual IFramingElementProperty Property { get; set; } = null;
+        [Description("Investigation phase grouping code or description (LOCA_CLST).")]
+        public virtual string Phase { get; set; } = "";
+
+        [Description("Alignment identifier (LOCA_ALID).")]
+        public virtual string Alignment { get; set; } = "";
+
+        [Description("Offset from the alignment (LOCA_OFFS).")]
+        public virtual double Offset { get; set; } = double.NaN;
+
+        [Description("Chainage relating to the project (LOCA_CNGE).")]
+        public virtual string Chainage { get; set; } = "";
+
+        [Description("Reference to details of algorithm used to calculate local grid reference, local ground levels or chainage (LOCA_TRAN).")]
+        public virtual string Algorithm { get; set; } = "";
 
         /***************************************************/
     }
 }
-
-
-
-

@@ -20,30 +20,49 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Physical.FramingProperties;
-using System.ComponentModel;
 
-namespace BH.oM.Physical.Elements
+using System;
+using System.ComponentModel;
+using System.Collections.Generic;
+using BH.oM.Base;
+
+namespace BH.oM.Ground
 {
-    [Description("Physical representation of a pile.")]
-    public class Pile : BHoMObject, IFramingElement
+
+    [Description("Properties related to the tests undertaken on the contaminant.")]
+    public class TestProperties : BHoMObject, IContaminantProperty
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Location curve of the Pile.")]
-        public virtual ICurve Location { get; set; } = null;
+        [Description("Labratory test name for the contaminant sample (ERES_TNAM).")]
+        public virtual string LabTestName { get; set; } = "";
 
-        [Description("Property of the Pile defining its profile and material.")]
-        public virtual IFramingElementProperty Property { get; set; } = null;
+        [Description("Test reference (TEST_TESN).")]
+        public virtual string Reference { get; set; } = "";
+
+        [Description("Run type description, i.e. initial or reanalysis (ERES_RTYP).")]
+        public virtual string RunType { get; set; } = "";
+
+        [Description("Labratory test matrix (ERES_MATX).")]
+        public virtual string TestMatrix { get; set; } = "";
+
+        [Description("Test method (ERES_METH).")]
+        public virtual string Method { get; set; } = "";
+
+        [Description("Analysis time and date for the contaminant sample (ERES_DTIM).")]
+        public virtual DateTime AnalysisDate { get; set; } = default(DateTime);
+
+        [Description("Description of the specimen from the contaminant sample (SPEC_DESC).")]
+        public virtual string Description { get; set; } = "";
+
+        [Description("Remarks about the test or specimen from the contaminant sample (ERES_REM).")]
+        public virtual string Remarks { get; set; } = "";
+
+        [Description("The status of the test (TEST_STAT).")]
+        public virtual string TestStatus { get; set; } = "";
 
         /***************************************************/
     }
 }
-
-
-
-

@@ -20,21 +20,35 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Base.Attributes.Enums;
-using BH.oM.Base.Attributes;
-using System.ComponentModel;
 
-namespace BH.oM.Dimensional
+using System;
+using System.ComponentModel;
+using System.Collections.Generic;
+using BH.oM.Base;
+
+namespace BH.oM.Ground
 {
-    [Description("Enables Mass based operations to be performed on elements with materiality\n" +
-                 "Ensures the material composition of a physical object is represented, defined as proportions of discrete types of material forming the object's total solid volume.\n" +
-                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n")]
-    [DocumentationURL("https://bhom.xyz/documentation/BHoM_oM/Dimensional_oM/IElement-required-extension-methods/", DocumentationType.Documentation)]
-    public interface IElementM : IObject
+
+    [Description("Properties related to the results based on the tests of the contaminant.")]
+    public class ResultProperties : BHoMObject, IContaminantProperty
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("The result type for the contaminant sample (ERES_RTCD).")]
+        public virtual string Type { get; set; } = "";
+
+        [Description("Is the result reportable (ERES_RRES).")]
+        public virtual bool Reportable { get; set; } = false;
+
+        [Description("Detect flag (ERES_DETF).")]
+        public virtual bool DetectFlag { get; set; } = false;
+
+        [Description("Is the contaminant sample organic (ERES_ORG).")]
+        public virtual bool Organic { get; set; } = false;
+
+
+        /***************************************************/
     }
 }
-
-
-

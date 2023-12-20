@@ -21,20 +21,37 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Base.Attributes.Enums;
-using BH.oM.Base.Attributes;
+using BH.oM.Dimensional;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace BH.oM.Dimensional
+namespace BH.oM.Physical.Elements
 {
-    [Description("Enables Mass based operations to be performed on elements with materiality\n" +
-                 "Ensures the material composition of a physical object is represented, defined as proportions of discrete types of material forming the object's total solid volume.\n" +
-                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n")]
-    [DocumentationURL("https://bhom.xyz/documentation/BHoM_oM/Dimensional_oM/IElement-required-extension-methods/", DocumentationType.Documentation)]
-    public interface IElementM : IObject
+    [Description("A composite object representing a pile foundation. This object contains physical representations of a pile cap and collection of piles.")]
+    public class PileFoundation : BHoMObject, IElementM, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("The pile cap with an outline containing all of the Piles.")]
+        public virtual PadFoundation PileCap { get; }
+
+        [Description("A list of Piles contained within the extents of the PileCap.")]
+        public virtual ReadOnlyCollection<Pile> Piles { get; }
+
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public PileFoundation(PadFoundation pileCap, ReadOnlyCollection<Pile> piles)
+        {
+            PileCap = pileCap;
+            Piles = piles;
+        }
+
+        /***************************************************/
     }
 }
-
-
-

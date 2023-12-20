@@ -20,21 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Base.Attributes.Enums;
-using BH.oM.Base.Attributes;
-using System.ComponentModel;
 
-namespace BH.oM.Dimensional
+using System;
+using System.ComponentModel;
+using System.Collections.Generic;
+using BH.oM.Base;
+
+namespace BH.oM.Ground
 {
-    [Description("Enables Mass based operations to be performed on elements with materiality\n" +
-                 "Ensures the material composition of a physical object is represented, defined as proportions of discrete types of material forming the object's total solid volume.\n" +
-                 "Objects implementing this Interface will be required to implement some base methods for getting and setting data in a way that maintains the object's other properties.\n")]
-    [DocumentationURL("https://bhom.xyz/documentation/BHoM_oM/Dimensional_oM/IElement-required-extension-methods/", DocumentationType.Documentation)]
-    public interface IElementM : IObject
+
+    [Description("References to associated files, remarks or lexicon codes.")]
+    public class StratumReference : BHoMObject, IStratumProperty
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("General remarks for the investigation (GEOL_REF).")]
+        public virtual string Remarks { get; set; } = "";
+
+        [Description("BGS Lexicon code for the strata (GEOL_BGS).")]
+        public virtual string LexiconCode { get; set; } = "";
+
+        [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
+        public virtual string Files { get; set; } = "";
+
+        /***************************************************/
     }
 }
-
-
-
