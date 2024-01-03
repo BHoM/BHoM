@@ -59,5 +59,5 @@ We will be excited to hear from you!
 - [BHoM organisation](https://github.com/BHoM)
 - [BHoM Repo](https://github.com/BHoM/BHoM)
 - [Wiki home](https://bhom.xyz/documentation/)
-- [Structure of the BHoM](https://bhom.xyz/documentation/Basics/Coding%20fundamentals/The-BHoM-code-organisation/)
-- [Technical philosophy of the BHoM](https://bhom.xyz/documentation/Basics/Coding%20fundamentals/Technical-philosophy-of-the-BHoM/)
+- [Structure of the BHoM](https://bhom.xyz/documentation/Basics/BHoM-Toolkits/)
+- [Technical philosophy of the BHoM](https://bhom.xyz/documentation/Basics/Technical-philosophy-of-the-BHoM/)
