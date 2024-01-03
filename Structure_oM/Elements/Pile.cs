@@ -55,7 +55,7 @@ namespace BH.oM.Structure.Elements
              "For vertical members the local y is aligned with the global Y and rotated with the orientation angle about the local x. \n" +
              "A Pile is vertical if its projected length to the horizontal plane is less than 0.0001, i.e. a tolerance of 0.1mm on verticality. \n" +
              "For general structural conventions please see the documentation.")]
-        [DocumentationURL("https://bhom.xyz/documentation/Conventions/BHoM-Structural-Conventions/", DocumentationType.Documentation)]
+        [DocumentationURL("https://bhom.xyz/documentation/BHoM_oM/Structure_oM/BHoM-Structural-Conventions/", DocumentationType.Documentation)]
         public virtual double OrientationAngle { get; set; } = 0;
 
     }
