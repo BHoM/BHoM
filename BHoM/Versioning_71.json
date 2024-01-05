@@ -1,0 +1,7 @@
+{
+  "MessageForDeleted": {
+    "BH.oM.Base.Attributes.AbbreviationAttribute": "This attribute has been removed as a part of legacy cleanup. Please contact developers in case you still need it.",
+    "BH.oM.Base.Attributes.AssemblyUrlAttribute": "This attribute has been removed as a part of legacy cleanup. Please contact developers in case you still need it.",
+    "BH.oM.Base.Attributes.ReleasedAttribute": "This attribute has been removed as a part of legacy cleanup. Please contact developers in case you still need it."
+  }
+}
