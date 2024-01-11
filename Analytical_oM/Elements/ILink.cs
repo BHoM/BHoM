@@ -37,9 +37,9 @@ namespace BH.oM.Analytical.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        TNode StartNode { get; set; }
+        TNode Start { get; set; }
 
-        TNode EndNode { get; set; }
+        TNode End { get; set; }
 
         /***************************************************/
     }
