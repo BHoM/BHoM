@@ -1,0 +1,40 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Method": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Property": {
+    "ToNew": {
+      "BH.oM.Structure.Elements.Bar.StartNode": "BH.oM.Structure.Elements.Bar.Start",
+      "BH.oM.Structure.Elements.Bar.EndNode": "BH.oM.Structure.Elements.Bar.End"
+    },
+    "ToOld": {
+      "BH.oM.Structure.Elements.Bar.Start": "BH.oM.Structure.Elements.Bar.StartNode",
+      "BH.oM.Structure.Elements.Bar.End": "BH.oM.Structure.Elements.Bar.End"
+    }
+  },
+  "MessageForDeleted": {
+    
+  },
+  "MessageForNoUpgrade": {
+
+  }
+}

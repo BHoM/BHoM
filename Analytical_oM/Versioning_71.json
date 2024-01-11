@@ -1,0 +1,40 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Method": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Property": {
+    "ToNew": {
+      "BH.oM.Analytical.Elements.ILink.StartNode": "BH.oM.Analytical.Elements.ILink.Start",
+      "BH.oM.Analytical.Elements.ILink.EndNode": "BH.oM.Analytical.Elements.ILink.End"
+    },
+    "ToOld": {
+      "BH.oM.Analytical.Elements.ILink.Start": "BH.oM.Analytical.Elements.ILink.StartNode",
+      "BH.oM.Analytical.Elements.ILink.End": "BH.oM.Analytical.Elements.ILink.End"
+    }
+  },
+  "MessageForDeleted": {
+    
+  },
+  "MessageForNoUpgrade": {
+
+  }
+}
