@@ -46,10 +46,10 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("Defines the start position of the element. Note that Nodes can contain Supports which should not be confused with Releases.")]
-        public virtual Node StartNode { get; set; }
+        public virtual Node Start { get; set; }
 
         [Description("Defines the end position of the element. Note that Nodes can contain Supports which should not be confused with Releases.")]
-        public virtual Node EndNode { get; set; }
+        public virtual Node End { get; set; }
 
         [Description("Section property of the bar, containing all sectional constants and material as well as profile geometry and dimensions, where applicable.")]
         public virtual ISectionProperty SectionProperty { get; set; } = null;
