@@ -22,6 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Geometry;
+using BH.oM.Graphics.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,29 +30,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Analytical.Graph.Projection
 {
-    [Description("Interface common to all Relation objects.")]
-    public interface IRelation : IBHoMObject
+    [Description("Graphical projection for Graphs.")]
+    public class GraphicalProjection : BHoMObject, IProjection
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        Guid Source { get; set; }
-
-        Guid Target { get; set; }
-
-        Graph Subgraph { get; set; }
-
-        double Weight { get; set; }
-
-        ICurve Curve { get; set; }
-
-        /***************************************************/
+        public virtual IView View { get; set; } = null;
     }
-
-
 }
 
 
