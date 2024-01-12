@@ -49,8 +49,8 @@ namespace BH.oM.Diffing
             "\nWhen dealing with very large sets, you can keep this on `false` to improve performance: the UnchangedObjects can be derived from the original set, minus the Deleted and Modified objects.")]
         public virtual bool IncludeUnchangedObjects { get; set; } = true;
 
-        [Description("By default, duplicate Ids are not allowed and Diffing will not consider them. If you want to be able to specify duplicate Ids, set this to true.")]
-        public virtual bool AllowDuplicateIds { get; set; } = false;
+        [Description("By default, duplicate IDs are not allowed and Diffing will not consider them. If you want to be able to specify duplicate IDs, set this to true.")]
+        public virtual bool AllowDuplicateIDs { get; set; } = false;
 
         [Description("List of Delegate functions that can be assigned to customise the ObjectDifferences computation of the Diffing." +
             "The method delegate must have three inputs: the past_object, the following_object, and a BaseComparisonConfig; it must return a List<PropertyDifference>." +
