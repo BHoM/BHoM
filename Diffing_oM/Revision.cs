@@ -37,11 +37,11 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Id of the Stream that owns this Revision.")]
-        public virtual Guid StreamId { get; }
+        [Description("ID of the Stream that owns this Revision.")]
+        public virtual Guid StreamID { get; }
 
         [Description("Unique GUID of this Revision.")]
-        public virtual Guid RevisionId { get; } = Guid.NewGuid();
+        public virtual Guid RevisionID { get; } = Guid.NewGuid();
 
         [Description("Name assigned to this Revision. It may be descriptive of the changes included in this Revision, e.g. AddedBasementColumns.")]
         public virtual string RevisionName { get; }
@@ -66,10 +66,10 @@ namespace BH.oM.Diffing
         /***************************************************/
 
 
-        public Revision(IEnumerable<object> objects, Guid streamId, DiffingConfig revisionDiffConfing = null, string revisionName = null, string comment = null, Guid revisionId = default(Guid),  long timestamp = default(long), string author = null)
+        public Revision(IEnumerable<object> objects, Guid streamID, DiffingConfig revisionDiffConfing = null, string revisionName = null, string comment = null, Guid revisionID = default(Guid),  long timestamp = default(long), string author = null)
         {
-            StreamId = streamId;
-            RevisionId = (revisionId == default(Guid)) ? Guid.NewGuid() : revisionId;
+            StreamID = streamID;
+            RevisionID = (revisionID == default(Guid)) ? Guid.NewGuid() : revisionID;
             RevisionName = revisionName;
             Timestamp = (timestamp == 0 || timestamp == default(long)) ? DateTime.UtcNow.Ticks : timestamp;
             Author = String.IsNullOrWhiteSpace(author) ? Environment.UserDomainName + "/" + Environment.UserName : author;
