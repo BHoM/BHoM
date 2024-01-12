@@ -26,7 +26,7 @@ namespace BH.oM.Structure.Loads
     public enum LoadType
     {
         Selfweight = 0,
-        PointForce,
+        PointLoad,
         PointDisplacement,
         PointVelocity,
         PointAcceleration,
