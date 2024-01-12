@@ -28,20 +28,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Analytical.Graph.Projection
 {
-    [Description("A set of IBHoMObject entities and the relations between them.")]
-    public class Graph : BHoMObject
+    [Description("Spatial Projection for Graphs.")]
+    public class SpatialProjection : BHoMObject, IProjection
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Dictionary of IBHoMObject entities.")]
-        public virtual Dictionary<Guid, IBHoMObject> Entities { get; set; } = new Dictionary<Guid, IBHoMObject>();
-
-        [Description("Collection of relations between IBHoMObject entities.")]
-        public virtual List<IRelation> Relations { get; set; } = new List<IRelation>();
 
     }
 }

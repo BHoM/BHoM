@@ -29,6 +29,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Analytical.Results;
 using BH.oM.Geometry;
+using BH.oM.Analytical.Graph;
 
 namespace BH.oM.Analytical.Elements
 {

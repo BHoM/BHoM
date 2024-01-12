@@ -28,12 +28,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Analytical.Graph.Projection
 {
-    [Description("Interface common to all graph projections.")]
-    public interface IProjection : IBHoMObject
+    [Description("Geometry projection for Graphs.")]
+    public class GeometricProjection : BHoMObject, IProjection
     {
-        
+
     }
 }
 

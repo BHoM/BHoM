@@ -20,39 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Geometry;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Analytical.Graph
 {
-    [Description("Base class for all Relation classes.")]
-    public class Relation : BHoMObject, IRelation
+    public enum RelationDirection
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("Reference Guid to source entity.")]
-        public virtual Guid Source { get; set; } = Guid.Empty;
-
-        [Description("Reference Guid to target entity.")]
-        public virtual Guid Target { get; set; } = Guid.Empty;
-
-        [Description("This Relation's sub Graph.")]
-        public virtual Graph Subgraph { get; set; } = new Graph();
-
-        [Description("Weight of the Relation.")]
-        public virtual double Weight { get; set; } = 1.0;
-
-        [Description("Curve that represents the link between the source and target entities.")]
-        public virtual ICurve Curve { get; set; }
-
+        Forwards = 0,
+        Backwards = 1,
+        Both = 2
     }
 }
 
