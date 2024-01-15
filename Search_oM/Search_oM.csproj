@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>7.0.0.0</AssemblyVersion>
+    <Description>https://github.com/BHoM/AGS_Toolkit</Description>
+    <Version>5.0.0</Version>
+    <Authors>BHoM</Authors>
+    <Copyright>Copyright © https://github.com/BHoM</Copyright>
+    <RootNamespace>BH.oM.Search</RootNamespace>
+    <FileVersion>7.1.0.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\Build\</OutputPath>
+  </PropertyGroup>
+  
+ <ItemGroup>
+    <Reference Include="Adapter_oM">
+      <HintPath>$(ProgramData)\BHoM\Assemblies\Adapter_oM.dll</HintPath>
+	  <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Analytical_oM">
+      <HintPath>$(ProgramData)\BHoM\Assemblies\Analytical_oM.dll</HintPath>
+	  <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="BHoM">
+      <HintPath>$(ProgramData)\BHoM\Assemblies\BHoM.dll</HintPath>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;$(ProgramData)\BHoM\Assemblies&quot; /Y" />
+  </Target>
+
+
+</Project>
