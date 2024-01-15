@@ -32,7 +32,7 @@ using BH.oM.Analytical.Results;
 namespace BH.oM.Search
 {
     [Description("A result class containing objects, scores and indexes from the fuzzy matching.")]
-    public class FuzzyResult<T> : IResult, IImmutable
+    public class SearchResult<T> : IResult, IImmutable
     {
         /***************************************************/
         /****            Public Properties              ****/
@@ -51,7 +51,7 @@ namespace BH.oM.Search
         /****            Constructor                    ****/
         /***************************************************/
 
-        public FuzzyResult(T result, int score, int index)
+        public SearchResult(T result, int score, int index)
         {
             Result = result;
             Score = score;
@@ -60,7 +60,7 @@ namespace BH.oM.Search
 
         public int CompareTo(IResult other)
         {
-            FuzzyResult<T> otherRes = other as FuzzyResult<T>;
+            SearchResult<T> otherRes = other as SearchResult<T>;
 
             if(otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
