@@ -32,51 +32,51 @@ namespace BH.oM.Search
     {
         [DisplayText("Default Ratio")]
         [Description("Calculates a Levenshtein simple ratio between the strings. This indicates a measure of similarity.")]
-        DefaultRatioScorer,
+        DefaultRatio,
 
         [DisplayText("Partial Ratio")]
         [Description("This ratio uses a heuristic called 'best partial' for when two strings are of noticeably different lengths.")]
-        PartialRatioScorer,
+        PartialRatio,
 
         [DisplayText("Token Set")]
         [Description("Splits the strings into tokens and computes intersections and remainders between the tokens of the two strings.A comparison string is then " +
     "built up and is compared using the simple ratio algorithm. Useful for strings where words appear redundantly.")]
-        TokenSetScorer,
+        TokenSet,
 
         [DisplayText("Partial Token Set")]
         [Description("Splits the strings into tokens and computes intersections and remainders between the tokens of the two strings.A comparison string is then " +
             "built up and is compared using the simple ratio algorithm. Useful for strings where words appear redundantly.")]
-        PartialTokenSetScorer,
+        PartialTokenSet,
 
         [DisplayText("Token Sort")]
         [Description("Find all alphanumeric tokens in the string and sort those tokens and then take ratio of resulting joined strings.")]
-        TokenSortScorer,
+        TokenSort,
 
         [DisplayText("Partial Token Sort")]
         [Description("Find all alphanumeric tokens in the string and sort those tokens and then take ratio of resulting joined strings.")]
-        PartialTokenSortScorer,
+        PartialTokenSort,
 
         [DisplayText("Token Abbreviation")]
         [Description("Similarity ratio that attempts to determine whether one strings tokens are an abbreviation of the other strings tokens. One string must have all its " +
             "characters in order in the other string to even be considered.")]
-        TokenAbbreviationScorer,
+        TokenAbbreviation,
 
         [DisplayText("Partial Token Abbreviation")]
         [Description("Similarity ratio that attempts to determine whether one strings tokens are an abbreviation of the other strings tokens. One string must have all its " +
             "characters in order in the other string to even be considered.")]
-        PartialTokenAbbreviationScorer,
+        PartialTokenAbbreviation,
 
         [DisplayText("Token Initialism")]
         [Description("Splits longer string into tokens and takes the initialism and compares it to the shorter string.")]
-        TokenInitialismScorer,
+        TokenInitialism,
 
         [DisplayText("Partial Token Initialism")]
         [Description("Splits longer string into tokens and takes the initialism and compares it to the shorter string.")]
-        PartialTokenInitialismScorer,
+        PartialTokenInitialism,
 
         [DisplayText("Weighted ratio")]
         [Description("Calculates a weighted ratio between the different algorithms for best results.")]
-        WeightedRatioScorer,
+        WeightedRatio,
     }
 
     /***************************************************/

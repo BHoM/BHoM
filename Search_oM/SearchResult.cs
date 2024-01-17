@@ -31,20 +31,20 @@ using BH.oM.Analytical.Results;
 
 namespace BH.oM.Search
 {
-    [Description("A result class containing objects, scores and indexes from the fuzzy matching.")]
+    [Description("A result class containing objects, scores and indexes.")]
     public class SearchResult<T> : IResult, IImmutable
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("A list of objects resulting from the fuzzy matching algorithm.")]
+        [Description("A list of objects resulting from a search method..")]
         public virtual T Result { get; }
 
-        [Description("A list of scores resulting from the fuzzy matching algorithm.")]
+        [Description("A list of scores resulting from a search method.")]
         public virtual int Score { get; }
 
-        [Description("A list of indexes resulting from the fuzzy matching algorithm.")]
+        [Description("A list of indexes resulting from a search method.")]
         public virtual int Index { get; }
 
         /***************************************************/
