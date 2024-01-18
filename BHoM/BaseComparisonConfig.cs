@@ -86,10 +86,10 @@ namespace BH.oM.Base
              "\nIf a match is found, this take precedence over the global `SignificantFigures`." +
              "\nIf conflicting values/multiple matches are found among the Configurations on numerical precision, the largest approximation among all (least precise number) is registered.")]
         public virtual HashSet<NamedSignificantFigures> PropertySignificantFigures { get; set; } = new HashSet<NamedSignificantFigures>();
+
+        [Description("If true, geometric types will be identified based on the GeometryHash function. " +
+            "This function reduces the identity of geometry down to its most basic components, and it is faster than scouring for all its properties. " +
+            "See its implementation in the Geometry_Engine for more details.")]
+        public virtual bool UseGeometryHash { get; set; } = true;
     }
 }
-
-
-
-
-
