@@ -42,7 +42,7 @@ namespace BH.oM.Search
         public virtual T Result { get; }
 
         [Description("A list of scores resulting from a search method.")]
-        public virtual int Score { get; }
+        public virtual double Score { get; }
 
         [Description("A list of indexes resulting from a search method.")]
         public virtual int Index { get; }
