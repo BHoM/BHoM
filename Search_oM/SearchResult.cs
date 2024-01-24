@@ -62,10 +62,10 @@ namespace BH.oM.Search
         {
             SearchResult<T> otherRes = other as SearchResult<T>;
 
-            if(otherRes == null)
+            if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
 
-            int n = this.Score.CompareTo(otherRes.Score);
+            int n = -this.Score.CompareTo(otherRes.Score); //negative so that the sorting is high to low (equivalent to otherRes.Score.CompareTo(this.Score)
 
             if (n == 0)
             {
