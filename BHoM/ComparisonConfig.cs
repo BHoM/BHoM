@@ -29,21 +29,10 @@ namespace BH.oM.Base
     [Description("Settings to determine the uniqueness of an Object, i.e. when comparing and when computing the object Hash.")]
     public class ComparisonConfig : BaseComparisonConfig
     {
-        public ComparisonConfig(HashSet<string> propertyExceptions = null, HashSet<string> propertiesToConsider = null,
-            HashSet<string> customdataKeysExceptions = null, HashSet<string> customdataKeysToConsider = null,
-            HashSet<Type> typeExceptions = null, HashSet<string> namespaceExceptions = null,
-            int maxNesting = int.MaxValue, int maxPropertyDifferences = int.MaxValue,
-            double numericTolerance = double.MinValue, HashSet<NamedNumericTolerance> propertyNumericTolerances = null,
-            int significantFigures = int.MaxValue, HashSet<NamedSignificantFigures> propertySignificantFigures = null,
-            bool useGeometryHash = false) : base(propertyExceptions, propertiesToConsider,
-                customdataKeysExceptions, customdataKeysToConsider,
-                typeExceptions, namespaceExceptions,
-                maxNesting, maxPropertyDifferences,
-                numericTolerance, propertyNumericTolerances,
-                significantFigures, propertySignificantFigures,
-                useGeometryHash)
-        {
-
-        }
     }
 }
+
+
+
+
+
