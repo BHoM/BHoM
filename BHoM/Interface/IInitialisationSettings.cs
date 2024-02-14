@@ -29,7 +29,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.UI
+namespace BH.oM.Base
 {
     [Description("Toolkit Settings that contain an initialisation method to be ran when the UI starts.")]
     public interface IInitialisationSettings : IImmutable
