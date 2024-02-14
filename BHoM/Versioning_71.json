@@ -1,10 +1,12 @@
 {
   "Type": {
     "ToNew": {
-       "BH.oM.UI.IInitialisationSettings" :  "BH.oM.Base.IInitialisationSettings"
+      "BH.oM.UI.IInitialisationSettings": "BH.oM.Base.IInitialisationSettings",
+      "BH.oM.UI.UsageLogEntry" :  "BH.oM.Base.UsageLogEntry"
     },
     "ToOld": {
-      "BH.oM.Base.IInitialisationSettings": "BH.oM.UI.IInitialisationSettings"
+      "BH.oM.Base.IInitialisationSettings": "BH.oM.UI.IInitialisationSettings",
+      "BH.oM.Base.UsageLogEntry": "BH.oM.UI.UsageLogEntry"
     }
   },
   "MessageForDeleted": {
