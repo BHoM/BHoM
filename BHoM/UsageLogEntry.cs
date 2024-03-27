@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,25 +20,49 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base.Attributes;
+using BH.oM.Base;
+using BH.oM.Base.Debugging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
+namespace BH.oM.Base
 {
-    [ToBeRemoved("3.2", "Complete refactoring of reinforcement is being done, outside current possible scope of versioning. Old reinforcement classes will be removed.")]
-    public class LayerReinforcement : Reinforcement
+    public class UsageLogEntry : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual double Depth { get; set; }
+        public virtual DateTime Time { get; set; } = DateTime.UtcNow;
 
-        public virtual bool IsVertical { get; set; } = false;
+        public virtual string UI { get; set; } = "";
+
+        public virtual string UiVersion { get; set; } = "";
+
+        public virtual string BHoMVersion { get; set; } = "";
+
+        public virtual Guid ComponentId { get; set; } = Guid.Empty;
+
+        public virtual string CallerName { get; set; } = "";
+
+        public virtual object SelectedItem { get; set; } = null;
+
+        public virtual string FileId { get; set; } = "";
+
+        public virtual string FileName { get; set; } = "";
+
+        public virtual string ProjectID { get; set; } = "";
+
+        public virtual List<Event> Errors { get; set; } = new List<Event>();
 
 
         /***************************************************/
     }
 }
+
 
 
 

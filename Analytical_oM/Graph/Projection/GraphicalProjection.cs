@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,35 +21,21 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Geometry;
+using BH.oM.Graphics.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Base.Attributes
+namespace BH.oM.Analytical.Graph.Projection
 {
-    [AttributeUsage(AttributeTargets.Assembly)]
-    public class AssemblyUrlAttribute : Attribute, IImmutable
+    [Description("Graphical projection for Graphs.")]
+    public class GraphicalProjection : BHoMObject, IProjection
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual string Url { get; private set; } = "";
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public AssemblyUrlAttribute(string url)
-        {
-            Url = url;
-        }
-
-
-        /***************************************************/
+        public virtual IView View { get; set; } = null;
     }
 }
 

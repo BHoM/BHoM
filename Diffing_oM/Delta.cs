@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -37,17 +37,17 @@ namespace BH.oM.Diffing
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("The Id of the owning Stream. It must be the same for both the Revision that this Delta targets and the Revision that it will produce.")]
-        public virtual Guid StreamId { get; }
+        [Description("The ID of the owning Stream. It must be the same for both the Revision that this Delta targets and the Revision that it will produce.")]
+        public virtual Guid StreamID { get; }
 
         [Description("Represent the differences between two sets of objects.")]
         public virtual Diff Diff { get; }
 
-        [Description("Revision Id that this Delta targets.")]
-        public virtual Guid Revision_from { get; }
+        [Description("Revision ID that this Delta targets.")]
+        public virtual Guid RevisionFrom { get; }
 
-        [Description("Revision Id that this Delta produces.")]
-        public virtual Guid Revision_to { get; }
+        [Description("Revision ID that this Delta produces.")]
+        public virtual Guid RevisionTo { get; }
 
         [Description("In UTC ticks.")]
         public virtual long Timestamp { get; }
@@ -61,14 +61,14 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        public Delta(Guid streamId, Diff diff, Guid revision_from, Guid revision_to, long timestamp = default(long), string author = null, string comment = null)
+        public Delta(Guid streamID, Diff diff, Guid revisionFrom, Guid revisionTo, long timestamp = default(long), string author = null, string comment = null)
         {
-            StreamId = streamId == default(Guid) ? Guid.NewGuid() : streamId;
+            StreamID = streamID == default(Guid) ? Guid.NewGuid() : streamID;
 
             Diff = diff;
 
-            Revision_from = (revision_from == default(Guid)) ? Guid.NewGuid() : revision_from;
-            Revision_to = (revision_to == default(Guid)) ? Guid.NewGuid() : revision_to;
+            RevisionFrom = (revisionFrom == default(Guid)) ? Guid.NewGuid() : revisionFrom;
+            RevisionTo = (revisionTo == default(Guid)) ? Guid.NewGuid() : revisionTo;
 
             Timestamp = (timestamp == 0 || timestamp == default(long)) ? DateTime.UtcNow.Ticks : timestamp;
             Author = String.IsNullOrWhiteSpace(author) ? Environment.UserDomainName + "/" + Environment.UserName : author;
@@ -78,6 +78,7 @@ namespace BH.oM.Diffing
 
     }
 }
+
 
 
 

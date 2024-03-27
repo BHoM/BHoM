@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,8 +21,6 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Geometry;
-using BH.oM.Graphics.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,14 +28,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Analytical.Graph
 {
-    [Description("Graphical projection for Graphs.")]
-    public class GraphicalProjection : BHoMObject, IProjection
+    [Description("A set of IBHoMObject entities and the relations between them.")]
+    public class Graph : BHoMObject
     {
-        public virtual IView View { get; set; } = null;
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("Dictionary of IBHoMObject entities.")]
+        public virtual Dictionary<Guid, IBHoMObject> Entities { get; set; } = new Dictionary<Guid, IBHoMObject>();
+
+        [Description("Collection of relations between IBHoMObject entities.")]
+        public virtual List<IRelation> Relations { get; set; } = new List<IRelation>();
+
     }
 }
+
 
 
 

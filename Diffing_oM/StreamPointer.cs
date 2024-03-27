@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -38,7 +38,7 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        public Guid StreamId { get; }
+        public Guid StreamID { get; }
         public string StreamName { get; }
         public string Description { get; }
         public long Timestamp { get; }
@@ -47,9 +47,9 @@ namespace BH.oM.Diffing
         /**** Constructor                               ****/
         /***************************************************/
 
-        public StreamPointer(Guid streamId, string streamName = null, string description = null, long timestamp = 0)
+        public StreamPointer(Guid streamID, string streamName = null, string description = null, long timestamp = 0)
         {
-            StreamId = streamId;
+            StreamID = streamID;
             StreamName = streamName;
             Description = description;
             Timestamp = (timestamp > 0) ? timestamp : DateTime.UtcNow.Ticks;
@@ -58,6 +58,7 @@ namespace BH.oM.Diffing
         /***************************************************/
     }
 }
+
 
 
 

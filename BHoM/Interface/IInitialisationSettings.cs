@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,21 +20,31 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Analytical.Elements
+namespace BH.oM.Base
 {
-    public enum RelationDirection
+    [Description("Toolkit Settings that contain an initialisation method to be ran when the UI starts.")]
+    public interface IInitialisationSettings : IImmutable
     {
-        Forwards = 0,
-        Backwards = 1,
-        Both = 2
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        string InitialisationMethod { get; }
+
+        /***************************************************/
     }
 }
+
+
 
 
 

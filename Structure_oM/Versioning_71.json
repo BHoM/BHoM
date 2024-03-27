@@ -1,0 +1,43 @@
+﻿{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Method": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Property": {
+    "ToNew": {
+      "BH.oM.Structure.Elements.Bar.StartNode": "BH.oM.Structure.Elements.Bar.Start",
+      "BH.oM.Structure.Elements.Bar.EndNode": "BH.oM.Structure.Elements.Bar.End"
+    },
+    "ToOld": {
+      "BH.oM.Structure.Elements.Bar.Start": "BH.oM.Structure.Elements.Bar.StartNode",
+      "BH.oM.Structure.Elements.Bar.End": "BH.oM.Structure.Elements.Bar.End"
+    }
+  },
+  "MessageForDeleted": {
+    "BH.oM.Structure.SectionProperties.Reinforcement.LayerReinforcement": "Reinforcement objects were refactored in BHoM 3.2 with these objects marked for deletion which have now been removed. Please reach out to the development team if you require support in upgrading your objects.",
+    "BH.oM.Structure.SectionProperties.Reinforcement.PerimeterReinforcement": "Reinforcement objects were refactored in BHoM 3.2 with these objects marked for deletion which have now been removed. Please reach out to the development team if you require support in upgrading your objects.",
+    "BH.oM.Structure.SectionProperties.Reinforcement.Reinforcement": "Reinforcement objects were refactored in BHoM 3.2 with these objects marked for deletion which have now been removed. Please reach out to the development team if you require support in upgrading your objects.",
+    "BH.oM.Structure.SectionProperties.Reinforcement.TieReinforcement": "Reinforcement objects were refactored in BHoM 3.2 with these objects marked for deletion which have now been removed. Please reach out to the development team if you require support in upgrading your objects."
+  },
+  "MessageForNoUpgrade": {
+
+  }
+}

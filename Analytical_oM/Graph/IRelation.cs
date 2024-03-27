@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,31 +21,37 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
-using BH.oM.Base.Attributes;
+using BH.oM.Geometry;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
+namespace BH.oM.Analytical.Graph
 {
-    [ToBeRemoved("3.2", "Complete refactoring of reinforcement is being done, outside current possible scope of versioning. Old reinforcement classes will be removed.")]
-    public abstract class Reinforcement : BHoMObject
+    [Description("Interface common to all Relation objects.")]
+    public interface IRelation : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual double Diameter { get; set; }
+        Guid Source { get; set; }
 
-        public virtual int BarCount { get; set; }
+        Guid Target { get; set; }
 
-        public virtual Material Material { get; set; }
+        Graph Subgraph { get; set; }
 
-        public virtual double StartLocation { get; set; } = 0;
+        double Weight { get; set; }
 
-        public virtual double EndLocation { get; set; } = 1;
-
+        ICurve Curve { get; set; }
 
         /***************************************************/
     }
+
+
 }
 
 

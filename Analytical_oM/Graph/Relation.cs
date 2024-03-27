@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -19,24 +19,42 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-using BH.oM.Base.Attributes;
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
+using BH.oM.Base;
+using BH.oM.Geometry;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BH.oM.Analytical.Graph
 {
-    [ToBeRemoved("3.2", "Complete refactoring of reinforcement is being done, outside current possible scope of versioning. Old reinforcement classes will be removed.")]
-    public class PerimeterReinforcement : Reinforcement
+    [Description("Base class for all Relation classes.")]
+    public class Relation : BHoMObject, IRelation
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        public virtual ReinforcementPattern Pattern { get; set; }
+        [Description("Reference Guid to source entity.")]
+        public virtual Guid Source { get; set; } = Guid.Empty;
 
+        [Description("Reference Guid to target entity.")]
+        public virtual Guid Target { get; set; } = Guid.Empty;
 
-        /***************************************************/
+        [Description("This Relation's sub Graph.")]
+        public virtual Graph Subgraph { get; set; } = new Graph();
+
+        [Description("Weight of the Relation.")]
+        public virtual double Weight { get; set; } = 1.0;
+
+        [Description("Curve that represents the link between the source and target entities.")]
+        public virtual ICurve Curve { get; set; }
+
     }
 }
-
 
 
 

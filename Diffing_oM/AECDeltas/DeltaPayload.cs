@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -38,12 +38,12 @@ namespace BH.oM.AECDeltas
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public Guid StreamId { get; }
+        public Guid StreamID { get; }
 
         public Dictionary<string, object> Diff { get; }
 
-        public string Revision_from { get; }
-        public string Revision_to { get; }
+        public string RevisionFrom { get; }
+        public string RevisionTo { get; }
 
         public long Timestamp { get; }
         public string Signature { get; }
@@ -55,12 +55,12 @@ namespace BH.oM.AECDeltas
         /**** Constructor                               ****/
         /***************************************************/
 
-        public DeltaPayload(Guid streamId, Dictionary<string, object> diff, string revision_from, string revision_to, long timestamp, string signature, string sender, string comment)
+        public DeltaPayload(Guid streamId, Dictionary<string, object> diff, string revisionFrom, string revisionTo, long timestamp, string signature, string sender, string comment)
         {
-            StreamId = streamId;
+            StreamID = streamId;
             Diff = diff;
-            Revision_from = revision_from;
-            Revision_to = revision_to;
+            RevisionFrom = revisionFrom;
+            RevisionTo = revisionTo;
             Timestamp = timestamp;
             Signature = signature;
             Sender = sender;
@@ -76,9 +76,9 @@ namespace BH.oM.AECDeltas
                 { "toBeUpdated" , delta.Diff.ModifiedObjects },
             };
 
-            StreamId = delta.StreamId;
-            Revision_from = delta.Revision_from.ToString();
-            Revision_to = delta.Revision_to.ToString();
+            StreamID = delta.StreamID;
+            RevisionFrom = delta.RevisionFrom.ToString();
+            RevisionTo = delta.RevisionTo.ToString();
 
             Comment = delta.Comment;
 
@@ -89,6 +89,7 @@ namespace BH.oM.AECDeltas
         /***************************************************/
     }
 }
+
 
 
 

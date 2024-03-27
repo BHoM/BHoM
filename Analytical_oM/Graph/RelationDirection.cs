@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,39 +20,19 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Base.Attributes
+namespace BH.oM.Analytical.Graph
 {
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
-    public class ReleasedAttribute : Attribute, IImmutable
+    public enum RelationDirection
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        public virtual string Description { get; private set; } = "";
-
-        public virtual string FromVersion { get; private set; } = "1.0.0.0";
-
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public ReleasedAttribute(string fromVersion, string description = "")
-        {
-            Description = description;
-            FromVersion = fromVersion;
-        }
-
-
-        /***************************************************/
+        Forwards = 0,
+        Backwards = 1,
+        Both = 2
     }
 }
 

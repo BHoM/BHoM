@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -19,21 +19,21 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-using BH.oM.Base.Attributes;
 
-namespace BH.oM.Structure.SectionProperties.Reinforcement
+using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BH.oM.Analytical.Graph.Projection
 {
-    [ToBeRemoved("3.2", "Complete refactoring of reinforcement is being done, outside current possible scope of versioning. Old reinforcement classes will be removed.")]
-    public class TieReinforcement : Reinforcement
+    [Description("Interface common to all graph projections.")]
+    public interface IProjection : IBHoMObject
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        public virtual double Spacing { get; set; }
-
-
-        /***************************************************/
     }
 }
 
