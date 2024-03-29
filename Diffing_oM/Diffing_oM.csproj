@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyVersion>7.0.0.0</AssemblyVersion>
@@ -10,18 +9,14 @@
     <RootNamespace>BH.oM.Diffing</RootNamespace>
     <FileVersion>7.2.0.0</FileVersion>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <OutputPath>..\Build\</OutputPath>
   </PropertyGroup>
-
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
   </Target>
-
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj" />
   </ItemGroup>
-
 </Project>
