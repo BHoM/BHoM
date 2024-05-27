@@ -44,8 +44,12 @@ namespace BH.oM.Geometry
         [Description("If true mehtod avoids creation of self intersections for offsets of concave curves by removal of segments tending to 0 length. Only applicable for Polyline offsets. Defaults to true.")]
         public virtual bool HandleCreatedLocalSelfIntersections { get; set; } = true;
 
+        [Description("If true mehtod avoids creation of self intersections for offsets of concave curves by removal of segments tending to 0 length. Only applicable for Polyline offsets. Defaults to true.")]
+        public virtual bool HandleGeneralCreatedSelfIntersections { get; set; } = true;
+
         [Description("If true handles adjecent parallel segemnts, that is, segments that have an angle below tolerance. This is handled by removal of the vertex connection the two segments for a concave offset and introductions of one additional vertex for a convex offset. Only applicable for Polyline offsets. Defaults to true.")]
         public virtual bool HandleAdjacentParallelSegments { get; set; } = true;
+        
         /***************************************************/
 
     }
