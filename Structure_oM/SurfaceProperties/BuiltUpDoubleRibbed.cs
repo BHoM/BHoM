@@ -54,7 +54,7 @@ namespace BH.oM.Structure.SurfaceProperties
         public virtual double RibSpacing { get; set; }
 
         [Length]
-        [Description("Distance between the double ribs, meassured from the side of one to the side of the other. Measured perpendicular to the rib direction.")]
+        [Description("Distance between the double ribs, measured from the side of one to the side of the other. Measured perpendicular to the rib direction.")]
         public virtual double RibInnerSpacing { get; set; }
 
         [Description("Structural material of the top slab. If no material is provided for the ribs then this material is used for them as well.")]
