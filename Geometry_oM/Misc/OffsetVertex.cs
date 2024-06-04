@@ -51,7 +51,7 @@ namespace BH.oM.Geometry
         public virtual int SegmentIntersected { get; set; } = -1;
 
         [Description("Flag indicating if the translation vector needs to be (re)computed or not.")]
-        public virtual bool ComputeTranlation { get; set; } = true;
+        public virtual bool ComputeTranslation { get; set; } = true;
 
         [Description("Flag indicating if the intersection needs to be (re)computed or not.")]
         public virtual bool ComputeIntersection { get; set; } = false;
