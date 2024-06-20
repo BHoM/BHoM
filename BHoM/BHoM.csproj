@@ -6,13 +6,13 @@
     <Version>5.0.0</Version>
     <Copyright>Copyright © https://github.com/BHoM</Copyright>
     <RootNamespace>BH.oM.Base</RootNamespace>
-    <FileVersion>7.1.0.0</FileVersion>
+    <FileVersion>7.2.0.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
     <OutputPath>..\Build\</OutputPath>
   </PropertyGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="mkdir &quot;C:\ProgramData\BHoM\Assemblies&quot;&#xD;&#xA;mkdir &quot;C:\ProgramData\BHoM\Datasets&quot;&#xD;&#xA;mkdir &quot;C:\ProgramData\BHoM\Upgrades&quot;&#xD;&#xA;mkdir &quot;C:\ProgramData\BHoM\Settings&quot;&#xD;&#xA;&#xD;&#xA;xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+    <Exec Command="mkdir &quot;$(ProgramData)\BHoM\Assemblies&quot;&#xD;&#xA;mkdir &quot;$(ProgramData)\BHoM\Datasets&quot;&#xD;&#xA;mkdir &quot;$(ProgramData)\BHoM\Upgrades&quot;&#xD;&#xA;mkdir &quot;$(ProgramData)\BHoM\Settings&quot;&#xD;&#xA;mkdir &quot;$(ProgramData)\BHoM\Developer&quot;&#xD;&#xA;&#xD;&#xA;xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;$(ProgramData)\BHoM\Assemblies&quot; /Y" />
   </Target>
 </Project>
