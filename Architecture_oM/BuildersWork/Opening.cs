@@ -27,7 +27,7 @@ using BH.oM.Quantities.Attributes;
 using BH.oM.Spatial.ShapeProfiles;
 using System.ComponentModel;
 
-namespace BH.oM.Architecture.BuildersWork
+namespace BH.oM.Architecture.VersionedBuildersWork
 {
     [Description("Object representing a builders work opening as an entity independent of its host.")]
     public class Opening : BHoMObject, IElement0D

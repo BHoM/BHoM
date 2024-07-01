@@ -1,0 +1,51 @@
+{
+  "Namespace": {
+    "ToNew": {
+      "BH.oM.Architecture.BuildersWork": "BH.oM.Architecture.VersionedBuildersWork"
+    },
+    "ToOld": {
+      "BH.oM.Architecture.VersionedBuildersWork": "BH.oM.Architecture.BuildersWork"
+    }
+  },
+  "Type": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Method": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Property": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    }
+  },
+  "Dataset": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+
+    },
+    "MessageForDeleted": {
+
+    }
+  },
+  "MessageForDeleted": {
+
+  },
+  "MessageForNoUpgrade": {
+
+  }
+}
