@@ -7,7 +7,7 @@ using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.Elements
 {
-    public class RetainingWallHeel : BHoMObject, IElementM, IElement2D
+    public class RetainingWallHeel : BHoMObject, IElement2D
     {
         /***************************************************/
         /**** Properties                                ****/

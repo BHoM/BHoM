@@ -8,7 +8,7 @@ using BH.oM.Structure.Reinforcement;
 
 namespace BH.oM.Structure.Elements
 {
-    public class RetainingWall : BHoMObject, IElementM //Question if this should be a bhomobject or a compisiteobject. Cant be both. 
+    public class RetainingWall : BHoMObject //Question if this should be a bhomobject or a compisiteobject. Cant be both. 
     {
         /***************************************************/
         /**** Properties                                ****/
