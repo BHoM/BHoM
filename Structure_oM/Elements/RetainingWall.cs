@@ -15,13 +15,13 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("RetainingWallStem object defining the stem.")]
-        public virtual RetainingWallStem Stem { get; set; } = new RetainingWallStem();
+        public virtual Stem Stem { get; set; } = new Stem();
 
         [Description("RetainingWallToe object defining the toe of the base.")]
-        public virtual RetainingWallToe Toe { get; set; } = new RetainingWallToe();
+        public virtual BaseToe BaseToe { get; set; } = new BaseToe();
 
         [Description("RetainingWallFloor object defining the heel of the base.")]
-        public virtual RetainingWallHeel Heel { get; set; } = new RetainingWallHeel();
+        public virtual BaseHeel BaseHeel { get; set; } = new BaseHeel();
 
         [Description("The retained height of the wall. From Ground to top of wall.")] // Definition of this number. Where does it measure from. 
         public virtual double RetainedHeight { get; set; } = 0.0;
