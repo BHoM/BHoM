@@ -14,7 +14,7 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("RetainingWallStem object defining the stem.")]
-        public virtual ISurface Location { get; set; } = null;
+        public virtual PolyCurve Outline { get; set; } = null;
 
         [Description("Thickness of the base at the toe edge")]
         public virtual double ThicknessToe { get; set; } = 0.0;
