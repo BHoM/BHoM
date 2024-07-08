@@ -14,7 +14,7 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("Location surface defining the stem.")]
-        public virtual ISurface Location { get; set; } = null;
+        public virtual PolyCurve Outline { get; set; } = null;
 
         [Description("Thickness at the top of the stem.")]
         public virtual double ThicknessTop { get; set; } = 0.0;
