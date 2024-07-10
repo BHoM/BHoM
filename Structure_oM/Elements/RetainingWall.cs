@@ -8,7 +8,7 @@ using BH.oM.Structure.Reinforcement;
 
 namespace BH.oM.Structure.Elements
 {
-    public class RetainingWall : BHoMObject //Question if this should be a bhomobject or a compisiteobject. Cant be both. 
+    public class RetainingWall : BHoMObject, IElementM //Question if this should be a bhomobject or a compisiteobject. Cant be both. 
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -35,8 +35,9 @@ namespace BH.oM.Structure.Elements
         [Description("Angle of retention between wall and ground. Measured at top of wall in degrees.")] //Does BHoM have convetion for using radians or degrees. Double check this 
         public virtual double RetentionAngle { get; set; } = 0.0;
 
-        [Description("Rebar intent")] //This should possibly be divided out to the diff retaining wall sub-objects feeding in... 
-        public virtual IRebarIntent RebarIntent { get; set; } = null;
+        //This should maybe handled as a fragment of rebardensity instead
+        //[Description("Rebar intent")] //This should possibly be divided out to the diff retaining wall sub-objects feeding in... 
+        //public virtual IRebarIntent RebarIntent { get; set; } = null;
 
 
         /***************************************************/
