@@ -7,7 +7,7 @@ using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.Elements
 {
-    public class BaseToe : BHoMObject, IElement2D
+    public class BaseToe : BHoMObject, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
