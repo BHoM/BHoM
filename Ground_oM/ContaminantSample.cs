@@ -30,6 +30,7 @@ using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Base.Attributes;
 using BH.oM.Base.Attributes.Enums;
+using System;
 
 namespace BH.oM.Ground
 {
@@ -51,11 +52,14 @@ namespace BH.oM.Ground
         public virtual string Chemical { get; set; }
 
         [MassFraction]
-        [Description("The amount of the chemical present (ERES_RVAL).")]
+        [Description("The amount of the chemical present (ERES_RTXT).")]
         public virtual double Result { get; set; }
 
         [Description("The type of sample (SAMP_TYPE).")]
         public virtual string Type { get; set; }
+
+        [Description("The quantity of the Result as a QuantityType such as Concentration, Molality, Molarity.")]
+        public virtual Type ResultQuantity { get; set; }
 
         [Description("A list of different properties including references, tests, analysis, results and detection.")]
         public virtual List<IContaminantProperty> ContaminantProperties { get; set; }
