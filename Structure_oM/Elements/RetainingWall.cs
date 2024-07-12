@@ -16,7 +16,7 @@ namespace BH.oM.Structure.Elements
         public virtual Stem Stem { get; set; } = new Stem();
 
         [Description("RetainingWallToe object defining the toe of the base.")]
-        public virtual RTBase RTBase { get; set; } = new RTBase();
+        public virtual Footing Footing { get; set; } = new Footing();
 
         [Description("The retained height of the wall. From Ground to top of wall.")] // Definition of this number. Where does it measure from. 
         public virtual double RetainedHeight { get; set; } = 0.0;

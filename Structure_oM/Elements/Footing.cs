@@ -8,7 +8,7 @@ using BH.oM.Structure.SurfaceProperties;
 
 namespace BH.oM.Structure.Elements
 {
-    public class RTBase : BHoMObject, IElement2D, IElementM
+    public class Footing : BHoMObject, IElement2D, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
