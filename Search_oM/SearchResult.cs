@@ -51,7 +51,7 @@ namespace BH.oM.Search
         /****            Constructor                    ****/
         /***************************************************/
 
-        public SearchResult(T result, int score, int index)
+        public SearchResult(T result, double score, int index)
         {
             Result = result;
             Score = score;
