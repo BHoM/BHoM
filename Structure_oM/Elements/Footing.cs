@@ -14,7 +14,7 @@ namespace BH.oM.Structure.Elements
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("RetainingWallStem object defining the stem.")]
+        [Description("Planar curve defining the edges at the bottom of the footing.")]
         public virtual PolyCurve Outline { get; set; } = null;
 
         [Description("Defines the thickness property and material of the Base.")]
