@@ -27,7 +27,8 @@ namespace BH.oM.Structure.Elements
         [Description("The distance from the base of the Footing to ground water level.")]
         public virtual double GroundWaterDepth { get; set; } = 0.0;
 
-        [Description("Angle of retention between wall and ground. Measured at top of wall in radians.")] 
+        [Angle]
+        [Description("A property of the material being retained measured from the horizontal plane.")] 
         public virtual double RetentionAngle { get; set; } = 0.0;
 
         /***************************************************/
