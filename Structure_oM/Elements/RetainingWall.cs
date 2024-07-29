@@ -18,7 +18,7 @@ namespace BH.oM.Structure.Elements
         [Description("Footing of the retaining wall.")]
         public virtual Footing Footing { get; set; } = new Footing();
 
-        [Description("The retained height of the wall. From Ground to top of wall.")] // Definition of this number. Where does it measure from. 
+        [Description("The retained height of soil measured from the bottom of the wall Footing.")]
         public virtual double RetainedHeight { get; set; } = 0.0;
 
         [Description("Shortest distance from top of footing to surfacelevel.")]
