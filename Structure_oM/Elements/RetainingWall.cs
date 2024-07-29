@@ -24,8 +24,8 @@ namespace BH.oM.Structure.Elements
         [Description("The distance from top of Footing to finished floor level on the exposed face.")]
         public virtual double CoverDepth { get; set; } = 0.0;
 
-        [Description("Shortest distance from bottom of footing to ground water level.")] // Should this number be subjective to the object or objective. Distance to or a objevtive elevation from datum/sealevel??
-        public virtual double GroundWaterLevel { get; set; } = 0.0;
+        [Description("The distance from the base of the Footing to ground water level.")]
+        public virtual double GroundWaterDepth { get; set; } = 0.0;
 
         [Description("Angle of retention between wall and ground. Measured at top of wall in radians.")] 
         public virtual double RetentionAngle { get; set; } = 0.0;
