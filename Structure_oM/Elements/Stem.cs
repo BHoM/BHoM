@@ -19,7 +19,7 @@ namespace BH.oM.Structure.Elements
         [Description("Thickness at the top of the stem.")]
         public virtual double ThicknessTop { get; set; } = 0.0;
 
-        [Description("Thickness at the footing of the stem.")]
+        [Description("Thickness at the bottom of the stem.")]
         public virtual double ThicknessBottom { get; set; } = 0.0;
 
         [Description("Vector denoting the normal out of the retained plane.")]
