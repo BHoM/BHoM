@@ -25,6 +25,7 @@ using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Elements
 {
