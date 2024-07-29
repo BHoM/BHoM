@@ -22,8 +22,8 @@ namespace BH.oM.Structure.Elements
         [Description("Thickness at the bottom of the stem.")]
         public virtual double ThicknessBottom { get; set; } = 0.0;
 
-        [Description("Vector denoting the normal out of the retained plane.")]
-        public virtual Vector Orientation { get; set; } = null;
+        [Description("Normal to the surface of the stem denoting the direction of the retained face.")]
+        public virtual Vector Normal { get; set; } = null;
 
         [Description("Structural material of the property.")]
         public virtual IMaterialFragment Material { get; set; } = null;
