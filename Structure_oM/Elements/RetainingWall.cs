@@ -42,10 +42,10 @@ namespace BH.oM.Structure.Elements
         public virtual PadFoundation Footing { get; set; } = new PadFoundation();
 
         [Description("The retained height of soil measured from the bottom of the wall Footing.")]
-        public virtual double RetainedHeight { get; set; } = 0.0;
+        public virtual double RetainedHeight { get; set; }
 
         [Description("The distance from top of Footing to finished floor level on the exposed face.")]
-        public virtual double CoverDepth { get; set; } = 0.0;
+        public virtual double CoverDepth { get; set; }
 
         [Description("The distance from the base of the Footing to ground water level.")]
         public virtual double GroundWaterDepth { get; set; } = 0.0;

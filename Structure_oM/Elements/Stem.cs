@@ -36,16 +36,16 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("Planar curve defining the edges at center of the stem.")]
-        public virtual PolyCurve Outline { get; set; } = null;
+        public virtual PolyCurve Outline { get; set; }
 
         [Description("Thickness at the top of the stem.")]
-        public virtual double ThicknessTop { get; set; } = 0.0;
+        public virtual double ThicknessTop { get; set; }
 
         [Description("Thickness at the bottom of the stem.")]
-        public virtual double ThicknessBottom { get; set; } = 0.0;
+        public virtual double ThicknessBottom { get; set; }
 
         [Description("Normal to the surface of the stem denoting the direction of the retained face.")]
-        public virtual Vector Normal { get; set; } = null;
+        public virtual Vector Normal { get; set; }
 
         [Description("Structural material of the property.")]
         public virtual IMaterialFragment Material { get; set; } = null;
