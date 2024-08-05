@@ -47,12 +47,12 @@ namespace BH.oM.Structure.Elements
         [Description("The distance from top of Footing to finished floor level on the exposed face.")]
         public virtual double CoverDepth { get; set; }
 
+        [Angle]
+        [Description("A property of the material being retained measured from the horizontal plane.")]
+        public virtual double RetentionAngle { get; set; }
+
         [Description("The distance from the base of the Footing to ground water level.")]
         public virtual double GroundWaterDepth { get; set; } = 0.0;
-
-        [Angle]
-        [Description("A property of the material being retained measured from the horizontal plane.")] 
-        public virtual double RetentionAngle { get; set; } = 0.0;
 
         /***************************************************/
     }
