@@ -48,7 +48,7 @@ namespace BH.oM.Structure.Elements
         public virtual Vector Normal { get; set; }
 
         [Description("Structural material of the property.")]
-        public virtual IMaterialFragment Material { get; set; } = null;
+        public virtual IMaterialFragment Material { get; set; }
 
 
         /***************************************************/
