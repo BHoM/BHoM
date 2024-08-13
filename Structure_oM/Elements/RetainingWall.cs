@@ -36,10 +36,10 @@ namespace BH.oM.Structure.Elements
         /***************************************************/
 
         [Description("Stem of the retaining wall.")]
-        public virtual Stem Stem { get; set; } = new Stem();
+        public virtual Stem Stem { get; set; }
 
         [Description("Footing of the retaining wall.")]
-        public virtual PadFoundation Footing { get; set; } = new PadFoundation();
+        public virtual PadFoundation Footing { get; set; }
 
         [Description("The retained height of soil measured from the bottom of the wall Footing.")]
         public virtual double RetainedHeight { get; set; }
