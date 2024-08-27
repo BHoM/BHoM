@@ -22,6 +22,8 @@
 
 using System;
 using System.ComponentModel;
+using BH.oM.Analytical;
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
@@ -29,22 +31,22 @@ using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.Elements
 {
-    public class Stem : BHoMObject, IElement2D, IElementM
+    public class Stem : BHoMObject, IRegion, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Planar curve defining the edges at center of the stem.")]
-        public virtual PolyCurve Outline { get; set; }
+        [Description("Planar curve defining the edges at center of the Stem.")]
+        public virtual ICurve Perimeter { get; set; }
 
-        [Description("Thickness at the top of the stem.")]
+        [Description("Thickness at the top of the Stem.")]
         public virtual double ThicknessTop { get; set; }
 
-        [Description("Thickness at the bottom of the stem.")]
+        [Description("Thickness at the bottom of the Stem.")]
         public virtual double ThicknessBottom { get; set; }
 
-        [Description("Normal to the surface of the stem denoting the direction of the retained face.")]
+        [Description("Normal to the surface of the Stem denoting the direction of the retained face.")]
         public virtual Vector Normal { get; set; }
 
         [Description("Structural material of the property.")]
