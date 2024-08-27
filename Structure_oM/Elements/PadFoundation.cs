@@ -27,14 +27,15 @@ using BH.oM.Geometry;
 using BH.oM.Structure.SurfaceProperties;
 using BH.oM.Dimensional;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Analytical.Elements;
 
 namespace BH.oM.Structure.Elements
 {
     [Description("2D element representing a pad foundation for structural analysis. The PadFoundation is a planar surface object defined by edges and an ISurfaceProperty.")]
-    public class PadFoundation : BHoMObject, IFoundation, IAreaElement, IElement2D, IElementM
+    public class PadFoundation : BHoMObject, IFoundation, IAreaElement, IRegion, IElementM
     {
         [Description("The edges used to define the outline of the pad at the top of the foundation.")]
-        public virtual PolyCurve TopOutline { get; set; }
+        public virtual ICurve Perimeter { get; set; }
 
         [Description("Defines the thickness property and material of the PadFoundation.")]
         public virtual ISurfaceProperty Property { get; set; } = null;
