@@ -1,0 +1,27 @@
+﻿{
+    "Namespace": {
+        "ToNew": {
+        },
+    "ToOld": {
+        }
+    },
+  "Type": {
+        "ToNew": {
+
+        },
+    "ToOld": {
+        }
+    },
+  "Property": {
+    "ToNew": {
+      "BH.oM.Structure.Elements.PadFoundation.TopOutline" :  "Perimeter"
+    },
+    "ToOld": {
+      "Perimeter": "BH.oM.Structure.Elements.PadFoundation.TopOutline"
+    }
+    },
+  "MessageForDeleted": {
+    },
+  "MessageForNoUpgrade": {
+    }
+}
