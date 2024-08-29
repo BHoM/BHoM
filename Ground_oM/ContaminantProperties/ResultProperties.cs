@@ -39,6 +39,9 @@ namespace BH.oM.Ground
         [Description("The result type for the contaminant sample (ERES_RTCD).")]
         public virtual string Type { get; set; } = "";
 
+        [Description("The interepreted qualifier that shows whether a Result was lower than a detection threshold (ERES_IQLF).")]
+        public virtual string Qualifier { get; set; } = "";
+
         [Description("Is the result reportable (ERES_RRES).")]
         public virtual bool Reportable { get; set; } = false;
 
