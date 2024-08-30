@@ -14,10 +14,10 @@
     },
   "Property": {
     "ToNew": {
-      "BH.oM.Structure.Elements.PadFoundation.TopOutline" :  "Perimeter"
+      "BH.oM.Structure.Elements.PadFoundation.TopOutline": "BH.oM.Structure.Elements.PadFoundation.Perimeter"
     },
     "ToOld": {
-      "Perimeter": "BH.oM.Structure.Elements.PadFoundation.TopOutline"
+      "BH.oM.Structure.Elements.PadFoundation.Perimeter": "BH.oM.Structure.Elements.PadFoundation.TopOutline"
     }
     },
   "MessageForDeleted": {
