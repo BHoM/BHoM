@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -20,51 +20,40 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-
+using System;
 using System.ComponentModel;
-using System.Collections.Generic;
+using BH.oM.Analytical;
+using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
-using BH.oM.Geometry.CoordinateSystem;
-using BH.oM.Quantities.Attributes;
-using BH.oM.Base.Attributes;
-using BH.oM.Base.Attributes.Enums;
-using System;
+using BH.oM.Structure.MaterialFragments;
 
-namespace BH.oM.Ground
+namespace BH.oM.Structure.Elements
 {
-
-    [Description("A representation of a contaminant sample defined by the depth of the sample, the chemical code and name based on the AGS schema.")]
-    public class ContaminantSample : BHoMObject
+    public class Stem : BHoMObject, IRegion, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
-        public virtual string Id { get; set; }
 
-        [Length]
-        [Description("Depth to the top of the sample, measured from the top of the borehole (SAMP_TOP).")]
-        public virtual double Top { get; set; }
+        [Description("Planar curve defining the edges at center of the Stem.")]
+        public virtual ICurve Perimeter { get; set; }
 
-        [Description("Chemical code for the contaminant (ERES_CODE).")]
-        public virtual string Chemical { get; set; }
+        [Description("Thickness at the top of the Stem.")]
+        public virtual double ThicknessTop { get; set; }
 
-        [MassFraction]
-        [Description("The amount of the chemical present (ERES_RTXT).")]
-        public virtual double Result { get; set; }
+        [Description("Thickness at the bottom of the Stem.")]
+        public virtual double ThicknessBottom { get; set; }
 
-        [Description("The type of sample (SAMP_TYPE).")]
-        public virtual string Type { get; set; }
+        [Description("Normal to the surface of the Stem denoting the direction of the retained face.")]
+        public virtual Vector Normal { get; set; }
 
-        [Description("The quantity of the Result as a QuantityType such as Concentration, Molality, Molarity.")]
-        public virtual Type ResultQuantity { get; set; }
-
-        [Description("A list of different properties including references, tests, analysis, results and detection.")]
-        public virtual List<IContaminantProperty> ContaminantProperties { get; set; }
+        [Description("Structural material of the property.")]
+        public virtual IMaterialFragment Material { get; set; }
 
 
         /***************************************************/
+
     }
 }

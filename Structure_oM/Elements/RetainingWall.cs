@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -20,50 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-
+using System;
 using System.ComponentModel;
-using System.Collections.Generic;
 using BH.oM.Base;
 using BH.oM.Dimensional;
 using BH.oM.Geometry;
-using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Base.Attributes;
-using BH.oM.Base.Attributes.Enums;
-using System;
 
-namespace BH.oM.Ground
+namespace BH.oM.Structure.Elements
 {
-
-    [Description("A representation of a contaminant sample defined by the depth of the sample, the chemical code and name based on the AGS schema.")]
-    public class ContaminantSample : BHoMObject
+    public class RetainingWall : BHoMObject, IElementM
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
-        public virtual string Id { get; set; }
 
-        [Length]
-        [Description("Depth to the top of the sample, measured from the top of the borehole (SAMP_TOP).")]
-        public virtual double Top { get; set; }
+        [Description("Stem of the retaining wall.")]
+        public virtual Stem Stem { get; set; }
 
-        [Description("Chemical code for the contaminant (ERES_CODE).")]
-        public virtual string Chemical { get; set; }
+        [Description("Footing of the retaining wall.")]
+        public virtual PadFoundation Footing { get; set; }
 
-        [MassFraction]
-        [Description("The amount of the chemical present (ERES_RTXT).")]
-        public virtual double Result { get; set; }
+        [Description("The retained height of soil measured from the bottom of the wall Footing.")]
+        public virtual double RetainedHeight { get; set; }
 
-        [Description("The type of sample (SAMP_TYPE).")]
-        public virtual string Type { get; set; }
+        [Description("The distance from top of Footing to finished floor level on the exposed face.")]
+        public virtual double CoverDepth { get; set; }
 
-        [Description("The quantity of the Result as a QuantityType such as Concentration, Molality, Molarity.")]
-        public virtual Type ResultQuantity { get; set; }
+        [Angle]
+        [Description("A property of the material being retained measured from the horizontal plane.")]
+        public virtual double RetentionAngle { get; set; }
 
-        [Description("A list of different properties including references, tests, analysis, results and detection.")]
-        public virtual List<IContaminantProperty> ContaminantProperties { get; set; }
-
+        [Description("The distance from the base of the Footing to ground water level.")]
+        public virtual double GroundWaterDepth { get; set; } = 0.0;
 
         /***************************************************/
     }

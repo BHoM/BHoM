@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -21,37 +21,15 @@
  */
 
 
-using System;
-using System.ComponentModel;
-using System.Collections.Generic;
 using BH.oM.Base;
+using System.ComponentModel;
 
-namespace BH.oM.Ground
+namespace BH.oM.Test.Adapter
 {
-
-    [Description("Properties related to the results based on the tests of the contaminant.")]
-    public class ResultProperties : BHoMObject, IContaminantProperty
+    [Description("Class to use for tests requiring an IAdapterId to be assigned to objects being tested.")]
+    internal class TestAdapterId : IAdapterId
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [Description("The result type for the contaminant sample (ERES_RTCD).")]
-        public virtual string Type { get; set; } = "";
-
-        [Description("The interepreted qualifier that shows whether a Result was lower than a detection threshold (ERES_IQLF).")]
-        public virtual string Qualifier { get; set; } = "";
-
-        [Description("Is the result reportable (ERES_RRES).")]
-        public virtual bool Reportable { get; set; } = false;
-
-        [Description("Detect flag (ERES_DETF).")]
-        public virtual bool DetectFlag { get; set; } = false;
-
-        [Description("Is the contaminant sample organic (ERES_ORG).")]
-        public virtual bool Organic { get; set; } = false;
-
-
-        /***************************************************/
+        [Description("The Id of the object to use for the test.")]
+        public virtual object Id { get; set; }
     }
 }
