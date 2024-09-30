@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Results
 {
     [Description("Story Drift for a given Load Case or Load Combination.")]
-    public class StoryDrifts : StructuralGlobalResult, IImmutable, IResultItem
+    public class StoryDrift : StructuralGlobalResult, IImmutable, IResultItem
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -51,7 +51,7 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public StoryDrifts(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, string story, string direction, double drift) :
+        public StoryDrift(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, string story, string direction, double drift) :
             base(objectId, resultCase, modeNumber, timeStep)
         {
             Story = story;
