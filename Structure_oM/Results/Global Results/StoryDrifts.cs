@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Results
 {
     [Description("Story Drift for a given Load Case or Load Combination.")]
-    public abstract class StoryDrifts : StructuralGlobalResult, IImmutable, IResultItem
+    public class StoryDrifts : StructuralGlobalResult, IImmutable, IResultItem
     {
         /***************************************************/
         /**** Properties                                ****/
