@@ -35,6 +35,9 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("The Type that the IEnvironmentalMetricsProvider is based on.")]
+        EPDType Type { get; set; }
+
         [Description("An Environmental Metric to describe the type and quantity of a specified metric. These metrics are used in all LCA calculations.")]
         List<EnvironmentalMetric> EnvironmentalMetrics { get; set; }
 
