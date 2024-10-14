@@ -35,9 +35,6 @@ namespace BH.oM.Geometry
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("If true, arc segments of a PolyCurve will be extend by a tangent line, if false - by arc.")]
-        public virtual bool TangentExtensions { get; set; } = false;
-
         [Description("If true segments shorter than tolerance are removed. Only applicable for polyline offsets. Defaults to true.")]
         public virtual bool RemoveShortSegments { get; set;} = true;
 
