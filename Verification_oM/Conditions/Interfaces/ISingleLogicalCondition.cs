@@ -15,7 +15,4 @@ namespace BH.oM.Verification.Conditions
 
         /***************************************************/
     }
-
-    {
-    }
 }

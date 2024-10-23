@@ -15,7 +15,7 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public SingleLogicalConditionResult(ISingleLogicalCondition condition, bool? passes, IConditionResult result) : base(condition, passes)
+        public SingleLogicalConditionResult(/*ISingleLogicalCondition condition,*/ bool? passes, IConditionResult result) : base(/*condition,*/ passes)
         {
             Result = result;
         }

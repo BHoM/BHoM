@@ -16,7 +16,7 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public FormulaConditionResult(FormulaCondition condition, bool? passes, Dictionary<string, double> components) : base(condition, passes)
+        public FormulaConditionResult(/*FormulaCondition condition,*/ bool? passes, Dictionary<string, double> components) : base(/*condition,*/ passes)
         {
             Components = components;
         }

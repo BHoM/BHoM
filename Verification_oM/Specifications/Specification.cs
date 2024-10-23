@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Verification.Specifications
 {
-    public class Specification : ISpecification
+    public class Specification : BHoMObject, ISpecification
     {
         /***************************************************/
         /****                Properties                 ****/
@@ -36,9 +36,6 @@ namespace BH.oM.Verification.Specifications
 
         [Description("Unique identifier to reference the Specification within a set.")]
         public virtual string Clause { get; set; }
-
-        [Description("Specification name.")]
-        public virtual string Name { get; set; }
 
         public virtual string Description { get; set; }
 

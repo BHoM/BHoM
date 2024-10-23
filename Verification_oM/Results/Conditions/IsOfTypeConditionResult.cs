@@ -16,7 +16,7 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public IsOfTypeConditionResult(IsOfType condition, bool? passes, Type extractedType) : base(condition, passes)
+        public IsOfTypeConditionResult(/*IsOfType condition,*/ bool? passes, Type extractedType) : base(/*condition,*/ passes)
         {
             ExtractedType = extractedType;
         }

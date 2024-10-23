@@ -15,9 +15,11 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public ValueConditionResult(IValueCondition condition, bool? passes, object extractedValue) : base(condition, passes)
+        public ValueConditionResult(/*IValueCondition condition,*/ bool? passes, object extractedValue) : base(/*condition,*/ passes)
         {
             ExtractedValue = extractedValue;
         }
+
+        /***************************************************/
     }
 }

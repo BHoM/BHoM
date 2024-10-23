@@ -8,7 +8,7 @@ namespace BH.oM.Verification.Results
         /****                Properties                 ****/
         /***************************************************/
 
-        public virtual ICondition Condition { get; } = null;
+        //public virtual ICondition Condition { get; } = null;
 
         public virtual bool? Passed { get; } = false;
 
@@ -17,9 +17,9 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public BaseConditionResult(ICondition condition, bool? passed)
+        public BaseConditionResult(/*ICondition condition,*/ bool? passed)
         {
-            Condition = condition;
+            //Condition = condition;
             Passed = passed;
         }
 

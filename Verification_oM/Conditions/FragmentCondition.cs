@@ -29,7 +29,7 @@ namespace BH.oM.Verification.Conditions
     public class FragmentCondition : BaseCondition
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /****                Properties                 ****/
         /***************************************************/
 
         [Description("Type of the Fragment that, if found on the object, needs to satisfy the below Condition.")]

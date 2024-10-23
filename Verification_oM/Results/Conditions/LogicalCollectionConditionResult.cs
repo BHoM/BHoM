@@ -16,7 +16,7 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public LogicalCollectionConditionResult(ILogicalCollectionCondition condition, bool? passes, List<IConditionResult> results) : base(condition, passes)
+        public LogicalCollectionConditionResult(/*ILogicalCollectionCondition condition,*/ bool? passes, List<IConditionResult> results) : base(/*condition,*/ passes)
         {
             Results = results;
         }

@@ -28,7 +28,7 @@ namespace BH.oM.Verification.Conditions
         /****                Properties                 ****/
         /***************************************************/
 
-        public virtual ValueNullConditions NullCondition { get; set; } = ValueNullConditions.MustBeNotNull;
+        public virtual NullValueCondition NullCondition { get; set; } = NullValueCondition.MustBeNotNull;
 
         /***************************************************/
     }

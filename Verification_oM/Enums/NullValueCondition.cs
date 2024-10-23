@@ -22,7 +22,7 @@
 
 namespace BH.oM.Verification
 {
-    public enum ValueNullCondition
+    public enum NullValueCondition
     {
         MustBeNotNull,
         MustBeNull

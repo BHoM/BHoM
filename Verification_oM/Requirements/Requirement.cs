@@ -20,20 +20,17 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using BH.oM.Data.Library;
 using BH.oM.Verification.Conditions;
 using System.ComponentModel;
 
 namespace BH.oM.Verification.Requirements
 {
-    //[Description("Base abstract class in common to all Conditions.")]
-    public class Requirement : IRequirement //: BaseRequirement
+    public class Requirement : BHoMObject, IRequirement
     {
-        [Description("Unique identifier to reference the Condition within a set.")]
+        [Description("Unique identifier to reference the Requirement within a set.")]
         public virtual string Clause { get; set; }
-
-        [Description("Name given to this Condition.")]
-        public virtual string Name { get; set; }
 
         [Description("Source material for this Condition. E.g. Codes, best practices, guidelines, etc.")]
         public virtual Source Source { get; set; }
