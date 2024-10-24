@@ -9,8 +9,6 @@ namespace BH.oM.Verification.Results
         /****                Properties                 ****/
         /***************************************************/
 
-        //ICondition Condition { get; }
-
         bool? Passed { get; }
 
         /***************************************************/

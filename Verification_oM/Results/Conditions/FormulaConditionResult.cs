@@ -1,23 +1,24 @@
-﻿using BH.oM.Verification.Conditions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace BH.oM.Verification.Results
 {
-    public class FormulaConditionResult : BaseConditionResult
+    public class FormulaConditionResult
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
 
-        public Dictionary<string, double> Components { get; } = new Dictionary<string, double>();
+        public virtual bool? Passed { get; } = false;
 
+        public Dictionary<string, double> Components { get; } = new Dictionary<string, double>();
 
         /***************************************************/
         /****                Constructor                ****/
         /***************************************************/
 
-        public FormulaConditionResult(/*FormulaCondition condition,*/ bool? passes, Dictionary<string, double> components) : base(/*condition,*/ passes)
+        public FormulaConditionResult(bool? passed, Dictionary<string, double> components)
         {
+            Passed = passed;
             Components = components;
         }
 

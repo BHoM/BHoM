@@ -39,7 +39,7 @@ namespace BH.oM.Verification.Results
         public virtual IComparable RequirementId { get; }
 
         //[Description("The objects that passed the condition.")]
-        public virtual IComparable VerifiedObjectId { get; }
+        public virtual IComparable ObjectId { get; }
 
         public virtual IConditionResult VerificationResult { get; }
 
@@ -51,7 +51,7 @@ namespace BH.oM.Verification.Results
         public RequirementResult(IComparable requirementId, IComparable verifiedObjectId, IConditionResult verificationResult)
         {
             RequirementId = requirementId;
-            VerifiedObjectId = verifiedObjectId;
+            ObjectId = verifiedObjectId;
             VerificationResult = verificationResult;
         }
 

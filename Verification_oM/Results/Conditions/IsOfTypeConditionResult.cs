@@ -3,11 +3,13 @@ using System;
 
 namespace BH.oM.Verification.Results
 {
-    public class IsOfTypeConditionResult : BaseConditionResult
+    public class IsOfTypeConditionResult
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
+
+        public virtual bool? Passed { get; } = false;
 
         public virtual Type ExtractedType { get; } = null;
 
@@ -16,8 +18,9 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public IsOfTypeConditionResult(/*IsOfType condition,*/ bool? passes, Type extractedType) : base(/*condition,*/ passes)
+        public IsOfTypeConditionResult(bool? passed, Type extractedType)
         {
+            Passed = passed;
             ExtractedType = extractedType;
         }
 

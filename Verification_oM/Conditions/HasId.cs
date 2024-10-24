@@ -25,11 +25,13 @@ using System.Linq;
 
 namespace BH.oM.Verification.Conditions
 {
-    public class HasId : BaseValueCondition
+    public class HasId : ICondition
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
+
+        public virtual IValueSource ValueSource { get; set; } = null;
 
         public virtual List<object> Ids { get; set; } = null;
 

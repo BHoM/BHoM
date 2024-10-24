@@ -29,22 +29,22 @@ namespace BH.oM.Verification.Requirements
 {
     public class Requirement : BHoMObject, IRequirement
     {
-        [Description("Unique identifier to reference the Requirement within a set.")]
+        //[Description("Unique identifier to reference the Requirement within a set.")]
         public virtual string Clause { get; set; }
 
-        [Description("Source material for this Condition. E.g. Codes, best practices, guidelines, etc.")]
+        //[Description("Source material for this Condition. E.g. Codes, best practices, guidelines, etc.")]
         public virtual Source Source { get; set; }
 
-        [Description("Any additional notes.")]
+        //[Description("Any additional notes.")]
         public virtual string Comment { get; set; }
 
-        [Description("Human-readable message explaining what does the failure mean to the user.")]
+        //[Description("Human-readable message explaining what does the failure mean to the user.")]
         public virtual string FailureMessage { get; set; }
 
-        [Description("Severity of condition failure, originating from the concept that not all conditions are necessarily errors.")]
+        //[Description("Severity of condition failure, originating from the concept that not all conditions are necessarily errors.")]
         public virtual FailureSeverity Severity { get; set; } = FailureSeverity.Error;
 
-        public ICondition Condition { get; set; } = null;
+        public virtual ICondition Condition { get; set; } = null;
     }
 }
 

@@ -20,12 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Verification
+namespace BH.oM.Verification.Conditions
 {
-    public enum NullValueCondition
+    public class IsNotNull : ICondition
     {
-        MustBeNotNull,
-        MustBeNull
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        /***************************************************/
     }
 }
+
 

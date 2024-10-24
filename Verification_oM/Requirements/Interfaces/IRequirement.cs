@@ -26,15 +26,15 @@ using System.ComponentModel;
 
 namespace BH.oM.Verification.Requirements
 {
-    public interface IRequirement : IObject
+    public interface IRequirement : IBHoMObject
     {
-        [Description("Unique identifier to reference the Condition within a set.")]
+        //[Description("Unique identifier to reference the Condition within a set.")]
         string Clause { get; set; }
 
-        [Description("Name given to this Condition.")]
-        string Name { get; set; }
+        //[Description("Name given to this Condition.")]
+        //string Name { get; set; }
 
-        [Description("Source material for this Condition. E.g. Codes, best practices, guidelines, etc.")]
+        //[Description("Source material for this Condition. E.g. Codes, best practices, guidelines, etc.")]
         Source Source { get; set; }
 
         [Description("Any additional notes.")]

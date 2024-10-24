@@ -26,11 +26,13 @@ using System.ComponentModel;
 namespace BH.oM.Verification.Conditions
 {
     [Description("Identifies a Condition that verifies if a Property of the object is within a certain domain (range).")]
-    public class IsInDomain : BaseValueCondition
+    public class IsInDomain : ICondition
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
+
+        public virtual IValueSource ValueSource { get; set; } = null;
 
         [Description("Reference Value that the property value should be compared to.")]
         public virtual Domain Domain { get; set; }

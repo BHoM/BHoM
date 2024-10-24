@@ -11,6 +11,7 @@ namespace BH.oM.Verification.Conditions
         /****                Properties                 ****/
         /***************************************************/
 
+        //TODO: write explicitly that it also calls methods and looks at fragments (??)
         public virtual string PropertyName { get; set; } = "";
 
         /***************************************************/

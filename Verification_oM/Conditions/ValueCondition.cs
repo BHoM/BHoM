@@ -1,18 +1,14 @@
-﻿using BH.oM.Base;
-using BH.oM.Data.Library;
-using BH.oM.Verification.Conditions;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace BH.oM.Verification.Conditions
 {
-    public class ValueCondition : BaseValueCondition
+    public class ValueCondition : ICondition
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
+
+        public virtual IValueSource ValueSource { get; set; } = null;
 
         [Description("Reference Value that the property value should be compared to." +
             "\nIt can be a number, or a DateTime (e.g. ± 1 day), or anything comparable.")]

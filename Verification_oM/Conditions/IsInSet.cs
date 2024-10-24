@@ -28,11 +28,13 @@ using System.Linq;
 namespace BH.oM.Verification.Conditions
 {
     [Description("Condition that verifies if a Property of the object is included in the given set of values.")]
-    public class IsInSet : BaseValueCondition
+    public class IsInSet : ICondition
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
+
+        public virtual IValueSource ValueSource { get; set; } = null;
 
         [Description("Set of values that the value should be compared to.")]
         public List<object> Set { get; set; }
