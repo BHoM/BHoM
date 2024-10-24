@@ -29,7 +29,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Storey Drift (relative lateral displacement between consecutive floors) for a given Load Case or Load Combination.")]
+    [Description("The relative lateral displacement between consecutive floors.")]
     public class StoreyDrift : StructuralGlobalResult, IImmutable, IResultItem
     {
         /***************************************************/
