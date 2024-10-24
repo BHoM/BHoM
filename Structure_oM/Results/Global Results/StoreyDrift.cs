@@ -43,7 +43,7 @@ namespace BH.oM.Structure.Results
         public virtual string Direction { get; }
 
         [Ratio]
-        [Description("Drift ratio (ratio between the storey drift and the storey height).")]
+        [Description("Ratio between the storey drift and the storey height.")]
         public virtual double Drift { get; }
 
 
