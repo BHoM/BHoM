@@ -27,6 +27,7 @@ namespace BH.oM.Structure.Requests
         Reactions,
         ModalDynamics,
         ModalMassAndFrequency,
+        StoreyDrifts,
     }
 }
 
