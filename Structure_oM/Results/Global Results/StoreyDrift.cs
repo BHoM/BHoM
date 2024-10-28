@@ -22,6 +22,7 @@
 
 using System;
 using BH.oM.Base;
+using BH.oM.Geometry;
 using BH.oM.Analytical.Results;
 using BH.oM.Quantities.Attributes;
 using System.ComponentModel;
@@ -40,7 +41,7 @@ namespace BH.oM.Structure.Results
         public virtual string Storey { get; }
 
         [Description("Direction of the storey lateral displacement.")]
-        public virtual string Direction { get; }
+        public virtual Vector Direction { get; }
 
         [Ratio]
         [Description("Ratio between the storey drift and the storey height.")]
@@ -51,7 +52,7 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public StoreyDrift(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, string storey, string direction, double drift) :
+        public StoreyDrift(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, string storey, Vector direction, double drift) :
             base(objectId, resultCase, modeNumber, timeStep)
         {
             Storey = storey;
