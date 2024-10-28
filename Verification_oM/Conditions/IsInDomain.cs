@@ -26,7 +26,7 @@ using System.ComponentModel;
 namespace BH.oM.Verification.Conditions
 {
     [Description("Identifies a Condition that verifies if a Property of the object is within a certain domain (range).")]
-    public class IsInDomain : ICondition
+    public class IsInDomain : IValueCondition
     {
         /***************************************************/
         /****                Properties                 ****/

@@ -25,7 +25,7 @@ using System.Linq;
 
 namespace BH.oM.Verification.Conditions
 {
-    public class HasId : ICondition
+    public class HasId : IValueCondition
     {
         /***************************************************/
         /****                Properties                 ****/

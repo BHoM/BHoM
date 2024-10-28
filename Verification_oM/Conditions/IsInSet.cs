@@ -28,7 +28,7 @@ using System.Linq;
 namespace BH.oM.Verification.Conditions
 {
     [Description("Condition that verifies if a Property of the object is included in the given set of values.")]
-    public class IsInSet : ICondition
+    public class IsInSet : IValueCondition
     {
         /***************************************************/
         /****                Properties                 ****/

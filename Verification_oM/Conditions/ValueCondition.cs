@@ -2,7 +2,7 @@
 
 namespace BH.oM.Verification.Conditions
 {
-    public class ValueCondition : ICondition
+    public class ValueCondition : IValueCondition
     {
         /***************************************************/
         /****                Properties                 ****/

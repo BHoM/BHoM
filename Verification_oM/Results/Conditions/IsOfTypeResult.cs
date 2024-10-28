@@ -3,7 +3,7 @@ using System;
 
 namespace BH.oM.Verification.Results
 {
-    public class IsOfTypeConditionResult : IConditionResult
+    public class IsOfTypeResult : IConditionResult
     {
         /***************************************************/
         /****                Properties                 ****/
@@ -18,7 +18,7 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public IsOfTypeConditionResult(bool? passed, Type extractedType)
+        public IsOfTypeResult(bool? passed, Type extractedType)
         {
             Passed = passed;
             ExtractedType = extractedType;
