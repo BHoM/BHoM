@@ -25,7 +25,7 @@ using System.ComponentModel;
 namespace BH.oM.Verification.Conditions
 {
     [Description("Condition that verifies if an object is of the given System.Type.")]
-    public class IsOfType : BaseCondition
+    public class IsOfType : ICondition
     {
         /***************************************************/
         /****                Properties                 ****/

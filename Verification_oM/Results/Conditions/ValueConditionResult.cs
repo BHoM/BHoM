@@ -2,11 +2,13 @@
 
 namespace BH.oM.Verification.Results
 {
-    public class ValueConditionResult : BaseConditionResult
+    public class ValueConditionResult : IConditionResult
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
+
+        public virtual bool? Passed { get; } = false;
 
         public virtual object ExtractedValue { get; } = null;
 
@@ -15,8 +17,9 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public ValueConditionResult(/*IValueCondition condition,*/ bool? passes, object extractedValue) : base(/*condition,*/ passes)
+        public ValueConditionResult(bool? passed, object extractedValue)
         {
+            Passed = passed;
             ExtractedValue = extractedValue;
         }
 

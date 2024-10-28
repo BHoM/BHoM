@@ -2,7 +2,7 @@
 
 namespace BH.oM.Verification.Results
 {
-    public class FormulaConditionResult
+    public class FormulaConditionResult : IConditionResult
     {
         /***************************************************/
         /****                Properties                 ****/

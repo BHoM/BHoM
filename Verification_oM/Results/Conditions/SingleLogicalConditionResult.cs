@@ -2,11 +2,13 @@
 
 namespace BH.oM.Verification.Results
 {
-    public class SingleLogicalConditionResult : BaseConditionResult
+    public class SingleLogicalConditionResult : IConditionResult
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
+
+        public virtual bool? Passed { get; } = false;
 
         public virtual IConditionResult Result { get; set; } = null;
 
@@ -15,8 +17,9 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public SingleLogicalConditionResult(/*ISingleLogicalCondition condition,*/ bool? passes, IConditionResult result) : base(/*condition,*/ passes)
+        public SingleLogicalConditionResult(bool? passed, IConditionResult result)
         {
+            Passed = passed;
             Result = result;
         }
 

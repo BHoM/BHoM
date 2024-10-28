@@ -3,11 +3,13 @@ using System.Collections.Generic;
 
 namespace BH.oM.Verification.Results
 {
-    public class LogicalCollectionConditionResult : BaseConditionResult
+    public class LogicalCollectionConditionResult : IConditionResult
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
+
+        public virtual bool? Passed { get; } = false;
 
         public virtual List<IConditionResult> Results { get; } = new List<IConditionResult>();
 
@@ -16,8 +18,9 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public LogicalCollectionConditionResult(/*ILogicalCollectionCondition condition,*/ bool? passes, List<IConditionResult> results) : base(/*condition,*/ passes)
+        public LogicalCollectionConditionResult(bool? passed, List<IConditionResult> results)
         {
+            Passed = passed;
             Results = results;
         }
 

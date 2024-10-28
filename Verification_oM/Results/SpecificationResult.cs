@@ -25,6 +25,7 @@ using BH.oM.Verification.Conditions;
 using BH.oM.Verification.Requirements;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BH.oM.Verification.Results
 {
@@ -44,10 +45,10 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public SpecificationResult(ISpecification specification, List<RequirementResult> requirementResults)
+        public SpecificationResult(ISpecification specification, IEnumerable<RequirementResult> requirementResults)
         {
             Specification = specification;
-            RequirementResults = requirementResults;
+            RequirementResults = requirementResults.ToList();
         }
 
         /***************************************************/
