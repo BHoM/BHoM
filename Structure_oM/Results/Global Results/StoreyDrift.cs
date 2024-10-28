@@ -39,7 +39,7 @@ namespace BH.oM.Structure.Results
         [Description("Storey name.")]
         public virtual string Storey { get; }
 
-        [Description("Drift direction (direction of the storey lateral displacement).")]
+        [Description("Direction of the storey lateral displacement.")]
         public virtual string Direction { get; }
 
         [Ratio]
