@@ -23,6 +23,7 @@
 using BH.oM.Base;
 using BH.oM.Data.Library;
 using BH.oM.Verification.Conditions;
+using BH.oM.Verification.Reporting;
 using System.ComponentModel;
 
 namespace BH.oM.Verification.Requirements
@@ -45,6 +46,8 @@ namespace BH.oM.Verification.Requirements
         public virtual FailureSeverity Severity { get; set; } = FailureSeverity.Error;
 
         public virtual ICondition Condition { get; set; } = null;
+
+        public virtual IConditionReportingConfig ReportingConfig { get; set; } = null;
     }
 }
 
