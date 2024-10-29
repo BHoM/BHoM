@@ -10,7 +10,7 @@ namespace BH.oM.Verification.Reporting
         /****                Properties                 ****/
         /***************************************************/
 
-        public IConditionReportingConfig NestedConfig = null;
+        public IConditionReportingConfig NestedConfig { get; set; } = null;
 
         /***************************************************/
     }

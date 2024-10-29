@@ -11,7 +11,7 @@ namespace BH.oM.Verification.Reporting
         /****                Properties                 ****/
         /***************************************************/
 
-        public Dictionary<ICondition, IConditionReportingConfig> NestedConfigs = new Dictionary<ICondition, IConditionReportingConfig>();
+        public Dictionary<ICondition, IConditionReportingConfig> NestedConfigs { get; set; } = new Dictionary<ICondition, IConditionReportingConfig>();
 
         /***************************************************/
     }
