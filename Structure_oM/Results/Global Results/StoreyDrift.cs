@@ -52,12 +52,12 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public StoreyDrift(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, string storey, Vector direction, double drift) :
+        public StoreyDrift(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, string storey, Vector direction, double ratio) :
             base(objectId, resultCase, modeNumber, timeStep)
         {
             Storey = storey;
             Direction = direction;
-            Drift = drift;
+            Ratio = ratio;
         }
 
         /***************************************************/
