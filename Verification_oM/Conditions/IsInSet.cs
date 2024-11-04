@@ -37,10 +37,10 @@ namespace BH.oM.Verification.Conditions
         public virtual IValueSource ValueSource { get; set; } = null;
 
         [Description("Set of values that the value should be compared to.")]
-        public List<object> Set { get; set; }
+        public virtual List<object> Set { get; set; }
 
         [Description("Options as per how the comparison is computed.")]
-        public ComparisonConfig ComparisonConfig { get; set; }
+        public virtual ComparisonConfig ComparisonConfig { get; set; }
 
         /***************************************************/
     }
