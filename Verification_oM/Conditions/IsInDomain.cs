@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -25,23 +25,22 @@ using System.ComponentModel;
 
 namespace BH.oM.Verification.Conditions
 {
-    [Description("Identifies a Condition that verifies if a Property of the object is within a certain domain (range).")]
+    [Description("Condition that verifies if a value extracted from an object is within a certain domain (range).")]
     public class IsInDomain : IValueCondition
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
 
+        [Description("Object defining the source of a value to evaluate.")]
         public virtual IValueSource ValueSource { get; set; } = null;
 
-        [Description("Reference Value that the property value should be compared to.")]
+        [Description("Reference value that the extracted value is compared to.")]
         public virtual Domain Domain { get; set; }
 
-        [Description("If applicable, tolerance to be considered in the comparison.")]
+        [Description("If applicable, tolerance to be applied in the comparison.")]
         public virtual double Tolerance { get; set; }
 
         /***************************************************/
     }
 }
-
-

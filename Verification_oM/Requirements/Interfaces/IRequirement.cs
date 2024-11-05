@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -26,26 +26,28 @@ using System.ComponentModel;
 
 namespace BH.oM.Verification.Requirements
 {
+    [Description("Top interface for all kinds of Requirements.")]
     public interface IRequirement : IBHoMObject
     {
-        //[Description("Unique identifier to reference the Condition within a set.")]
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Human readable identifier to reference the Requirement.")]
         string Clause { get; set; }
 
-        //[Description("Name given to this Condition.")]
-        //string Name { get; set; }
-
-        //[Description("Source material for this Condition. E.g. Codes, best practices, guidelines, etc.")]
+        [Description("Source material for this Requirement. E.g. Codes, best practices, guidelines, etc.")]
         Source Source { get; set; }
 
         [Description("Any additional notes.")]
         string Comment { get; set; }
 
-        [Description("Human-readable message explaining what does the failure mean to the user.")]
+        [Description("General, human-readable message explaining what does the failure mean to the user.")]
         string FailureMessage { get; set; }
 
-        [Description("Severity of condition failure, originating from the concept that not all conditions are necessarily errors.")]
+        [Description("Severity of Requirement failure, originating from the concept that not all conditions are necessarily errors.")]
         FailureSeverity Severity { get; set; }
+
+        /***************************************************/
     }
 }
-
-

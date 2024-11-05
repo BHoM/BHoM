@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -24,31 +24,40 @@ using BH.oM.Base;
 using BH.oM.Data.Library;
 using BH.oM.Verification.Conditions;
 using BH.oM.Verification.Reporting;
+using BH.oM.Verification.Specifications;
 using System.ComponentModel;
 
 namespace BH.oM.Verification.Requirements
 {
+    [Description("Object representing a single, condition-based requirement to run against each object in a set filtered based on " + nameof(Specification) + "." +  nameof(Specification.Extraction) +
+                 "Also contains the config required to represent the verification results in a human friendly form.")]
     public class Requirement : BHoMObject, IRequirement
     {
-        //[Description("Unique identifier to reference the Requirement within a set.")]
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Human readable identifier to reference the Requirement.")]
         public virtual string Clause { get; set; }
 
-        //[Description("Source material for this Condition. E.g. Codes, best practices, guidelines, etc.")]
+        [Description("Source material for this Requirement. E.g. Codes, best practices, guidelines, etc.")]
         public virtual Source Source { get; set; }
 
-        //[Description("Any additional notes.")]
+        [Description("Any additional notes.")]
         public virtual string Comment { get; set; }
 
-        //[Description("Human-readable message explaining what does the failure mean to the user.")]
+        [Description("General, human-readable message explaining what does the failure mean to the user.")]
         public virtual string FailureMessage { get; set; }
 
-        //[Description("Severity of condition failure, originating from the concept that not all conditions are necessarily errors.")]
+        [Description("Severity of Requirement failure, originating from the concept that not all conditions are necessarily errors.")]
         public virtual FailureSeverity Severity { get; set; } = FailureSeverity.Error;
 
+        [Description("Condition to be met for an object to pass a Requirement.")]
         public virtual ICondition Condition { get; set; } = null;
 
+        [Description("Reporting config containing settings needed to present the verification results in a human friendly form.")]
         public virtual IConditionReportingConfig ReportingConfig { get; set; } = null;
+
+        /***************************************************/
     }
 }
-
-

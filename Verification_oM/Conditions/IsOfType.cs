@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -24,18 +24,16 @@ using System.ComponentModel;
 
 namespace BH.oM.Verification.Conditions
 {
-    [Description("Condition that verifies if an object is of the given System.Type.")]
+    [Description("Condition that verifies whether an object is of a given type.")]
     public class IsOfType : ICondition
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
 
-        [Description("Type specified as System.Type or FullName")]
+        [Description("Type specified as System.Type or string representing type full name.")]
         public virtual object Type { get; set; } = null;
 
         /***************************************************/
     }
 }
-
-

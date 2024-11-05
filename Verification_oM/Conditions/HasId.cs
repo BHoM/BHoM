@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,20 +21,20 @@
  */
 
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 
 namespace BH.oM.Verification.Conditions
 {
+    [Description("Condition that requires an object to own an AdapterId fragment with a given Id to be considered a pass.")]
     public class HasId : ICondition
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
 
-        public virtual List<object> Ids { get; set; } = null;
+        [Description("Collection of ids, one of which needs to be found among object's AdapterId.Id fragment properties for it to pass.")]
+        public virtual List<object> Ids { get; set; } = new List<object>();
 
         /***************************************************/
     }
 }
-
-

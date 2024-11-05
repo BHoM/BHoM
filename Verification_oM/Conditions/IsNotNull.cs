@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Verification.Conditions
 {
+    [Description("Condition that verifies whether an object is null.")]
     public class IsNotNull : ICondition
     {
         /***************************************************/
@@ -31,5 +34,3 @@ namespace BH.oM.Verification.Conditions
         /***************************************************/
     }
 }
-
-

@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -22,21 +22,19 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 
 namespace BH.oM.Verification.Conditions
 {
-    //[Description("Condition that is made by the combination of several conditions. Each condition is combined with a Boolean Operator to the others." +
-    //    "E.g. If AND is used, then the LogicalCondition will be considering a pass only if the object satisfies all the given Conditions.")]
+    [Description("Condition that contains a collection of nested conditions, of which at least one needs to be met for an object to be considered a pass.")]
     public class LogicalOrCondition : ILogicalCollectionCondition
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
 
+        [Description("A collection of conditions to be evaluated in combination.")]
         public virtual List<ICondition> Conditions { get; set; } = new List<ICondition>();
 
         /***************************************************/
     }
 }
-

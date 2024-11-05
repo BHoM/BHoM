@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,26 +21,25 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Verification.Conditions;
-using BH.oM.Verification.Requirements;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.Verification.Results
 {
+    [Description("Object representing result of verification of an object against a Requirement.")]
     public class RequirementResult : IImmutable
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
 
-        //[Description("The condition that was evaluated.")]
+        [Description("BHoM_Guid of Requirement object this result was based on.")]
         public virtual IComparable RequirementId { get; }
 
-        //[Description("The objects that passed the condition.")]
+        [Description("Identifier of an object this result was based on. In case of IBHoMObjects it is their BHoM_Guid.")]
         public virtual IComparable ObjectId { get; }
 
+        [Description("Result of object verification against the condition specified in the Requirement.")]
         public virtual IConditionResult VerificationResult { get; }
 
 

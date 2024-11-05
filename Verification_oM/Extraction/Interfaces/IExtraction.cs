@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -21,11 +21,11 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Data.Library;
 using System.ComponentModel;
 
 namespace BH.oM.Verification.Extraction
 {
+    [Description("Top interface for all extraction objects.")]
     public interface IExtraction : IObject
     {
         /***************************************************/
@@ -35,5 +35,3 @@ namespace BH.oM.Verification.Extraction
         /***************************************************/
     }
 }
-
-
