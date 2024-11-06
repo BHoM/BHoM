@@ -21,8 +21,6 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Verification.Conditions;
-using BH.oM.Verification.Requirements;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;

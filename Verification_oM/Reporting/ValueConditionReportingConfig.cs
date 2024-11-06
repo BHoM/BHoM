@@ -31,6 +31,7 @@ namespace BH.oM.Verification.Reporting
         /****                Properties                 ****/
         /***************************************************/
 
+        [Description("Override text to be used as a label for value source.")]
         public virtual string ValueSourceLabelOverride { get; set; } = "";
 
         /***************************************************/
