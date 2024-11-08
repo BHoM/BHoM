@@ -21,7 +21,9 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Verification.Specifications;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
@@ -35,7 +37,10 @@ namespace BH.oM.Verification.Results
         /***************************************************/
 
         [Description("Specification that was verified.")]
-        public virtual ISpecification Specification { get; }
+        public virtual Specification Specification { get; }
+
+        [Description("Objects collected during the extraction stage and checked against the requirements.")]
+        public virtual ReadOnlyCollection<object> ExtractedObjects { get; }
 
         [Description("Collection of verification results of each filtered object against each Requirement contained within the Specification.")]
         public virtual List<RequirementResult> RequirementResults { get; }
@@ -45,9 +50,10 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public SpecificationResult(ISpecification specification, IEnumerable<RequirementResult> requirementResults)
+        public SpecificationResult(Specification specification, IList<object> extractedObjects, IEnumerable<RequirementResult> requirementResults)
         {
             Specification = specification;
+            ExtractedObjects = new ReadOnlyCollection<object>(extractedObjects);
             RequirementResults = requirementResults.ToList();
         }
 
