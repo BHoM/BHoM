@@ -43,18 +43,18 @@ namespace BH.oM.Verification.Results
         public virtual ReadOnlyCollection<object> ExtractedObjects { get; }
 
         [Description("Collection of verification results of each filtered object against each Requirement contained within the Specification.")]
-        public virtual List<RequirementResult> RequirementResults { get; }
+        public virtual ReadOnlyCollection<RequirementResult> RequirementResults { get; }
 
 
         /***************************************************/
         /****                Constructor                ****/
         /***************************************************/
 
-        public SpecificationResult(Specification specification, IList<object> extractedObjects, IEnumerable<RequirementResult> requirementResults)
+        public SpecificationResult(Specification specification, IList<object> extractedObjects, IList<RequirementResult> requirementResults)
         {
             Specification = specification;
             ExtractedObjects = new ReadOnlyCollection<object>(extractedObjects);
-            RequirementResults = requirementResults.ToList();
+            RequirementResults = new ReadOnlyCollection<RequirementResult>(requirementResults);
         }
 
         /***************************************************/
