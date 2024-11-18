@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34302.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHoM", "BHoM\BHoM.csproj", "{510F5D88-1DD2-4D2F-BB2D-F1371A916C52}"
 EndProject
@@ -60,6 +60,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ground_oM", "Ground_oM\Ground_oM.csproj", "{5975DC51-F0C4-40EC-9C02-3D0562ADCE8C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search_oM", "Search_oM\Search_oM.csproj", "{986A3FE5-E975-4926-946E-C73C60526DBC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verification_oM", "Verification_oM\Verification_oM.csproj", "{73C84986-972B-486B-B586-F50D3C92ED9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -183,6 +185,10 @@ Global
 		{986A3FE5-E975-4926-946E-C73C60526DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{986A3FE5-E975-4926-946E-C73C60526DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{986A3FE5-E975-4926-946E-C73C60526DBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C84986-972B-486B-B586-F50D3C92ED9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C84986-972B-486B-B586-F50D3C92ED9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C84986-972B-486B-B586-F50D3C92ED9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C84986-972B-486B-B586-F50D3C92ED9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
