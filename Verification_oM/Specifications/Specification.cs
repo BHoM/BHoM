@@ -20,18 +20,33 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using BH.oM.Base;
+using BH.oM.Verification.Extraction;
+using BH.oM.Verification.Requirements;
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Specifications
 {
-    public enum GlobalResultType
+    [Description("A top level object in verification workflow. Contains the information about the whole workflow, from extraction, to checking, to reporting.")]
+    public class Specification : BHoMObject, ISpecification
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Human readable identifier to reference the Specification.")]
+        public virtual string Clause { get; set; }
+
+        [Description("Description of the Specification.")]
+        public virtual string Description { get; set; }
+
+        [Description("Object describing how to extract the objects to be verify against Requirements.")]
+        public virtual IExtraction Extraction { get; set; }
+
+        [Description("A collection of objects, each containing an atomic check together with reporting config and metadata.")]
+        public virtual List<IRequirement> Requirements { get; set; }
+
+        /***************************************************/
     }
 }
-
-
-
-
-

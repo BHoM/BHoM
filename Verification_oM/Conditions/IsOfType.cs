@@ -20,18 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Conditions
 {
-    public enum GlobalResultType
+    [Description("Condition that verifies whether an object is of a given type.")]
+    public class IsOfType : ICondition
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Type specified as System.Type or string representing type full name.")]
+        public virtual object Type { get; set; } = null;
+
+        /***************************************************/
     }
 }
-
-
-
-
-

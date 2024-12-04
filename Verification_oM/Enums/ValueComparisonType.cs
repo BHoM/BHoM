@@ -20,18 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.ComponentModel;
+
+namespace BH.oM.Verification
 {
-    public enum GlobalResultType
+    [Description("Specifies the requirement to be met by a value in relation to a reference value to consider the check as passed.")]
+    public enum ValueComparisonType
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        EqualTo,
+        NotEqualTo,
+        LessThan,
+        LessThanOrEqualTo,
+        GreaterThanOrEqualTo,
+        GreaterThan,
+        Contains,
+        StartsWith,
+        EndsWith
     }
 }
-
-
-
-
 

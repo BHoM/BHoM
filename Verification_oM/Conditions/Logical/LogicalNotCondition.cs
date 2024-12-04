@@ -20,18 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Conditions
 {
-    public enum GlobalResultType
+    [Description("Condition that contains a nested condition that it inverses, i.e. the nested condition needs to fail for an object to be considered a pass.")]
+    public class LogicalNotCondition : ISingleLogicalCondition
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Condition to be inverted.")]
+        public virtual ICondition Condition { get; set; } = null;
+
+        /***************************************************/
     }
 }
-
-
-
-
-

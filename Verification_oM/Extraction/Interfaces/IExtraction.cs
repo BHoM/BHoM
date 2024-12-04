@@ -20,18 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using BH.oM.Base;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Extraction
 {
-    public enum GlobalResultType
+    [Description("Top interface for all extraction objects.")]
+    public interface IExtraction : IObject
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        /***************************************************/
     }
 }
-
-
-
-
-

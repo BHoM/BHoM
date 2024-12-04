@@ -20,18 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using BH.oM.Data.Collections;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Conditions
 {
-    public enum GlobalResultType
+    [Description("Condition that verifies if a value extracted from an object is within a certain domain (range).")]
+    public class IsInDomain : IValueCondition
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Object defining the source of a value to evaluate.")]
+        public virtual IValueSource ValueSource { get; set; } = null;
+
+        [Description("Reference value that the extracted value is compared to.")]
+        public virtual Domain Domain { get; set; }
+
+        [Description("If applicable, tolerance to be applied in the comparison.")]
+        public virtual double Tolerance { get; set; }
+
+        /***************************************************/
     }
 }
-
-
-
-
-

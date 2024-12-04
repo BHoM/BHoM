@@ -20,18 +20,28 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using BH.oM.Base;
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Conditions
 {
-    public enum GlobalResultType
+    [Description("Condition that verifies if a value extracted from an object is included in the given set of values.")]
+    public class IsInSet : IValueCondition
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Object defining the source of a value to evaluate.")]
+        public virtual IValueSource ValueSource { get; set; } = null;
+
+        [Description("Set of values for the extracted value to compare against.")]
+        public virtual List<object> Set { get; set; }
+
+        [Description("Options as per how the comparison is computed.")]
+        public virtual ComparisonConfig ComparisonConfig { get; set; }
+
+        /***************************************************/
     }
 }
-
-
-
-
-

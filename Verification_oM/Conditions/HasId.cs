@@ -20,18 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Conditions
 {
-    public enum GlobalResultType
+    [Description("Condition that requires an object to own an AdapterId fragment with a given Id to be considered a pass.")]
+    public class HasId : ICondition
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Collection of ids, one of which needs to be found among object's AdapterId.Id fragment properties for it to pass.")]
+        public virtual List<object> Ids { get; set; } = new List<object>();
+
+        /***************************************************/
     }
 }
-
-
-
-
-

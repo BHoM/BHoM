@@ -20,18 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Conditions
 {
-    public enum GlobalResultType
+    [Description("Condition that contains a collection of nested conditions, which all need to be met for an object to be considered a pass.")]
+    public class LogicalAndCondition : ILogicalCollectionCondition
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("A collection of conditions to be evaluated in combination.")]
+        public virtual List<ICondition> Conditions { get; set; } = new List<ICondition>();
+
+        /***************************************************/
     }
 }
-
-
-
-
-

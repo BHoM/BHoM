@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -20,18 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Reporting
 {
-    public enum GlobalResultType
+    [Description("Config object containing settings for reporting results of checks against numerical value conditions.")]
+    public class NumberConditionReportingConfig : ValueConditionReportingConfig
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Text to be used as a label for units expressing the extracted value.")]
+        public virtual string UnitLabel { get; set; } = "";
+
+        [Description("Multiplier to be applied to the extracted value prior to reporting.")]
+        public virtual double ValueMultiplier { get; set; } = double.NaN;
+
+        [Description("Rounding accuracy to be used when reporting the extracted value.")]
+        public virtual double RoundingAccuracy { get; set; } = double.NaN;
+
+        /***************************************************/
     }
 }
-
-
-
-
-

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -20,18 +20,23 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Conditions
 {
-    public enum GlobalResultType
+    [Description("Object pointing at a property as the source of a value to extract.")]
+    public class PropertyValueSource : IValueSource
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Name of the property to get the value from. If the property under given name is not found, other sources are also searched:" +
+                     "\n- CustomData for key matching " + nameof(PropertyName) + " (only for IBHoMObjects)" +
+                     "\n- Fragment with type name matching " + nameof(PropertyName) + " (only for IBHoMObjects)" +
+                     "\n- Parameterless extension method with name matching " + nameof(PropertyName))]
+        public virtual string PropertyName { get; set; } = "";
+
+        /***************************************************/
     }
 }
-
-
-
-
-

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -20,18 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Reporting
 {
-    public enum GlobalResultType
+    [Description("Config object containing settings for reporting results of checks against logical conditions with a single nested condition.")]
+    public class SingleLogicalConditionReportingConfig : IConditionReportingConfig
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Reporting config to be applied to format the check report of nested condition.")]
+        public virtual IConditionReportingConfig NestedConfig { get; set; } = null;
+
+        /***************************************************/
     }
 }
-
-
-
-
-

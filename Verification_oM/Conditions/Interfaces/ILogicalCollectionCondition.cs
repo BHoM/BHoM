@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -20,18 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Conditions
 {
-    public enum GlobalResultType
+    [Description("Interface for logical conditions consisting of a collection of nested conditions to be evaluated in combination (AND, OR etc.).")]
+    public interface ILogicalCollectionCondition : ILogicalCondition
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("A collection of conditions to be evaluated in combination.")]
+        List<ICondition> Conditions { get; set; }
+
+        /***************************************************/
     }
 }
-
-
-
-
-

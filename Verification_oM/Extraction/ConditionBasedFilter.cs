@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -20,18 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using BH.oM.Verification.Conditions;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Extraction
 {
-    public enum GlobalResultType
+    [Description("Basic object defining a condition-based 'filter from' workflow.")]
+    public class ConditionBasedFilter : IConditionBasedFilter
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Filtering condition to be met for objects to be returned.")]
+        public virtual ICondition Condition { get; set; } = null;
+
+        /***************************************************/
     }
 }
-
-
-
-
-

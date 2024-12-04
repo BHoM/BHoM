@@ -20,18 +20,15 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using System.ComponentModel;
+
+namespace BH.oM.Verification
 {
-    public enum GlobalResultType
+    [Description("To consider an object as `passed`, should it satisfy All Specification or just one is enough?")]
+    public enum PassRequirement
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        AllMustPass,
+        AtLeastOnePasses
     }
 }
-
-
-
-
 

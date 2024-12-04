@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -20,18 +20,36 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using BH.oM.Verification.Conditions;
+using System;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Results
 {
-    public enum GlobalResultType
+    [Description("Object representing result of " + nameof(IsOfType) + " condition.")]
+    public class IsOfTypeResult : IConditionResult
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Information whether the object passed or failed the condition. Null means inconclusive result.")]
+        public virtual bool? Passed { get; } = false;
+
+        [Description("Type of the checked object.")]
+        public virtual Type ExtractedType { get; } = null;
+
+
+        /***************************************************/
+        /****                Constructor                ****/
+        /***************************************************/
+
+        public IsOfTypeResult(bool? passed, Type extractedType)
+        {
+            Passed = passed;
+            ExtractedType = extractedType;
+        }
+
+        /***************************************************/
     }
 }
-
-
-
-
-

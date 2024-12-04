@@ -20,18 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Requests
+using BH.oM.Base;
+using BH.oM.Data.Library;
+using System.ComponentModel;
+
+namespace BH.oM.Verification.Requirements
 {
-    public enum GlobalResultType
+    [Description("Top interface for all kinds of Requirements.")]
+    public interface IRequirement : IBHoMObject
     {
-        Reactions,
-        ModalDynamics,
-        ModalMassAndFrequency,
-        StoreyDrifts,
+        /***************************************************/
+        /****                Properties                 ****/
+        /***************************************************/
+
+        [Description("Human readable identifier to reference the Requirement.")]
+        string Clause { get; set; }
+
+        [Description("Source material for this Requirement. E.g. Codes, best practices, guidelines, etc.")]
+        Source Source { get; set; }
+
+        [Description("Any additional notes.")]
+        string Comment { get; set; }
+
+        [Description("General, human-readable message explaining what does the failure mean to the user.")]
+        string FailureMessage { get; set; }
+
+        [Description("Severity of Requirement failure, originating from the concept that not all conditions are necessarily errors.")]
+        FailureSeverity Severity { get; set; }
+
+        /***************************************************/
     }
 }
-
-
-
-
-
