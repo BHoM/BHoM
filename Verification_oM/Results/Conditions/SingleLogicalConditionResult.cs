@@ -20,13 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using BH.oM.Verification.Conditions;
 using System.ComponentModel;
 
 namespace BH.oM.Verification.Results
 {
     [Description("Object representing result of " + nameof(ISingleLogicalCondition) + ".")]
-    public class SingleLogicalConditionResult : IConditionResult
+    public class SingleLogicalConditionResult : IConditionResult, IImmutable
     {
         /***************************************************/
         /****                Properties                 ****/
@@ -36,7 +37,7 @@ namespace BH.oM.Verification.Results
         public virtual bool? Passed { get; } = false;
 
         [Description("Results of the nested condition.")]
-        public virtual IConditionResult Result { get; set; } = null;
+        public virtual IConditionResult Result { get; } = null;
 
 
         /***************************************************/

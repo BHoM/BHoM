@@ -20,13 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using BH.oM.Verification.Conditions;
 using System.ComponentModel;
 
 namespace BH.oM.Verification.Results
 {
     [Description("Object representing result of " + nameof(IValueCondition) + ".")]
-    public class ValueConditionResult : IConditionResult
+    public class ValueConditionResult : IConditionResult, IImmutable
     {
         /***************************************************/
         /****                Properties                 ****/

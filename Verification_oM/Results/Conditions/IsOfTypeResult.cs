@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using BH.oM.Verification.Conditions;
 using System;
 using System.ComponentModel;
@@ -27,7 +28,7 @@ using System.ComponentModel;
 namespace BH.oM.Verification.Results
 {
     [Description("Object representing result of " + nameof(IsOfType) + " condition.")]
-    public class IsOfTypeResult : IConditionResult
+    public class IsOfTypeResult : IConditionResult, IImmutable
     {
         /***************************************************/
         /****                Properties                 ****/
