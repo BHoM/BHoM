@@ -47,10 +47,10 @@ namespace BH.oM.Verification.Results
         /****                Constructor                ****/
         /***************************************************/
 
-        public RequirementResult(IComparable requirementId, IComparable verifiedObjectId, IConditionResult verificationResult)
+        public RequirementResult(IComparable requirementId, IComparable objectId, IConditionResult verificationResult)
         {
             RequirementId = requirementId;
-            ObjectId = verifiedObjectId;
+            ObjectId = objectId;
             VerificationResult = verificationResult;
         }
 
