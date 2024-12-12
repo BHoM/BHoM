@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -21,23 +21,40 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
-using System;
+using BH.oM.LifeCycleAssessment.MaterialFragments.Transport;
+using BH.oM.Physical.Materials;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Base interface for all classes able to used to evanluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalMetricsProvider : IBHoMObject
+    [Description("An Combined Life Cycle Assessment Factors is aggregate class to compute final impact factors.\n" +
+                 "This object is commonly created based on a EPD for cradle to gate metrics (A1 - A3) with addional project and site specific data added for relevant stages such as A4 and A5.")]
+    public class CombinedLifeCycleAssessmentFactors : BHoMObject, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Environmental Product Declaration as the basis for the life cycle assessment. Commnly outlines the metrics for A1-A3 stages, but might contain metrics beyond those stages.")]
+        public virtual EnvironmentalProductDeclaration EnvironmentalProductDeclaration { get; set; }
+
+        [Description("Factors for computing the emissions relating to Transport, in general, for the A4 stage.")]
+        public virtual ITransportFactors TransportFactors { get; set; }
+
 
         /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
 
+
+        [Description("Converts a EnvironmentalProductDeclaration to a CombinedLifeCycleAssessmentFactors, setting the EnvironmentalProductDeclaration to the provided EnvironmentalProductDeclaration. All other properties are set to default values.")]
+        public static explicit operator CombinedLifeCycleAssessmentFactors(EnvironmentalProductDeclaration point)
+        {
+            return new CombinedLifeCycleAssessmentFactors { EnvironmentalProductDeclaration = point };
+        }
+
+        /***************************************************/
     }
 }
 

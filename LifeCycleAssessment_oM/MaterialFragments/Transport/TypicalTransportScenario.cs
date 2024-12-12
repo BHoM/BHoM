@@ -26,15 +26,20 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
 {
-    [Description("Base interface for all classes able to used to evanluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalMetricsProvider : IBHoMObject
+    [Description("Class outlining the transport emmisions relating to a full typical transport scenario.")]
+    public class TypicalTransportScenario : BHoMObject, ITransportFactors
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Name identifying the type of typical transport scenario.")]
+        public override string Name { get; set; }
+
+        [Description("Metrics relating to the transport scenario. All metrics assumed to be impact per mass.")]
+        public virtual List<EnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<EnvironmentalMetric>();
 
         /***************************************************/
 

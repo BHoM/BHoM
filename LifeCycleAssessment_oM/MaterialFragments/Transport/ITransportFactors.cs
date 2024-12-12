@@ -26,15 +26,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
 {
-    [Description("Base interface for all classes able to used to evanluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalMetricsProvider : IBHoMObject
+    [Description("Base interface for transport factor calculations.")]
+    public interface ITransportFactors : IBHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
 
         /***************************************************/
 

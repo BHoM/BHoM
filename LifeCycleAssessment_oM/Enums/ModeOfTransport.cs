@@ -20,25 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
+using BH.oM.Base.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.LifeCycleAssessment
 {
-    [Description("Base interface for all classes able to used to evanluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalMetricsProvider : IBHoMObject
+    [Description("Mode of transport for calculating LCA impact.")]
+    public enum ModeOfTransport
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-
-        /***************************************************/
-
+        Air,
+        [DisplayText("Ship Or Barge")]
+        ShipOrBarge,
+        Rail,
+        Truck,
     }
 }
-
-
