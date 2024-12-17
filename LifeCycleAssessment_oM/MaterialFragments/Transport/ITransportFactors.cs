@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
 {
     [Description("Base interface for transport factor calculations.")]
-    public interface ITransportFactors : IBHoMObject
+    public interface ITransportFactors : IBHoMObject, IEnvironmentalMetricsProvider
     {
         /***************************************************/
         /**** Properties                                ****/
