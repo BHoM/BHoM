@@ -31,7 +31,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         "More information can be found on the Environdec website (environdec.com/all-about-epds0/all-about-epds.) \n" +
         "All EPDs within the BHoM have been provided for general use and are updated as frequently as possible, but by using any supplied EPDs you assume all responsibility for the data used on any applications. \n" +
         "For additional comments, questions, or feature requests, please visit the LifeCycleAssessment_Toolkit at github.com/BHoM/LifeCycleAssessment_Toolkit.")]
-    public class EnvironmentalProductDeclaration : BHoMObject, IEnvironmentalMetricsProvider, IMaterialProperties
+    public class EnvironmentalProductDeclaration : BHoMObject, IBasicEnvironmentalMetricsProvider, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/

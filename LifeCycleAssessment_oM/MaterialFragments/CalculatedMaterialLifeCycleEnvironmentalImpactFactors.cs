@@ -29,7 +29,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("An Calculated Material Life Cycle Environmental Impact Factors is an EPD like object with additional stage data calculated.\n" +
                  "This object is commonly created based on a EPD for cradle to gate metrics (A1 - A3) with addional project and site specific data added for relevant stages such as A4 and A5.")]
-    public class CalculatedMaterialLifeCycleEnvironmentalImpactFactors : BHoMObject, IEnvironmentalMetricsProvider, IMaterialProperties
+    public class CalculatedMaterialLifeCycleEnvironmentalImpactFactors : BHoMObject, IBasicEnvironmentalMetricsProvider, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/

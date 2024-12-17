@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
@@ -21,40 +21,35 @@
  */
 
 using BH.oM.Base;
-using BH.oM.LifeCycleAssessment.MaterialFragments.Transport;
-using BH.oM.Physical.Materials;
+using BH.oM.Quantities.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("An Combined Life Cycle Assessment Factors is aggregate class to compute final impact factors.\n" +
-                 "This object is commonly created based on a EPD for cradle to gate metrics (A1 - A3) with addional project and site specific data added for relevant stages such as A4 and A5.")]
-    public class CombinedLifeCycleAssessmentFactors : BHoMObject, IMaterialProperties, IEnvironmentalMetricsProvider
+    [Description("Base interface for all classes that simply provide a list of metrics to be evaluated based on a particular quantity, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
+    public interface IBasicEnvironmentalMetricsProvider : IBHoMObject, IEnvironmentalMetricsProvider
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Environmental Product Declaration as the basis for the life cycle assessment. Commnly outlines the metrics for A1-A3 stages, but might contain metrics beyond those stages.")]
-        public virtual EnvironmentalProductDeclaration EnvironmentalProductDeclaration { get; set; }
+        [Description("The Type of Environmental Product Declaration.")]
+        EPDType Type { get; set; }
 
-        [Description("Factors for computing the emissions relating to Transport, in general, for the A4 stage.")]
-        public virtual ITransportFactors TransportFactors { get; set; }
+        [Description("An Environmental Metric to describe the type and quantity of a specified metric. These metrics are used in all LCA calculations.")]
+        List<EnvironmentalMetric> EnvironmentalMetrics { get; set; }
 
-
-        /***************************************************/
-        /**** Explicit Casting                          ****/
-        /***************************************************/
-
-
-        [Description("Converts a EnvironmentalProductDeclaration to a CombinedLifeCycleAssessmentFactors, setting the EnvironmentalProductDeclaration to the provided EnvironmentalProductDeclaration. All other properties are set to default values.")]
-        public static explicit operator CombinedLifeCycleAssessmentFactors(EnvironmentalProductDeclaration point)
-        {
-            return new CombinedLifeCycleAssessmentFactors { EnvironmentalProductDeclaration = point };
-        }
+        [Description("Note that any EPD that does not contain this parameter will not be evaluated. \n" +
+            "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. \n" +
+            "All data should be normalized to metric declared units before integration in the BHoM. \n" +
+            "The quantity type is a key metric for evaluation methods to function. \n" +
+            "This property determines how the material is to be evaluated, based on Mass, Volume, Area, Item, or Length.")]
+        QuantityType QuantityType { get; set; }
 
         /***************************************************/
+
     }
 }
 
