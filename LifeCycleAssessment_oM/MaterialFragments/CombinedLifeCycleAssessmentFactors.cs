@@ -42,6 +42,9 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Factors for computing the emissions relating to Transport, in general, for the A4 stage.")]
         public virtual ITransportFactors TransportFactors { get; set; }
 
+        [Description("Control for wheter the metrics in the trasport factors should override any potential result for the A4 stage on the EPD.\n" +
+                     "If true, A4 is computed only based on results from the TransportFactors. If false, the result is computed as the sum from both EPD and transport factors.")]
+        public virtual bool TransportFactorsOverideEPDA4Factors { get; set; } = true;
 
         /***************************************************/
         /**** Explicit Casting                          ****/
