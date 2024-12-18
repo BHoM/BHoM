@@ -42,7 +42,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
         public virtual List<EnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<EnvironmentalMetric>();
 
         [Description("Factor on the metrics acounting for the empty running of the vehicle returning from the site. Final impact of the metric computed by scling values by 1 + ReturTripFactor.")]
-        public virtual double ReturTripFactor { get; set; } = 0;
+        public virtual double ReturnTripFactor { get; set; } = 0;
 
         /***************************************************/
 
