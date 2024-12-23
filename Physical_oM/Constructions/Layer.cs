@@ -30,6 +30,7 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Physical.Materials;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Constructions
 {
@@ -43,6 +44,7 @@ namespace BH.oM.Physical.Constructions
         [Description("The material this layer is made up of")]
         public virtual Material Material { get; set; } = new Material();
 
+        [Length]
         [Description("The thickness of this material layer")]
         public virtual double Thickness { get; set; } = 0;
 
