@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -27,23 +27,21 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("An Environmental Product Declaration or EPD is an independently verified and registered document that communicates transparent and comparable information about the life-cycle environmental impact of products in a credible way. \n" +
-        "More information can be found on the Environdec website (environdec.com/all-about-epds0/all-about-epds.) \n" +
-        "All EPDs within the BHoM have been provided for general use and are updated as frequently as possible, but by using any supplied EPDs you assume all responsibility for the data used on any applications. \n" +
-        "For additional comments, questions, or feature requests, please visit the LifeCycleAssessment_Toolkit at github.com/BHoM/LifeCycleAssessment_Toolkit.")]
-    public class EnvironmentalProductDeclaration : BHoMObject, IBasicEnvironmentalMetricsProvider, IMaterialProperties
+    [Description("An Calculated Material Life Cycle Environmental Impact Factors is an EPD like object with additional stage data calculated.\n" +
+                 "This object is commonly created based on a EPD for cradle to gate metrics (A1 - A3) with addional project and site specific data added for relevant stages such as A4 and A5.")]
+    public class CalculatedMaterialLifeCycleEnvironmentalImpactFactors : BHoMObject, IBasicEnvironmentalMetricsProvider, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The Type of Environmental Product Declaration.")]
+        [Description("The Type that the Calculated Material Life Cycle Environmental Impact Factors is based on.")]
         public virtual EPDType Type { get; set; } = EPDType.Product;
 
         [Description("An Environmental Metric to describe the type and quantity of a specified metric. These metrics are used in all LCA calculations.")]
         public virtual List<EnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<EnvironmentalMetric>();
 
-        [Description("Note that any EPD that does not contain this parameter will not be evaluated. \n" +
+        [Description("Note that any CalculatedMaterialLifeCycleEnvironmentalImpactFactors that does not contain this parameter will not be evaluated. \n" +
             "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. \n" +
             "All data should be normalized to metric declared units before integration in the BHoM. \n" +
             "The quantity type is a key metric for evaluation methods to function. \n" +
@@ -53,6 +51,5 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /***************************************************/
     }
 }
-
 
 
