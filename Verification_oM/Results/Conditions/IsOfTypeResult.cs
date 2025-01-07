@@ -1,6 +1,6 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using BH.oM.Verification.Conditions;
 using System;
 using System.ComponentModel;
@@ -27,7 +28,7 @@ using System.ComponentModel;
 namespace BH.oM.Verification.Results
 {
     [Description("Object representing result of " + nameof(IsOfType) + " condition.")]
-    public class IsOfTypeResult : IConditionResult
+    public class IsOfTypeResult : IConditionResult, IImmutable
     {
         /***************************************************/
         /****                Properties                 ****/
@@ -53,3 +54,4 @@ namespace BH.oM.Verification.Results
         /***************************************************/
     }
 }
+
