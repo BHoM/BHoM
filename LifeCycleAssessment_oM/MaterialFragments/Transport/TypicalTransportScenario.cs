@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
 {
     [Description("Class outlining the transport emmisions relating to a full typical transport scenario.")]
-    public class TypicalTransportScenario : BHoMObject, ITransportFactors
+    public class TypicalTransportScenario : BHoMObject, ITransportFactors, IEnvironmentalMetricsProvider
     {
         /***************************************************/
         /**** Properties                                ****/
