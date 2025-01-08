@@ -33,7 +33,7 @@ namespace BH.oM.Ground
 {
 
     [Description("A stratum containing the geological information based on the AGS schema.")]
-    public class Stratum : BHoMObject
+    public class InSituVane : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
