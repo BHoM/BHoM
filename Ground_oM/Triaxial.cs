@@ -43,7 +43,7 @@ namespace BH.oM.Ground
         [Description("Top of sample (SAMP_TOP).")]
         public virtual double Top { get; set; }
 
-        [Length]
+        [Pressure]
         [Description("Undrained shear strength at failure (TRIT_CU)")]
         public virtual double Cu { get; set; }
 
