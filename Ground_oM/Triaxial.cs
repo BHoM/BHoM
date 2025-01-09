@@ -47,8 +47,9 @@ namespace BH.oM.Ground
         [Description("Undrained shear strength at failure (TRIT_CU)")]
         public virtual double Cu { get; set; }
 
+        [Length]
         [Description("Specimen diameter (TRIT_SDIA)")]
-        public virtual double SampleDiameter { get; set; }
+        public virtual double SpecimenDiameter { get; set; }
 
         [Description("Specimen length (TRIT_SLEN)")]
         public virtual double SampelLength { get; set; }
