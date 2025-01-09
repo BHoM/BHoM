@@ -51,8 +51,9 @@ namespace BH.oM.Ground
         [Description("Specimen diameter (TRIT_SDIA)")]
         public virtual double SpecimenDiameter { get; set; }
 
+        [Length]
         [Description("Specimen length (TRIT_SLEN)")]
-        public virtual double SampelLength { get; set; }
+        public virtual double SpecimenLength { get; set; }
 
         [Description("Specimen initial water/moisture content (TRIT_IMC)")]
         public virtual double IMC { get; set; }
