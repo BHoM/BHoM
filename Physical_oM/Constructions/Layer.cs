@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -30,6 +30,7 @@ using BH.oM.Base;
 using BH.oM.Geometry;
 using BH.oM.Physical.Materials;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Physical.Constructions
 {
@@ -43,12 +44,14 @@ namespace BH.oM.Physical.Constructions
         [Description("The material this layer is made up of")]
         public virtual Material Material { get; set; } = new Material();
 
+        [Length]
         [Description("The thickness of this material layer")]
         public virtual double Thickness { get; set; } = 0;
 
         /***************************************************/
     }
 }
+
 
 
 
