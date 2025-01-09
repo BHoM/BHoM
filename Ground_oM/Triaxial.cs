@@ -55,6 +55,7 @@ namespace BH.oM.Ground
         [Description("Specimen length (TRIT_SLEN)")]
         public virtual double SpecimenLength { get; set; }
 
+        [Ratio]
         [Description("Specimen initial water/moisture content (TRIT_IMC)")]
         public virtual double IMC { get; set; }
 
