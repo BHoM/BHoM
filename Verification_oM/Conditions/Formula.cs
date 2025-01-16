@@ -20,31 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Collections.Generic;
+using BH.oM.Base;
 using System.ComponentModel;
 
 namespace BH.oM.Verification.Conditions
 {
-    [Description("Condition that verifies an object based on a given formula.")]
-    public class FormulaCondition : ICondition
+    [Description("Formula in a form of a string in a specific convention, used to calculate values in verification workflows.")]
+    public class Formula : IObject
     {
         /***************************************************/
         /****                Properties                 ****/
         /***************************************************/
 
-        [Description("Initial values to be extracted from the verified object." +
-                     "\nKeys are the names of variables to be used in the calculations." +
-                     "\nValues are value sources to extract the values from.")]
-        public virtual Dictionary<string, IValueSource> Inputs { get; set; } = new Dictionary<string, IValueSource>();
+        [Description("Equation in a form of a string, resulting in either numerical, string or Boolean values." +
+                     "\nOnly basic mathematical operators are currently supported." +
+                     "\nStrings need to be wrapped in single quotation marks (')." +
+                     "\nEnum values need to stay unwrapped and expressed only with the value itself (e.g. MyValue instead of MyEnum.MyValue)." +
+                     "\nExamples of valid formule:" +
+                     "\n(a + b) * 2" +
+                     "\na == b * 2" +
+                     "\na == 'StringValue'" +
+                     "\na == EnumValue" +
+                     "\na == 'StringValueA' or (a == 'StringValueB' and b == 'StringValueC')" +
+                     "\nif a == 0: 'zero', else if a == 1: 'one', else if a == 2: 'two', else: 'not supported'" +
+                     "\nif a == b and a == c: 'all values equal', else: 'values not equal'")]
+        public virtual string Equation { get; set; } = "";
 
-        [Description("Formulae to calculate the variables to be verified in the verification formula." +
-                     "\nFormulae can be chained, i.e. one calculated variable can be derived from the previously calculated ones." +
-                     "\nKeys are the names of variables to be used in the calculations." +
-                     "\nValues are the formulae correspondent to each given variable name.")]
-        public virtual Dictionary<string, Formula> CalculationFormulae { get; set; } = new Dictionary<string, Formula>();
-
-        [Description("Final formula to verify, needs to return a Boolean value, e.g. 'a > b'.")]
-        public virtual Formula VerificationFormula { get; set; } = null;
+        [Description("Tolerance to be applied when evaluating the formula.")]
+        public virtual object Tolerance { get; set; } = 1e-6;
 
         /***************************************************/
     }
