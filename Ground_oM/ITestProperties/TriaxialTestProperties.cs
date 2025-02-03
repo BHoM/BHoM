@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -30,24 +30,29 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Ground
 {
 
-    [Description("Properties related references/location of the SPT Test.")]
-    public class SPTTestReferenceProperties : BHoMObject, ITestProperties
+    [Description("Properties of the triaxial tests.")]
+    public class TriaxialTestProperties : BHoMObject, ITestProperties
     {
-		/***************************************************/
-		/**** Properties                                ****/
-		/***************************************************/
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-		[Length]
-		[Description("Depth to the top of the test sample (ISPT_TOP).")]
-		public virtual double Top { get; set; }
+        [Length]
+        [Description("Specimen diameter (TRIT_SDIA).")]
+        public virtual double SampleDiameter { get; set; }
 
-		[Description("SPT Hammer Number (ISPT_HAM).")]
-		public virtual string SPTHammerNumber { get; set; }
+        [Length]
+        [Description("Specimen length (TRIT_SLEN).")]
+        public virtual double SampleLength { get; set; }
 
-		[Description("Energy Ratio of Hammer (ISPT_ERAT).")]
-		public virtual double EnergyRatio { get; set; }
+        [Description("Triaxial test/stage reference (TRIT_TESN).")]
+        public virtual string TriaxialReference { get; set; }
+
+        [Description("Mean rate of shear (TRIT_RATE).")]
+        public virtual string ShearRate { get; set; }
 
 
-		/***************************************************/
-	}
+
+        /***************************************************/
+    }
 }

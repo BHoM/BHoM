@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -32,28 +32,29 @@ using BH.oM.Base.Attributes.Enums;
 namespace BH.oM.Ground
 {
 
-	[Description("A stratum containing the geological information based on the AGS schema.")]
-	public class InSituVane : BHoMObject
-	{
-		/***************************************************/
-		/**** Properties                                ****/
-		/***************************************************/
+	[Description("A set of data related to in situ vane tests carried out.")]
+	public class InSituVane : BHoMObject, ITest
+    {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+       
+		[Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
+        public virtual string Id { get; set; }
 
-		[Length]
-		[Description("Top of Sample (IVAN_DPTH).")]
-		public virtual double Depth { get; set; }
+        [Length]
+        [Description("Depth to the top of the sample, measured from the top of the borehole (IVAN_DEPTH).")]
+        public virtual double Top { get; set; }
 
-		[Description("Vane Test Result (IVAN_IVAN)")]
+        [Description("Name of Test (LBST_TEST).")]
+        public virtual string LabTest { get; set; }
+
+        [Description("A list of different properties including references, tests, analysis, results and detection.")]
+        public virtual List<ITestProperties> ITestProperties { get; set; }
+
+        [Pressure]
+        [Description("Vane Test Result (IVAN_IVAN).")]
 		public virtual double VaneResult { get; set; }
-
-		[Description("Vane Test Residual Result (IVAN_IVAR)")]
-		public virtual double VaneResidualResult { get; set; }
-
-		[Description("Details of vane test, vane size (IVAN_REM)")]
-		public virtual string VaneDetails { get; set; }
-
-		[Description("Details of weather and environmental conditions during test (IVAN ENV).")]
-		public virtual string VaneWeather { get; set; }
 
 		/***************************************************/
 	}

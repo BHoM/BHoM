@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -32,53 +32,42 @@ using BH.oM.Base.Attributes.Enums;
 namespace BH.oM.Ground
 {
 
-    [Description("A stratum containing the geological information based on the AGS schema.")]
-    public class InSituVane : BHoMObject
+    [Description("A set of data related to triaxial tests carried out")]
+    public class Triaxial : BHoMObject, ITest
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-   
+        
+        [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
+        public virtual string Id { get; set; }
+
         [Length]
-        [Description("Top of sample (SAMP_TOP).")]
+        [Description("Depth to the top of the sample, measured from the top of the borehole (SAMP_TOP).")]
         public virtual double Top { get; set; }
 
-        [Pressure]
-        [Description("Undrained shear strength at failure (TRIT_CU)")]
-        public virtual double Cu { get; set; }
-
         [Length]
-        [Description("Specimen diameter (TRIT_SDIA)")]
-        public virtual double SpecimenDiameter { get; set; }
+        [Description("Depth to the top of the specimen (SPEC_DPTH).")]
+        public virtual double SpecimenDepth { get; set; }
 
-        [Length]
-        [Description("Specimen length (TRIT_SLEN)")]
-        public virtual double SpecimenLength { get; set; }
+        [Description("Name of Test (LBST_TEST).")]
+        public virtual string LabTest { get; set; }
 
-        [Ratio]
-        [Description("Specimen initial water/moisture content (TRIT_IMC)")]
-        public virtual double IMC { get; set; }
+        [Description("Sample ID (SAMP_ID).")]
+        public virtual string SampleID { get; set; }
 
-        [Description("Mode of Failure (TRIT_MODE)")]
+        [Description("Specimen Reference (SPEC_REF.")]
+        public virtual string SpecimenReference { get; set; }
+
+        [Description("A list of different properties including references, tests, analysis, results and detection.")]
+        public virtual List<ITestProperties> ITestProperties { get; set; }
+
+        [Description("Undrained shear strength at failure (TRIT_CU).")]
+        public virtual double UndrainedShearStrength { get; set; }
+
+        [Description("Mode of Failure (TRIT_MODE).")]
         public virtual string FailureMode { get; set; }
 
-        [Description("Specimen final water/moisture content (TRIT_FMC)")]
-        public virtual double FMC { get; set; }
-
-		[Description("Total Cell pressure (TRIT_CELL)")]
-		public virtual double CellPressure { get; set; }
-
-		[Description("Corrected deviator stress at failure (TRIT_DEVF)")]
-		public virtual double DeviatorStress { get; set; }
-
-		[Description("Initial bulk density (TRIT_BDEN)")]
-		public virtual double BDensity { get; set; }
-
-		[Description("Initial dry density (TRIT_DDEN)")]
-		public virtual double DDensity { get; set; }
-
-		[Description("Axial strain at failure (TRIT_STRN)")]
-		public virtual double AxialStrain { get; set; }
 
 		/***************************************************/
 	}

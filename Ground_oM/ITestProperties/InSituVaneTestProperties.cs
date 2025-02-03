@@ -21,13 +21,43 @@
  */
 
 
+using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Ground
 {
-    [Description("Base interface for testing properties.")]
-    public interface ITestProperties : IBHoMObject
+
+    [Description("Properties related to the in-Situ Hand Vane Test.")]
+    public class InSituVaneTestProperties : BHoMObject, ITestProperties
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("Test reference (IVAN_TESN).")]
+        public virtual string TestReference { get; set; }
+
+        [Description("Vane Type (IVAN_TYPE).")]
+        public virtual string VaneType { get; set; }
+
+        [Description("Test Method (IVAN_METH).")]
+        public virtual string TestMethod { get; set; }
+
+        [Description("Name of testing organisation (IVAN_CONT).")]
+        public virtual string TestingOrg { get; set; }
+
+        [Description("Accrediting body and reference number (IVAN_CRED).")]
+        public virtual string AccreditingBody { get; set; }
+
+        [Description("Test Status (TEST_STAT).")]
+        public virtual string TestStatus { get; set; }
+
+        [Description("Details of vane test, vane size (IVAN_REM).")]
+        public virtual string VaneDetails { get; set; }
+
+        /***************************************************/
     }
 }

@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -30,23 +30,30 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Ground
 {
 
-    [Description("Properties related to the references/location of the in Situ Hand Vane Test ")]
-    public class InSituVaneTestReferenceProperties : BHoMObject, ITestProperties
+    [Description("Properties related to the reference/location of the triaxial tests.")]
+    public class TriaxialReferenceProperties : BHoMObject, ITestProperties
     {
 		/***************************************************/
 		/**** Properties                                ****/
 		/***************************************************/
 
 		[Length]
-		[Description("Top of Sample (IVAN_DPTH).")]
-		public virtual double Depth { get; set; }
+		[Description("Top of sample (SAMP_TOP).")]
+		public virtual double Top { get; set; }
 
-		[Description("Details of vane test, vane size (IVAN_REM)")]
-		public virtual string VaneDetails { get; set; }
+        [Description("Sample reference (SAMP_REF).")]
+        public virtual string SampleReference { get; set; }
 
-		[Description("Details of weather and environmental conditions during test (IVAN ENV).")]
-		public virtual string VaneWeather { get; set; }
+        [Description("Sample type (SAMP_TYPE).")]
+        public virtual string SampleType { get; set; }
 
-		/***************************************************/
-	}
+        [Description("Comments (TRIT_REM).")]
+        public virtual string Comments { get; set; }
+
+        [Description("Associated file reference (FILE_FSET).")]
+        public virtual string FileReference { get; set; }
+
+
+        /***************************************************/
+    }
 }

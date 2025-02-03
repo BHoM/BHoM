@@ -1,6 +1,6 @@
 ﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -37,23 +37,23 @@ namespace BH.oM.Ground
 
 
 	[Description("A representation of a test sample defined by the depth of the sample and the name of the test.")]
-	public class ITest : BHoMObject
+	public interface ITest : IBHoMObject
 	{
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
-		public virtual string Id { get; set; }
+		string Id { get; set; }
 
 		[Length]
 		[Description("Depth to the top of the sample, measured from the top of the borehole (ISPT_TOP, IVAN_DEPTH, SAMP_TOP).")]
-		public virtual double Top { get; set; }
+		double Top { get; set; }
 
 		[Description("Name of Test (LBST_TEST).")]
-		public virtual string LabTest { get; set; }
+		string LabTest { get; set; }
 
 		[Description("A list of different properties including references, tests, analysis, results and detection.")]
-		public virtual List<ITestProperties> ITestProperties { get; set; }
+		List<ITestProperties> ITestProperties { get; set; }
 
 
 		/***************************************************/

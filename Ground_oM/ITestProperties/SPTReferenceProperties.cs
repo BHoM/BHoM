@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -30,24 +30,19 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Ground
 {
 
-    [Description("Properties related to the reference/location of the triaxial tests.")]
-    public class TriaxialTestReferenceProperties : BHoMObject, ITestProperties
+    [Description("Properties related references/location of the SPT Test.")]
+    public class SPTReferenceProperties : BHoMObject, ITestProperties
     {
-		/***************************************************/
-		/**** Properties                                ****/
-		/***************************************************/
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-		[Length]
-		[Description("Top of sample (SAMP_TOP).")]
-		public virtual double Top { get; set; }
+        [Description("Associated file reference (FILE_FSET).")]
+        public virtual string FileReference { get; set; }
 
-		[Description("Specimen diameter (TRIT_SDIA)")]
-		public virtual double SampleDiameter { get; set; }
+        [Description("Remarks or Comments (ISPT_REM).")]
+        public virtual string Remarks { get; set; }
 
-		[Description("Specimen length (TRIT_SLEN)")]
-		public virtual double SampelLength { get; set; }
-
-
-		/***************************************************/
-	}
+        /***************************************************/
+    }
 }
