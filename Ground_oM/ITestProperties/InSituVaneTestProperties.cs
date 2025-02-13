@@ -55,7 +55,7 @@ namespace BH.oM.Ground
         [Description("Test Status (TEST_STAT).")]
         public virtual string TestStatus { get; set; }
 
-        [Description("Details of vane test, vane size (IVAN_REM).")]
+        [Description("Details of vane test and vane size (IVAN_REM).")]
         public virtual string VaneDetails { get; set; }
 
         /***************************************************/

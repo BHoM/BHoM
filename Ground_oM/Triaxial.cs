@@ -51,16 +51,16 @@ namespace BH.oM.Ground
         public virtual double SpecimenDepth { get; set; }
 
         [Description("Name of Test (LBST_TEST).")]
-        public virtual string LabTest { get; set; }
+        public virtual string TestName { get; set; }
 
-        [Description("Sample ID (SAMP_ID).")]
+        [Description("Sample Identification (SAMP_ID).")]
         public virtual string SampleID { get; set; }
 
         [Description("Specimen Reference (SPEC_REF.")]
         public virtual string SpecimenReference { get; set; }
 
         [Description("A list of different properties including references, tests, analysis, results and detection.")]
-        public virtual List<ITestProperties> ITestProperties { get; set; }
+        public virtual List<ITestProperties> Properties { get; set; }
 
         [Description("Undrained shear strength at failure (TRIT_CU).")]
         public virtual double UndrainedShearStrength { get; set; }

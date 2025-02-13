@@ -49,7 +49,7 @@ namespace BH.oM.Ground
         [Description("Stratum refrence shown on trial pit or traverse sketch (GEOL_STAT).")]
         public virtual string StratumReference { get; set; }
 
-        [Description("Associated file reference (FILE_FSET).")]
+        [Description("Associated file references (FILE_FSET).")]
         public virtual string FileReference { get; set; }
 
         /***************************************************/

@@ -58,13 +58,19 @@ namespace BH.oM.Ground
 		public virtual double BDensity { get; set; }
 
         [Density]
-        [Description("Initial dry density (TRIT_DDEN).")]
+		[Description("Initial dry density (TRIT_DDEN).")]
 		public virtual double DDensity { get; set; }
 
 		[Strain]
 		[Description("Axial strain at failure (TRIT_STRN).")]
 		public virtual double AxialStrain { get; set; }
 
-		/***************************************************/
-	}
+		[Description("Mean rate of shear (TRIT_RATE).")]
+        public virtual string ShearRate { get; set; }
+        [Ratio]
+        [Description("Failure zone water content, if measured (TRIT_FZWC).")]
+        public virtual double FailureZoneWaterContent { get; set; }
+
+        /***************************************************/
+    }
 }

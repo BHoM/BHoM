@@ -47,10 +47,10 @@ namespace BH.oM.Ground
         public virtual double Top { get; set; }
 
         [Description("Name of Test (LBST_TEST).")]
-        public virtual string LabTest { get; set; }
+        public virtual string TestName { get; set; }
 
         [Description("A list of different properties including references, tests, analysis, results and detection.")]
-        public virtual List<ITestProperties> ITestProperties { get; set; }
+        public virtual List<ITestProperties> Properties { get; set; }
 
         [Pressure]
         [Description("Vane Test Result (IVAN_IVAN).")]

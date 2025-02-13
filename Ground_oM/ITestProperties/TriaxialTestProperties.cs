@@ -48,11 +48,6 @@ namespace BH.oM.Ground
         [Description("Triaxial test/stage reference (TRIT_TESN).")]
         public virtual string TriaxialReference { get; set; }
 
-        [Description("Mean rate of shear (TRIT_RATE).")]
-        public virtual string ShearRate { get; set; }
-
-
-
         /***************************************************/
     }
 }

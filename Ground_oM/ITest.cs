@@ -50,10 +50,10 @@ namespace BH.oM.Ground
 		double Top { get; set; }
 
 		[Description("Name of Test (LBST_TEST).")]
-		string LabTest { get; set; }
+		string TestName { get; set; }
 
 		[Description("A list of different properties including references, tests, analysis, results and detection.")]
-		List<ITestProperties> ITestProperties { get; set; }
+		List<ITestProperties> Properties { get; set; }
 
 
 		/***************************************************/
