@@ -26,21 +26,19 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
+namespace BH.oM.LifeCycleAssessment.Results.MetricsValues
 {
-    [Description("Class for computing Transport emissions for a particular part of journey to site.")]
-    public class SingleTransportModeImpact : BHoMObject, ITransportFactors, IEnvironmentalMetricsProvider
+    [Description("")]
+    public class ClimateChangeTotalValue : BHoMObject, IMetricValue
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Emissions for the vechicle for the particular part of the journey.")]
-        public virtual VehicleEmissions VehicleEmissions { get; set; }
+        [ClimateChange]
+        [Description("")]
+        public virtual double Value { get; }
 
-        [Length]
-        [Description("Total distance tranported with the particular vehicle.")]
-        public virtual double DistanceTraveled { get; set; }
 
         /***************************************************/
 

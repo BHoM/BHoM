@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -24,27 +24,35 @@ using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
+namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Class for computing Transport emissions for a particular part of journey to site.")]
-    public class SingleTransportModeImpact : BHoMObject, ITransportFactors, IEnvironmentalMetricsProvider
+
+    public class MetricDictionary<T> : ReadOnlyDictionary<LifeCycleAssessmentPhases, T>, IBHoMObject, IMetricDictionary<T> where T : ILifeCycleAssessmentPhaseData
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        public MetricDictionary(IDictionary<LifeCycleAssessmentPhases, T> dictionary) : base(dictionary)
+        {
+        }
 
-        [Description("Emissions for the vechicle for the particular part of the journey.")]
-        public virtual VehicleEmissions VehicleEmissions { get; set; }
+        public virtual Guid BHoM_Guid { get; set; } = Guid.NewGuid();
 
-        [Length]
-        [Description("Total distance tranported with the particular vehicle.")]
-        public virtual double DistanceTraveled { get; set; }
+        public virtual string Name { get; set; } = "";
 
-        /***************************************************/
+        public virtual FragmentSet Fragments { get; set; } = new FragmentSet();
 
+        public virtual HashSet<string> Tags { get; set; } = new HashSet<string>();
+
+        public virtual Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
     }
-}
 
+    public interface IMetricDictionary<out T> : IBHoMObject where T : ILifeCycleAssessmentPhaseData
+    {
+        T this[LifeCycleAssessmentPhases key] {get;}
+    }
+
+
+
+}
 

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,38 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Analytical.Results;
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
-using System;
+using BH.oM.LifeCycleAssessment.Results.MetricsValues;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
+namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Class for computing Transport emissions for a particular part of journey to site.")]
-    public class SingleTransportModeImpact : BHoMObject, ITransportFactors, IEnvironmentalMetricsProvider
+    public abstract class ClimateChangeTotalMaterialResult2 : MaterialResult2<ClimateChangeTotalValue>
     {
         /***************************************************/
-        /**** Properties                                ****/
+        /**** Properties - Identifiers                  ****/
         /***************************************************/
 
-        [Description("Emissions for the vechicle for the particular part of the journey.")]
-        public virtual VehicleEmissions VehicleEmissions { get; set; }
-
-        [Length]
-        [Description("Total distance tranported with the particular vehicle.")]
-        public virtual double DistanceTraveled { get; set; }
 
         /***************************************************/
+        /**** Properties - Result properties            ****/
+        /***************************************************/
 
+        public override IReadOnlyDictionary<LifeCycleAssessmentPhases, ClimateChangeTotalValue> ResultValues { get; protected set; }
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public ClimateChangeTotalMaterialResult2(string materialName, string environmentalProductDeclarationName, EnvironmentalMetrics metricType, IReadOnlyDictionary<LifeCycleAssessmentPhases, ClimateChangeTotalValue> resultValues
+                        ) :base(materialName,environmentalProductDeclarationName,metricType,resultValues)
+        {
+
+        }
+
+        /***************************************************/
     }
 }
 
