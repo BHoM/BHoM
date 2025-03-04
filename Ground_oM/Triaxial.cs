@@ -38,7 +38,7 @@ namespace BH.oM.Ground
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        
+
         [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
         public virtual string Id { get; set; }
 
@@ -69,8 +69,8 @@ namespace BH.oM.Ground
         public virtual string FailureMode { get; set; }
 
 
-		/***************************************************/
-	}
+        /***************************************************/
+    }
 }
 
 

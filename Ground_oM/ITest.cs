@@ -36,26 +36,26 @@ namespace BH.oM.Ground
 {
 
 
-	[Description("A representation of a test sample defined by the depth of the sample and the name of the test.")]
-	public interface ITest : IBHoMObject
-	{
+    [Description("A representation of a test sample defined by the depth of the sample and the name of the test.")]
+    public interface ITest : IBHoMObject
+    {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
         [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
-		string Id { get; set; }
+        string Id { get; set; }
 
-		[Length]
-		[Description("Depth to the top of the sample, measured from the top of the borehole (ISPT_TOP, IVAN_DEPTH, SAMP_TOP).")]
-		double Top { get; set; }
+        [Length]
+        [Description("Depth to the top of the sample, measured from the top of the borehole (ISPT_TOP, IVAN_DEPTH, SAMP_TOP).")]
+        double Top { get; set; }
 
-		[Description("Name of Test (LBST_TEST).")]
-		string TestName { get; set; }
+        [Description("Name of Test (LBST_TEST).")]
+        string TestName { get; set; }
 
-		[Description("A list of different properties including references, tests, analysis, results and detection.")]
-		List<ITestProperties> Properties { get; set; }
+        [Description("A list of different properties including references, tests, analysis, results and detection.")]
+        List<ITestProperties> Properties { get; set; }
 
 
-		/***************************************************/
-	}
+        /***************************************************/
+    }
 }

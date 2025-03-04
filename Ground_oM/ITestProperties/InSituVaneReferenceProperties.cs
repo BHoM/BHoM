@@ -33,15 +33,15 @@ namespace BH.oM.Ground
     [Description("Properties related to the references/location of the in Situ Hand Vane Test.")]
     public class InSituVaneReferenceProperties : BHoMObject, ITestProperties
     {
-		/***************************************************/
-		/**** Properties                                ****/
-		/***************************************************/
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-		[Description("Details of vane test, vane size (IVAN_REM).")]
-		public virtual string VaneDetails { get; set; }
+        [Description("Details of vane test, vane size (IVAN_REM).")]
+        public virtual string VaneDetails { get; set; }
 
-		[Description("Details of weather and environmental conditions during test (IVAN_ENV).")]
-		public virtual string VaneWeather { get; set; }
+        [Description("Details of weather and environmental conditions during test (IVAN_ENV).")]
+        public virtual string VaneWeather { get; set; }
 
         [Description("Test date (IVAN_DATE).")]
         public virtual string VaneDate { get; set; }

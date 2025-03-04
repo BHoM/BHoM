@@ -33,13 +33,13 @@ namespace BH.oM.Ground
     [Description("Properties related to the reference/location of the triaxial tests.")]
     public class TriaxialReferenceProperties : BHoMObject, ITestProperties
     {
-		/***************************************************/
-		/**** Properties                                ****/
-		/***************************************************/
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-		[Length]
-		[Description("Top of sample (SAMP_TOP).")]
-		public virtual double Top { get; set; }
+        [Length]
+        [Description("Top of sample (SAMP_TOP).")]
+        public virtual double Top { get; set; }
 
         [Description("Sample reference (SAMP_REF).")]
         public virtual string SampleReference { get; set; }

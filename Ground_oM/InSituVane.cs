@@ -32,14 +32,14 @@ using BH.oM.Base.Attributes.Enums;
 namespace BH.oM.Ground
 {
 
-	[Description("A set of data related to in situ vane tests carried out.")]
-	public class InSituVane : BHoMObject, ITest
+    [Description("A set of data related to in situ vane tests carried out.")]
+    public class InSituVane : BHoMObject, ITest
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-       
-		[Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
+
+        [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
         public virtual string Id { get; set; }
 
         [Length]
@@ -54,10 +54,10 @@ namespace BH.oM.Ground
 
         [Pressure]
         [Description("Vane Test Result (IVAN_IVAN).")]
-		public virtual double VaneResult { get; set; }
+        public virtual double VaneResult { get; set; }
 
-		/***************************************************/
-	}
+        /***************************************************/
+    }
 }
 
 

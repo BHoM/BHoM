@@ -33,39 +33,39 @@ namespace BH.oM.Ground
     [Description("Properties related to the results based on the triaxial tests.")]
     public class TriaxialResultProperties : BHoMObject, ITestProperties
     {
-		/***************************************************/
-		/**** Properties                                ****/
-		/***************************************************/
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-		[Ratio]
-		[Description("Specimen initial water/moisture content (TRIT_IMC).")]
-		public virtual double InitialWaterMoistureContent { get; set; }
+        [Ratio]
+        [Description("Specimen initial water/moisture content (TRIT_IMC).")]
+        public virtual double InitialWaterMoistureContent { get; set; }
 
-		[Ratio]
-		[Description("Specimen final water/moisture content (TRIT_FMC).")]
-		public virtual double FinalWaterMoistureContent { get; set; }
+        [Ratio]
+        [Description("Specimen final water/moisture content (TRIT_FMC).")]
+        public virtual double FinalWaterMoistureContent { get; set; }
 
-		[Pressure]
-		[Description("Total Cell pressure (TRIT_CELL).")]
-		public virtual double TotalCellPressure { get; set; }
+        [Pressure]
+        [Description("Total Cell pressure (TRIT_CELL).")]
+        public virtual double TotalCellPressure { get; set; }
 
-		[Stress]
-		[Description("Corrected deviator stress at failure (TRIT_DEVF).")]
-		public virtual double DeviatorStress { get; set; }
-
-		[Density]
-		[Description("Initial bulk density (TRIT_BDEN).")]
-		public virtual double BDensity { get; set; }
+        [Stress]
+        [Description("Corrected deviator stress at failure (TRIT_DEVF).")]
+        public virtual double DeviatorStress { get; set; }
 
         [Density]
-		[Description("Initial dry density (TRIT_DDEN).")]
-		public virtual double DDensity { get; set; }
+        [Description("Initial bulk density (TRIT_BDEN).")]
+        public virtual double BDensity { get; set; }
 
-		[Strain]
-		[Description("Axial strain at failure (TRIT_STRN).")]
-		public virtual double AxialStrain { get; set; }
+        [Density]
+        [Description("Initial dry density (TRIT_DDEN).")]
+        public virtual double DDensity { get; set; }
 
-		[Description("Mean rate of shear (TRIT_RATE).")]
+        [Strain]
+        [Description("Axial strain at failure (TRIT_STRN).")]
+        public virtual double AxialStrain { get; set; }
+
+        [Description("Mean rate of shear (TRIT_RATE).")]
         public virtual string ShearRate { get; set; }
         [Ratio]
         [Description("Failure zone water content, if measured (TRIT_FZWC).")]

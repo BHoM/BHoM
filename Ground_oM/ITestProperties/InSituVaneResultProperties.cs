@@ -42,6 +42,6 @@ namespace BH.oM.Ground
         public virtual double VaneResidualResult { get; set; }
 
 
-		/***************************************************/
-	}
+        /***************************************************/
+    }
 }

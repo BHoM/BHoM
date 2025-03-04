@@ -44,14 +44,14 @@ namespace BH.oM.Ground
         public virtual double SeatingDriveBlows { get; set; }
 
         [Description("Number of blows for main test drive (ISPT_MAIN).")]
-		public virtual double MainTestDriveBlows { get; set; }
+        public virtual double MainTestDriveBlows { get; set; }
 
         [Description("SPT N value corrected by energy ration (ISPT_N60).")]
         public virtual double SPTN60 { get; set; }
 
         [Length]
         [Description("Total Penetration for seating drive and test drive (ISPT_NPEN).")]
-		public virtual double TotalPenetration { get; set; }
+        public virtual double TotalPenetration { get; set; }
 
         [Length]
         [Description("Self weight penetration (ISPT_SWP).")]
@@ -64,16 +64,16 @@ namespace BH.oM.Ground
         public virtual double NBlowsB { get; set; }
 
         [Description("Number of Blows for 1st Increment Test (ISPT_INC3).")]
-		public virtual double NBlows1 { get; set; }
+        public virtual double NBlows1 { get; set; }
 
-		[Description("Number of Blows for 2nd Increment Test (ISPT_INC4).")]
-		public virtual double NBlows2 { get; set; }
+        [Description("Number of Blows for 2nd Increment Test (ISPT_INC4).")]
+        public virtual double NBlows2 { get; set; }
 
-		[Description("Number of Blows for 3rd Increment Test (ISPT_INC5).")]
-		public virtual double NBlows3 { get; set; }
+        [Description("Number of Blows for 3rd Increment Test (ISPT_INC5).")]
+        public virtual double NBlows3 { get; set; }
 
-		[Description("Number of Blows for 4th Increment Test (ISPT_INC6).")]
-		public virtual double NBlows4 { get; set; }
+        [Description("Number of Blows for 4th Increment Test (ISPT_INC6).")]
+        public virtual double NBlows4 { get; set; }
 
         [Length]
         [Description("Penetration for 1st Increment Seating (ISPT_PEN1).")]
@@ -85,21 +85,21 @@ namespace BH.oM.Ground
 
         [Length]
         [Description("Penetration for 1st Increment Test (ISPT_PEN3).")]
-		public virtual double Penetration1 { get; set; }
+        public virtual double Penetration1 { get; set; }
 
         [Length]
         [Description("Penetration for 2nd Increment Test (ISPT_PEN4).")]
-		public virtual double Penetration2 { get; set; }
+        public virtual double Penetration2 { get; set; }
 
         [Length]
         [Description("Penetration for 3rd Increment Test (ISPT_PEN5).")]
-		public virtual double Penetration3 { get; set; }
+        public virtual double Penetration3 { get; set; }
 
         [Length]
         [Description("Penetration for 4th Increment Test (ISPT_PEN6).")]
-		public virtual double Penetration4 { get; set; }
+        public virtual double Penetration4 { get; set; }
 
 
-		/***************************************************/
-	}
+        /***************************************************/
+    }
 }
