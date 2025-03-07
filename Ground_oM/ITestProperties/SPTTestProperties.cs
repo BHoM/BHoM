@@ -40,8 +40,8 @@ namespace BH.oM.Ground
         [Description("Hammer number (ISPT_HAM).")]
         public virtual string HammerNumber { get; set; }
 
-        [Description("Type of SPT Test (SPT_TYPE).")]
-        public virtual string SPTTestType { get; set; }
+        [Description("Type of test (SPT_TYPE).")]
+        public virtual string TestType { get; set; }
 
         [Length]
         [Description("Depth to water at time of test (ISPT_WAT).")]
