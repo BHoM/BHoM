@@ -25,12 +25,11 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Ground
 {
 
-    [Description("Properties related to the references/location of the in Situ Hand Vane Test.")]
+    [Description("Properties related to the references of the in Situ Hand Vane Test.")]
     public class InSituVaneReferenceProperties : BHoMObject, ITestProperties
     {
         /***************************************************/

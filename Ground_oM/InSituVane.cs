@@ -24,10 +24,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Dimensional;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Base.Attributes;
-using BH.oM.Base.Attributes.Enums;
 
 namespace BH.oM.Ground
 {
@@ -45,9 +42,6 @@ namespace BH.oM.Ground
         [Length]
         [Description("Depth to the top of the sample, measured from the top of the borehole (IVAN_DEPTH).")]
         public virtual double Top { get; set; }
-
-        [Description("Test reference (IVAN_TESN).")]
-        public virtual string TestReference { get; set; }
 
         [Description("A list of different properties including references, tests, analysis, results and detection.")]
         public virtual List<ITestProperties> Properties { get; set; }

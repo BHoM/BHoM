@@ -25,7 +25,6 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Ground
 {

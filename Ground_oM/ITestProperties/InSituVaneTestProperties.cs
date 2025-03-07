@@ -25,7 +25,6 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Ground
 {
@@ -37,11 +36,14 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Test reference (IVAN_TESN).")]
+        public virtual string Reference { get; set; }
+
         [Description("Vane Type (IVAN_TYPE).")]
         public virtual string Type { get; set; }
 
         [Description("Test Method (IVAN_METH).")]
-        public virtual string TestMethod { get; set; }
+        public virtual string Method { get; set; }
 
         [Description("Name of testing organisation (IVAN_CONT).")]
         public virtual string Tester { get; set; }
@@ -50,7 +52,7 @@ namespace BH.oM.Ground
         public virtual string AccreditingBody { get; set; }
 
         [Description("Test Status (TEST_STAT).")]
-        public virtual string TestStatus { get; set; }
+        public virtual string Status { get; set; }
 
         /***************************************************/
     }

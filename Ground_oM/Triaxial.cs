@@ -24,10 +24,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Dimensional;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Base.Attributes;
-using BH.oM.Base.Attributes.Enums;
 
 namespace BH.oM.Ground
 {
@@ -50,17 +47,11 @@ namespace BH.oM.Ground
         [Description("Depth to the top of the specimen (SPEC_DPTH).")]
         public virtual double SpecimenDepth { get; set; }
 
-        [Description("Triaxial test/stage reference (TRIT_TESN).")]
-        public virtual string TriaxialReference { get; set; }
-
         [Description("Sample Identification (SAMP_ID).")]
-        public virtual string SampleID { get; set; }
+        public virtual string SampleId { get; set; }
 
         [Description("Specimen Reference (SPEC_REF).")]
         public virtual string SpecimenReference { get; set; }
-
-        [Description("A list of different properties including references and results.")]
-        public virtual List<ITestProperties> Properties { get; set; }
 
         [Pressure]
         [Description("Undrained shear strength at failure (TRIT_CU).")]
@@ -68,6 +59,9 @@ namespace BH.oM.Ground
 
         [Description("Mode of Failure (TRIT_MODE).")]
         public virtual string FailureMode { get; set; }
+
+        [Description("A list of different properties including references and results.")]
+        public virtual List<ITestProperties> Properties { get; set; }
 
         /***************************************************/
     }

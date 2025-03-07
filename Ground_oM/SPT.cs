@@ -24,10 +24,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Dimensional;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Base.Attributes;
-using BH.oM.Base.Attributes.Enums;
 
 namespace BH.oM.Ground
 {
@@ -46,15 +43,10 @@ namespace BH.oM.Ground
         [Description("Depth to the top of the sample, measured from the top of the borehole (ISPT_TOP).")]
         public virtual double Top { get; set; }
 
-        [Description("Name of Test (LBST_TEST).")]
-        public virtual string TestName { get; set; }
-
-        [Description("A list of different properties including references, tests, analysis, results and detection.")]
-        public virtual List<ITestProperties> Properties { get; set; }
-
         [Description("SPT Number of Blows during main drive (ISPT_NVAL).")]
         public virtual int NumberofBlows { get; set; }
 
+        [Ratio]
         [Description("Energy Ratio of Hammer (ISPT_ERAT).")]
         public virtual double EnergyRatio { get; set; }
 
@@ -65,6 +57,8 @@ namespace BH.oM.Ground
         [Description("Total Penetration for seating drive and test drive (ISPT_NPEN).")]
         public virtual double TotalPenetration { get; set; }
 
+        [Description("A list of different properties including references, tests, analysis, results and detection.")]
+        public virtual List<ITestProperties> Properties { get; set; }
 
         /***************************************************/
     }

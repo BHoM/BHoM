@@ -41,7 +41,7 @@ namespace BH.oM.Ground
         public virtual string HammerNumber { get; set; }
 
         [Description("Type of test (SPT_TYPE).")]
-        public virtual string TestType { get; set; }
+        public virtual string Type { get; set; }
 
         [Length]
         [Description("Depth to water at time of test, set to NaN if dry (ISPT_WAT).")]
@@ -58,13 +58,13 @@ namespace BH.oM.Ground
         public virtual string WeatherConditions { get; set; }
 
         [Description("Test method (ISPT_METH).")]
-        public virtual string TestMethod { get; set; }
+        public virtual string Method { get; set; }
 
         [Description("Accrediting body (ISPT_CRED).")]
         public virtual string AccreditingBody { get; set; }
 
         [Description("Test Status (TEST_STAT)")]
-        public virtual string TestStatus { get; set; }
+        public virtual string Status { get; set; }
 
         /***************************************************/
     }

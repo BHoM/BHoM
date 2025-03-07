@@ -67,7 +67,7 @@ namespace BH.oM.Ground
 
         [Description("Mean rate of shear (TRIT_RATE).")]
         public virtual string ShearRate { get; set; }
-        
+
         [Ratio]
         [Description("Failure zone water content (TRIT_FZWC).")]
         public virtual double FailureZoneWaterContent { get; set; }
