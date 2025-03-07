@@ -46,7 +46,7 @@ namespace BH.oM.Ground
         public virtual double FinalWaterMoistureContent { get; set; }
 
         [Pressure]
-        [Description("Total Cell pressure (TRIT_CELL).")]
+        [Description("Total cell pressure (TRIT_CELL).")]
         public virtual double TotalCellPressure { get; set; }
 
         [Stress]
@@ -55,11 +55,11 @@ namespace BH.oM.Ground
 
         [Density]
         [Description("Initial bulk density (TRIT_BDEN).")]
-        public virtual double BDensity { get; set; }
+        public virtual double BulkDensity { get; set; }
 
         [Density]
         [Description("Initial dry density (TRIT_DDEN).")]
-        public virtual double DDensity { get; set; }
+        public virtual double DryDensity { get; set; }
 
         [Strain]
         [Description("Axial strain at failure (TRIT_STRN).")]
