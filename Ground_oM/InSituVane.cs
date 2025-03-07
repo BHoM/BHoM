@@ -46,8 +46,8 @@ namespace BH.oM.Ground
         [Description("Depth to the top of the sample, measured from the top of the borehole (IVAN_DEPTH).")]
         public virtual double Top { get; set; }
 
-        [Description("Name of Test (LBST_TEST).")]
-        public virtual string TestName { get; set; }
+        [Description("Test reference (IVAN_TESN).")]
+        public virtual string TestReference { get; set; }
 
         [Description("A list of different properties including references, tests, analysis, results and detection.")]
         public virtual List<ITestProperties> Properties { get; set; }

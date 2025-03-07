@@ -37,9 +37,6 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Test reference (IVAN_TESN).")]
-        public virtual string TestReference { get; set; }
-
         [Description("Vane Type (IVAN_TYPE).")]
         public virtual string Type { get; set; }
 

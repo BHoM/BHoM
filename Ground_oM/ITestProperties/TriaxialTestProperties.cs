@@ -45,9 +45,6 @@ namespace BH.oM.Ground
         [Description("Specimen length (TRIT_SLEN).")]
         public virtual double SampleLength { get; set; }
 
-        [Description("Triaxial test/stage reference (TRIT_TESN).")]
-        public virtual string TriaxialReference { get; set; }
-
         /***************************************************/
     }
 }

@@ -49,12 +49,8 @@ namespace BH.oM.Ground
         [Description("Depth to the top of the sample, measured from the top of the borehole (ISPT_TOP, IVAN_DEPTH, SAMP_TOP).")]
         double Top { get; set; }
 
-        [Description("Name of Test (LBST_TEST).")]
-        string TestName { get; set; }
-
         [Description("A list of different properties including references and results.")]
         List<ITestProperties> Properties { get; set; }
-
 
         /***************************************************/
     }
