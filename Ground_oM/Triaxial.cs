@@ -50,7 +50,7 @@ namespace BH.oM.Ground
         [Description("Depth to the top of the specimen (SPEC_DPTH).")]
         public virtual double SpecimenDepth { get; set; }
 
-        [Description("Name of Test (LBST_TEST).")]
+        [Description("Name of Test (TRIT_TEST).")]
         public virtual string TestName { get; set; }
 
         [Description("Sample Identification (SAMP_ID).")]
