@@ -62,6 +62,7 @@ namespace BH.oM.Ground
         [Description("A list of different properties including references and results.")]
         public virtual List<ITestProperties> Properties { get; set; }
 
+        [Pressure]
         [Description("Undrained shear strength at failure (TRIT_CU).")]
         public virtual double UndrainedShearStrength { get; set; }
 
