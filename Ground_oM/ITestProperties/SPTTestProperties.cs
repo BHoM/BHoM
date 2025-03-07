@@ -30,7 +30,7 @@ using BH.oM.Quantities.Attributes;
 namespace BH.oM.Ground
 {
 
-    [Description("Properties related to the SPT Test.")]
+    [Description("Properties related to the standard penetration test.")]
     public class SPTTestProperties : BHoMObject, ITestProperties
     {
         /***************************************************/
