@@ -42,7 +42,7 @@ namespace BH.oM.Ground
         public virtual double Top { get; set; }
 
         [Description("Sample reference (SAMP_REF).")]
-        public virtual string SampleReference { get; set; }
+        public virtual string Reference { get; set; }
 
         [Description("Sample type (SAMP_TYPE).")]
         public virtual string SampleType { get; set; }
