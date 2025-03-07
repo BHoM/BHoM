@@ -41,22 +41,19 @@ namespace BH.oM.Ground
         public virtual string TestReference { get; set; }
 
         [Description("Vane Type (IVAN_TYPE).")]
-        public virtual string VaneType { get; set; }
+        public virtual string Type { get; set; }
 
         [Description("Test Method (IVAN_METH).")]
         public virtual string TestMethod { get; set; }
 
         [Description("Name of testing organisation (IVAN_CONT).")]
-        public virtual string TestingOrg { get; set; }
+        public virtual string Tester { get; set; }
 
         [Description("Accrediting body and reference number (IVAN_CRED).")]
         public virtual string AccreditingBody { get; set; }
 
         [Description("Test Status (TEST_STAT).")]
         public virtual string TestStatus { get; set; }
-
-        [Description("Details of vane test and vane size (IVAN_REM).")]
-        public virtual string VaneDetails { get; set; }
 
         /***************************************************/
     }

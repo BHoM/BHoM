@@ -37,14 +37,14 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Details of vane test, vane size (IVAN_REM).")]
-        public virtual string VaneDetails { get; set; }
+        [Description("Details of vane test and vane size (IVAN_REM).")]
+        public virtual string Details { get; set; }
 
         [Description("Details of weather and environmental conditions during test (IVAN_ENV).")]
-        public virtual string VaneWeather { get; set; }
+        public virtual string Weather { get; set; }
 
         [Description("Test date (IVAN_DATE).")]
-        public virtual string VaneDate { get; set; }
+        public virtual DateTime Date { get; set; }
 
         [Description("Stratum refrence shown on trial pit or traverse sketch (GEOL_STAT).")]
         public virtual string StratumReference { get; set; }

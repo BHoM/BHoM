@@ -37,8 +37,8 @@ namespace BH.oM.Ground
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("SPT Hammer Number (ISPT_HAM).")]
-        public virtual string SPTHammerNumber { get; set; }
+        [Description("Hammer number (ISPT_HAM).")]
+        public virtual string HammerNumber { get; set; }
 
         [Description("Type of SPT Test (SPT_TYPE).")]
         public virtual string SPTTestType { get; set; }
@@ -51,8 +51,8 @@ namespace BH.oM.Ground
         [Description("Casing depth at time of test (ISPT_CAS).")]
         public virtual double CasingDepth { get; set; }
 
-        [Description("Was the SPT carried out in soft rock? (ISPT_ROCK).")]
-        public virtual string SoftRock { get; set; }
+        [Description("True if the standard penetration test was carried out in soft rock. (ISPT_ROCK).")]
+        public virtual bool SoftRock { get; set; }
 
         [Description("Weather conditons during test (ISPT_ENV).")]
         public virtual string WeatherConditions { get; set; }

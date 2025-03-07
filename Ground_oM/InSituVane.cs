@@ -32,7 +32,7 @@ using BH.oM.Base.Attributes.Enums;
 namespace BH.oM.Ground
 {
 
-    [Description("A set of data related to in situ vane tests carried out.")]
+    [Description("A representation of an in-situ vane test defined by the borehole where the test was carried out and the result.")]
     public class InSituVane : BHoMObject, ITest
     {
         /***************************************************/

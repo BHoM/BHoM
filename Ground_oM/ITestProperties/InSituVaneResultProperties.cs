@@ -38,9 +38,8 @@ namespace BH.oM.Ground
         /***************************************************/
 
         [Pressure]
-        [Description("Vane Test Residual Result (IVAN_IVAR).")]
+        [Description("Vane test Residual Result (IVAN_IVAR).")]
         public virtual double VaneResidualResult { get; set; }
-
 
         /***************************************************/
     }

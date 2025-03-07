@@ -36,7 +36,7 @@ namespace BH.oM.Ground
 {
 
 
-    [Description("A representation of a test sample defined by the depth of the sample and the name of the test.")]
+    [Description("Base interface for all ground tests.")]
     public interface ITest : IBHoMObject
     {
         /***************************************************/
@@ -52,7 +52,7 @@ namespace BH.oM.Ground
         [Description("Name of Test (LBST_TEST).")]
         string TestName { get; set; }
 
-        [Description("A list of different properties including references, tests, analysis, results and detection.")]
+        [Description("A list of different properties including references and results.")]
         List<ITestProperties> Properties { get; set; }
 
 
