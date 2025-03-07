@@ -56,7 +56,7 @@ namespace BH.oM.Ground
         [Description("Sample Identification (SAMP_ID).")]
         public virtual string SampleID { get; set; }
 
-        [Description("Specimen Reference (SPEC_REF.")]
+        [Description("Specimen Reference (SPEC_REF).")]
         public virtual string SpecimenReference { get; set; }
 
         [Description("A list of different properties including references, tests, analysis, results and detection.")]
