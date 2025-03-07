@@ -44,7 +44,7 @@ namespace BH.oM.Ground
         public virtual string TestType { get; set; }
 
         [Length]
-        [Description("Depth to water at time of test (ISPT_WAT).")]
+        [Description("Depth to water at time of test, set to NaN if dry (ISPT_WAT).")]
         public virtual double WaterDepth { get; set; }
 
         [Length]
