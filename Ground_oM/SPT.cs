@@ -53,14 +53,15 @@ namespace BH.oM.Ground
         public virtual List<ITestProperties> Properties { get; set; }
 
         [Description("SPT Number of Blows during main drive (ISPT_NVAL).")]
-        public virtual double NumberofBlows { get; set; }
+        public virtual int NumberofBlows { get; set; }
 
         [Description("Energy Ratio of Hammer (ISPT_ERAT).")]
         public virtual double EnergyRatio { get; set; }
 
         [Description("Number of blows for main test drive (ISPT_MAIN).")]
-        public virtual double MainTestDrive { get; set; }
+        public virtual int MainTestDrive { get; set; }
 
+        [Length]
         [Description("Total Penetration for seating drive and test drive (ISPT_NPEN).")]
         public virtual double TotalPenetration { get; set; }
 

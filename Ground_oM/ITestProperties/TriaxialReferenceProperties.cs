@@ -48,7 +48,7 @@ namespace BH.oM.Ground
         public virtual string SampleType { get; set; }
 
         [Description("Comments (TRIT_REM).")]
-        public virtual string Comments { get; set; }
+        public virtual string Remarks { get; set; }
 
         [Description("Associated file reference (FILE_FSET).")]
         public virtual string FileReference { get; set; }
