@@ -59,7 +59,7 @@ namespace BH.oM.Ground
         [Description("Specimen Reference (SPEC_REF).")]
         public virtual string SpecimenReference { get; set; }
 
-        [Description("A list of different properties including references, tests, analysis, results and detection.")]
+        [Description("A list of different properties including references and results.")]
         public virtual List<ITestProperties> Properties { get; set; }
 
         [Description("Undrained shear strength at failure (TRIT_CU).")]
