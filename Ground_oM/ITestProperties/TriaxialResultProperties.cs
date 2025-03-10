@@ -21,50 +21,57 @@
  */
 
 
+using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Base.Attributes;
-using BH.oM.Base.Attributes.Enums;
 
 namespace BH.oM.Ground
 {
 
-    [Description("A representation of a borehole defined by a coordinate system, start point and end point based on the AGS schema.")]
-    public class Borehole : BHoMObject
+    [Description("Properties related to the results based on the triaxial tests.")]
+    public class TriaxialResultProperties : BHoMObject, ITestProperties
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Location identifier for the borehole unique to the project (LOCA_ID).")]
-        public virtual string Id { get; set; }
 
-        [Description("The top of the borehole within the coordinate system provided (LOCA_NATE, LOCA_NATEN, LOCA_GL).")]
-        public virtual Point Top { get; set; }
+        [Ratio]
+        [Description("Specimen initial water/moisture content (TRIT_IMC).")]
+        public virtual double InitialWaterMoistureContent { get; set; }
 
-        [Description("The bottom of the borehole within the coordinate system provided (LOCA_ETRV, LOCA_NTRV, LOCA_FDEP).")]
-        public virtual Point Bottom { get; set; }
+        [Ratio]
+        [Description("Specimen final water/moisture content (TRIT_FMC).")]
+        public virtual double FinalWaterMoistureContent { get; set; }
 
-        [Description("The coordinate system referenced by the top and bottom point. (LOCA_GREF, LOCA_NATD).")]
-        public virtual Cartesian CoordinateSystem { get; set; }
+        [Pressure]
+        [Description("Total cell pressure (TRIT_CELL).")]
+        public virtual double TotalCellPressure { get; set; }
 
-        [Description("A list of objects containing the strata found within the borehole, based on the GEOL table.")]
-        public virtual List<Stratum> Strata { get; set; }
+        [Stress]
+        [Description("Corrected deviator stress at failure (TRIT_DEVF).")]
+        public virtual double DeviatorStress { get; set; }
 
-        [Description("A list of objects containing the contaminant samples found within the borehole, based on the ERES table.")]
-        public virtual List<ContaminantSample> ContaminantSamples { get; set; }
+        [Density]
+        [Description("Initial bulk density (TRIT_BDEN).")]
+        public virtual double BulkDensity { get; set; }
 
-        [Description("A list of objects containing the geotechnical results found within the borehole.")]
-        public virtual List<ITest> GeotechnicalTestResults { get; set; }
+        [Density]
+        [Description("Initial dry density (TRIT_DDEN).")]
+        public virtual double DryDensity { get; set; }
 
-        [Description("A list of properties related to the borehole.")]
-        public virtual List<IBoreholeProperty> BoreholeProperties { get; set; }
+        [Strain]
+        [Description("Axial strain at failure (TRIT_STRN).")]
+        public virtual double AxialStrain { get; set; }
+
+        [Description("Mean rate of shear (TRIT_RATE).")]
+        public virtual string ShearRate { get; set; }
+
+        [Ratio]
+        [Description("Failure zone water content (TRIT_FZWC).")]
+        public virtual double FailureZoneWaterContent { get; set; }
 
         /***************************************************/
     }
 }
-

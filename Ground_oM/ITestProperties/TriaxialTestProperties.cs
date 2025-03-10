@@ -21,50 +21,33 @@
  */
 
 
+using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using BH.oM.Base;
-using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
-using BH.oM.Base.Attributes;
-using BH.oM.Base.Attributes.Enums;
 
 namespace BH.oM.Ground
 {
 
-    [Description("A representation of a borehole defined by a coordinate system, start point and end point based on the AGS schema.")]
-    public class Borehole : BHoMObject
+    [Description("Properties of the triaxial tests.")]
+    public class TriaxialTestProperties : BHoMObject, ITestProperties
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Location identifier for the borehole unique to the project (LOCA_ID).")]
-        public virtual string Id { get; set; }
 
-        [Description("The top of the borehole within the coordinate system provided (LOCA_NATE, LOCA_NATEN, LOCA_GL).")]
-        public virtual Point Top { get; set; }
+        [Length]
+        [Description("Specimen diameter (TRIT_SDIA).")]
+        public virtual double SampleDiameter { get; set; }
 
-        [Description("The bottom of the borehole within the coordinate system provided (LOCA_ETRV, LOCA_NTRV, LOCA_FDEP).")]
-        public virtual Point Bottom { get; set; }
+        [Length]
+        [Description("Specimen length (TRIT_SLEN).")]
+        public virtual double SampleLength { get; set; }
 
-        [Description("The coordinate system referenced by the top and bottom point. (LOCA_GREF, LOCA_NATD).")]
-        public virtual Cartesian CoordinateSystem { get; set; }
-
-        [Description("A list of objects containing the strata found within the borehole, based on the GEOL table.")]
-        public virtual List<Stratum> Strata { get; set; }
-
-        [Description("A list of objects containing the contaminant samples found within the borehole, based on the ERES table.")]
-        public virtual List<ContaminantSample> ContaminantSamples { get; set; }
-
-        [Description("A list of objects containing the geotechnical results found within the borehole.")]
-        public virtual List<ITest> GeotechnicalTestResults { get; set; }
-
-        [Description("A list of properties related to the borehole.")]
-        public virtual List<IBoreholeProperty> BoreholeProperties { get; set; }
+        [Description("Triaxial test and/or stage reference (TRIT_TESN).")]
+        public virtual string TriaxialReference { get; set; }
 
         /***************************************************/
     }
 }
-
