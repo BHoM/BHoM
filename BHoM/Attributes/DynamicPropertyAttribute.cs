@@ -20,13 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Base
+using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BH.oM.Base.Attributes
 {
-    public class CustomObject : BHoMObject, IDynamicPropertyProvider
+    [AttributeUsage(AttributeTargets.Property)]
+    public class DynamicPropertyAttribute : Attribute, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
+
+        public DynamicPropertyAttribute()
+        {
+        }
 
 
         /***************************************************/

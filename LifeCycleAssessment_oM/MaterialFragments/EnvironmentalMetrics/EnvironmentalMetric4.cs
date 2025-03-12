@@ -20,21 +20,38 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Base
+using BH.oM.Base;
+using BH.oM.Base.Attributes;
+using BH.oM.Quantities;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+
+namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    public class CustomObject : BHoMObject, IDynamicPropertyProvider
+    [Description("Base class for all environmental metrics.")]
+    public abstract class EnvironmentalMetric4 : BHoMObject, IImmutable, IDynamicObject
     {
+        [Description("Enum indicating the metric type the object relates to.")]
+        public virtual EnvironmentalMetrics MetricType { get; protected set; }
+
+        [Description("")]
+        [DynamicProperty]
+        public abstract Dictionary<LifeCycleAssessmentPhases, double> Values { get; protected set; }
+
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
+        public EnvironmentalMetric4(EnvironmentalMetrics metricType, Dictionary<LifeCycleAssessmentPhases, double> values)
+        {
+            MetricType = metricType;
+            Values = values;
+        }
 
         /***************************************************/
     }
 }
-
-
-
-
 
 

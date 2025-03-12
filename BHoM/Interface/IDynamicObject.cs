@@ -22,14 +22,9 @@
 
 namespace BH.oM.Base
 {
-    public class CustomObject : BHoMObject, IDynamicPropertyProvider
+    public interface IDynamicObject : IObject
     {
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
 
-
-        /***************************************************/
     }
 }
 

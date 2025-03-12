@@ -20,21 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Base
+using BH.oM.Base;
+using BH.oM.Base.Attributes;
+using BH.oM.Quantities;
+using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+
+namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    public class CustomObject : BHoMObject, IDynamicPropertyProvider
+    [Description("Acidification, measured in moles of H+ (per EN 15804+A2, this was previously measured in SO2 per EN 15804+A1), it refers to compounds that contribute to acid rain. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
+    public class AcidificationMetric4 : EnvironmentalMetric4, IImmutable
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [DynamicProperty]
+        [AcidificationPerQuantity]
+        public override Dictionary<LifeCycleAssessmentPhases, double> Values { get; protected set; } = new Dictionary<LifeCycleAssessmentPhases, double>();
+
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
+        public AcidificationMetric4(Dictionary<LifeCycleAssessmentPhases, double> values) 
+            : base(EnvironmentalMetrics.Acidification, values)
+        {
+        }
 
         /***************************************************/
+
     }
 }
-
-
-
-
 
 
