@@ -32,7 +32,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         "More information can be found on the Environdec website (environdec.com/all-about-epds0/all-about-epds.) \n" +
         "All EPDs within the BHoM have been provided for general use and are updated as frequently as possible, but by using any supplied EPDs you assume all responsibility for the data used on any applications. \n" +
         "For additional comments, questions, or feature requests, please visit the LifeCycleAssessment_Toolkit at github.com/BHoM/LifeCycleAssessment_Toolkit.")]
-    public class EnvironmentalProductDeclaration : BHoMObject, IBasicEnvironmentalMetricsProvider, IMaterialProperties
+    public class EnvironmentalProductDeclaration2 : BHoMObject, IEnvironmentalMetricsProvider, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,12 +41,8 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("The Type of Environmental Product Declaration.")]
         public virtual EPDType Type { get; set; } = EPDType.Product;
 
-        //public virtual List<Dictionary<LifeCycleAssessmentPhases, MetricValue>>
-
-        //public virtual List<IMetricCollection> Metrics { get; set; }
-
         [Description("An Environmental Metric to describe the type and quantity of a specified metric. These metrics are used in all LCA calculations.")]
-        public virtual List<EnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<EnvironmentalMetric>();
+        public virtual List<IMetricCollection> EnvironmentalMetrics { get; set; }
 
         [Description("Note that any EPD that does not contain this parameter will not be evaluated. \n" +
             "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. \n" +
