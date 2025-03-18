@@ -29,18 +29,18 @@ namespace BH.oM.Spatial.ShapeProfiles
 
     public enum Symmetry
     {
-        [Description("The IProfile is not symmetrical.")]
-        [DisplayText("Non-symmetrical")]
-        NonSymmetrical = 0,
-        [Description("Asymmetrical about the X-Axis.")]
-        [DisplayText("AsymmetricalX")]
-        AsymmetricalX = 1,
-        [Description("Asymmetrical about the Y-Axis.")]
-        [DisplayText("AsymmetricalY")]
-        AsymmetricalY = 2,
-        [Description("Symmetrical about both the X-Axis and Y-Axis.")]
+        [Description("The geometry is not symmetrical.")]
+        [DisplayText("Non-symmetric")]
+        Asymmetric = 0,
+        [Description("The geometry is singly-symmetrical about the y-axis.")]
+        [DisplayText("Singly Symmetric Major")]
+        SingleSymmetricMajor = 1,
+        [Description("The geometry is singly-symmetrical about the z-axis.")]
+        [DisplayText("Singly Symmetric Minor")]
+        SinglySymmetricMinor = 2,
+        [Description("The geometry is doubly symmetrical about both the major (y-axis) and minor (z-axis).")]
         [DisplayText("Doubly-symmetrical")]
-        DoublySymmetrical = 3,
+        DoublySymmetric = 3,
     }
 
     /***************************************************/
