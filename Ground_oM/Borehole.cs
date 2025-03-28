@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2024, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -58,9 +58,13 @@ namespace BH.oM.Ground
         [Description("A list of objects containing the contaminant samples found within the borehole, based on the ERES table.")]
         public virtual List<ContaminantSample> ContaminantSamples { get; set; }
 
+        [Description("A list of objects containing the geotechnical results found within the borehole.")]
+        public virtual List<ITest> GeotechnicalTestResults { get; set; }
+
         [Description("A list of properties related to the borehole.")]
         public virtual List<IBoreholeProperty> BoreholeProperties { get; set; }
 
         /***************************************************/
     }
 }
+
