@@ -21,6 +21,5 @@
     <ProjectReference Include="..\Dimensional_oM\Dimensional_oM.csproj" />
     <ProjectReference Include="..\Environment_oM\Environment_oM.csproj" />
     <ProjectReference Include="..\Physical_oM\Physical_oM.csproj" />
-    <ProjectReference Include="..\Quantities_oM\Quantities_oM.csproj" />
   </ItemGroup>
 </Project>
