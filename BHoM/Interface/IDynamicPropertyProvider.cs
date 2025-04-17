@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Base
 {
+    [Description("Identifies objects that provide their own accessors to their dynamic properties. Those classes must implement the following methods: GetProperty, SetProperty, and GetProperties.")]
     public interface IDynamicPropertyProvider : IDynamicObject
     {
 

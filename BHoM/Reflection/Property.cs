@@ -22,12 +22,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BH.oM.Base.Reflection
 {
+    [Description("Metadata related to a C# property")]
     public class Property : IObject
     {
         /***************************************************/

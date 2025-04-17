@@ -23,6 +23,7 @@
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ using System.Threading.Tasks;
 namespace BH.oM.Base.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
+    [Description("Defines a property as a container for dynamic properties. This must be a dictionary where keys are enums.")]
     public class DynamicPropertyAttribute : Attribute, IImmutable
     {
         /***************************************************/

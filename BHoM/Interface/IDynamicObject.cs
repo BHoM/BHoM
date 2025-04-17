@@ -20,8 +20,11 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Base
 {
+    [Description("Identifies objects that have dyanmic properties.")]
     public interface IDynamicObject : IObject
     {
 
