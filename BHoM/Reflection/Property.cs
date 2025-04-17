@@ -42,8 +42,6 @@ namespace BH.oM.Base.Reflection
 
         public virtual string Description { get; set; } = "";
 
-        public virtual List<Attribute> Attributes { get; set; } = new List<Attribute>();
-
 
         /***************************************************/
     }
