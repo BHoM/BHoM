@@ -29,17 +29,14 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("An Calculated Material Life Cycle Environmental Impact Factors is an EPD like object with additional stage data calculated.\n" +
                  "This object is commonly created based on a EPD for cradle to gate metrics (A1 - A3) with addional project and site specific data added for relevant stages such as A4 and A5.")]
-    public class CalculatedMaterialLifeCycleEnvironmentalImpactFactors : BHoMObject, IBasicEnvironmentalMetricsProvider, IMaterialProperties
+    public class CalculatedMaterialLifeCycleEnvironmentalImpactFactors : BHoMObject, IBaseLevelEnvironalmentalFactorsProvider, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The Type that the Calculated Material Life Cycle Environmental Impact Factors is based on.")]
-        public virtual EPDType Type { get; set; } = EPDType.Product;
-
         [Description("An Environmental Metric to describe the type and quantity of a specified metric. These metrics are used in all LCA calculations.")]
-        public virtual List<EnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<EnvironmentalMetric>();
+        public virtual List<IEnvironmentalMetricFactors> EnvironmentalFactors { get; set; } = new List<IEnvironmentalMetricFactors>();
 
         [Description("Note that any CalculatedMaterialLifeCycleEnvironmentalImpactFactors that does not contain this parameter will not be evaluated. \n" +
             "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. \n" +

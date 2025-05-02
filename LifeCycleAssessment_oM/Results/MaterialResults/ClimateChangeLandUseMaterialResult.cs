@@ -141,7 +141,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             double c4,
             double c1toc4,
             double d
-            ) : base(materialName, environmentalProductDeclarationName, EnvironmentalMetrics.ClimateChangeLandUse, a1, a2, a3, a1toa3, a4, a5, b1, b2, b3, b4, b5, b6, b7, b1tob7, c1, c2, c3, c4, c1toc4, d)
+            ) : base(materialName, environmentalProductDeclarationName, MetricType.ClimateChangeLandUse, a1, a2, a3, a1toa3, a4, a5, b1, b2, b3, b4, b5, b6, b7, b1tob7, c1, c2, c3, c4, c1toc4, d)
         {
         }
 

@@ -1,38 +1,59 @@
 ﻿using BH.oM.Base;
+using BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalFactors;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    public class MetricCollection<T> : BHoMObject, IMetricCollection where T : IMetric, new()
-    {
-        [Description("Enum indicating the metric type the object relates to.")]
-        public virtual EnvironmentalMetrics MetricType { get; protected set; }
+    //public class MetricCollection<T> : BHoMObject, IMetricCollection where T : IMetric, new()
+    //{
+    //    [Description("Enum indicating the metric type the object relates to.")]
+    //    public virtual EnvironmentalMetrics MetricType { get; protected set; }
 
-        public virtual IReadOnlyDictionary<LifeCycleAssessmentModule, T> Metrics { get; set; }
+    //    public virtual IReadOnlyDictionary<LifeCycleAssessmentModule, T> Metrics { get; set; }
+    //}
+
+    //public interface IMetricCollection : IObject
+    //{
+
+    //}
+
+    public class Test<T> where T : class, IEnvironmentalFactor, new()
+    {
+        public virtual IReadOnlyDynamicProperties<LifeCycleAssessmentModule, IEnvironmentalFactor> Factors { get; set; } = new DynamicProperties<LifeCycleAssessmentModule, T>();
     }
 
-    public interface IMetricCollection : IObject
+    public class DynamicProperties<TKey, TValue> : Dictionary<TKey, TValue>, IReadOnlyDynamicProperties<TKey, TValue> where TKey : Enum
     {
-
+        IEnumerator<IPair<TKey, TValue>> IEnumerable<IPair<TKey, TValue>>.GetEnumerator()
+        {
+            return ((IEnumerable<KeyValuePair<TKey, TValue>>)this).Select(x => new Pair<TKey, TValue> { Key = x.Key, Value = x.Value }).GetEnumerator();
+        }
     }
 
-    public class MetricCollection2<T> : Dictionary<LifeCycleAssessmentModule, T>, IMetricCollection<T> where T : EnvironmentalMetric
+    public interface IReadOnlyDynamicProperties<TKey, out TValue> : IDictionary, IEnumerable<IPair<TKey, TValue>> where TKey : Enum
     {
-
+        TValue this[TKey module] { get; }
+        bool ContainsKey(TKey module);
     }
 
-    public interface IMetricCollection<out T> : IMetricCollection, IDictionary, IEnumerable where T : EnvironmentalMetric
-    {
-        T this[LifeCycleAssessmentModule module] { get; }
+    public interface IPair<TKey, out TValue>
+    { 
+        TKey Key { get; }
+        TValue Value { get; }
     }
 
-
+    public class Pair<TKey, TValue> : IPair<TKey, TValue>
+    { 
+        public virtual TKey Key { get; set; }
+        public virtual TValue Value { get; set; }
+    }
 
     //public class PhaseMetricPair<T> : IPhaseMetricPair<T>, IImmutable where T : EnvironmentalMetric
     //{ 

@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Quantities;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
@@ -29,18 +30,9 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results.MetricsValues
 {
     [Description("")]
-    public class AcidificationValue : BHoMObject, IMetricValue
+    public class AcidificationValue : Quantity<Acidification>, IMetricValue
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
 
-        [Acidification]
-        [Description("")]
-        public virtual double Value { get; }
-
-
-        /***************************************************/
 
     }
 }

@@ -20,29 +20,17 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using BH.oM.Quantities;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.Results.MetricsValues
 {
-    [Description("")]
-    public class ClimateChangeTotalValue : BHoMObject, IMetricValue
+    [Description("Climate Change - Total, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to the total of Biogenic, Land Use and Fossil resources which contribute to global warming.")]
+    public class ClimateChangeTotalValue : Quantity<ClimateChange>, IMetricValue
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-        [ClimateChange]
-        [Description("")]
-        public virtual double Value { get; }
-
-
-        /***************************************************/
-
     }
 }
-
-

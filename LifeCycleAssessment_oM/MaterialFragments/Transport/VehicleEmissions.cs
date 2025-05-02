@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalFactors;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
         public override string Name { get; set; }
 
         [Description("Metrics relating to the emissions by the vehicle. All metrics assumed to be impact per mass and distance traveled.")]
-        public virtual List<EnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<EnvironmentalMetric>();
+        public virtual List<IEnvironmentalFactor> EnvironmentalFactors { get; set; } = new List<IEnvironmentalFactor>();
 
         [Description("Factor on the metrics acounting for the empty running of the vehicle returning from the site. Final impact of the metric computed by scling values by 1 + ReturTripFactor.")]
         public virtual double ReturnTripFactor { get; set; } = 0;

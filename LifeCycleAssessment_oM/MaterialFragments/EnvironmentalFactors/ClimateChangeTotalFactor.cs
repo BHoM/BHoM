@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -20,36 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Quantities;
+using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalFactors
 {
-    [Description("Enum of all available environmental indicators. Used for filtering metrics and results.")]
-    public enum EnvironmentalMetrics
+    [Description("Climate Change - Total, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to the total of Biogenic, Land Use and Fossil resources which contribute to global warming. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
+    public class ClimateChangeTotalFactor : Quantity<ClimateChangePerQuantity>, IEnvironmentalFactor
     {
-        Undefined,
-        AbioticDepletionFossilResources,
-        AbioticDepletionMineralsAndMetals,
-        Acidification,
-        ClimateChangeBiogenic,
-        ClimateChangeFossil,
-        ClimateChangeLandUse,
-        ClimateChangeTotal,
-        ClimateChangeTotalNoBiogenic,
-        EutrophicationCML,
-        EutrophicationAquaticFreshwater,
-        EutrophicationAquaticMarine,
-        EutrophicationTerrestrial,
-        EutrophicationTRACI,
-        OzoneDepletion,
-        PhotochemicalOzoneCreation,
-        PhotochemicalOzoneCreationCML,
-        PhotochemicalOzoneCreationTRACI,
-        WaterDeprivation
+        public virtual MetricType MetricType => MetricType.ClimateChangeTotal;
     }
 }
-
-

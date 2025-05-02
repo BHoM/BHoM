@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Quantities;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
@@ -29,14 +30,11 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results.MetricsValues
 {
     [Description("")]
-    public interface IMetricValue : IBHoMObject
+    public interface IMetricValue : IQuantity
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-
-        [Description("")]
-        double Value { get; }
 
 
         /***************************************************/

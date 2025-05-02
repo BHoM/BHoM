@@ -39,7 +39,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual string EnvironmentalProductDeclarationName { get; protected set; }
 
         [Description("Enum indicating the metric type the object relates to.")]
-        public virtual EnvironmentalMetrics MetricType { get; protected set; }
+        public virtual MetricType MetricType { get; protected set; }
 
         /***************************************************/
         /**** Properties - Result properties            ****/
@@ -109,7 +109,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MaterialResult(string materialName, string environmentalProductDeclarationName, EnvironmentalMetrics metricType,
+        public MaterialResult(string materialName, string environmentalProductDeclarationName, MetricType metricType,
                         double a1,
                         double a2,
                         double a3,

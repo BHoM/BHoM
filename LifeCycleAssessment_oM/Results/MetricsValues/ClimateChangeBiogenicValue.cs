@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -20,39 +20,17 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Results;
-using BH.oM.Base;
-using BH.oM.LifeCycleAssessment.Results.MetricsValues;
+using BH.oM.Quantities;
+using BH.oM.Quantities.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.Results
+namespace BH.oM.LifeCycleAssessment.Results.MetricsValues
 {
-    public abstract class ClimateChangeTotalMaterialResult2 : MaterialResult2<ClimateChangeTotalValue>
+    [Description("Climate Change - Biogenic, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to bio-based compounds that contribute to global warming.")]
+    public class ClimateChangeBiogenicValue : Quantity<ClimateChange>, IMetricValue
     {
-        /***************************************************/
-        /**** Properties - Identifiers                  ****/
-        /***************************************************/
-
-
-        /***************************************************/
-        /**** Properties - Result properties            ****/
-        /***************************************************/
-
-        public override IReadOnlyDictionary<LifeCycleAssessmentPhases, ClimateChangeTotalValue> ResultValues { get; protected set; }
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public ClimateChangeTotalMaterialResult2(string materialName, string environmentalProductDeclarationName, EnvironmentalMetrics metricType, IReadOnlyDictionary<LifeCycleAssessmentPhases, ClimateChangeTotalValue> resultValues
-                        ) :base(materialName,environmentalProductDeclarationName,metricType,resultValues)
-        {
-
-        }
-
-        /***************************************************/
     }
 }
-
-

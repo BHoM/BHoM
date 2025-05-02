@@ -29,9 +29,8 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    public abstract class ElementResult2<TType, TMaterialResult> : IImmutable
-        where TMaterialResult : MaterialResult2<TType>
-        where TType : IMetricValue
+    public class ElementResult2<T> : IEnvironmentalResult<T>, IElementResult2, IImmutable//,IDynamicObject
+        where T : IMetricValue, new()
     {
         /***************************************************/
         /**** Properties - Identifiers                  ****/
@@ -47,38 +46,28 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual ObjectCategory Category { get; protected set; }
 
         [Description("Enum indicating the metric type the object relates to.")]
-        public virtual EnvironmentalMetrics MetricType { get; protected set; }
+        public virtual MetricType MetricType { get; protected set; }
 
-        /***************************************************/
-        /**** Properties - Material Breakdown           ****/
-        /***************************************************/
+        //[DynamicProperty]
+        [Description("Resulting values for the element for each module.")]
+        public virtual IReadOnlyDictionary<LifeCycleAssessmentModule, T> Metrics { get; protected set; }
 
         [Description("Result breakdown per material type.")]
-        public virtual IReadOnlyList<TMaterialResult> MaterialResults { get; protected set; }
+        public virtual IReadOnlyList<MaterialResult<T>> MaterialResults { get; protected set; }
 
-        /***************************************************/
-        /**** Properties - Result properties            ****/
-        /***************************************************/
-
-        public abstract IReadOnlyDictionary<LifeCycleAssessmentPhases, TType> ResultValues { get; protected set; }
-
+        
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ElementResult2(IComparable objectId,
-                              ScopeType scope, 
-                              ObjectCategory category, 
-                              EnvironmentalMetrics metricType, 
-                              IReadOnlyList<TMaterialResult> materialResults,
-                              IReadOnlyDictionary<LifeCycleAssessmentPhases, TType> resultValues)
+        public ElementResult2(IComparable objectId, ScopeType scope, ObjectCategory category, MetricType metricType, IReadOnlyList<MaterialResult<T>> materialResults, IReadOnlyDictionary<LifeCycleAssessmentModule, T> metrics)
         {
             ObjectId = objectId;
             Scope = scope;
             Category = category;
             MaterialResults = materialResults;
             MetricType = metricType;
-            ResultValues = resultValues;
+            Metrics = metrics;
         }
 
         /***************************************************/
@@ -90,7 +79,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             if (other == null)
                 return -1;
 
-            ElementResult2<TType, TMaterialResult> otherRes = other as ElementResult2<TType, TMaterialResult>;
+            ElementResult2<T> otherRes = other as ElementResult2<T>;
 
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);

@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
 {
     [Description("Class for computing transport emissions based on the sum of emission factors from all parts of the jounrey to the site.")]
-    public class DistanceTransportModeScenario : BHoMObject, ITransportFactors, IEnvironmentalMetricsProvider
+    public class DistanceTransportModeScenario : BHoMObject, ITransportFactors
     {
         /***************************************************/
         /**** Properties                                ****/

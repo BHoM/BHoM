@@ -45,7 +45,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual ObjectCategory Category { get; protected set; }
 
         [Description("Enum indicating the metric type the object relates to.")]
-        public virtual EnvironmentalMetrics MetricType { get; protected set; }
+        public virtual MetricType MetricType { get; protected set; }
 
         /***************************************************/
         /**** Properties - Material Breakdown           ****/
@@ -123,7 +123,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category, EnvironmentalMetrics metricType, IReadOnlyList<T> materialResults,
+        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category, MetricType metricType, IReadOnlyList<T> materialResults,
                         double a1,
                         double a2,
                         double a3,

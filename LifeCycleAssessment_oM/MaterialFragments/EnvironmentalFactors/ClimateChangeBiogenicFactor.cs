@@ -20,25 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using BH.oM.Quantities;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalFactors
 {
-    [Description("Base interface for all classes able to used to evanluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalMetricsProvider : IBHoMObject
+    [Description("Climate Change - Biogenic, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to bio-based compounds that contribute to global warming. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
+    public class ClimateChangeBiogenicFactor : Quantity<ClimateChangePerQuantity>, IEnvironmentalFactor
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-
-        /***************************************************/
-
+        public virtual MetricType MetricType => MetricType.ClimateChangeBiogenic;
     }
 }
-
-

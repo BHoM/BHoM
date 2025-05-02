@@ -30,31 +30,29 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("An Combined Life Cycle Assessment Factors is aggregate class to compute final impact factors.\n" +
                  "This object is commonly created based on a EPD for cradle to gate metrics (A1 - A3) with addional project and site specific data added for relevant stages such as A4 and A5.")]
-    public class CombinedLifeCycleAssessmentFactors : BHoMObject, IMaterialProperties, IEnvironmentalMetricsProvider
+    public class CombinedLifeCycleAssessmentFactors : BHoMObject, IMaterialProperties, IEnvironmentalFactorsProvider
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Environmental Product Declaration as the basis for the life cycle assessment. Commnly outlines the metrics for A1-A3 stages, but might contain metrics beyond those stages.")]
-        public virtual EnvironmentalProductDeclaration EnvironmentalProductDeclaration { get; set; }
+        [Description("Base factors, typically an Environmental Product Declaration as the basis for the life cycle assessment. Commnly outlines the metrics for A1-A3 stages, but might contain metrics beyond those stages.")]
+        public virtual IBaseLevelEnvironalmentalFactorsProvider BaseFactors { get; set; }
 
-        [Description("Factors for computing the emissions relating to Transport, in general, for the A4 stage.")]
-        //public virtual ITransportFactors A4TransportFactors { get; set; }
-        public virtual ITransportFactors TransportFactors { get; set; }
+        [Description("Factors for computing the emissions relating to  the A4 module which is the Transport module in the Construction Process stage.")]
+        public virtual ITransportFactors A4TransportFactors { get; set; }
 
-        //[Description("Factors for computing the emissions relating to Transport, in general, for the A4 stage.")]
-        //public virtual ITransportFactors C2TransportFactors { get; set; }
+        [Description("Factors for computing the emissions relating to  the C2 module which is the Transport module in the End of Life stage.")]
+        public virtual ITransportFactors C2TransportFactors { get; set; }
 
         /***************************************************/
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-
         [Description("Converts a EnvironmentalProductDeclaration to a CombinedLifeCycleAssessmentFactors, setting the EnvironmentalProductDeclaration to the provided EnvironmentalProductDeclaration. All other properties are set to default values.")]
-        public static explicit operator CombinedLifeCycleAssessmentFactors(EnvironmentalProductDeclaration point)
+        public static explicit operator CombinedLifeCycleAssessmentFactors(EnvironmentalProductDeclaration epd)
         {
-            return new CombinedLifeCycleAssessmentFactors { EnvironmentalProductDeclaration = point };
+            return new CombinedLifeCycleAssessmentFactors { BaseFactors = epd, Name = epd.Name };
         }
 
         /***************************************************/

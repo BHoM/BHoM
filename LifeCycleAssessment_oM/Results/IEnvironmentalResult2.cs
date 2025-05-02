@@ -20,46 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+
 using BH.oM.Analytical.Results;
-using BH.oM.Base;
 using BH.oM.LifeCycleAssessment.Results.MetricsValues;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    public abstract class ClimateChangeTotalElementResult2: ElementResult2<ClimateChangeTotalValue, ClimateChangeTotalMaterialResult2>
+    [Description("Base interface for all Life Cycle Assessment results.")]
+    public interface IEnvironmentalResult<T> : IResultItem //,IDynamicObject
+                where T : IMetricValue, new()
     {
-        /***************************************************/
-        /**** Properties - Identifiers                  ****/
-        /***************************************************/
-
-        /***************************************************/
-        /**** Properties - Result properties            ****/
-        /***************************************************/
-
-        public override IReadOnlyDictionary<LifeCycleAssessmentPhases, ClimateChangeTotalValue> ResultValues { get; protected set; }
-
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public ClimateChangeTotalElementResult2(IComparable objectId,
-                              ScopeType scope, 
-                              ObjectCategory category, 
-                              EnvironmentalMetrics metricType, 
-                              IReadOnlyList<ClimateChangeTotalMaterialResult2> materialResults,
-                              IReadOnlyDictionary<LifeCycleAssessmentPhases, ClimateChangeTotalValue> resultValues)
-            :base(objectId, scope, category, metricType, materialResults, resultValues)
-        {
-        }
-
-        /***************************************************/
-      
+        //[DynamicProperty]
+        [Description("Resulting values for each module.")]
+        IReadOnlyDictionary<LifeCycleAssessmentModule, T> Metrics { get; }
     }
 }
-
-
 
 

@@ -29,7 +29,7 @@ namespace BH.oM.LifeCycleAssessment
     public interface ILifeCycleAssessmentPhaseData : IObject
     {
         [Description("Enum indicating the metric type the object relates to.")]
-        EnvironmentalMetrics MetricType { get; }
+        MetricType MetricType { get; }
 
         [Description("Data relating to the Raw Material Supply module in the Product stage.")]
         double A1 { get; }

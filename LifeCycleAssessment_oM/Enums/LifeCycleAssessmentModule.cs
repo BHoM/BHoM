@@ -27,43 +27,55 @@ namespace BH.oM.LifeCycleAssessment
     public enum LifeCycleAssessmentModule
     {
         Undefined,
-        [Description("Metric relating to the Raw Material Supply module in the Product stage.")]
+        [Description("Raw Material Supply module in the Product stage.")]
         A1,
-        [Description("Metric relating to the Transport module in the Product stage.")]
+        [Description("Transport module in the Product stage.")]
         A2,
-        [Description("Metric relating to the Manufacturing module in the Product stage.")]
+        [Description("Manufacturing module in the Product stage.")]
         A3,
-        [Description("Metric relating to the full Product stage.")]
+        [Description("Full Product stage.")]
         A1toA3,
-        [Description("Metric relating to the Transport module in the Construction Process stage.")]
+        [Description("Transport module in the Construction Process stage.")]
         A4,
-        [Description("Metric relating to the Construction Installation Process module in the Construction Process stage.")]
+        [Description("Construction Installation Process module in the Construction Process stage.")]
         A5,
-        [Description("Metric relating to the Use module in the Use stage.")]
+        [Description("On-site construction waste part of the Construction Installation Process module in the Construction Process stage.")]
+        A5w,
+        [Description("Site activities part of the Construction Installation Process module in the Construction Process stage.")]
+        A5a,
+        [Description("Use module in the Use stage.")]
         B1,
-        [Description("Metric relating to the Maintenance module in the Use stage.")]
+        [Description("Maintenance module in the Use stage.")]
         B2,
-        [Description("Metric relating to the Repair module in the Use stage.")]
+        [Description("Repair module in the Use stage.")]
         B3,
-        [Description("Metric relating to the Replacement module in the Use stage.")]
+        [Description("Use, Maintenance and Repair modules in the Use stage.")]
+        B1toB3,
+        [Description("Replacement module in the Use stage.")]
         B4,
-        [Description("Metric relating to the Refurbishment module in the Use stage.")]
+        [Description("Refurbishment module in the Use stage.")]
         B5,
-        [Description("Metric relating to the Operational Energy Use module in the Use stage.")]
+        [Description("Replacement and Refurbishment modules in the Use stage.")]
+        B4toB5,
+        [Description("Full Use Stage except operational energy and Water use.")]
+        B1toB5,
+        [Description("Operational Energy Use module in the Use stage.")]
         B6,
-        [Description("Metric relating to the Operational Water Use module in the Use stage.")]
+        [Description("Operational Water Use module in the Use stage.")]
         B7,
-        [Description("Metric relating to the full Use Stage.")]
+        [Description("Full Use Stage.")]
         B1toB7,
-        [Description("Metric relating to the De-construction Demolition module in the End of Life stage.")]
+        [Description("De-construction Demolition module in the End of Life stage.")]
         C1,
-        [Description("Metric relating to the Transport module in the End of Life stage.")]
+        [Description("Transport module in the End of Life stage.")]
         C2,
-        [Description("Metric relating to the Waste Processing module in the End of Life stage.")]
+        [Description("Waste Processing module in the End of Life stage.")]
         C3,
-        [Description("Metric relating to the Disposal module in the End of Life stage.")]
+        [Description("Disposal module in the End of Life stage.")]
         C4,
-        [Description("Metric relating to the full End of Life stage.")]
+        [Description("Waste Processing and disposal modules in the End of Life stage.")]
+        C3toC4,
+        [Description("Full End of Life stage.")]
         C1toC4,
         [Description("Metric relating to benefits and loads beyond the system boundary.")]
         D,

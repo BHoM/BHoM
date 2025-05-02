@@ -29,7 +29,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
     public abstract class EnvironmentalMetric : BHoMObject, ILifeCycleAssessmentPhaseData, IImmutable
     {
         [Description("Enum indicating the metric type the object relates to.")]
-        public virtual EnvironmentalMetrics MetricType { get; protected set; }
+        public virtual MetricType MetricType { get; protected set; }
 
         [Description("Data relating to the Raw Material Supply module in the Product stage.")]
         public abstract double A1 { get; protected set; }
@@ -95,7 +95,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /**** Constructors                              ****/
         /***************************************************/
 
-        public EnvironmentalMetric(EnvironmentalMetrics metricType,
+        public EnvironmentalMetric(MetricType metricType,
                         double a1,
                         double a2,
                         double a3,

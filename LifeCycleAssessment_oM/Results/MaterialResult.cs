@@ -28,10 +28,11 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    public abstract class MaterialResult2<T> : IResultItem, IImmutable where T : IMetricValue
+    public class MaterialResult<T> : IEnvironmentalResult<T>, IImmutable, IMaterialResult//,IDynamicObject
+        where T : IMetricValue, new()
     {
         /***************************************************/
-        /**** Properties - Identifiers                  ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Name of the physical material evaluated.")]
@@ -41,25 +42,23 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual string EnvironmentalProductDeclarationName { get; protected set; }
 
         [Description("Enum indicating the metric type the object relates to.")]
-        public virtual EnvironmentalMetrics MetricType { get; protected set; }
+        public virtual MetricType MetricType { get; protected set; }
 
-        /***************************************************/
-        /**** Properties - Result properties            ****/
-        /***************************************************/
-
-        public abstract IReadOnlyDictionary<LifeCycleAssessmentPhases, T> ResultValues { get; protected set; }
+        //[DynamicProperty]
+        [Description("Resulting values for the material for each module.")]
+        public virtual IReadOnlyDictionary<LifeCycleAssessmentModule, T> Metrics { get; protected set; }
+        
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MaterialResult2(string materialName, string environmentalProductDeclarationName, EnvironmentalMetrics metricType,
-                        IReadOnlyDictionary<LifeCycleAssessmentPhases, T> resultValues)
+        public MaterialResult(string materialName, string environmentalProductDeclarationName, MetricType metricType, IReadOnlyDictionary<LifeCycleAssessmentModule, T> metrics)
         {
             MaterialName = materialName;
             EnvironmentalProductDeclarationName = environmentalProductDeclarationName;
             MetricType = metricType;
-            ResultValues = resultValues;
+            Metrics = metrics;
         }
 
         /***************************************************/

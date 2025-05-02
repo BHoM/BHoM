@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalFactors;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
 {
     [Description("Class outlining the transport emmisions relating to a full transport scenario giving total emissions per mass of material trasported.")]
-    public class FullTransportScenario : BHoMObject, ITransportFactors, IEnvironmentalMetricsProvider
+    public class FullTransportScenario : BHoMObject, ITransportFactors
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -39,7 +40,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
         public override string Name { get; set; }
 
         [Description("Metrics relating to the transport scenario. All metrics assumed to be impact per mass.")]
-        public virtual List<EnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<EnvironmentalMetric>();
+        public virtual List<IEnvironmentalFactor> EnvironmentalFactors { get; set; } = new List<IEnvironmentalFactor>();
 
         /***************************************************/
 
