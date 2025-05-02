@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -31,13 +31,11 @@ namespace BH.oM.Quantities.Attributes
         /**** Properties                                ****/
         /***************************************************/
 
-        public override int M { get; } = 1;
+        public override int L { get; } = 1;
 
-        public override int ? { get; } = -1;
+        public override int T { get; } = -1;
 
-        public override int T { get; } = -3;
-
-        public override string SIUnit { get; } = "W/(m�.K)";
+        public override string SIUnit { get; } = "m³/(m².s)";
 
         /***************************************************/
     }
