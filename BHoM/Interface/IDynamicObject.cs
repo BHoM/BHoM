@@ -24,7 +24,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Base
 {
-    [Description("Identifies objects that have dyanmic properties.")]
+    [Description("Identifies objects that have dynamic properties.")]
     public interface IDynamicObject : IObject
     {
 
