@@ -30,7 +30,7 @@ using System.Text;
 
 namespace BH.oM.Quantities
 {
-    [Description("Represents a numerical value with an SI unit attached to it.")]
+    [Description("Represents a numerical value with a quantity type attached to it. The quantity type includes dimensionality as well as SI unit.")]
     public class Quantity<T> : IQuantity, IObject where T : QuantityAttribute, new()
     {
         public virtual double Value { get; set; } = 0;
