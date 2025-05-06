@@ -39,7 +39,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
         public virtual VehicleEmissions VehicleEmissions { get; set; }
 
         [Length]
-        [Description("Total distance tranported with the particular vehicle.")]
+        [Description("Total distance transported with the particular vehicle.")]
         public virtual double DistanceTraveled { get; set; }
 
         /***************************************************/
