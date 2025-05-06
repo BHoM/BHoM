@@ -30,9 +30,9 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
 
-    public class MetricDictionary<T> : ReadOnlyDictionary<LifeCycleAssessmentModule, T>, IBHoMObject, IMetricDictionary<T> where T : ILifeCycleAssessmentPhaseData
+    public class MetricDictionary<T> : ReadOnlyDictionary<Module, T>, IBHoMObject, IMetricDictionary<T> where T : ILifeCycleAssessmentPhaseData
     {
-        public MetricDictionary(IDictionary<LifeCycleAssessmentModule, T> dictionary) : base(dictionary)
+        public MetricDictionary(IDictionary<Module, T> dictionary) : base(dictionary)
         {
         }
 
@@ -49,7 +49,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
 
     public interface IMetricDictionary<out T> : IBHoMObject where T : ILifeCycleAssessmentPhaseData
     {
-        T this[LifeCycleAssessmentModule key] {get;}
+        T this[Module key] {get;}
     }
 
 

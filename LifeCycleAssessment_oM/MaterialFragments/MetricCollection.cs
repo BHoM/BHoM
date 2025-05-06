@@ -26,7 +26,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
 
     public class Test<T> where T : class, IEnvironmentalFactor, new()
     {
-        public virtual IReadOnlyDynamicProperties<LifeCycleAssessmentModule, IEnvironmentalFactor> Factors { get; set; } = new DynamicProperties<LifeCycleAssessmentModule, T>();
+        public virtual IReadOnlyDynamicProperties<Module, IEnvironmentalFactor> Factors { get; set; } = new DynamicProperties<Module, T>();
     }
 
     public class DynamicProperties<TKey, TValue> : Dictionary<TKey, TValue>, IReadOnlyDynamicProperties<TKey, TValue> where TKey : Enum

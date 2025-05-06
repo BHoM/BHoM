@@ -34,7 +34,7 @@ namespace BH.oM.LifeCycleAssessment.Results
     {
         //[DynamicProperty]
         [Description("Resulting values for each module.")]
-        IReadOnlyDictionary<LifeCycleAssessmentModule, T> Metrics { get; }
+        IReadOnlyDictionary<Module, T> Metrics { get; }
     }
 }
 

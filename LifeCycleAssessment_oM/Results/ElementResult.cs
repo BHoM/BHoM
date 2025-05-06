@@ -50,7 +50,7 @@ namespace BH.oM.LifeCycleAssessment.Results
 
         //[DynamicProperty]
         [Description("Resulting values for the element for each module.")]
-        public virtual IReadOnlyDictionary<LifeCycleAssessmentModule, T> Metrics { get; protected set; }
+        public virtual IReadOnlyDictionary<Module, T> Metrics { get; protected set; }
 
         [Description("Result breakdown per material type.")]
         public virtual IReadOnlyList<MaterialResult<T>> MaterialResults { get; protected set; }
@@ -60,7 +60,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ElementResult2(IComparable objectId, ScopeType scope, ObjectCategory category, MetricType metricType, IReadOnlyList<MaterialResult<T>> materialResults, IReadOnlyDictionary<LifeCycleAssessmentModule, T> metrics)
+        public ElementResult2(IComparable objectId, ScopeType scope, ObjectCategory category, MetricType metricType, IReadOnlyList<MaterialResult<T>> materialResults, IReadOnlyDictionary<Module, T> metrics)
         {
             ObjectId = objectId;
             Scope = scope;

@@ -24,7 +24,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment
 {
-    public enum LifeCycleAssessmentModule
+    public enum Module
     {
         Undefined,
         [Description("Raw Material Supply module in the Product stage.")]

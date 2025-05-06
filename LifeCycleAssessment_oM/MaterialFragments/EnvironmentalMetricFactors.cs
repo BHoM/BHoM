@@ -18,7 +18,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
 
         //[DynamicProperty]
         [Description("Set of factors per module.")]
-        public virtual DynamicProperties<LifeCycleAssessmentModule, T> Factors { get; set; } = new DynamicProperties<LifeCycleAssessmentModule, T>();
+        public virtual DynamicProperties<Module, T> Factors { get; set; } = new DynamicProperties<Module, T>();
 
         public EnvironmentalMetricFactors()
         {

@@ -46,14 +46,14 @@ namespace BH.oM.LifeCycleAssessment.Results
 
         //[DynamicProperty]
         [Description("Resulting values for the material for each module.")]
-        public virtual IReadOnlyDictionary<LifeCycleAssessmentModule, T> Metrics { get; protected set; }
+        public virtual IReadOnlyDictionary<Module, T> Metrics { get; protected set; }
         
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public MaterialResult(string materialName, string environmentalProductDeclarationName, MetricType metricType, IReadOnlyDictionary<LifeCycleAssessmentModule, T> metrics)
+        public MaterialResult(string materialName, string environmentalProductDeclarationName, MetricType metricType, IReadOnlyDictionary<Module, T> metrics)
         {
             MaterialName = materialName;
             EnvironmentalProductDeclarationName = environmentalProductDeclarationName;
