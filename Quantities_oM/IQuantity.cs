@@ -29,7 +29,7 @@ using System.Text;
 
 namespace BH.oM.Quantities
 {
-    [Description("Represents a numerical value with an SI unit attached to it.")]
+    [Description("Represents a numerical value with a quantity type attached to it. The quantity type includes dimensionality as well as SI unit.")]
     public interface IQuantity : IObject
     {
         double Value { get; set; }
