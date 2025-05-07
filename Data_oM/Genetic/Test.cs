@@ -117,6 +117,7 @@ namespace BH.oM.Data.Genetic
         public double ForceMaintainRatio { get; set; } = 0.1;
         public double ForceDropRatio { get; set; } = 0.1;
         public int GenerationCount { get; set; } = 50;
+        public int MaxStagnant { get; set; } = 5;
     }
 
     public class DoubleParameter : IObject
