@@ -26,13 +26,13 @@ namespace BH.oM.Data.Genetic
 
     public class TournamentSelection : IFirstParentSelectionMethod, ISecondParentSelectionMethod
     {
-        public int TournamentSize { get; set; } = 20;
+        public virtual int TournamentSize { get; set; } = 20;
     }
 
     public class DistanceBasedSelection : ISecondParentSelectionMethod
     {
-        public double MinPercentile { get; set; } = 0.1;
-        public double MaxPercentile { get; set; } = 0.25;
+        public virtual double MinPercentile { get; set; } = 0.1;
+        public virtual double MaxPercentile { get; set; } = 0.25;
     }
 
     public interface ICrossoverMethod : IObject
@@ -42,35 +42,35 @@ namespace BH.oM.Data.Genetic
 
     public class SinglePointCrossover : ICrossoverMethod
     {
-        public double CrossoverRate { get; set; } = 0.7;
+        public virtual double CrossoverRate { get; set; } = 0.7;
     }
     public class TwoPointCrossover : ICrossoverMethod
     {
-        public double CrossoverRate { get; set; } = 0.7;
+        public virtual double CrossoverRate { get; set; } = 0.7;
     }
     public class UniformCrossover : ICrossoverMethod
     {
-        public double CrossoverRate { get; set; } = 0.7;
-        public double Probability { get; set; } = 0.5;
+        public virtual double CrossoverRate { get; set; } = 0.7;
+        public virtual double Probability { get; set; } = 0.5;
     }
     public class ArithmeticCrossover : ICrossoverMethod
     {
-        public double CrossoverRate { get; set; } = 0.7;
-        public double Alpha { get; set; } = 0.5;
+        public virtual double CrossoverRate { get; set; } = 0.7;
+        public virtual double Alpha { get; set; } = 0.5;
     }
     public class ProportionalArithmeticCrossover : ICrossoverMethod
     {
-        public double CrossoverRate { get; set; } = 0.7;
+        public virtual double CrossoverRate { get; set; } = 0.7;
     }
     public class BlendCrossover : ICrossoverMethod
     {
-        public double CrossoverRate { get; set; } = 0.7;
-        public double Alpha { get; set; } = 0.5;
+        public virtual double CrossoverRate { get; set; } = 0.7;
+        public virtual double Alpha { get; set; } = 0.5;
     }
     public class SimulatedBinaryCrossover : ICrossoverMethod
     {
-        public double CrossoverRate { get; set; } = 0.7;
-        public double Eta { get; set; } = 2.0;
+        public virtual double CrossoverRate { get; set; } = 0.7;
+        public virtual double Eta { get; set; } = 2.0;
     }
 
     public interface IMutationMethod : IObject
@@ -80,19 +80,19 @@ namespace BH.oM.Data.Genetic
 
     public class RandomPointMutation : IMutationMethod
     {
-        public double MutationRate { get; set; } = 0.01;
+        public virtual double MutationRate { get; set; } = 0.01;
     }
 
     public class GaussianPointMutation : IMutationMethod
     {
-        public double MutationRate { get; set; } = 0.01;
-        public int IntervalCount { get; set; } = 6;
+        public virtual double MutationRate { get; set; } = 0.01;
+        public virtual int IntervalCount { get; set; } = 6;
     }
 
     public class GleamPointMutation : IMutationMethod
     {
-        public double MutationRate { get; set; } = 0.01;
-        public int IntervalCount { get; set; } = 6;
+        public virtual double MutationRate { get; set; } = 0.01;
+        public virtual int IntervalCount { get; set; } = 6;
     }
 
     public interface IGeneticAlgorithmSettings : IObject
@@ -106,25 +106,25 @@ namespace BH.oM.Data.Genetic
         double ForceMaintainRatio { get; set; }
     }
 
-    public class FixedGenerationCount : IGeneticAlgorithmSettings
+    public class StandardGaSettings : IGeneticAlgorithmSettings
     {
-        public int PopulationSize { get; set; } = 50;
-        public double InitialBoost { get; set; } = 2;
-        public IFirstParentSelectionMethod SelectionMethod { get; set; }
-        public DistanceBasedSelection SecondParentSelectionMethod { get; set; }
-        public ICrossoverMethod CrossoverMethod { get; set; }
-        public IMutationMethod MutationMethod { get; set; }
-        public double ForceMaintainRatio { get; set; } = 0.1;
-        public double ForceDropRatio { get; set; } = 0.1;
-        public int GenerationCount { get; set; } = 50;
-        public int MaxStagnant { get; set; } = 5;
+        public virtual int PopulationSize { get; set; } = 50;
+        public virtual double InitialBoost { get; set; } = 2;
+        public virtual IFirstParentSelectionMethod SelectionMethod { get; set; }
+        public virtual DistanceBasedSelection SecondParentSelectionMethod { get; set; }
+        public virtual ICrossoverMethod CrossoverMethod { get; set; }
+        public virtual IMutationMethod MutationMethod { get; set; }
+        public virtual double ForceMaintainRatio { get; set; } = 0.1;
+        public virtual double ForceDropRatio { get; set; } = 0.1;
+        public virtual int GenerationCount { get; set; } = 50;
+        public virtual int MaxStagnant { get; set; } = 5;
     }
 
     public class DoubleParameter : IObject
     {
-        public double Min { get; set; }
-        public double Max { get; set; }
-        public double Step { get; set; }
+        public virtual double Min { get; set; }
+        public virtual double Max { get; set; }
+        public virtual double Step { get; set; }
     }
 
     public interface IGeneticAlgorithmResult : IObject
@@ -134,20 +134,30 @@ namespace BH.oM.Data.Genetic
 
     public class GeneticAlgorithmResult : IGeneticAlgorithmResult
     {
-        public List<GenerationResult> Generations { get; set; } = new List<GenerationResult>();
+        public virtual List<GenerationResult> Generations { get; set; } = new List<GenerationResult>();
     }
 
-    //TODO: needs to be IImmutable
-    public class GenerationResult : IObject
+    public class GenerationResult : IImmutable
     {
-        public int GenerationNumber { get; set; }
-        public List<Individual> Population { get; set; } = new List<Individual>();
+        public virtual int GenerationNumber { get; } = 0;
+        public virtual List<Individual> Population { get; } = new List<Individual>();
+
+        public GenerationResult(int generationNumber, List<Individual> population)
+        {
+            GenerationNumber = generationNumber;
+            Population = population;
+        }
     }
 
-    //TODO: needs to be IImmutable
-    public class Individual : IObject
+    public class Individual : IImmutable
     {
-        public List<double> Genes { get; set; }
-        public double Fitness { get; set; }
+        public virtual List<double> Genes { get; } = new List<double>();
+        public virtual double Fitness { get; } = double.MinValue;
+
+        public Individual(List<double> genes, double fitness)
+        {
+            Genes = genes;
+            Fitness = fitness;
+        }
     }
 }
