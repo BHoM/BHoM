@@ -1,5 +1,6 @@
 ﻿using BH.oM.Base;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace BH.oM.Data.Genetic
 {
@@ -75,31 +76,70 @@ namespace BH.oM.Data.Genetic
 
     public interface IMutationMethod : IObject
     {
-        double MutationRate { get; set; }
+        IMutationRate MutationRate { get; set; }
     }
 
     public class RandomPointMutation : IMutationMethod
     {
-        public virtual double MutationRate { get; set; } = 0.01;
+        public virtual IMutationRate MutationRate { get; set; } = null;
     }
 
     public class GaussianPointMutation : IMutationMethod
     {
-        public virtual double MutationRate { get; set; } = 0.01;
+        public virtual IMutationRate MutationRate { get; set; } = null;
         public virtual int IntervalCount { get; set; } = 6;
     }
 
     public class GleamPointMutation : IMutationMethod
     {
-        public virtual double MutationRate { get; set; } = 0.01;
+        public virtual IMutationRate MutationRate { get; set; } = null;
         public virtual int IntervalCount { get; set; } = 6;
     }
+
+    public interface IMutationRate : IObject
+    {
+
+    }
+
+    public class ConstantMutationRate : IMutationRate
+    {
+        public virtual double MutationRate { get; set; } = 0.01;
+    }
+
+    public class LinearMutationRate : IMutationRate
+    {
+        public virtual double InitialMutationRate { get; set; } = 0.2;
+        public virtual double EndMutationRate { get; set; } = 0.01;
+        public virtual int EndGeneration { get; set; } = 50;
+    }
+
+    public class ExponentialMutationRate : IMutationRate
+    {
+        public virtual double InitialMutationRate { get; set; } = 0.2;
+        public virtual double EndMutationRate { get; set; } = 0.01;
+        public virtual int EndGeneration { get; set; } = 50;
+    }
+
+    public class LogarithmicMutationRate : IMutationRate
+    {
+        public virtual double InitialMutationRate { get; set; } = 0.2;
+        public virtual double EndMutationRate { get; set; } = 0.01;
+        public virtual int EndGeneration { get; set; } = 50;
+    }
+
+    public class AdaptiveProportionalMutationRate : IMutationRate
+    {
+        public virtual double MinMutationRate { get; set; } = 0.01;
+        public virtual double MaxMutationRate { get; set; } = 0.2;
+    }
+
 
     public interface IGeneticAlgorithmSettings : IObject
     {
         int PopulationSize { get; set; }
         double InitialBoost { get; set; }
-        IFirstParentSelectionMethod SelectionMethod { get; set; }
+        IFirstParentSelectionMethod FirstParentSelectionMethod { get; set; }
+        ISecondParentSelectionMethod SecondParentSelectionMethod { get; set; }
         ICrossoverMethod CrossoverMethod { get; set; }
         IMutationMethod MutationMethod { get; set; }
         double ForceDropRatio { get; set; }
@@ -110,13 +150,13 @@ namespace BH.oM.Data.Genetic
     {
         public virtual int PopulationSize { get; set; } = 50;
         public virtual double InitialBoost { get; set; } = 2;
-        public virtual IFirstParentSelectionMethod SelectionMethod { get; set; }
-        public virtual DistanceBasedSelection SecondParentSelectionMethod { get; set; }
+        public virtual IFirstParentSelectionMethod FirstParentSelectionMethod { get; set; }
+        public virtual ISecondParentSelectionMethod SecondParentSelectionMethod { get; set; }
         public virtual ICrossoverMethod CrossoverMethod { get; set; }
         public virtual IMutationMethod MutationMethod { get; set; }
         public virtual double ForceMaintainRatio { get; set; } = 0.1;
         public virtual double ForceDropRatio { get; set; } = 0.1;
-        public virtual int GenerationCount { get; set; } = 50;
+        public virtual int MaxGenerationCount { get; set; } = 50;
         public virtual int MaxStagnant { get; set; } = 5;
     }
 
@@ -140,12 +180,11 @@ namespace BH.oM.Data.Genetic
     public class GenerationResult : IImmutable
     {
         public virtual int GenerationNumber { get; } = 0;
-        public virtual List<Individual> Population { get; } = new List<Individual>();
-
-        public GenerationResult(int generationNumber, List<Individual> population)
+        public virtual ReadOnlyCollection<Individual> Population { get; }
+        public GenerationResult(int generationNumber, IList<Individual> population)
         {
             GenerationNumber = generationNumber;
-            Population = population;
+            Population = new ReadOnlyCollection<Individual>(population);
         }
     }
 
