@@ -25,10 +25,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalFactors
+namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     public interface IEnvironmentalFactor : IQuantity
     {
-        MetricType MetricType { get; }
+
     }
 }

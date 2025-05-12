@@ -20,41 +20,25 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
-using System;
+using BH.oM.Analytical.Results;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    [Description("Result class for resulting Climate change - fossil for a particular Element.")]
-    public class ClimateChangeFossilElementResult : ElementResult<ClimateChangeFossilMaterialResult>, IImmutable
+    [Description("Base interface for Life Cycle Assessment results for a particular element..")]
+    public interface IElementResult2<out T> : IObjectResult, IResultItem, IEnvironmentalResult2
+        where T : MaterialResult2
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("Scope the object this result was generated from belongs to, e.g. Foundation or Facade")]
+        ScopeType Scope { get; }
 
-        [ClimateChange]
-        [Description("Resulting Climate change per module.")]
-        public override ReadOnlyDictionary<Module, double> Results { get; }
+        [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
+        ObjectCategory Category { get; }
 
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-        public ClimateChangeFossilElementResult(
-            IComparable objectId,
-            ScopeType scope,
-            ObjectCategory category,
-            IReadOnlyList<ClimateChangeFossilMaterialResult> materialResults,
-            IDictionary<Module, double> results) : base(objectId, scope, category, MetricType.ClimateChangeBiogenic, materialResults)
-        {
-            Results = new ReadOnlyDictionary<Module, double>(results);
-        }
-
-        /***************************************************/
+        [Description("Result breakdown per material type.")]
+        IReadOnlyList<T> MaterialResults { get; }
     }
 }
+
+

@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Eutrophication - aquatic marine for a particular Material and EPD.")]
-    public class EutrophicationAquaticMarineMaterialResult : MaterialResult, IImmutable
+    public class EutrophicationAquaticMarineMaterialResult : MaterialResult2, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

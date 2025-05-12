@@ -27,11 +27,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalFactors
+namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Climate Change - Land Use and Land Use Change, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to the exploitation of land and its resources, which contributes to global warming. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class ClimateChangeLandUseFactor : Quantity<ClimateChangePerQuantity>, IEnvironmentalFactor
+    public class ClimateChangeLandUseFactor : IEnvironmentalFactor
     {
-        public virtual MetricType MetricType => MetricType.ClimateChangeLandUse;
+        [ClimateChangePerQuantity]
+        public virtual double Value { get; set; }
     }
 }

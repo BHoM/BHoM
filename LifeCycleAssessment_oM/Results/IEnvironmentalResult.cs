@@ -22,14 +22,18 @@
 
 
 using BH.oM.Analytical.Results;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Base interface for all Life Cycle Assessment results.")]
-    public interface IEnvironmentalResult : IResultItem, ILifeCycleAssessmentPhaseData
+    public interface IEnvironmentalResult : IResultItem //,IDynamicObject
     {
-
+        //[DynamicProperty]
+        [Description("Resulting indicators per evaluated module.")]
+        ReadOnlyDictionary<Module, double> Results { get; }
     }
 }
 

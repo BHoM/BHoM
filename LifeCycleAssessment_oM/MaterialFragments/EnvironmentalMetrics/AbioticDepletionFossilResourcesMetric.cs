@@ -22,6 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
@@ -32,6 +33,10 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
+        //[DynamicProperty]
+        [Description("Set of factors per module.")]
+        public virtual Dictionary<Module, double> Factors { get; set; } = new DynamicProperties<Module, double>();
 
         [EnergyPerQuantity]
         [Description("Abiotic depletion of fossil resources relating to the Raw Material Supply module in the Product stage.")]

@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Abiotic depletion - minerals & metals for a particular Element.")]
-    public class AbioticDepletionMineralsAndMetalsElementResult : ElementResult<AbioticDepletionMineralsAndMetalsMaterialResult>, IImmutable
+    public class AbioticDepletionMineralsAndMetalsElementResult : ElementResult2<AbioticDepletionMineralsAndMetalsMaterialResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

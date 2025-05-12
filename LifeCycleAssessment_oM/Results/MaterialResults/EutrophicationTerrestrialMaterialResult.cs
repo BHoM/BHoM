@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Eutrophication - terrestrial for a particular Material and EPD.")]
-    public class EutrophicationTerrestrialMaterialResult : MaterialResult, IImmutable
+    public class EutrophicationTerrestrialMaterialResult : MaterialResult2, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

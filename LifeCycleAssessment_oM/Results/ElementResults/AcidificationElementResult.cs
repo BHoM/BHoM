@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Acidification for a particular Element.")]
-    public class AcidificationElementResult : ElementResult<AcidificationMaterialResult>, IImmutable
+    public class AcidificationElementResult : ElementResult2<AcidificationMaterialResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -1,5 +1,5 @@
 ﻿using BH.oM.Base;
-using BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalFactors;
+
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections;

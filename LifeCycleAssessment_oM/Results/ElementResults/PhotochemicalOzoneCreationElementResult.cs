@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Photochemical ozone formation for a particular Element.")]
-    public class PhotochemicalOzoneCreationElementResult : ElementResult<PhotochemicalOzoneCreationMaterialResult>, IImmutable
+    public class PhotochemicalOzoneCreationElementResult : ElementResult2<PhotochemicalOzoneCreationMaterialResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

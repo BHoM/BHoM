@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Eutrophication (Version 1 North American standard) for a particular Element.")]
-    public class EutrophicationTRACIElementResult : ElementResult<EutrophicationTRACIMaterialResult>, IImmutable
+    public class EutrophicationTRACIElementResult : ElementResult2<EutrophicationTRACIMaterialResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

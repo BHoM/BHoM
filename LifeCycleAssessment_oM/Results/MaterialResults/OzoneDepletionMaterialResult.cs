@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Ozone depletion for a particular Material and EPD.")]
-    public class OzoneDepletionMaterialResult : MaterialResult, IImmutable
+    public class OzoneDepletionMaterialResult : MaterialResult2, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Photochemical Ozone Creation as defined by the CML standard for a particular Material and EPD.")]
-    public class PhotochemicalOzoneCreationCMLMaterialResult : MaterialResult, IImmutable
+    public class PhotochemicalOzoneCreationCMLMaterialResult : MaterialResult2, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Photochemical Ozone Creation as defined by the TRACI standard for a particular Material and EPD.")]
-    public class PhotochemicalOzoneCreationTRACIMaterialResult : MaterialResult, IImmutable
+    public class PhotochemicalOzoneCreationTRACIMaterialResult : MaterialResult2, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

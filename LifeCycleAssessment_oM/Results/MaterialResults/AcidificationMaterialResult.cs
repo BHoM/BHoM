@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Acidification for a particular Material and EPD.")]
-    public class AcidificationMaterialResult : MaterialResult, IImmutable
+    public class AcidificationMaterialResult : MaterialResult2, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

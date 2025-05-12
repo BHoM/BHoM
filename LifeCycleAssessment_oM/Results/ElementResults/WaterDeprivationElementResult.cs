@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Water Deprivation for a particular Element.")]
-    public class WaterDeprivationElementResult : ElementResult<WaterDeprivationMaterialResult>, IImmutable
+    public class WaterDeprivationElementResult : ElementResult2<WaterDeprivationMaterialResult>, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/

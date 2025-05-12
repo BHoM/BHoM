@@ -1,0 +1,27 @@
+{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+
+    },
+    "ToOld": {
+    }
+  },
+  "Property": {
+    "ToNew": {
+      "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalProductDeclaration.EnvironmentalMetrics": "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalProductDeclaration.EnvironmentalFactors"
+    },
+    "ToOld": {
+      "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalProductDeclaration.EnvironmentalFactors": "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalProductDeclaration.EnvironmentalMetrics"
+    }
+  },
+  "MessageForDeleted": {
+  },
+  "MessageForNoUpgrade": {
+  }
+}

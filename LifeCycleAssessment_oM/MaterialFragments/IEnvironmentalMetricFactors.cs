@@ -12,7 +12,8 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
     [Description("Base interface for class storing Environmental Impact Factors of a specific type relating to modules.")]
     public interface IEnvironmentalMetricFactors : IObject
     {
-        MetricType MetricType { get;  }
+        //[DynamicProperty]
+        [Description("Set of factors per module.")]
+        Dictionary<Module, double> Factors { get; set; }
     }
-
 }

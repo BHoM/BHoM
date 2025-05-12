@@ -22,6 +22,7 @@
 
 using BH.oM.Analytical.Results;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
