@@ -33,6 +33,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         //[DynamicProperty]
         [ClimateChangePerQuantity]
         [Description("Set of factors per module.")]

@@ -34,10 +34,6 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /**** Properties                                ****/
         /***************************************************/
 
-        //[DynamicProperty]
-        [Description("Set of factors per module.")]
-        public virtual Dictionary<Module, double> Factors { get; set; } = new DynamicProperties<Module, double>();
-
         [EnergyPerQuantity]
         [Description("Abiotic depletion of fossil resources relating to the Raw Material Supply module in the Product stage.")]
         public override double A1 { get; protected set; }
