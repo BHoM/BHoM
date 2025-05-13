@@ -7,9 +7,10 @@
   },
   "Type": {
     "ToNew": {
-
+      "BH.oM.LifeCycleAssessment.LifeCycleAssessmentPhases": "BH.oM.LifeCycleAssessment.Module"
     },
     "ToOld": {
+      "BH.oM.LifeCycleAssessment.Module": "BH.oM.LifeCycleAssessment.LifeCycleAssessmentPhases"
     }
   },
   "Property": {
