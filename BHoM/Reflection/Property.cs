@@ -20,16 +20,27 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Base
+namespace BH.oM.Base.Reflection
 {
-    [Description("Allows the user to define their own objects with a custom set of properties.")]
-    public class CustomObject : BHoMObject, IDynamicPropertyProvider
+    [Description("Metadata related to a C# property")]
+    public class Property : IObject
     {
         /***************************************************/
-        /**** Constructors                              ****/
+        /**** Properties                                ****/
         /***************************************************/
+
+        public virtual string Name { get; set; } = "";
+
+        public virtual Type Type { get; set; } = null;
+
+        public virtual string Description { get; set; } = "";
 
 
         /***************************************************/

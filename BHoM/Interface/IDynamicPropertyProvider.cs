@@ -24,15 +24,10 @@ using System.ComponentModel;
 
 namespace BH.oM.Base
 {
-    [Description("Allows the user to define their own objects with a custom set of properties.")]
-    public class CustomObject : BHoMObject, IDynamicPropertyProvider
+    [Description("Identifies objects that provide their own accessors to their dynamic properties. Those classes must implement the following methods: GetProperty, SetProperty, and GetProperties.")]
+    public interface IDynamicPropertyProvider : IDynamicObject
     {
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
 
-
-        /***************************************************/
     }
 }
 
