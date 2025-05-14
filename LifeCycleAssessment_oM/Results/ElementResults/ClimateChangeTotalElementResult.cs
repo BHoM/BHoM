@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Base.Attributes;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
@@ -31,15 +32,16 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Climate change - total for a particular Element.")]
-    public class ClimateChangeTotalElementResult : ElementResult<ClimateChangeTotalMaterialResult>, IImmutable
+    public class ClimateChangeTotalElementResult : ElementResult<ClimateChangeTotalMaterialResult>, IImmutable, IDynamicObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [DynamicProperty]
         [ClimateChange]
         [Description("Resulting Climate change per module.")]
-        public override ReadOnlyDictionary<Module, double> Results { get; }
+        public override ReadOnlyDictionary<Module, double> Indicators { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -52,7 +54,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             IReadOnlyList<ClimateChangeTotalMaterialResult> materialResults,
             IDictionary<Module, double> results) : base(objectId, scope, category, MetricType.ClimateChangeBiogenic, materialResults)
         {
-            Results = new ReadOnlyDictionary<Module, double>(results);
+            Indicators = new ReadOnlyDictionary<Module, double>(results);
         }
 
         /***************************************************/

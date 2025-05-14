@@ -14,6 +14,6 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
     {
         //[DynamicProperty]
         [Description("Set of factors per module.")]
-        Dictionary<Module, double> Factors { get; set; }
+        Dictionary<Module, double> Indicators { get; set; }
     }
 }

@@ -7,10 +7,12 @@
   },
   "Type": {
     "ToNew": {
-      "BH.oM.LifeCycleAssessment.LifeCycleAssessmentPhases": "BH.oM.LifeCycleAssessment.Module"
+      "BH.oM.LifeCycleAssessment.LifeCycleAssessmentPhases": "BH.oM.LifeCycleAssessment.Module",
+      "BH.oM.LifeCycleAssessment.EnvironmentalMetrics": "BH.oM.LifeCycleAssessment.MetricType"
     },
     "ToOld": {
-      "BH.oM.LifeCycleAssessment.Module": "BH.oM.LifeCycleAssessment.LifeCycleAssessmentPhases"
+      "BH.oM.LifeCycleAssessment.Module": "BH.oM.LifeCycleAssessment.LifeCycleAssessmentPhases",
+      "BH.oM.LifeCycleAssessment.MetricType": "BH.oM.LifeCycleAssessment.EnvironmentalMetrics"
     }
   },
   "Property": {

@@ -40,7 +40,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         public virtual string EnvironmentalProductDeclarationName { get; protected set; }
 
         [Description("Resulting indicators per evaluated module.")]
-        public abstract ReadOnlyDictionary<Module, double> Results { get; }
+        public abstract ReadOnlyDictionary<Module, double> Indicators { get; }
 
         /***************************************************/
         /**** Constructors                              ****/

@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Base.Attributes;
 using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,16 +29,16 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Climate Change - Biogenic, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to bio-based compounds that contribute to global warming. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class ClimateChangeBiogenicMetric : BHoMObject, IEnvironmentalMetricFactors
+    public class ClimateChangeBiogenicMetric : BHoMObject, IEnvironmentalMetricFactors, IDynamicObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        //[DynamicProperty]
+        [DynamicProperty]
         [ClimateChangePerQuantity]
         [Description("Set of factors per module.")]
-        public virtual Dictionary<Module, double> Factors { get; set; } = new Dictionary<Module, double>();
+        public virtual Dictionary<Module, double> Indicators { get; set; } = new Dictionary<Module, double>();
 
         /***************************************************/
 

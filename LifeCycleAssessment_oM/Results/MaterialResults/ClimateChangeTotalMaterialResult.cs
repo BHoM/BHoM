@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Base.Attributes;
 using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,16 +30,16 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Result class for resulting Climate change - total for a particular Material and EPD.")]
-    public class ClimateChangeTotalMaterialResult : MaterialResult, IImmutable//, IDynamicObject
+    public class ClimateChangeTotalMaterialResult : MaterialResult, IImmutable, IDynamicObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        //[DynamicProperty]
+        [DynamicProperty]
         [ClimateChange]
         [Description("Resulting indicators per evaluated module.")]
-        public override ReadOnlyDictionary<Module, double> Results { get; }
+        public override ReadOnlyDictionary<Module, double> Indicators { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -49,7 +50,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             string environmentalProductDeclarationName,
             IDictionary<Module, double> results) : base(materialName, environmentalProductDeclarationName)
         {
-            Results = new ReadOnlyDictionary<Module, double>(results);
+            Indicators = new ReadOnlyDictionary<Module, double>(results);
         }
 
 

@@ -33,7 +33,7 @@ namespace BH.oM.LifeCycleAssessment.Results
     {
         //[DynamicProperty]
         [Description("Resulting indicators per evaluated module.")]
-        ReadOnlyDictionary<Module, double> Results { get; }
+        ReadOnlyDictionary<Module, double> Indicators { get; }
     }
 }
 

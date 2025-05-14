@@ -60,7 +60,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /***************************************************/
 
         [Description("Resulting indicators per evaluated module.")]
-        public abstract ReadOnlyDictionary<Module, double> Results { get; }
+        public abstract ReadOnlyDictionary<Module, double> Indicators { get; }
 
 
         /***************************************************/
