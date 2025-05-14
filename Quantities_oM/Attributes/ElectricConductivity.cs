@@ -20,17 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
+using System;
 
-namespace BH.oM.Base
+namespace BH.oM.Quantities.Attributes
 {
-    [Description("Allows the user to define their own objects with a custom set of properties.")]
-    public class CustomObject : BHoMObject, IDynamicPropertyProvider
+    [AttributeUsage(AttributeTargets.Property)]
+    public class ElectricConductivity : QuantityAttribute
     {
         /***************************************************/
-        /**** Constructors                              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
+        public override int M { get; } = -1;
+
+        public override int L { get; } = -3;
+
+        public override int T { get; } = 3;
+
+        public override int I { get; } = 2;
+
+        public override string SIUnit { get; } = "S/m";
 
         /***************************************************/
     }

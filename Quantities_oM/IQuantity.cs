@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -20,24 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.Base
+namespace BH.oM.Quantities
 {
-    [Description("Allows the user to define their own objects with a custom set of properties.")]
-    public class CustomObject : BHoMObject, IDynamicPropertyProvider
+    [Description("Represents a numerical value with a quantity type attached to it. The quantity type includes dimensionality as well as SI unit.")]
+    public interface IQuantity : IObject
     {
-        /***************************************************/
-        /**** Constructors                              ****/
-        /***************************************************/
-
-
-        /***************************************************/
+        double Value { get; set; }
     }
 }
-
-
-
-
-
-

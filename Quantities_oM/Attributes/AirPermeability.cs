@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -20,17 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.ComponentModel;
+using System;
 
-namespace BH.oM.Base
+namespace BH.oM.Quantities.Attributes
 {
-    [Description("Allows the user to define their own objects with a custom set of properties.")]
-    public class CustomObject : BHoMObject, IDynamicPropertyProvider
+    [AttributeUsage(AttributeTargets.Property)]
+    public class AirPermeability : QuantityAttribute
     {
         /***************************************************/
-        /**** Constructors                              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
+        public override int L { get; } = 1;
+
+        public override int T { get; } = -1;
+
+        public override string SIUnit { get; } = "m³/(m².s)";
 
         /***************************************************/
     }
