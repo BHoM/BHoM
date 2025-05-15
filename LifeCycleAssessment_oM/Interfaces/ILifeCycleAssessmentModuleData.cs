@@ -21,38 +21,18 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.LifeCycleAssessment.Interfaces
 {
-
-    public class MetricDictionary<T> : ReadOnlyDictionary<Module, T>, IBHoMObject, IMetricDictionary<T> where T : ILifeCycleAssessmentPhaseData
+    [Description("Base interface for all envirnmental factors and results storing indicators for multiple modules..")]
+    public interface ILifeCycleAssessmentModuleData<out T> : ILifeCycleAssemsmentIndicator
+        where T : IDictionary<Module, double>
     {
-        public MetricDictionary(IDictionary<Module, T> dictionary) : base(dictionary)
-        {
-        }
-
-        public virtual Guid BHoM_Guid { get; set; } = Guid.NewGuid();
-
-        public virtual string Name { get; set; } = "";
-
-        public virtual FragmentSet Fragments { get; set; } = new FragmentSet();
-
-        public virtual HashSet<string> Tags { get; set; } = new HashSet<string>();
-
-        public virtual Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
+        [Description("Set of indicators per module.")]
+        T Indicators { get; }
     }
-
-    public interface IMetricDictionary<out T> : IBHoMObject where T : ILifeCycleAssessmentPhaseData
-    {
-        T this[Module key] {get;}
-    }
-
-
-
 }
+
 

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -21,16 +21,17 @@
  */
 
 using BH.oM.Base;
-using BH.oM.LifeCycleAssessment.Interfaces;
-using BH.oM.Quantities;
-using System;
+using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.LifeCycleAssessment.Interfaces
 {
-    public interface IEnvironmentalFactor : ILifeCycleAssemsmentIndicator
+    [Description("Base interface for all classes classes storing indicator factors or results.")]
+    public interface ILifeCycleAssemsmentIndicator : IObject
     {
-        double Value { get; set; }
+
     }
 }
+
+
