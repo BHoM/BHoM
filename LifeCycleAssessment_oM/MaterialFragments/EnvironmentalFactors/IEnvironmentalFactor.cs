@@ -25,12 +25,14 @@ using BH.oM.LifeCycleAssessment.Interfaces;
 using BH.oM.Quantities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    public interface IEnvironmentalFactor : ILifeCycleAssemsmentIndicator
+    [Description("Single value indicator for enviromental indicators. Used by for example Transport factors.")]
+    public interface IEnvironmentalFactor : IQuantity, ILifeCycleAssemsmentIndicator
     {
-        double Value { get; set; }
+
     }
 }

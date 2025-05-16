@@ -29,10 +29,19 @@ using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Climate Change - Fossil, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to fossil fuel based compounds (formed from the decomposition of carbon based organisms) that contribute to global warming. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class ClimateChangeFossilFactor : IEnvironmentalFactor
+    [Description("Single value indicator for Climate Change - Fossil, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to fossil fuel based compounds (formed from the decomposition of carbon based organisms) that contribute to global warming.")]
+    public class ClimateChangeFossilFactor : Quantity<ClimateChangePerQuantity>, IEnvironmentalFactor
     {
-        [ClimateChangePerQuantity]
-        public virtual double Value { get; set; }
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator ClimateChangeFossilFactor(double value)
+        {
+            return new ClimateChangeFossilFactor { Value = value };
+        }
+
+        /***************************************************/
     }
 }

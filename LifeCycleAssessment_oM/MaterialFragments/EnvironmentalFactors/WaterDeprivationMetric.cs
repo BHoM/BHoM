@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -20,26 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Base.Attributes;
 using BH.oM.Quantities;
 using BH.oM.Quantities.Attributes;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Single value indicator for Climate Change - Land Use and Land Use Change, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to the exploitation of land and its resources, which contributes to global warming.")]
-    public class ClimateChangeLandUseFactor : Quantity<ClimateChangePerQuantity>, IEnvironmentalFactor
+    [Description("Single value indicator for Water use for a particular product or material.")]
+    public class WaterDeprivationFactor : Quantity<VolumePerQuantity>, IEnvironmentalFactor
     {
 
         /***************************************************/
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-        public static explicit operator ClimateChangeLandUseFactor(double value)
+        public static explicit operator WaterDeprivationFactor(double value)
         {
-            return new ClimateChangeLandUseFactor { Value = value };
+            return new WaterDeprivationFactor { Value = value };
         }
 
         /***************************************************/

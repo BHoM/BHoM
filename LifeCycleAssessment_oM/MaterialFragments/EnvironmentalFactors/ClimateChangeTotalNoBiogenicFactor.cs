@@ -29,10 +29,19 @@ using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Climate Change - Total, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to the total Land Use and Fossil resources, disregarding impacts of Biogenic carbon, which contribute to global warming. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class ClimateChangeTotalNoBiogenicFactor : IEnvironmentalFactor
+    [Description("Single value indicator for Climate Change - Total, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to the total Land Use and Fossil resources, disregarding impacts of Biogenic carbon, which contribute to global warming.")]
+    public class ClimateChangeTotalNoBiogenicFactor : Quantity<ClimateChangePerQuantity>, IEnvironmentalFactor
     {
-        [ClimateChangePerQuantity]
-        public virtual double Value { get; set; }
+
+        /***************************************************/
+        /**** Explicit Casting                          ****/
+        /***************************************************/
+
+        public static explicit operator ClimateChangeTotalNoBiogenicFactor(double value)
+        {
+            return new ClimateChangeTotalNoBiogenicFactor { Value = value };
+        }
+
+        /***************************************************/
     }
 }
