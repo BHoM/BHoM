@@ -45,9 +45,6 @@ namespace BH.oM.LifeCycleAssessment.Results
         [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
         public virtual ObjectCategory Category { get; protected set; }
 
-        [Description("Enum indicating the metric type the object relates to.")]
-        public virtual MetricType MetricType { get; protected set; }
-
         /***************************************************/
         /**** Properties - Material Breakdown           ****/
         /***************************************************/
@@ -67,14 +64,12 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category, MetricType metricType, IReadOnlyList<T> materialResults)
+        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category,  IReadOnlyList<T> materialResults)
         {
             ObjectId = objectId;
             Scope = scope;
             Category = category;
             MaterialResults = materialResults;
-            MetricType = metricType;
-
         }
 
         /***************************************************/

@@ -52,7 +52,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             ScopeType scope,
             ObjectCategory category,
             IReadOnlyList<ClimateChangeTotalMaterialResult> materialResults,
-            IDictionary<Module, double> results) : base(objectId, scope, category, MetricType.ClimateChangeBiogenic, materialResults)
+            IDictionary<Module, double> results) : base(objectId, scope, category, materialResults)
         {
             Indicators = new ReadOnlyDictionary<Module, double>(results);
         }
