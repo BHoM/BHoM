@@ -77,7 +77,7 @@ namespace BH.oM.LifeCycleAssessment
         C3toC4,
         [Description("Full End of Life stage.")]
         C1toC4,
-        [Description("Metric relating to benefits and loads beyond the system boundary.")]
+        [Description("Benefits and loads beyond the system boundary.")]
         D,
     }
 }

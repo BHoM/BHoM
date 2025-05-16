@@ -30,16 +30,16 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Eutrophication - Terrestrial, measured in mol N eq, refers to the enrichment of ecosystem (such as grasslands) with limiting nutrients.")]
-    public class EutrophicationTerrestriaFactor : Quantity<EutrophicationTerrestrialPerQuantity>, IEnvironmentalFactor
+    public class EutrophicationTerrestrialFactor : Quantity<EutrophicationTerrestrialPerQuantity>, IEnvironmentalFactor
     {
 
         /***************************************************/
         /**** Explicit Casting                          ****/
         /***************************************************/
 
-        public static explicit operator EutrophicationTerrestriaFactor(double value)
+        public static explicit operator EutrophicationTerrestrialFactor(double value)
         {
-            return new EutrophicationTerrestriaFactor { Value = value };
+            return new EutrophicationTerrestrialFactor { Value = value };
         }
 
         /***************************************************/
