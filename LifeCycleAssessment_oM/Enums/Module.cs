@@ -26,7 +26,7 @@ namespace BH.oM.LifeCycleAssessment
 {
     public enum Module
     {
-        Undefined,
+        //Undefined,
         [Description("Raw Material Supply module in the Product stage.")]
         A1,
         [Description("Transport module in the Product stage.")]
