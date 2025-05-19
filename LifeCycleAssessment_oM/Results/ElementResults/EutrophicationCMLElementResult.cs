@@ -53,9 +53,9 @@ namespace BH.oM.LifeCycleAssessment.Results
             ScopeType scope,
             ObjectCategory category,
             IReadOnlyList<EutrophicationCMLMaterialResult> materialResults,
-            IDictionary<Module, double> results) : base(objectId, scope, category, materialResults)
+            IDictionary<Module, double> indicators) : base(objectId, scope, category, materialResults)
         {
-            Indicators = new ReadOnlyDictionary<Module, double>(results);
+            Indicators = new ReadOnlyDictionary<Module, double>(indicators);
         }
 
         /***************************************************/

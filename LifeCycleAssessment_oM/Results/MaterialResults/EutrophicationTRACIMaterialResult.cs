@@ -49,9 +49,9 @@ namespace BH.oM.LifeCycleAssessment.Results
         public EutrophicationTRACIMaterialResult(
             string materialName,
             string environmentalProductDeclarationName,
-            IDictionary<Module, double> results) : base(materialName, environmentalProductDeclarationName)
+            IDictionary<Module, double> indicators) : base(materialName, environmentalProductDeclarationName)
         {
-            Indicators = new ReadOnlyDictionary<Module, double>(results);
+            Indicators = new ReadOnlyDictionary<Module, double>(indicators);
         }
 
 
