@@ -43,9 +43,9 @@ namespace BH.oM.Security.Elements
         [Description("The point at which the Camera is looking at, known as the target position.")]
         public virtual Point TargetPosition { get; set; } = new Point();
         
-        [Length]
-        [Description("The horizontal field of view of the Camera, known as the real-world width length of what the camera views.")]
-        public virtual double HorizontalFieldOfView { get; set; } = 0;               
+        [Angle]
+        [Description("The horizontal field of view of the Camera, known as the real-world angle of what the camera views.")]
+        public virtual double Angle { get; set; } = 0;               
 
         [Description("The Camera mounting type that describes how it's installed.")]
         public virtual MountingType Mounting { get; set; } = MountingType.Undefined;
