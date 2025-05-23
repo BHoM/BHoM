@@ -30,17 +30,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Photochemical Ozone Formation, measured in kg NMVOC eq, refers to the formation of ozone at the ground level of the troposphere caused by photochemical oxidation of volatile organic compounds (VOCs) and carbon monoxide in the presence of sunlight.")]
-    public class PhotochemicalOzoneCreationFactor : Quantity<PhotochemicalOzoneCreationPerQuantity>, IEnvironmentalFactor
+    public class PhotochemicalOzoneCreationFactor : IEnvironmentalFactor
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator PhotochemicalOzoneCreationFactor(double value)
-        {
-            return new PhotochemicalOzoneCreationFactor { Value = value };
-        }
+        [PhotochemicalOzoneCreationPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

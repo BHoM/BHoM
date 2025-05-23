@@ -30,17 +30,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Acidification, measured in moles of H+ (per EN 15804+A2, this was previously measured in SO2 per EN 15804+A1), it refers to compounds that contribute to acid rain.")]
-    public class AcidificationFactor : Quantity<AcidificationPerQuantity>, IEnvironmentalFactor
+    public class AcidificationFactor : IEnvironmentalFactor
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator AcidificationFactor(double value)
-        {
-            return new AcidificationFactor { Value = value };
-        }
+        [AcidificationPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

@@ -32,17 +32,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Photochemical Ozone Creation as defined by the TRACI standard for a particular product or material.")]
-    public class PhotochemicalOzoneCreationTRACIFactor : Quantity<PhotochemicalOzoneCreationTRACIPerQuantity>, IEnvironmentalFactor, IDeprecatedStandard
+    public class PhotochemicalOzoneCreationTRACIFactor : IEnvironmentalFactor, IDeprecatedStandard
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator PhotochemicalOzoneCreationTRACIFactor(double value)
-        {
-            return new PhotochemicalOzoneCreationTRACIFactor { Value = value };
-        }
+        [PhotochemicalOzoneCreationTRACIPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

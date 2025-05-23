@@ -30,17 +30,15 @@ using System.Text;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Climate Change - Total, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to the total Land Use and Fossil resources, disregarding impacts of Biogenic carbon, which contribute to global warming.")]
-    public class ClimateChangeTotalNoBiogenicFactor : Quantity<ClimateChangePerQuantity>, IEnvironmentalFactor
+    public class ClimateChangeTotalNoBiogenicFactor : IEnvironmentalFactor
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator ClimateChangeTotalNoBiogenicFactor(double value)
-        {
-            return new ClimateChangeTotalNoBiogenicFactor { Value = value };
-        }
+        [ClimateChangePerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

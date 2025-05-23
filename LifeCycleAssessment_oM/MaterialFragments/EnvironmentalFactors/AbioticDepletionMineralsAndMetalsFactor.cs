@@ -30,17 +30,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Abiotic Depletion of Minerals and Metals, measured in Antimony (Sb), refers to the over-extraction of non-renewable materials which can lead to the exhaustion of natural (non-fossil) resources.")]
-    public class AbioticDepletionMineralsAndMetalsFactor : Quantity<AbioticDepletionMineralsAndMetalsPerQuantity>, IEnvironmentalFactor
+    public class AbioticDepletionMineralsAndMetalsFactor : IEnvironmentalFactor
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator AbioticDepletionMineralsAndMetalsFactor(double value)
-        {
-            return new AbioticDepletionMineralsAndMetalsFactor { Value = value };
-        }
+        [AbioticDepletionMineralsAndMetalsPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

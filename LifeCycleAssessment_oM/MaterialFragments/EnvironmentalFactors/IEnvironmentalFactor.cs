@@ -31,8 +31,10 @@ using System.Text;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for enviromental indicators. Used by for example Transport factors.")]
-    public interface IEnvironmentalFactor : IQuantity, ILifeCycleAssemsmentIndicator
+    public interface IEnvironmentalFactor : ILifeCycleAssemsmentIndicator
     {
+        [Description("Value of the indicator.")]
+        double Value { get; set; }
 
     }
 }

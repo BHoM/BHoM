@@ -30,17 +30,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Abiotic Depletion of Fossil Resources, measured in Joules (J), refers to the over-extraction of non-renewable materials which can lead to the exhaustion of natural resources.")]
-    public class AbioticDepletionFossilResourcesFactor : Quantity<EnergyPerQuantity>, IEnvironmentalFactor
+    public class AbioticDepletionFossilResourcesFactor : IEnvironmentalFactor
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator AbioticDepletionFossilResourcesFactor(double value)
-        {
-            return new AbioticDepletionFossilResourcesFactor { Value = value };
-        }
+        [EnergyPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

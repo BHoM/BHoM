@@ -30,17 +30,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Water use for a particular product or material.")]
-    public class WaterDeprivationFactor : Quantity<VolumePerQuantity>, IEnvironmentalFactor
+    public class WaterDeprivationFactor : IEnvironmentalFactor
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator WaterDeprivationFactor(double value)
-        {
-            return new WaterDeprivationFactor { Value = value };
-        }
+        [VolumePerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

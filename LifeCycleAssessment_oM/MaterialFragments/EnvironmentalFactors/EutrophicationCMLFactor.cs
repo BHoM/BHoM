@@ -31,17 +31,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Eutrophication (refers to EN 15804+A1), measured in kg [PO₄]³⁻ eq, and refers to the natural process that results from accumulation of nutrients.")]
-    public class EutrophicationCMLFactor : Quantity<EutrophicationCMLPerQuantity>, IEnvironmentalFactor, IDeprecatedStandard
+    public class EutrophicationCMLFactor : IEnvironmentalFactor, IDeprecatedStandard
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator EutrophicationCMLFactor(double value)
-        {
-            return new EutrophicationCMLFactor { Value = value };
-        }
+        [EutrophicationCMLPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

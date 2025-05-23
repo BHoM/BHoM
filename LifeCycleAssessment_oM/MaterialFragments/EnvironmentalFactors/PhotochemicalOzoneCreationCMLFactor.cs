@@ -32,17 +32,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Photochemical Ozone Creation as defined by the CML standard for a particular product or material.")]
-    public class PhotochemicalOzoneCreationCMLFactor : Quantity<PhotochemicalOzoneCreationCMLPerQuantity>, IEnvironmentalFactor, IDeprecatedStandard
+    public class PhotochemicalOzoneCreationCMLFactor : IEnvironmentalFactor, IDeprecatedStandard
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator PhotochemicalOzoneCreationCMLFactor(double value)
-        {
-            return new PhotochemicalOzoneCreationCMLFactor { Value = value };
-        }
+        [PhotochemicalOzoneCreationCMLPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

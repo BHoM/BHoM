@@ -30,17 +30,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Eutrophication - Aquatic Freshwater, measured in kg P eq, refers to the natural process that results from accumulation of nutrients in fresh bodies of water.")]
-    public class EutrophicationAquaticFreshwaterFactor : Quantity<EutrophicationAquaticFreshwaterPerQuantity>, IEnvironmentalFactor
+    public class EutrophicationAquaticFreshwaterFactor : IEnvironmentalFactor
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator EutrophicationAquaticFreshwaterFactor(double value)
-        {
-            return new EutrophicationAquaticFreshwaterFactor { Value = value };
-        }
+        [EutrophicationAquaticFreshwaterPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

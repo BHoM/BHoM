@@ -30,17 +30,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Ozone Depletion, measured in kg CFC-11 eq, refers to the substances that destroy ozone molecules.")]
-    public class OzoneDepletionFactor : Quantity<OzoneDepletionPerQuantity>, IEnvironmentalFactor
+    public class OzoneDepletionFactor : IEnvironmentalFactor
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator OzoneDepletionFactor(double value)
-        {
-            return new OzoneDepletionFactor { Value = value };
-        }
+        [OzoneDepletionPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }

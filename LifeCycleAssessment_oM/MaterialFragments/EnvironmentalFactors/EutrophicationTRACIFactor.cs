@@ -32,17 +32,15 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Single value indicator for Eutrophication (Version 1 North American standard) for a particular product or material.")]
-    public class EutrophicationTRACIFactor : Quantity<EutrophicationTRACIPerQuantity>, IEnvironmentalFactor, IDeprecatedStandard
+    public class EutrophicationTRACIFactor : IEnvironmentalFactor, IDeprecatedStandard
     {
-
         /***************************************************/
-        /**** Explicit Casting                          ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        public static explicit operator EutrophicationTRACIFactor(double value)
-        {
-            return new EutrophicationTRACIFactor { Value = value };
-        }
+        [EutrophicationTRACIPerQuantity]
+        [Description("Value for this single factor indicator.")]
+        public virtual double Value { get; set; }
 
         /***************************************************/
     }
