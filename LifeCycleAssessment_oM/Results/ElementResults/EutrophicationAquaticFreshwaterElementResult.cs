@@ -51,7 +51,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             IComparable objectId,
             ScopeType scope,
             ObjectCategory category,
-            IReadOnlyList<EutrophicationAquaticFreshwaterMaterialResult> materialResults,
+            IList<EutrophicationAquaticFreshwaterMaterialResult> materialResults,
             IDictionary<Module, double> indicators) : base(objectId, scope, category, materialResults)
         {
             Indicators = new ReadOnlyDictionary<Module, double>(indicators);

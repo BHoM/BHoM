@@ -52,7 +52,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             IComparable objectId,
             ScopeType scope,
             ObjectCategory category,
-            IReadOnlyList<PhotochemicalOzoneCreationCMLMaterialResult> materialResults,
+            IList<PhotochemicalOzoneCreationCMLMaterialResult> materialResults,
             IDictionary<Module, double> indicators) : base(objectId, scope, category, materialResults)
         {
             Indicators = new ReadOnlyDictionary<Module, double>(indicators);

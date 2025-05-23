@@ -64,12 +64,12 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category,  IReadOnlyList<T> materialResults)
+        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category,  IList<T> materialResults)
         {
             ObjectId = objectId;
             Scope = scope;
             Category = category;
-            MaterialResults = materialResults;
+            MaterialResults = new ReadOnlyCollection<T>(materialResults);
         }
 
         /***************************************************/
