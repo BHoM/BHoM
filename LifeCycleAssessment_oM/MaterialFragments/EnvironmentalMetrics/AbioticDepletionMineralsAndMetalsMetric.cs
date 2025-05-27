@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Abiotic Depletion of Minerals and Metals, measured in Antimony (Sb), refers to the over-extraction of non-renewable materials which can lead to the exhaustion of natural (non-fossil) resources. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class AbioticDepletionMineralsAndMetalsMetric : BHoMObject, IEnvironmentalMetricFactors, IDynamicObject
+    public class AbioticDepletionMineralsAndMetalsMetric : BHoMObject, IEnvironmentalMetric, IDynamicObject
     {
         /***************************************************/
         /**** Properties                                ****/

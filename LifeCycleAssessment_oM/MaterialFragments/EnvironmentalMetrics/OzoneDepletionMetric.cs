@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Ozone Depletion, measured in kg CFC-11 eq, refers to the substances that destroy ozone molecules. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class OzoneDepletionMetric : BHoMObject, IEnvironmentalMetricFactors, IDynamicObject
+    public class OzoneDepletionMetric : BHoMObject, IEnvironmentalMetric, IDynamicObject
     {
         /***************************************************/
         /**** Properties                                ****/

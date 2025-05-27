@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Eutrophication - Aquatic Freshwater, measured in kg P eq, refers to the natural process that results from accumulation of nutrients in fresh bodies of water. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class EutrophicationAquaticFreshwaterMetric : BHoMObject, IEnvironmentalMetricFactors, IDynamicObject
+    public class EutrophicationAquaticFreshwaterMetric : BHoMObject, IEnvironmentalMetric, IDynamicObject
     {
         /***************************************************/
         /**** Properties                                ****/

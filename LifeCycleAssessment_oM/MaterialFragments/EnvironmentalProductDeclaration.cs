@@ -42,7 +42,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual EPDType Type { get; set; } = EPDType.Product;
 
         [Description("An Environmental Module Factors contains EnvironmentalFactors of a particular quantity for one or more modules. These factors are used in all LCA calculations.")]
-        public virtual List<IEnvironmentalMetricFactors> EnvironmentalFactors { get; set; } = new List<IEnvironmentalMetricFactors>();
+        public virtual List<IEnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<IEnvironmentalMetric>();
 
         [Description("Note that any EPD that does not contain this parameter will not be evaluated. \n" +
             "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. \n" +

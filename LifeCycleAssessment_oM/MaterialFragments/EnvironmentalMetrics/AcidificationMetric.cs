@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Acidification, measured in moles of H+ (per EN 15804+A2, this was previously measured in SO2 per EN 15804+A1), it refers to compounds that contribute to acid rain. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class AcidificationMetric : BHoMObject, IEnvironmentalMetricFactors, IDynamicObject
+    public class AcidificationMetric : BHoMObject, IEnvironmentalMetric, IDynamicObject
     {
         /***************************************************/
         /**** Properties                                ****/

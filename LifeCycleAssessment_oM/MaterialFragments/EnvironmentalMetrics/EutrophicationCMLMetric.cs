@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Eutrophication (refers to EN 15804+A1), measured in kg [PO₄]³⁻ eq, and refers to the natural process that results from accumulation of nutrients. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class EutrophicationCMLMetric : BHoMObject, IEnvironmentalMetricFactors, IDynamicObject, IDeprecatedStandard
+    public class EutrophicationCMLMetric : BHoMObject, IEnvironmentalMetric, IDynamicObject, IDeprecatedStandard
     {
         /***************************************************/
         /**** Properties                                ****/

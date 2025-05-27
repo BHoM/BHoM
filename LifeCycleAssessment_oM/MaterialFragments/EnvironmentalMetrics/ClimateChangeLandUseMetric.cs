@@ -29,7 +29,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Climate Change - Land Use and Land Use Change, measured in kg CO2 eq (Carbon Dioxide equivalent, also referred to as embodied carbon), refers to the exploitation of land and its resources, which contributes to global warming. This environmental indicator forms part of an Environmental Product Declaration and should be evaluated based on the Quantity Type stated on the Environmental Product Declaration.")]
-    public class ClimateChangeLandUseMetric : BHoMObject, IEnvironmentalMetricFactors, IDynamicObject
+    public class ClimateChangeLandUseMetric : BHoMObject, IEnvironmentalMetric, IDynamicObject
     {
         /***************************************************/
         /**** Properties                                ****/

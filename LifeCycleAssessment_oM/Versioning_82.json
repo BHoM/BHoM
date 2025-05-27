@@ -9,22 +9,20 @@
     "ToNew": {
       "BH.oM.LifeCycleAssessment.LifeCycleAssessmentPhases": "BH.oM.LifeCycleAssessment.Module",
       "BH.oM.LifeCycleAssessment.EnvironmentalMetrics": "BH.oM.LifeCycleAssessment.MetricType",
-      "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalMetric": "BH.oM.LifeCycleAssessment.MaterialFragments.IEnvironmentalMetricFactors",
+      "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalMetric": "BH.oM.LifeCycleAssessment.MaterialFragments.IEnvironmentalMetric",
       "BH.oM.LifeCycleAssessment.ILifeCycleAssessmentPhaseData": "BH.oM.LifeCycleAssessment.Interfaces.ILifeCycleAssessmentModuleData`1[[System.Collections.Generic.IDictionary`2[[BH.oM.LifeCycleAssessment.Module],[System.Double]]]]"
     },
     "ToOld": {
       "BH.oM.LifeCycleAssessment.Module": "BH.oM.LifeCycleAssessment.LifeCycleAssessmentPhases",
       "BH.oM.LifeCycleAssessment.MetricType": "BH.oM.LifeCycleAssessment.EnvironmentalMetrics",
-      "BH.oM.LifeCycleAssessment.MaterialFragments.IEnvironmentalMetricFactors": "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalMetric",
+      "BH.oM.LifeCycleAssessment.MaterialFragments.IEnvironmentalMetric": "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalMetric",
       "BH.oM.LifeCycleAssessment.Interfaces.ILifeCycleAssessmentModuleData`1[[System.Collections.Generic.IDictionary`2[[BH.oM.LifeCycleAssessment.Module],[System.Double]]]]": "BH.oM.LifeCycleAssessment.ILifeCycleAssessmentPhaseData"
     }
   },
   "Property": {
     "ToNew": {
-      "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalProductDeclaration.EnvironmentalMetrics": "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalProductDeclaration.EnvironmentalFactors"
     },
     "ToOld": {
-      "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalProductDeclaration.EnvironmentalFactors": "BH.oM.LifeCycleAssessment.MaterialFragments.EnvironmentalProductDeclaration.EnvironmentalMetrics"
     }
   },
   "MessageForDeleted": {

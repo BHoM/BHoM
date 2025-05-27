@@ -31,7 +31,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Photochemical Ozone Creation as defined by the CML standard for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
-    public class PhotochemicalOzoneCreationCMLMetric : BHoMObject, IEnvironmentalMetricFactors, IDynamicObject, IDeprecatedStandard
+    public class PhotochemicalOzoneCreationCMLMetric : BHoMObject, IEnvironmentalMetric, IDynamicObject, IDeprecatedStandard
     {
         /***************************************************/
         /**** Properties                                ****/

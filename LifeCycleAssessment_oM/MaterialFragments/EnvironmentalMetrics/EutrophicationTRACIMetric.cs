@@ -31,7 +31,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Eutrophication (Version 1 North American standard) for a particular product or material. Forms part of an EPD, and should be evaluated based on the QuantityType stated on the EPD.")]
-    public class EutrophicationTRACIMetric : BHoMObject, IEnvironmentalMetricFactors, IDynamicObject, IDeprecatedStandard
+    public class EutrophicationTRACIMetric : BHoMObject, IEnvironmentalMetric, IDynamicObject, IDeprecatedStandard
     {
         /***************************************************/
         /**** Properties                                ****/

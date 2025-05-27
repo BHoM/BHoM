@@ -36,7 +36,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /***************************************************/
 
         [Description("An Environmental Module Factors contains EnvironmentalFactors of a particular quantity for one or more modules. These factors are used in all LCA calculations.")]
-        List<IEnvironmentalMetricFactors> EnvironmentalFactors { get; set; }
+        List<IEnvironmentalMetric> EnvironmentalMetrics { get; set; }
 
         [Description("Note that any EPD that does not contain this parameter will not be evaluated. \n" +
             "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. \n" +
