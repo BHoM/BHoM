@@ -44,7 +44,7 @@ namespace BH.oM.Security.Elements
         public virtual Point TargetPosition { get; set; } = new Point();
         
         [Angle]
-        [Description("The horizontal field of view of the Camera, known as the real-world angle of what the camera views.")]
+        [Description("Angle of the Camera, known as the real-world angle of what the camera views.")]
         public virtual double Angle { get; set; } = 0;               
 
         [Description("The Camera mounting type that describes how it's installed.")]
