@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base.Attributes;
 using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment
@@ -38,10 +39,14 @@ namespace BH.oM.LifeCycleAssessment
         A4,
         [Description("Construction Installation Process module in the Construction Process stage.")]
         A5,
-        [Description("On-site construction waste part of the Construction Installation Process module in the Construction Process stage.")]
-        A5w,
-        [Description("Site activities part of the Construction Installation Process module in the Construction Process stage.")]
-        A5a,
+        [Description("Preconstruction demolition part of the Construction Installation Process module in the Construction Process stage (if applicable).\nDemolition/deconstruction of existing buildings and structures, and/or parts thereof, including transport from site and waste processing of removed materials.")]
+        A5_1,
+        [Description("Site activities part of the Construction Installation Process module in the Construction Process stage.\nSite preparation; temporary works; ground works; connection to utilities; transport and onsite storage of construction products, materials and equipment; onsite production/assembly of products; works for the installation and ancillary materials (e.g. formworks and their disposal); heating/cooling/ventilation of site facilities; energy and water use for construction processes and landscaping.")]
+        A5_2, 
+        [Description("On-site construction waste part of the Construction Installation Process module in the Construction Process stage.\n Production, transportation, storage and endof-life treatment and disposal of any material/waste onsite; transport, waste management and disposal of packing materials.")]
+        A5_3,
+        [Description("Worker transport part of the Construction Installation Process module in the Construction Process stage (optional).\nEmissions of site workers travelling to and from site.")]
+        A5_4,
         [Description("Use module in the Use stage.")]
         B1,
         [Description("Maintenance module in the Use stage.")]
