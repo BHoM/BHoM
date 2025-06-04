@@ -27,62 +27,90 @@ namespace BH.oM.LifeCycleAssessment
 {
     public enum Module
     {
-        [Description("Raw Material Supply module in the Product stage.")]
+        [Description(ModuleDescriptions.A0)]
+        A0,
+        [Description(ModuleDescriptions.A1)]
         A1,
-        [Description("Transport module in the Product stage.")]
+        [Description(ModuleDescriptions.A2)]
         A2,
-        [Description("Manufacturing module in the Product stage.")]
+        [Description(ModuleDescriptions.A3)]
         A3,
-        [Description("Full Product stage.")]
+        [Description(ModuleDescriptions.A1toA3)]
         A1toA3,
-        [Description("Transport module in the Construction Process stage.")]
+        [Description(ModuleDescriptions.A4)]
         A4,
-        [Description("Construction Installation Process module in the Construction Process stage.")]
+        [Description(ModuleDescriptions.A5)]
         A5,
-        [Description("Preconstruction demolition part of the Construction Installation Process module in the Construction Process stage (if applicable).\nDemolition/deconstruction of existing buildings and structures, and/or parts thereof, including transport from site and waste processing of removed materials.")]
+        [Description(ModuleDescriptions.A5_1)]
         A5_1,
-        [Description("Site activities part of the Construction Installation Process module in the Construction Process stage.\nSite preparation; temporary works; ground works; connection to utilities; transport and onsite storage of construction products, materials and equipment; onsite production/assembly of products; works for the installation and ancillary materials (e.g. formworks and their disposal); heating/cooling/ventilation of site facilities; energy and water use for construction processes and landscaping.")]
-        A5_2, 
-        [Description("On-site construction waste part of the Construction Installation Process module in the Construction Process stage.\n Production, transportation, storage and endof-life treatment and disposal of any material/waste onsite; transport, waste management and disposal of packing materials.")]
+        [Description(ModuleDescriptions.A5_2)]
+        A5_2,
+        [Description(ModuleDescriptions.A5_3)]
         A5_3,
-        [Description("Worker transport part of the Construction Installation Process module in the Construction Process stage (optional).\nEmissions of site workers travelling to and from site.")]
+        [Description(ModuleDescriptions.A5_4)]
         A5_4,
-        [Description("Use module in the Use stage.")]
+        [Description(ModuleDescriptions.B1)]
         B1,
-        [Description("Maintenance module in the Use stage.")]
+        [Description(ModuleDescriptions.B1_1)]
+        B1_1,
+        [Description(ModuleDescriptions.B1_2)]
+        B1_2,
+        [Description(ModuleDescriptions.B2)]
         B2,
-        [Description("Repair module in the Use stage.")]
+        [Description(ModuleDescriptions.B3)]
         B3,
-        [Description("Use, Maintenance and Repair modules in the Use stage.")]
+        [Description(ModuleDescriptions.B1toB3)]
         B1toB3,
-        [Description("Replacement module in the Use stage.")]
+        [Description(ModuleDescriptions.B4)]
         B4,
-        [Description("Refurbishment module in the Use stage.")]
+        [Description(ModuleDescriptions.B4_1)]
+        B4_1,
+        [Description(ModuleDescriptions.B4_2)]
+        B4_2,
+        [Description(ModuleDescriptions.B5)]
         B5,
-        [Description("Replacement and Refurbishment modules in the Use stage.")]
+        [Description(ModuleDescriptions.B4toB5)]
         B4toB5,
-        [Description("Full Use Stage except operational energy and Water use.")]
+        [Description(ModuleDescriptions.B1toB5)]
         B1toB5,
-        [Description("Operational Energy Use module in the Use stage.")]
+        [Description(ModuleDescriptions.B6)]
         B6,
-        [Description("Operational Water Use module in the Use stage.")]
+        [Description(ModuleDescriptions.B7)]
         B7,
-        [Description("Full Use Stage.")]
+        [Description(ModuleDescriptions.B1toB7)]
         B1toB7,
-        [Description("De-construction Demolition module in the End of Life stage.")]
+        [Description(ModuleDescriptions.B7_1)]
+        B7_1,
+        [Description(ModuleDescriptions.B7_2)]
+        B7_2,
+        [Description(ModuleDescriptions.B7_3)]
+        B7_3,
+        [Description(ModuleDescriptions.B8)]
+        B8,
+        [Description(ModuleDescriptions.B8_1)]
+        B8_1,
+        [Description(ModuleDescriptions.B8_2)]
+        B8_2,
+        [Description(ModuleDescriptions.B8_3)]
+        B8_3,
+        [Description(ModuleDescriptions.C1)]
         C1,
-        [Description("Transport module in the End of Life stage.")]
+        [Description(ModuleDescriptions.C2)]
         C2,
-        [Description("Waste Processing module in the End of Life stage.")]
+        [Description(ModuleDescriptions.C3)]
         C3,
-        [Description("Disposal module in the End of Life stage.")]
+        [Description(ModuleDescriptions.C4)]
         C4,
-        [Description("Waste Processing and disposal modules in the End of Life stage.")]
+        [Description(ModuleDescriptions.C3toC4)]
         C3toC4,
-        [Description("Full End of Life stage.")]
+        [Description(ModuleDescriptions.C1toC4)]
         C1toC4,
-        [Description("Benefits and loads beyond the system boundary.")]
+        [Description(ModuleDescriptions.D)]
         D,
+        [Description(ModuleDescriptions.D_1)]
+        D_1,
+        [Description(ModuleDescriptions.D_2)]
+        D_2,
     }
 }
 
