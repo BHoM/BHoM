@@ -33,7 +33,7 @@ using System.Xml.Linq;
 namespace BH.oM.Versioning
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    [Description("Attribute defining the specfic type or method a versioning method is targetting. This attribute can be used multiple times if a method is targetting more than one element.")]
+    [Description("Attribute defining the specific type a versioning method is targeting. The target type needs to be specified including the full namespace. This attribute can be used multiple times if a method is targeting more than one element. ")]
     public class VersioningTargetAttribute : Attribute, IImmutable
     {
         /***************************************************/
