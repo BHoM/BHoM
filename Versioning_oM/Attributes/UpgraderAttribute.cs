@@ -33,7 +33,7 @@ using System.Xml.Linq;
 namespace BH.oM.Versioning
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    [Description("Attribute identifying a class as an upgrader for versioning.")]
+    [Description("Attribute identifying a class as an upgrader for versioning. The version specified should be the the version that the object is being upgraded to which generally correspond to the current version of the BHoM.")]
     public class UpgraderAttribute : Attribute, IImmutable
     {
         /***************************************************/
