@@ -27,7 +27,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
-    public abstract class MaterialResult : IMaterialResult, IImmutable
+    public abstract class MaterialResult : IEnvironmentalResult, IImmutable
     {
         /***************************************************/
         /**** Properties - Identifiers                  ****/
