@@ -28,7 +28,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Interfaces
 {
     [Description("Base interface for all classes classes storing indicator factors or results.")]
-    public interface ILifeCycleAssemsmentIndicator : IObject
+    public interface ILifeCycleAssessmentIndicator : IObject
     {
 
     }

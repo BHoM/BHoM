@@ -27,7 +27,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.Interfaces
 {
     [Description("Base interface for all envirnmental factors and results storing indicators for multiple modules..")]
-    public interface ILifeCycleAssessmentModuleData<out T> : ILifeCycleAssemsmentIndicator
+    public interface ILifeCycleAssessmentModuleData<out T> : ILifeCycleAssessmentIndicator
         where T : IDictionary<Module, double>
     {
         [Description("Set of indicators per module.")]

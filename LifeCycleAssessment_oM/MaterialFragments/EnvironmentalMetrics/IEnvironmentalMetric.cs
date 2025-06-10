@@ -33,7 +33,7 @@ using System.Text;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Base interface for class storing Environmental Impact Factors of a specific type relating to modules.")]
-    public interface IEnvironmentalMetric : IBHoMObject, ILifeCycleAssessmentModuleData<Dictionary<Module, double>>, ILifeCycleAssemsmentIndicator
+    public interface IEnvironmentalMetric : IBHoMObject, ILifeCycleAssessmentModuleData<Dictionary<Module, double>>, ILifeCycleAssessmentIndicator
     {
 
     }
