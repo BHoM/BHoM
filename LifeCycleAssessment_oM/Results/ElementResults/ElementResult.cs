@@ -50,7 +50,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /***************************************************/
 
         [Description("Result breakdown per material type.")]
-        public virtual IReadOnlyList<T> MaterialResults { get; protected set; }
+        public virtual IReadOnlyList<T> MaterialResults { get; }
 
         /***************************************************/
         /**** Properties - Result properties            ****/
@@ -64,7 +64,7 @@ namespace BH.oM.LifeCycleAssessment.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category,  IList<T> materialResults)
+        public ElementResult(IComparable objectId, ScopeType scope, ObjectCategory category, IList<T> materialResults)
         {
             ObjectId = objectId;
             Scope = scope;
