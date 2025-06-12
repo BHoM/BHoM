@@ -29,20 +29,20 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("An Combined Life Cycle Assessment Factors is aggregate class to compute final impact factors.\n" +
-                 "This object is commonly created based on a EPD for cradle to gate metrics (A1 - A3) with addional project and site specific data added for relevant stages such as A4 and A5.")]
+                 "This object is commonly created based on a EPD for cradle to gate metrics (A1 - A3) with addional project and site specific data added for relevant stages beyond the product stage.")]
     public class CombinedLifeCycleAssessmentFactors : BHoMObject, IMaterialProperties, IEnvironmentalFactorsProvider
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Base factors, typically an Environmental Product Declaration as the basis for the life cycle assessment. Commnly outlines the metrics for A1-A3 stages, but might contain metrics beyond those stages.")]
-        public virtual IBaseLevelEnvironalmentalFactorsProvider BaseFactors { get; set; }
+        [Description("THe Environmental Product Declaration as the basis for the life cycle assessment. Commnly outlines the metrics for A1-A3 modules, but might contain metrics beyond those modules.")]
+        public virtual EnvironmentalProductDeclaration EnvironmentalProductDeclaration { get; set; }
 
-        [Description("Factors for computing the emissions relating to  the A4 module which is the Transport module in the Construction Process stage.")]
+        [Description("Factors for computing the emissions relating to Module A4 which captures the impacts associated with the transportation of the materials and components from the factory gate to and from the project site.")]
         public virtual ITransportFactors A4TransportFactors { get; set; }
 
-        [Description("Factors for computing the emissions relating to  the C2 module which is the Transport module in the End of Life stage.")]
+        [Description("Factors for computing the emissions relating to Module C2. Module C2 Transport impacts consists of any carbon impacts associated with the transportation of material from deconstruction and demolition to the appropriate final location, including any interim stations.")]
         public virtual ITransportFactors C2TransportFactors { get; set; }
 
         /***************************************************/
@@ -52,7 +52,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Converts a EnvironmentalProductDeclaration to a CombinedLifeCycleAssessmentFactors, setting the EnvironmentalProductDeclaration to the provided EnvironmentalProductDeclaration. All other properties are set to default values.")]
         public static explicit operator CombinedLifeCycleAssessmentFactors(EnvironmentalProductDeclaration epd)
         {
-            return new CombinedLifeCycleAssessmentFactors { BaseFactors = epd, Name = epd.Name };
+            return new CombinedLifeCycleAssessmentFactors { EnvironmentalProductDeclaration = epd, Name = epd.Name };
         }
 
         /***************************************************/

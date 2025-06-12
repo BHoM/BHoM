@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
 {
-    [Description("Class outlining the transport emmisions relating to a full transport scenario giving total emissions per mass of material trasported.")]
+    [Description("Class outlining the transport emmisions relating to a full transport scenario giving total emissions per mass of material transported.")]
     public class FullTransportScenario : BHoMObject, ITransportFactors
     {
         /***************************************************/
