@@ -20,45 +20,45 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Base.Debugging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using BH.oM.Base;
-using BH.oM.Security.Enums;
-using BH.oM.Geometry;
-using BH.oM.Dimensional;
-using BH.oM.Quantities.Attributes;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
-namespace BH.oM.Security.Elements
+namespace BH.oM.Versioning
 {
-    [Description("A camera object is a electronic security device typically used in closed-circuit television (CCTV) systems.")]
-    public class CameraDevice : BHoMObject, IElement0D, IElementM
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+    [Description("Attribute identifying a class as a downgrader for versioning.  The version specified should be the the version that the object is being downgraded from which generally correspond to the current version of the BHoM.")]
+    public class DowngraderAttribute : Attribute, IImmutable
     {
         /***************************************************/
-        /****                Properties                 ****/
+        /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The point at which the Camera is installed, known as the eye position.")]
-        public virtual Point EyePosition { get; set; } = new Point();
+        public virtual int MajorVersion { get; private set; } = 0;
 
-        [Description("The point at which the Camera is looking at, known as the target position.")]
-        public virtual Point TargetPosition { get; set; } = new Point();
-        
-        [Angle]
-        [Description("Angle of the Camera, known as the real-world angle of what the camera views.")]
-        public virtual double Angle { get; set; } = 0;               
+        public virtual int MinorVersion { get; private set; } = 0;
 
-        [Description("The Camera mounting type that describes how it's installed.")]
-        public virtual MountingType Mounting { get; set; } = MountingType.Undefined;
 
-        [Description("The Camera type that describes its characteristics.")]
-        public virtual CameraType Type { get; set; } = CameraType.Undefined;        
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
-        [Description("The Camera megapixels that determines its image quality.")]
-        public virtual double Megapixels { get; set; } = 0;
+        public DowngraderAttribute(int majorVersion, int minorVersion)
+        {
+            MajorVersion = majorVersion;
+            MinorVersion = minorVersion;
+        }
 
         /***************************************************/
     }
 }
+
 
 
 
