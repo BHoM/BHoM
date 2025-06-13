@@ -20,55 +20,18 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.LifeCycleAssessment.Interfaces
 {
-    public enum LifeCycleAssessmentPhases
+    [Description("Base interface for all classes classes storing indicator factors or results of a deprecated standard.")]
+    public interface IDeprecatedStandard : ILifeCycleAssessmentIndicator
     {
-        Undefined,
-        [Description("A1 Description")]
-        A1,
-        [Description("A2 Description")]
-        A2,
-        [Description("A3 Description")]
-        A3,
-        [Description("A4 Description")]
-        A4,
-        [Description("A5 Description")]
-        A5,
-        [Description("B1 Description")]
-        B1,
-        [Description("B2 Description")]
-        B2,
-        [Description("B3 Description")]
-        B3,
-        [Description("B4 Description")]
-        B4,
-        [Description("B5 Description")]
-        B5,
-        [Description("B6 Description")]
-        B6,
-        [Description("B7 Description")]
-        B7,
-        [Description("C1 Description")]
-        C1,
-        [Description("C2 Description")]
-        C2,
-        [Description("C3 Description")]
-        C3,
-        [Description("C4 Description")]
-        C4,
-        [Description("D1 Description")]
-        D1,
-        [Description("D2 Description")]
-        D2,
-        [Description("D3 Description")]
-        D3,
+
     }
 }
-
-
-
 
 

@@ -62,7 +62,7 @@ namespace BH.oM.LifeCycleAssessment
         public virtual LevelOfDevelopment LevelOfDevelopment { get; set; } = LevelOfDevelopment.Undefined;
         
         [Description("This is a list of life cycle assessment phases to be accounted for within this assessment. These values are for categorisation purposes only and will not effect the overall results.")]
-        public virtual List<LifeCycleAssessmentPhases> LifeCycleAssessmentPhases { get; set; } = new List<LifeCycleAssessmentPhases>();
+        public virtual List<Module> LifeCycleAssessmentPhases { get; set; } = new List<Module>();
 
         [Description("A general classification of the buildings primary function. This value is for categorisation purposes only and will not effect the overall results.")]
         public virtual ProjectType ProjectType { get; set; } = ProjectType.Undefined;
