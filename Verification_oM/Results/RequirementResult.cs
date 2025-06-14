@@ -21,7 +21,10 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Base.Debugging;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace BH.oM.Verification.Results
@@ -42,16 +45,19 @@ namespace BH.oM.Verification.Results
         [Description("Result of object verification against the condition specified in the Requirement.")]
         public virtual IConditionResult VerificationResult { get; }
 
+        [Description("List of events that occurred during the verification process.")]
+        public virtual ReadOnlyCollection<Event> Events { get; }
 
         /***************************************************/
         /****                Constructor                ****/
         /***************************************************/
 
-        public RequirementResult(IComparable requirementId, IComparable objectId, IConditionResult verificationResult)
+        public RequirementResult(IComparable requirementId, IComparable objectId, IConditionResult verificationResult, IList<Event> events = null)
         {
             RequirementId = requirementId;
             ObjectId = objectId;
             VerificationResult = verificationResult;
+            Events = new ReadOnlyCollection<Event>(new List<Event>(events ?? new List<Event>()));
         }
 
         /***************************************************/

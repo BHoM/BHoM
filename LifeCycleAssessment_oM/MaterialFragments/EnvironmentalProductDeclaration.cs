@@ -22,6 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.Physical.Materials;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -31,7 +32,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         "More information can be found on the Environdec website (environdec.com/all-about-epds0/all-about-epds.) \n" +
         "All EPDs within the BHoM have been provided for general use and are updated as frequently as possible, but by using any supplied EPDs you assume all responsibility for the data used on any applications. \n" +
         "For additional comments, questions, or feature requests, please visit the LifeCycleAssessment_Toolkit at github.com/BHoM/LifeCycleAssessment_Toolkit.")]
-    public class EnvironmentalProductDeclaration : BHoMObject, IMaterialProperties
+    public class EnvironmentalProductDeclaration : BHoMObject, IEnvironmentalFactorsProvider, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -40,8 +41,8 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("The Type of Environmental Product Declaration.")]
         public virtual EPDType Type { get; set; } = EPDType.Product;
 
-        [Description("An Environmental Metric to describe the type and quantity of a specified metric. These metrics are used in all LCA calculations.")]
-        public virtual List<EnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<EnvironmentalMetric>();
+        [Description("An Environmental Module Factors contains EnvironmentalFactors of a particular quantity for one or more modules. These factors are used in all LCA calculations.")]
+        public virtual List<IEnvironmentalMetric> EnvironmentalMetrics { get; set; } = new List<IEnvironmentalMetric>();
 
         [Description("Note that any EPD that does not contain this parameter will not be evaluated. \n" +
             "This metric is based on the declared unit of the reference EPD, i.e. a declared unit of kg refers to QuantityType of mass, a declared unit of m3 refers to a QuantityType of volume, etc. \n" +
@@ -53,6 +54,5 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         /***************************************************/
     }
 }
-
 
 

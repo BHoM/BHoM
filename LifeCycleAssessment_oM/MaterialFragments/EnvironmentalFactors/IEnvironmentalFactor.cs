@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -20,36 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.LifeCycleAssessment.Interfaces;
+using BH.oM.Quantities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace BH.oM.LifeCycleAssessment
+namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Enum of all available environmental indicators. Used for filtering metrics and results.")]
-    public enum EnvironmentalMetrics
+    [Description("Single value indicator for enviromental indicators. Used by for example Transport factors.")]
+    public interface IEnvironmentalFactor : ILifeCycleAssessmentIndicator
     {
-        Undefined,
-        AbioticDepletionFossilResources,
-        AbioticDepletionMineralsAndMetals,
-        Acidification,
-        ClimateChangeBiogenic,
-        ClimateChangeFossil,
-        ClimateChangeLandUse,
-        ClimateChangeTotal,
-        ClimateChangeTotalNoBiogenic,
-        EutrophicationCML,
-        EutrophicationAquaticFreshwater,
-        EutrophicationAquaticMarine,
-        EutrophicationTerrestrial,
-        EutrophicationTRACI,
-        OzoneDepletion,
-        PhotochemicalOzoneCreation,
-        PhotochemicalOzoneCreationCML,
-        PhotochemicalOzoneCreationTRACI,
-        WaterDeprivation
+        [Description("Value of the indicator.")]
+        double Value { get; set; }
+
     }
 }
-
-
