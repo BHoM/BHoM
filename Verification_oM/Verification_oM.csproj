@@ -8,7 +8,7 @@
     <Authors>BHoM</Authors>
     <Copyright>Copyright © https://github.com/BHoM</Copyright>
     <RootNamespace>BH.oM.Verification</RootNamespace>
-    <FileVersion>8.1.0.0</FileVersion>
+    <FileVersion>8.2.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -20,16 +20,9 @@
   </Target>
 
   <ItemGroup>
-    <Reference Include="BHoM">
-      <HintPath>$(ProgramData)\BHoM\Assemblies\BHoM.dll</HintPath>
-      <Private>false</Private>
-      <SpecificVersion>false</SpecificVersion>
-    </Reference>
-    <Reference Include="Data_oM">
-      <HintPath>$(ProgramData)\BHoM\Assemblies\Data_oM.dll</HintPath>
-      <Private>false</Private>
-      <SpecificVersion>false</SpecificVersion>
-    </Reference>
+    <ProjectReference Include="..\BHoM\BHoM.csproj" />
+    <ProjectReference Include="..\Data_oM\Data_oM.csproj" />
   </ItemGroup>
+
 
 </Project>

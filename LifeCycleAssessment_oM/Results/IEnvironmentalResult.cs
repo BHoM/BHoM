@@ -22,12 +22,15 @@
 
 
 using BH.oM.Analytical.Results;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
+using BH.oM.LifeCycleAssessment.Interfaces;
 
 namespace BH.oM.LifeCycleAssessment.Results
 {
     [Description("Base interface for all Life Cycle Assessment results.")]
-    public interface IEnvironmentalResult : IResultItem, ILifeCycleAssessmentPhaseData
+    public interface IEnvironmentalResult : ILifeCycleAssessmentModuleData<ReadOnlyDictionary<Module, double>>, IResultItem //,IDynamicObject
     {
 
     }

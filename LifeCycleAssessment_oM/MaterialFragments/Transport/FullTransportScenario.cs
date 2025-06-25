@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
  *
@@ -20,24 +20,29 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Analytical.Results;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment.Results
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
 {
-    [Description("Base interface for Life Cycle Assessment results for a particular element..")]
-    public interface IElementResult<out T> : IObjectResult, IResultItem, IEnvironmentalResult
-        where T : MaterialResult
+    [Description("Class outlining the transport emmisions relating to a full transport scenario giving total emissions per mass of material transported.")]
+    public class FullTransportScenario : BHoMObject, ITransportFactors
     {
-        [Description("Scope the object this result was generated from belongs to, e.g. Foundation or Facade")]
-        ScopeType Scope { get; }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-        [Description("Category of the object this result was generated from, e.g. Beam or Wall")]
-        ObjectCategory Category { get; }
+        [Description("Name identifying the type of typical transport scenario.")]
+        public override string Name { get; set; }
 
-        [Description("Result breakdown per material type.")]
-        IReadOnlyList<T> MaterialResults { get; }
+        [Description("Metrics relating to the transport scenario. All metrics assumed to be impact per mass.")]
+        public virtual List<IEnvironmentalFactor> EnvironmentalFactors { get; set; } = new List<IEnvironmentalFactor>();
+
+        /***************************************************/
+
     }
 }
 

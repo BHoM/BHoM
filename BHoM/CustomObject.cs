@@ -20,9 +20,12 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using System.ComponentModel;
+
 namespace BH.oM.Base
 {
-    public class CustomObject : BHoMObject
+    [Description("Allows the user to define their own objects with a custom set of properties.")]
+    public class CustomObject : BHoMObject, IDynamicPropertyProvider
     {
         /***************************************************/
         /**** Constructors                              ****/
