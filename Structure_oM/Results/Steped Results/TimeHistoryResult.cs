@@ -30,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.Results
 {
     [Description("Base class for all stepped result classes. Stores all identifier information and how to sort the results in a collection.")]
-    public abstract class TimeHistoryResult : IImmutable
+    public abstract class TimeHistoryResult : IResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -45,6 +45,9 @@ namespace BH.oM.Structure.Results
         [Description("Positive index, starting at one. Only set for cases with modal outputs such as dynamic cases.")]
         public virtual int ModeNumber { get; }
 
+        [Description("Object position for the result.")]
+        public virtual string Position { get; }
+
         [Description("List of results for each step.")]
         public List<ITimeStepResult> StepResults { get; set; } = new List<ITimeStepResult>();
 
@@ -52,11 +55,12 @@ namespace BH.oM.Structure.Results
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TimeHistoryResult(IComparable objectId, IComparable resultCase, int modeNumber, List<ITimeStepResult> stepResults)
+        public TimeHistoryResult(IComparable objectId, IComparable resultCase, int modeNumber, string position, List<ITimeStepResult> stepResults)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             ModeNumber = modeNumber;
+            Position = position;
             StepResults = stepResults;
         }
 

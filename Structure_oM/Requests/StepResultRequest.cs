@@ -45,7 +45,7 @@ namespace BH.oM.Structure.Requests
         public virtual List<object> ObjectIds { get; set; } = new List<object>();
 
         [Description("Defines the first Time/Step that results should be extracted for.")]
-        public virtual double Start { get; set; } = 0;
+        public virtual double Start { get; set; } = 0.1;
 
         [Description("Defines the last Time/Step that results should be extracted for.")]
         public virtual double End { get; set; } = 1;

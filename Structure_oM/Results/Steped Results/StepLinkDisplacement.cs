@@ -31,7 +31,7 @@ using static BH.oM.Structure.Results.TimeHistoryResult;
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting forces at the endpoints of a link.")]
-    public class StepLinkForce : ITimeStepResult, IImmutable
+    public class StepLinkDisplacement : ITimeStepResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -41,29 +41,29 @@ namespace BH.oM.Structure.Results
         [Description("The time step indentifier for the result.")]
         public virtual double TimeStep { get; }
 
-        [Force]
-        [Description("Axial force along the local x-axis. Positive for tension, negative for compression.")]
-        public virtual double FX { get; }
+        [Length]
+        [Description("Displacement along the local x-axis.")]
+        public virtual double DX { get; }
 
-        [Force]
-        [Description("Shear force along the local y-axis. Generally minor axis shear force.")]
-        public virtual double FY { get; }
+        [Length]
+        [Description("Displacement along the local y-axis.")]
+        public virtual double DY { get; }
 
-        [Force]
-        [Description("Shear force along the local z-axis. Generally major axis shear force.")]
-        public virtual double FZ { get; }
+        [Length]
+        [Description("Displacement along the local z-axis.")]
+        public virtual double DZ { get; }
 
-        [Moment]
-        [Description("Torsional moment.")]
-        public virtual double MX { get; }
+        [Angle]
+        [Description("Rotation about the local x-axis.")]
+        public virtual double RX { get; }
 
-        [Moment]
-        [Description("Bending moment about the local y-axis.")]
-        public virtual double MY { get; }
+        [Angle]
+        [Description("Rotation about the local y-axis.")]
+        public virtual double RY { get; }
 
-        [Moment]
-        [Description("Bending moment about the local z-axis.")]
-        public virtual double MZ { get; }
+        [Angle]
+        [Description("Rotation about the local z-axis.")]
+        public virtual double RZ { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
@@ -80,17 +80,17 @@ namespace BH.oM.Structure.Results
             return n;
         }
 
-        public StepLinkForce(double timeStep, double fx, double fy, double fz, double mx, double my, double mz)
+        public StepLinkDisplacement(double timeStep, double dx, double dy, double dz, double rx, double ry, double rz)
         {
             TimeStep = timeStep;
-            FX = fx;
-            FY = fy;
-            FZ = fz;
-            MX = mx;
-            MY = my;
-            MZ = mz;
+            DX = dx;
+            DY = dy;
+            DZ = dz;
+            RX = rx;
+            RY = ry;
+            RZ = rz;
         }
 
-    /***************************************************/
+        /***************************************************/
     }
 }
