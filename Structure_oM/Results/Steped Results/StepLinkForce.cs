@@ -31,7 +31,7 @@ using static BH.oM.Structure.Results.TimeHistoryResult;
 namespace BH.oM.Structure.Results
 {
     [Description("Resulting forces at the endpoints of a link.")]
-    public class StepLinkForce : ITimeStepResult, IImmutable
+    public class StepLinkForce : ITimeStepResult, IResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -91,6 +91,19 @@ namespace BH.oM.Structure.Results
             MZ = mz;
         }
 
-    /***************************************************/
+        /***************************************************/
     }
+    
+    public class TimeHistoryLinkForce : TimeHistoryResult, IImmutable
+    {
+        [Description("List of results for each step.")]
+        public List<StepLinkForce> StepResults { get; } 
+
+        public TimeHistoryLinkForce(IComparable objectId, IComparable resultCase, int modeNumber, string position, List<StepLinkForce> stepResults)
+        : base(objectId, resultCase, modeNumber, position)
+        {
+           StepResults = stepResults;
+        }
+    }
+    
 }

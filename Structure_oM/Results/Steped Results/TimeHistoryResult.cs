@@ -48,20 +48,17 @@ namespace BH.oM.Structure.Results
         [Description("Object position for the result.")]
         public virtual string Position { get; }
 
-        [Description("List of results for each step.")]
-        public List<ITimeStepResult> StepResults { get; set; } = new List<ITimeStepResult>();
 
         /***************************************************/
         /**** Constructors                              ****/
         /***************************************************/
 
-        public TimeHistoryResult(IComparable objectId, IComparable resultCase, int modeNumber, string position, List<ITimeStepResult> stepResults)
+        public TimeHistoryResult(IComparable objectId, IComparable resultCase, int modeNumber, string position)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             ModeNumber = modeNumber;
             Position = position;
-            StepResults = stepResults;
         }
 
         [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase")]

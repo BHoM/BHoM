@@ -30,8 +30,8 @@ using static BH.oM.Structure.Results.TimeHistoryResult;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting forces at the endpoints of a link.")]
-    public class StepLinkDisplacement : ITimeStepResult, IImmutable
+    [Description("Local deformation of a link.")]
+    public class StepLinkDeformation : ITimeStepResult, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
@@ -42,15 +42,15 @@ namespace BH.oM.Structure.Results
         public virtual double TimeStep { get; }
 
         [Length]
-        [Description("Displacement along the local x-axis.")]
+        [Description("Deformation along the local x-axis.")]
         public virtual double DX { get; }
 
         [Length]
-        [Description("Displacement along the local y-axis.")]
+        [Description("Deformation along the local y-axis.")]
         public virtual double DY { get; }
 
         [Length]
-        [Description("Displacement along the local z-axis.")]
+        [Description("Deformation along the local z-axis.")]
         public virtual double DZ { get; }
 
         [Angle]
@@ -71,7 +71,7 @@ namespace BH.oM.Structure.Results
 
         public int CompareTo(IResult other)
         {
-            StepLinkForce otherRes = other as StepLinkForce;
+            StepLinkDeformation otherRes = other as StepLinkDeformation;
 
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
@@ -80,7 +80,7 @@ namespace BH.oM.Structure.Results
             return n;
         }
 
-        public StepLinkDisplacement(double timeStep, double dx, double dy, double dz, double rx, double ry, double rz)
+        public StepLinkDeformation(double timeStep, double dx, double dy, double dz, double rx, double ry, double rz)
         {
             TimeStep = timeStep;
             DX = dx;
@@ -92,5 +92,16 @@ namespace BH.oM.Structure.Results
         }
 
         /***************************************************/
+    }
+    public class TimeHistoryLinkDeformation : TimeHistoryResult, IImmutable
+    {
+        [Description("List of results for each step.")]
+        public List<StepLinkDeformation> StepResults { get; }
+
+        public TimeHistoryLinkDeformation(IComparable objectId, IComparable resultCase, int modeNumber, string position, List<StepLinkDeformation> stepResults)
+        : base(objectId, resultCase, modeNumber, position)
+        {
+            StepResults = stepResults;
+        }
     }
 }
