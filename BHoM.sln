@@ -63,6 +63,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search_oM", "Search_oM\Sear
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verification_oM", "Verification_oM\Verification_oM.csproj", "{73C84986-972B-486B-B586-F50D3C92ED9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialiser_oM", "Serialiser_oM\Serialiser_oM.csproj", "{31048EDE-0E23-9E25-32C7-93317606C755}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -189,6 +191,10 @@ Global
 		{73C84986-972B-486B-B586-F50D3C92ED9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73C84986-972B-486B-B586-F50D3C92ED9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73C84986-972B-486B-B586-F50D3C92ED9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31048EDE-0E23-9E25-32C7-93317606C755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31048EDE-0E23-9E25-32C7-93317606C755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31048EDE-0E23-9E25-32C7-93317606C755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31048EDE-0E23-9E25-32C7-93317606C755}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
