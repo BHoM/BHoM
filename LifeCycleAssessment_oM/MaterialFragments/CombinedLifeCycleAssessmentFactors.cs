@@ -21,8 +21,10 @@
  */
 
 using BH.oM.Base;
+using BH.oM.LifeCycleAssessment.MaterialFragments.Construction;
 using BH.oM.LifeCycleAssessment.MaterialFragments.Transport;
 using BH.oM.Physical.Materials;
+using BH.oM.Quantities.Attributes;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -42,8 +44,12 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Factors for computing the emissions relating to Module A4 which captures the impacts associated with the transportation of the materials and components from the factory gate to and from the project site.")]
         public virtual ITransportFactors A4TransportFactors { get; set; }
 
+        [Description("Factors for computing the emissions relating to the Construction and instalation process (A5).")]
+        public virtual ConstructionEmissions A5ConstructionEmissions { get; set; }
+
         [Description("Factors for computing the emissions relating to Module C2. Module C2 Transport impacts consists of any carbon impacts associated with the transportation of material from deconstruction and demolition to the appropriate final location, including any interim stations.")]
         public virtual ITransportFactors C2TransportFactors { get; set; }
+
 
         /***************************************************/
         /**** Explicit Casting                          ****/
