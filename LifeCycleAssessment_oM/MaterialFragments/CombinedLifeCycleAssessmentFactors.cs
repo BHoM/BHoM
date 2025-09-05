@@ -22,6 +22,7 @@
 
 using BH.oM.Base;
 using BH.oM.LifeCycleAssessment.MaterialFragments.Construction;
+using BH.oM.LifeCycleAssessment.MaterialFragments.EndOfLife;
 using BH.oM.LifeCycleAssessment.MaterialFragments.Transport;
 using BH.oM.Physical.Materials;
 using BH.oM.Quantities.Attributes;
@@ -50,6 +51,8 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         [Description("Factors for computing the emissions relating to Module C2. Module C2 Transport impacts consists of any carbon impacts associated with the transportation of material from deconstruction and demolition to the appropriate final location, including any interim stations.")]
         public virtual ITransportFactors C2TransportFactors { get; set; }
 
+        [Description("Factors for computing the emissions relating to Module C3 (waste processing) and C4 (disposal). WasteAndDisposalFactors defines the end of life waste processing and disposal factors to be applied to the material fragment. These factors are applied in addition to any end of life factors provided by an Environmental Product Declaration, and can be used to fill gaps where no EPD data is available. If applied this will help populate all Climate change metrics available, with LandUseFactor being set to 0.")]
+        public virtual WasteAndDisposalFactors C3C4WasteAndDisposalFactors { get; set; }
 
         /***************************************************/
         /**** Explicit Casting                          ****/
