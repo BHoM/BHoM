@@ -46,7 +46,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments
         public virtual ITransportFactors A4TransportFactors { get; set; }
 
         [Description("Factors for computing the emissions relating to the Construction and instalation process (A5).")]
-        public virtual ConstructionEmissions A5ConstructionEmissions { get; set; }
+        public virtual ConstructionWasteEmissions A5_3ConstructionWasteEmissions { get; set; }
 
         [Description("Factors for computing the emissions relating to Module C2. Module C2 Transport impacts consists of any carbon impacts associated with the transportation of material from deconstruction and demolition to the appropriate final location, including any interim stations.")]
         public virtual ITransportFactors C2TransportFactors { get; set; }

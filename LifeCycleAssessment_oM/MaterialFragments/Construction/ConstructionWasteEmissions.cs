@@ -29,7 +29,7 @@ using System.Text;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments.Construction
 {
     [Description("ConstructionEmissions defines the emissions associated with the construction phase of the building lifecycle, including pre-construction demolition activities, construction activities, waste rates and whether the material is reused on site.")]
-    public class ConstructionEmissions : BHoMObject
+    public class ConstructionWasteEmissions : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
