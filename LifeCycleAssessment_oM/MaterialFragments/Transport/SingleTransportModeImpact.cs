@@ -42,6 +42,8 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
         [Description("Total distance transported with the particular vehicle.")]
         public virtual double DistanceTraveled { get; set; }
 
+        [Description("Factor applied to the resulting emission for this single mode transport. Resulting value will be multiplied by this factor. Mainly used for creating end of life routes where parts of the material will be going to different facilities.")]
+        public virtual double Factor { get; set; } = 1.0;
         /***************************************************/
 
     }
