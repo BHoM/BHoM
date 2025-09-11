@@ -28,7 +28,7 @@ using System.Text;
 
 namespace BH.oM.LifeCycleAssessment.MaterialFragments.Construction
 {
-    [Description("ConstructionEmissions defines the emissions associated with the construction phase of the building lifecycle, including pre-construction demolition activities, construction activities, waste rates and whether the material is reused on site.")]
+    [Description("Production, transportation, storage and end-of-life treatment and disposal of any material/waste on-site: transport, waste management and disposal of packaging materials.")]
     public class ConstructionWasteEmissions : BHoMObject
     {
         /***************************************************/
