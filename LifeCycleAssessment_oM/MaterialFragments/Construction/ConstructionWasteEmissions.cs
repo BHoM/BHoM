@@ -35,10 +35,11 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments.Construction
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("The waste rate associated with the construction process, which will increase the amount of material required to be ordered and processed to account for waste. This factor is used to compute A5.3 emissions based on outputs available from either EPD and/or transport as well as disposal factors.")]
+        [Description("The waste rate associated with the construction process. This factor is used to compute A5.3 emissions based on outputs for A1 to A4 and C2 to C4 available from either EPD and/or transport as well as disposal factors.\n" +
+                     "This value should be the percentage of material brought to site that goes to waste. This is turned into a waste factor to allow for evaluating based on quantities of the built asset.")]
         public virtual WasteRate WasteRate { get; set; } = null;
 
-        [Description("Whether the material is reused on site, which would reduce the emissions associated with transport and processing. Controls wether the C2 factor for the material should be included or not when computing the emissions based on the A5.3 (waste) factor. Defaults to false, meaning the C2 factor is included.")]
+        [Description("Whether the material is reused on site, which would reduce the emissions associated with transport and processing. Controls whether the C2 factor for the material should be included or not when computing the emissions based on the A5.3 (waste) factor. Defaults to false, meaning the C2 factor is included.")]
         public virtual bool ResuedOnSite { get; set; } = false;
 
         /***************************************************/
