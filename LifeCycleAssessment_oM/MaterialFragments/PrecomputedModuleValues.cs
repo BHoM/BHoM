@@ -21,32 +21,24 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
+namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
-    [Description("Class for computing Transport emissions for a particular part of journey to site.")]
-    public class SingleTransportModeImpact : BHoMObject, ITransportFactors
+    [Description("Class containing a set of pre-computed values per metric type for a particular module that can be used to override existing values or fill in missing values where they dont exist. Values should be the resulting total.")]
+    public class PrecomputedModuleValues : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Emissions for the vechicle for the particular part of the journey.")]
-        public virtual VehicleEmissions VehicleEmissions { get; set; }
+        [Description("Dictionary containing resulting values per metric type for a particular module that can be used to override existing values or fill in missing values where they dont exist. Values should be the resulting total.")]
+        public virtual Dictionary<MetricType, double> ModuleValues { get; set; } = new Dictionary<MetricType, double>();
 
-        [Length]
-        [Description("Total distance transported with the particular vehicle.")]
-        public virtual double DistanceTraveled { get; set; }
-
-        [Description("Factor applied to the resulting emission for this single mode transport. Resulting value will be multiplied by this factor. Mainly used for creating end of life routes where parts of the material will be going to different facilities.")]
-        public virtual double Factor { get; set; } = 1.0;
-        /***************************************************/
-
+        [Description("If true, any existing values for the module will be overwritten with the pre-computed values. If false, only missing values will be filled in.")]
+        public virtual bool OverwriteExistingValues { get; set; } = true;
     }
 }
-
-

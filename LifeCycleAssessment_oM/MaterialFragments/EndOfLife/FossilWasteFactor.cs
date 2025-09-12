@@ -20,33 +20,29 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.EndOfLife
 {
-    [Description("Class for computing Transport emissions for a particular part of journey to site.")]
-    public class SingleTransportModeImpact : BHoMObject, ITransportFactors
+    [Description("Factor on the C3 to C4 module for climate change impacts.")]
+    public class FossilWasteFactor : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Emissions for the vechicle for the particular part of the journey.")]
-        public virtual VehicleEmissions VehicleEmissions { get; set; }
+        [ClimateChangePerQuantity]
+        [Description("Waste processing and disposal Climate change Fossil (embodied carbon) factor. Applied to the fossil factors, and also used to compute the totals. Value assumed per mass.")]
+        public virtual double C3toC4 { get; set; }
 
-        [Length]
-        [Description("Total distance transported with the particular vehicle.")]
-        public virtual double DistanceTraveled { get; set; }
-
-        [Description("Factor applied to the resulting emission for this single mode transport. Resulting value will be multiplied by this factor. Mainly used for creating end of life routes where parts of the material will be going to different facilities.")]
-        public virtual double Factor { get; set; } = 1.0;
+        [Description("Name of the scenario or material wo which this corresponds.")]
+        public override string Name { get; set; }
         /***************************************************/
-
     }
 }
-
-

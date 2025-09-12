@@ -25,28 +25,36 @@ using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.EndOfLife
 {
-    [Description("Class for computing Transport emissions for a particular part of journey to site.")]
-    public class SingleTransportModeImpact : BHoMObject, ITransportFactors
+    [Description("Class outlining the distribution between different end of life routes and scenarios for a particular material. All ratios should be between 0 and 1, and in total sum up to 1.")]
+    public class EndOfLifeRouteDistribution : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Emissions for the vechicle for the particular part of the journey.")]
-        public virtual VehicleEmissions VehicleEmissions { get; set; }
+        [Description("Name of the scenario or material wo which this corresponds.")]
+        public override string Name { get; set; }
 
-        [Length]
-        [Description("Total distance transported with the particular vehicle.")]
-        public virtual double DistanceTraveled { get; set; }
+        [Ratio]
+        [Description("Proportion of the material that is resued. Should be a number betwen 0 and 1 where 0 means no reuse, and 1 means all is reused.")]
+        public virtual double Reuse { get; set; }
 
-        [Description("Factor applied to the resulting emission for this single mode transport. Resulting value will be multiplied by this factor. Mainly used for creating end of life routes where parts of the material will be going to different facilities.")]
-        public virtual double Factor { get; set; } = 1.0;
+        [Ratio]
+        [Description("Proportion of the material that is recycled. Should be a number betwen 0 and 1 where 0 means nothing is recyled, and 1 means all is recyled.")]
+        public virtual double Recycling { get; set; }
+
+        [Ratio]
+        [Description("Proportion of the material that is incinerated. Should be a number betwen 0 and 1 where 0 means nothing is incinerated, and 1 means all is incinerated.")]
+        public virtual double Incineration { get; set; }
+
+        [Ratio]
+        [Description("Proportion of the material that is incinerated. Should be a number betwen 0 and 1 where 0 means nothing is incinerated, and 1 means all is incinerated.")]
+        public virtual double Waste { get; set; }
+
         /***************************************************/
-
     }
 }
-
-

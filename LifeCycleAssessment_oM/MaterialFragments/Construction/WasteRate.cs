@@ -21,32 +21,36 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.Construction
 {
-    [Description("Class for computing Transport emissions for a particular part of journey to site.")]
-    public class SingleTransportModeImpact : BHoMObject, ITransportFactors
+    [Description("A class defining the waste rate associated with a construction material.")]
+    public class WasteRate : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Emissions for the vechicle for the particular part of the journey.")]
-        public virtual VehicleEmissions VehicleEmissions { get; set; }
+        [Description("The percentage of waste expected during construction, expressed as a value between 0 and 1.")]
+        public virtual double Rate { get; set; }
 
-        [Length]
-        [Description("Total distance transported with the particular vehicle.")]
-        public virtual double DistanceTraveled { get; set; }
+        [Description("The name of the material to which the waste rate applies.")]
+        public override string Name { get; set; }
 
-        [Description("Factor applied to the resulting emission for this single mode transport. Resulting value will be multiplied by this factor. Mainly used for creating end of life routes where parts of the material will be going to different facilities.")]
-        public virtual double Factor { get; set; } = 1.0;
+        /***************************************************/
+        /**** Explicit Casting                          ****/
         /***************************************************/
 
+        [Description("Constructs a custom waste rate given jsut the rate. Usefull to be able to provide just the rate in UIs.")]
+        public static explicit operator WasteRate(double rate)
+        {
+            return new WasteRate { Rate = rate, Name = "Custom" };
+        }
+
+        /***************************************************/
     }
 }
-
-
