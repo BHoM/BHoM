@@ -25,28 +25,26 @@ using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.EndOfLife
 {
-    [Description("Class for computing Transport emissions for a particular part of journey to site.")]
-    public class SingleTransportModeImpact : BHoMObject, ITransportFactors
+    [Description("WasteAndDisposalFactors defines the end of life waste processing and disposal factors to be applied to the material fragment. These factors are applied in addition to any end of life factors provided by an Environmental Product Declaration, and can be used to fill gaps where no EPD data is available. If applied this will help populate all CLimate change metrics available, with LandUseFactor being set to 0.")]
+    public class WasteAndDisposalFactors : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Emissions for the vechicle for the particular part of the journey.")]
-        public virtual VehicleEmissions VehicleEmissions { get; set; }
+        [Description("Factor used to compute the Fossil climate change impacts.")]
+        public virtual FossilWasteFactor FossilWasteFactor { get; set; }
 
-        [Length]
-        [Description("Total distance transported with the particular vehicle.")]
-        public virtual double DistanceTraveled { get; set; }
+        [Description("Controls whether the value should override a potentially pre-existing value on the Environmental Product Declaration. If true, the factor above takes president, if false, the value above is only added if no C3 or C4 factors already have been computed.")]
+        public virtual bool OverrideEpdValue { get; set; } = false;
 
-        [Description("Factor applied to the resulting emission for this single mode transport. Resulting value will be multiplied by this factor. Mainly used for creating end of life routes where parts of the material will be going to different facilities.")]
-        public virtual double Factor { get; set; } = 1.0;
+        [Description("If true, the C3toC4 value for ClimateChangeBiogenic will be set to the negative value of A1 (if present) or A1toA3 to cancel out any benefits given in those phases. If false, this value will be assumed to be 0, and all emissions for the disposal modules related to Fossil. Works under the same premise as the OverrideEpdValue toggle.")]
+        public virtual bool CancelOutBiogenicCarbon { get; set; } = true;
+
         /***************************************************/
-
     }
 }
-
-

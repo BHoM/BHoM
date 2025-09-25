@@ -21,32 +21,27 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments.Transport
+namespace BH.oM.LifeCycleAssessment.MaterialFragments.Construction
 {
-    [Description("Class for computing Transport emissions for a particular part of journey to site.")]
-    public class SingleTransportModeImpact : BHoMObject, ITransportFactors
+    [Description("Production, transportation, storage and end-of-life treatment and disposal of any material/waste on-site: transport, waste management and disposal of packaging materials.")]
+    public class ConstructionWasteEmissions : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Emissions for the vechicle for the particular part of the journey.")]
-        public virtual VehicleEmissions VehicleEmissions { get; set; }
+        [Description("The waste rate associated with the construction process. This factor is used to compute A5.3 emissions based on outputs for A1 to A4 and C2 to C4 available from either EPD and/or transport as well as disposal factors.\n" +
+                     "This value should be the percentage of material brought to site that goes to waste. This is turned into a waste factor to allow for evaluating based on quantities of the built asset.")]
+        public virtual WasteRate WasteRate { get; set; } = null;
 
-        [Length]
-        [Description("Total distance transported with the particular vehicle.")]
-        public virtual double DistanceTraveled { get; set; }
+        [Description("Whether the material is reused on site, which would reduce the emissions associated with transport and processing. Controls whether the C2 factor for the material should be included or not when computing the emissions based on the A5.3 (waste) factor. Defaults to false, meaning the C2 factor is included.")]
+        public virtual bool ResuedOnSite { get; set; } = false;
 
-        [Description("Factor applied to the resulting emission for this single mode transport. Resulting value will be multiplied by this factor. Mainly used for creating end of life routes where parts of the material will be going to different facilities.")]
-        public virtual double Factor { get; set; } = 1.0;
         /***************************************************/
-
     }
 }
-
-
