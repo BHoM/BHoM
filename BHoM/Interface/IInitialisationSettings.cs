@@ -38,7 +38,11 @@ namespace BH.oM.Base
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Method used to intialise the toolkit. It has to be written has follows: '<Full namespace>.<Declaring type>.<Method name>'")]
         string InitialisationMethod { get; }
+
+        [Description("Name of the method containing teh initialisation assembly. Only provide the name of the assembly itself, no file path or extension.")]
+        string InitialisationAssembly { get; }
 
         /***************************************************/
     }
