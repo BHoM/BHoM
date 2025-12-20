@@ -1,6 +1,6 @@
 /*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2025, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2026, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -85,7 +85,7 @@ namespace BH.oM.LifeCycleAssessment
         B7_2,
         [Description("Module B7.3 Water used by non-integrated systems consists of water used for dishwashers, washing machines and washing cars.")]
         B7_3,
-        [Description("Module B8 User activities in buildings covers impacts associated with user activities taking place during the operation of buildings that are not covered by B1-B7. There are 3 sub-modules to B8 including: B8.1 Energy-related impacts associated with building user mobility/ transport not covered in B6, such as user mobility/ commuting to a building (optional), B8.2 Energy-related impacts associated with building user charging of electric vehicles on-site (optional), and B8.3 Other energy related impacts associated with building user activities relating to the building’s intended use, such as upstream embodied impacts of consumables used in the building, e.g. stationery and printing paper for an office (optional).")]
+        [Description("Module B8 User activities in buildings covers impacts associated with user activities taking place during the operation of buildings that are not covered by B1-B7. There are 3 sub-modules to B8 including: B8.1 Energy-related impacts associated with building user mobility/ transport not covered in B6, such as user mobility/ commuting to a building (optional), B8.2 Energy-related impacts associated with building user charging of electric vehicles on-site (optional), and B8.3 Other energy related impacts associated with building user activities relating to the buildingï¿½s intended use, such as upstream embodied impacts of consumables used in the building, e.g. stationery and printing paper for an office (optional).")]
         B8,
         [Description("Module B8.1 consists of energy-related impacts associated with building user mobility/ transport not covered in B6, such as user mobility/ commuting to a building (optional).")]
         B8_1,
@@ -113,6 +113,7 @@ namespace BH.oM.LifeCycleAssessment
         D_2,
     }
 }
+
 
 
 
