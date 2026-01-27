@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2026, the respective contributors. All rights reserved.
  *
@@ -20,30 +20,38 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Structure.Loads;
+using System.ComponentModel;
+
 namespace BH.oM.Structure.Loads
 {
-    /***************************************************/
-    public enum LoadType
+    [Description("Defines a time history analysis case with time integration parameters.")]
+    public class TimeHistoryLoadcase : BHoMObject, ICase
     {
-        Selfweight = 0,
-        PointLoad,
-        PointDisplacement,
-        PointVelocity,
-        PointAcceleration,
-        BarPointLoad,
-        BarUniformLoad,
-        BarVaryingLoad,
-        BarTemperature,
-        AreaUniformLoad,
-        AreaVaryingLoad,
-        AreaTemperature,
-        Pressure,
-        Geometrical,
-        TransientTimeHistoryLoad,
-    }
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
 
-    /***************************************************/
+        [Description("Unique name identifying the time history load case.")]
+        public virtual string Name { get; set; }
+
+        [Description("Numerical identifier for the load case.")]
+        public virtual int Number { get; set; }
+
+        [Description("End time of the time history analysis in seconds.")]
+        public virtual double EndTime { get; set; }
+
+        [Description("Time step used for the integration in seconds.")]
+        public virtual double TimeStep { get; set; }
+
+        [Description("Base load case whose magnitude is scaled at each time step.")]
+        public virtual string InitialLoadCase { get; set; }
+
+        /***************************************************/
+    }
 }
+
 
 
 
