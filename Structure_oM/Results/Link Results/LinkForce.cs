@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Structure.Results
 {
-    [Description("Resulting section forces in local coordinates along the bar.")]
+    [Description("Resulting forces in local coordinates along the general link.")]
     public class LinkForce : LinkResult, IResultItem, IImmutable
     {
         /***************************************************/

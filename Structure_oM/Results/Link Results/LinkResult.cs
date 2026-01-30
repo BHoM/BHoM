@@ -35,7 +35,7 @@ namespace BH.oM.Structure.Results
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Id of the bar that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
+        [Description("Id of the general link that this result belongs to. When extracted from an analysis package, the object id will match the format and value used in that particular package.")]
         public virtual IComparable ObjectId { get; }
 
         [Description("Identifier for the Loadcase or LoadCombination that the result belongs to. Is generally name or number of the loadcase, depending on the analysis package.")]
