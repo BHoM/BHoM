@@ -39,14 +39,14 @@ namespace BH.oM.Structure.Loads
         [Description("Numerical identifier for the load case.")]
         public virtual int Number { get; set; }
 
+        [Description("Start time of the time history analysis in seconds.")]
+        public virtual double StartTime { get; set; }
+
         [Description("End time of the time history analysis in seconds.")]
         public virtual double EndTime { get; set; }
 
         [Description("Time step used for the integration in seconds.")]
         public virtual double TimeStep { get; set; }
-
-        [Description("Base load case whose magnitude is scaled at each time step.")]
-        public virtual string InitialLoadCase { get; set; }
 
         /***************************************************/
     }
