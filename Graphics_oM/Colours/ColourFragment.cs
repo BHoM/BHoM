@@ -35,7 +35,7 @@ namespace BH.oM.Graphics
         /****            Public Properties              ****/
         /***************************************************/
 
-        public Color Colour { get; set; }
+        public virtual Color Colour { get; set; }
 
         /***************************************************/
     }

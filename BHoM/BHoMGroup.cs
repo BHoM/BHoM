@@ -30,7 +30,7 @@ namespace BH.oM.Base
         /**** Properties                                ****/
         /***************************************************/
 
-        public List<T> Elements { get; set; } = new List<T>();
+        public virtual List<T> Elements { get; set; } = new List<T>();
 
 
         /***************************************************/

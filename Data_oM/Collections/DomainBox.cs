@@ -34,7 +34,7 @@ namespace BH.oM.Data.Collections
         /***************************************************/
 
         [Description("Array containing the domain for each dimension.")]
-        public Domain[] Domains { get; set; } = null;
+        public virtual Domain[] Domains { get; set; } = null;
 
         /***************************************************/
 

@@ -38,17 +38,17 @@ namespace BH.oM.AECDeltas
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        public Guid StreamID { get; }
+        public virtual Guid StreamID { get; }
 
-        public Dictionary<string, object> Diff { get; }
+        public virtual Dictionary<string, object> Diff { get; }
 
-        public string RevisionFrom { get; }
-        public string RevisionTo { get; }
+        public virtual string RevisionFrom { get; }
+        public virtual string RevisionTo { get; }
 
-        public long Timestamp { get; }
-        public string Signature { get; }
-        public string Sender { get; }
-        public string Comment { get; }
+        public virtual long Timestamp { get; }
+        public virtual string Signature { get; }
+        public virtual string Sender { get; }
+        public virtual string Comment { get; }
 
 
         /***************************************************/

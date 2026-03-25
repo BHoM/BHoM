@@ -35,17 +35,7 @@ namespace BH.oM.Base
 
         public virtual string Value { get; private set; }
 
-        public virtual string Description
-        {
-            get
-            {
-                return m_Description.Length > 0 ? m_Description : Value;
-            }
-            private set
-            {
-                m_Description = value;
-            }
-        }
+        public virtual string Description { get; private set; }
 
 
         /***************************************************/
@@ -55,7 +45,7 @@ namespace BH.oM.Base
         protected Enumeration(string value, string description = "")
         {
             Value = value;
-            m_Description = description;
+            Description = description.Length > 0 ? description : value;
         }
 
 
@@ -93,13 +83,6 @@ namespace BH.oM.Base
         {
             return Value.CompareTo(other?.Value);
         }
-
-
-        /***************************************************/
-        /**** Private Fields                            ****/
-        /***************************************************/
-
-        private string m_Description = "";
 
 
         /***************************************************/

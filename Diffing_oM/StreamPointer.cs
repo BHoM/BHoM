@@ -38,10 +38,10 @@ namespace BH.oM.Diffing
         /**** Properties                                ****/
         /***************************************************/
 
-        public Guid StreamID { get; }
-        public string StreamName { get; }
-        public string Description { get; }
-        public long Timestamp { get; }
+        public virtual Guid StreamID { get; }
+        public virtual string StreamName { get; }
+        public virtual string Description { get; }
+        public virtual long Timestamp { get; }
 
         /***************************************************/
         /**** Constructor                               ****/

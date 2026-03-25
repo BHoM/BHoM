@@ -33,7 +33,7 @@ namespace BH.oM.Verification.Reporting
         /***************************************************/
 
         [Description("Dictionary of reporting configs (values) bound to the components, which values they are meant to format (keys).")]
-        public Dictionary<string, IValueConditionReportingConfig> ComponentConfigs { get; set; } = new Dictionary<string, IValueConditionReportingConfig>();
+        public virtual Dictionary<string, IValueConditionReportingConfig> ComponentConfigs { get; set; } = new Dictionary<string, IValueConditionReportingConfig>();
 
         /***************************************************/
     }
