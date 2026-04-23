@@ -23,6 +23,7 @@
 using BH.oM.Base;
 using BH.oM.Structure.Loads;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.Loads
 {
@@ -34,11 +35,11 @@ namespace BH.oM.Structure.Loads
         /***************************************************/
 
         [Description("Unique name identifying the time history load case.")]
-        public virtual string Name { get; set; }
+        public override string Name { get; set; }
 
         [Description("Numerical identifier for the load case.")]
         public virtual int Number { get; set; }
-
+        
         [Time]
         [Description("Start time of the time history loadcase.")]
         public virtual double StartTime { get; set; }
