@@ -36,7 +36,7 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         [Force]
-        [Description("Axial force along the local x-axis. Positive for tension, negative for compression.")]
+        [Description("Axial force along the local x-axis.")]
         public virtual double FX { get; }
 
         [Force]
