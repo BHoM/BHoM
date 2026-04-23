@@ -43,10 +43,11 @@ namespace BH.oM.Structure.Loads
         [Description("Start time of the time history loadcase.")]
         public virtual double StartTime { get; set; }
 
-        [Description("End time of the time history analysis in seconds.")]
+        [Time]
+        [Description("End time of the time history loadcase.")]
         public virtual double EndTime { get; set; }
 
-        [Description("Time step used for the integration in seconds.")]
+        [Description("Time step used for the loadcase.")]
         public virtual double TimeStep { get; set; }
 
         /***************************************************/
