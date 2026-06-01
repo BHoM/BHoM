@@ -1,29 +1,4 @@
-# BHoM REPO CODEOWNERS
+# This file is managed by github-governance. Do not edit manually.
+# Source: orgs/BHoM/codeowners.yml
 
-# default global
-* @al-fisher @rwemay @adecler
-
-
-# project owners 
-
-#NEED OWNER: /Acoustic_oM
-/Analytical_oM @al-fisher @rwemay @IsakNaslundBh @FraserGreenroyd
-#NEED OWNER: /Architecture_oM
-/BHoM @adecler @al-fisher
-/Data_oM @adecler @epignatelli
-/Diffing_oM @alelom @al-fisher @adecler
-/Environment_oM @FraserGreenroyd @tg359
-/Geometry_oM @pawelbaran @al-fisher @epignatelli
-/Ground_oM @peterjamesnugent @IsakNaslundBh @FraserGreenroyd
-#NEED OWNER: /Graphics_oM
-/Humans_oM @al-fisher @rwemay
-/LifeCycleAssessment_oM @FraserGreenroyd @michaelhoehn
-/MEP_oM @kayleighhoude @FraserGreenroyd
-/Physical_oM @al-fisher @rwemay @IsakNaslundBh @FraserGreenroyd
-/Planning_oM @rwemay @al-fisher
-/Programming_oM @adecler @FraserGreenroyd @al-fisher
-/Reflection_oM @adecler @FraserGreenroyd @al-fisher
-/Search_oM @peterjamesnugent @adecler @FraserGreenroyd
-/Spatial_oM @IsakNaslundBh @pawelbaran @al-fisher 
-/Structure_oM @IsakNaslundBh @rwemay
-/Test_oM @FraserGreenroyd @IsakNaslundBh
+* @BHoM/bhom @BHoM/devops
