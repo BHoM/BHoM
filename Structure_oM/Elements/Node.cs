@@ -26,6 +26,7 @@ using BH.oM.Geometry;
 using BH.oM.Structure.Constraints;
 using BH.oM.Analytical.Elements;
 using System.ComponentModel;
+using BH.oM.Structure.Springs;
 
 namespace BH.oM.Structure.Elements
 {
@@ -45,6 +46,8 @@ namespace BH.oM.Structure.Elements
         [Description("Defines the Support property of the Node. If not set, the Node will be assumed to be free to translate and rotate.")]
         public virtual Constraint6DOF Support { get; set; } = null;
 
+        [Description("Defines the force deformation data for nonlinear spring types.")]
+        public virtual NonLinearSpring NonLinearSpring { get; set; } = null;
 
         /***************************************************/
         /**** Explicit Casting                          ****/
