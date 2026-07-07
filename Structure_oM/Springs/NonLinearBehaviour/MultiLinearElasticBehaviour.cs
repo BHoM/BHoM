@@ -20,28 +20,22 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
  */
 
-using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
-using BH.oM.Structure.Constraints;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.Springs
+namespace BH.oM.Structure.Springs.NonLinearBehaviour
 {
-    [Description("A point spring property defining translational and rotational stiffness at a single point, with optional nonlinear force-deformation behaviour. Used for assignment to Nodes.")]
-    public class PointSpringProperty : Constraint6DOF, ISpringProperty
+    [Description("Multilinear elastic nonlinear behaviour for a spring. The response follows the given " +
+                 "force-deformation (moment-rotation) curves and unloads back along the same curve, so no " +
+                 "permanent deformation is retained.")]
+    public class MultiLinearElasticBehaviour : INonLinearBehaviour
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Optional nonlinear force-deformation behaviour for the spring (e.g. multilinear elastic or plastic). " +
-                     "If null, the spring is linear and defined solely by the inherited Constraint6DOF stiffnesses, which act " +
-                     "as the effective stiffness in linear analyses.")]
-        public virtual INonLinearBehaviour NonlinearBehaviour { get; set; } = null;
-
-        [Description("Effective (linear-analysis) damping per degree of freedom (Ce), used alongside the inherited " +
-                     "Constraint6DOF stiffnesses. Translational in [N·s/m], rotational in [N·m·s/rad].")]
-        public virtual NonlinearSpringValues EffectiveDamping { get; set; } = new NonlinearSpringValues();
+        [Description("Force-deformation curves per degree of freedom describing the elastic nonlinear response. " +
+                     "An empty curve for a degree of freedom means the spring has no nonlinear response in that direction.")]
+        public virtual ForceDeformationCurves ForceDeformationCurves { get; set; } = new ForceDeformationCurves();
 
         /***************************************************/
     }

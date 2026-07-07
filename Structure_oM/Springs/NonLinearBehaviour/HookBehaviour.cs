@@ -20,28 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
  */
 
-using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
-using BH.oM.Structure.Constraints;
 using System.ComponentModel;
 
-namespace BH.oM.Structure.Springs
+namespace BH.oM.Structure.Springs.NonLinearBehaviour
 {
-    [Description("A point spring property defining translational and rotational stiffness at a single point, with optional nonlinear force-deformation behaviour. Used for assignment to Nodes.")]
-    public class PointSpringProperty : Constraint6DOF, ISpringProperty
+    [Description("Tension-only (hook) behaviour. A degree of freedom carries no force until its initial opening is " +
+                 "taken up in tension, after which it responds with the given stiffness. The effective (linear-analysis) " +
+                 "stiffness is taken from the inherited Constraint6DOF stiffnesses.")]
+    public class HookBehaviour : INonLinearBehaviour
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Optional nonlinear force-deformation behaviour for the spring (e.g. multilinear elastic or plastic). " +
-                     "If null, the spring is linear and defined solely by the inherited Constraint6DOF stiffnesses, which act " +
-                     "as the effective stiffness in linear analyses.")]
-        public virtual INonLinearBehaviour NonlinearBehaviour { get; set; } = null;
+        [Description("Nonlinear stiffness per degree of freedom, mobilised once the hook engages. " +
+                     "Translational in [N/m], rotational in [N·m/rad].")]
+        public virtual NonlinearSpringValues InitialStiffness { get; set; } = new NonlinearSpringValues();
 
-        [Description("Effective (linear-analysis) damping per degree of freedom (Ce), used alongside the inherited " +
-                     "Constraint6DOF stiffnesses. Translational in [N·s/m], rotational in [N·m·s/rad].")]
-        public virtual NonlinearSpringValues EffectiveDamping { get; set; } = new NonlinearSpringValues();
+        [Description("Initial hook opening per degree of freedom. The degree of freedom carries no force until this " +
+                     "deformation is taken up in tension. Translational in [m], rotational in [rad].")]
+        public virtual NonlinearSpringValues InitialOpening { get; set; } = new NonlinearSpringValues();
 
         /***************************************************/
     }

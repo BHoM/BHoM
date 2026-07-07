@@ -46,9 +46,6 @@ namespace BH.oM.Structure.Elements
         [Description("Defines the Support property of the Node. If not set, the Node will be assumed to be free to translate and rotate.")]
         public virtual Constraint6DOF Support { get; set; } = null;
 
-        [Description("Defines the point spring property applied to the Node, including translational/rotational stiffness and optional nonlinear force-deformation behaviour.")]
-        public virtual PointSpringProperty SpringProperty { get; set; } = null;
-
         /***************************************************/
         /**** Explicit Casting                          ****/
         /***************************************************/

@@ -21,27 +21,37 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Quantities.Attributes;
-using BH.oM.Structure.Constraints;
 using System.ComponentModel;
 
 namespace BH.oM.Structure.Springs
 {
-    [Description("A point spring property defining translational and rotational stiffness at a single point, with optional nonlinear force-deformation behaviour. Used for assignment to Nodes.")]
-    public class PointSpringProperty : Constraint6DOF, ISpringProperty
+    [Description("A value per degree of freedom, used to define a single parameter of a nonlinear spring behaviour " +
+                 "(for example stiffness, gap opening or yield force). The meaning and units of the values are set by " +
+                 "the behaviour property that holds this object. A value of zero for a degree of freedom means the " +
+                 "parameter is not active in that direction.")]
+    public class NonlinearSpringValues : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Optional nonlinear force-deformation behaviour for the spring (e.g. multilinear elastic or plastic). " +
-                     "If null, the spring is linear and defined solely by the inherited Constraint6DOF stiffnesses, which act " +
-                     "as the effective stiffness in linear analyses.")]
-        public virtual INonLinearBehaviour NonlinearBehaviour { get; set; } = null;
+        [Description("Value for translation along the global X axis.")]
+        public virtual double TranslationX { get; set; } = 0;
 
-        [Description("Effective (linear-analysis) damping per degree of freedom (Ce), used alongside the inherited " +
-                     "Constraint6DOF stiffnesses. Translational in [N·s/m], rotational in [N·m·s/rad].")]
-        public virtual NonlinearSpringValues EffectiveDamping { get; set; } = new NonlinearSpringValues();
+        [Description("Value for translation along the global Y axis.")]
+        public virtual double TranslationY { get; set; } = 0;
+
+        [Description("Value for translation along the global Z axis.")]
+        public virtual double TranslationZ { get; set; } = 0;
+
+        [Description("Value for rotation about the global X axis.")]
+        public virtual double RotationX { get; set; } = 0;
+
+        [Description("Value for rotation about the global Y axis.")]
+        public virtual double RotationY { get; set; } = 0;
+
+        [Description("Value for rotation about the global Z axis.")]
+        public virtual double RotationZ { get; set; } = 0;
 
         /***************************************************/
     }
