@@ -52,7 +52,7 @@ namespace BH.oM.Ground
 
         [Length]
         [Description("Depth to water after TimePostStrike (WSTD_POST).")]
-        public virtual string DepthPostStrike { get; set; }
+        public virtual double DepthPostStrike { get; set; }
 
         [Description("General remarks for the investigation (WSTD_REM).")]
         public virtual string Remarks { get; set; } = "";
