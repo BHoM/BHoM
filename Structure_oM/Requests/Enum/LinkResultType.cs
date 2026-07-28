@@ -20,29 +20,16 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-namespace BH.oM.Structure.Loads
-{
-    /***************************************************/
-    public enum LoadType
-    {
-        Selfweight = 0,
-        PointLoad,
-        PointDisplacement,
-        PointVelocity,
-        PointAcceleration,
-        BarPointLoad,
-        BarUniformLoad,
-        BarVaryingLoad,
-        BarTemperature,
-        AreaUniformLoad,
-        AreaVaryingLoad,
-        AreaTemperature,
-        Pressure,
-        Geometrical,
-        TransientTimeHistoryLoad,
-    }
+using System.ComponentModel;
 
-    /***************************************************/
+namespace BH.oM.Structure.Requests
+{
+    [Description("Defines the type of results that should be extracted for LinkResultRequests.")]
+    public enum LinkResultType
+    {
+        LinkDisplacement,
+        LinkForce,
+    }
 }
 
 
