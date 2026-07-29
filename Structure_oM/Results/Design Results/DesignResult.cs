@@ -60,6 +60,9 @@ namespace BH.oM.Structure.Results
         [Description("Human-readable description of the design check, explaining what is being verified.")]
         public virtual string Description { get; }
 
+        [Description("Specifies the type of design check, defining how Action and Resistance are evaluated.")]
+        public virtual DesignCheckType CheckType { get; }
+
         [Description("Messages generated during the design check to communicate assumptions made, inapplicable checks, out-ofrange values, or missing data.")]
         public virtual List<string> Feedback { get; }
 
@@ -68,7 +71,7 @@ namespace BH.oM.Structure.Results
         /***************************************************/
 
         public DesignResult(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, 
-            double resistance, double action, double requiredFactorOfSafety, string description, List<string> feedback)
+            double resistance, double action, double requiredFactorOfSafety, string description, List<string> feedback, DesignCheckType checkType)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
@@ -79,6 +82,7 @@ namespace BH.oM.Structure.Results
             RequiredFactorOfSafety = requiredFactorOfSafety;
             Description = description;
             Feedback = feedback;
+            CheckType = checkType;
         }
 
         /***************************************************/
