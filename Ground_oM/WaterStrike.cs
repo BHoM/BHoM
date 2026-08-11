@@ -21,12 +21,10 @@
  */
 
 
-using System.ComponentModel;
 using System.Collections.Generic;
+using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Dimensional;
-using BH.oM.Geometry;
-using BH.oM.Geometry.CoordinateSystem;
 using BH.oM.Quantities.Attributes;
 using BH.oM.Base.Attributes;
 using BH.oM.Base.Attributes.Enums;
@@ -34,41 +32,34 @@ using BH.oM.Base.Attributes.Enums;
 namespace BH.oM.Ground
 {
 
-    [Description("A representation of a borehole defined by a coordinate system, start point and end point based on the AGS schema.")]
-    public class Borehole : BHoMObject
+    [Description("A water strike object containing the details of the water strike based on the AGS schema.")]
+    public class WaterStrike : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
-        [Description("Location identifier for the borehole unique to the project (LOCA_ID).")]
+        [Description("Location identifier relating the borehole to the strata (LOCA_ID).")]
         public virtual string Id { get; set; }
 
-        [Description("The top of the borehole within the coordinate system provided (LOCA_NATE, LOCA_NATEN, LOCA_GL).")]
-        public virtual Point Top { get; set; }
+        [Length]
+        [Description("Depth to the initial water strike (WSTG_DPTH).")]
+        public virtual double Depth { get; set; }
 
-        [Description("The bottom of the borehole within the coordinate system provided (LOCA_ETRV, LOCA_NTRV, LOCA_FDEP).")]
-        public virtual Point Bottom { get; set; }
+        [Time]
+        [Description("The time after strike. Note the BHoM stores time in SI units (i.e. seconds) \n " +
+            "whereas this is defined in minutes in the AGS schema (WSTD_NMIN).")]
+        public virtual double TimePostStrike { get; set; }
 
-        [Description("The coordinate system referenced by the top and bottom point. (LOCA_GREF, LOCA_NATD).")]
-        public virtual Cartesian CoordinateSystem { get; set; }
+        [Length]
+        [Description("Depth to water after TimePostStrike (WSTD_POST).")]
+        public virtual double DepthPostStrike { get; set; }
 
-        [Description("A list of objects containing the strata found within the borehole, based on the GEOL table.")]
-        public virtual List<Stratum> Strata { get; set; }
+        [Description("General remarks for the investigation (WSTD_REM).")]
+        public virtual string Remarks { get; set; } = "";
 
-        [Description("A list of objects containing the contaminant samples found within the borehole, based on the ERES table.")]
-        public virtual List<ContaminantSample> ContaminantSamples { get; set; }
-
-        [Description("A list of objects containing the geotechnical results found within the borehole.")]
-        public virtual List<ITest> GeotechnicalTestResults { get; set; }
-
-        [Description("A list of objects containing the water strike results found within the borehole.")]
-        public virtual List<WaterStrike> WaterStrikeResults { get; set; }
-
-        [Description("A list of properties related to the borehole.")]
-        public virtual List<IBoreholeProperty> BoreholeProperties { get; set; }
+        [Description("Associated file reference including instructions and photographs (FILE_FSET).")]
+        public virtual string File { get; set; } = "";
 
         /***************************************************/
     }
 }
-
-
