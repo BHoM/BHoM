@@ -28,8 +28,7 @@ using BH.oM.Structure.Results;
 
 namespace BH.oM.Structure.Design
 {
-    [Description("Base class for structural design check results, storing the resistance (capacity), action (demand), " +
-        "required factor of safety, and any feedback generated during the verification.")]
+    [Description("Base class for structural design check results that can be implemented for specific design codes and actions.")]
     public abstract class IDesignResult : IStructuralResult, IImmutable, IResultItem
     {
         /***************************************************/
