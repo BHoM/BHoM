@@ -34,7 +34,7 @@ namespace BH.oM.Structure.Fragments
     public class ConnectionAllowance : IFragment
     {
         [Ratio]
-        [Description("Additional connection allowance expressed as a ratio of the mass of the element. E.g. put a value of 0.1 means a connection allowance equal to 10% of the mass of the element to which this fragment is applied.")]
+        [Description("Additional connection allowance expressed as a ratio of the mass of the element. For example, a value of 0.1 means a connection allowance equal to 10% of the mass of the element to which this fragment is applied.")]
         public virtual double Allowance { get; set; } = 0;
 
         [Description("Optional material to be used for the connection. If null, the material of the element will be assumed.")]
