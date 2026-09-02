@@ -30,7 +30,7 @@ using BH.oM.Structure.Elements;
 
 namespace BH.oM.Structure.Fragments
 {
-    [Description("The ConnectionAllowance of an element. Used when evaluating takeoffs to .")]
+    [Description("The connection allowance of an element. Used when evaluating takeoffs to account for additional mass due to connections of the element.")]
     public class ConnectionAllowance : IFragment
     {
         [Ratio]
@@ -40,8 +40,8 @@ namespace BH.oM.Structure.Fragments
         [Description("Optional material to be used for the connection. If null, the material of the element will be assumed.")]
         public virtual IMaterialFragment Material { get; set; } = null;
 
-        [Description("Optional name for the connection allowance. Will be assigned as the name of the takeoff materials. If left empty, the name of the Material (or name of the material of the element) will be used instead.\n" +
-                     "Can be useful if one wants to differentiate between connection and element contributions in the takeoff.")]
+        [Description("Optional name for the connection allowance. It will be assigned as the name of the takeoff material. If left empty, the name of the material (or the name of the material of the element) will be used instead.\n" +
+                     "This can be useful if one wants to differentiate between connection and element contributions in the takeoff.")]
         public virtual string Name { get; set; } = "";
     }
 }
