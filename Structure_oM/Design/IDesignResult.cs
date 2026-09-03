@@ -48,7 +48,7 @@ namespace BH.oM.Structure.Design
         public virtual double TimeStep { get; }
 
         [Description("The utilisation of the design check.")]
-        public virtual double Utilisation { get; }
+        public abstract double Utilisation { get; }
 
 
         /***************************************************/
