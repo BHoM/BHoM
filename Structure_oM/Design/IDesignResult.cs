@@ -29,7 +29,7 @@ using BH.oM.Structure.Results;
 namespace BH.oM.Structure.Design
 {
     [Description("Base class for structural design check results that can be implemented for specific design codes and actions.")]
-    public abstract class IDesignResult : IStructuralResult, IImmutable, IResultItem
+    public abstract class DesignResult : IStructuralResult, IImmutable, IResultItem
     {
         /***************************************************/
         /**** Properties                                ****/
