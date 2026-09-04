@@ -1,0 +1,26 @@
+{
+  "Namespace": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "Type": {
+    "ToNew": {
+        "BH.oM.StructureEmbodiedCarbon.Elements.MaterialClassification": "BH.oM.Physical.Materials.MaterialClassification"
+    },
+    "ToOld": {
+        "BH.oM.Physical.Materials.MaterialClassification": "BH.oM.StructureEmbodiedCarbon.Elements.MaterialClassification"
+    }
+  },
+  "Property": {
+    "ToNew": {
+    },
+    "ToOld": {
+    }
+  },
+  "MessageForDeleted": {
+  },
+  "MessageForNoUpgrade": {
+  }
+}
