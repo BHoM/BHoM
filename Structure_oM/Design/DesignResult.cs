@@ -55,13 +55,12 @@ namespace BH.oM.Structure.Design
         /**** Constructors                              ****/
         /***************************************************/
 
-        public IDesignResult(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double utilisation)
+        public DesignResult(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep)
         {
             ObjectId = objectId;
             ResultCase = resultCase;
             ModeNumber = modeNumber;
             TimeStep = timeStep;
-            Utilisation = utilisation;
         }
 
         /***************************************************/
@@ -71,7 +70,7 @@ namespace BH.oM.Structure.Design
         [Description("Controls how this result is sorted in relation to other results. Sorts with the following priority: Type, ObjectId, ResultCase, TimeStep.")]
         public int CompareTo(IResult other)
         {
-            IDesignResult otherRes = other as IDesignResult;
+            DesignResult otherRes = other as DesignResult;
 
             if (otherRes == null)
                 return this.GetType().Name.CompareTo(other.GetType().Name);
