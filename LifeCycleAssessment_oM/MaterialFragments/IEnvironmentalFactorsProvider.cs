@@ -21,6 +21,7 @@
  */
 
 using BH.oM.Base;
+using BH.oM.Physical.Materials;
 using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ using System.ComponentModel;
 namespace BH.oM.LifeCycleAssessment.MaterialFragments
 {
     [Description("Base interface for all classes able to used to evaluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalFactorsProvider : IBHoMObject
+    public interface IEnvironmentalFactorsProvider : IBHoMObject, IMaterialProperties
     {
         /***************************************************/
         /**** Properties                                ****/
