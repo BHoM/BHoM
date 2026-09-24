@@ -61,6 +61,9 @@ namespace BH.oM.Ground
         [Description("A list of objects containing the geotechnical results found within the borehole.")]
         public virtual List<ITest> GeotechnicalTestResults { get; set; }
 
+        [Description("A list of objects containing the water strike results found within the borehole.")]
+        public virtual List<WaterStrike> WaterStrikeResults { get; set; }
+
         [Description("A list of properties related to the borehole.")]
         public virtual List<IBoreholeProperty> BoreholeProperties { get; set; }
 

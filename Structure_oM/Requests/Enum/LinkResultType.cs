@@ -20,27 +20,21 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Physical.Materials;
-using BH.oM.Quantities.Attributes;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.Structure.Requests
 {
-    [Description("Base interface for all classes able to used to evaluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalFactorsProvider : IBHoMObject, IMaterialProperties
+    [Description("Defines the type of results that should be extracted for LinkResultRequests.")]
+    public enum LinkResultType
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
-
-
-        /***************************************************/
-
+        LinkDisplacement,
+        LinkForce,
     }
 }
+
+
+
+
 
 
 

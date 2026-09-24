@@ -20,27 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Physical.Materials;
+
 using BH.oM.Quantities.Attributes;
-using System;
-using System.Collections.Generic;
+using BH.oM.Structure.MaterialFragments;
 using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.Base.Attributes;
+using BH.oM.Structure.Elements;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.Structure.Fragments
 {
-    [Description("Base interface for all classes able to used to evaluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalFactorsProvider : IBHoMObject, IMaterialProperties
+    [Description("The connection allowance of an element. Used when evaluating takeoffs to account for additional mass due to connections of the element.")]
+    public class ConnectionAllowance : IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Ratio]
+        [Description("Additional connection allowance expressed as a ratio of the mass of the element. For example, a value of 0.1 means a connection allowance equal to 10% of the mass of the element to which this fragment is applied.")]
+        public virtual double Allowance { get; set; } = 0;
 
+        [Description("Optional material to be used for the connection. If null, the material of the element will be assumed.")]
+        public virtual IMaterialFragment Material { get; set; } = null;
 
-        /***************************************************/
-
+        [Description("Optional name for the connection allowance. It will be assigned as the name of the takeoff material. If left empty, the name of the material (or the name of the material of the element) will be used instead.\n" +
+                     "This can be useful if one wants to differentiate between connection and element contributions in the takeoff.")]
+        public virtual string Name { get; set; } = "";
     }
 }
+
+
+
 
 
 

@@ -20,27 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Physical.Materials;
-using BH.oM.Quantities.Attributes;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
+using System.Collections.Generic;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+
+namespace BH.oM.Structure.Requests
 {
-    [Description("Base interface for all classes able to used to evaluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalFactorsProvider : IBHoMObject, IMaterialProperties
+    [Description("Request for extracting Bar results from an adapter.")]
+    public class LinkResultRequest : IStructuralResultRequest
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Defines which type of results that should be extracted.")]
+        public virtual LinkResultType ResultType { get; set; } = LinkResultType.LinkDisplacement;
+
+        [Description("Defines which cases and/or combinations that results should be extracted for. Can generally be set to either Loadcase or Loadcombination objects, or identifiers matching the software. If nothing is provided, results for all cases will be assumed.")]
+        public virtual List<object> Cases { get; set; } = new List<object>();
+
+        [Description("Defines for which modes results should be extracted. Only applicable for some casetypes. If nothing is provided, results for all modes will be assumed.")]
+        public virtual List<string> Modes { get; set; } = new List<string>();
+
+        [Description("Defines which Nodes that results should be extracted for. Can generally be set to either pulled Node objects, or identifiers matching the software. If nothing is provided, results for all Nodes will be assumed.")]
+        public virtual List<object> ObjectIds { get; set; } = new List<object>();
 
         /***************************************************/
 
     }
 }
+
+
+
+
 
 
 

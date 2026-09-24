@@ -20,27 +20,67 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Physical.Materials;
-using BH.oM.Quantities.Attributes;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Base;
+using BH.oM.Analytical.Results;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.Structure.Results
 {
-    [Description("Base interface for all classes able to used to evaluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalFactorsProvider : IBHoMObject, IMaterialProperties
+    [Description("Resulting total displacements in global coordinates.")]
+    public class LinkDisplacement : LinkResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Length]
+        [Description("Total displacement along the global X-axis.")]
+        public virtual double UX { get; }
+
+        [Length]
+        [Description("Total displacement along the global Y-axis.")]
+        public virtual double UY { get; }
+
+        [Length]
+        [Description("Total displacement along the global Z-axis.")]
+        public virtual double UZ { get; }
+
+        [Angle]
+        [Description("Total rotation about the global X-axis.")]
+        public virtual double RX { get; }
+
+        [Angle]
+        [Description("Total rotation about the global Y-axis.")]
+        public virtual double RY { get; }
+
+        [Angle]
+        [Description("Total rotation about the global Z-axis.")]
+        public virtual double RZ { get; }
 
         /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
+        public LinkDisplacement(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double ux, double uy, double uz, double rx, double ry, double rz)
+            : base(objectId, resultCase, modeNumber, timeStep)
+        {
+            UX = ux;
+            UY = uy;
+            UZ = uz;
+            RX = rx;
+            RY = ry;
+            RZ = rz;
+        }
+
+        /***************************************************/
     }
 }
+
+
+
+
 
 
 

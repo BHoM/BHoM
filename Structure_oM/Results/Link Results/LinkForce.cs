@@ -20,27 +20,67 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
-using BH.oM.Physical.Materials;
+using System.ComponentModel;
 using BH.oM.Quantities.Attributes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using BH.oM.Analytical.Results;
+using BH.oM.Base;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.Structure.Results
 {
-    [Description("Base interface for all classes able to used to evaluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalFactorsProvider : IBHoMObject, IMaterialProperties
+    [Description("Resulting forces in local coordinates along the general link.")]
+    public class LinkForce : LinkResult, IResultItem, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Force]
+        [Description("Axial force along the local x-axis.")]
+        public virtual double FX { get; }
+
+        [Force]
+        [Description("Shear force along the local y-axis. Generally minor axis shear force.")]
+        public virtual double FY { get; }
+
+        [Force]
+        [Description("Shear force along the local z-axis. Generally major axis shear force.")]
+        public virtual double FZ { get; }
+
+        [Moment]
+        [Description("Torsional moment.")]
+        public virtual double MX { get; }
+
+        [Moment]
+        [Description("Bending moment about the local y-axis. Generally major axis bending moment.")]
+        public virtual double MY { get; }
+
+        [Moment]
+        [Description("Bending moment about the local z-axis. Generally minor axis bending moment.")]
+        public virtual double MZ { get; }
 
         /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
+        public LinkForce(IComparable objectId, IComparable resultCase, int modeNumber, double timeStep, double fx, double fy, double fz, double mx, double my, double mz)
+            : base(objectId, resultCase, modeNumber, timeStep)
+        {
+            FX = fx;
+            FY = fy;
+            FZ = fz;
+            MX = mx;
+            MY = my;
+            MZ = mz;
+        }
+
+        /***************************************************/
     }
 }
+
+
+
+
 
 
 

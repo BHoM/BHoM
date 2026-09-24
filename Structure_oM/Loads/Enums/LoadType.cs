@@ -38,7 +38,8 @@ namespace BH.oM.Structure.Loads
         AreaVaryingLoad,
         AreaTemperature,
         Pressure,
-        Geometrical
+        Geometrical,
+        TransientTimeHistoryLoad,
     }
 
     /***************************************************/

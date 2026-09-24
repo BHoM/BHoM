@@ -21,26 +21,30 @@
  */
 
 using BH.oM.Base;
-using BH.oM.Physical.Materials;
-using BH.oM.Quantities.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.LifeCycleAssessment.MaterialFragments
+namespace BH.oM.Physical.Materials
 {
-    [Description("Base interface for all classes able to used to evaluate LCA, namly the EnvironmentalProductDeclaration as well as CalculatedMaterialLifeCycleEnvironmentalImpactFactors.")]
-    public interface IEnvironmentalFactorsProvider : IBHoMObject, IMaterialProperties
+    [Description("Represents a generic material by its category, type, grade, and constituent. This classification can be used to identify and group materials for various purposes, such as material selection, specification, and analysis.\n" +
+                 "The classification can be put on a phsyical Material as a IMaterialProeprties or on a MaterialFragment as a IFragment.")]
+    public class MaterialClassification : BHoMObject, IMaterialProperties, IFragment
     {
-        /***************************************************/
-        /**** Properties                                ****/
-        /***************************************************/
+        [Description("The category of the material, e.g., 'Concrete', 'Steel', 'Wood', etc.")]
+        public virtual string Category { get; set; } = "";
 
+        [Description("The type of the material, e.g., 'Reinforced', 'Prestressed', etc.")]
+        public virtual string Type { get; set; } = "";
 
-        /***************************************************/
+        [Description("The grade of the material, e.g., 'C30/37', 'S420', 'F175', etc.")]
+        public virtual string Grade { get; set; } = "";
 
+        [Description("The constituent of the material, e.g., Fly Ash, GGBS, etc.")]
+        public virtual string Constituent { get; set; } = "";
     }
+
 }
-
-
-
