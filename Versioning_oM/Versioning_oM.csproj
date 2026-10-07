@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BHoM\BHoM.csproj" />
-    <ProjectReference Include="..\Test_oM\Test_oM.csproj" />
   </ItemGroup>
 
 </Project>
