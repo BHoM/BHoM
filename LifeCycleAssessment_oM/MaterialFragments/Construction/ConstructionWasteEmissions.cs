@@ -40,7 +40,7 @@ namespace BH.oM.LifeCycleAssessment.MaterialFragments.Construction
         public virtual WasteRate WasteRate { get; set; } = null;
 
         [Description("Whether the material is reused on site, which would reduce the emissions associated with transport and processing. Controls whether the C2 factor for the material should be included or not when computing the emissions based on the A5.3 (waste) factor. Defaults to false, meaning the C2 factor is included.")]
-        public virtual bool ResuedOnSite { get; set; } = false;
+        public virtual bool ReusedOnSite { get; set; } = false;
 
         /***************************************************/
     }

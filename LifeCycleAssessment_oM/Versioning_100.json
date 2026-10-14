@@ -1,0 +1,10 @@
+{
+  "Property": {
+    "ToNew": {
+      "BH.oM.LifeCycleAssessment.MaterialFragments.Construction.ConstructionWasteEmissions.ResuedOnSite": "BH.oM.LifeCycleAssessment.MaterialFragments.Construction.ConstructionWasteEmissions.ReusedOnSite"
+    },
+    "ToOld": {
+      "BH.oM.LifeCycleAssessment.MaterialFragments.Construction.ConstructionWasteEmissions.ReusedOnSite": "BH.oM.LifeCycleAssessment.MaterialFragments.Construction.ConstructionWasteEmissions.ResuedOnSite"
+    }
+  }
+}
