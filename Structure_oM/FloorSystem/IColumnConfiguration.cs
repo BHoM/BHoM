@@ -32,16 +32,17 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Base interface for the configuration of a column designed to support a particular number of stories at a given floor height.")]
     public interface IColumnConfiguration<out T> : IBHoMObject where T: IGeometricalSection
     {
-        [Description("Section type for the particular column configuration.")]
+        [Description("Section of the column required for this configuration.")]
         T ColumnSection { get; }
 
         [Length]
-        [Description("Floor height for the configuration.")]
+        [Description("Floor-to-floor height that the column configuration is designed for.")]
         double FloorHeight { get; }
 
-        [Description("Number of stories the particular column is supporting")]
+        [Description("Number of stories supported by the column in this configuration.")]
         int NumberOfStories { get; }
     }
 }

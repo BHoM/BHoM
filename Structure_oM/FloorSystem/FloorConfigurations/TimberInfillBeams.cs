@@ -31,19 +31,20 @@ using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Floor configuration of timber primary beams (girders) and timber secondary (infill) beams supporting a timber slab.")]
     public class TimberInfillBeams : BHoMObject, IFloorConfiguration, ITimberFrameConfiguration, ITimberSlabConfiguration<ISurfaceProperty>
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("SurfaceProperty for the slab.")]
+        [Description("Surface property defining the construction and thickness of the slab.")]
         public virtual ISurfaceProperty Slab { get; set; } = null;
 
-        [Description("SectionProperty for the girder spanning the local X direction")]
+        [Description("Section of the primary beams (girders) spanning between columns in the local X direction.")]
         public virtual TimberSection PrimaryBeam { get; set; } = null;
 
-        [Description("SectionProperty for the infill beams spanning the local Y direction")]
+        [Description("Section of the secondary (infill) beams spanning between the primary beams in the local Y direction.")]
         public virtual TimberSection SecondaryBeam { get; set; } = null;
 
         [Length]
@@ -54,7 +55,7 @@ namespace BH.oM.Structure.FloorSystem
         [Description("Distance from top of slab to top of secondary beam. Set to slab thickness for slab on top but set to zero for within depth of slab.")]
         public virtual double SecondaryBeamTopLevel { get; set; }
 
-        [Description("Number of infill beams in a panel, counting one edge beam, but not the other.")]
+        [Description("Number of secondary (infill) beams in a bay, counting the beam on one edge of the bay but not the one on the opposite edge. Set to zero for no secondary beams.")]
         public virtual int NumSecondary { get; set; } = 0;
 
         /***************************************************/

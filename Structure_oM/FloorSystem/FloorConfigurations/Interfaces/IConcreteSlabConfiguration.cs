@@ -30,10 +30,11 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Interface for floor configurations with a concrete slab, including the reinforcement of the slab.")]
     public interface IConcreteSlabConfiguration<out T> : ISlabConfiguration<T>
         where T : ISurfaceProperty
     {
-        [Description("ReinforcementIntent for the slab - extents are normalized")]
+        [Description("Reinforcement of the slab, defined either as an estimated density or as an explicit layout. Can be null if no slab reinforcement is to be accounted for.")]
         ISlabReinforcement SlabReinforcement { get; set; }
     }
 }

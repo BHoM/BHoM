@@ -20,11 +20,13 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
  */
 
+using BH.oM.Quantities.Attributes;
 using BH.oM.Base;
 using System.ComponentModel;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Options controlling how a floor design is populated as structural elements in space.")]
     public class PopulateOptions : IObject
     {
         /***************************************************/
@@ -56,6 +58,7 @@ namespace BH.oM.Structure.FloorSystem
         public virtual int NumberOfStories { get; set; } = -1;
 
         [Description("The height of a populated column. By default, the value on the picked column configuration will be used.")]
+        [Length]
         public virtual double FloorHeight { get; set; } = double.NaN;
 
         /***************************************************/

@@ -32,20 +32,20 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.FloorSystem.FloorConfigurations
 {
-    [Description("Hybrid system for timber slab on top of a steel frame.")]
+    [Description("Hybrid floor configuration of a timber slab on top of a steel frame of primary and secondary beams.")]
     public class HybridTimberOnSteel : BHoMObject, IFloorConfiguration, ISteelFrameConfiguration, ITimberSlabConfiguration<ISurfaceProperty>
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("SurfaceProperty for the slab.")]
+        [Description("Surface property defining the construction and thickness of the slab.")]
         public virtual ISurfaceProperty Slab { get; set; } = null;
 
-        [Description("SectionProperty for the girder spanning the local X direction.")]
+        [Description("Section of the primary beams (girders) spanning between columns in the local X direction.")]
         public virtual ISteelSection PrimaryBeam { get; set; } = null;
 
-        [Description("SectionProperty for the infill beams spanning the local Y direction.")]
+        [Description("Section of the secondary (infill) beams spanning between the primary beams in the local Y direction.")]
         public virtual ISteelSection SecondaryBeam { get; set; } = null;
 
         [Length]
@@ -56,7 +56,7 @@ namespace BH.oM.Structure.FloorSystem.FloorConfigurations
         [Description("Distance from top of slab to top of secondary beam. Set to slab thickness for slab on top but set to zero for within depth of slab.")]
         public virtual double SecondaryBeamTopLevel { get; set; }
 
-        [Description("Number of infill beams in a panel, counting one edge beam, but not the other.")]
+        [Description("Number of secondary (infill) beams in a bay, counting the beam on one edge of the bay but not the one on the opposite edge. Set to zero for no secondary beams.")]
         public virtual int NumSecondary { get; set; } = 0;
 
         [Length]
@@ -67,7 +67,7 @@ namespace BH.oM.Structure.FloorSystem.FloorConfigurations
         [Description("Thickness of intumescent paint covering exposed secondary beam steelwork. Allowance used for when computing takeoffs of the configuration.")]
         public virtual double IntumescentPaintThicknessSecondary { get; set; }
 
-        [Description("Material of the instumescent paint.")]
+        [Description("Material of the intumescent paint. Used when computing material takeoffs of the configuration.")]
         public virtual Material IntumescentPaintMaterial { get; set; }
 
 

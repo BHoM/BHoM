@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
  */
 
+using System.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ using BH.oM.Structure.SectionProperties;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Interface for floor configurations with a frame of concrete primary beams and concrete secondary beams.")]
     public interface IConcreteFrameConfiguration : ISecondaryBeamConfiguration<ConcreteSection, ConcreteSection>, IConcretePrimaryBeamConfiguration
     {
     }

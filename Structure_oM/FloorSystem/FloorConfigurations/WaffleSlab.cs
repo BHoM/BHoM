@@ -30,16 +30,17 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Floor configuration of a two-way spanning reinforced concrete waffle slab supported directly on columns, optionally with dropheads over the columns.")]
     public class WaffleSlab : BHoMObject, IFloorConfiguration, IConcreteDropheadSlabConfiguration<Waffle>
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("SurfaceProperty for the slab.")]
+        [Description("Surface property defining the construction and thickness of the slab.")]
         public virtual Waffle Slab { get; set; } = null;
 
-        [Description("ReinforcementIntent for the slab - extents are normalized")]
+        [Description("Reinforcement of the slab, defined either as an estimated density or as an explicit layout. Can be null if no slab reinforcement is to be accounted for.")]
         public virtual ISlabReinforcement SlabReinforcement { get; set; } = null;
 
         [Description("Drophead in the slabs over columns. For a slab without dropheads this will be null.")]

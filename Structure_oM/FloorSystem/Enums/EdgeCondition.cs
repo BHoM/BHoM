@@ -28,10 +28,14 @@ namespace BH.oM.Structure.FloorSystem
     /**** Public Enums                              ****/
     /***************************************************/
 
+    [Description("Position of a floor bay within the floor plate, which affects the design of the bay.")]
     public enum EdgeCondition
     {
+        [Description("Bay with neighbouring bays on all sides.")]
         Interior,
+        [Description("Bay on the edge of the floor plate, with no neighbouring bay on one side.")]
         Edge,
+        [Description("Bay at a corner of the floor plate, with no neighbouring bays on two adjacent sides.")]
         Corner
     }
 

@@ -30,7 +30,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.FloorSystem
 {
-    [Description("Override for concrete volume per area for slab on deck.")]
+    [Description("Overrides the concrete volume per unit area of a slab on deck, instead of calculating it from the slab properties. The volume of the deck is still calculated from the slab on deck properties.")]
     [Targets(typeof(SlabOnDeck))]
     public class ConcreteVolumeOverride : IFragment
     {
@@ -38,7 +38,8 @@ namespace BH.oM.Structure.FloorSystem
         /**** Properties                                ****/
         /***************************************************/
 
-        [Description("Override for the concrete volume per area for slab.")]
+        [Description("Volume of concrete per unit area of the slab. Replaces the concrete volume otherwise derived from the slab on deck properties.")]
+        [Length]
         public virtual double VolumePerArea { get; set; }
 
         /***************************************************/

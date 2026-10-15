@@ -36,7 +36,9 @@ namespace BH.oM.Structure.FloorSystem
         where TPrimary : IGeometricalSection
         where TSecondary : IGeometricalSection
     {
+        [Description("Section of the secondary beams spanning between the primary beams.")]
         TSecondary SecondaryBeam { get; }
+        [Description("Number of secondary (infill) beams in a bay, counting the beam on one edge of the bay but not the one on the opposite edge. Set to zero for no secondary beams.")]
         int NumSecondary { get; set; }
 
         [Length]

@@ -32,6 +32,7 @@ using BH.oM.Structure.SectionProperties;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Interface for floor configurations with a frame of timber primary beams and timber secondary beams.")]
     public interface ITimberFrameConfiguration : ITimberPrimaryBeamConfiguration, ITimberSecondaryBeamConfiguration<TimberSection>
     { 
     }

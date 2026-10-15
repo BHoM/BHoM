@@ -31,6 +31,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Utilisation of a structural element, giving the governing limit state and optionally the utilisations of the constituent elements.")]
     public class Utilisation : BHoMObject, IImmutable
     {
         /***************************************************/
@@ -39,13 +40,14 @@ namespace BH.oM.Structure.FloorSystem
         [Description("Name of the structural element.")]
         public virtual string Element { get; } = null;
 
-        [Description("Utilisation ratio of the structural element.")]
+        [Description("Utilisation ratio of the structural element, i.e. the ratio of demand to capacity for the governing limit state.")]
+        [Ratio]
         public virtual double Ratio { get; } = 0;
 
         [Description("The failure mode corresponding to the utilisation ratio.")]
         public virtual string LimitState { get; } = null;
 
-        [Description("Design assumptions to determine the element's utilisation.")]
+        [Description("Design assumptions made to determine the utilisation of the element.")]
         public virtual string Assumptions { get; } = null;
 
         [Description("Utilisations of constitutive elements, i.e. non-governing limit states.")]

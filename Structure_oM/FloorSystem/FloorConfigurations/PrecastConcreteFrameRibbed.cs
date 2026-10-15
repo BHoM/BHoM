@@ -32,28 +32,29 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Floor configuration of a ribbed slab supported on a precast concrete frame of primary and secondary beams.")]
     public class PrecastConcreteFrameRibbed : BHoMObject, IFloorConfiguration, IConcreteFrameConfiguration, IConcreteSlabConfiguration<Ribbed>
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("SurfaceProperty for the slab.")]
+        [Description("Surface property defining the construction and thickness of the slab.")]
         public virtual Ribbed Slab { get; set; } = null;
 
-        [Description("ReinforcementIntent for the slab - extents are normalized.")]
+        [Description("Reinforcement of the slab, defined either as an estimated density or as an explicit layout. Can be null if no slab reinforcement is to be accounted for.")]
         public virtual ISlabReinforcement SlabReinforcement { get; set; } = null;
 
-        [Description("SectionProperty for the primary beam spanning the local X direction.")]
+        [Description("Section of the primary beams spanning between columns in the local X direction.")]
         public virtual ConcreteSection PrimaryBeam { get; set; } = null;
 
-        [Description("SectionProperty for the secondary beams spanning the local Y direction")]
+        [Description("Section of the secondary beams spanning between the primary beams in the local Y direction.")]
         public virtual ConcreteSection SecondaryBeam { get; set; } = null;
 
         [Description("Reinforcement applied to the beams. Can be left null if more detailed reinforcement is applied to the ConcreteSections for Primary and Secondary beams.")]
         public virtual IBeamReinforcement BeamReinforcement { get; set; } = null;
 
-        [Description("Number of infill beams in a panel, counting one edge beam, but not the other.")]
+        [Description("Number of secondary (infill) beams in a bay, counting the beam on one edge of the bay but not the one on the opposite edge. Set to zero for no secondary beams.")]
         public virtual int NumSecondary { get; set; } = 0;
 
         [Length]

@@ -30,10 +30,11 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Base interface for floor configurations containing a slab.")]
     public interface ISlabConfiguration<out T> : IFloorConfiguration
         where T : ISurfaceProperty
     {
-        [Description("SurfaceProperty for the slab.")]
+        [Description("Surface property defining the construction and thickness of the slab.")]
         T Slab { get; }
     }
 }

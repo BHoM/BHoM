@@ -33,24 +33,24 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Structure.FloorSystem
 {
-    [Description("Column data for a required steel column for supporting a particular floor number of floors for a set height.")]
+    [Description("Steel column required to support a given number of stories at a given floor height, including the intumescent paint applied for fire protection.")]
     public class SteelColumnConfiguration : BHoMObject, IColumnConfiguration<SteelSection>
     {
-        [Description("Section type for the particular column configuration.")]
+        [Description("Section of the column required for this configuration.")]
         public virtual SteelSection ColumnSection { get; set; }
 
         [Length]
-        [Description("Floor height for the configuration.")]
+        [Description("Floor-to-floor height that the column configuration is designed for.")]
         public virtual double FloorHeight { get; set; }
 
-        [Description("Number of stories the particular column is supporting")]
+        [Description("Number of stories supported by the column in this configuration.")]
         public virtual int NumberOfStories { get; set; }
 
         [Length]
         [Description("Thickness of intumescent paint covering exposed steelwork. Allowance used for when computing takeoffs of the configuration.")]
         public virtual double IntumescentPaintThickness { get; set; }
 
-        [Description("Material of the instumescent paint.")]
+        [Description("Material of the intumescent paint. Used when computing material takeoffs of the configuration.")]
         public virtual Material IntumescentPaintMaterial { get; set; }
     }
 }

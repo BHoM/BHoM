@@ -31,22 +31,23 @@ using BH.oM.Structure.MaterialFragments;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Floor configuration of timber primary and secondary beams with tertiary beams (joists) spanning between the secondary beams, supporting a timber slab of constant thickness.")]
     public class TimberJoistFloor : BHoMObject, IFloorConfiguration, ITimberTertiaryBeamFloorConfiguration, ITimberSlabConfiguration<ConstantThickness>
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("SurfaceProperty for the slab.")]
+        [Description("Surface property defining the construction and thickness of the slab.")]
         public virtual ConstantThickness Slab { get; set; } = null;
 
-        [Description("SectionProperty for the girder spanning the local X direction")]
+        [Description("Section of the primary beams (girders) spanning between columns in the local X direction.")]
         public virtual TimberSection PrimaryBeam { get; set; } = null;
 
-        [Description("SectionProperty for the infill beams spanning the local Y direction")]
+        [Description("Section of the secondary (infill) beams spanning between the primary beams in the local Y direction.")]
         public virtual TimberSection SecondaryBeam { get; set; } = null;
 
-        [Description("SectionProperty for the tertiary beams spanning between secondary beams in the local X direction")]
+        [Description("Section of the tertiary beams spanning between the secondary beams in the local X direction.")]
         public virtual TimberSection TertiaryBeam { get; set; } = null;
 
         [Length]
@@ -61,10 +62,10 @@ namespace BH.oM.Structure.FloorSystem
         [Description("Distance from top of slab to top of tertiary beam. Set to slab thickness for slab on top but set to zero for within depth of slab.")]
         public virtual double TertiaryBeamTopLevel { get; set; }
 
-        [Description("Number of infill beams in a panel, counting one edge beam, but not the other.")]
+        [Description("Number of secondary (infill) beams in a bay, counting the beam on one edge of the bay but not the one on the opposite edge. Set to zero for no secondary beams.")]
         public virtual int NumSecondary { get; set; } = 0;
 
-        [Description("Number of tertiary beams.")]
+        [Description("Number of tertiary beams, evenly spaced across the bay in the local Y direction and spanning in the local X direction between the secondary beams.")]
         public virtual int NumTertiary { get; set; } = 0;
 
         /***************************************************/

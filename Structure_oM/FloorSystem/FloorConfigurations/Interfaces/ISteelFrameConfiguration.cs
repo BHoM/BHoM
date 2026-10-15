@@ -32,6 +32,7 @@ using BH.oM.Structure.SectionProperties;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Interface for floor configurations with a frame of steel primary beams and steel secondary beams, including the intumescent paint applied to the beams for fire protection.")]
     public interface ISteelFrameConfiguration : ISecondaryBeamConfiguration<ISteelSection, ISteelSection>
     {
 
@@ -43,7 +44,7 @@ namespace BH.oM.Structure.FloorSystem
         [Description("Thickness of intumescent paint covering exposed secondary beam steelwork. Allowance used for when computing takeoffs of the configuration.")]
         double IntumescentPaintThicknessSecondary { get; set; }
 
-        [Description("Material of the instumescent paint.")]
+        [Description("Material of the intumescent paint. Used when computing material takeoffs of the configuration.")]
         Material IntumescentPaintMaterial { get; set; }
 
     }

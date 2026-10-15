@@ -30,6 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Interface for floor configurations with a concrete slab that can have dropheads over the columns.")]
     public interface IConcreteDropheadSlabConfiguration<out T> : IConcreteSlabConfiguration<T>
         where T : ISurfaceProperty
     {

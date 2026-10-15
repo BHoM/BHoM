@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
-    [Description("Class for beam reinforcement for floor configuration where the reinforcement has been defined as a density.")]
+    [Description("Beam reinforcement for a floor configuration where the reinforcement has been defined as an estimated density.")]
     public class EstimateBeamReinforcement : BHoMObject, IBeamReinforcement
     {
         [Description("Amount of reinforcement in the Primary Beam.")]

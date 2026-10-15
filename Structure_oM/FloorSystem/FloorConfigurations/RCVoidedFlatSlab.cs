@@ -32,16 +32,17 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Floor configuration of a two-way spanning reinforced concrete flat slab containing voids in both directions, supported directly on columns.")]
     public class RCVoidedFlatSlab : BHoMObject, IFloorConfiguration, IConcreteSlabConfiguration<BiDirectionalVoided>
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("SurfaceProperty for the slab.")]
+        [Description("Surface property defining the construction and thickness of the slab.")]
         public virtual BiDirectionalVoided Slab { get; set; } = null;
 
-        [Description("ReinforcementIntent for the slab - extents are normalized.")]
+        [Description("Reinforcement of the slab, defined either as an estimated density or as an explicit layout. Can be null if no slab reinforcement is to be accounted for.")]
         public virtual ISlabReinforcement SlabReinforcement { get; set; } = null;
 
         [Description("Material in the voided zone of the slab. If null, assumed to be no material in the voided zone (air).")]

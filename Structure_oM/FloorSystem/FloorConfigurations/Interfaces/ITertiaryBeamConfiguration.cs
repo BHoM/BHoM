@@ -31,13 +31,15 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
-    [Description("Base interface for framing systems containing primary beams spanning between columns and secondary beams spanning between primary beams and tertrary beams spanning between secondary beams.")]
+    [Description("Base interface for framing systems containing primary beams spanning between columns, secondary beams spanning between primary beams and tertiary beams spanning between secondary beams.")]
     public interface ITertiaryBeamConfiguration<out TPrimary, out TSecondary, out TTertiary> : ISecondaryBeamConfiguration<TPrimary, TSecondary>
         where TPrimary : IGeometricalSection
         where TSecondary : IGeometricalSection
         where TTertiary : IGeometricalSection
     {
+        [Description("Section of the tertiary beams spanning between the secondary beams.")]
         TTertiary TertiaryBeam { get; }
+        [Description("Number of tertiary beams, evenly spaced across the bay in the local Y direction and spanning in the local X direction between the secondary beams.")]
         int NumTertiary { get; set; }
 
         [Length]

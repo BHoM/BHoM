@@ -34,20 +34,20 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
-    [Description("Column data for a required concrete column for supporting a particular floor number of floors for a set height.")]
+    [Description("Concrete column required to support a given number of stories at a given floor height, including the amount of reinforcement it contains.")]
     public class ConcreteColumnConfiguration : BHoMObject, IColumnConfiguration<ConcreteSection>
     {
-        [Description("Section type for the particular column configuration.")]
+        [Description("Section of the column required for this configuration.")]
         public virtual ConcreteSection ColumnSection { get; set; }
 
         [Description("Amount of reinforcement in the Column.")]
         public virtual ReinforcementDensity Reinforcement { get; set; } = null;
 
         [Length]
-        [Description("Floor height for the configuration.")]
+        [Description("Floor-to-floor height that the column configuration is designed for.")]
         public virtual double FloorHeight { get; set; }
 
-        [Description("Number of stories the particular column is supporting")]
+        [Description("Number of stories supported by the column in this configuration.")]
         public virtual int NumberOfStories { get; set; }
     }
 }

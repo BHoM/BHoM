@@ -32,19 +32,20 @@ using BH.oM.Physical.Materials;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Floor configuration of a one-way spanning reinforced concrete slab of constant thickness supported on concrete primary beams.")]
     public class OneWayRCFlatSlab : BHoMObject, IFloorConfiguration, IConcretePrimaryBeamConfiguration, IConcreteSlabConfiguration<ConstantThickness>
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("SurfaceProperty for the slab.")]
+        [Description("Surface property defining the construction and thickness of the slab.")]
         public virtual ConstantThickness Slab { get; set; } = null;
 
-        [Description("ReinforcementIntent for the slab - extents are normalized")]
+        [Description("Reinforcement of the slab, defined either as an estimated density or as an explicit layout. Can be null if no slab reinforcement is to be accounted for.")]
         public virtual ISlabReinforcement SlabReinforcement { get; set; } = null;
 
-        [Description("SectionProperty for the primary beam spanning the local X direction.")]
+        [Description("Section of the primary beams spanning between columns in the local X direction.")]
         public virtual ConcreteSection PrimaryBeam { get; set; } = null;
 
         [Description("Reinforcement applied to the beams. Can be left null if more detailed reinforcement is applied to the ConcreteSections for Primary beams.")]

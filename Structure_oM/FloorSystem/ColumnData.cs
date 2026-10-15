@@ -31,13 +31,15 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Collection of column configurations that together define the columns required to support a floor design. Each configuration gives the column required for a particular number of supported stories.")]
     public class ColumnData : BHoMObject
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        public virtual List<IColumnConfiguration<IGeometricalSection>> ColumnConfiguration { get; set; }
+        [Description("Column configurations available for the floor design. Each configuration gives the column required to support a particular number of stories at a given floor height.")]
+        public virtual List<IColumnConfiguration<IGeometricalSection>> ColumnConfiguration { get; set; } = new List<IColumnConfiguration<IGeometricalSection>>();
 
         /***************************************************/
     }

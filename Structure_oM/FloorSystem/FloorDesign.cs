@@ -31,19 +31,20 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Design of a floor bay, combining a floor configuration and its column configurations with the spans, loading and performance data (depth, mass, fire rating, edge condition and design code) the design was developed for.")]
     public class FloorDesign : BHoMObject, IImmutable
     {
         /***************************************************/
         /****            Public Properties              ****/
         /***************************************************/
 
-        [Description("Name of the FloorSystem.")]
+        [Description("Name of the floor design.")]
         public override string Name { get; set; } = null;
 
-        [Description("Configuration data for the floor.")]
+        [Description("Configuration of the floor structure, i.e. the slab and framing, that the design is based on.")]
         public virtual IFloorConfiguration FloorConfiguration { get; } = null;
 
-        [Description("Configuration data for the floor.")]
+        [Description("Column data for the columns supporting the floor, giving the column required for different numbers of supported stories.")]
         public virtual ColumnData ColumnConfiguration { get; } = null;
 
         [Description("Length of the primary beam or local X dimension.")]
@@ -74,13 +75,13 @@ namespace BH.oM.Structure.FloorSystem
         [Time]
         public virtual double FireRating { get; } = 0;
 
-        [Description("Floor bay design edge condition. Default as interior")]
+        [Description("Position of the floor bay within the floor plate that the design applies to. Defaults to Interior.")]
         public virtual EdgeCondition EdgeCondition { get; } = EdgeCondition.Interior;
 
         [Description("Structural engineering code to which the floor bay has been designed.")]
         public virtual string DesignCode { get; } = null;
 
-        [Description("Design assumptions and additional information.")]
+        [Description("Design assumptions and additional information about the design.")]
         public virtual string DesignNotes { get; } = null;
 
         /***************************************************/

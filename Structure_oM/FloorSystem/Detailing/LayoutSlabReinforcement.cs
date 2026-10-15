@@ -31,10 +31,10 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
-    [Description("Class for slab reinforcement for floor configuration where the layout has been explicitly defined.")]
+    [Description("Slab reinforcement for a floor configuration where the layout of the reinforcement has been explicitly defined.")]
     public class LayoutSlabReinforcement : BHoMObject, ISlabReinforcement
     {
-        [Description("ReinforcementIntent for the slab - extents are normalized")]
+        [Description("Reinforcement intent for the slab, defining the layout of the reinforcement by region. Extents are normalized.")]
         public virtual PanelRebarIntent Reinforcement { get; set; } = null;
     }
 }

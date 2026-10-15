@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
  */
 
+using System.ComponentModel;
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Structure.FloorSystem
 {
+    [Description("Base interface for the reinforcement definition of the beams in a floor configuration, for example EstimateBeamReinforcement.")]
     public interface IBeamReinforcement : IObject
     {
 
