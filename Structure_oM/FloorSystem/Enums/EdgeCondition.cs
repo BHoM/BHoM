@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace BH.oM.Structure.Elements
+namespace BH.oM.Structure.FloorSystem
 {
     /***************************************************/
     /**** Public Enums                              ****/

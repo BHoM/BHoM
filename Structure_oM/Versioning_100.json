@@ -1,0 +1,10 @@
+{
+  "Type": {
+    "ToNew": {
+      "BH.oM.Structure.Elements.EdgeCondition": "BH.oM.Structure.FloorSystem.EdgeCondition"
+    },
+    "ToOld": {
+      "BH.oM.Structure.FloorSystem.EdgeCondition": "BH.oM.Structure.Elements.EdgeCondition"
+    }
+  }
+}
