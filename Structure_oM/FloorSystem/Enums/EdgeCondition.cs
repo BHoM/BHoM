@@ -25,7 +25,7 @@ using System.ComponentModel;
 namespace BH.oM.Structure.FloorSystem
 {
     /***************************************************/
-    /**** Public Enums                              ****/
+    /**** Enums                                     ****/
     /***************************************************/
 
     [Description("Position of a floor bay within the floor plate, which affects the design of the bay.")]

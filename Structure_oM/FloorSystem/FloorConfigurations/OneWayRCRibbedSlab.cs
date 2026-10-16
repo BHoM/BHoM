@@ -36,7 +36,7 @@ namespace BH.oM.Structure.FloorSystem
     public class OneWayRCRibbedSlab : BHoMObject, IFloorConfiguration, IConcretePrimaryBeamConfiguration, IConcreteSlabConfiguration<Ribbed>
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Surface property defining the construction and thickness of the slab.")]
@@ -58,4 +58,3 @@ namespace BH.oM.Structure.FloorSystem
         /***************************************************/
     }
 }
-

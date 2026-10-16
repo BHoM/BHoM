@@ -35,7 +35,7 @@ namespace BH.oM.Structure.FloorSystem
     public class TimberInfillBeams : BHoMObject, IFloorConfiguration, ITimberFrameConfiguration, ITimberSlabConfiguration<ISurfaceProperty>
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Surface property defining the construction and thickness of the slab.")]
@@ -59,8 +59,5 @@ namespace BH.oM.Structure.FloorSystem
         public virtual int NumSecondary { get; set; } = 0;
 
         /***************************************************/
-
-
     }
 }
-

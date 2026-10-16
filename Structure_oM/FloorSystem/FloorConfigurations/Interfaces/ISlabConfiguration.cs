@@ -34,7 +34,13 @@ namespace BH.oM.Structure.FloorSystem
     public interface ISlabConfiguration<out T> : IFloorConfiguration
         where T : ISurfaceProperty
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Surface property defining the construction and thickness of the slab.")]
         T Slab { get; }
+
+        /***************************************************/
     }
 }

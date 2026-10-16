@@ -36,7 +36,7 @@ namespace BH.oM.Structure.FloorSystem
     public class OneWayRCFlatSlab : BHoMObject, IFloorConfiguration, IConcretePrimaryBeamConfiguration, IConcreteSlabConfiguration<ConstantThickness>
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Surface property defining the construction and thickness of the slab.")]
@@ -58,4 +58,3 @@ namespace BH.oM.Structure.FloorSystem
         /***************************************************/
     }
 }
-

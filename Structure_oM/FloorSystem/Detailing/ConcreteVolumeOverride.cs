@@ -43,10 +43,5 @@ namespace BH.oM.Structure.FloorSystem
         public virtual double VolumePerArea { get; set; }
 
         /***************************************************/
-
     }
 }
-
-
-
-

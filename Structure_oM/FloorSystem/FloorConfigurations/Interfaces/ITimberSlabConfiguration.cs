@@ -36,6 +36,5 @@ namespace BH.oM.Structure.FloorSystem
     public interface ITimberSlabConfiguration<out T> : ISlabConfiguration<T>
         where T : ISurfaceProperty
     {
-
     }
 }

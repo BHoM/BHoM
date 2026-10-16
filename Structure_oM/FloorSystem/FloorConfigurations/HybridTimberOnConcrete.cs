@@ -62,10 +62,6 @@ namespace BH.oM.Structure.FloorSystem.FloorConfigurations
         [Description("Distance from top of slab to top of secondary beam. Set to slab thickness for slab on top but set to zero for within depth of slab.")]
         public virtual double SecondaryBeamTopLevel { get; set; }
 
-
         /***************************************************/
-
     }
 }
-
-

@@ -36,6 +36,10 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Steel column required to support a given number of stories at a given floor height, including the intumescent paint applied for fire protection.")]
     public class SteelColumnConfiguration : BHoMObject, IColumnConfiguration<SteelSection>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Section of the column required for this configuration.")]
         public virtual SteelSection ColumnSection { get; set; }
 
@@ -52,5 +56,7 @@ namespace BH.oM.Structure.FloorSystem
 
         [Description("Material of the intumescent paint. Used when computing material takeoffs of the configuration.")]
         public virtual Material IntumescentPaintMaterial { get; set; }
+
+        /***************************************************/
     }
 }

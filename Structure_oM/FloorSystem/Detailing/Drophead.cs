@@ -53,8 +53,5 @@ namespace BH.oM.Structure.FloorSystem
         public virtual ReinforcementDensity Reinforcement { get; set; } = null;
 
         /***************************************************/
-
     }
 }
-
-

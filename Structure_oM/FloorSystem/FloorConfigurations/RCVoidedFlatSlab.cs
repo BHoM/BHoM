@@ -36,7 +36,7 @@ namespace BH.oM.Structure.FloorSystem
     public class RCVoidedFlatSlab : BHoMObject, IFloorConfiguration, IConcreteSlabConfiguration<BiDirectionalVoided>
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Surface property defining the construction and thickness of the slab.")]
@@ -49,8 +49,5 @@ namespace BH.oM.Structure.FloorSystem
         public virtual Material VoidMaterial { get; set; } = null;
 
         /***************************************************/
-
-
     }
 }
-

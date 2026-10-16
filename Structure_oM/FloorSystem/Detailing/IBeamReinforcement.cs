@@ -33,6 +33,5 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Base interface for the reinforcement definition of the beams in a floor configuration, for example EstimateBeamReinforcement.")]
     public interface IBeamReinforcement : IObject
     {
-
     }
 }

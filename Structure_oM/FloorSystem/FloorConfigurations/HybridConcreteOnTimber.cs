@@ -62,8 +62,5 @@ namespace BH.oM.Structure.FloorSystem.FloorConfigurations
         public virtual int NumSecondary { get; set; } = 0;
 
         /***************************************************/
-
     }
 }
-
-

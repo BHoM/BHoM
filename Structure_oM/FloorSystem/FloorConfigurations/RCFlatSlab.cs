@@ -34,7 +34,7 @@ namespace BH.oM.Structure.FloorSystem
     public class RCFlatSlab : BHoMObject, IFloorConfiguration, IConcreteDropheadSlabConfiguration<ConstantThickness>
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Surface property defining the construction and thickness of the slab.")]
@@ -53,8 +53,5 @@ namespace BH.oM.Structure.FloorSystem
         //public virtual int MinBaysY { get; set; } = 0;
 
         /***************************************************/
-
-
     }
 }
-

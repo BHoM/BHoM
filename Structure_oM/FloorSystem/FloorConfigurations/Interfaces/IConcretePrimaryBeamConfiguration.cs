@@ -33,7 +33,13 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Interface for floor configurations with concrete primary beams.")]
     public interface IConcretePrimaryBeamConfiguration : IPrimaryBeamConfiguration<ConcreteSection>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Reinforcement applied to the beams. Can be left null if more detailed reinforcement is applied to the ConcreteSections of the beams.")]
         IBeamReinforcement BeamReinforcement { get; set; }
+
+        /***************************************************/
     }
 }

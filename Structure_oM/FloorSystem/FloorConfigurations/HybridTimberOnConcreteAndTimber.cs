@@ -63,8 +63,5 @@ namespace BH.oM.Structure.FloorSystem.FloorConfigurations
         public virtual double SecondaryBeamTopLevel { get; set; }
 
         /***************************************************/
-
     }
 }
-
-

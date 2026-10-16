@@ -31,12 +31,5 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Base interface for a floor structure configuration, describing the structural makeup of a floor bay such as RCFlatSlab or TimberInfillBeams. Specific configurations combine this with the interfaces describing the slab and framing they contain.")]
     public interface IFloorConfiguration : IBHoMObject
     {
-        /***************************************************/
-        /****            Properties              ****/
-        /***************************************************/
-
-
-        /***************************************************/
     }
 }
-

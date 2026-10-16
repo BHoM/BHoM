@@ -33,6 +33,5 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Base interface for the reinforcement definition of the slab in a floor configuration, for example estimated as a density (EstimateSlabReinforcement) or explicitly laid out (LayoutSlabReinforcement).")]
     public interface ISlabReinforcement : IObject
     {
-
     }
 }

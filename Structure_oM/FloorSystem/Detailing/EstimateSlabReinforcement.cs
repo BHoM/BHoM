@@ -34,11 +34,16 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Slab reinforcement for a floor configuration where the reinforcement has been defined as an estimated density.")]
     public class EstimateSlabReinforcement : BHoMObject, ISlabReinforcement
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Amount of reinforcement in the main slab.")]
         public virtual ReinforcementDensity SlabReinforcement { get; set; } = null;
 
         [Description("Amount of Prestress tendon in the slab. Will be null if the slab does not contain any prestress tendons.")]
         public virtual ReinforcementDensity PrestressTendonDensity { get; set; } = null;
 
+        /***************************************************/
     }
 }

@@ -36,13 +36,20 @@ namespace BH.oM.Structure.FloorSystem
         where TPrimary : IGeometricalSection
         where TSecondary : IGeometricalSection
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Section of the secondary beams spanning between the primary beams.")]
         TSecondary SecondaryBeam { get; }
+
         [Description("Number of secondary (infill) beams in a bay, counting the beam on one edge of the bay but not the one on the opposite edge. Set to zero for no secondary beams.")]
         int NumSecondary { get; set; }
 
         [Length]
         [Description("Distance from top of slab to top of secondary beam. Set to slab thickness for slab on top but set to zero for within depth of slab.")]
         double SecondaryBeamTopLevel { get; set; }
+
+        /***************************************************/
     }
 }

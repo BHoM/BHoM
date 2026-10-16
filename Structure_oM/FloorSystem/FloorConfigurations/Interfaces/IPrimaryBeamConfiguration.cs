@@ -35,11 +35,17 @@ namespace BH.oM.Structure.FloorSystem
     public interface IPrimaryBeamConfiguration<out TPrimary> : IFloorConfiguration
         where TPrimary : IGeometricalSection
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Section for the primary beams spanning between columns.")]
         TPrimary PrimaryBeam { get; }
 
         [Length]
         [Description("Distance from top of slab to top of primary beam. Set to slab thickness for slab on top but set to zero for within depth of slab.")]
         double PrimaryBeamTopLevel { get; set; }
+
+        /***************************************************/
     }
 }

@@ -34,7 +34,13 @@ namespace BH.oM.Structure.FloorSystem
     public interface IConcreteSlabConfiguration<out T> : ISlabConfiguration<T>
         where T : ISurfaceProperty
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Reinforcement of the slab, defined either as an estimated density or as an explicit layout. Can be null if no slab reinforcement is to be accounted for.")]
         ISlabReinforcement SlabReinforcement { get; set; }
+
+        /***************************************************/
     }
 }

@@ -36,6 +36,5 @@ namespace BH.oM.Structure.FloorSystem
     public interface ITimberSecondaryBeamConfiguration<out TPrimary> : ISecondaryBeamConfiguration<TPrimary, TimberSection>
         where TPrimary : IGeometricalSection
     {
-
     }
 }

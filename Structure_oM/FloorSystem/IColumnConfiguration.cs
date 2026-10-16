@@ -35,6 +35,10 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Base interface for the configuration of a column designed to support a particular number of stories at a given floor height.")]
     public interface IColumnConfiguration<out T> : IBHoMObject where T: IGeometricalSection
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Section of the column required for this configuration.")]
         T ColumnSection { get; }
 
@@ -44,5 +48,7 @@ namespace BH.oM.Structure.FloorSystem
 
         [Description("Number of stories supported by the column in this configuration.")]
         int NumberOfStories { get; }
+
+        /***************************************************/
     }
 }

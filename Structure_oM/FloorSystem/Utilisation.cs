@@ -35,8 +35,9 @@ namespace BH.oM.Structure.FloorSystem
     public class Utilisation : BHoMObject, IImmutable
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
+
         [Description("Name of the structural element.")]
         public virtual string Element { get; } = null;
 
@@ -54,6 +55,8 @@ namespace BH.oM.Structure.FloorSystem
         public virtual IReadOnlyList<Utilisation> Utilisations { get; } = null;
 
         /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
 
         public Utilisation(string element, double ratio, string limitState, string assumptions, IReadOnlyList<Utilisation> utilisations)
         {
@@ -64,5 +67,6 @@ namespace BH.oM.Structure.FloorSystem
             Utilisations = utilisations;
         }
 
+        /***************************************************/
     }
 }

@@ -37,6 +37,10 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Concrete column required to support a given number of stories at a given floor height, including the amount of reinforcement it contains.")]
     public class ConcreteColumnConfiguration : BHoMObject, IColumnConfiguration<ConcreteSection>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Section of the column required for this configuration.")]
         public virtual ConcreteSection ColumnSection { get; set; }
 
@@ -49,5 +53,7 @@ namespace BH.oM.Structure.FloorSystem
 
         [Description("Number of stories supported by the column in this configuration.")]
         public virtual int NumberOfStories { get; set; }
+
+        /***************************************************/
     }
 }

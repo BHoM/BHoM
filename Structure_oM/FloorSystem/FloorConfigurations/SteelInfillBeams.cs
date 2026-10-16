@@ -36,7 +36,7 @@ namespace BH.oM.Structure.FloorSystem
     public class SteelInfillBeams : BHoMObject, IFloorConfiguration, ISteelFrameConfiguration, IConcreteSlabConfiguration<ISurfaceProperty>
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Surface property defining the construction and thickness of the slab.")]
@@ -74,8 +74,5 @@ namespace BH.oM.Structure.FloorSystem
         public virtual Material IntumescentPaintMaterial { get; set; }
 
         /***************************************************/
-
-
     }
 }
-

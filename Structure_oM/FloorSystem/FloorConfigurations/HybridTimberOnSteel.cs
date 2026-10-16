@@ -70,10 +70,6 @@ namespace BH.oM.Structure.FloorSystem.FloorConfigurations
         [Description("Material of the intumescent paint. Used when computing material takeoffs of the configuration.")]
         public virtual Material IntumescentPaintMaterial { get; set; }
 
-
         /***************************************************/
-
     }
 }
-
-

@@ -35,6 +35,5 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Interface for floor configurations with timber primary beams.")]
     public interface ITimberPrimaryBeamConfiguration : IPrimaryBeamConfiguration<TimberSection>
     {
-
     }
 }

@@ -30,7 +30,7 @@ namespace BH.oM.Structure.FloorSystem
     public class PopulateOptions : IObject
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Output all objects in one plane, best for FE. Defaults to false; objects will be output at their physical elevations.")]
@@ -62,6 +62,5 @@ namespace BH.oM.Structure.FloorSystem
         public virtual double FloorHeight { get; set; } = double.NaN;
 
         /***************************************************/
-
     }
 }

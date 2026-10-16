@@ -34,7 +34,7 @@ namespace BH.oM.Structure.FloorSystem
     public class WaffleSlab : BHoMObject, IFloorConfiguration, IConcreteDropheadSlabConfiguration<Waffle>
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Surface property defining the construction and thickness of the slab.")]
@@ -47,8 +47,5 @@ namespace BH.oM.Structure.FloorSystem
         public virtual Drophead Drophead { get; set; } = null;
 
         /***************************************************/
-
-
     }
 }
-

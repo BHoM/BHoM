@@ -35,7 +35,7 @@ namespace BH.oM.Structure.FloorSystem
     public class FloorDesign : BHoMObject, IImmutable
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Name of the floor design.")]
@@ -85,7 +85,7 @@ namespace BH.oM.Structure.FloorSystem
         public virtual string DesignNotes { get; } = null;
 
         /***************************************************/
-        /****            Public Constructors            ****/
+        /**** Constructors                              ****/
         /***************************************************/
 
         public FloorDesign(IFloorConfiguration floorConfiguration,
@@ -117,7 +117,6 @@ namespace BH.oM.Structure.FloorSystem
         }
 
         /***************************************************/
-
-
     }
 }
+

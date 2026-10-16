@@ -34,10 +34,16 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Beam reinforcement for a floor configuration where the reinforcement has been defined as an estimated density.")]
     public class EstimateBeamReinforcement : BHoMObject, IBeamReinforcement
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Amount of reinforcement in the Primary Beam.")]
         public virtual ReinforcementDensity PrimaryReinforcement { get; set; } = null;
 
         [Description("Amount of reinforcement in the Secondary Beam.")]
         public virtual ReinforcementDensity SecondaryReinforcement { get; set; } = null;
+
+        /***************************************************/
     }
 }

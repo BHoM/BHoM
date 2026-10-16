@@ -35,7 +35,7 @@ namespace BH.oM.Structure.FloorSystem
     public class ColumnData : BHoMObject
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Column configurations available for the floor design. Each configuration gives the column required to support a particular number of stories at a given floor height.")]

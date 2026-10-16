@@ -37,13 +37,20 @@ namespace BH.oM.Structure.FloorSystem
         where TSecondary : IGeometricalSection
         where TTertiary : IGeometricalSection
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Section of the tertiary beams spanning between the secondary beams.")]
         TTertiary TertiaryBeam { get; }
+
         [Description("Number of tertiary beams, evenly spaced across the bay in the local Y direction and spanning in the local X direction between the secondary beams.")]
         int NumTertiary { get; set; }
 
         [Length]
         [Description("Distance from top of slab to top of tertiary beam. Set to slab thickness for slab on top but set to zero for within depth of slab.")]
         double TertiaryBeamTopLevel { get; set; }
+
+        /***************************************************/
     }
 }

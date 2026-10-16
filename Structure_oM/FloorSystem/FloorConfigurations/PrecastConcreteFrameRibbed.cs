@@ -36,7 +36,7 @@ namespace BH.oM.Structure.FloorSystem
     public class PrecastConcreteFrameRibbed : BHoMObject, IFloorConfiguration, IConcreteFrameConfiguration, IConcreteSlabConfiguration<Ribbed>
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Surface property defining the construction and thickness of the slab.")]
@@ -66,8 +66,5 @@ namespace BH.oM.Structure.FloorSystem
         public virtual double SecondaryBeamTopLevel { get; set; } = 0;
 
         /***************************************************/
-
-
     }
 }
-

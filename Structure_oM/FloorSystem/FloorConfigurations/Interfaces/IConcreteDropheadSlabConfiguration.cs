@@ -34,7 +34,13 @@ namespace BH.oM.Structure.FloorSystem
     public interface IConcreteDropheadSlabConfiguration<out T> : IConcreteSlabConfiguration<T>
         where T : ISurfaceProperty
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Drophead in the slabs over columns. For a slab without dropheads this will be null.")]
         Drophead Drophead { get; set; }
+
+        /***************************************************/
     }
 }

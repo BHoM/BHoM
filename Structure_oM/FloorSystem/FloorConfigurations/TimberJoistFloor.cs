@@ -35,7 +35,7 @@ namespace BH.oM.Structure.FloorSystem
     public class TimberJoistFloor : BHoMObject, IFloorConfiguration, ITimberTertiaryBeamFloorConfiguration, ITimberSlabConfiguration<ConstantThickness>
     {
         /***************************************************/
-        /****            Public Properties              ****/
+        /**** Properties                                ****/
         /***************************************************/
 
         [Description("Surface property defining the construction and thickness of the slab.")]
@@ -69,8 +69,5 @@ namespace BH.oM.Structure.FloorSystem
         public virtual int NumTertiary { get; set; } = 0;
 
         /***************************************************/
-
-
     }
 }
-

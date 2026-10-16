@@ -36,6 +36,10 @@ namespace BH.oM.Structure.FloorSystem
     [Description("Timber column required to support a given number of stories at a given floor height.")]
     public class TimberColumnConfiguration : BHoMObject, IColumnConfiguration<TimberSection>
     {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
         [Description("Section of the column required for this configuration.")]
         public virtual TimberSection ColumnSection { get; set; }
 
@@ -45,5 +49,7 @@ namespace BH.oM.Structure.FloorSystem
 
         [Description("Number of stories supported by the column in this configuration.")]
         public virtual int NumberOfStories { get; set; }
+
+        /***************************************************/
     }
 }
