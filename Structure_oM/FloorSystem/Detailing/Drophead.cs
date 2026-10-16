@@ -29,12 +29,14 @@ using System.ComponentModel;
 
 namespace BH.oM.Structure.FloorSystem
 {
-    [Description("Drophead on a flat slab, i.e. a local thickening of the slab over a column. Thickness is additional to the thickness of the main slab. The material of the drophead is taken from the main slab property.")]
+    [Description("Drophead on a flat slab, i.e. a local thickening of the slab over a column. Thickness is additional to the thickness of the main slab. The material of the drophead is taken from the main slab property.\n" +
+                 "Also applicable to be used with waffle slabs for a solid zone over dropheads.")]
     public class Drophead : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
+
         [Length]
         [Description("Thickness of the drophead. The total thickness of the slab in the drophead zone will be the slab thickness + drophead thickness.")]
         public virtual double Thickness { get; set; } = 0;
