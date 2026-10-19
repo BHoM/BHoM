@@ -23,7 +23,7 @@
 using BH.oM.Base.Attributes;
 using System.ComponentModel;
 
-namespace BH.oM.Classification.LifeCycleAssessment
+namespace BH.oM.Classification.Project
 {
     [Description("The scope of a life cycle assessment study: a bay, canopy or roof, single elements, design options or the whole building.")]
     public enum StudyType
