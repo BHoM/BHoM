@@ -29,10 +29,10 @@ namespace BH.oM.Classification.Facade
     public enum GlazingType
     {
         Undefined,
-        [DisplayText("Double Glazing Unit (DGU)")]
-        DoubleGlazingUnit,
         [DisplayText("Single Glazing")]
         SingleGlazing,
+        [DisplayText("Double Glazing Unit (DGU)")]
+        DoubleGlazingUnit,
         [DisplayText("Triple Glazing Unit (TGU)")]
         TripleGlazingUnit,
         Other,
