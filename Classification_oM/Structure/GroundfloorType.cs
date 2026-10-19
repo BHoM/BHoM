@@ -26,7 +26,7 @@ using System.ComponentModel;
 namespace BH.oM.Classification.Structure
 {
     [Description("The construction of the ground floor of a building: bearing directly on the ground or suspended above it.")]
-    public enum GroundfloorType
+    public enum GroundFloorType
     {
         Undefined,
         [DisplayText("Ground Bearing")]

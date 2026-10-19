@@ -25,18 +25,28 @@ using System.ComponentModel;
 
 namespace BH.oM.Classification.Structure
 {
-    [Description("The principal construction of the upper floors of a building, by material.")]
+    [Description("The type of floor construction, leading with the principal material and then the construction method.")]
     public enum FloorType
     {
         Undefined,
-        Composite,
-        Concrete,
-        [DisplayText("Precast Concrete")]
-        PrecastConc,
-        [DisplayText("PT Concrete")]
-        PTConcrete,
-        Steel,
-        Timber,
+        [DisplayText("Composite metal deck")]
+        CompositeMetalDeck,
+        [DisplayText("Steel: Hot rolled steel")]
+        Steel_HotRolledSteel,
+        [DisplayText("Steel: Light gauge steel")]
+        Steel_LightGaugeSteel,
+        [DisplayText("Concrete: Conventional in-situ")]
+        Concrete_InSitu,
+        [DisplayText("Concrete: Post tension (PT)")]
+        Concrete_PostTension,
+        [DisplayText("Concrete: Precast")]
+        Concrete_Precast,
+        [DisplayText("Concrete: Precast and concrete block")]
+        Concrete_PrecastAndConcreteBlock,
+        [DisplayText("Timber: Softwood/Hardwood")]
+        Timber_SoftwoodHardwood,
+        [DisplayText("Timber: Engineered timber")]
+        Timber_EngineeredTimber,
         None,
         Other,
     }

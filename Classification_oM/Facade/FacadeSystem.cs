@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Classification.Facade
 {
-    [Description("The principal construction system of a building facade or envelope.")]
+    [Description("The principal construction system of a building facade.")]
     public enum FacadeSystem
     {
         Undefined,
