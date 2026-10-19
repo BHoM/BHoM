@@ -1,0 +1,57 @@
+/*
+ * This file is part of the Buildings and Habitats object Model (BHoM)
+ * Copyright (c) 2015 - 2026, the respective contributors. All rights reserved.
+ *
+ * Each contributor holds copyright over their respective contributions.
+ * The project versioning (Git) records all such contribution source information.
+ *
+ *
+ * The BHoM is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3.0 of the License, or
+ * (at your option) any later version.
+ *
+ * The BHoM is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
+ */
+
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
+using BH.oM.Structure.Fragments;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace BH.oM.Structure.FloorSystem
+{
+    [Description("Drophead on a flat slab, i.e. a local thickening of the slab over a column. Thickness is additional to the thickness of the main slab. The material of the drophead is taken from the main slab property.\n" +
+                 "Also applicable to be used with waffle slabs for a solid zone over dropheads.")]
+    public class Drophead : BHoMObject
+    {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Length]
+        [Description("Thickness of the drophead. The total thickness of the slab in the drophead zone will be the slab thickness + drophead thickness.")]
+        public virtual double Thickness { get; set; } = 0;
+
+        [Length]
+        [Description("Extent of the drophead in the local x (primary) direction.")]
+        public virtual double XDimension { get; set; } = 0;
+
+        [Length]
+        [Description("Extent of the drophead in the local y (secondary) direction.")]
+        public virtual double YDimension { get; set; } = 0;
+
+        [Description("Amount of reinforcement in the dropheads. Will be null if handled by the general Reinforcement layout.")]
+        public virtual ReinforcementDensity Reinforcement { get; set; } = null;
+
+        /***************************************************/
+    }
+}
