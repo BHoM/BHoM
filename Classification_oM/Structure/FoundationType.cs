@@ -29,8 +29,6 @@ namespace BH.oM.Classification.Structure
     public enum FoundationType
     {
         Undefined,
-        [DisplayText("Concrete: Pad/Footing")]
-        Concrete_PadFooting,
         [DisplayText("Concrete: Mass Pads")]
         Concrete_MassPads,
         [DisplayText("Concrete: Reinforced Pads")]
