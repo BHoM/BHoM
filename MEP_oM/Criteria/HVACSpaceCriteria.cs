@@ -26,13 +26,14 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.MEP.Criteria
 {
-    [Description("Rates for one HVAC calculation pass. Name is stored on each result as ResultCase. NaN means the rate was not supplied.")]
+    [Description("HVAC design rates and assumptions used to calculate space loads and outdoor-air requirements. May provide SpaceType defaults or explicitly supplied calculation inputs. NaN means a value was not supplied.")]
     public class HVACSpaceCriteria : BHoMObject
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
+        [Description("Floor area per design occupant (m2/person). NaN means the value was not supplied.")]
         public virtual double AreaPerPerson { get; set; } = double.NaN;
 
         [EnergyPerUnitTime]
@@ -59,7 +60,7 @@ namespace BH.oM.MEP.Criteria
         [Description("Outdoor air per occupant (m3/s).")]
         public virtual double OutdoorAirPerPerson { get; set; } = double.NaN;
 
-        [Description("Outdoor air per floor area (m3/s·m2).")]
+        [Description("Outdoor air per floor area (m3/s/m2).")]
         public virtual double OutdoorAirPerArea { get; set; } = double.NaN;
 
         [Description("Outdoor air changes per hour. Requires an approved height.")]

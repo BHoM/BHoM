@@ -21,19 +21,23 @@
  */
 
 using System.ComponentModel;
+using BH.oM.Base;
 
-namespace BH.oM.MEP.Enums
+namespace BH.oM.MEP.Criteria
 {
-    [Description("HVAC use of a space.")]
-    public enum SpaceType
+    [Description("Reusable space-use template containing default HVAC calculation criteria.")]
+    public class SpaceType : BHoMObject
     {
-        Undefined,
-        OfficeOpen,
-        OfficeEnclosed,
-        Corridor,
-        Classroom,
-        Kitchen,
-        Plant,
-        Storage
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("Library or project code identifying this space type.")]
+        public virtual string Code { get; set; } = "";
+
+        [Description("Default HVAC calculation criteria for this space type. Null means criteria have not been assigned.")]
+        public virtual HVACSpaceCriteria HVACCriteria { get; set; } = null;
+
+        /***************************************************/
     }
 }

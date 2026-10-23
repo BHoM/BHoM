@@ -23,7 +23,7 @@
 using System.ComponentModel;
 using BH.oM.Base;
 using BH.oM.Geometry;
-using BH.oM.MEP.Enums;
+using BH.oM.MEP.Criteria;
 using BH.oM.Quantities.Attributes;
 
 namespace BH.oM.MEP.Elements
@@ -38,8 +38,8 @@ namespace BH.oM.MEP.Elements
         [Description("Space number used on drawings and schedules.")]
         public virtual string Number { get; set; } = "";
 
-        [Description("HVAC use of the space.")]
-        public virtual SpaceType SpaceType { get; set; } = SpaceType.Undefined;
+        [Description("Assigned reusable space-use template. Null means no space type has been assigned.")]
+        public virtual SpaceType SpaceType { get; set; } = null;
 
         [Length]
         [Description("Approved floor-to-ceiling height (m). NaN means the height has not been approved.")]
