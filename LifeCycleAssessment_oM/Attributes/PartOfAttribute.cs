@@ -30,17 +30,17 @@ namespace BH.oM.LifeCycleAssessment
 {
     [Description("Attribute applied to a Module to define that it is a part of a combination module, where the value of the combination module is the sum of the values of its parts.\nOnly the combination module that the module is directly a part of is to be specified. Combination modules can in turn be parts of other combination modules, which makes the combinations recursive, e.g. B1 is part of B1toB3, which in turn is part of B1toB5.")]
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-    public class PartOfAttribute : Attribute
+    public class PartOfAttribute : Attribute, IImmutable
     {
         /***************************************************/
         /**** Properties                                ****/
         /***************************************************/
 
         [Description("The combination module that the module is directly a part of. The value of this combination module is the sum of the values of all its parts.")]
-        public virtual Module PartOf { get; set; }
+        public virtual Module PartOf { get; }
 
         [Description("Defines whether the module is required to have a value for the combination module to be computed.\nIf true, the combination module can only be computed if this module has a value.\nIf false, this module is included in the combination module if it has a value, but the combination module can be computed without it. A combination module made up of only non-required parts can only be computed if at least one of its parts has a value.")]
-        public virtual bool IsRequired { get; set; } = true;
+        public virtual bool IsRequired { get; }
 
         /***************************************************/
         /**** Constructors                              ****/
