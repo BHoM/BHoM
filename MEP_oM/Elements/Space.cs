@@ -48,6 +48,9 @@ namespace BH.oM.MEP.Elements
         [Description("Plan outline and position of the space. The elevation is the Z of ExternalBoundary. Area and volume are queried from this surface and the height.")]
         public virtual PlanarSurface Surface { get; set; } = null;
 
+        [Description("Space-specific HVAC service strategy overrides. Unspecified roles inherit the corresponding defaults from the assigned SpaceType.")]
+        public virtual SpaceServiceStrategy ServiceStrategyOverride { get; set; } = null;
+
         /***************************************************/
     }
 }

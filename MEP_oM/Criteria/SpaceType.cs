@@ -38,6 +38,9 @@ namespace BH.oM.MEP.Criteria
         [Description("Default HVAC calculation criteria for this space type. Null means criteria have not been assigned.")]
         public virtual HVACSpaceCriteria HVACCriteria { get; set; } = null;
 
+        [Description("Default HVAC service strategy for spaces assigned this type. Null means no default strategy has been defined.")]
+        public virtual SpaceServiceStrategy DefaultServiceStrategy { get; set; } = null;
+
         /***************************************************/
     }
 }
