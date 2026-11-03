@@ -69,7 +69,7 @@ namespace BH.oM.LifeCycleAssessment.Results
             ObjectId = objectId;
             Scope = scope;
             Category = category;
-            MaterialResults = new ReadOnlyCollection<T>(materialResults);
+            MaterialResults = new ReadOnlyCollection<T>(materialResults ?? new List<T>());
         }
 
         /***************************************************/
