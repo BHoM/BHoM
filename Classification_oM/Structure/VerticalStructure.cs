@@ -25,22 +25,30 @@ using System.ComponentModel;
 
 namespace BH.oM.Classification.Structure
 {
-    [Description("The principal structural system resisting lateral loads in a building, leading with the material and then the system.")]
-    public enum LateralStructuralSystem
+    [Description("The principal structural system that carries vertical loads down to the foundations: primary and secondary framing, columns and vertically load-bearing walls, classified by material and construction method. Only the principal system is recorded; a wall or frame that also resists lateral loads as part of the stability system is classified here only if it is the main carrier of vertical load. Slabs are not included; they are covered by FloorType.")]
+    public enum VerticalStructure
     {
         Undefined,
-        [DisplayText("Concrete: Shear walls")]
-        ConcreteShearWalls,
-        [DisplayText("Concrete: Moment frames")]
-        ConcreteMomentFrames,
-        [DisplayText("Steel: Braced frames")]
-        SteelBracedFrames,
-        [DisplayText("Steel: Moment frames")]
-        SteelMomentFrames,
-        [DisplayText("Masonry: Shear walls")]
-        MasonryShearWalls,
-        [DisplayText("Timber: Shear panels")]
-        TimberShearPanels,
+        [DisplayText("Steel: Hot rolled steel")]
+        Steel_HotRolledSteel,
+        [DisplayText("Steel: Light gauge steel")]
+        Steel_LightGaugeSteel,
+        [DisplayText("Concrete: Conventional in-situ")]
+        Concrete_InSitu,
+        [DisplayText("Concrete: Post tension (PT)")]
+        Concrete_PostTension,
+        [DisplayText("Concrete: Precast")]
+        Concrete_Precast,
+        [DisplayText("Timber: Softwood/Hardwood")]
+        Timber_SoftwoodHardwood,
+        [DisplayText("Timber: Engineered timber")]
+        Timber_EngineeredTimber,
+        [DisplayText("Masonry: Brickwork")]
+        Masonry_Brickwork,
+        [DisplayText("Masonry: Concrete blockwork")]
+        Masonry_ConcreteBlockwork,
+        Hybrid,
+        None,
         Other,
     }
 }

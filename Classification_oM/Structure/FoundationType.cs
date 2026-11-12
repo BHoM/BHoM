@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Classification.Structure
 {
-    [Description("The type of foundation of a building, leading with the principal material and then the construction method.")]
+    [Description("The type of foundation that transfers the building's loads to the ground, classified by material and construction method (e.g. pads, piles, rafts).")]
     public enum FoundationType
     {
         Undefined,

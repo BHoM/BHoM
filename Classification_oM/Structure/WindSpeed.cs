@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Classification.Structure
 {
-    [Description("The design wind speed of a site, banded in m/s from very low (below 20 m/s) to very high (50 m/s and above).")]
+    [Description("The design wind speed at the building's site, banded in m/s from very low (under 20 m/s) to very high (50 m/s and above).")]
     public enum WindSpeed
     {
         Undefined,

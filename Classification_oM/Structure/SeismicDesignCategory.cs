@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Classification.Structure
 {
-    [Description("A coarse seismic hazard band for a site, with poor soil conditions folded into the top band. Not tied to a named code.")]
+    [Description("A coarse band for the seismic hazard at the building's site, from low to high, with poor soil conditions included in the highest band. It is not tied to a particular design code.")]
     public enum SeismicDesignCategory
     {
         Undefined,

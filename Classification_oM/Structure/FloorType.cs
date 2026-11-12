@@ -25,14 +25,12 @@ using System.ComponentModel;
 
 namespace BH.oM.Classification.Structure
 {
-    [Description("The type of floor construction, leading with the principal material and then the construction method.")]
+    [Description("The construction of the typical floor slabs, classified by material and construction method. Slabs generally rest on the VerticalStructure; the beams and framing that support them are covered by VerticalStructure.")]
     public enum FloorType
     {
         Undefined,
         [DisplayText("Composite metal deck")]
         CompositeMetalDeck,
-        [DisplayText("Steel: Hot rolled steel")]
-        Steel_HotRolledSteel,
         [DisplayText("Steel: Light gauge steel")]
         Steel_LightGaugeSteel,
         [DisplayText("Concrete: Conventional in-situ")]

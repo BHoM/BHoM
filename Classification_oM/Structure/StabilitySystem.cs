@@ -25,30 +25,22 @@ using System.ComponentModel;
 
 namespace BH.oM.Classification.Structure
 {
-    [Description("The principal structural system resisting gravity loads in a building, leading with the material and then the construction method.")]
-    public enum GravityStructuralSystem
+    [Description("The principal structural system that resists lateral loads such as wind and seismic action, classified by material and system type (e.g. shear walls, moment frames, braced frames). Only the principal system is recorded; elements that mainly carry vertical load are classified under VerticalStructure, even if they contribute some lateral resistance.")]
+    public enum StabilitySystem
     {
         Undefined,
-        [DisplayText("Steel: Hot rolled steel")]
-        Steel_HotRolledSteel,
-        [DisplayText("Steel: Light gauge steel")]
-        Steel_LightGaugeSteel,
-        [DisplayText("Concrete: Conventional in-situ")]
-        Concrete_InSitu,
-        [DisplayText("Concrete: Post tension (PT)")]
-        Concrete_PostTension,
-        [DisplayText("Concrete: Precast")]
-        Concrete_Precast,
-        [DisplayText("Timber: Softwood/Hardwood")]
-        Timber_SoftwoodHardwood,
-        [DisplayText("Timber: Engineered timber")]
-        Timber_EngineeredTimber,
-        [DisplayText("Masonry: Brickwork")]
-        Masonry_Brickwork,
-        [DisplayText("Masonry: Concrete blockwork")]
-        Masonry_ConcreteBlockwork,
-        Hybrid,
-        None,
+        [DisplayText("Concrete: Shear walls")]
+        ConcreteShearWalls,
+        [DisplayText("Concrete: Moment frames")]
+        ConcreteMomentFrames,
+        [DisplayText("Steel: Braced frames")]
+        SteelBracedFrames,
+        [DisplayText("Steel: Moment frames")]
+        SteelMomentFrames,
+        [DisplayText("Masonry: Shear walls")]
+        MasonryShearWalls,
+        [DisplayText("Timber: Shear panels")]
+        TimberShearPanels,
         Other,
     }
 }
