@@ -25,7 +25,7 @@ using System.ComponentModel;
 
 namespace BH.oM.Classification.Project
 {
-    [Description("The scope of a life cycle assessment study: a bay, canopy or roof, single elements, design options or the whole building.")]
+    [Description("The scope of a study of a building: which part of it, or which alternatives, the study covers. It is not specific to any kind of assessment.")]
     public enum StudyType
     {
         Undefined,
