@@ -1,0 +1,45 @@
+/*
+ * This file is part of the Buildings and Habitats object Model (BHoM)
+ * Copyright (c) 2015 - 2026, the respective contributors. All rights reserved.
+ * Each contributor holds copyright over their respective contributions.
+ * The project versioning (Git) records all such contribution source information.
+ * The BHoM is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3.0 of the License, or
+ * (at your option) any later version.
+ * The BHoM is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.
+ */
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using BH.oM.Base;
+using BH.oM.MEP.Airside;
+using BH.oM.MEP.Systems;
+
+namespace BH.oM.MEP.Airside
+{
+    [Description("Declared per-space air requirement for service-group aggregation. No inferred recirculation or flow selection.")]
+    public class SpaceAirRequirement : BHoMObject
+    {
+        [Description("Canonical Space.BHoM_Guid.")]
+        public virtual Guid SpaceId { get; set; } = Guid.Empty;
+
+        [Description("AHUDesignCase.BHoM_Guid. Required and consistent across connected inputs.")]
+        public virtual Guid DesignCaseId { get; set; } = Guid.Empty;
+
+        [Description("kg dry air/s; finite nonnegative, explicit reference-state conversion required upstream.")]
+        public virtual double RequiredOutdoorDryAirMassFlowRate { get; set; } = double.NaN;
+
+        [Description("kg dry air/s; finite nonnegative.")]
+        public virtual double SelectedSupplyDryAirMassFlowRate { get; set; } = double.NaN;
+
+        [Description("Selection and volume-to-mass conversion basis.")]
+        public virtual string Basis { get; set; } = "";
+
+    }
+}
