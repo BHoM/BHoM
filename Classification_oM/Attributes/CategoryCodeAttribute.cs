@@ -1,0 +1,51 @@
+/*
+ * This file is part of the Buildings and Habitats object Model (BHoM)
+ * Copyright (c) 2015 - 2026, the respective contributors. All rights reserved.
+ *
+ * Each contributor holds copyright over their respective contributions.
+ * The project versioning (Git) records all such contribution source information.
+ *                                           
+ *                                                                              
+ * The BHoM is free software: you can redistribute it and/or modify         
+ * it under the terms of the GNU Lesser General Public License as published by  
+ * the Free Software Foundation, either version 3.0 of the License, or          
+ * (at your option) any later version.                                          
+ *                                                                              
+ * The BHoM is distributed in the hope that it will be useful,              
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of               
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
+ * GNU Lesser General Public License for more details.                          
+ *                                                                            
+ * You should have received a copy of the GNU Lesser General Public License     
+ * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
+ */
+
+using BH.oM.Base;
+using System;
+using System.ComponentModel;
+
+namespace BH.oM.Classification.Attributes
+{
+    [AttributeUsage(AttributeTargets.Field)]
+    [Description("Stores the hierarchical code of a classification category on the enum member it is applied to, for example 2.1.2. Read back by reflection.")]
+    public class CategoryCodeAttribute : Attribute, IImmutable, IObject
+    {
+        /***************************************************/
+        /**** Properties                                ****/
+        /***************************************************/
+
+        [Description("The category code, with the levels separated by dots (for example 2.1.2).")]
+        public virtual string Code { get; private set; } = "";
+
+        /***************************************************/
+        /**** Constructors                              ****/
+        /***************************************************/
+
+        public CategoryCodeAttribute(string code)
+        {
+            Code = code;
+        }
+
+        /***************************************************/
+    }
+}
