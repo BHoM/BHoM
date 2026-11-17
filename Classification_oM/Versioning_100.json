@@ -1,0 +1,10 @@
+{
+  "Type": {
+    "ToNew": {
+      "BH.oM.Adapters.OneClickLCA.RICSCategory": "BH.oM.Classification.Element.RICSCategory"
+    },
+    "ToOld": {
+      "BH.oM.Classification.Element.RICSCategory": "BH.oM.Adapters.OneClickLCA.RICSCategory"
+    }
+  }
+}
