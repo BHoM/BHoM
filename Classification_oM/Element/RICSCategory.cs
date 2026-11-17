@@ -21,14 +21,12 @@
  */
 
 using BH.oM.Base.Attributes;
-using BH.oM.Base.Attributes.Enums;
 using BH.oM.Classification.Attributes;
 using System.ComponentModel;
 
 namespace BH.oM.Classification.Element
 {
-    [Description("A building element category from the RICS Whole Life Carbon Assessment standard, version 2 (2023), which breaks a building down into the elements that carbon is reported against. The categories are hierarchical: each member carries its code (for example 2.1.2) and the reporting stage it belongs to (1 concept, 2 planning, 3 post-completion, or 0 for a grouping that is not itself selectable) as attributes, and a detailed category rolls up into the coarser ones whose code it starts with. Members are named after their code, with the dots replaced by underscores.")]
-    [DocumentationURL("https://www.rics.org/profession-standards/rics-standards-and-guidance/sector-standards/construction-standards/whole-life-carbon-assessment", DocumentationType.Documentation, "RICS Whole Life Carbon Assessment standard, version 2 (2023): the source of these categories. Its supporting building element categories spreadsheet outlines the categories defined in this enum.")]
+    [Description("A building element category from the RICS Whole Life Carbon Assessment standard, version 2 (2023), which breaks a building down into the elements that carbon is reported against. The categories are hierarchical: each member carries its code (for example 2.1.2) and the reporting stage it belongs to (1 concept, 2 planning, 3 post-completion, or 0 for a grouping that is not itself selectable) as attributes, and a detailed category rolls up into the coarser ones whose code it starts with. Members are named after their code, with the dots replaced by underscores. Source: the RICS Whole Life Carbon Assessment standard, published by RICS at https://www.rics.org/profession-standards/rics-standards-and-guidance/sector-standards/construction-standards/whole-life-carbon-assessment. Its supporting building element categories spreadsheet holds the scope notes for each category.")]
     public enum RICSCategory
     {
         Undefined,
